@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admisión Universitaria: Asegura tu lugar en la UNAM / IPN | WorldBrain México</title>
+    <meta name="description"
+        content="Curso de preparación para el examen de admisión UNAM e IPN. Estrategias de alto rendimiento, simuladores y lectura rápida. Garantía de ingreso.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Admisión Universitaria: Asegura tu lugar en la UNAM / IPN">
+    <meta property="og:description" content="Entrenamiento de alto rendimiento para superar el examen de admisión.">
+    <meta property="og:type" content="website">
+
+    <!-- Performance: DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="preconnect" href="https://wa.me">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fotolectura.css">
+
+    <!-- Inline Critical Styles for Admisión Overrides -->
+    <style>
+        :root {
+            /* Purple Theme Overrides */
+            --fl-accent: #8b5cf6;
+            /* Violet 500 */
+            --fl-accent-light: #a78bfa;
+            /* Violet 400 */
+            --fl-gradient-accent: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #d946ef 100%);
+            --fl-shadow-glow: 0 0 60px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Hero Background Injection */
+        .fl-hero-ultra {
+            background-image: linear-gradient(to bottom, rgba(10, 15, 28, 0.9), rgba(10, 15, 28, 0.8)), url('../images/au-hero-bg.jpeg');
+            background-size: cover;
+
+            background-position: center;
+            background-attachment: fixed;
+        }
+
+        /* Countdown Timer Styles */
+        .countdown-container {
+            display: flex;
+            gap: 20px;
+            margin-top: 30px;
+            justify-content: flex-start;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 15px 20px;
+            border-radius: 12px;
+            text-align: center;
+            min-width: 90px;
+        }
+
+        .countdown-number {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--fl-accent-light);
+            line-height: 1;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--fl-text-muted);
+            margin-top: 5px;
+            display: block;
+        }
+
+        /* Custom Cursor */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: #8b5cf6;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(139, 92, 246, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99998;
+            transition: all 0.15s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-outline.hovering {
+            width: 60px;
+            height: 60px;
+            border-color: #d946ef;
+            background: rgba(217, 70, 239, 0.1);
+        }
+
+        /* Noise Texture Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body.smooth-scroll {
+            overflow-x: hidden;
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #0a0f1c;
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(139, 92, 246, 0.2);
+            border-top-color: #8b5cf6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Offer Section Specific Styles */
+        .fl-offer {
+            padding: 100px 0;
+            background: linear-gradient(135deg, #0a0f1c 0%, #1a1333 50%, #0a0f1c 100%);
+        }
+
+        .fl-offer-card {
+            background: rgba(139, 92, 246, 0.05);
+            border: 1px solid rgba(139, 92, 246, 0.2);
+            border-radius: 32px;
+            padding: 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .fl-offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #7c3aed, #8b5cf6, #d946ef);
+        }
+
+        .fl-offer-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #7c3aed, #d946ef);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 100px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 24px;
+        }
+
+        .fl-offer-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .fl-offer-description {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 40px;
+            max-width: 500px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .fl-offer-cta-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .fl-offer-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            background: linear-gradient(135deg, #25D366 0%, #128C7E 100%);
+            color: white;
+            padding: 20px 40px;
+            border-radius: 60px;
+            font-size: 1.2rem;
+            font-weight: 700;
+            text-decoration: none;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 40px rgba(37, 211, 102, 0.4);
+        }
+
+        .fl-offer-cta:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 25px 50px rgba(37, 211, 102, 0.5);
+        }
+
+        .fl-offer-guarantee {
+            color: #94a3b8;
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .fl-offer-guarantee i {
+            color: #8b5cf6;
+        }
+
+        /* Purple gradient text override */
+        .fl-gradient-text-ultra {
+            background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 50%, #d946ef 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* Problems section */
+        .fl-problems {
+            padding: 100px 0;
+            background: #0a0f1c;
+        }
+
+        .fl-problems-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .fl-problem-card {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 40px 30px;
+            position: relative;
+            transition: all 0.4s ease;
+        }
+
+        .fl-problem-card:hover {
+            transform: translateY(-10px);
+            border-color: rgba(139, 92, 246, 0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .fl-problem-number {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            color: rgba(139, 92, 246, 0.1);
+        }
+
+        .fl-problem-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, rgba(139, 92, 246, 0.2), rgba(217, 70, 239, 0.1));
+            border-radius: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            color: #a78bfa;
+            margin-bottom: 24px;
+        }
+
+        .fl-problem-card h3 {
+            color: white;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+
+        .fl-problem-card p {
+            color: #94a3b8;
+            line-height: 1.6;
+            font-size: 0.95rem;
+        }
+
+        /* Methodology/Solution section */
+        .fl-methodology {
+            padding: 100px 0;
+        }
+
+        /* Testimonials section */
+        .fl-testimonials {
+            padding: 100px 0;
+            background: #0a0f1c;
+        }
+
+        /* Section badges */
+        .fl-section-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(139, 92, 246, 0.1);
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            border-radius: 100px;
+            color: #a78bfa;
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 20px;
+        }
+
+        .fl-section-badge.danger {
+            background: rgba(239, 68, 68, 0.1);
+            border-color: rgba(239, 68, 68, 0.3);
+            color: #f87171;
+        }
+
+        /* Section header */
+        .fl-section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 60px;
+        }
+
+        .fl-section-title {
+            font-size: 2.5rem;
+            color: white;
+            margin-bottom: 16px;
+            line-height: 1.2;
+        }
+
+        .fl-section-subtitle {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            line-height: 1.7;
+        }
+
+        /* Bento grid improvements */
+        .fl-bento-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 24px;
+            padding: 32px;
+            transition: all 0.4s ease;
+        }
+
+        .fl-bento-card:hover {
+            border-color: rgba(139, 92, 246, 0.3);
+            transform: translateY(-5px);
+        }
+
+        /* WhatsApp Floating Button */
+        .fl-whatsapp-float:hover {
+            transform: scale(1.1);
+            box-shadow: 0 6px 25px rgba(37, 211, 102, 0.6);
+        }
+
+        /* Glass card utility */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .glass-card:hover {
+            border-color: rgba(139, 92, 246, 0.2);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .fl-problems-grid {
+                grid-template-columns: 1fr;
+                max-width: 500px;
+                margin: 0 auto;
+            }
+
+            .fl-offer-title {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .countdown-container {
+                justify-content: center;
+            }
+
+            .fl-offer-card {
+                padding: 40px 24px;
+            }
+
+            .fl-section-title {
+                font-size: 1.8rem;
+            }
+
+            .fl-whatsapp-float {
+                bottom: 20px;
+                right: 20px;
+                width: 55px;
+                height: 55px;
+            }
+        }
+    </style>
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["EducationalOrganization", "LocalBusiness"],
+        "@id": "https://ultravelozmente.com/#organization",
+        "name": "WorldBrain México",
+        "alternateName": ["Ultravelozmente", "WorldBrain", "World Brain México"],
+        "url": "https://ultravelozmente.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ultravelozmente.com/images/logo.svg",
+            "width": 512,
+            "height": 512
+        },
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+52-55-7810-7837",
+                "contactType": "customer service",
+                "email": "contacto@worldbrain.mx",
+                "areaServed": "MX",
+                "availableLanguage": ["Spanish", "es"]
+            }
+        ],
+        "sameAs": [
+            "https://www.facebook.com/WorldBrainMx",
+            "https://www.instagram.com/worldbrainmx",
+            "https://www.youtube.com/@worldbrainmexico",
+            "https://www.tiktok.com/@worldbrainmx"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ciudad de México",
+            "addressCountry": "MX"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://ultravelozmente.com/#website",
+        "url": "https://ultravelozmente.com",
+        "name": "WorldBrain México",
+        "publisher": {
+            "@id": "https://ultravelozmente.com/#organization"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://ultravelozmente.com/admision-universitaria.html#webpage",
+        "url": "https://ultravelozmente.com/admision-universitaria.html",
+        "name": "Admisión Universitaria: Asegura tu lugar en la UNAM / IPN | WorldBrain México",
+        "description": "Curso de preparación para el examen de admisión UNAM e IPN. Estrategias de alto rendimiento, simuladores y lectura rápida. Garantía de ingreso.",
+        "inLanguage": "es",
+        "isPartOf": {
+            "@id": "https://ultravelozmente.com/#website"
+        },
+        "about": {
+            "@id": "https://ultravelozmente.com/admision-universitaria.html#course"
+        },
+        "breadcrumb": {
+            "@id": "https://ultravelozmente.com/admision-universitaria.html#breadcrumb"
+        },
+        "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://ultravelozmente.com/images/au-hero-bg.jpeg"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": "https://ultravelozmente.com/admision-universitaria.html#breadcrumb",
+        "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://ultravelozmente.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Admisión Universitaria",
+                "item": "https://ultravelozmente.com/admision-universitaria.html"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "@id": "https://ultravelozmente.com/admision-universitaria.html#course",
+        "name": "Curso de Ingreso UNAM / IPN - Alto Rendimiento",
+        "description": "Entrenamiento de alto rendimiento para superar el examen de admisión a universidades de alta demanda.",
+        "provider": {
+            "@id": "https://ultravelozmente.com/#organization"
+        },
+        "educationalLevel": "High School",
+        "about": ["Examen de Admisión", "UNAM", "IPN", "UAM", "Lectura Rápida", "Mnemotecnia"],
+        "teaches": [
+            "Lectura Veloz y Comprensión",
+            "Resolución de simuladores reales",
+            "Mnemotecnia Avanzada para fórmulas y datos",
+            "Control de Ansiedad y nervios",
+            "Estrategia de Examen y gestión de tiempo"
+        ],
+        "audience": {
+            "@type": "EducationalAudience",
+            "educationalRole": "student",
+            "audienceType": "Aspirantes a universidades públicas y privadas"
+        },
+        "hasCourseInstance": [{
+            "@type": "CourseInstance",
+            "name": "Curso Presencial / Híbrido",
+            "courseMode": ["blended", "onsite"],
+            "location": {
+                "@type": "Place",
+                "name": "WorldBrain México"
+            }
+        }],
+        "offers": {
+            "@type": "Offer",
+            "category": "Test Preparation",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "MXN",
+            "url": "https://ultravelozmente.com/admision-universitaria.html#agendar"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Curso de Admisión Universitaria UNAM / IPN",
+        "description": "Entrenamiento de alto rendimiento con garantía de ingreso por escrito.",
+        "image": "https://ultravelozmente.com/images/au-exam-focus.jpeg",
+        "brand": {
+            "@id": "https://ultravelozmente.com/#organization"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "5000"
+        },
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "MXN",
+            "url": "https://ultravelozmente.com/admision-universitaria.html#agendar"
+        }
+    }
+    </script>
+</head>
+
+<body class="fl-page smooth-scroll">
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         NAVIGATION
+    ════════════════════════════════════════════════════════════════════ -->
+    <nav class="fl-navbar glass-card" id="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="container">
+            <a href="index.html" class="fl-logo">WorldBrain <span>México</span></a>
+            <div class="fl-nav-links">
+                <a href="#problema" class="fl-nav-link">El Problema</a>
+                <a href="#solucion" class="fl-nav-link">Solución</a>
+                <a href="#testimonios" class="fl-nav-link">Casos de Éxito</a>
+                <a href="#oferta" class="fl-nav-cta"><i class="fas fa-check-circle"></i> Asegurar mi Lugar</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         HERO SECTION
+    ════════════════════════════════════════════════════════════════════ -->
+    <main id="main-content" role="main">
+        <header class="fl-hero-ultra">
+            <!-- Efectos de fondo avanzados -->
+            <div class="fl-hero-bg-ultra">
+                <div class="fl-orb-ultra fl-orb-ultra-1"></div>
+                <div class="fl-orb-ultra fl-orb-ultra-2"></div>
+                <div class="fl-orb-ultra fl-orb-ultra-3"></div>
+                <div class="fl-particles-grid"></div>
+            </div>
+
+            <div class="container">
+                <div class="fl-hero-grid-ultra">
+                    <!-- Columna de texto -->
+                    <div class="fl-hero-text-ultra">
+                        <!-- Badge animado -->
+                        <div class="fl-badge-ultra" data-aos="fade-right">
+                            <span class="fl-badge-pulse"></span>
+                            <i class="fas fa-university"></i>
+                            <span>Convocatoria 2025</span>
+                            <span class="fl-badge-new">URGENTE</span>
+                        </div>
+
+                        <!-- Título -->
+                        <h1 class="fl-title-ultra" data-aos="fade-up" data-aos-delay="100">
+                            <span class="fl-title-line">¿Te aterra ser del 90%</span>
+                            <span class="fl-title-line fl-title-highlight">
+                                <span class="fl-gradient-text-ultra">de rechazados</span>
+                            </span>
+                            <span class="fl-title-line">de la UNAM/IPN?</span>
+                        </h1>
+
+                        <!-- Subtítulo -->
+                        <p class="fl-subtitle-ultra" data-aos="fade-up" data-aos-delay="200">
+                            No dejes tu futuro a la suerte. Asegura tu lugar con el método que hackea el examen.
+                        </p>
+
+                        <!-- Countdown -->
+                        <div class="countdown-container" data-aos="fade-up" data-aos-delay="250">
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="days">00</span>
+                                <span class="countdown-label">Días</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="hours">00</span>
+                                <span class="countdown-label">Hrs</span>
+                            </div>
+                            <div class="countdown-item">
+                                <span class="countdown-number" id="minutes">00</span>
+                                <span class="countdown-label">Min</span>
+                            </div>
+                        </div>
+
+                        <!-- CTAs -->
+                        <div class="fl-cta-group-ultra" data-aos="fade-up" data-aos-delay="300"
+                            style="margin-top: 30px;">
+                            <a href="#oferta" class="fl-cta-primary-ultra">
+                                <span class="fl-cta-icon"><i class="fas fa-bolt"></i></span>
+                                <span class="fl-cta-text">
+                                    <span class="fl-cta-main">Quiero Aprobar el Examen</span>
+                                    <span class="fl-cta-sub">Garantía de Ingreso por Escrito</span>
+                                </span>
+                                <span class="fl-cta-arrow"><i class="fas fa-arrow-right"></i></span>
+                            </a>
+                        </div>
+
+                        <!-- Trust badges -->
+                        <div class="fl-trust-badges" data-aos="fade-up" data-aos-delay="350">
+                            <div class="fl-trust-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Simuladores Reales</span>
+                            </div>
+                            <div class="fl-trust-item">
+                                <i class="fas fa-brain"></i>
+                                <span>Técnicas de Memoria</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna Visual (Bento Grid simplificado) -->
+                    <div class="fl-hero-visual-ultra">
+                        <div class="fl-bento-grid" style="grid-template-columns: 1fr; gap: 20px;">
+                            <div class="fl-bento-card glass-card card-3d" data-aos="fade-left">
+                                <div <div
+                                    style="padding: 0; position: relative; height: 300px; overflow: hidden; border-radius: 24px;">
+                                    <img src="images/au-exam-focus.jpeg" alt="Estudiante enfocado"
+                                        style="width: 100%; height: 100%; object-fit: cover;">
+
+                                    <div
+                                        style="position: absolute; bottom: 0; left: 0; right: 0; padding: 20px; background: linear-gradient(to top, rgba(0,0,0,0.9), transparent);">
+                                        <h3 style="color: white; margin-bottom: 5px; font-size: 1.2rem;">Alto
+                                            Rendimiento</h3>
+                                        <p style="color: rgba(255,255,255,0.8); font-size: 0.9rem;">Domina el examen con
+                                            enfoque total.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Cause/Effect Section -->
+        <section style="padding: 60px 0; background: #0a0f1c; border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <div class="container">
+                <div style="background: rgba(139, 92, 246, 0.05); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 24px; padding: 40px; display: flex; flex-direction: column; gap: 30px; max-width: 900px; margin: 0 auto;"
+                    data-aos="fade-up">
+                    <div
+                        style="display: flex; flex-wrap: wrap; gap: 30px; align-items: center; text-align: center; justify-content: center;">
+                        <div style="flex: 1; min-width: 250px;">
+                            <span
+                                style="display: block; font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; color: #a78bfa; margin-bottom: 10px;">CAUSA</span>
+                            <p style="font-size: 1.2rem; color: white;">Al entrenar con <strong>ALTO
+                                    RENDIMIENTO</strong>...</p>
+                        </div>
+                        <div style="color: #a78bfa; font-size: 1.5rem;">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div style="flex: 1; min-width: 250px;">
+                            <span
+                                style="display: block; font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; color: #d946ef; margin-bottom: 10px;">EFECTO</span>
+                            <p style="font-size: 1.2rem; color: white;">...dominas el examen en tiempo récord,
+                                <strong>hackeas las preguntas trampa</strong> y aseguras tu lugar en la carrera de tus
+                                sueños.
+                            </p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 20px; text-align: center;">
+                        <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20mi%20cita%20de%20cortesía%20para%20conocer%20Admisión%20Universitaria"
+                            style="display: inline-flex; align-items: center; gap: 12px; padding: 16px 32px; background: linear-gradient(135deg, #a78bfa, #d946ef); color: white; border-radius: 12px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(167, 139, 250, 0.3);">
+                            <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i>
+                            Agendar Cita de Cortesía
+                        </a>
+                        <p style="margin-top: 12px; color: #94a3b8; font-size: 0.9rem;">Sin compromiso • Te explicamos
+                            el método personalizado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         UNIVERSIDADES
+    ════════════════════════════════════════════════════════════════════ -->
+        <section
+            style="padding: 60px 0; background: rgba(10, 15, 30, 0.95); border-bottom: 1px solid rgba(255,255,255,0.05);">
+            <div class="container">
+                <p style="text-align: center; color: #64748b; margin-bottom: 30px; font-size: 0.95rem;">Te preparamos
+                    para los exámenes más competitivos de México</p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; opacity: 0.7;">
+                    <div
+                        style="text-align: center; color: white; font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600;">
+                        UNAM</div>
+                    <div
+                        style="text-align: center; color: white; font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600;">
+                        IPN</div>
+                    <div
+                        style="text-align: center; color: white; font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600;">
+                        UAM</div>
+                    <div
+                        style="text-align: center; color: white; font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600;">
+                        Tec de Monterrey</div>
+                    <div
+                        style="text-align: center; color: white; font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600;">
+                        La Salle</div>
+                    <div
+                        style="text-align: center; color: white; font-family: 'Space Grotesk', sans-serif; font-size: 1.5rem; font-weight: 600;">
+                        Anáhuac</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         SECCIÓN DE PROBLEMAS
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-problems" id="problema">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <span class="fl-section-badge danger">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        La Realidad
+                    </span>
+                    <h2 class="fl-section-title">9 de cada 10 aspirantes son <span
+                            class="fl-gradient-text-ultra">RECHAZADOS</span></h2>
+                    <p class="fl-section-subtitle">Las estadísticas son frías. La mayoría de los estudiantes se quedan
+                        fuera no por falta de inteligencia, sino por falta de estrategia.</p>
+                </div>
+
+                <div class="fl-problems-grid">
+                    <div class="fl-problem-card glass-card card-3d glow-effect magnetic-btn" data-aos="fade-up">
+                        <div class="fl-problem-number">01</div>
+                        <div class="fl-problem-icon blob">
+                            <i class="fas fa-users-slash"></i>
+                        </div>
+                        <h3>Competencia Feroz</h3>
+                        <p>Más de 200,000 aspirantes compiten por pocos lugares. En carreras como Medicina o Derecho,
+                            entran menos del 2%.</p>
+                    </div>
+
+                    <div class="fl-problem-card glass-card card-3d glow-effect magnetic-btn" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="fl-problem-number">02</div>
+                        <div class="fl-problem-icon blob">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>El Tiempo es tu Enemigo</h3>
+                        <p>Tienes menos de 1 minuto por pregunta. Si lees lento o dudas, no terminarás el examen a
+                            tiempo.</p>
+                    </div>
+
+                    <div class="fl-problem-card glass-card card-3d glow-effect magnetic-btn" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="fl-problem-number">03</div>
+                        <div class="fl-problem-icon blob">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>Bloqueo Mental</h3>
+                        <p>Los nervios y la ansiedad hacen que olvides lo que estudiaste. Necesitas control mental, no
+                            solo conocimientos.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         SOLUCIÓN
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-methodology" id="solucion" style="background: var(--fl-surface);">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <span class="fl-section-badge">
+                        <i class="fas fa-lightbulb"></i>
+                        Nuestra Solución
+                    </span>
+                    <h2 class="fl-section-title">Entrenamiento de <span class="fl-gradient-text-ultra">Alto
+                            Rendimiento</span></h2>
+                    <p class="fl-section-subtitle">No es un curso normal. Es un sistema diseñado para hackear el examen
+                        y maximizar tu puntaje.</p>
+                </div>
+
+                <div class="fl-bento-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 24px;">
+                    <div class="fl-bento-card glass-card" data-aos="fade-up">
+                        <i class="fas fa-tachometer-alt"
+                            style="font-size: 2.5rem; color: var(--fl-accent); margin-bottom: 20px; display: block;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.3rem;">Lectura Veloz</h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Lee los textos del examen 3 veces más rápido y
+                            comprende todo a la primera. Más tiempo para pensar, menos para leer.</p>
+                    </div>
+                    <div class="fl-bento-card glass-card" data-aos="fade-up" data-aos-delay="100">
+                        <i class="fas fa-laptop-code"
+                            style="font-size: 2.5rem; color: var(--fl-accent); margin-bottom: 20px; display: block;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.3rem;">Simuladores Reales</h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Practica con exámenes idénticos a los reales.
+                            Conoce tus puntos débiles antes del día D y corrígelos a tiempo.</p>
+                    </div>
+                    <div class="fl-bento-card glass-card" data-aos="fade-up" data-aos-delay="200">
+                        <i class="fas fa-memory"
+                            style="font-size: 2.5rem; color: var(--fl-accent); margin-bottom: 20px; display: block;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.3rem;">Mnemotecnia Avanzada</h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Memoriza fórmulas, fechas y datos complejos sin
+                            esfuerzo. Tu cerebro se convierte en una biblioteca instantánea.</p>
+                    </div>
+                    <div class="fl-bento-card glass-card" data-aos="fade-up" data-aos-delay="300">
+                        <i class="fas fa-brain"
+                            style="font-size: 2.5rem; color: var(--fl-accent); margin-bottom: 20px; display: block;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.3rem;">Control de Ansiedad</h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Técnicas de respiración y enfoque mental para
+                            mantener la calma el día del examen. Sin nervios, sin bloqueos.</p>
+                    </div>
+                    <div class="fl-bento-card glass-card" data-aos="fade-up" data-aos-delay="400">
+                        <i class="fas fa-bullseye"
+                            style="font-size: 2.5rem; color: var(--fl-accent); margin-bottom: 20px; display: block;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.3rem;">Estrategia de Examen</h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Aprende a identificar preguntas fáciles,
+                            administrar tu tiempo y maximizar puntos con respuestas estratégicas.</p>
+                    </div>
+                    <div class="fl-bento-card glass-card" data-aos="fade-up" data-aos-delay="500">
+                        <i class="fas fa-users"
+                            style="font-size: 2.5rem; color: var(--fl-accent); margin-bottom: 20px; display: block;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.3rem;">Grupos Reducidos</h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Máximo 20 alumnos por grupo. Atención personalizada
+                            y seguimiento individual de tu progreso.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         ESTADÍSTICAS
+    ════════════════════════════════════════════════════════════════════ -->
+        <section style="padding: 80px 0; background: linear-gradient(135deg, #7c3aed 0%, #8b5cf6 50%, #d946ef 100%);">
+            <div class="container">
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 40px; text-align: center;">
+                    <div data-aos="fade-up">
+                        <div
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 800; color: white;">
+                            92%</div>
+                        <div style="color: rgba(255,255,255,0.8); font-size: 1rem;">Tasa de aprobación</div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 800; color: white;">
+                            +5,000</div>
+                        <div style="color: rgba(255,255,255,0.8); font-size: 1rem;">Universitarios formados</div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 800; color: white;">
+                            15+</div>
+                        <div style="color: rgba(255,255,255,0.8); font-size: 1rem;">Años de experiencia</div>
+                    </div>
+                    <div data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            style="font-family: 'Space Grotesk', sans-serif; font-size: 3.5rem; font-weight: 800; color: white;">
+                            100%</div>
+                        <div style="color: rgba(255,255,255,0.8); font-size: 1rem;">Garantía de ingreso</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         CÓMO FUNCIONA
+    ════════════════════════════════════════════════════════════════════ -->
+        <section style="padding: 100px 0; background: #0a0f1c;">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <span class="fl-section-badge">
+                        <i class="fas fa-route"></i>
+                        Tu Camino
+                    </span>
+                    <h2 class="fl-section-title">¿Cómo <span class="fl-gradient-text-ultra">Funciona</span>?</h2>
+                    <p class="fl-section-subtitle">Un proceso probado que te lleva del estrés al éxito en semanas.</p>
+                </div>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; max-width: 1100px; margin: 0 auto;">
+                    <div class="glass-card"
+                        style="padding: 40px 30px; text-align: center; position: relative; border-radius: 24px;"
+                        data-aos="fade-up">
+                        <div
+                            style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: linear-gradient(135deg, #8b5cf6, #d946ef); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.1rem;">
+                            1</div>
+                        <i class="fas fa-clipboard-check"
+                            style="font-size: 2.5rem; color: #a78bfa; margin: 20px 0;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.2rem;">Diagnóstico + Meta de Puntaje
+                        </h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Aplicamos un simulador y medimos tu nivel real por
+                            materia. Definimos tu meta (aciertos/puntaje) y lo que necesitas para lograrla.</p>
+                    </div>
+                    <div class="glass-card"
+                        style="padding: 40px 30px; text-align: center; position: relative; border-radius: 24px;"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: linear-gradient(135deg, #8b5cf6, #d946ef); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.1rem;">
+                            2</div>
+                        <i class="fas fa-brain" style="font-size: 2.5rem; color: #a78bfa; margin: 20px 0;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.2rem;">Plan Semanal Personalizado
+                        </h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Te armamos una ruta clara: qué estudiar, cuánto
+                            tiempo, en qué orden y con qué estrategia. Sin improvisación ni “a ver qué sale”.</p>
+                    </div>
+                    <div class="glass-card"
+                        style="padding: 40px 30px; text-align: center; position: relative; border-radius: 24px;"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: linear-gradient(135deg, #8b5cf6, #d946ef); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.1rem;">
+                            3</div>
+                        <i class="fas fa-book-open" style="font-size: 2.5rem; color: #a78bfa; margin: 20px 0;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.2rem;">Lectura Veloz + Comprensión
+                        </h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Entrenamos tu velocidad de lectura para el examen:
+                            entiendes más en menos tiempo, reduces errores por prisa y respondes con seguridad.</p>
+                    </div>
+                    <div class="glass-card"
+                        style="padding: 40px 30px; text-align: center; position: relative; border-radius: 24px;"
+                        data-aos="fade-up" data-aos-delay="300">
+                        <div
+                            style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: linear-gradient(135deg, #8b5cf6, #d946ef); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.1rem;">
+                            4</div>
+                        <i class="fas fa-trophy" style="font-size: 2.5rem; color: #a78bfa; margin: 20px 0;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.2rem;">Dominio por Materias (Alto
+                            Impacto)</h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Atacamos primero lo que más sube tu puntaje. Te
+                            damos técnicas de memoria y resolución para asegurar aciertos en temas clave.</p>
+                    </div>
+                    <div class="glass-card"
+                        style="padding: 40px 30px; text-align: center; position: relative; border-radius: 24px;"
+                        data-aos="fade-up" data-aos-delay="400">
+                        <div
+                            style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: linear-gradient(135deg, #8b5cf6, #d946ef); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.1rem;">
+                            5</div>
+                        <i class="fas fa-chart-line" style="font-size: 2.5rem; color: #a78bfa; margin: 20px 0;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.2rem;">Simuladores Reales +
+                            Corrección</h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Hacemos simulacros tipo UNAM/IPN, medimos tu
+                            progreso y corregimos fallas específicas. Ajustamos tu ruta hasta ver el puntaje subir.</p>
+                    </div>
+                    <div class="glass-card"
+                        style="padding: 40px 30px; text-align: center; position: relative; border-radius: 24px;"
+                        data-aos="fade-up" data-aos-delay="500">
+                        <div
+                            style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); width: 40px; height: 40px; background: linear-gradient(135deg, #8b5cf6, #d946ef); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.1rem;">
+                            6</div>
+                        <i class="fas fa-check-double" style="font-size: 2.5rem; color: #a78bfa; margin: 20px 0;"></i>
+                        <h3 style="color: white; margin-bottom: 12px; font-size: 1.2rem;">Cierre + Estrategia del Día
+                            del Examen</h3>
+                        <p style="color: #94a3b8; line-height: 1.6;">Te dejamos listo para el Día D: repaso final,
+                            manejo de tiempo por sección, orden de respuesta, control de ansiedad y checklist para
+                            llegar con confianza.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         TESTIMONIOS
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-testimonials" id="testimonios">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <h2 class="fl-section-title">Ellos ya son <span class="fl-gradient-text-ultra">Universitarios</span>
+                    </h2>
+                </div>
+
+                <div class="fl-bento-grid"
+                    style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 30px;">
+                    <div class="fl-bento-card glass-card" data-aos="fade-up"
+                        style="position: relative; overflow: hidden;">
+                        <div
+                            style="position: absolute; top: 20px; right: 20px; font-size: 3rem; color: rgba(139, 92, 246, 0.1);">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div style="display: flex; margin-bottom: 15px;">
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                        </div>
+                        <p
+                            style="color: white; font-style: italic; margin-bottom: 20px; line-height: 1.7; font-size: 1.05rem;">
+                            "Fui rechazado 2 veces. Con este método, entré a Medicina en la UNAM con 118 aciertos."</p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div
+                                style="width: 55px; height: 55px; background: linear-gradient(135deg, #8b5cf6, #d946ef); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">
+                                AM</div>
+                            <div>
+                                <strong style="color: white; display: block; font-size: 1.05rem;">Andrea
+                                    Martínez</strong>
+                                <span style="color: #a78bfa; font-size: 0.9rem;">Facultad de Medicina, UNAM</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fl-bento-card glass-card" data-aos="fade-up" data-aos-delay="100"
+                        style="position: relative; overflow: hidden;">
+                        <div
+                            style="position: absolute; top: 20px; right: 20px; font-size: 3rem; color: rgba(139, 92, 246, 0.1);">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div style="display: flex; margin-bottom: 15px;">
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                        </div>
+                        <p
+                            style="color: white; font-style: italic; margin-bottom: 20px; line-height: 1.7; font-size: 1.05rem;">
+                            "Había sido rechazado dos veces del IPN. Este curso me enseñó a estudiar de verdad. La
+                            mnemotecnia cambió mi vida. Ahora soy Politécnico."</p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div
+                                style="width: 55px; height: 55px; background: linear-gradient(135deg, #06b6d4, #8b5cf6); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">
+                                CR</div>
+                            <div>
+                                <strong style="color: white; display: block; font-size: 1.05rem;">Carlos
+                                    Rodríguez</strong>
+                                <span style="color: #a78bfa; font-size: 0.9rem;">ESCOM, IPN</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fl-bento-card glass-card" data-aos="fade-up" data-aos-delay="200"
+                        style="position: relative; overflow: hidden;">
+                        <div
+                            style="position: absolute; top: 20px; right: 20px; font-size: 3rem; color: rgba(139, 92, 246, 0.1);">
+                            <i class="fas fa-quote-right"></i>
+                        </div>
+                        <div style="display: flex; margin-bottom: 15px;">
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                            <i class="fas fa-star" style="color: #fbbf24;"></i>
+                        </div>
+                        <p
+                            style="color: white; font-style: italic; margin-bottom: 20px; line-height: 1.7; font-size: 1.05rem;">
+                            "La UAM me parecía imposible con su examen de 180 preguntas. Las técnicas de velocidad
+                            mental me dieron la confianza para terminar a tiempo."</p>
+                        <div style="display: flex; align-items: center; gap: 15px;">
+                            <div
+                                style="width: 55px; height: 55px; background: linear-gradient(135deg, #10b981, #06b6d4); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-weight: bold; font-size: 1.2rem;">
+                                SG</div>
+                            <div>
+                                <strong style="color: white; display: block; font-size: 1.05rem;">Sofía García</strong>
+                                <span style="color: #a78bfa; font-size: 0.9rem;">UAM Iztapalapa</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         PARA QUIÉN ES ESTE CURSO
+    ════════════════════════════════════════════════════════════════════ -->
+        <section style="padding: 100px 0; background: var(--fl-surface);">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <span class="fl-section-badge">
+                        <i class="fas fa-users"></i>
+                        ¿Para Quién Es?
+                    </span>
+                    <h2 class="fl-section-title">Este curso es para <span class="fl-gradient-text-ultra">TI</span> si...
+                    </h2>
+                </div>
+
+                <div
+                    style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 24px; max-width: 1000px; margin: 0 auto;">
+                    <div class="glass-card"
+                        style="padding: 24px; border-radius: 16px; display: flex; align-items: flex-start; gap: 16px;"
+                        data-aos="fade-up">
+                        <div
+                            style="flex-shrink: 0; width: 40px; height: 40px; background: rgba(34, 197, 94, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-check" style="color: #22c55e;"></i>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6;">Vas a presentar examen para UNAM, IPN, UAM o
+                            universidades privadas</p>
+                    </div>
+                    <div class="glass-card"
+                        style="padding: 24px; border-radius: 16px; display: flex; align-items: flex-start; gap: 16px;"
+                        data-aos="fade-up" data-aos-delay="50">
+                        <div
+                            style="flex-shrink: 0; width: 40px; height: 40px; background: rgba(34, 197, 94, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-check" style="color: #22c55e;"></i>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6;">Ya fuiste rechazado y no quieres que vuelva a pasar
+                        </p>
+                    </div>
+                    <div class="glass-card"
+                        style="padding: 24px; border-radius: 16px; display: flex; align-items: flex-start; gap: 16px;"
+                        data-aos="fade-up" data-aos-delay="100">
+                        <div
+                            style="flex-shrink: 0; width: 40px; height: 40px; background: rgba(34, 197, 94, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-check" style="color: #22c55e;"></i>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6;">Sientes que no te alcanza el tiempo para estudiar
+                            todo</p>
+                    </div>
+                    <div class="glass-card"
+                        style="padding: 24px; border-radius: 16px; display: flex; align-items: flex-start; gap: 16px;"
+                        data-aos="fade-up" data-aos-delay="150">
+                        <div
+                            style="flex-shrink: 0; width: 40px; height: 40px; background: rgba(34, 197, 94, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-check" style="color: #22c55e;"></i>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6;">Los nervios te bloquean en los exámenes importantes
+                        </p>
+                    </div>
+                    <div class="glass-card"
+                        style="padding: 24px; border-radius: 16px; display: flex; align-items: flex-start; gap: 16px;"
+                        data-aos="fade-up" data-aos-delay="200">
+                        <div
+                            style="flex-shrink: 0; width: 40px; height: 40px; background: rgba(34, 197, 94, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-check" style="color: #22c55e;"></i>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6;">Quieres entrar a carreras de alta demanda
+                            (Medicina, Derecho, Ingeniería)</p>
+                    </div>
+                    <div class="glass-card"
+                        style="padding: 24px; border-radius: 16px; display: flex; align-items: flex-start; gap: 16px;"
+                        data-aos="fade-up" data-aos-delay="250">
+                        <div
+                            style="flex-shrink: 0; width: 40px; height: 40px; background: rgba(34, 197, 94, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center;">
+                            <i class="fas fa-check" style="color: #22c55e;"></i>
+                        </div>
+                        <p style="color: #e2e8f0; line-height: 1.6;">Buscas un método diferente a los cursos
+                            tradicionales</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         GARANTÍA Y CTA
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-offer" id="oferta">
+            <div class="container">
+                <div class="fl-offer-card glass-card" data-aos="zoom-in"
+                    style="max-width: 900px; margin: 0 auto; text-align: center; padding: 60px 40px;">
+                    <div style="margin-bottom: 30px;">
+                        <i class="fas fa-shield-alt"
+                            style="font-size: 4rem; background: linear-gradient(135deg, #8b5cf6, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent;"></i>
+                    </div>
+                    <div class="fl-offer-content">
+                        <span class="fl-offer-badge" style="font-size: 0.9rem; padding: 10px 24px;">🎓 GARANTÍA DE
+                            INGRESO</span>
+                        <h2 class="fl-offer-title" style="font-size: 2.5rem; margin: 20px 0;">Si no te quedas, repetimos
+                            el curso <span class="fl-gradient-text-ultra">GRATIS</span></h2>
+                        <p class="fl-offer-description"
+                            style="font-size: 1.15rem; max-width: 600px; margin: 0 auto 30px;">Estamos tan seguros de
+                            nuestro método que asumimos el riesgo por ti. Tú solo preocúpate por estudiar.</p>
+
+                        <div
+                            style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-bottom: 30px;">
+                            <div style="display: flex; align-items: center; gap: 8px; color: #94a3b8;">
+                                <i class="fas fa-check-circle" style="color: #22c55e;"></i>
+                                <span>Modalidad presencial y en línea</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px; color: #94a3b8;">
+                                <i class="fas fa-check-circle" style="color: #22c55e;"></i>
+                                <span>Material incluido</span>
+                            </div>
+                            <div style="display: flex; align-items: center; gap: 8px; color: #94a3b8;">
+                                <i class="fas fa-check-circle" style="color: #22c55e;"></i>
+                                <span>Simuladores ilimitados</span>
+                            </div>
+                        </div>
+
+                        <div class="fl-offer-cta-wrapper">
+                            <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20información%20sobre%20el%20curso%20de%20Admisión%20Universitaria"
+                                class="fl-offer-cta" style="font-size: 1.2rem; padding: 18px 40px;">
+                                <i class="fab fa-whatsapp"></i>
+                                <span>Solicitar Informes Ahora</span>
+                            </a>
+                            <p class="fl-offer-guarantee" style="margin-top: 16px;">
+                                <i class="fas fa-clock"></i> Próximo grupo inicia en Enero 2025 • Cupo limitado a 20
+                                alumnos
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section class="au-booking-section" id="agendar"
+            style="padding: 100px 0; position: relative; overflow: hidden; background: linear-gradient(to bottom, transparent, rgba(139, 92, 246, 0.05));">
+            <div class="container">
+                <div class="fl-booking-card au-booking-card" data-aos="fade-up"
+                    style="background: linear-gradient(135deg, rgba(139, 92, 246, 0.1), rgba(217, 70, 239, 0.05)); border: 1px solid rgba(139, 92, 246, 0.2); border-radius: 24px; padding: 0; overflow: hidden; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);">
+                    <div class="au-booking-grid"
+                        style="display: grid; grid-template-columns: 1fr 1.5fr; min-height: 500px;">
+                        <!-- Sidebar / Info -->
+                        <div class="au-booking-sidebar"
+                            style="background: linear-gradient(135deg, #8b5cf6, #d946ef); padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
+                            <div>
+                                <h3 style="color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 30px;">Tu
+                                    Sesión Incluye:</h3>
+                                <ul style="list-style: none; padding: 0; margin: 0;">
+                                    <li
+                                        style="display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.9); margin-bottom: 16px; font-size: 1rem;">
+                                        <i class="fas fa-check-circle" style="color: white;"></i> Diagnóstico de tu
+                                        nivel
+                                    </li>
+                                    <li
+                                        style="display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.9); margin-bottom: 16px; font-size: 1rem;">
+                                        <i class="fas fa-check-circle" style="color: white;"></i> Plan de estudio
+                                        personalizado
+                                    </li>
+                                    <li
+                                        style="display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.9); margin-bottom: 16px; font-size: 1rem;">
+                                        <i class="fas fa-check-circle" style="color: white;"></i> Simulador de examen
+                                        gratis
+                                    </li>
+                                </ul>
+                            </div>
+                            <div style="margin-top: 40px;">
+                                <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">* Las citas son limitadas
+                                    y se asignan por orden de llegada.</p>
+                            </div>
+                        </div>
+
+                        <!-- Form Container -->
+                        <div class="au-booking-form-container"
+                            style="padding: 40px; background: rgba(15, 23, 42, 0.95);">
+
+                            <!-- Step 1: Contact Info -->
+                            <div id="booking-step-1" class="booking-step">
+                                <h4 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 24px; color: white;">1.
+                                    Tus Datos</h4>
+                                <form id="contact-form" onsubmit="return false;">
+                                    <div style="display: grid; gap: 20px;">
+                                        <div>
+                                            <label
+                                                style="display: block; margin-bottom: 8px; font-weight: 500; color: #94a3b8;">Nombre
+                                                Completo</label>
+                                            <input type="text" id="client-name" required class="fl-form-input"
+                                                style="width: 100%; padding: 14px 18px; border: 2px solid rgba(139, 92, 246, 0.3); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.05); color: white;">
+                                        </div>
+                                        <div>
+                                            <label
+                                                style="display: block; margin-bottom: 8px; font-weight: 500; color: #94a3b8;">WhatsApp</label>
+                                            <input type="tel" id="client-phone" required class="fl-form-input"
+                                                style="width: 100%; padding: 14px 18px; border: 2px solid rgba(139, 92, 246, 0.3); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.05); color: white;">
+                                        </div>
+                                        <div>
+                                            <label
+                                                style="display: block; margin-bottom: 8px; font-weight: 500; color: #94a3b8;">Universidad
+                                                de Interés</label>
+                                            <select id="course-select"
+                                                style="width: 100%; padding: 14px 18px; border: 2px solid rgba(139, 92, 246, 0.3); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.05); color: white; cursor: pointer;">
+                                                <option value="UNAM" style="color: black;">UNAM</option>
+                                                <option value="IPN" style="color: black;">IPN</option>
+                                                <option value="UAM" style="color: black;">UAM</option>
+                                                <option value="UAEM" style="color: black;">UAEM</option>
+                                                <option value="Otra" style="color: black;">Otra universidad</option>
+                                            </select>
+                                        </div>
+                                        <button type="button" onclick="goToStep2()"
+                                            style="width: 100%; padding: 16px 24px; background: linear-gradient(135deg, #8b5cf6, #d946ef); color: white; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;">
+                                            Siguiente: Elegir Horario <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Step 2: Calendar -->
+                            <div id="booking-step-2" class="booking-step" style="display: none;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                    <h4 style="font-size: 1.25rem; font-weight: 600; color: white;">2. Selecciona
+                                        Horario</h4>
+                                    <button onclick="goToStep1()"
+                                        style="background: none; border: none; color: #94a3b8; cursor: pointer; font-size: 1rem;">
+                                        <i class="fas fa-arrow-left"></i> Volver
+                                    </button>
+                                </div>
+
+                                <div style="margin-bottom: 20px;">
+                                    <label
+                                        style="display: block; margin-bottom: 8px; font-weight: 500; color: #94a3b8;">Fecha</label>
+                                    <input type="date" id="date-picker" onchange="loadTimeSlots()"
+                                        style="width: 100%; padding: 14px 18px; border: 2px solid rgba(139, 92, 246, 0.3); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.05); color: white; color-scheme: dark;">
+                                </div>
+
+                                <div id="slots-container"
+                                    style="display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px;">
+                                    <p style="grid-column: 1/-1; text-align: center; color: #94a3b8; padding: 20px;">
+                                        Selecciona una fecha para ver horarios disponibles.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Success -->
+                            <div id="booking-step-3" class="booking-step" style="display: none; text-align: center;">
+                                <div
+                                    style="width: 80px; height: 80px; background: rgba(139, 92, 246, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                                    <i class="fas fa-check" style="font-size: 2.5rem; color: #8b5cf6;"></i>
+                                </div>
+                                <h4 style="margin-bottom: 10px; font-size: 1.25rem; font-weight: 600; color: white;">
+                                    ¡Cita Confirmada!</h4>
+                                <p style="color: #94a3b8; margin-bottom: 30px;">Hemos reservado tu espacio. Te
+                                    contactaremos por WhatsApp para confirmar detalles.</p>
+
+                                <div style="display: flex; flex-direction: column; gap: 15px;">
+                                    <a id="gcal-btn" href="#" target="_blank"
+                                        style="padding: 16px 24px; background: #4285F4; color: white; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;">
+                                        <i class="fab fa-google"></i> Guardar en Google Calendar
+                                    </a>
+                                    <a href="tel:+525578107837"
+                                        style="padding: 16px 24px; background: transparent; border: 2px solid rgba(255,255,255,0.2); color: white; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;">
+                                        <i class="fas fa-phone"></i> Llamar Ahora
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Script de Reservas Centralizado -->
+            <script src="js/booking.js"></script>
+
+            <style>
+                .fl-time-slot,
+                .au-time-slot,
+                .time-slot {
+                    padding: 12px 16px;
+                    border: 2px solid rgba(139, 92, 246, 0.3);
+                    border-radius: 10px;
+                    background: rgba(255, 255, 255, 0.05);
+                    cursor: pointer;
+                    font-weight: 500;
+                    transition: all 0.3s ease;
+                    color: white;
+                }
+
+                .fl-time-slot:hover:not(:disabled),
+                .au-time-slot:hover:not(:disabled),
+                .time-slot:hover:not(:disabled) {
+                    border-color: #8b5cf6;
+                    background: rgba(139, 92, 246, 0.2);
+                }
+
+                .fl-time-slot.selected,
+                .au-time-slot.selected,
+                .time-slot.selected {
+                    background: linear-gradient(135deg, #8b5cf6, #d946ef);
+                    border-color: #8b5cf6;
+                    color: white;
+                }
+
+                .fl-time-slot:disabled,
+                .au-time-slot:disabled,
+                .time-slot:disabled {
+                    background: rgba(255, 255, 255, 0.02);
+                    color: #64748b;
+                    cursor: not-allowed;
+                    border-color: rgba(255, 255, 255, 0.1);
+                }
+
+                @media (max-width: 768px) {
+                    .au-booking-grid {
+                        grid-template-columns: 1fr !important;
+                    }
+
+                    .au-booking-sidebar {
+                        padding: 30px !important;
+                    }
+                }
+            </style>
+        </section>
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════════════════════════════════ -->
+    <footer class="fl-footer" role="contentinfo">
+        <div class="container">
+            <div class="fl-footer-grid">
+                <div class="fl-footer-brand">
+                    <h3>WorldBrain <span class="fl-gradient-text">México</span></h3>
+                    <p>Líderes en educación acelerada.</p>
+                </div>
+                <div class="fl-footer-contact">
+                    <h4>Contacto</h4>
+                    <div class="fl-contact-item">
+                        <i class="fas fa-phone"></i>
+                        <a href="tel:+525578107837">+52 (55) 7810-7837</a>
+                    </div>
+                    <div class="fl-contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:contacto@worldbrain.mx">contacto@worldbrain.mx</a>
+                    </div>
+                    <div class="fl-contact-item">
+                        <i class="fab fa-whatsapp"></i>
+                        <a
+                            href="https://wa.me/5215578107837?text=Hola,%20quiero%20informaci%C3%B3n%20sobre%20Admisiones%20Universitarias">WhatsApp
+                            inmediato</a>
+                    </div>
+                </div>
+            </div>
+            <div class="fl-footer-bottom">
+                <p>&copy; 2025 WorldBrain México. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20información%20sobre%20el%20curso%20de%20Admisión%20Universitaria"
+        class="fl-whatsapp-float" target="_blank" rel="noopener noreferrer"
+        style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: all 0.3s ease;">
+        <i class="fab fa-whatsapp" style="font-size: 2rem; color: white;"></i>
+    </a>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // Initialize AOS
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Loading Screen
+        window.addEventListener('load', () => {
+            const loader = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loader.classList.add('hidden');
+            }, 500);
+        });
+
+        // Custom Cursor
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorOutline = document.getElementById('cursorOutline');
+
+        window.addEventListener('mousemove', (e) => {
+            const posX = e.clientX;
+            const posY = e.clientY;
+
+            cursorDot.style.left = `${posX}px`;
+            cursorDot.style.top = `${posY}px`;
+
+            cursorOutline.animate({
+                left: `${posX}px`,
+                top: `${posY}px`
+            }, { duration: 500, fill: "forwards" });
+        });
+
+        // Countdown Timer
+        const examDate = new Date('2025-06-15T00:00:00').getTime(); // Example date
+
+        const updateCountdown = () => {
+            const now = new Date().getTime();
+            const distance = examDate - now;
+
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+        };
+
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+
+</html>

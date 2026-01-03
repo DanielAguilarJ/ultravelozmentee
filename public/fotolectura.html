@@ -1,0 +1,2977 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fotolectura: Desbloquea tu Supercerebro | WorldBrain México</title>
+    <meta name="description"
+        content="No leas. FOTOGRAFÍA el conocimiento. El sistema de aprendizaje acelerado que te permite absorber libros enteros en minutos con retención del 100%.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Fotolectura: Desbloquea tu Supercerebro">
+    <meta property="og:description"
+        content="El sistema de aprendizaje acelerado que te permite absorber libros enteros en minutos.">
+    <meta property="og:type" content="website">
+
+    <!-- Performance: DNS Prefetch & Preconnect -->
+    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="preconnect" href="https://wa.me">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS Animation Library -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <!-- Swiper Carousel -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css">
+
+    <!-- GSAP for advanced animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/fotolectura.css">
+
+    <!-- Inline Critical Styles for 2025 Effects -->
+    <style>
+        /* Custom Cursor */
+        .cursor-dot {
+            width: 8px;
+            height: 8px;
+            background: #6366f1;
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99999;
+            transition: transform 0.1s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-outline {
+            width: 40px;
+            height: 40px;
+            border: 2px solid rgba(99, 102, 241, 0.5);
+            border-radius: 50%;
+            position: fixed;
+            pointer-events: none;
+            z-index: 99998;
+            transition: all 0.15s ease;
+            mix-blend-mode: difference;
+        }
+
+        .cursor-outline.hovering {
+            width: 60px;
+            height: 60px;
+            border-color: #a855f7;
+            background: rgba(168, 85, 247, 0.1);
+        }
+
+        /* Noise Texture Overlay */
+        .noise-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 9999;
+            opacity: 0.03;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* Smooth Scroll */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body.smooth-scroll {
+            overflow-x: hidden;
+        }
+
+        /* Text Reveal Animation */
+        .text-reveal {
+            overflow: hidden;
+        }
+
+        .text-reveal span {
+            display: inline-block;
+            transform: translateY(100%);
+            opacity: 0;
+        }
+
+        .text-reveal.revealed span {
+            transform: translateY(0);
+            opacity: 1;
+            transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.8s ease;
+        }
+
+        /* Magnetic Button Effect */
+        .magnetic-btn {
+            position: relative;
+            display: inline-flex;
+            transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Glassmorphism Cards */
+        .glass-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            box-shadow:
+                0 8px 32px rgba(0, 0, 0, 0.2),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+        }
+
+        /* Gradient Text Animation */
+        .gradient-text-animated {
+            background: linear-gradient(90deg,
+                    #6366f1,
+                    #a855f7,
+                    #ec4899,
+                    #f59e0b,
+                    #10b981,
+                    #6366f1);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 8s ease infinite;
+        }
+
+        @keyframes gradientShift {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Infinite Marquee */
+        .marquee-container {
+            overflow: hidden;
+            white-space: nowrap;
+            position: relative;
+        }
+
+        .marquee-content {
+            display: inline-flex;
+            animation: marquee 30s linear infinite;
+        }
+
+        .marquee-content:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Glow Effect */
+        .glow-effect {
+            position: relative;
+        }
+
+        .glow-effect::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            background: linear-gradient(45deg, #6366f1, #a855f7, #ec4899, #6366f1);
+            background-size: 400% 400%;
+            border-radius: inherit;
+            z-index: -1;
+            filter: blur(15px);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            animation: glowRotate 3s linear infinite;
+        }
+
+        .glow-effect:hover::before {
+            opacity: 0.7;
+        }
+
+        @keyframes glowRotate {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        /* Stagger Animation */
+        .stagger-item {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+
+        .stagger-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        /* Loading Screen */
+        .loading-screen {
+            position: fixed;
+            inset: 0;
+            background: #0a0f1c;
+            z-index: 999999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading-screen.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loader {
+            width: 60px;
+            height: 60px;
+            border: 3px solid rgba(99, 102, 241, 0.2);
+            border-top-color: #6366f1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        /* Split Text Effect */
+        .split-text {
+            display: flex;
+            flex-wrap: wrap;
+            overflow: hidden;
+        }
+
+        .split-char {
+            display: inline-block;
+            transform: translateY(100%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .split-text.active .split-char {
+            transform: translateY(0);
+        }
+
+        /* Hover Card 3D */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .card-3d:hover {
+            transform: perspective(1000px) rotateX(5deg) rotateY(-5deg) translateZ(10px);
+        }
+
+        /* Blob Animation */
+        .blob {
+            border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            animation: blobMorph 8s ease-in-out infinite;
+        }
+
+        @keyframes blobMorph {
+
+            0%,
+            100% {
+                border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+            }
+
+            25% {
+                border-radius: 58% 42% 75% 25% / 76% 46% 54% 24%;
+            }
+
+            50% {
+                border-radius: 50% 50% 33% 67% / 55% 27% 73% 45%;
+            }
+
+            75% {
+                border-radius: 33% 67% 58% 42% / 63% 68% 32% 37%;
+            }
+        }
+    </style>
+    <!-- Schema.org Markup -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": ["EducationalOrganization", "LocalBusiness"],
+        "@id": "https://ultravelozmente.com/#organization",
+        "name": "WorldBrain México",
+        "alternateName": ["Ultravelozmente", "WorldBrain", "World Brain México"],
+        "url": "https://ultravelozmente.com",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://ultravelozmente.com/images/logo.svg",
+            "width": 512,
+            "height": 512
+        },
+        "contactPoint": [
+            {
+                "@type": "ContactPoint",
+                "telephone": "+52-55-7810-7837",
+                "contactType": "customer service",
+                "email": "fotolectura@worldbrain.mx",
+                "areaServed": "MX",
+                "availableLanguage": ["Spanish", "es"]
+            }
+        ],
+        "sameAs": [
+            "https://www.facebook.com/WorldBrainMx",
+            "https://www.instagram.com/worldbrainmx",
+            "https://www.youtube.com/@worldbrainmexico",
+            "https://www.tiktok.com/@worldbrainmx"
+        ],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": "Ciudad de México",
+            "addressCountry": "MX"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "@id": "https://ultravelozmente.com/#website",
+        "url": "https://ultravelozmente.com",
+        "name": "WorldBrain México",
+        "publisher": {
+            "@id": "https://ultravelozmente.com/#organization"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "@id": "https://ultravelozmente.com/fotolectura.html#webpage",
+        "url": "https://ultravelozmente.com/fotolectura.html",
+        "name": "Fotolectura: Desbloquea tu Supercerebro | WorldBrain México",
+        "description": "No leas. FOTOGRAFÍA el conocimiento. El sistema de aprendizaje acelerado que te permite absorber libros enteros en minutos con retención del 100%.",
+        "inLanguage": "es",
+        "isPartOf": {
+            "@id": "https://ultravelozmente.com/#website"
+        },
+        "about": {
+            "@id": "https://ultravelozmente.com/fotolectura.html#course"
+        },
+        "breadcrumb": {
+            "@id": "https://ultravelozmente.com/fotolectura.html#breadcrumb"
+        },
+        "primaryImageOfPage": {
+            "@type": "ImageObject",
+            "url": "https://ultravelozmente.com/images/fl-hero-brain.webp"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "@id": "https://ultravelozmente.com/fotolectura.html#breadcrumb",
+        "itemListElement": [{
+                "@type": "ListItem",
+                "position": 1,
+                "name": "Inicio",
+                "item": "https://ultravelozmente.com"
+            },
+            {
+                "@type": "ListItem",
+                "position": 2,
+                "name": "Fotolectura",
+                "item": "https://ultravelozmente.com/fotolectura.html"
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "@id": "https://ultravelozmente.com/fotolectura.html#course",
+        "name": "Fotolectura - Neuroaprendizaje Acelerado",
+        "description": "Sistema de aprendizaje acelerado para procesar información a 25,000 palabras por minuto con alta retención.",
+        "provider": {
+            "@id": "https://ultravelozmente.com/#organization"
+        },
+        "educationalLevel": "Todos los niveles",
+        "about": ["Lectura Rápida", "Aprendizaje Acelerado", "Neurociencia", "Productividad"],
+        "teaches": [
+            "Lectura a 25,000 palabras por minuto",
+            "Eliminación de la subvocalización",
+            "Uso de la visión periférica",
+            "Creación de mapas mentales",
+            "Estado de flujo para aprendizaje",
+            "Retención del 85-100% de la información"
+        ],
+        "audience": {
+            "@type": "EducationalAudience",
+            "educationalRole": "student",
+            "audienceType": "Profesionales, estudiantes y personas que manejan mucha información"
+        },
+        "hasCourseInstance": [{
+            "@type": "CourseInstance",
+            "name": "Entrenamiento Intensivo Fotolectura",
+            "courseMode": ["onsite", "online", "blended"],
+            "duration": "P1D",
+            "location": {
+                "@type": "Place",
+                "name": "WorldBrain México"
+            }
+        }],
+        "offers": {
+            "@type": "Offer",
+            "category": "Curso Educativo",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "MXN",
+            "url": "https://ultravelozmente.com/fotolectura.html#oferta"
+        }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [{
+                "@type": "Question",
+                "name": "¿Es esto 'lectura rápida' tradicional?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "No. La lectura rápida tradicional solo trata de mover los ojos más rápido. La Fotolectura cambia fundamentalmente cómo tu cerebro procesa la información, utilizando la visión periférica y el procesamiento preconsciente."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Funciona para textos técnicos, leyes o medicina?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Absolutamente. De hecho, es donde mejor funciona. Nuestros alumnos más exitosos son médicos, abogados e ingenieros que necesitan procesar grandes volúmenes de información compleja."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Perderé comprensión al leer tan rápido?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Al contrario. La lectura lenta aburre al cerebro. Al alimentar tu cerebro a la velocidad que realmente puede procesar, tu enfoque aumenta y tu comprensión global mejora drásticamente, pasando del 10% habitual al 80-90%."
+                }
+            },
+            {
+                "@type": "Question",
+                "name": "¿Qué pasa en la Clase Muestra?",
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": "Es una sesión práctica de 45 minutos donde haremos un diagnóstico real de tu velocidad y te enseñaremos el primer paso del sistema para que experimentes el cambio inmediato."
+                }
+            }
+        ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Product",
+        "name": "Entrenamiento de Fotolectura",
+        "description": "Curso intensivo para aprender a fotoleer libros completos en minutos.",
+        "image": "https://ultravelozmente.com/images/fl-hero-brain.webp",
+        "brand": {
+            "@id": "https://ultravelozmente.com/#organization"
+        },
+        "aggregateRating": {
+            "@type": "AggregateRating",
+            "ratingValue": "4.9",
+            "reviewCount": "5000"
+        },
+        "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "MXN",
+            "url": "https://ultravelozmente.com/fotolectura.html#oferta"
+        }
+    }
+    </script>
+</head>
+
+<body class="fl-page smooth-scroll">
+
+    <!-- Skip Link for Accessibility -->
+    <a href="#main-content" class="skip-link">Saltar al contenido principal</a>
+
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader"></div>
+    </div>
+
+    <!-- Noise Overlay -->
+    <div class="noise-overlay"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-dot" id="cursorDot"></div>
+    <div class="cursor-outline" id="cursorOutline"></div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         NAVIGATION
+    ════════════════════════════════════════════════════════════════════ -->
+    <nav class="fl-navbar glass-card" id="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="container">
+            <a href="index.html" class="fl-logo">WorldBrain <span>México</span></a>
+            <div class="fl-nav-links">
+                <a href="#test-lectura" class="fl-nav-link">Test Gratis</a>
+                <a href="#ciencia" class="fl-nav-link">La Ciencia</a>
+                <a href="#programa" class="fl-nav-link">Programa</a>
+                <a href="#testimonios" class="fl-nav-link">Testimonios</a>
+                <a href="#oferta" class="fl-nav-cta"><i class="fas fa-calendar-check"></i> Agendar Clase</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         HERO SECTION - ULTRA PREMIUM
+    ════════════════════════════════════════════════════════════════════ -->
+    <main id="main-content" role="main">
+        <header class="fl-hero-ultra">
+            <!-- Efectos de fondo avanzados -->
+            <div class="fl-hero-bg-ultra">
+                <!-- Orbes con animación mejorada -->
+                <div class="fl-orb-ultra fl-orb-ultra-1"></div>
+                <div class="fl-orb-ultra fl-orb-ultra-2"></div>
+                <div class="fl-orb-ultra fl-orb-ultra-3"></div>
+                <div class="fl-orb-ultra fl-orb-ultra-4"></div>
+
+                <!-- Grid de partículas -->
+                <div class="fl-particles-grid"></div>
+
+                <!-- Líneas de conexión neural -->
+                <svg class="fl-neural-lines" viewBox="0 0 1200 800" preserveAspectRatio="xMidYMid slice">
+                    <defs>
+                        <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" style="stop-color:#6366f1;stop-opacity:0" />
+                            <stop offset="50%" style="stop-color:#8b5cf6;stop-opacity:0.6" />
+                            <stop offset="100%" style="stop-color:#a855f7;stop-opacity:0" />
+                        </linearGradient>
+                    </defs>
+                    <path class="fl-neural-path" d="M0,400 Q300,200 600,400 T1200,400" />
+                    <path class="fl-neural-path fl-neural-path-2" d="M0,300 Q400,500 800,300 T1200,300" />
+                    <path class="fl-neural-path fl-neural-path-3" d="M0,500 Q200,300 500,500 T1200,500" />
+                </svg>
+
+                <!-- Efecto de scanner -->
+                <div class="fl-scanner-line"></div>
+            </div>
+
+            <div class="container">
+                <div class="fl-hero-grid-ultra">
+                    <!-- Columna de texto -->
+                    <div class="fl-hero-text-ultra">
+                        <!-- Badge animado -->
+                        <div class="fl-badge-ultra" data-aos="fade-right">
+                            <span class="fl-badge-pulse"></span>
+                            <i class="fas fa-microchip"></i>
+                            <span>Neurociencia Aplicada 2025</span>
+                            <span class="fl-badge-new">NUEVO</span>
+                        </div>
+
+                        <!-- Título con efecto de typing -->
+                        <h1 class="fl-title-ultra" data-aos="fade-up" data-aos-delay="100">
+                            <span class="fl-title-line">¿Te sientes estúpido</span>
+                            <span class="fl-title-line fl-title-highlight">
+                                <span class="fl-gradient-text-ultra">cuando lees lento?</span>
+                                <span class="fl-title-icon"><i class="fas fa-brain"></i></span>
+                            </span>
+                        </h1>
+
+                        <!-- Subtítulo con stats inline -->
+                        <p class="fl-subtitle-ultra" data-aos="fade-up" data-aos-delay="200">
+                            Tu cerebro es una Ferrari, pero lees como si fueras en bicicleta.
+                        </p>
+
+                        <!-- Cause -> Effect Box -->
+                        <div class="fl-cause-effect-box"
+                            style="background: rgba(255,255,255,0.05); padding: 1.5rem; border-radius: 1rem; margin-bottom: 2rem; border-left: 4px solid var(--fl-accent);"
+                            data-aos="fade-up" data-aos-delay="220">
+                            <p style="color: var(--fl-text-muted); font-size: 1.1rem; margin: 0;">
+                                "Al aprender <strong>FOTOLECTURA</strong>... absorbes libros en minutos y te vuelves la
+                                persona más inteligente del cuarto."
+                            </p>
+                        </div>
+
+                        <!-- Mini stats -->
+                        <div class="fl-mini-stats" data-aos="fade-up" data-aos-delay="250">
+                            <div class="fl-mini-stat">
+                                <span class="fl-mini-stat-value">25,000</span>
+                                <span class="fl-mini-stat-label">palabras/min</span>
+                            </div>
+                            <div class="fl-mini-stat-divider"></div>
+                            <div class="fl-mini-stat">
+                                <span class="fl-mini-stat-value">90%</span>
+                                <span class="fl-mini-stat-label">retención</span>
+                            </div>
+                            <div class="fl-mini-stat-divider"></div>
+                            <div class="fl-mini-stat">
+                                <span class="fl-mini-stat-value">1 día</span>
+                                <span class="fl-mini-stat-label">de training</span>
+                            </div>
+                        </div>
+
+                        <!-- CTAs -->
+                        <div class="fl-cta-group-ultra" data-aos="fade-up" data-aos-delay="300">
+                            <a href="#oferta" class="fl-cta-primary-ultra">
+                                <span class="fl-cta-icon"><i class="fas fa-bolt"></i></span>
+                                <span class="fl-cta-text">
+                                    <span class="fl-cta-main">Agendar Clase Muestra</span>
+                                    <span class="fl-cta-sub">Gratis • Solo 10 lugares</span>
+                                </span>
+                                <span class="fl-cta-arrow"><i class="fas fa-arrow-right"></i></span>
+                            </a>
+                            <a href="#" id="fl-play-btn" class="fl-cta-secondary-ultra"
+                                data-video="Curso-de-Fotolectura-lectura-rapida.mp4">
+                                <i class="fas fa-play-circle"></i>
+                                Ver cómo funciona
+                            </a>
+                        </div>
+
+                        <!-- Trust badges -->
+                        <div class="fl-trust-badges" data-aos="fade-up" data-aos-delay="350">
+                            <div class="fl-trust-item">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Sin compromiso</span>
+                            </div>
+                            <div class="fl-trust-item">
+                                <i class="fas fa-users"></i>
+                                <span>+5,000 alumnos</span>
+                            </div>
+                            <div class="fl-trust-item">
+                                <i class="fas fa-star"></i>
+                                <span>4.9/5 rating</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Columna visual -->
+                    <div class="fl-hero-visual-ultra" data-aos="fade-left" data-aos-delay="200">
+                        <!-- Contenedor 3D del cerebro -->
+                        <div class="fl-brain-container">
+                            <!-- Anillo giratorio -->
+                            <div class="fl-brain-ring fl-brain-ring-1"></div>
+                            <div class="fl-brain-ring fl-brain-ring-2"></div>
+                            <div class="fl-brain-ring fl-brain-ring-3"></div>
+
+                            <!-- Imagen central -->
+                            <div class="fl-brain-core">
+                                <img src="images/fl-hero-brain.webp" alt="Cerebro y neurociencia" class="fl-brain-img">
+                                <div class="fl-brain-glow"></div>
+                            </div>
+
+                            <!-- Nodos flotantes -->
+                            <div class="fl-float-node fl-float-node-1">
+                                <i class="fas fa-book"></i>
+                                <span>200 pág</span>
+                            </div>
+                            <div class="fl-float-node fl-float-node-2">
+                                <i class="fas fa-clock"></i>
+                                <span>15 min</span>
+                            </div>
+                            <div class="fl-float-node fl-float-node-3">
+                                <i class="fas fa-check-circle"></i>
+                                <span>100%</span>
+                            </div>
+                            <div class="fl-float-node fl-float-node-4">
+                                <i class="fas fa-brain"></i>
+                                <span>10x</span>
+                            </div>
+                        </div>
+
+                        <!-- Ticker de velocidad -->
+                        <div class="fl-speed-ticker">
+                            <div class="fl-ticker-label">Velocidad actual</div>
+                            <div class="fl-ticker-value">
+                                <span class="fl-ticker-number" id="speedTicker">0</span>
+                                <span class="fl-ticker-unit">PPM</span>
+                            </div>
+                            <div class="fl-ticker-bar">
+                                <div class="fl-ticker-fill"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scroll indicator -->
+            <div class="fl-scroll-indicator">
+                <span>Descubre más</span>
+                <div class="fl-scroll-mouse">
+                    <div class="fl-scroll-wheel"></div>
+                </div>
+            </div>
+        </header>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         CAUSA/EFECTO SECTION - CALL TO ACTION
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="cause-effect-section" data-aos="fade-up"
+            style="background: var(--fl-primary); padding: 60px 0;">
+            <div class="container">
+                <div class="ce-box fl-ce-box"
+                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(99, 102, 241, 0.12);">
+                    <div class="ce-content">
+                        <div class="ce-cause">
+                            <span class="ce-label">CAUSA</span>
+                            <p>Al dominar la <strong>FOTOLECTURA</strong>...</p>
+                        </div>
+                        <div class="ce-arrow">
+                            <i class="fas fa-arrow-right"></i>
+                        </div>
+                        <div class="ce-effect">
+                            <span class="ce-label">EFECTO</span>
+                            <p>...absorbes <strong>libros completos en minutos</strong>, multiplicas tu velocidad de
+                                aprendizaje por 10x y desbloqueas tu <strong>supercerebro</strong>.</p>
+                        </div>
+                    </div>
+                    <div style="margin-top: 30px; text-align: center;">
+                        <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20mi%20cita%20de%20cortesía%20para%20conocer%20el%20método%20de%20Fotolectura"
+                            class="enroll-cta"
+                            style="display: inline-flex; align-items: center; gap: 12px; padding: 16px 32px; background: linear-gradient(135deg, var(--fl-accent), #1e1b4b); color: white; border-radius: var(--fl-radius-sm); font-weight: 700; text-decoration: none; transition: var(--fl-transition); box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);">
+                            <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i>
+                            Agendar Cita de Cortesía
+                        </a>
+                        <p style="margin-top: 12px; color: var(--fl-text-muted); font-size: 0.9rem;">Sin compromiso • Te
+                            explicamos el método personalizado</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         INFINITE MARQUEE - SOCIAL PROOF
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-marquee-section">
+            <div class="marquee-container">
+                <div class="marquee-content">
+                    <div class="marquee-item">
+                        <i class="fas fa-star"></i>
+                        <span>+5,000 Alumnos Transformados</span>
+                    </div>
+                    <div class="marquee-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>25,000 Palabras por Minuto</span>
+                    </div>
+                    <div class="marquee-item">
+                        <i class="fas fa-brain"></i>
+                        <span>Neurociencia Aplicada</span>
+                    </div>
+                    <div class="marquee-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Método #1 en México</span>
+                    </div>
+                    <div class="marquee-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificación Internacional</span>
+                    </div>
+                    <div class="marquee-item">
+                        <i class="fas fa-rocket"></i>
+                        <span>Resultados en 1 Día</span>
+                    </div>
+                    <!-- Duplicado para efecto infinito -->
+                    <div class="marquee-item">
+                        <i class="fas fa-star"></i>
+                        <span>+5,000 Alumnos Transformados</span>
+                    </div>
+                    <div class="marquee-item">
+                        <i class="fas fa-bolt"></i>
+                        <span>25,000 Palabras por Minuto</span>
+                    </div>
+                    <div class="marquee-item">
+                        <i class="fas fa-brain"></i>
+                        <span>Neurociencia Aplicada</span>
+                    </div>
+                    <div class="marquee-item">
+                        <i class="fas fa-trophy"></i>
+                        <span>Método #1 en México</span>
+                    </div>
+                    <div class="marquee-item">
+                        <i class="fas fa-certificate"></i>
+                        <span>Certificación Internacional</span>
+                    </div>
+                    <div class="marquee-item">
+                        <i class="fas fa-rocket"></i>
+                        <span>Resultados en 1 Día</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         MÉTRICAS DE IMPACTO - BENTO GRID
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-metrics">
+            <div class="container">
+                <div class="fl-bento-grid">
+                    <!-- Card Grande - Principal -->
+                    <div class="fl-bento-card fl-bento-large glass-card card-3d" data-aos="fade-up">
+                        <div class="fl-bento-icon blob">
+                            <i class="fas fa-bolt"></i>
+                        </div>
+                        <div class="fl-bento-content">
+                            <div class="fl-bento-value gradient-text-animated">10x</div>
+                            <div class="fl-bento-label">Velocidad de Aprendizaje</div>
+                            <p class="fl-bento-description">Multiplica tu capacidad de procesar información en un solo
+                                día de entrenamiento intensivo.</p>
+                        </div>
+                        <div class="fl-bento-decoration"></div>
+                    </div>
+
+                    <!-- Card Mediana -->
+                    <div class="fl-bento-card fl-bento-medium glass-card card-3d" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="fl-bento-icon">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <div class="fl-bento-value">85%</div>
+                        <div class="fl-bento-label">Retención a 30 días</div>
+                        <div class="fl-bento-chart">
+                            <div class="fl-chart-bar" style="--height: 20%"></div>
+                            <div class="fl-chart-bar" style="--height: 40%"></div>
+                            <div class="fl-chart-bar" style="--height: 60%"></div>
+                            <div class="fl-chart-bar" style="--height: 85%"></div>
+                        </div>
+                    </div>
+
+                    <!-- Card Pequeña 1 -->
+                    <div class="fl-bento-card fl-bento-small glass-card card-3d" data-aos="fade-up"
+                        data-aos-delay="150">
+                        <div class="fl-bento-value">5K+</div>
+                        <div class="fl-bento-label">Alumnos</div>
+                    </div>
+
+                    <!-- Card Pequeña 2 -->
+                    <div class="fl-bento-card fl-bento-small glass-card card-3d" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="fl-bento-value">4.9</div>
+                        <div class="fl-bento-label">Rating</div>
+                        <div class="fl-bento-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+
+                    <!-- Card Pequeña 3 -->
+                    <div class="fl-bento-card fl-bento-small glass-card card-3d" data-aos="fade-up"
+                        data-aos-delay="225">
+                        <div class="fl-bento-value">100%</div>
+                        <div class="fl-bento-label">Garantía</div>
+                        <div class="fl-bento-stars" style="justify-content: center; margin-top: 10px;">
+                            <i class="fas fa-shield-alt" style="color: var(--fl-success); font-size: 1.5rem;"></i>
+                        </div>
+                    </div>
+
+                    <!-- Card Feature -->
+                    <div class="fl-bento-card fl-bento-feature glass-card card-3d" data-aos="fade-up"
+                        data-aos-delay="250">
+                        <div class="fl-bento-feature-grid">
+                            <div class="fl-feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Sin subvocalización</span>
+                            </div>
+                            <div class="fl-feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Visión periférica</span>
+                            </div>
+                            <div class="fl-feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Estado de flujo</span>
+                            </div>
+                            <div class="fl-feature-item">
+                                <i class="fas fa-check-circle"></i>
+                                <span>Mapas mentales</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Live Activity -->
+                    <div class="fl-bento-card fl-bento-live glass-card" data-aos="fade-up" data-aos-delay="300">
+                        <div class="fl-live-indicator">
+                            <span class="fl-live-dot"></span>
+                            EN VIVO
+                        </div>
+                        <div class="fl-live-content">
+                            <div class="fl-live-avatar">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Usuario">
+                            </div>
+                            <div class="fl-live-text">
+                                <strong>María G.</strong> acaba de completar
+                                <span class="fl-live-highlight">200 páginas en 15 min</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         SECCIÓN DE PROBLEMAS
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-problems">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <span class="fl-section-badge danger">
+                        <i class="fas fa-exclamation-triangle"></i>
+                        Realidad Actual
+                    </span>
+                    <h2 class="fl-section-title">¿Sientes que te ahogas en un mar de información?</h2>
+                    <p class="fl-section-subtitle">Mide tu velocidad y comprensión con este test rápido y gratuito.
+                        Obtén un diagnóstico claro, consejos prácticos y un plan simple para mejorar tu lectura desde el
+                        primer día.</p>
+                </div>
+
+                <div class="fl-problems-grid">
+                    <div class="fl-problem-card glass-card card-3d glow-effect magnetic-btn" data-aos="fade-up">
+                        <div class="fl-problem-number">01</div>
+                        <div class="fl-problem-icon blob">
+                            <i class="fas fa-tachometer-alt"></i>
+                        </div>
+                        <h3>Velocidad de "Tortuga"</h3>
+                        <p>Tu cerebro es una supercomputadora capaz de procesar imágenes en milisegundos, pero tu
+                            lectura tradicional te limita a 150 palabras/min. Es como conducir un Ferrari en primera
+                            marcha.</p>
+                        <div class="fl-problem-stat">
+                            <span class="fl-stat-bad">150 ppm</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="fl-stat-good">25,000 ppm</span>
+                        </div>
+                    </div>
+
+                    <div class="fl-problem-card glass-card card-3d glow-effect magnetic-btn" data-aos="fade-up"
+                        data-aos-delay="100">
+                        <div class="fl-problem-number">02</div>
+                        <div class="fl-problem-icon blob">
+                            <i class="fas fa-brain"></i>
+                        </div>
+                        <h3>El Efecto "Colador"</h3>
+                        <p>Devoras libros, artículos y cursos, pero al momento de necesitar esa información, tu mente
+                            está en blanco. Retienes menos del 10% de lo que lees.</p>
+                        <div class="fl-problem-stat">
+                            <span class="fl-stat-bad">10% retención</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="fl-stat-good">85% retención</span>
+                        </div>
+                    </div>
+
+                    <div class="fl-problem-card glass-card card-3d glow-effect magnetic-btn" data-aos="fade-up"
+                        data-aos-delay="200">
+                        <div class="fl-problem-number">03</div>
+                        <div class="fl-problem-icon blob">
+                            <i class="fas fa-battery-empty"></i>
+                        </div>
+                        <h3>Fatiga Mental Crónica</h3>
+                        <p>Leer te da sueño. A los 20 minutos tus ojos pesan y tu concentración se rompe. Estás usando
+                            un método de lectura obsoleto diseñado para la era industrial.</p>
+                        <div class="fl-problem-stat">
+                            <span class="fl-stat-bad">20 min</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="fl-stat-good">4+ horas flujo</span>
+                        </div>
+                    </div>
+
+                    <div class="fl-problem-card glass-card card-3d glow-effect magnetic-btn" data-aos="fade-up"
+                        data-aos-delay="300">
+                        <div class="fl-problem-number">04</div>
+                        <div class="fl-problem-icon blob">
+                            <i class="fas fa-chart-line"></i>
+                        </div>
+                        <h3>Obsolescencia Profesional</h3>
+                        <p>Mientras luchas por terminar un PDF técnico, tu competencia ya implementó tres nuevas
+                            estrategias. Quien aprende lento, se queda atrás.</p>
+                        <div class="fl-problem-stat">
+                            <span class="fl-stat-bad">Semanas/libro</span>
+                            <i class="fas fa-arrow-right"></i>
+                            <span class="fl-stat-good">Minutos/libro</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         SECCIÓN DE CIENCIA
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-science" id="ciencia">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <span class="fl-section-badge accent">
+                        <i class="fas fa-flask"></i>
+                        La Ciencia Revelada
+                    </span>
+                    <h2 class="fl-section-title">Deja de "Escribir a Mano" en tu mente. Empieza a <span
+                            class="fl-gradient-text">Descargar Archivos</span>.</h2>
+                    <p class="fl-section-subtitle">La lectura tradicional usa el procesamiento consciente (lento,
+                        lineal, limitado). La Fotolectura activa el procesamiento preconsciente (rápido, global,
+                        ilimitado).</p>
+                </div>
+
+                <div class="fl-science-grid">
+                    <div data-aos="fade-right">
+                        <div class="fl-step">
+                            <div class="fl-step-number">1</div>
+                            <div class="fl-step-content">
+                                <h3>Visión Periférica (Input Masivo)</h3>
+                                <p>Tus ojos son cámaras de alta resolución. Te enseñamos a "suavizar" la mirada para
+                                    capturar páginas enteras en una fracción de segundo.</p>
+                            </div>
+                        </div>
+
+                        <div class="fl-step">
+                            <div class="fl-step-number">2</div>
+                            <div class="fl-step-content">
+                                <h3>Procesamiento Preconsciente</h3>
+                                <p>La información va directo a tu memoria de largo plazo. Es como guardar un archivo en
+                                    el disco duro antes de abrirlo. Los datos ya están ahí.</p>
+                            </div>
+                        </div>
+
+                        <div class="fl-step">
+                            <div class="fl-step-number">3</div>
+                            <div class="fl-step-content">
+                                <h3>Activación Neural</h3>
+                                <p>Mediante técnicas de interrogación y mapas mentales, "despiertas" la información
+                                    específica que necesitas, creando conexiones neuronales sólidas.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fl-science-visual" data-aos="fade-left">
+                        <img src="images/fl-science-learning.webp" alt="Cerebro Digital - Concept Art"
+                            class="fl-science-img">
+
+                        <div class="fl-floating-badge top-right">
+                            <i class="fas fa-bolt"></i>
+                            <span>Velocidad 10x</span>
+                        </div>
+
+                        <div class="fl-floating-badge bottom-left">
+                            <i class="fas fa-brain"></i>
+                            <span>Retención Total</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         TEST DE LECTURA RÁPIDA
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-reading-test" id="test-lectura">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <span class="fl-section-badge accent">
+                        <i class="fas fa-stopwatch"></i>
+                        Test Gratuito
+                    </span>
+                    <h2 class="fl-section-title">Descubre tu <span class="fl-gradient-text">Velocidad de Lectura</span>
+                        Real</h2>
+                    <p class="fl-section-subtitle">Mide tu velocidad y comprensión actual con este test gratuito y
+                        práctico. Recibe resultados inmediatos y recomendaciones accionables para mejorar tu lectura.
+                    </p>
+                </div>
+
+                <!-- Test Container -->
+                <div class="fl-test-container glass-card" data-aos="fade-up" data-aos-delay="100">
+
+                    <!-- Step 1: Instructions -->
+                    <div class="fl-test-step" id="testStep1">
+                        <div class="fl-test-step-header">
+                            <div class="fl-test-step-number">1</div>
+                            <h3>Instrucciones del Test</h3>
+                        </div>
+                        <div class="fl-test-instructions">
+                            <div class="fl-instruction-card">
+                                <div class="fl-instruction-icon"><i class="fas fa-book-open"></i></div>
+                                <p>Lee el texto a tu <strong>velocidad normal</strong>, como lo harías habitualmente.
+                                </p>
+                            </div>
+                            <div class="fl-instruction-card">
+                                <div class="fl-instruction-icon"><i class="fas fa-clock"></i></div>
+                                <p>El cronómetro iniciará automáticamente al hacer clic en <strong>"Comenzar
+                                        Lectura"</strong>.</p>
+                            </div>
+                            <div class="fl-instruction-card">
+                                <div class="fl-instruction-icon"><i class="fas fa-check-double"></i></div>
+                                <p>Al terminar, responderás <strong>8 preguntas</strong> de comprensión sobre el texto.
+                                </p>
+                            </div>
+                            <div class="fl-instruction-card">
+                                <div class="fl-instruction-icon"><i class="fas fa-chart-pie"></i></div>
+                                <p>Recibirás tu <strong>velocidad (PPM)</strong> y <strong>porcentaje de
+                                        comprensión</strong>.</p>
+                            </div>
+                        </div>
+                        <button class="fl-test-btn primary" onclick="startReading()">
+                            <i class="fas fa-play"></i> Comenzar Lectura
+                        </button>
+                    </div>
+
+                    <!-- Step 2: Reading -->
+                    <div class="fl-test-step hidden" id="testStep2">
+                        <div class="fl-test-step-header">
+                            <div class="fl-test-step-number">2</div>
+                            <h3>Lee el siguiente texto</h3>
+                        </div>
+
+                        <!-- Timer -->
+                        <div class="fl-timer-display">
+                            <div class="fl-timer-icon"><i class="fas fa-stopwatch"></i></div>
+                            <span id="timerDisplay">00:00</span>
+                            <div class="fl-timer-pulse"></div>
+                        </div>
+
+                        <!-- Reading Text (489 palabras) -->
+                        <div class="fl-reading-text" id="readingText">
+                            <h4>El Cerebro y la Revolución del Aprendizaje</h4>
+
+                            <p>Durante siglos, la humanidad ha buscado formas de optimizar el aprendizaje y la retención
+                                de información. Desde los antiguos griegos con sus técnicas mnemotécnicas hasta los
+                                avances neurocientíficos del siglo XXI, el cerebro humano ha demostrado una capacidad de
+                                adaptación y crecimiento que apenas comenzamos a comprender.</p>
+
+                            <p>El cerebro humano contiene aproximadamente 86 mil millones de neuronas, cada una capaz de
+                                establecer miles de conexiones con otras células nerviosas. Esta red extraordinariamente
+                                compleja procesa información a velocidades que superan las de cualquier supercomputadora
+                                creada por el hombre. Sin embargo, paradójicamente, la mayoría de las personas utiliza
+                                métodos de lectura y aprendizaje desarrollados hace más de un siglo, cuando el
+                                conocimiento científico sobre el funcionamiento cerebral era prácticamente inexistente.
+                            </p>
+
+                            <p>La lectura tradicional, tal como se enseña en las escuelas, obliga al cerebro a trabajar
+                                de manera lineal y secuencial. Palabra por palabra, línea por línea, el lector avanza
+                                lentamente mientras su mente, capaz de procesar imágenes completas en milisegundos,
+                                espera pacientemente a que los ojos terminen de recorrer cada letra. Este proceso genera
+                                fatiga mental, distracción y una retención de información que raramente supera el quince
+                                por ciento del material leído.</p>
+
+                            <p>Los investigadores del Instituto de Neurociencia Cognitiva de Londres descubrieron que el
+                                cerebro puede procesar información visual hasta diez veces más rápido de lo que
+                                normalmente le permitimos. Cuando una persona lee de manera tradicional, activa
+                                principalmente el hemisferio izquierdo del cerebro, responsable del procesamiento
+                                analítico y secuencial. Sin embargo, al emplear técnicas de lectura acelerada, se
+                                activan simultáneamente ambos hemisferios, creando una sinergia que multiplica la
+                                capacidad de comprensión y memorización.</p>
+
+                            <p>El doctor Richard Bandler, cofundador de la Programación Neurolingüística, demostró que
+                                el cerebro humano tiene la capacidad de absorber información a nivel preconsciente. Esto
+                                significa que podemos almacenar datos sin necesidad de procesarlos conscientemente
+                                palabra por palabra. Es similar a cómo recordamos el camino a casa sin pensar
+                                activamente en cada giro: el conocimiento está ahí, disponible cuando lo necesitamos.
+                            </p>
+
+                            <p>Las empresas más innovadoras del mundo han comenzado a implementar programas de
+                                desarrollo cerebral para sus empleados. Google, Microsoft y Tesla invierten millones de
+                                dólares en entrenar a sus equipos en técnicas de aprendizaje acelerado. El motivo es
+                                simple: en una economía donde la información se duplica cada dieciocho meses, quien
+                                aprende más rápido, gana.</p>
+
+                            <p>El futuro del aprendizaje no está en estudiar más horas, sino en optimizar la manera en
+                                que el cerebro procesa la información. Los expertos predicen que en las próximas
+                                décadas, las técnicas de lectura acelerada y memorización avanzada serán tan comunes
+                                como saber usar una computadora. La pregunta ya no es si debemos actualizar nuestros
+                                métodos de aprendizaje, sino cuánto tiempo más podemos permitirnos el lujo de ignorar el
+                                potencial dormido en nuestras propias mentes.</p>
+
+                            <p>La revolución del aprendizaje ha comenzado, y quienes dominen estas nuevas herramientas
+                                tendrán una ventaja competitiva sin precedentes en todos los ámbitos de la vida
+                                profesional y personal.</p>
+                        </div>
+
+                        <button class="fl-test-btn primary" onclick="finishReading()">
+                            <i class="fas fa-check"></i> He terminado de leer
+                        </button>
+                    </div>
+
+                    <!-- Step 3: Questions -->
+                    <div class="fl-test-step hidden" id="testStep3">
+                        <div class="fl-test-step-header">
+                            <div class="fl-test-step-number">3</div>
+                            <h3>Preguntas de Comprensión</h3>
+                        </div>
+                        <p class="fl-test-subtitle">Responde las siguientes preguntas basándote en lo que recuerdas del
+                            texto.</p>
+
+                        <form id="comprehensionForm" class="fl-questions-form">
+                            <!-- Question 1 -->
+                            <div class="fl-question-card">
+                                <div class="fl-question-number">1/8</div>
+                                <p class="fl-question-text">¿Cuántas neuronas contiene aproximadamente el cerebro
+                                    humano?</p>
+                                <div class="fl-options">
+                                    <label class="fl-option">
+                                        <input type="radio" name="q1" value="a">
+                                        <span class="fl-option-box">A</span>
+                                        <span>10 mil millones</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q1" value="b">
+                                        <span class="fl-option-box">B</span>
+                                        <span>86 mil millones</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q1" value="c">
+                                        <span class="fl-option-box">C</span>
+                                        <span>100 mil millones</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q1" value="d">
+                                        <span class="fl-option-box">D</span>
+                                        <span>50 mil millones</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 2 -->
+                            <div class="fl-question-card">
+                                <div class="fl-question-number">2/8</div>
+                                <p class="fl-question-text">¿Qué porcentaje de retención tiene normalmente la lectura
+                                    tradicional según el texto?</p>
+                                <div class="fl-options">
+                                    <label class="fl-option">
+                                        <input type="radio" name="q2" value="a">
+                                        <span class="fl-option-box">A</span>
+                                        <span>25%</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q2" value="b">
+                                        <span class="fl-option-box">B</span>
+                                        <span>15%</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q2" value="c">
+                                        <span class="fl-option-box">C</span>
+                                        <span>50%</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q2" value="d">
+                                        <span class="fl-option-box">D</span>
+                                        <span>30%</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 3 -->
+                            <div class="fl-question-card">
+                                <div class="fl-question-number">3/8</div>
+                                <p class="fl-question-text">¿Qué instituto descubrió que el cerebro puede procesar
+                                    información hasta 10 veces más rápido?</p>
+                                <div class="fl-options">
+                                    <label class="fl-option">
+                                        <input type="radio" name="q3" value="a">
+                                        <span class="fl-option-box">A</span>
+                                        <span>MIT de Boston</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q3" value="b">
+                                        <span class="fl-option-box">B</span>
+                                        <span>Instituto de Neurociencia Cognitiva de Londres</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q3" value="c">
+                                        <span class="fl-option-box">C</span>
+                                        <span>Universidad de Harvard</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q3" value="d">
+                                        <span class="fl-option-box">D</span>
+                                        <span>Instituto Max Planck</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 4 -->
+                            <div class="fl-question-card">
+                                <div class="fl-question-number">4/8</div>
+                                <p class="fl-question-text">¿Quién es el cofundador de la Programación Neurolingüística
+                                    mencionado en el texto?</p>
+                                <div class="fl-options">
+                                    <label class="fl-option">
+                                        <input type="radio" name="q4" value="a">
+                                        <span class="fl-option-box">A</span>
+                                        <span>Tony Robbins</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q4" value="b">
+                                        <span class="fl-option-box">B</span>
+                                        <span>Richard Bandler</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q4" value="c">
+                                        <span class="fl-option-box">C</span>
+                                        <span>Paul Scheele</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q4" value="d">
+                                        <span class="fl-option-box">D</span>
+                                        <span>Howard Gardner</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 5 -->
+                            <div class="fl-question-card">
+                                <div class="fl-question-number">5/8</div>
+                                <p class="fl-question-text">¿Qué hemisferio del cerebro se activa principalmente con la
+                                    lectura tradicional?</p>
+                                <div class="fl-options">
+                                    <label class="fl-option">
+                                        <input type="radio" name="q5" value="a">
+                                        <span class="fl-option-box">A</span>
+                                        <span>Derecho</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q5" value="b">
+                                        <span class="fl-option-box">B</span>
+                                        <span>Izquierdo</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q5" value="c">
+                                        <span class="fl-option-box">C</span>
+                                        <span>Ambos por igual</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q5" value="d">
+                                        <span class="fl-option-box">D</span>
+                                        <span>El cerebelo</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 6 -->
+                            <div class="fl-question-card">
+                                <div class="fl-question-number">6/8</div>
+                                <p class="fl-question-text">¿Cuáles empresas se mencionan como inversionistas en
+                                    técnicas de aprendizaje acelerado?</p>
+                                <div class="fl-options">
+                                    <label class="fl-option">
+                                        <input type="radio" name="q6" value="a">
+                                        <span class="fl-option-box">A</span>
+                                        <span>Apple, Amazon y Facebook</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q6" value="b">
+                                        <span class="fl-option-box">B</span>
+                                        <span>Google, Microsoft y Tesla</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q6" value="c">
+                                        <span class="fl-option-box">C</span>
+                                        <span>IBM, Oracle y SAP</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q6" value="d">
+                                        <span class="fl-option-box">D</span>
+                                        <span>Netflix, Spotify y Uber</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 7 -->
+                            <div class="fl-question-card">
+                                <div class="fl-question-number">7/8</div>
+                                <p class="fl-question-text">¿Cada cuánto tiempo se duplica la información en la economía
+                                    actual según el texto?</p>
+                                <div class="fl-options">
+                                    <label class="fl-option">
+                                        <input type="radio" name="q7" value="a">
+                                        <span class="fl-option-box">A</span>
+                                        <span>Cada 12 meses</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q7" value="b">
+                                        <span class="fl-option-box">B</span>
+                                        <span>Cada 18 meses</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q7" value="c">
+                                        <span class="fl-option-box">C</span>
+                                        <span>Cada 24 meses</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q7" value="d">
+                                        <span class="fl-option-box">D</span>
+                                        <span>Cada 6 meses</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <!-- Question 8 -->
+                            <div class="fl-question-card">
+                                <div class="fl-question-number">8/8</div>
+                                <p class="fl-question-text">¿Qué civilización antigua se menciona por sus técnicas
+                                    mnemotécnicas?</p>
+                                <div class="fl-options">
+                                    <label class="fl-option">
+                                        <input type="radio" name="q8" value="a">
+                                        <span class="fl-option-box">A</span>
+                                        <span>Los romanos</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q8" value="b">
+                                        <span class="fl-option-box">B</span>
+                                        <span>Los egipcios</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q8" value="c">
+                                        <span class="fl-option-box">C</span>
+                                        <span>Los griegos</span>
+                                    </label>
+                                    <label class="fl-option">
+                                        <input type="radio" name="q8" value="d">
+                                        <span class="fl-option-box">D</span>
+                                        <span>Los chinos</span>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <button type="button" class="fl-test-btn primary" onclick="showDataForm()">
+                                <i class="fas fa-arrow-right"></i> Continuar
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Step 4: Data Form -->
+                    <div class="fl-test-step hidden" id="testStep4">
+                        <div class="fl-test-step-header">
+                            <div class="fl-test-step-number">4</div>
+                            <h3>Obtén tus Resultados</h3>
+                        </div>
+                        <p class="fl-test-subtitle">Completa tus datos para recibir tu diagnóstico personalizado.</p>
+
+                        <form id="userDataForm" class="fl-data-form">
+                            <div class="fl-form-group">
+                                <label for="userName"><i class="fas fa-user"></i> Nombre completo *</label>
+                                <input type="text" id="userName" name="userName" placeholder="Tu nombre" required>
+                                <span class="fl-form-error" id="nameError"></span>
+                            </div>
+
+                            <div class="fl-form-group">
+                                <label for="userEmail"><i class="fas fa-envelope"></i> Correo electrónico *</label>
+                                <input type="email" id="userEmail" name="userEmail" placeholder="tu@email.com" required>
+                                <span class="fl-form-error" id="emailError"></span>
+                            </div>
+
+                            <div class="fl-form-group">
+                                <label for="userPhone"><i class="fab fa-whatsapp"></i> WhatsApp *</label>
+                                <input type="tel" id="userPhone" name="userPhone" placeholder="55 1234 5678" required>
+                                <span class="fl-form-error" id="phoneError"></span>
+                            </div>
+
+                            <div class="fl-form-privacy">
+                                <i class="fas fa-lock"></i>
+                                <span>Tus datos están seguros. No spam, solo tu diagnóstico.</span>
+                            </div>
+
+                            <button type="submit" class="fl-test-btn primary">
+                                <i class="fas fa-chart-bar"></i> Ver mis Resultados
+                            </button>
+                        </form>
+                    </div>
+
+                    <!-- Step 5: Results -->
+                    <div class="fl-test-step hidden" id="testStep5">
+                        <div class="fl-test-step-header results-header">
+                            <div class="fl-test-step-icon"><i class="fas fa-trophy"></i></div>
+                            <h3>Tus Resultados</h3>
+                        </div>
+
+                        <div class="fl-results-container">
+                            <!-- User Greeting -->
+                            <p class="fl-results-greeting">¡Hola <span id="resultName"></span>!</p>
+
+                            <!-- Main Results -->
+                            <div class="fl-results-main">
+                                <div class="fl-result-card speed">
+                                    <div class="fl-result-icon"><i class="fas fa-tachometer-alt"></i></div>
+                                    <div class="fl-result-value" id="resultPPM">0</div>
+                                    <div class="fl-result-label">Palabras por Minuto</div>
+                                </div>
+                                <div class="fl-result-card comprehension">
+                                    <div class="fl-result-icon"><i class="fas fa-brain"></i></div>
+                                    <div class="fl-result-value" id="resultComprehension">0%</div>
+                                    <div class="fl-result-label">Comprensión</div>
+                                </div>
+                            </div>
+
+                            <!-- Reader Classification -->
+                            <div class="fl-reader-classification" id="readerClassification">
+                                <div class="fl-classification-badge">
+                                    <i class="fas fa-user-graduate"></i>
+                                    <span id="readerType">Lector Tradicional</span>
+                                </div>
+                                <p class="fl-classification-description" id="readerDescription"></p>
+                            </div>
+
+                            <!-- Comparison Table -->
+                            <div class="fl-results-comparison">
+                                <h4><i class="fas fa-chart-bar"></i> Comparación de Tipos de Lectores</h4>
+                                <div class="fl-comparison-table-wrapper">
+                                    <table class="fl-reader-comparison-table">
+                                        <thead>
+                                            <tr>
+                                                <th>Tipo de Lector</th>
+                                                <th>Velocidad (PPM)</th>
+                                                <th>Comprensión</th>
+                                                <th>Características</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr class="traditional" id="rowTraditional">
+                                                <td><i class="fas fa-walking"></i> Tradicional</td>
+                                                <td>100 - 250</td>
+                                                <td>40 - 60%</td>
+                                                <td>Subvocaliza, lee palabra por palabra</td>
+                                            </tr>
+                                            <tr class="fast" id="rowFast">
+                                                <td><i class="fas fa-running"></i> Veloz</td>
+                                                <td>250 - 500</td>
+                                                <td>60 - 75%</td>
+                                                <td>Lee por frases, menos regresiones</td>
+                                            </tr>
+                                            <tr class="intelligent" id="rowIntelligent">
+                                                <td><i class="fas fa-rocket"></i> Inteligente</td>
+                                                <td>500+</td>
+                                                <td>75 - 95%</td>
+                                                <td>Visión periférica, estado de flujo</td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+
+                            <!-- Potential Message -->
+                            <div class="fl-potential-message">
+                                <div class="fl-potential-icon"><i class="fas fa-lightbulb"></i></div>
+                                <div class="fl-potential-content">
+                                    <h4>Tu Potencial Oculto</h4>
+                                    <p>Con el método de <strong>Fotolectura</strong>, podrías leer a <span
+                                            id="potentialSpeed">25,000</span> palabras por minuto con un <span
+                                            id="potentialComprehension">90%</span> de comprensión.</p>
+                                    <p class="fl-potential-improvement">Eso es <strong
+                                            id="improvementFactor">100x</strong> más rápido que tu velocidad actual.</p>
+                                </div>
+                            </div>
+
+                            <!-- CTA -->
+                            <div class="fl-results-cta">
+                                <a href="#oferta" class="fl-test-btn primary large">
+                                    <i class="fas fa-calendar-check"></i> Agendar Clase Muestra Gratis
+                                </a>
+                                <button class="fl-test-btn secondary" onclick="resetTest()">
+                                    <i class="fas fa-redo"></i> Repetir Test
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         TABLA COMPARATIVA
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-comparison">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <h2 class="fl-section-title">La Evolución del Aprendizaje</h2>
+                    <p class="fl-section-subtitle">No usarías un teléfono de disco para enviar un email. ¿Por qué sigues
+                        leyendo como en el siglo XIX?</p>
+                </div>
+
+                <div class="fl-comparison-wrapper" data-aos="fade-up" data-aos-delay="100">
+                    <table class="fl-comparison-table">
+                        <thead>
+                            <tr>
+                                <th>
+                                    <div style="opacity: 0.6; font-size: 0.8rem; margin-bottom: 8px;">MÉTODO ANTIGUO
+                                    </div>
+                                    Lectura Tradicional
+                                </th>
+                                <th>
+                                    <span class="fl-recommended-badge">RECOMENDADO</span>
+                                    <div style="opacity: 0.9; font-size: 0.8rem; margin-bottom: 8px;">MÉTODO WORLDBRAIN
+                                    </div>
+                                    Fotolectura
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>
+                                    <i class="fas fa-tachometer-alt"></i>
+                                    200 palabras por minuto
+                                </td>
+                                <td>
+                                    <i class="fas fa-bolt"></i>
+                                    25,000 palabras por minuto
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fas fa-eye-slash"></i>
+                                    Cansancio visual y mental
+                                </td>
+                                <td>
+                                    <i class="fas fa-spa"></i>
+                                    Estado de flujo relajado
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fas fa-puzzle-piece"></i>
+                                    Comprensión fragmentada (10%)
+                                </td>
+                                <td>
+                                    <i class="fas fa-lightbulb"></i>
+                                    Comprensión global (90%)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <i class="fas fa-hourglass-half"></i>
+                                    Semanas para un libro
+                                </td>
+                                <td>
+                                    <i class="fas fa-stopwatch"></i>
+                                    Minutos para un libro
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         ROADMAP / PROGRAMA
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-roadmap" id="programa">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <span class="fl-section-badge accent">
+                        <i class="fas fa-route"></i>
+                        Plan de Estudios
+                    </span>
+                    <h2 class="fl-section-title">Tu Ruta de Aceleración Mental</h2>
+                    <p class="fl-section-subtitle">Un día intensivo para instalar el sistema operativo de un genio. 12
+                        horas de pura práctica.</p>
+                </div>
+
+                <div class="fl-roadmap-container">
+                    <div class="fl-roadmap-line"></div>
+
+                    <div class="fl-roadmap-item" data-aos="fade-up">
+                        <div class="fl-roadmap-marker"></div>
+                        <div class="fl-roadmap-content">
+                            <span class="fl-roadmap-time">HORAS 1-3</span>
+                            <h3>Despegue Inmediato</h3>
+                            <ul class="fl-roadmap-list">
+                                <li>Preparación del "Estado de Flujo" en 30 segundos</li>
+                                <li>Eliminación de la subvocalización (la voz en tu cabeza)</li>
+                                <li>Técnica de "Foto-Disparo" para capturar páginas</li>
+                            </ul>
+                        </div>
+                        <div style="width: 45%;"></div>
+                    </div>
+
+                    <div class="fl-roadmap-item" data-aos="fade-up" data-aos-delay="100">
+                        <div style="width: 45%;"></div>
+                        <div class="fl-roadmap-marker"></div>
+                        <div class="fl-roadmap-content">
+                            <span class="fl-roadmap-time">HORAS 4-7</span>
+                            <h3>Procesamiento Profundo</h3>
+                            <ul class="fl-roadmap-list">
+                                <li>Activación de la memoria a largo plazo</li>
+                                <li>Creación de Mapas Mentales a velocidad luz</li>
+                                <li>Técnicas de Superlectura y Barrido Visual</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="fl-roadmap-item" data-aos="fade-up" data-aos-delay="200">
+                        <div class="fl-roadmap-marker"></div>
+                        <div class="fl-roadmap-content">
+                            <span class="fl-roadmap-time">HORAS 8-12</span>
+                            <h3>Maestría y Aplicación</h3>
+                            <ul class="fl-roadmap-list">
+                                <li>Lectura Sintópica: Procesar 3 libros simultáneamente</li>
+                                <li>Memorización de textos técnicos y legales</li>
+                                <li>Práctica real con tus propios libros (trae 5 libros)</li>
+                            </ul>
+                        </div>
+                        <div style="width: 45%;"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         TESTIMONIOS
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-testimonials" id="testimonios">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <span class="fl-section-badge success">
+                        <i class="fas fa-star"></i>
+                        Resultados Comprobados
+                    </span>
+                    <h2 class="fl-section-title">No confíes en nuestra palabra. Confía en sus <span
+                            class="fl-gradient-text">Resultados</span>.</h2>
+                    <p class="fl-section-subtitle">Más de 5,000 alumnos han transformado su vida académica y
+                        profesional.</p>
+                </div>
+
+                <div class="fl-testimonials-carousel swiper" data-aos="fade-up">
+                    <div class="fl-testimonials-grid swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="fl-testimonial-card">
+                                <div class="fl-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>"1,237% de mejora real"</h4>
+                                <p class="fl-quote">"Leí 3 libros en una tarde y aprobé mi examen de medicina con
+                                    honores."</p>
+                                <div class="fl-testimonial-author">
+                                    <div class="fl-testimonial-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Laura">
+                                    </div>
+                                    <div class="fl-testimonial-info">
+                                        <strong>Laura</strong>
+                                        <span>De 388 ppm → 4,800 ppm</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="fl-testimonial-card featured">
+                                <div class="fl-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>"2,885% de aumento en velocidad"</h4>
+                                <p class="fl-quote">"Increíble. De 236 ppm a 6,810 ppm. Fotolectura cambió mi carrera
+                                    profesional por completo. Ahora soy el más rápido de mi equipo."</p>
+                                <div class="fl-testimonial-author">
+                                    <div class="fl-testimonial-avatar">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alejandro">
+                                    </div>
+                                    <div class="fl-testimonial-info">
+                                        <strong>Alejandro</strong>
+                                        <span>De 236 ppm → 6,810 ppm</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="fl-testimonial-card">
+                                <div class="fl-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>"4,169% de mejora (Récord)"</h4>
+                                <p class="fl-quote">"Empecé muy lento, con 130 ppm. Terminé el curso leyendo a 5,420
+                                    ppm. Mi cerebro procesa la información de una manera que no creía posible."</p>
+                                <div class="fl-testimonial-author">
+                                    <div class="fl-testimonial-avatar">
+                                        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Leonardo">
+                                    </div>
+                                    <div class="fl-testimonial-info">
+                                        <strong>Leonardo</strong>
+                                        <span>De 130 ppm → 5,420 ppm</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="swiper-slide">
+                            <div class="fl-testimonial-card">
+                                <div class="fl-stars">
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <h4>"Resultados desde la primera semana"</h4>
+                                <p class="fl-quote">"En 7 días multipliqué mi comprensión y puedo leer documentos
+                                    legales sin agotarme. Vale cada minuto."</p>
+                                <div class="fl-testimonial-author">
+                                    <div class="fl-testimonial-avatar">
+                                        <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Mariana">
+                                    </div>
+                                    <div class="fl-testimonial-info">
+                                        <strong>Mariana</strong>
+                                        <span>Abogada corporativa, CDMX</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="fl-testimonials-nav">
+                        <button class="fl-testimonials-btn fl-testimonials-prev" aria-label="Testimonio anterior">
+                            <i class="fas fa-arrow-left"></i>
+                        </button>
+                        <div class="fl-testimonials-pagination"></div>
+                        <button class="fl-testimonials-btn fl-testimonials-next" aria-label="Siguiente testimonio">
+                            <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         FAQ
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-faq">
+            <div class="container">
+                <div class="fl-section-header" data-aos="fade-up">
+                    <h2 class="fl-section-title">Preguntas Frecuentes</h2>
+                    <p class="fl-section-subtitle">Probablemente piensas: "¿Cómo es posible leer tan rápido sin perder
+                        comprensión?" La ciencia neuroeducativa lo explica: tu cerebro es mucho más rápido de lo que
+                        crees. Solo necesitaba las técnicas correctas.</p>
+                </div>
+
+                <div class="fl-faq-container">
+                    <details class="fl-faq-item" data-aos="fade-up">
+                        <summary class="fl-faq-summary">
+                            <span>¿Es esto "lectura rápida" tradicional?</span>
+                            <div class="fl-faq-icon"><i class="fas fa-plus"></i></div>
+                        </summary>
+                        <div class="fl-faq-content">
+                            No. La lectura rápida tradicional solo trata de mover los ojos más rápido. La Fotolectura
+                            cambia fundamentalmente <strong>cómo tu cerebro procesa la información</strong>, utilizando
+                            la visión periférica y el procesamiento preconsciente. Es una actualización de software
+                            mental, no solo un truco visual.
+                        </div>
+                    </details>
+
+                    <details class="fl-faq-item" data-aos="fade-up" data-aos-delay="50">
+                        <summary class="fl-faq-summary">
+                            <span>¿Funciona para textos técnicos, leyes o medicina?</span>
+                            <div class="fl-faq-icon"><i class="fas fa-plus"></i></div>
+                        </summary>
+                        <div class="fl-faq-content">
+                            Absolutamente. De hecho, es donde mejor funciona. Nuestros alumnos más exitosos son médicos,
+                            abogados e ingenieros que necesitan procesar grandes volúmenes de información compleja. El
+                            sistema te permite filtrar la "paja" y encontrar el "oro" en minutos.
+                        </div>
+                    </details>
+
+                    <details class="fl-faq-item" data-aos="fade-up" data-aos-delay="100">
+                        <summary class="fl-faq-summary">
+                            <span>¿Perderé comprensión al leer tan rápido?</span>
+                            <div class="fl-faq-icon"><i class="fas fa-plus"></i></div>
+                        </summary>
+                        <div class="fl-faq-content">
+                            Al contrario. La lectura lenta aburre al cerebro y provoca distracciones. Al alimentar tu
+                            cerebro a la velocidad que realmente puede procesar, tu enfoque aumenta (estado de flujo) y
+                            tu comprensión global mejora drásticamente, pasando del 10% habitual al 80-90%.
+                        </div>
+                    </details>
+
+                    <details class="fl-faq-item" data-aos="fade-up" data-aos-delay="150">
+                        <summary class="fl-faq-summary">
+                            <span>¿Qué pasa en la Clase Muestra?</span>
+                            <div class="fl-faq-icon"><i class="fas fa-plus"></i></div>
+                        </summary>
+                        <div class="fl-faq-content">
+                            Es una sesión práctica de 45 minutos. Haremos un ejercicio de diagnóstico real para medir tu
+                            velocidad actual y te enseñaremos el primer paso del sistema para que experimentes el cambio
+                            inmediato en tu percepción visual. Saldrás con una herramienta aplicable desde el primer
+                            día.
+                        </div>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+
+
+        <!-- ═══════════════════════════════════════════════════════════════════
+         OFERTA FINAL (LEAD MAGNET)
+    ════════════════════════════════════════════════════════════════════ -->
+        <section class="fl-offer" id="oferta">
+            <div class="fl-offer-bg"></div>
+            <div class="container">
+                <div class="fl-booking-card aos-init aos-animate" data-aos="fade-up">
+                    <div class="fl-booking-grid">
+                        <!-- Sidebar / Info -->
+                        <div class="fl-booking-sidebar">
+                            <div>
+                                <h3 class="fl-booking-title">Tu Asesoría Incluye:</h3>
+                                <ul class="fl-booking-list">
+                                    <li><i class="fas fa-check-circle"></i> Diagnóstico de lectura</li>
+                                    <li><i class="fas fa-check-circle"></i> Plan de estudio personalizado</li>
+                                    <li><i class="fas fa-check-circle"></i> Becas y promociones vigentes</li>
+                                </ul>
+                            </div>
+                            <div style="margin-top: 40px;">
+                                <p class="fl-booking-note">* Las citas son limitadas y se asignan por orden de llegada.
+                                </p>
+                            </div>
+                        </div>
+
+                        <!-- Form Container -->
+                        <div class="fl-booking-form-container">
+
+                            <!-- Step 1: Contact Info -->
+                            <div id="booking-step-1" class="booking-step">
+                                <h4 class="fl-booking-step-title">1. Tus Datos</h4>
+                                <form id="contact-form" onsubmit="return false;">
+                                    <div style="display: grid; gap: 20px;">
+                                        <div class="fl-form-group">
+                                            <label class="fl-form-label">Nombre Completo</label>
+                                            <input type="text" id="client-name" required="" class="fl-form-input">
+                                        </div>
+                                        <div class="fl-form-group">
+                                            <label class="fl-form-label">WhatsApp</label>
+                                            <input type="tel" id="client-phone" required="" class="fl-form-input">
+                                        </div>
+                                        <div class="fl-form-group">
+                                            <label class="fl-form-label">Curso de Interés</label>
+                                            <select id="course-select" class="fl-form-select">
+                                                <option value="Fotolectura" style="color: black;" selected>Fotolectura
+                                                </option>
+                                                <option value="Otro" style="color: black;">Otro / No estoy seguro
+                                                </option>
+                                            </select>
+                                        </div>
+                                        <button type="button" onclick="goToStep2()" class="fl-btn"
+                                            style="width: 100%; justify-content: center; margin-top: 10px; cursor: pointer;">
+                                            Siguiente: Elegir Horario <i class="fas fa-arrow-right"></i>
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <!-- Step 2: Calendar -->
+                            <div id="booking-step-2" class="booking-step" style="display: none;">
+                                <div
+                                    style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                    <h4 class="fl-booking-step-title">2. Selecciona Horario</h4>
+                                    <button onclick="goToStep1()"
+                                        style="background: none; border: none; color: var(--fl-text-muted); cursor: pointer; font-size: 1rem;">
+                                        <i class="fas fa-arrow-left"></i> Volver
+                                    </button>
+                                </div>
+
+                                <div style="margin-bottom: 20px;">
+                                    <label class="fl-form-label">Fecha</label>
+                                    <input type="date" id="date-picker" onchange="loadTimeSlots()" class="fl-form-input"
+                                        style="color-scheme: dark;" min="2025-12-16">
+                                </div>
+
+                                <div id="slots-container" class="fl-slots-grid">
+                                    <p
+                                        style="grid-column: 1/-1; text-align: center; color: var(--fl-text-muted); padding: 20px;">
+                                        Selecciona una fecha para ver horarios disponibles.</p>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Success -->
+                            <div id="booking-step-3" class="booking-step" style="display: none; text-align: center;">
+                                <div
+                                    style="width: 80px; height: 80px; background: rgba(37, 211, 102, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                                    <i class="fas fa-check" style="font-size: 2.5rem; color: #25D366;"></i>
+                                </div>
+                                <h4 class="fl-booking-step-title" style="margin-bottom: 10px;">¡Cita Confirmada!</h4>
+                                <p style="color: var(--fl-text-muted); margin-bottom: 30px;">Hemos reservado tu espacio.
+                                    Te contactaremos por WhatsApp para confirmar detalles.</p>
+
+                                <div style="display: flex; flex-direction: column; gap: 15px;">
+                                    <a id="gcal-btn" href="#" target="_blank" class="fl-btn"
+                                        style="justify-content: center; background: #4285F4; border-color: #4285F4;">
+                                        <i class="fab fa-google"></i> Guardar en Google Calendar
+                                    </a>
+                                    <a href="tel:+525578107837" class="fl-btn"
+                                        style="justify-content: center; background: transparent; border: 1px solid rgba(255,255,255,0.2);">
+                                        <i class="fas fa-phone"></i> Llamar Ahora
+                                    </a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Script de Reservas Centralizado -->
+                <script src="js/booking.js"></script>
+            </div>
+        </section>
+    </main>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         FOOTER
+    ════════════════════════════════════════════════════════════════════ -->
+    <footer class="fl-footer" role="contentinfo">
+        <div class="container">
+            <div class="fl-footer-grid">
+                <div class="fl-footer-brand">
+                    <h3>WorldBrain <span class="fl-gradient-text">México</span></h3>
+                    <p>Pioneros en Neuroaprendizaje y Desarrollo Mental Acelerado desde 2010. Transformamos la manera en
+                        que Latinoamérica aprende.</p>
+                    <div class="fl-social-links">
+                        <a href="https://facebook.com/worldbrainmexico" class="fl-social-btn" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://instagram.com/worldbrainmexico" class="fl-social-btn" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
+                        <a href="https://youtube.com/@worldbrainmexico" class="fl-social-btn" target="_blank"
+                            rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.linkedin.com/company/worldbrainmexico" class="fl-social-btn"
+                            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+
+                <div>
+                    <div class="fl-footer-heading">Programa</div>
+                    <ul class="fl-footer-links">
+                        <li><a href="#oferta">Clase Muestra</a></li>
+                        <li><a href="#programa">Temario Completo</a></li>
+                        <li><a href="#testimonios">Casos de Éxito</a></li>
+                        <li><a href="#oferta">Garantía</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="fl-footer-heading">Empresa</div>
+                    <ul class="fl-footer-links">
+                        <li><a href="index.html">Inicio</a></li>
+                        <li><a href="index.html#metodologia">Sobre Nosotros</a></li>
+                        <li><a href="index.html#testimonios">Testimonios</a></li>
+                        <li><a href="index.html#contacto">Contacto</a></li>
+                    </ul>
+                </div>
+
+                <div>
+                    <div class="fl-footer-heading">Contacto</div>
+                    <div class="fl-footer-contact">
+                        <i class="fas fa-map-marker-alt"></i>
+                        <span>Av. Reforma 222, CDMX<br>Torre Mayor, Piso 45</span>
+                    </div>
+                    <div class="fl-footer-contact">
+                        <i class="fas fa-phone-alt"></i>
+                        <a href="tel:+525578107837">+52 (55) 7810-7837</a>
+                    </div>
+                    <div class="fl-footer-contact">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:hola@worldbrain.mx">hola@worldbrain.mx</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="fl-footer-bottom">
+                <div>&copy; 2025 WorldBrain México. Todos los derechos reservados.</div>
+                <div>
+                    <a href="https://worldbrain.mx/privacidad" target="_blank" rel="noopener noreferrer">Privacidad</a>
+                    <a href="https://worldbrain.mx/terminos" target="_blank" rel="noopener noreferrer">Términos</a>
+                    <a href="https://worldbrain.mx/cookies" target="_blank" rel="noopener noreferrer">Cookies</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         FLOATING CTA
+    ════════════════════════════════════════════════════════════════════ -->
+    <div class="fl-floating-cta" id="floatingCta">
+        <div class="fl-floating-cta-text">
+            <span class="fl-floating-cta-label">Clase Muestra</span>
+            <span class="fl-floating-cta-price">GRATIS</span>
+        </div>
+        <a href="#oferta" class="fl-btn">Agendar Ahora</a>
+    </div>
+
+    <!-- ═══════════════════════════════════════════════════════════════════
+         SCRIPTS
+    ════════════════════════════════════════════════════════════════════ -->
+    <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        // ═══════════════════════════════════════════════════════════════════
+        // LOADING SCREEN
+        // ═══════════════════════════════════════════════════════════════════
+        window.addEventListener('load', () => {
+            const loadingScreen = document.getElementById('loadingScreen');
+            setTimeout(() => {
+                loadingScreen.classList.add('hidden');
+                document.body.style.overflow = 'auto';
+            }, 800);
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // CUSTOM CURSOR
+        // ═══════════════════════════════════════════════════════════════════
+        const cursorDot = document.getElementById('cursorDot');
+        const cursorOutline = document.getElementById('cursorOutline');
+
+        let mouseX = 0, mouseY = 0;
+        let outlineX = 0, outlineY = 0;
+
+        document.addEventListener('mousemove', (e) => {
+            mouseX = e.clientX;
+            mouseY = e.clientY;
+
+            cursorDot.style.left = mouseX + 'px';
+            cursorDot.style.top = mouseY + 'px';
+        });
+
+        // Smooth cursor outline follow
+        function animateCursor() {
+            outlineX += (mouseX - outlineX) * 0.15;
+            outlineY += (mouseY - outlineY) * 0.15;
+
+            cursorOutline.style.left = outlineX + 'px';
+            cursorOutline.style.top = outlineY + 'px';
+
+            requestAnimationFrame(animateCursor);
+        }
+        animateCursor();
+
+        // Cursor hover effects
+        const hoverElements = document.querySelectorAll('a, button, .magnetic-btn, .fl-bento-card, .fl-problem-card, .fl-testimonial-card');
+        hoverElements.forEach(el => {
+            el.addEventListener('mouseenter', () => {
+                cursorOutline.classList.add('hovering');
+                cursorDot.style.transform = 'scale(2)';
+            });
+            el.addEventListener('mouseleave', () => {
+                cursorOutline.classList.remove('hovering');
+                cursorDot.style.transform = 'scale(1)';
+            });
+        });
+
+        // Hide cursor on mobile
+        if ('ontouchstart' in window) {
+            cursorDot.style.display = 'none';
+            cursorOutline.style.display = 'none';
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // MAGNETIC BUTTONS
+        // ═══════════════════════════════════════════════════════════════════
+        const magneticBtns = document.querySelectorAll('.magnetic-btn');
+        magneticBtns.forEach(btn => {
+            btn.addEventListener('mousemove', (e) => {
+                const rect = btn.getBoundingClientRect();
+                const x = e.clientX - rect.left - rect.width / 2;
+                const y = e.clientY - rect.top - rect.height / 2;
+
+                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
+            });
+
+            btn.addEventListener('mouseleave', () => {
+                btn.style.transform = 'translate(0, 0)';
+            });
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // GSAP SCROLL ANIMATIONS
+        // ═══════════════════════════════════════════════════════════════════
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Parallax background orbs
+        gsap.utils.toArray('.fl-orb-ultra').forEach((orb, i) => {
+            gsap.to(orb, {
+                y: -100 * (i + 1),
+                ease: 'none',
+                scrollTrigger: {
+                    trigger: '.fl-hero-ultra',
+                    start: 'top top',
+                    end: 'bottom top',
+                    scrub: 1
+                }
+            });
+        });
+
+        // Text reveal on scroll
+        gsap.utils.toArray('.fl-section-title').forEach(title => {
+            gsap.from(title, {
+                y: 50,
+                opacity: 0,
+                duration: 1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: title,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+
+        // Stagger animation for grid items
+        gsap.utils.toArray('.fl-bento-card').forEach((card, i) => {
+            gsap.from(card, {
+                y: 60,
+                opacity: 0,
+                duration: 0.8,
+                delay: i * 0.1,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 90%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+
+        // Bento chart bars animation
+        gsap.utils.toArray('.fl-chart-bar').forEach((bar, i) => {
+            gsap.from(bar, {
+                height: 0,
+                duration: 1,
+                delay: i * 0.15,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: bar.closest('.fl-bento-card'),
+                    start: 'top 80%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+
+        // Problem cards stagger
+        gsap.utils.toArray('.fl-problem-card').forEach((card, i) => {
+            gsap.from(card, {
+                x: i % 2 === 0 ? -50 : 50,
+                opacity: 0,
+                duration: 0.8,
+                ease: 'power3.out',
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top 85%',
+                    toggleActions: 'play none none reverse'
+                }
+            });
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // TESTIMONIOS CAROUSEL
+        // ═══════════════════════════════════════════════════════════════════
+        const testimonialSwiper = new Swiper('.fl-testimonials-carousel', {
+            loop: true,
+            speed: 700,
+            spaceBetween: 24,
+            slidesPerView: 1.05,
+            autoplay: {
+                delay: 5500,
+                disableOnInteraction: false
+            },
+            navigation: {
+                nextEl: '.fl-testimonials-next',
+                prevEl: '.fl-testimonials-prev'
+            },
+            pagination: {
+                el: '.fl-testimonials-pagination',
+                clickable: true
+            },
+            breakpoints: {
+                640: { slidesPerView: 1.2, spaceBetween: 20 },
+                768: { slidesPerView: 1.6, spaceBetween: 22 },
+                1024: { slidesPerView: 2.1, spaceBetween: 24 },
+                1280: { slidesPerView: 2.6, spaceBetween: 28 },
+                1440: { slidesPerView: 3, spaceBetween: 32 }
+            }
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // 3D CARD TILT EFFECT
+        // ═══════════════════════════════════════════════════════════════════
+        const cards3D = document.querySelectorAll('.card-3d');
+        cards3D.forEach(card => {
+            card.addEventListener('mousemove', (e) => {
+                const rect = card.getBoundingClientRect();
+                const x = e.clientX - rect.left;
+                const y = e.clientY - rect.top;
+
+                const centerX = rect.width / 2;
+                const centerY = rect.height / 2;
+
+                const rotateX = (y - centerY) / 20;
+                const rotateY = (centerX - x) / 20;
+
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+            });
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // LIVE ACTIVITY SIMULATOR
+        // ═══════════════════════════════════════════════════════════════════
+        const names = ['Carlos M.', 'Ana G.', 'Roberto S.', 'María L.', 'Diego P.', 'Laura R.', 'Fernando H.', 'Sofía V.'];
+        const achievements = [
+            'completó 200 páginas en 15 min',
+            'alcanzó 20,000 ppm',
+            'terminó su tercer libro hoy',
+            'logró 95% de retención',
+            'dominó la técnica de flujo',
+            'procesó 3 libros en 1 hora'
+        ];
+        const avatars = [
+            'https://randomuser.me/api/portraits/women/32.jpg',
+            'https://randomuser.me/api/portraits/men/45.jpg',
+            'https://randomuser.me/api/portraits/women/67.jpg',
+            'https://randomuser.me/api/portraits/men/22.jpg',
+            'https://randomuser.me/api/portraits/women/89.jpg',
+            'https://randomuser.me/api/portraits/men/56.jpg'
+        ];
+
+        function updateLiveActivity() {
+            const liveText = document.querySelector('.fl-live-text');
+            const liveAvatar = document.querySelector('.fl-live-avatar img');
+
+            if (liveText && liveAvatar) {
+                const name = names[Math.floor(Math.random() * names.length)];
+                const achievement = achievements[Math.floor(Math.random() * achievements.length)];
+                const avatar = avatars[Math.floor(Math.random() * avatars.length)];
+
+                liveText.innerHTML = `<strong>${name}</strong> acaba de <span class="fl-live-highlight">${achievement}</span>`;
+                liveAvatar.src = avatar;
+            }
+        }
+
+        setInterval(updateLiveActivity, 5000);
+
+        // ═══════════════════════════════════════════════════════════════════
+        // INITIALIZE AOS
+        // ═══════════════════════════════════════════════════════════════════
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100,
+            easing: 'ease-out-cubic'
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // NAVBAR SCROLL EFFECT
+        // ═══════════════════════════════════════════════════════════════════
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                navbar.classList.add('scrolled');
+            } else {
+                navbar.classList.remove('scrolled');
+            }
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // FLOATING CTA VISIBILITY
+        // ═══════════════════════════════════════════════════════════════════
+        const floatingCta = document.getElementById('floatingCta');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                floatingCta.classList.add('visible');
+            } else {
+                floatingCta.classList.remove('visible');
+            }
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // SMOOTH SCROLL
+        // ═══════════════════════════════════════════════════════════════════
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    const headerOffset = 100;
+                    const elementPosition = target.getBoundingClientRect().top;
+                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+                    window.scrollTo({
+                        top: offsetPosition,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // SPEED TICKER ANIMATION
+        // ═══════════════════════════════════════════════════════════════════
+        const speedTicker = document.getElementById('speedTicker');
+        let currentSpeed = 0;
+        const targetSpeed = 25000;
+
+        function animateSpeedTicker() {
+            if (currentSpeed < targetSpeed) {
+                currentSpeed += Math.ceil((targetSpeed - currentSpeed) / 30);
+                if (currentSpeed > targetSpeed) currentSpeed = targetSpeed;
+                speedTicker.textContent = currentSpeed.toLocaleString();
+                requestAnimationFrame(animateSpeedTicker);
+            }
+        }
+
+        // Trigger on scroll into view
+        const tickerObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSpeedTicker();
+                    tickerObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        if (speedTicker) {
+            tickerObserver.observe(speedTicker.closest('.fl-speed-ticker'));
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // COUNTER ANIMATION FOR BENTO VALUES
+        // ═══════════════════════════════════════════════════════════════════
+        const animateValue = (element, start, end, duration, suffix = '') => {
+            let startTimestamp = null;
+            const step = (timestamp) => {
+                if (!startTimestamp) startTimestamp = timestamp;
+                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
+                const value = Math.floor(progress * (end - start) + start);
+                element.textContent = value.toLocaleString() + suffix;
+                if (progress < 1) {
+                    window.requestAnimationFrame(step);
+                }
+            };
+            window.requestAnimationFrame(step);
+        };
+
+        const valueObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const valueEl = entry.target;
+                    const text = valueEl.dataset.value || valueEl.textContent;
+
+                    if (text.includes('K')) {
+                        animateValue(valueEl, 0, 5, 1500, 'K+');
+                    } else if (text.includes('%')) {
+                        animateValue(valueEl, 0, parseInt(text), 1500, '%');
+                    } else if (text.includes('x')) {
+                        animateValue(valueEl, 0, 10, 1500, 'x');
+                    }
+
+                    valueObserver.unobserve(valueEl);
+                }
+            });
+        }, { threshold: 0.5 });
+
+        document.querySelectorAll('.fl-bento-value').forEach(el => {
+            el.dataset.value = el.textContent;
+            valueObserver.observe(el);
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // FAQ ACCORDION
+        // ═══════════════════════════════════════════════════════════════════
+        document.querySelectorAll('.fl-faq-item').forEach(item => {
+            item.addEventListener('toggle', () => {
+                const icon = item.querySelector('.fl-faq-icon i');
+                if (item.open) {
+                    icon.classList.replace('fa-plus', 'fa-minus');
+                } else {
+                    icon.classList.replace('fa-minus', 'fa-plus');
+                }
+            });
+        });
+
+        // ═══════════════════════════════════════════════════════════════════
+        // PARALLAX HERO VISUAL
+        // ═══════════════════════════════════════════════════════════════════
+        const heroVisual = document.querySelector('.fl-brain-container');
+        if (heroVisual) {
+            document.addEventListener('mousemove', (e) => {
+                const x = (window.innerWidth / 2 - e.clientX) / 30;
+                const y = (window.innerHeight / 2 - e.clientY) / 30;
+                heroVisual.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
+            });
+        }
+
+        // ═══════════════════════════════════════════════════════════════════
+        // TEST DE LECTURA RÁPIDA - FUNCIONALIDAD COMPLETA
+        // ═══════════════════════════════════════════════════════════════════
+
+        // Variables globales del test
+        let testTimer = null;
+        let testSeconds = 0;
+        let testData = {
+            startTime: null,
+            endTime: null,
+            readingTime: 0,
+            wordsCount: 489,
+            answers: {},
+            ppm: 0,
+            comprehension: 0,
+            userData: {}
+        };
+
+        // Respuestas correctas
+        const correctAnswers = {
+            q1: 'b', // 86 mil millones
+            q2: 'b', // 15%
+            q3: 'b', // Instituto de Neurociencia Cognitiva de Londres
+            q4: 'b', // Richard Bandler
+            q5: 'b', // Izquierdo
+            q6: 'b', // Google, Microsoft y Tesla
+            q7: 'b', // Cada 18 meses
+            q8: 'c'  // Los griegos
+        };
+
+        // Función para mostrar un paso específico
+        function showStep(stepNumber) {
+            document.querySelectorAll('.fl-test-step').forEach(step => {
+                step.classList.add('hidden');
+            });
+            document.getElementById(`testStep${stepNumber}`).classList.remove('hidden');
+
+            // Scroll suave al contenedor del test
+            document.querySelector('.fl-test-container').scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+
+        // Función para iniciar la lectura
+        function startReading() {
+            showStep(2);
+            testData.startTime = new Date();
+            testSeconds = 0;
+
+            // Iniciar cronómetro
+            testTimer = setInterval(() => {
+                testSeconds++;
+                const minutes = Math.floor(testSeconds / 60);
+                const seconds = testSeconds % 60;
+                document.getElementById('timerDisplay').textContent =
+                    `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
+            }, 1000);
+        }
+
+        // Función para terminar la lectura
+        function finishReading() {
+            clearInterval(testTimer);
+            testData.endTime = new Date();
+            testData.readingTime = testSeconds;
+
+            // Calcular PPM
+            const minutes = testSeconds / 60;
+            testData.ppm = Math.round(testData.wordsCount / minutes);
+
+            showStep(3);
+        }
+
+        // Función para mostrar el formulario de datos
+        function showDataForm() {
+            // Recoger respuestas
+            const form = document.getElementById('comprehensionForm');
+            const formData = new FormData(form);
+
+            // Verificar que todas las preguntas estén respondidas
+            let allAnswered = true;
+            for (let i = 1; i <= 8; i++) {
+                if (!formData.get(`q${i}`)) {
+                    allAnswered = false;
+                    break;
+                }
+                testData.answers[`q${i}`] = formData.get(`q${i}`);
+            }
+
+            if (!allAnswered) {
+                // Mostrar alerta de que faltan respuestas
+                const questionCards = document.querySelectorAll('.fl-question-card');
+                questionCards.forEach((card, index) => {
+                    if (!formData.get(`q${index + 1}`)) {
+                        card.style.border = '2px solid var(--fl-danger)';
+                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    } else {
+                        card.style.border = '1px solid var(--fl-border)';
+                    }
+                });
+                return;
+            }
+
+            // Calcular comprensión
+            let correctCount = 0;
+            for (let i = 1; i <= 8; i++) {
+                if (testData.answers[`q${i}`] === correctAnswers[`q${i}`]) {
+                    correctCount++;
+                }
+            }
+            testData.comprehension = Math.round((correctCount / 8) * 100);
+
+            showStep(4);
+        }
+
+        // Validación de formulario en tiempo real
+        document.getElementById('userDataForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            const nameInput = document.getElementById('userName');
+            const emailInput = document.getElementById('userEmail');
+            const phoneInput = document.getElementById('userPhone');
+
+            let isValid = true;
+
+            // Validar nombre
+            if (!nameInput.value.trim() || nameInput.value.trim().length < 3) {
+                document.getElementById('nameError').textContent = 'Por favor, ingresa tu nombre completo';
+                nameInput.classList.add('error');
+                nameInput.classList.remove('valid');
+                isValid = false;
+            } else {
+                document.getElementById('nameError').textContent = '';
+                nameInput.classList.remove('error');
+                nameInput.classList.add('valid');
+            }
+
+            // Validar email
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(emailInput.value)) {
+                document.getElementById('emailError').textContent = 'Por favor, ingresa un email válido';
+                emailInput.classList.add('error');
+                emailInput.classList.remove('valid');
+                isValid = false;
+            } else {
+                document.getElementById('emailError').textContent = '';
+                emailInput.classList.remove('error');
+                emailInput.classList.add('valid');
+            }
+
+            // Validar teléfono (formato mexicano)
+            const phoneRegex = /^[\d\s\-\(\)]{10,15}$/;
+            const cleanPhone = phoneInput.value.replace(/\D/g, '');
+            if (cleanPhone.length < 10) {
+                document.getElementById('phoneError').textContent = 'Por favor, ingresa un número de WhatsApp válido (10 dígitos)';
+                phoneInput.classList.add('error');
+                phoneInput.classList.remove('valid');
+                isValid = false;
+            } else {
+                document.getElementById('phoneError').textContent = '';
+                phoneInput.classList.remove('error');
+                phoneInput.classList.add('valid');
+            }
+
+            if (isValid) {
+                testData.userData = {
+                    name: nameInput.value.trim(),
+                    email: emailInput.value.trim(),
+                    phone: phoneInput.value.trim()
+                };
+
+                showResults();
+            }
+        });
+
+        // Validación en tiempo real
+        document.getElementById('userName').addEventListener('input', function () {
+            if (this.value.trim().length >= 3) {
+                this.classList.remove('error');
+                this.classList.add('valid');
+                document.getElementById('nameError').textContent = '';
+            }
+        });
+
+        document.getElementById('userEmail').addEventListener('input', function () {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (emailRegex.test(this.value)) {
+                this.classList.remove('error');
+                this.classList.add('valid');
+                document.getElementById('emailError').textContent = '';
+            }
+        });
+
+        document.getElementById('userPhone').addEventListener('input', function () {
+            const cleanPhone = this.value.replace(/\D/g, '');
+            if (cleanPhone.length >= 10) {
+                this.classList.remove('error');
+                this.classList.add('valid');
+                document.getElementById('phoneError').textContent = '';
+            }
+        });
+
+        // Función para mostrar resultados
+        function showResults() {
+            showStep(5);
+
+            // Mostrar nombre
+            document.getElementById('resultName').textContent = testData.userData.name.split(' ')[0];
+
+            // Animar PPM
+            animateNumber('resultPPM', testData.ppm, 1500);
+
+            // Animar comprensión
+            setTimeout(() => {
+                document.getElementById('resultComprehension').textContent = testData.comprehension + '%';
+            }, 500);
+
+            // Determinar tipo de lector
+            let readerType = '';
+            let readerDescription = '';
+            let highlightRow = '';
+
+            if (testData.ppm < 250) {
+                readerType = 'Lector Tradicional';
+                readerDescription = 'Tu velocidad de lectura está en el rango promedio. Esto significa que estás utilizando técnicas de lectura convencionales que limitan tu potencial. La buena noticia: tienes un enorme margen de mejora.';
+                highlightRow = 'rowTraditional';
+            } else if (testData.ppm < 500) {
+                readerType = 'Lector Veloz';
+                readerDescription = '¡Buen trabajo! Tu velocidad está por encima del promedio. Ya tienes algunas habilidades de lectura rápida, pero aún puedes multiplicar tu velocidad exponencialmente con las técnicas correctas.';
+                highlightRow = 'rowFast';
+            } else {
+                readerType = 'Lector Inteligente';
+                readerDescription = '¡Excelente! Tienes habilidades avanzadas de lectura. Sin embargo, con Fotolectura podrías llevar estas habilidades al siguiente nivel y alcanzar velocidades de procesamiento que parecen imposibles.';
+                highlightRow = 'rowIntelligent';
+            }
+
+            document.getElementById('readerType').textContent = readerType;
+            document.getElementById('readerDescription').textContent = readerDescription;
+
+            // Resaltar fila actual en la tabla
+            document.querySelectorAll('.fl-reader-comparison-table tbody tr').forEach(row => {
+                row.classList.remove('current-reader');
+            });
+            document.getElementById(highlightRow).classList.add('current-reader');
+
+            // Calcular factor de mejora
+            const improvementFactor = Math.round(25000 / testData.ppm);
+            document.getElementById('improvementFactor').textContent = improvementFactor + 'x';
+
+            // Clasificación visual del badge
+            const badge = document.querySelector('.fl-classification-badge');
+            if (testData.ppm < 250) {
+                badge.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+            } else if (testData.ppm < 500) {
+                badge.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+            } else {
+                badge.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            }
+        }
+
+        // Función para animar números
+        function animateNumber(elementId, target, duration) {
+            const element = document.getElementById(elementId);
+            let start = 0;
+            const startTime = performance.now();
+
+            function update(currentTime) {
+                const elapsed = currentTime - startTime;
+                const progress = Math.min(elapsed / duration, 1);
+
+                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+                const current = Math.round(easeOutQuart * target);
+
+                element.textContent = current.toLocaleString();
+
+                if (progress < 1) {
+                    requestAnimationFrame(update);
+                }
+            }
+
+            requestAnimationFrame(update);
+        }
+
+        // Función para reiniciar el test
+        function resetTest() {
+            // Limpiar datos
+            testData = {
+                startTime: null,
+                endTime: null,
+                readingTime: 0,
+                wordsCount: 489,
+                answers: {},
+                ppm: 0,
+                comprehension: 0,
+                userData: {}
+            };
+
+            // Limpiar formularios
+            document.getElementById('comprehensionForm').reset();
+            document.getElementById('userDataForm').reset();
+
+            // Limpiar estilos de validación
+            document.querySelectorAll('.fl-form-group input').forEach(input => {
+                input.classList.remove('error', 'valid');
+            });
+            document.querySelectorAll('.fl-form-error').forEach(error => {
+                error.textContent = '';
+            });
+            document.querySelectorAll('.fl-question-card').forEach(card => {
+                card.style.border = '1px solid var(--fl-border)';
+            });
+
+            // Reiniciar timer display
+            document.getElementById('timerDisplay').textContent = '00:00';
+
+            // Volver al paso 1
+            showStep(1);
+        }
+    </script>
+    <!-- Video modal para 'Ver cómo funciona' -->
+    <style>
+        .fl-video-modal {
+            position: fixed;
+            inset: 0;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            z-index: 2000
+        }
+
+        .fl-video-modal.open {
+            display: flex
+        }
+
+        .fl-video-backdrop {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.7)
+        }
+
+        .fl-video-wrap {
+            position: relative;
+            width: 90%;
+            max-width: 960px;
+            z-index: 2
+        }
+
+        .fl-video-wrap video {
+            width: 100%;
+            height: auto;
+            border-radius: 12px;
+            display: block;
+            background: #000
+        }
+
+        .fl-video-close {
+            position: absolute;
+            top: -12px;
+            right: -12px;
+            background: #111;
+            color: #fff;
+            border: 0;
+            border-radius: 50%;
+            width: 44px;
+            height: 44px;
+            font-size: 20px;
+            z-index: 3;
+            cursor: pointer
+        }
+    </style>
+
+    <div id="fl-video-modal" class="fl-video-modal" aria-hidden="true">
+        <div class="fl-video-backdrop"></div>
+        <div class="fl-video-wrap" role="dialog" aria-modal="true">
+            <button id="fl-video-close" class="fl-video-close" aria-label="Cerrar video">×</button>
+            <video id="fl-video-player" controls playsinline preload="metadata">
+                <source src="Curso-de-Fotolectura-lectura-rapida.mp4" type="video/mp4">
+                Tu navegador no soporta la etiqueta de video.
+            </video>
+        </div>
+    </div>
+
+    <script>
+        (function () {
+            const btn = document.getElementById('fl-play-btn');
+            const modal = document.getElementById('fl-video-modal');
+            const closeBtn = document.getElementById('fl-video-close');
+            const player = document.getElementById('fl-video-player');
+
+            function openModal() {
+                modal.classList.add('open');
+                modal.setAttribute('aria-hidden', 'false');
+                const dataSrc = btn && btn.getAttribute('data-video');
+                if (dataSrc) {
+                    const srcEl = player.querySelector('source');
+                    if (srcEl && srcEl.getAttribute('src') !== dataSrc) {
+                        srcEl.setAttribute('src', dataSrc);
+                        player.load();
+                    }
+                }
+                player.play().catch(() => { });
+            }
+
+            function closeModal() {
+                player.pause();
+                try { player.currentTime = 0; } catch (e) { }
+                modal.classList.remove('open');
+                modal.setAttribute('aria-hidden', 'true');
+            }
+
+            if (btn) {
+                btn.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    openModal();
+                });
+            }
+
+            if (closeBtn) { closeBtn.addEventListener('click', closeModal); }
+
+            modal.addEventListener('click', function (e) {
+                if (e.target.classList.contains('fl-video-backdrop') || e.target === modal) {
+                    closeModal();
+                }
+            });
+
+            document.addEventListener('keydown', function (e) {
+                if (e.key === 'Escape' && modal.classList.contains('open')) {
+                    closeModal();
+                }
+            });
+        })();
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,985 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Universidad Dominical | WorldBrain México</title>
+    <meta name="description" content="Licenciaturas ejecutivas con clases solo los domingos. Obtén tu título profesional sin dejar de trabajar. Validez oficial SEP.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Animations -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/styles.css">
+    
+    <style>
+        /* 
+         * UNI THEME
+         * Theme: Professional Blue & Gold
+         */
+        :root {
+            --uni-bg: #0f172a;
+            --uni-surface: #1e293b;
+            --uni-primary: #3b82f6; /* Blue */
+            --uni-accent: #f59e0b; /* Gold */
+            --uni-text: #f8fafc;
+            --uni-text-muted: #cbd5e1;
+            --uni-gradient: linear-gradient(135deg, #1e40af 0%, #3b82f6 100%);
+            --uni-gradient-text: linear-gradient(to right, #60a5fa, #fbbf24);
+        }
+
+        body.uni-page {
+            background-color: var(--uni-bg);
+            color: var(--uni-text);
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Typography */
+        .uni-title-display {
+            font-family: 'Outfit', sans-serif;
+            font-size: 4rem;
+            font-weight: 800;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            letter-spacing: -0.02em;
+            color: white;
+        }
+
+        .uni-gradient-text {
+            background: var(--uni-gradient-text);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .uni-section {
+            padding: 100px 0;
+        }
+
+        .uni-section.surface {
+            background: var(--uni-surface);
+        }
+
+        .uni-grid {
+            display: grid;
+            gap: 24px;
+        }
+
+        .uni-grid.columns-2 {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+        }
+
+        .uni-grid.columns-3 {
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        }
+
+        .uni-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 14px;
+            border-radius: 999px;
+            border: 1px solid rgba(255,255,255,0.08);
+            background: rgba(255,255,255,0.04);
+            color: var(--uni-text);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .uni-pill {
+            display: inline-flex;
+            align-items: center;
+            padding: 8px 14px;
+            border-radius: 999px;
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--uni-primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.02em;
+        }
+
+        .uni-stat {
+            background: rgba(255,255,255,0.03);
+            border: 1px solid rgba(255,255,255,0.06);
+            border-radius: 14px;
+            padding: 18px 20px;
+        }
+
+        .uni-stat strong {
+            font-size: 1.6rem;
+            color: var(--uni-primary);
+        }
+
+        .uni-checklist {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: grid;
+            gap: 12px;
+        }
+
+        .uni-checklist li {
+            display: flex;
+            gap: 10px;
+            color: var(--uni-text-muted);
+            font-weight: 500;
+        }
+
+        .uni-checklist i {
+            color: #22c55e;
+            margin-top: 4px;
+        }
+
+        .uni-tagline {
+            font-weight: 700;
+            color: var(--uni-text-muted);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+        }
+
+        .uni-subtitle {
+            font-size: 1.1rem;
+            color: var(--uni-text-muted);
+            line-height: 1.65;
+        }
+
+        .uni-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.15), transparent);
+            width: 100%;
+            margin: 32px 0;
+        }
+
+        .uni-mini-card {
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 16px;
+            padding: 20px;
+            background: rgba(255,255,255,0.03);
+        }
+
+        .uni-step {
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 16px;
+            align-items: flex-start;
+            padding: 18px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.06);
+            background: rgba(255,255,255,0.02);
+        }
+
+        .uni-step .number {
+            width: 38px;
+            height: 38px;
+            border-radius: 12px;
+            display: grid;
+            place-items: center;
+            background: rgba(59, 130, 246, 0.15);
+            color: var(--uni-primary);
+            font-weight: 800;
+        }
+
+        .uni-faq {
+            border: 1px solid rgba(255,255,255,0.08);
+            border-radius: 14px;
+            padding: 18px 20px;
+            background: rgba(255,255,255,0.02);
+        }
+
+        .uni-faq summary {
+            cursor: pointer;
+            font-weight: 700;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .uni-faq p {
+            margin-top: 10px;
+            color: var(--uni-text-muted);
+            line-height: 1.6;
+        }
+
+        /* Hero Section */
+        .uni-hero {
+            position: relative;
+            min-height: 90vh;
+            display: flex;
+            align-items: center;
+            padding: 120px 0 80px;
+            background: radial-gradient(circle at 80% 20%, rgba(59, 130, 246, 0.15), transparent 50%);
+        }
+
+        /* Cards */
+        .uni-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 16px;
+            padding: 30px;
+            transition: transform 0.3s ease;
+        }
+
+        .uni-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--uni-primary);
+        }
+
+        /* Buttons */
+        .uni-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 32px;
+            background: var(--uni-gradient);
+            border-radius: 8px;
+            color: white;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .uni-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 20px rgba(59, 130, 246, 0.3);
+        }
+
+        .uni-btn-outline {
+            background: transparent;
+            border: 1px solid rgba(255,255,255,0.3);
+        }
+        
+        .uni-btn-outline:hover {
+            background: rgba(255,255,255,0.05);
+            border-color: white;
+        }
+
+        /* Pain Points */
+        .pain-item {
+            display: flex;
+            gap: 15px;
+            margin-bottom: 20px;
+            padding: 20px;
+            background: rgba(239, 68, 68, 0.1);
+            border-radius: 12px;
+            border-left: 4px solid #ef4444;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .uni-title-display { font-size: 2.5rem; }
+            .uni-hero { padding-top: 100px; }
+            .uni-grid.columns-2, .uni-grid.columns-3 { grid-template-columns: 1fr; }
+            .uni-section { padding: 70px 0; }
+        }
+    </style>
+</head>
+<body class="uni-page">
+
+    <!-- Navigation -->
+    <nav class="navbar glass-nav" style="position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(10px); background: rgba(15, 23, 42, 0.9); border-bottom: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <div class="nav-content" style="display: flex; justify-content: space-between; align-items: center; height: 80px;">
+                <a href="index.html" class="logo" style="font-family: 'Outfit'; font-weight: 700; font-size: 1.5rem; color: white; text-decoration: none;">
+                    WorldBrain <span style="color: var(--uni-primary);">Uni</span>
+                </a>
+                <a href="index.html" style="color: var(--uni-text-muted); text-decoration: none; font-weight: 500;">
+                    <i class="fas fa-arrow-left"></i> Volver
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="uni-hero">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 60px; align-items: center;">
+                <div data-aos="fade-right">
+                    <div class="uni-chip" style="margin-bottom: 16px;">
+                        <i class="fas fa-shield-check"></i> Validez Oficial SEP | Licenciaturas Ejecutivas
+                    </div>
+                    <h1 class="uni-title-display">
+                        Universidad Dominical: 
+                        <span class="uni-gradient-text">título universitario sin pausar su trabajo</span>
+                    </h1>
+                    <p class="uni-subtitle" style="font-size: 1.2rem; margin-bottom: 28px;">
+                        Clases solo los domingos, metodología ultra-acelerada y plan personalizado. Convierta su experiencia real en un título con reconocimiento oficial en el menor tiempo posible.
+                    </p>
+                    <ul class="uni-checklist" style="margin-bottom: 28px;">
+                        <li><i class="fas fa-check-circle"></i> Sistema 100% regulado por SEP (Acuerdo 286) con validez nacional.</li>
+                        <li><i class="fas fa-check-circle"></i> Modalidades dominical, virtual, híbrida o a su ritmo.</li>
+                        <li><i class="fas fa-check-circle"></i> Mentoría personalizada y simulador de evaluación avanzado.</li>
+                    </ul>
+                    <div style="display: flex; gap: 14px; flex-wrap: wrap; align-items: center;">
+                        <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20mi%20evaluaci%C3%B3n%20gratuita%20para%20Universidad%20Dominical" class="uni-btn">
+                            <i class="fab fa-whatsapp"></i> Agendar evaluación gratuita
+                        </a>
+                        <a href="#carreras" class="uni-btn uni-btn-outline">
+                            Ver programas y rutas
+                        </a>
+                        <span class="uni-pill"><i class="fas fa-clock"></i> Inscripciones abiertas | Cupos limitados</span>
+                    </div>
+                </div>
+
+                <div style="position: relative;" data-aos="fade-left">
+                    <div class="uni-card" style="background: linear-gradient(145deg, rgba(59, 130, 246, 0.18), rgba(15, 23, 42, 0.7)); border: 1px solid rgba(255,255,255,0.2); box-shadow: 0 30px 80px rgba(0,0,0,0.35);">
+                        <div style="display: grid; gap: 18px;">
+                            <div style="display: flex; align-items: center; justify-content: space-between;">
+                                <div class="uni-chip" style="background: rgba(15,23,42,0.6);">Domingos Intensivos</div>
+                                <span style="color: var(--uni-text-muted); font-weight: 600;">4-6 hrs / sesión</span>
+                            </div>
+                            <div class="uni-divider"></div>
+                            <div class="uni-grid columns-2" style="gap: 14px;">
+                                <div class="uni-mini-card">
+                                    <p class="uni-tagline">Escenario</p>
+                                    <h4 style="color: white; margin: 6px 0 10px;">Profesional en activo</h4>
+                                    <p style="color: var(--uni-text-muted);">Valide su trayectoria laboral y obtenga el título sin reiniciar desde cero.</p>
+                                </div>
+                                <div class="uni-mini-card">
+                                    <p class="uni-tagline">Garantía</p>
+                                    <h4 style="color: white; margin: 6px 0 10px;">SEP + Acompañamiento</h4>
+                                    <p style="color: var(--uni-text-muted);">Preparación completa para coloquio oficial y exámenes teóricos.</p>
+                                </div>
+                            </div>
+                            <div class="uni-divider"></div>
+                            <div class="uni-grid columns-3" style="gap: 12px;">
+                                <div class="uni-stat">
+                                    <strong>35M+</strong>
+                                    <p style="margin: 6px 0 0; color: var(--uni-text-muted);">Personas sin bachillerato</p>
+                                </div>
+                                <div class="uni-stat">
+                                    <strong>17M+</strong>
+                                    <p style="margin: 6px 0 0; color: var(--uni-text-muted);">Sin título universitario</p>
+                                </div>
+                                <div class="uni-stat">
+                                    <strong>10,000+</strong>
+                                    <p style="margin: 6px 0 0; color: var(--uni-text-muted);">Graduados WorldBrain</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Brecha y Urgencia -->
+    <section class="uni-section" style="background: linear-gradient(180deg, rgba(59,130,246,0.06), rgba(15,23,42,0.6));">
+        <div class="container">
+            <div class="uni-grid columns-2" style="align-items: center;">
+                <div data-aos="fade-up">
+                    <p class="uni-tagline">Cerrando la brecha educativa</p>
+                    <h2 style="font-family: 'Outfit'; font-size: 2.6rem; color: white; margin-bottom: 16px;">No sea parte de la estadística</h2>
+                    <p class="uni-subtitle" style="margin-bottom: 24px;">En México millones de profesionales siguen limitados por la falta de un título. Nuestro modelo dominical, flexible y acelerado le permite formalizar su experiencia y abrir puertas inmediatas.</p>
+                    <div class="uni-grid columns-3" style="gap: 14px;">
+                        <div class="uni-stat" style="border-left: 4px solid #ef4444;">
+                            <strong>35M+</strong>
+                            <p style="margin: 6px 0 0; color: var(--uni-text-muted);">Sin bachillerato</p>
+                        </div>
+                        <div class="uni-stat" style="border-left: 4px solid #f59e0b;">
+                            <strong>17M+</strong>
+                            <p style="margin: 6px 0 0; color: var(--uni-text-muted);">Sin título universitario</p>
+                        </div>
+                        <div class="uni-stat" style="border-left: 4px solid #22c55e;">
+                            <strong>100%+</strong>
+                            <p style="margin: 6px 0 0; color: var(--uni-text-muted);">Oportunidad de cambio</p>
+                        </div>
+                    </div>
+                    <div style="display: flex; gap: 12px; flex-wrap: wrap; margin-top: 22px;">
+                        <span class="uni-chip"><i class="fas fa-bolt"></i> Aprendizaje ultra-rápido</span>
+                        <span class="uni-chip"><i class="fas fa-user-check"></i> 100% personalizado</span>
+                        <span class="uni-chip"><i class="fas fa-certificate"></i> Reconocimiento SEP</span>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="uni-card" style="border: 1px solid rgba(255,255,255,0.08);">
+                    <h3 style="color: white; margin-bottom: 16px;">Gatillos para decidir hoy</h3>
+                    <ul class="uni-checklist">
+                        <li><i class="fas fa-check-circle"></i> Evaluación diagnóstica 100% gratuita (valor $2,500 MXN).</li>
+                        <li><i class="fas fa-check-circle"></i> Inscripciones abiertas y grupos reducidos para atención personalizada.</li>
+                        <li><i class="fas fa-check-circle"></i> Descuentos por pronto pago y financiamiento flexible.</li>
+                        <li><i class="fas fa-check-circle"></i> Modalidades dominical, virtual, híbrida o a su ritmo.</li>
+                        <li><i class="fas fa-check-circle"></i> Ruta acelerada con simulador de evaluación y acompañamiento SEP.</li>
+                    </ul>
+                    <div style="margin-top: 22px; display: flex; gap: 12px; flex-wrap: wrap;">
+                        <a class="uni-btn" href="#agendar"><i class="fas fa-calendar-check"></i> Apartar evaluación</a>
+                        <a class="uni-btn uni-btn-outline" href="https://wa.me/5215578107837?text=Hola,%20quiero%20mi%20plan%20personalizado%20para%20Universidad%20Dominical">WhatsApp inmediato</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Prueba Social -->
+    <section class="uni-section" style="background: linear-gradient(180deg, rgba(59,130,246,0.08), rgba(15,23,42,0.7));">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 36px;" data-aos="fade-up">
+                <p class="uni-tagline">Éxito comprobado</p>
+                <h2 style="font-family: 'Outfit'; font-size: 2.5rem; color: white;">Historias que inspiran</h2>
+            </div>
+            <div class="uni-grid columns-3" style="gap: 16px;">
+                <div class="uni-card" data-aos="fade-up">
+                    <p style="color: var(--uni-text-muted);">“Validé 12 años de experiencia y obtuve mi título en meses. El simulador del coloquio me dio seguridad total.”</p>
+                    <div style="margin-top: 12px; color: white; font-weight: 700;">María G. | Administración</div>
+                    <span style="color: var(--uni-text-muted);">Gerente de Operaciones</span>
+                </div>
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="100">
+                    <p style="color: var(--uni-text-muted);">“Solo podía estudiar los domingos. La flexibilidad y las asesorías entre semana hicieron posible titularme sin dejar de trabajar.”</p>
+                    <div style="margin-top: 12px; color: white; font-weight: 700;">Luis R. | Derecho</div>
+                    <span style="color: var(--uni-text-muted);">Coordinador Jurídico</span>
+                </div>
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="200">
+                    <p style="color: var(--uni-text-muted);">“Terminaba mi carrera pendiente. Me guiaron con un plan claro, mentorías y prácticas. Hoy lidero un proyecto educativo.”</p>
+                    <div style="margin-top: 12px; color: white; font-weight: 700;">Paola S. | Pedagogía</div>
+                    <span style="color: var(--uni-text-muted);">Directora Académica</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="uni-section surface" id="faq">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 30px;" data-aos="fade-up">
+                <p class="uni-tagline">Preguntas frecuentes</p>
+                <h2 style="font-family: 'Outfit'; font-size: 2.4rem; color: white;">Respuestas rápidas</h2>
+            </div>
+            <div class="uni-grid columns-2" style="gap: 14px;">
+                <details class="uni-faq" data-aos="fade-up">
+                    <summary>¿La titulación tiene validez oficial SEP?</summary>
+                    <p>Sí. El modelo está regulado por la SEP vía Acuerdo 286 y otorga reconocimiento nacional.</p>
+                </details>
+                <details class="uni-faq" data-aos="fade-up" data-aos-delay="80">
+                    <summary>¿Cuánto dura el programa dominical?</summary>
+                    <p>Dependiendo de su ruta y experiencia validable, puede titularse en un período acelerado. En la sesión diagnóstica definimos la duración exacta.</p>
+                </details>
+                <details class="uni-faq" data-aos="fade-up" data-aos-delay="160">
+                    <summary>¿Puedo estudiar virtual o híbrido?</summary>
+                    <p>Claro. Ofrecemos presencial, virtual, híbrido y modalidad a su propio ritmo, siempre con mentoría.</p>
+                </details>
+                <details class="uni-faq" data-aos="fade-up" data-aos-delay="240">
+                    <summary>¿Qué incluye la evaluación gratuita?</summary>
+                    <p>Diagnóstico vocacional, plan de carrera personalizado, revisión de experiencia previa y opciones de financiamiento.</p>
+                </details>
+                <details class="uni-faq" data-aos="fade-up" data-aos-delay="320">
+                    <summary>¿Hay financiamiento o becas?</summary>
+                    <p>Sí. Contamos con descuentos por pronto pago y planes que se adaptan a su flujo. Se revisan en la llamada.</p>
+                </details>
+                <details class="uni-faq" data-aos="fade-up" data-aos-delay="400">
+                    <summary>¿Qué pasa si no tengo experiencia previa?</summary>
+                    <p>La Ruta Acelerada #2 está diseñada para usted con técnicas de aprendizaje ultra-rápido y acompañamiento total.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- Pain Points -->
+    <section class="uni-section surface">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 50px;" data-aos="fade-up">
+                <p class="uni-tagline">Ganchos de dolor reales</p>
+                <h2 style="font-family: 'Outfit'; font-size: 2.5rem; color: white;">¿Le suena familiar?</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 20px;">
+                <div class="pain-item" data-aos="fade-up">
+                    <i class="fas fa-ban" style="color: #ef4444; font-size: 1.5rem; margin-top: 5px;"></i>
+                    <div>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 5px; color: white;">Estancamiento laboral</h4>
+                        <p style="color: var(--uni-text-muted);">Observa ascensos que se deciden por un título, aun cuando domina las funciones.</p>
+                    </div>
+                </div>
+                <div class="pain-item" data-aos="fade-up" data-aos-delay="80">
+                    <i class="fas fa-ban" style="color: #ef4444; font-size: 1.5rem; margin-top: 5px;"></i>
+                    <div>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 5px; color: white;">Falta de tiempo</h4>
+                        <p style="color: var(--uni-text-muted);">Semana llena de trabajo, familia y proyectos. Asistir diario es inviable.</p>
+                    </div>
+                </div>
+                <div class="pain-item" data-aos="fade-up" data-aos-delay="160">
+                    <i class="fas fa-ban" style="color: #ef4444; font-size: 1.5rem; margin-top: 5px;"></i>
+                    <div>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 5px; color: white;">Burocracia académica</h4>
+                        <p style="color: var(--uni-text-muted);">Relleno y trámites interminables sin valor en el mercado real.</p>
+                    </div>
+                </div>
+                <div class="pain-item" data-aos="fade-up" data-aos-delay="240">
+                    <i class="fas fa-ban" style="color: #ef4444; font-size: 1.5rem; margin-top: 5px;"></i>
+                    <div>
+                        <h4 style="font-size: 1.2rem; margin-bottom: 5px; color: white;">Reconocimiento oficial</h4>
+                        <p style="color: var(--uni-text-muted);">Necesita un título con validez SEP que respalde su experiencia y abra puertas.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WorldBrain Diferencia -->
+    <section class="uni-section">
+        <div class="container">
+            <div class="uni-grid columns-2" style="align-items: center;">
+                <div data-aos="fade-right">
+                    <p class="uni-tagline">WorldBrain México</p>
+                    <h2 style="font-family: 'Outfit'; font-size: 2.6rem; color: white; margin-bottom: 12px;">Sistema revolucionario de profesionalización</h2>
+                    <p class="uni-subtitle" style="margin-bottom: 22px;">Somos el movimiento educativo más innovador de México. Combinamos regulación SEP, tecnología de vanguardia y mentoría experta para acelerar su titulación sin sacrificar calidad.</p>
+                    <div class="uni-grid columns-2" style="gap: 14px;">
+                        <div class="uni-card">
+                            <h4 style="color: white; margin-bottom: 8px;">Validez garantizada</h4>
+                            <p style="color: var(--uni-text-muted);">Modelo regulado por SEP (Acuerdo 286) con reconocimiento nacional.</p>
+                        </div>
+                        <div class="uni-card">
+                            <h4 style="color: white; margin-bottom: 8px;">Método integral</h4>
+                            <p style="color: var(--uni-text-muted);">Lo mejor de la educación tradicional + innovación tecnológica y simuladores.</p>
+                        </div>
+                        <div class="uni-card">
+                            <h4 style="color: white; margin-bottom: 8px;">Flexibilidad total</h4>
+                            <p style="color: var(--uni-text-muted);">Presencial, virtual, híbrido o a su ritmo. Usted decide cómo y cuándo.</p>
+                        </div>
+                        <div class="uni-card">
+                            <h4 style="color: white; margin-bottom: 8px;">Resultados rápidos</h4>
+                            <p style="color: var(--uni-text-muted);">Programas ultra-acelerados con acompañamiento continuo y entregables reales.</p>
+                        </div>
+                    </div>
+                </div>
+                <div data-aos="fade-left" class="uni-card" style="border: 1px solid rgba(255,255,255,0.08);">
+                    <h3 style="color: white; margin-bottom: 12px;">Garantías y activadores</h3>
+                    <ul class="uni-checklist" style="margin-bottom: 16px;">
+                        <li><i class="fas fa-check-circle"></i> Reconocimiento oficial SEP en toda la República.</li>
+                        <li><i class="fas fa-check-circle"></i> Simulador de evaluación avanzada para asegurar el coloquio.</li>
+                        <li><i class="fas fa-check-circle"></i> Mentores expertos por carrera con retroalimentación personalizada.</li>
+                        <li><i class="fas fa-check-circle"></i> 10,000+ graduados y 200,000 vidas impactadas.</li>
+                        <li><i class="fas fa-check-circle"></i> Planes de financiamiento y becas de pronto pago.</li>
+                    </ul>
+                    <a class="uni-btn" href="https://wa.me/5215578107837?text=Hola,%20quiero%20ver%20las%20garant%C3%ADas%20de%20Universidad%20Dominical"><i class="fas fa-shield-alt"></i> Solicitar garantía por escrito</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rutas Aceleradas -->
+    <section class="uni-section surface" id="rutas">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 40px;" data-aos="fade-up">
+                <p class="uni-tagline">Elija su camino</p>
+                <h2 style="font-family: 'Outfit'; font-size: 2.6rem; color: white;">Rutas aceleradas de titulación</h2>
+            </div>
+            <div class="uni-grid columns-2" style="gap: 24px;">
+                <div class="uni-card" data-aos="fade-right">
+                    <div class="uni-chip" style="margin-bottom: 14px; background: rgba(34,197,94,0.12); color: #4ade80; border-color: rgba(74,222,128,0.35);"><i class="fas fa-briefcase"></i> Ruta Acelerada #1</div>
+                    <h3 style="color: white; font-size: 1.6rem; margin-bottom: 10px;">Profesionales con experiencia</h3>
+                    <p style="color: var(--uni-text-muted); margin-bottom: 16px;">Convierta su experiencia laboral en un título universitario. Basado en el Artículo 64 de la Ley General de Educación.</p>
+                    <ul class="uni-checklist" style="margin-bottom: 12px;">
+                        <li><i class="fas fa-check-circle"></i> 16 clases magistrales intensivas con práctica aplicada.</li>
+                        <li><i class="fas fa-check-circle"></i> Casos de estudio reales del mercado.</li>
+                        <li><i class="fas fa-check-circle"></i> Simulador de evaluación y coloquio oficial.</li>
+                        <li><i class="fas fa-check-circle"></i> Acreditación de saberes adquiridos en el mundo real.</li>
+                    </ul>
+                    <a class="uni-btn" href="#agendar"><i class="fas fa-calendar-plus"></i> Agendar diagnóstico</a>
+                </div>
+                <div class="uni-card" data-aos="fade-left">
+                    <div class="uni-chip" style="margin-bottom: 14px; background: rgba(99,102,241,0.12); color: #c4c6ff; border-color: rgba(99,102,241,0.35);"><i class="fas fa-rocket"></i> Ruta Acelerada #2</div>
+                    <h3 style="color: white; font-size: 1.6rem; margin-bottom: 10px;">Programas super acelerados</h3>
+                    <p style="color: var(--uni-text-muted); margin-bottom: 16px;">Diseñados para jóvenes ambiciosos y adultos que desean graduarse en tiempo récord sin perder calidad académica.</p>
+                    <ul class="uni-checklist" style="margin-bottom: 12px;">
+                        <li><i class="fas fa-check-circle"></i> Técnicas de aprendizaje ultra-acelerado WorldBrain.</li>
+                        <li><i class="fas fa-check-circle"></i> Programas 100% personalizados a su estilo de aprendizaje.</li>
+                        <li><i class="fas fa-check-circle"></i> Tecnología de vanguardia integrada en cada módulo.</li>
+                        <li><i class="fas fa-check-circle"></i> Mentores y acompañamiento semanal.</li>
+                    </ul>
+                    <a class="uni-btn uni-btn-outline" href="https://wa.me/5215578107837?text=Hola,%20quiero%20la%20Ruta%20Acelerada%20super%20r%C3%A1pida"><i class="fab fa-whatsapp"></i> Recibir plan express</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Audiencia Objetivo -->
+    <section class="uni-section" id="audiencia" style="background: linear-gradient(180deg, rgba(15,23,42,0.7), rgba(59,130,246,0.06));">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 40px;" data-aos="fade-up">
+                <p class="uni-tagline">Transformamos vidas todos los días</p>
+                <h2 style="font-family: 'Outfit'; font-size: 2.5rem; color: white;">¿Quién se beneficia?</h2>
+            </div>
+            <div class="uni-grid columns-2" style="gap: 18px;">
+                <div class="uni-card" data-aos="fade-up">
+                    <h4 style="color: white; margin-bottom: 6px;">Jóvenes ambiciosos</h4>
+                    <p style="color: var(--uni-text-muted);">Completar su título más rápido con metodologías aceleradas. El éxito no espera.</p>
+                </div>
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="80">
+                    <h4 style="color: white; margin-bottom: 6px;">Profesionales en evolución</h4>
+                    <p style="color: var(--uni-text-muted);">Cambiar de área o crecer en la empresa con un título oficial que abra puertas.</p>
+                </div>
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="160">
+                    <h4 style="color: white; margin-bottom: 6px;">Carreras rescatadas</h4>
+                    <p style="color: var(--uni-text-muted);">Retomar y concluir estudios pendientes con un enfoque flexible y personalizado.</p>
+                </div>
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="240">
+                    <h4 style="color: white; margin-bottom: 6px;">Emprendedores visionarios</h4>
+                    <p style="color: var(--uni-text-muted);">Diseñar proyectos personales o iniciar nueva profesión en sectores en crecimiento.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Beneficios y Gatillos Mentales -->
+    <section class="uni-section surface" id="beneficios">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 40px;" data-aos="fade-up">
+                <p class="uni-tagline">Beneficios tangibles</p>
+                <h2 style="font-family: 'Outfit'; font-size: 2.5rem; color: white;">Razones para actuar ahora</h2>
+                <p class="uni-subtitle" style="max-width: 800px; margin: 12px auto 0;">Su futuro profesional no espera. Active seguridad, autoridad y escasez con un modelo probado, con cupos limitados y validez oficial.</p>
+            </div>
+            <div class="uni-grid columns-3" style="gap: 18px;">
+                <div class="uni-card" data-aos="fade-up">
+                    <h4 style="color: white; margin-bottom: 8px;">Autoridad SEP</h4>
+                    <p style="color: var(--uni-text-muted);">Reconocimiento oficial y garantía nacional. Evite riesgos de programas sin validez.</p>
+                </div>
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="80">
+                    <h4 style="color: white; margin-bottom: 8px;">Escasez positiva</h4>
+                    <p style="color: var(--uni-text-muted);">Cupos reducidos para atención personalizada. Asegure su lugar en el próximo ciclo.</p>
+                </div>
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="160">
+                    <h4 style="color: white; margin-bottom: 8px;">Prueba social</h4>
+                    <p style="color: var(--uni-text-muted);">Más de 10,000 graduados y 200,000 vidas transformadas respaldan el modelo.</p>
+                </div>
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="240">
+                    <h4 style="color: white; margin-bottom: 8px;">Urgencia</h4>
+                    <p style="color: var(--uni-text-muted);">Próximo ciclo inicia pronto. Entre antes, antes se titula.</p>
+                </div>
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="320">
+                    <h4 style="color: white; margin-bottom: 8px;">Valor inmediato</h4>
+                    <p style="color: var(--uni-text-muted);">Aplicación práctica desde la primera semana para mejorar ingresos actuales.</p>
+                </div>
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="400">
+                    <h4 style="color: white; margin-bottom: 8px;">Financiamiento</h4>
+                    <p style="color: var(--uni-text-muted);">Promociones por pronto pago y planes accesibles que se ajustan a su flujo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Proceso -->
+    <section class="uni-section" id="proceso">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 32px;" data-aos="fade-up">
+                <p class="uni-tagline">Paso a paso</p>
+                <h2 style="font-family: 'Outfit'; font-size: 2.5rem; color: white;">Así funciona la Universidad Dominical</h2>
+            </div>
+            <div class="uni-grid columns-2" style="gap: 18px;">
+                <div class="uni-step" data-aos="fade-up">
+                    <div class="number">1</div>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 6px;">Evaluación diagnóstica gratuita</h4>
+                        <p style="color: var(--uni-text-muted);">Definimos su punto de partida, estilo de aprendizaje y ruta óptima. Sin costo.</p>
+                    </div>
+                </div>
+                <div class="uni-step" data-aos="fade-up" data-aos-delay="80">
+                    <div class="number">2</div>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 6px;">Plan personalizado</h4>
+                        <p style="color: var(--uni-text-muted);">Creamos un itinerario dominical con metas, materiales y simuladores incluidos.</p>
+                    </div>
+                </div>
+                <div class="uni-step" data-aos="fade-up" data-aos-delay="160">
+                    <div class="number">3</div>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 6px;">Clases dominicales + virtuales</h4>
+                        <p style="color: var(--uni-text-muted);">Sesiones intensivas, asesorías entre semana y seguimiento de mentores por carrera.</p>
+                    </div>
+                </div>
+                <div class="uni-step" data-aos="fade-up" data-aos-delay="240">
+                    <div class="number">4</div>
+                    <div>
+                        <h4 style="color: white; margin-bottom: 6px;">Coloquio y titulación</h4>
+                        <p style="color: var(--uni-text-muted);">Simulador de evaluación, presentación final y obtención del título con validez SEP.</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 26px;" data-aos="fade-up" data-aos-delay="300">
+                <a class="uni-btn" href="#agendar"><i class="fas fa-calendar-alt"></i> Reserve su diagnóstico hoy</a>
+                <p style="color: var(--uni-text-muted); margin-top: 10px;">Cupos limitados | Modalidades presencial, virtual, híbrida o a su ritmo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Cause -> Effect -->
+    <section style="padding: 80px 0;">
+        <div class="container">
+            <div class="uni-card" style="padding: 50px; text-align: center; max-width: 900px; margin: 0 auto;" data-aos="zoom-in">
+                <h2 style="font-family: 'Outfit'; font-size: 2.5rem; margin-bottom: 40px; color: white;">La Transformación</h2>
+                <div style="display: grid; grid-template-columns: 1fr auto 1fr; gap: 30px; align-items: center;">
+                    <div style="text-align: left;">
+                        <span style="color: var(--uni-primary); font-weight: 700; letter-spacing: 1px;">CAUSA</span>
+                        <h3 style="font-size: 1.5rem; margin-top: 10px; color: white;">Universidad Dominical</h3>
+                        <p style="color: var(--uni-text-muted); margin-top: 10px;">Estudias solo los domingos con un modelo enfocado en la práctica profesional.</p>
+                    </div>
+                    <div style="font-size: 2rem; color: var(--uni-accent);">
+                        <i class="fas fa-arrow-right"></i>
+                    </div>
+                    <div style="text-align: left;">
+                        <span style="color: var(--uni-accent); font-weight: 700; letter-spacing: 1px;">EFECTO</span>
+                        <h3 style="font-size: 1.5rem; margin-top: 10px; color: white;">Título + Libertad</h3>
+                        <p style="color: var(--uni-text-muted); margin-top: 10px;">Logras tu licenciatura sin sacrificar tus ingresos actuales y multiplicas tu valor en el mercado.</p>
+                    </div>
+                </div>
+                <div style="margin-top: 40px; text-align: center;">
+                    <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20mi%20cita%20de%20cortesía%20para%20conocer%20Universidad%20Dominical" style="display: inline-flex; align-items: center; gap: 12px; padding: 16px 32px; background: linear-gradient(135deg, var(--uni-primary), var(--uni-accent)); color: white; border-radius: 12px; font-weight: 700; text-decoration: none; transition: all 0.3s ease; box-shadow: 0 10px 30px rgba(34, 197, 94, 0.3);">
+                        <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i>
+                        Agendar Cita de Cortesía
+                    </a>
+                    <p style="margin-top: 12px; color: var(--uni-text-muted); font-size: 0.9rem;">Sin compromiso • Te explicamos el método personalizado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Carreras -->
+    <section id="carreras" style="padding: 80px 0; background: var(--uni-surface);">
+        <div class="container">
+            <div class="section-header" style="text-align: center; margin-bottom: 60px;" data-aos="fade-up">
+                <h2 style="font-family: 'Outfit'; font-size: 3rem; color: white;">Oferta <span class="uni-gradient-text">Académica</span></h2>
+                <p style="color: var(--uni-text-muted);">Licenciaturas diseñadas para el mercado laboral actual.</p>
+            </div>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px;">
+                <!-- Carrera 1 -->
+                <div class="uni-card" data-aos="fade-up">
+                    <i class="fas fa-balance-scale" style="font-size: 2.5rem; color: var(--uni-primary); margin-bottom: 14px;"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 8px; color: white;">Derecho</h3>
+                    <p style="color: var(--uni-text-muted); margin-bottom: 14px;">Marco legal, litigio estratégico y práctica con casos reales.</p>
+                    <ul class="uni-checklist" style="margin-bottom: 12px;">
+                        <li><i class="fas fa-check-circle"></i> Taller de argumentación y oratoria.</li>
+                        <li><i class="fas fa-check-circle"></i> Simulador de juicio y coloquio.</li>
+                        <li><i class="fas fa-check-circle"></i> Mentoría de abogados en activo.</li>
+                    </ul>
+                    <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20el%20plan%20de%20Derecho%20en%20Universidad%20Dominical" class="uni-btn uni-btn-outline" style="width: 100%; justify-content: center;">Recibir plan</a>
+                </div>
+                <!-- Carrera 2 -->
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="100">
+                    <i class="fas fa-chart-pie" style="font-size: 2.5rem; color: var(--uni-accent); margin-bottom: 14px;"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 8px; color: white;">Administración</h3>
+                    <p style="color: var(--uni-text-muted); margin-bottom: 14px;">Gestión estratégica, liderazgo y rentabilidad con datos.</p>
+                    <ul class="uni-checklist" style="margin-bottom: 12px;">
+                        <li><i class="fas fa-check-circle"></i> OKRs y tableros ejecutivos.</li>
+                        <li><i class="fas fa-check-circle"></i> Finanzas para directivos.</li>
+                        <li><i class="fas fa-check-circle"></i> Casos prácticos con empresas.</li>
+                    </ul>
+                    <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20el%20plan%20de%20Administraci%C3%B3n%20en%20Universidad%20Dominical" class="uni-btn uni-btn-outline" style="width: 100%; justify-content: center;">Recibir plan</a>
+                </div>
+                <!-- Carrera 3 -->
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="200">
+                    <i class="fas fa-calculator" style="font-size: 2.5rem; color: #22c55e; margin-bottom: 14px;"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 8px; color: white;">Contaduría</h3>
+                    <p style="color: var(--uni-text-muted); margin-bottom: 14px;">Finanzas, impuestos y estrategia fiscal con enfoque práctico.</p>
+                    <ul class="uni-checklist" style="margin-bottom: 12px;">
+                        <li><i class="fas fa-check-circle"></i> Auditoría aplicada y cumplimiento.</li>
+                        <li><i class="fas fa-check-circle"></i> Planeación fiscal y riesgos.</li>
+                        <li><i class="fas fa-check-circle"></i> ERPs y herramientas digitales.</li>
+                    </ul>
+                    <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20el%20plan%20de%20Contadur%C3%ADa%20en%20Universidad%20Dominical" class="uni-btn uni-btn-outline" style="width: 100%; justify-content: center;">Recibir plan</a>
+                </div>
+                <!-- Carrera 4 -->
+                <div class="uni-card" data-aos="fade-up" data-aos-delay="300">
+                    <i class="fas fa-chalkboard-teacher" style="font-size: 2.5rem; color: #f43f5e; margin-bottom: 14px;"></i>
+                    <h3 style="font-size: 1.5rem; margin-bottom: 8px; color: white;">Pedagogía</h3>
+                    <p style="color: var(--uni-text-muted); margin-bottom: 14px;">Metodologías innovadoras, diseño instruccional y liderazgo educativo.</p>
+                    <ul class="uni-checklist" style="margin-bottom: 12px;">
+                        <li><i class="fas fa-check-circle"></i> Innovación y tecnología educativa.</li>
+                        <li><i class="fas fa-check-circle"></i> Evaluación auténtica y proyectos.</li>
+                        <li><i class="fas fa-check-circle"></i> Prácticas supervisadas.</li>
+                    </ul>
+                    <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20el%20plan%20de%20Pedagog%C3%ADa%20en%20Universidad%20Dominical" class="uni-btn uni-btn-outline" style="width: 100%; justify-content: center;">Recibir plan</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Final -->
+    <section style="padding: 100px 0; text-align: center; background: linear-gradient(180deg, rgba(15,23,42,0.8), rgba(59,130,246,0.08));">
+        <div class="container">
+            <h2 style="font-family: 'Outfit'; font-size: 3rem; margin-bottom: 22px; color: white;" data-aos="fade-up">Su título oficial comienza hoy</h2>
+            <p style="font-size: 1.2rem; color: var(--uni-text-muted); margin-bottom: 24px; max-width: 760px; margin-left: auto; margin-right: auto;" data-aos="fade-up" data-aos-delay="80">
+                Agenda su evaluación diagnóstica gratuita (valor $2,500 MXN), reciba su plan personalizado y asegure lugar en el próximo grupo dominical. El tiempo no espera.
+            </p>
+            <div style="display: flex; justify-content: center; gap: 14px; flex-wrap: wrap;" data-aos="zoom-in" data-aos-delay="120">
+                <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20inscribirme%20a%20Universidad%20Dominical" class="uni-btn" style="font-size: 1.1rem; padding: 18px 34px;">
+                    <i class="fab fa-whatsapp"></i> Iniciar inscripción
+                </a>
+                <a href="#agendar" class="uni-btn uni-btn-outline" style="font-size: 1.05rem; padding: 18px 30px;">Programar llamada</a>
+            </div>
+            <div style="margin-top: 16px; color: var(--uni-text-muted); font-size: 0.95rem;">
+                Inscripciones abiertas · Cupos limitados · Modalidad dominical / virtual / híbrida
+            </div>
+        </div>
+    </section>
+
+    <!-- Booking Section -->
+    <section class="uni-booking-section" id="agendar" style="padding: 100px 0; position: relative; overflow: hidden; background: linear-gradient(to bottom, transparent, rgba(59, 130, 246, 0.05));">
+        <div class="container">
+            <div class="uni-booking-card" data-aos="fade-up" style="background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(6, 182, 212, 0.05)); border: 1px solid rgba(59, 130, 246, 0.2); border-radius: 24px; padding: 0; overflow: hidden; box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);">
+                <div class="uni-booking-grid" style="display: grid; grid-template-columns: 1fr 1.5fr; min-height: 500px;">
+                    <!-- Sidebar / Info -->
+                    <div class="uni-booking-sidebar" style="background: linear-gradient(135deg, #3b82f6, #06b6d4); padding: 40px; display: flex; flex-direction: column; justify-content: space-between;">
+                        <div>
+                            <h3 style="color: white; font-size: 1.5rem; font-weight: 700; margin-bottom: 30px;">Tu Sesión Informativa Incluye:</h3>
+                            <ul style="list-style: none; padding: 0; margin: 0;">
+                                <li style="display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.9); margin-bottom: 16px; font-size: 1rem;">
+                                    <i class="fas fa-check-circle" style="color: white;"></i> Orientación vocacional
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.9); margin-bottom: 16px; font-size: 1rem;">
+                                    <i class="fas fa-check-circle" style="color: white;"></i> Plan de carrera personalizado
+                                </li>
+                                <li style="display: flex; align-items: center; gap: 12px; color: rgba(255,255,255,0.9); margin-bottom: 16px; font-size: 1rem;">
+                                    <i class="fas fa-check-circle" style="color: white;"></i> Opciones de financiamiento
+                                </li>
+                            </ul>
+                        </div>
+                        <div style="margin-top: 40px;">
+                            <p style="color: rgba(255,255,255,0.7); font-size: 0.875rem;">* Las citas son limitadas y se asignan por orden de llegada.</p>
+                        </div>
+                    </div>
+
+                    <!-- Form Container -->
+                    <div class="uni-booking-form-container" style="padding: 40px; background: rgba(15, 23, 42, 0.95);">
+                        
+                        <!-- Step 1: Contact Info -->
+                        <div id="booking-step-1" class="booking-step">
+                            <h4 style="font-size: 1.25rem; font-weight: 600; margin-bottom: 24px; color: white;">1. Tus Datos</h4>
+                            <form id="contact-form" onsubmit="return false;">
+                                <div style="display: grid; gap: 20px;">
+                                    <div>
+                                        <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #94a3b8;">Nombre Completo</label>
+                                        <input type="text" id="client-name" required style="width: 100%; padding: 14px 18px; border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.05); color: white;">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #94a3b8;">WhatsApp</label>
+                                        <input type="tel" id="client-phone" required style="width: 100%; padding: 14px 18px; border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.05); color: white;">
+                                    </div>
+                                    <div>
+                                        <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #94a3b8;">Carrera de Interés</label>
+                                        <select id="course-select" style="width: 100%; padding: 14px 18px; border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.05); color: white; cursor: pointer;">
+                                            <option value="Derecho" style="color: black;">Derecho</option>
+                                            <option value="Administración" style="color: black;">Administración</option>
+                                            <option value="Contaduría" style="color: black;">Contaduría</option>
+                                            <option value="Pedagogía" style="color: black;">Pedagogía</option>
+                                            <option value="No estoy seguro" style="color: black;">No estoy seguro</option>
+                                        </select>
+                                    </div>
+                                    <button type="button" onclick="goToStep2()" style="width: 100%; padding: 16px 24px; background: linear-gradient(135deg, #3b82f6, #06b6d4); color: white; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; transition: all 0.3s ease;">
+                                        Siguiente: Elegir Horario <i class="fas fa-arrow-right"></i>
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+
+                        <!-- Step 2: Calendar -->
+                        <div id="booking-step-2" class="booking-step" style="display: none;">
+                            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 20px;">
+                                <h4 style="font-size: 1.25rem; font-weight: 600; color: white;">2. Selecciona Horario</h4>
+                                <button onclick="goToStep1()" style="background: none; border: none; color: #94a3b8; cursor: pointer; font-size: 1rem;">
+                                    <i class="fas fa-arrow-left"></i> Volver
+                                </button>
+                            </div>
+                            
+                            <div style="margin-bottom: 20px;">
+                                <label style="display: block; margin-bottom: 8px; font-weight: 500; color: #94a3b8;">Fecha</label>
+                                <input type="date" id="date-picker" onchange="loadTimeSlots()" style="width: 100%; padding: 14px 18px; border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.05); color: white; color-scheme: dark;">
+                            </div>
+
+                            <div id="slots-container" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(80px, 1fr)); gap: 10px;">
+                                <p style="grid-column: 1/-1; text-align: center; color: #94a3b8; padding: 20px;">Selecciona una fecha para ver horarios disponibles.</p>
+                            </div>
+                        </div>
+
+                        <!-- Step 3: Success -->
+                        <div id="booking-step-3" class="booking-step" style="display: none; text-align: center;">
+                            <div style="width: 80px; height: 80px; background: rgba(59, 130, 246, 0.2); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px;">
+                                <i class="fas fa-check" style="font-size: 2.5rem; color: #3b82f6;"></i>
+                            </div>
+                            <h4 style="margin-bottom: 10px; font-size: 1.25rem; font-weight: 600; color: white;">¡Cita Confirmada!</h4>
+                            <p style="color: #94a3b8; margin-bottom: 30px;">Hemos reservado tu espacio. Te contactaremos por WhatsApp para confirmar detalles.</p>
+                            
+                            <div style="display: flex; flex-direction: column; gap: 15px;">
+                                <a id="gcal-btn" href="#" target="_blank" style="padding: 16px 24px; background: #4285F4; color: white; border: none; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;">
+                                    <i class="fab fa-google"></i> Guardar en Google Calendar
+                                </a>
+                                <a href="tel:+525578107837" style="padding: 16px 24px; background: transparent; border: 2px solid rgba(255,255,255,0.2); color: white; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: center; gap: 10px; text-decoration: none;">
+                                    <i class="fas fa-phone"></i> Llamar Ahora
+                                </a>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Script de Reservas Centralizado -->
+        <script src="js/booking.js"></script>
+        
+        <style>
+            .uni-time-slot, .time-slot {
+                padding: 12px 16px;
+                border: 2px solid rgba(59, 130, 246, 0.3);
+                border-radius: 10px;
+                background: rgba(255,255,255,0.05);
+                cursor: pointer;
+                font-weight: 500;
+                transition: all 0.3s ease;
+                color: white;
+            }
+            .uni-time-slot:hover:not(:disabled), .time-slot:hover:not(:disabled) {
+                border-color: #3b82f6;
+                background: rgba(59, 130, 246, 0.2);
+            }
+            .uni-time-slot.selected, .time-slot.selected {
+                background: linear-gradient(135deg, #3b82f6, #06b6d4);
+                border-color: #3b82f6;
+                color: white;
+            }
+            .uni-time-slot:disabled, .time-slot:disabled {
+                background: rgba(255,255,255,0.02);
+                color: #64748b;
+                cursor: not-allowed;
+                border-color: rgba(255,255,255,0.1);
+            }
+            @media (max-width: 768px) {
+                .uni-booking-grid {
+                    grid-template-columns: 1fr !important;
+                }
+                .uni-booking-sidebar {
+                    padding: 30px !important;
+                }
+            }
+        </style>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: #020617; padding: 60px 0; border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <div style="text-align: center;">
+                <h3 style="font-family: 'Outfit'; font-size: 1.8rem; margin-bottom: 20px;">WorldBrain <span style="color: var(--uni-primary);">Uni</span></h3>
+                <p style="color: var(--uni-text-muted);">&copy; 2025 WorldBrain México. Todos los derechos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 1000,
+            once: true
+        });
+    </script>
+</body>
+</html>

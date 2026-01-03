@@ -1,0 +1,1564 @@
+/* ═══════════════════════════════════════════════════════════════════════════
+   REGULARIZACIÓN EXPRESS - MEJORAS AWWWARDS 2025
+   Scroll-Driven Animations • Glassmorphism • Micro-interactions
+   WorldBrain México
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   NUEVAS VARIABLES 2025
+   ═══════════════════════════════════════════════════════════════════════════ */
+:root {
+    /* Efecto Glassmorphism */
+    --glass-bg: rgba(26, 46, 26, 0.85);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: 20px;
+
+    /* Gradientes Premium */
+    --gradient-gold: linear-gradient(135deg, #fef3c7 0%, #fde68a 50%, #fbbf24 100%);
+    --gradient-green-glow: linear-gradient(135deg, rgba(34, 197, 94, 0.2) 0%, rgba(34, 197, 94, 0) 100%);
+    --gradient-card-border: linear-gradient(135deg, rgba(34, 197, 94, 0.5), rgba(74, 222, 128, 0.3), rgba(34, 197, 94, 0.1));
+
+    /* Animaciones */
+    --ease-bounce: cubic-bezier(0.34, 1.56, 0.64, 1);
+    --ease-smooth: cubic-bezier(0.4, 0, 0.2, 1);
+    --duration-fast: 0.2s;
+    --duration-normal: 0.4s;
+    --duration-slow: 0.8s;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   CRITICAL FIX: Override AOS initial states for Hero elements
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Force hero content to be visible regardless of AOS state */
+.reg-hero-content,
+.reg-hero-content[data-aos],
+.reg-hero-content[data-aos][data-aos-delay] {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+}
+
+/* Force hero title to be visible with white text */
+/* Override the fadeInUp animation in regularizacion.css that sets opacity: 0 */
+.reg-hero-title,
+.reg-hero h1,
+.reg-hero .reg-hero-title,
+h1.reg-hero-title {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    background: none !important;
+    background-clip: border-box !important;
+    -webkit-background-clip: border-box !important;
+    animation: none !important;
+    transform: none !important;
+}
+
+/* Ensure highlight text shows green */
+.reg-hero-title .highlight {
+    color: #22c55e !important;
+    -webkit-text-fill-color: #22c55e !important;
+}
+
+/* Force hero visual to be visible */
+.reg-hero-visual,
+.reg-hero-visual[data-aos],
+.reg-hero-visual[data-aos][data-aos-delay] {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+    position: relative !important;
+}
+
+/* Force floating cards to be visible and positioned correctly */
+.reg-float-card {
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: absolute !important;
+    z-index: 100 !important;
+}
+
+.reg-float-card.card-top {
+    top: 20px !important;
+    right: -10px !important;
+    bottom: auto !important;
+    left: auto !important;
+}
+
+.reg-float-card.card-bottom {
+    bottom: 50px !important;
+    left: -20px !important;
+    top: auto !important;
+    right: auto !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   1. NAVIGATION - GLASSMORPHISM + PULSING CTA
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-navbar {
+    background: var(--glass-bg);
+    backdrop-filter: blur(var(--glass-blur));
+    -webkit-backdrop-filter: blur(var(--glass-blur));
+    border-bottom: 1px solid var(--glass-border);
+}
+
+/* Pulsing CTA Button - cada 5 segundos */
+@keyframes pulse-glow-cta {
+
+    0%,
+    85%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0);
+    }
+
+    90% {
+        box-shadow: 0 0 0 8px rgba(34, 197, 94, 0.3);
+    }
+
+    95% {
+        box-shadow: 0 0 20px 4px rgba(34, 197, 94, 0.4);
+    }
+}
+
+.reg-navbar-cta {
+    animation: pulse-glow-cta 5s ease-in-out infinite;
+    position: relative;
+    overflow: visible !important;
+}
+
+.reg-navbar-cta::after {
+    content: '';
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.reg-navbar-cta:hover::after {
+    opacity: 1;
+    animation: shimmer-border 1.5s infinite;
+}
+
+@keyframes shimmer-border {
+    0% {
+        transform: translateX(-100%);
+    }
+
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   2. HERO - PARALLAX + MOUSE TRACKING CARDS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Parallax Image Container */
+.reg-hero-image-container {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.reg-hero-image {
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+/* Mouse-tracking floating cards */
+.reg-float-card {
+    transition: transform 0.15s ease-out;
+    will-change: transform;
+    transform-style: preserve-3d;
+}
+
+/* Kinetic Typography - Hero Title */
+.reg-hero-title {
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+    position: relative;
+}
+
+/* Ensure the highlight text is visible with green color */
+.reg-hero-title .highlight {
+    color: var(--dm-green) !important;
+    -webkit-text-fill-color: var(--dm-green) !important;
+    font-style: italic;
+}
+
+/* Animated Shimmer Effect - decorative underline */
+.reg-hero-title::after {
+    content: '';
+    position: absolute;
+    bottom: -8px;
+    left: 0;
+    width: 120px;
+    height: 3px;
+    background: linear-gradient(90deg,
+            var(--dm-green) 0%,
+            var(--dm-green-light) 50%,
+            var(--dm-green) 100%);
+    background-size: 200% 100%;
+    animation: kinetic-shimmer 3s ease-in-out infinite;
+    border-radius: 4px;
+}
+
+@keyframes kinetic-shimmer {
+
+    0%,
+    100% {
+        background-position: 100% 0;
+    }
+
+    50% {
+        background-position: 0% 0;
+    }
+}
+
+.reg-hero-title .highlight {
+    display: inline-block;
+    animation: highlight-pulse 3s ease-in-out infinite;
+}
+
+@keyframes highlight-pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.02);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   3. TRUSTED BRANDS - INFINITE SCROLL MARQUEE
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-brands-section {
+    overflow: hidden;
+}
+
+.reg-brands-logos {
+    display: flex;
+    gap: 60px;
+    animation: marquee 25s linear infinite;
+    width: max-content;
+}
+
+.reg-brands-logos::after {
+    content: '';
+    display: flex;
+    gap: 60px;
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.reg-brand-item {
+    filter: grayscale(100%);
+    opacity: 0.5;
+    transition: all 0.4s var(--ease-smooth);
+}
+
+.reg-brand-item:hover {
+    filter: grayscale(0%);
+    opacity: 1;
+    transform: scale(1.1);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   4. KEY STATS - COUNTUP + GRADIENT BORDERS
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-stats-card {
+    position: relative;
+    background: var(--dm-white);
+    border: none;
+    overflow: hidden;
+}
+
+/* Gradient Border Effect */
+.reg-stats-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    padding: 2px;
+    background: var(--gradient-card-border);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.reg-stats-card:hover::before {
+    opacity: 1;
+}
+
+/* CountUp Animation Trigger */
+.stat-number {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.6s var(--ease-bounce);
+}
+
+.stat-number.animate {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   5. PROBLEM SECTION - FLIPPABLE CARDS
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-problem-card {
+    perspective: 1000px;
+    cursor: pointer;
+}
+
+.problem-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    min-height: 280px;
+    transition: transform 0.8s var(--ease-smooth);
+    transform-style: preserve-3d;
+}
+
+.reg-problem-card:hover .problem-card-inner,
+.reg-problem-card.flipped .problem-card-inner {
+    transform: rotateY(180deg);
+}
+
+.problem-card-front,
+.problem-card-back {
+    position: absolute;
+    inset: 0;
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    border-radius: var(--dm-radius-xl);
+    padding: 32px 28px;
+    display: flex;
+    flex-direction: column;
+}
+
+.problem-card-front {
+    background: var(--dm-white);
+    border: 1px solid var(--dm-border-light);
+}
+
+.problem-card-back {
+    background: linear-gradient(135deg, #fef2f2 0%, #fee2e2 100%);
+    border: 2px solid #ef4444;
+    transform: rotateY(180deg);
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.problem-card-back h4 {
+    color: #dc2626;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 12px;
+}
+
+.problem-card-back p {
+    color: #7f1d1d;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   6. BENTO GRID - SPOTLIGHT CURSOR EFFECT
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-bento-grid {
+    --mouse-x: 50%;
+    --mouse-y: 50%;
+}
+
+.reg-bento-card {
+    position: relative;
+    overflow: hidden;
+}
+
+/* Spotlight Effect */
+.reg-bento-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(600px circle at var(--mouse-x) var(--mouse-y),
+            rgba(34, 197, 94, 0.15),
+            transparent 40%);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.reg-bento-card:hover::before {
+    opacity: 1;
+}
+
+/* Card Content Layer */
+.reg-bento-card>* {
+    position: relative;
+    z-index: 2;
+}
+
+/* Animated Icon Containers */
+.reg-bento-card .card-icon {
+    transition: transform 0.4s var(--ease-bounce), box-shadow 0.4s ease;
+}
+
+.reg-bento-card:hover .card-icon {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   7. TESTIMONIALS - SCROLL SNAP CAROUSEL
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-testimonials-grid {
+    display: flex;
+    gap: 24px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+    -webkit-overflow-scrolling: touch;
+    padding: 20px 0;
+    margin: -20px 0;
+}
+
+.reg-testimonials-grid::-webkit-scrollbar {
+    height: 8px;
+}
+
+.reg-testimonials-grid::-webkit-scrollbar-track {
+    background: var(--dm-bg-light);
+    border-radius: 4px;
+}
+
+.reg-testimonials-grid::-webkit-scrollbar-thumb {
+    background: var(--dm-green);
+    border-radius: 4px;
+}
+
+.reg-testimonial-card {
+    flex: 0 0 calc(33.333% - 16px);
+    scroll-snap-align: start;
+    min-width: 320px;
+}
+
+@media (max-width: 1024px) {
+    .reg-testimonial-card {
+        flex: 0 0 calc(50% - 12px);
+    }
+}
+
+@media (max-width: 640px) {
+    .reg-testimonial-card {
+        flex: 0 0 calc(100% - 32px);
+    }
+}
+
+/* Enhanced Quote Styling */
+.reg-testimonial-card::before {
+    font-size: 8rem !important;
+    background: linear-gradient(180deg, var(--dm-green) 0%, transparent 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    opacity: 0.15 !important;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   8. VIDEO TESTIMONIALS - LAZY LOADING + ANIMATED THUMBNAILS
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-video-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.reg-video-card::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg,
+            transparent 0%,
+            transparent 50%,
+            rgba(0, 0, 0, 0.8) 100%);
+    z-index: 1;
+    transition: background 0.3s ease;
+}
+
+.reg-video-card:hover::after {
+    background: linear-gradient(180deg,
+            rgba(34, 197, 94, 0.1) 0%,
+            transparent 30%,
+            rgba(0, 0, 0, 0.9) 100%);
+}
+
+/* Animated Play Button */
+.reg-video-play {
+    z-index: 3;
+    transition: all 0.4s var(--ease-bounce);
+}
+
+.reg-video-card:hover .reg-video-play {
+    transform: translate(-50%, -50%) scale(1.15);
+    box-shadow: 0 0 0 12px rgba(34, 197, 94, 0.2),
+        0 0 40px rgba(34, 197, 94, 0.4);
+}
+
+/* Thumbnail Preview Animation */
+.video-thumbnail-preview {
+    position: absolute;
+    inset: 0;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.reg-video-card:hover .video-thumbnail-preview {
+    opacity: 1;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   9. HOW IT WORKS - SVG LINE DRAW ANIMATION
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-steps-grid {
+    position: relative;
+}
+
+/* Connecting Line SVG */
+.steps-connector-line {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.steps-connector-line path {
+    stroke: var(--dm-green);
+    stroke-width: 3;
+    fill: none;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    transition: stroke-dashoffset 1.5s ease-out;
+}
+
+.steps-connector-line.animate path {
+    stroke-dashoffset: 0;
+}
+
+/* Step Cards Enhanced */
+.reg-step-card {
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.step-number {
+    font-size: 5rem;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.1) 0%, transparent 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   10. GUARANTEE - PREMIUM VISUAL TREATMENT
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-guarantee-box {
+    background: var(--gradient-gold);
+    border: 3px solid #fbbf24;
+    position: relative;
+    overflow: visible;
+}
+
+/* 3D Seal Effect */
+.guarantee-seal {
+    position: absolute;
+    top: -30px;
+    right: 40px;
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(145deg, #fef3c7 0%, #fbbf24 50%, #d97706 100%);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow:
+        0 4px 0 #b45309,
+        0 8px 20px rgba(180, 83, 9, 0.4),
+        inset 0 2px 4px rgba(255, 255, 255, 0.5);
+    transform: rotate(-15deg);
+    z-index: 10;
+}
+
+.guarantee-seal i {
+    font-size: 2rem;
+    color: #78350f;
+}
+
+/* Enhanced Guarantee Content */
+.guarantee-icon {
+    background: linear-gradient(135deg, #fbbf24 0%, #d97706 100%);
+    box-shadow: 0 8px 32px rgba(251, 191, 36, 0.4);
+}
+
+.guarantee-icon i {
+    color: #78350f;
+}
+
+.guarantee-content h3 {
+    color: #78350f;
+}
+
+.guarantee-content p {
+    color: #92400e;
+}
+
+.guarantee-badge {
+    background: white;
+    color: #b45309;
+    border: 1px solid #fcd34d;
+}
+
+.guarantee-badge i {
+    color: #d97706;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   11. OFFER - VALUE STACK PREMIUM
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-value-item {
+    position: relative;
+    padding: 16px 20px;
+    background: linear-gradient(90deg, var(--dm-bg-light) 0%, transparent 100%);
+    border-radius: var(--dm-radius-md);
+    margin-bottom: 8px;
+    transition: all 0.3s ease;
+}
+
+.reg-value-item:hover {
+    background: linear-gradient(90deg, var(--dm-mint) 0%, transparent 100%);
+    transform: translateX(8px);
+}
+
+/* Strikethrough Price Effect */
+.reg-value-price {
+    position: relative;
+    color: var(--dm-text-muted);
+}
+
+.reg-value-price::after {
+    content: '';
+    position: absolute;
+    left: -5%;
+    top: 50%;
+    width: 110%;
+    height: 2px;
+    background: #ef4444;
+    transform: rotate(-12deg);
+}
+
+/* Total Value Highlight */
+.reg-value-total {
+    background: linear-gradient(135deg, var(--dm-dark) 0%, #0f1f0f 100%);
+    border-radius: var(--dm-radius-lg);
+    padding: 24px;
+    margin-top: 24px;
+}
+
+.reg-value-total-price {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--dm-green);
+    text-decoration: line-through;
+    text-decoration-color: #ef4444;
+    text-decoration-thickness: 3px;
+}
+
+/* Offer Price Display */
+.reg-offer-final-price {
+    text-align: center;
+    padding: 32px;
+    background: var(--dm-mint-light);
+    border-radius: var(--dm-radius-xl);
+    margin: 24px 0;
+}
+
+.reg-offer-final-price .label {
+    font-size: 0.9rem;
+    color: var(--dm-text-muted);
+    margin-bottom: 8px;
+}
+
+.reg-offer-final-price .price {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--dm-green-dark);
+    line-height: 1;
+}
+
+.reg-offer-final-price .price-note {
+    font-size: 0.85rem;
+    color: var(--dm-text-body);
+    margin-top: 8px;
+}
+
+/* Enhanced CTA Button - "Pressable" Effect */
+.reg-offer-cta .reg-cta-primary {
+    font-size: 1.1rem;
+    padding: 18px 40px;
+    box-shadow:
+        0 4px 0 var(--dm-green-dark),
+        0 8px 24px rgba(34, 197, 94, 0.3);
+    transform: translateY(0);
+    transition: all 0.15s ease;
+}
+
+.reg-offer-cta .reg-cta-primary:hover {
+    transform: translateY(-2px);
+    box-shadow:
+        0 6px 0 var(--dm-green-dark),
+        0 12px 32px rgba(34, 197, 94, 0.4);
+}
+
+.reg-offer-cta .reg-cta-primary:active {
+    transform: translateY(2px);
+    box-shadow:
+        0 2px 0 var(--dm-green-dark),
+        0 4px 12px rgba(34, 197, 94, 0.3);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   12. FAQ - HTML5 DETAILS/SUMMARY FOR ACCESSIBILITY
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-faq-item {
+    border: none;
+    background: var(--dm-white);
+    border-radius: var(--dm-radius-lg);
+    margin-bottom: 12px;
+    overflow: hidden;
+    box-shadow: var(--dm-shadow-sm);
+}
+
+.reg-faq-item[open] {
+    box-shadow: var(--dm-shadow-md);
+}
+
+.reg-faq-item summary {
+    cursor: pointer;
+    padding: 20px 24px;
+    font-weight: 600;
+    font-size: 1rem;
+    color: var(--dm-text-dark);
+    list-style: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+.reg-faq-item summary::-webkit-details-marker {
+    display: none;
+}
+
+.reg-faq-item summary::after {
+    content: '+';
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: var(--dm-green);
+    transition: transform 0.3s ease;
+}
+
+.reg-faq-item[open] summary::after {
+    transform: rotate(45deg);
+}
+
+.reg-faq-item summary:hover {
+    background: var(--dm-bg-light);
+}
+
+.reg-faq-answer-content {
+    padding: 0 24px 24px;
+    color: var(--dm-text-body);
+    line-height: 1.7;
+    animation: fadeIn 0.3s ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   13. MOBILE STICKY BOTTOM BAR
+   ═══════════════════════════════════════════════════════════════════════════ */
+.reg-mobile-sticky-bar {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--dm-white);
+    padding: 12px 16px;
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    gap: 12px;
+}
+
+.reg-mobile-sticky-bar .btn-whatsapp,
+.reg-mobile-sticky-bar .btn-schedule {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 14px 20px;
+    border-radius: var(--dm-radius-full);
+    font-weight: 600;
+    font-size: 0.9rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.reg-mobile-sticky-bar .btn-whatsapp {
+    background: #25D366;
+    color: white;
+}
+
+.reg-mobile-sticky-bar .btn-schedule {
+    background: var(--dm-green);
+    color: white;
+}
+
+@media (max-width: 768px) {
+    .reg-mobile-sticky-bar {
+        display: flex;
+    }
+
+    /* Adjust other sticky elements */
+    .reg-whatsapp-float {
+        bottom: 85px;
+    }
+
+    .reg-sticky-cta {
+        display: none !important;
+    }
+
+    /* Add padding to footer for sticky bar */
+    .reg-footer {
+        padding-bottom: 100px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   SCROLL-DRIVEN ANIMATIONS (CSS-only where possible)
+   ═══════════════════════════════════════════════════════════════════════════ */
+@supports (animation-timeline: scroll()) {
+    .reg-section-header {
+        animation: reveal-up linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 30%;
+    }
+
+    @keyframes reveal-up {
+        from {
+            opacity: 0;
+            transform: translateY(50px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    .reg-problem-card,
+    .reg-bento-card,
+    .reg-stats-card {
+        animation: scale-in linear both;
+        animation-timeline: view();
+        animation-range: entry 0% entry 40%;
+    }
+
+    @keyframes scale-in {
+        from {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+
+        to {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   PERFORMANCE OPTIMIZATIONS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* GPU Acceleration for animated elements */
+.reg-float-card,
+.reg-bento-card,
+.reg-problem-card,
+.reg-cta-primary,
+.reg-navbar-cta {
+    will-change: transform;
+    transform: translateZ(0);
+}
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .reg-brands-logos {
+        animation: none;
+    }
+}
+
+/* Content-visibility for below-the-fold sections */
+.reg-section:not(:first-of-type) {
+    content-visibility: auto;
+    contain-intrinsic-size: 0 800px;
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ADDITIONAL UTILITY STYLES
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Flippable Card Hint */
+.flip-hint {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 16px;
+    padding: 8px 14px;
+    background: var(--dm-bg-light);
+    border-radius: var(--dm-radius-full);
+    font-size: 0.75rem;
+    color: var(--dm-text-muted);
+    transition: all 0.3s ease;
+}
+
+.reg-problem-card:hover .flip-hint {
+    background: var(--dm-mint);
+    color: var(--dm-green-dark);
+}
+
+/* Guarantee Extended Text */
+.guarantee-extended {
+    max-width: 800px;
+    margin: 32px auto 0;
+    text-align: center;
+    padding: 24px 32px;
+    background: rgba(251, 191, 36, 0.1);
+    border-radius: var(--dm-radius-xl);
+    border: 1px dashed #fbbf24;
+}
+
+.guarantee-extended p {
+    font-size: 1rem;
+    color: var(--dm-text-body);
+    line-height: 1.7;
+}
+
+.guarantee-extended strong {
+    color: var(--dm-text-dark);
+}
+
+.guarantee-extended em {
+    color: #b45309;
+    font-style: normal;
+    font-weight: 600;
+    text-decoration: underline;
+    text-decoration-color: #fbbf24;
+}
+
+/* Problem Card Front/Back Height Fix */
+.reg-problem-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.problem-card-inner {
+    min-height: 320px;
+}
+
+@media (max-width: 768px) {
+    .reg-problem-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .problem-card-inner {
+        min-height: 280px;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   ADDITIONAL AWWWARDS 2025 ENHANCEMENTS
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* Hero Highlight - Animated Gradient Text */
+.reg-hero-title .highlight {
+    background: linear-gradient(90deg,
+            var(--dm-green-light) 0%,
+            #4ade80 25%,
+            #a7f3d0 50%,
+            #4ade80 75%,
+            var(--dm-green-light) 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: gradient-flow 4s linear infinite;
+}
+
+@keyframes gradient-flow {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 200% center;
+    }
+}
+
+/* Hero Badge - Premium Pulsing Effect */
+.reg-hero-badge {
+    position: relative;
+    overflow: hidden;
+}
+
+.reg-hero-badge::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,
+            transparent,
+            rgba(255, 255, 255, 0.3),
+            transparent);
+    transform: translateX(-100%);
+    animation: badge-sweep 3s ease-in-out infinite;
+}
+
+@keyframes badge-sweep {
+
+    0%,
+    100% {
+        transform: translateX(-100%);
+    }
+
+    50% {
+        transform: translateX(100%);
+    }
+}
+
+.badge-dot {
+    animation: badge-dot-pulse 1.5s ease-in-out infinite;
+}
+
+@keyframes badge-dot-pulse {
+
+    0%,
+    100% {
+        opacity: 1;
+        transform: scale(1);
+        box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+    }
+
+    50% {
+        opacity: 0.8;
+        transform: scale(1.2);
+        box-shadow: 0 0 0 8px rgba(239, 68, 68, 0);
+    }
+}
+
+/* Enhanced Float Cards - Glowing Effect */
+/* Hero Visual Container needs relative positioning for cards */
+.reg-hero-visual {
+    position: relative !important;
+}
+
+.reg-hero-image-container {
+    position: relative !important;
+}
+
+.reg-float-card {
+    position: absolute !important;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    z-index: 20 !important;
+    opacity: 1 !important;
+    visibility: visible !important;
+}
+
+/* Fix card-top position - top right of the image */
+.reg-float-card.card-top {
+    top: 20px !important;
+    right: -10px !important;
+    left: auto !important;
+    bottom: auto !important;
+    transform: none !important;
+}
+
+/* Fix card-bottom position - bottom left of the image */
+.reg-float-card.card-bottom {
+    bottom: 50px !important;
+    left: -20px !important;
+    right: auto !important;
+    top: auto !important;
+    transform: none !important;
+}
+
+.reg-float-card::before {
+    content: '';
+    position: absolute;
+    inset: -2px;
+    border-radius: inherit;
+    background: linear-gradient(135deg,
+            rgba(34, 197, 94, 0.3),
+            transparent 50%,
+            rgba(74, 222, 128, 0.3));
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    z-index: -1;
+}
+
+.reg-float-card:hover::before {
+    opacity: 1;
+}
+
+/* Problem Card Enhanced Hover State */
+.reg-problem-card .problem-card-front {
+    position: relative;
+    overflow: hidden;
+}
+
+.reg-problem-card .problem-card-front::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg,
+            transparent 40%,
+            rgba(239, 68, 68, 0.02) 50%,
+            transparent 60%);
+    transform: translateX(-100%) rotate(45deg);
+    transition: transform 0.6s ease;
+}
+
+.reg-problem-card:hover .problem-card-front::after {
+    transform: translateX(100%) rotate(45deg);
+}
+
+/* Testimonial Card - Large Quote Mark */
+.reg-testimonial-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.reg-testimonial-card::before {
+    content: '"';
+    position: absolute;
+    top: -20px;
+    left: 20px;
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 12rem;
+    font-weight: 700;
+    line-height: 1;
+    background: linear-gradient(180deg, rgba(34, 197, 94, 0.15) 0%, transparent 80%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.reg-testimonial-card>* {
+    position: relative;
+    z-index: 1;
+}
+
+/* Video Card - Animated Overlay */
+.reg-video-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg,
+            rgba(26, 46, 26, 0.9) 0%,
+            rgba(26, 46, 26, 0.6) 100%);
+    transition: all 0.4s ease;
+    z-index: 1;
+}
+
+.reg-video-card:hover::before {
+    background: linear-gradient(135deg,
+            rgba(26, 46, 26, 0.7) 0%,
+            rgba(26, 46, 26, 0.4) 100%);
+}
+
+/* Video Play Button - Enhanced Animation */
+.reg-video-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80px;
+    height: 80px;
+    background: var(--dm-green);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+    animation: play-pulse 2s ease-in-out infinite;
+}
+
+@keyframes play-pulse {
+
+    0%,
+    100% {
+        box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.4);
+    }
+
+    50% {
+        box-shadow: 0 0 0 20px rgba(34, 197, 94, 0);
+    }
+}
+
+.reg-video-play i {
+    color: white;
+    font-size: 1.5rem;
+    margin-left: 4px;
+}
+
+/* Step Card Enhanced - Elegant Transitions */
+.reg-step-card {
+    position: relative;
+    transition: all 0.4s var(--ease-smooth);
+}
+
+.reg-step-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    background: linear-gradient(135deg,
+            rgba(34, 197, 94, 0.1) 0%,
+            transparent 100%);
+    opacity: 0;
+    transition: opacity 0.4s ease;
+}
+
+.reg-step-card:hover {
+    transform: translateY(-8px);
+}
+
+.reg-step-card:hover::before {
+    opacity: 1;
+}
+
+/* Step Icon - Bouncy Animation on Hover */
+.reg-step-card .step-icon {
+    transition: all 0.4s var(--ease-bounce);
+}
+
+.reg-step-card:hover .step-icon {
+    transform: scale(1.1) rotate(-5deg);
+    box-shadow: 0 12px 32px rgba(34, 197, 94, 0.25);
+}
+
+/* Offer Card - Premium Border Animation */
+.reg-offer-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.reg-offer-card::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 3px;
+    border-radius: inherit;
+    background: linear-gradient(90deg,
+            var(--dm-green),
+            var(--dm-green-light),
+            var(--dm-green-dark),
+            var(--dm-green));
+    background-size: 300% 100%;
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: border-flow 4s linear infinite;
+}
+
+@keyframes border-flow {
+    0% {
+        background-position: 0% center;
+    }
+
+    100% {
+        background-position: 300% center;
+    }
+}
+
+/* Scarcity Badge - Attention Grabber */
+.reg-scarcity {
+    animation: scarcity-glow 2s ease-in-out infinite alternate;
+}
+
+@keyframes scarcity-glow {
+    0% {
+        box-shadow: 0 0 10px rgba(239, 68, 68, 0.2);
+    }
+
+    100% {
+        box-shadow: 0 0 25px rgba(239, 68, 68, 0.4);
+    }
+}
+
+/* CTA Primary - Magnetic Effect */
+.reg-cta-primary {
+    position: relative;
+    overflow: hidden;
+}
+
+.reg-cta-primary::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.6s ease, height 0.6s ease;
+}
+
+.reg-cta-primary:hover::before {
+    width: 300%;
+    height: 300%;
+}
+
+/* Stats Card - Shine Effect */
+.reg-stats-card {
+    position: relative;
+    overflow: hidden;
+}
+
+.reg-stats-card::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg,
+            transparent 40%,
+            rgba(255, 255, 255, 0.03) 50%,
+            transparent 60%);
+    transform: rotate(45deg);
+    animation: card-shine 6s ease-in-out infinite;
+}
+
+@keyframes card-shine {
+
+    0%,
+    100% {
+        transform: translateX(-200%) rotate(45deg);
+    }
+
+    50% {
+        transform: translateX(200%) rotate(45deg);
+    }
+}
+
+/* Enhanced Section Titles - Subtle Glow */
+.reg-section-title .highlight,
+.reg-section-title .highlight-green,
+.reg-section-title .highlight-blue {
+    text-shadow: 0 0 40px rgba(34, 197, 94, 0.2);
+}
+
+/* Footer - Enhanced Styling */
+.reg-footer {
+    position: relative;
+    overflow: hidden;
+}
+
+.reg-footer::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 1px;
+    background: linear-gradient(90deg,
+            transparent,
+            var(--dm-green),
+            transparent);
+}
+
+/* Footer Logo - Hover Effect */
+.reg-footer-logo {
+    transition: all 0.3s ease;
+}
+
+.reg-footer-logo:hover {
+    transform: scale(1.02);
+}
+
+.reg-footer-logo:hover .logo-icon {
+    animation: logo-bounce 0.5s ease;
+}
+
+@keyframes logo-bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+/* Smooth Page Load Animation */
+.reg-page {
+    animation: page-fade-in 0.8s ease-out;
+}
+
+@keyframes page-fade-in {
+    0% {
+        opacity: 0;
+    }
+
+    100% {
+        opacity: 1;
+    }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   FINAL PRICE DISPLAY - "Hoy Pagas Solo"
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+.reg-offer-final-price {
+    background: linear-gradient(135deg, rgba(34, 197, 94, 0.15) 0%, rgba(34, 197, 94, 0.05) 100%);
+    border: 2px solid var(--dm-green);
+    border-radius: var(--dm-radius-xl);
+    padding: 32px 40px;
+    text-align: center;
+    margin-top: 24px;
+    position: relative;
+    overflow: hidden;
+}
+
+.reg-offer-final-price::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--dm-green), var(--dm-green-light), var(--dm-green));
+    animation: border-flow 3s linear infinite;
+}
+
+.reg-offer-final-price .label {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: var(--dm-text-dark);
+    margin: 0 0 8px 0;
+}
+
+.reg-offer-final-price .price {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: 4rem;
+    font-weight: 700;
+    color: var(--dm-green);
+    margin: 0 0 8px 0;
+    line-height: 1.1;
+    text-shadow: 0 2px 20px rgba(34, 197, 94, 0.3);
+}
+
+.reg-offer-final-price .price-note {
+    font-size: 1rem;
+    color: var(--dm-text-medium);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .reg-offer-final-price {
+        padding: 24px 20px;
+    }
+
+    .reg-offer-final-price .price {
+        font-size: 2.75rem;
+    }
+}
+
+/* Loading State for Images */
+.reg-hero-image {
+    opacity: 0;
+    animation: image-reveal 0.8s ease-out 0.3s forwards;
+}
+
+@keyframes image-reveal {
+    0% {
+        opacity: 0;
+        transform: scale(1.05);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}

@@ -5,11 +5,27 @@ const path = require('path');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Habilitar compresión Gzip para mejor rendimiento
+// Habilitar compresión Gzip/Brotli para mejor rendimiento
 app.use(compression());
 
-// Servir archivos estáticos desde la carpeta 'public'
-app.use(express.static(path.join(__dirname, 'public')));
+// Cache headers para recursos estáticos (1 año para assets, 1 día para HTML)
+const oneDay = 86400000;
+const oneYear = 31536000000;
+
+// Servir archivos estáticos con cache optimizado
+app.use(express.static(path.join(__dirname, 'public'), {
+    maxAge: oneDay, // Default: 1 día para HTML
+    setHeaders: (res, filePath) => {
+        // Cache largo para assets inmutables
+        if (filePath.match(/\.(js|css|webp|jpg|jpeg|png|svg|woff2|woff|mp4)$/)) {
+            res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+        }
+        // Cache corto para HTML (permite actualizaciones rápidas)
+        if (filePath.endsWith('.html')) {
+            res.setHeader('Cache-Control', 'public, max-age=86400, must-revalidate');
+        }
+    }
+}));
 
 // Manejar rutas amigables (ej: /robotics carga robotics.html si existe)
 app.get('/:page', (req, res, next) => {

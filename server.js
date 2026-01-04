@@ -6,53 +6,15 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Determinar automáticamente dónde están los archivos estáticos
-let staticPath;
+// Servir archivos desde la raíz del proyecto (donde está server.js)
+const staticPath = __dirname;
 
-// Intentar diferentes ubicaciones posibles
-const possiblePaths = [
-    path.join(__dirname, 'public'),           // Estructura normal: ./public
-    __dirname,                                  // Archivos en la raíz
-    path.join(process.cwd(), 'public'),        // CWD/public
-    process.cwd()                               // CWD (raíz)
-];
-
-for (const testPath of possiblePaths) {
-    if (fs.existsSync(path.join(testPath, 'index.html'))) {
-        staticPath = testPath;
-        console.log(`✅ Archivos encontrados en: ${testPath}`);
-        break;
-    }
-}
-
-if (!staticPath) {
-    console.error('❌ ERROR: No se encontró index.html en ninguna ubicación conocida');
-    console.error('Rutas probadas:', possiblePaths);
-    staticPath = path.join(__dirname, 'public'); // Fallback
-}
+console.log(`📂 Sirviendo archivos desde: ${staticPath}`);
 
 // Habilitar compresión
 app.use(compression());
 
-// Ruta de diagnóstico
-app.get('/debug', (req, res) => {
-    let info = {
-        dirname: __dirname,
-        cwd: process.cwd(),
-        staticPath: staticPath,
-        filesInStatic: []
-    };
-
-    try {
-        info.filesInStatic = fs.readdirSync(staticPath);
-    } catch (err) {
-        info.error = err.message;
-    }
-
-    res.json(info);
-});
-
-// Servir archivos estáticos
+// Servir archivos estáticos desde la raíz
 app.use(express.static(staticPath, {
     maxAge: '1d',
     setHeaders: (res, filePath) => {
@@ -62,10 +24,10 @@ app.use(express.static(staticPath, {
     }
 }));
 
-// Rutas amigables
+// Rutas amigables (ej: /robotics carga robotics.html)
 app.get('/:page', (req, res, next) => {
     const page = req.params.page;
-    if (page.includes('.') || page === 'debug') return next();
+    if (page.includes('.')) return next();
 
     const filePath = path.join(staticPath, `${page}.html`);
     if (fs.existsSync(filePath)) {
@@ -74,12 +36,11 @@ app.get('/:page', (req, res, next) => {
     next();
 });
 
-// Fallback
+// Fallback a index.html
 app.get('*', (req, res) => {
     res.sendFile(path.join(staticPath, 'index.html'));
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 Servidor en puerto ${PORT}`);
-    console.log(`📂 Sirviendo desde: ${staticPath}`);
+    console.log(`🚀 Servidor listo en puerto ${PORT}`);
 });

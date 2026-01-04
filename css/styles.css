@@ -695,7 +695,8 @@ img {
 }
 
 .marquee-item {
-    color: var(--text-muted);
+    color: #cbd5e1;
+    /* Improved contrast for WCAG AA compliance - was var(--text-muted) */
     font-weight: 600;
     font-size: 1.1rem;
     display: flex;
@@ -1937,4 +1938,33 @@ img {
         padding: 14px 28px;
         font-size: 1rem;
     }
+}
+
+/* ===== ACCESSIBILITY ENHANCEMENTS ===== */
+
+/* Footer heading for proper hierarchy (using class instead of h4) */
+.footer-heading {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-main);
+    margin-bottom: 1rem;
+    font-family: 'Space Grotesk', sans-serif;
+}
+
+/* Ensure btn-primary meets WCAG AA contrast ratio */
+.btn-primary {
+    background: #7c3aed;
+    /* Violet 600 - better contrast with white text */
+    color: #ffffff;
+}
+
+/* Identity card improvements for contrast */
+.identity-card .card-header {
+    font-weight: 600;
+}
+
+/* Objection section text contrast fix */
+.objection-section strong {
+    color: #a78bfa;
+    /* Visible on dark backgrounds */
 }

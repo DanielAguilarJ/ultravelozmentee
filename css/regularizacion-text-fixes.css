@@ -64,23 +64,24 @@
 
 
 /* ═══════════════════════════════════════════════════════════════════════════
-   2. BRANDS SECTION - Better text visibility on dark background
+   2. BRANDS SECTION - Better text visibility on dark background (WCAG AA)
    ═══════════════════════════════════════════════════════════════════════════ */
 
 .reg-brands-label {
-    color: rgba(255, 255, 255, 0.8) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
 }
 
+/* Fixed contrast ratio for accessibility - minimum 4.5:1 */
 .reg-brand-item {
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: #ffffff !important;
 }
 
 .reg-brand-item span {
-    color: rgba(255, 255, 255, 0.85) !important;
+    color: #ffffff !important;
 }
 
 .reg-brand-item i {
-    color: rgba(255, 255, 255, 0.75) !important;
+    color: rgba(255, 255, 255, 0.9) !important;
     opacity: 1 !important;
 }
 
@@ -235,8 +236,12 @@
     color: #374151 !important;
 }
 
+/* New testimonial name styling */
+.reg-testimonial-info .testimonial-name,
 .reg-testimonial-info h5 {
     color: #1a1a1a !important;
+    font-size: 1rem;
+    margin: 0 0 4px 0;
 }
 
 .reg-testimonial-info span {
@@ -249,9 +254,13 @@
    ═══════════════════════════════════════════════════════════════════════════ */
 
 /* Video card labels - text over gradient overlay */
-.reg-video-label h4 {
+.reg-video-label h4,
+.reg-video-label .video-title {
     color: #ffffff !important;
     text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5) !important;
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 0 0 4px 0;
 }
 
 .reg-video-label span {
@@ -407,14 +416,20 @@
    11. FAQ SECTION - White/Light background
    ═══════════════════════════════════════════════════════════════════════════ */
 
+/* FAQ headings - changed from h4 to h3 for proper hierarchy */
+.reg-faq-question h3,
 .reg-faq-question h4 {
     color: #1a1a1a !important;
+    font-size: 1rem;
+    font-weight: 600;
+    margin: 0;
 }
 
 .reg-faq-answer-content {
     color: #4a4a4a !important;
 }
 
+.reg-faq-item.active .reg-faq-question h3,
 .reg-faq-item.active .reg-faq-question h4 {
     color: #16a34a !important;
 }

@@ -1,24 +1,24 @@
 document.addEventListener('DOMContentLoaded', () => {
-    
+
     // Random urgency number
     const urgencyBadge = document.querySelector('.cta-urgency-badge');
     if (urgencyBadge) {
         const randomNum = Math.floor(Math.random() * 9) + 2; // Random number between 2 and 10
         urgencyBadge.textContent = '🔥 ¡Solo quedan ' + randomNum + ' lugares para este mes!';
     }
-    
+
     // Random live activity number
     const liveActivityStrong = document.querySelector('.cta-live-activity span strong');
     if (liveActivityStrong) {
         const randomLiveNum = Math.floor(Math.random() * 8) + 3; // Random number between 3 and 10
         liveActivityStrong.textContent = randomLiveNum + ' personas';
     }
-    
+
     // Create Floating Particles
     const createParticles = () => {
         const container = document.getElementById('particles');
         if (!container) return;
-        
+
         for (let i = 0; i < 20; i++) {
             const particle = document.createElement('div');
             particle.className = 'particle';
@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     };
     createParticles();
-    
+
     // Mobile Menu Toggle (legacy - keeping for backwards compatibility)
     const menuToggle = document.querySelector('.menu-toggle');
     const navLinks = document.querySelector('.nav-links');
@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (menuToggle) {
         menuToggle.addEventListener('click', () => {
             navLinks.classList.toggle('active');
-            
+
             // Optional: Animate hamburger icon
             const icon = menuToggle.querySelector('i');
             if (navLinks.classList.contains('active')) {
@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     faqItems.forEach(item => {
         const question = item.querySelector('.faq-question');
-        
+
         question.addEventListener('click', () => {
             // Close other open items
             faqItems.forEach(otherItem => {
@@ -78,10 +78,10 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener('click', function (e) {
             e.preventDefault();
-            
+
             const targetId = this.getAttribute('href');
             if (targetId === '#') return;
-            
+
             const targetElement = document.querySelector(targetId);
             if (targetElement) {
                 // Close mobile menu if open
@@ -92,7 +92,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 const headerOffset = 80;
                 const elementPosition = targetElement.getBoundingClientRect().top;
                 const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-            
+
                 window.scrollTo({
                     top: offsetPosition,
                     behavior: "smooth"
@@ -158,7 +158,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const target = +entry.target.getAttribute('data-target');
                     const duration = 2000; // 2 seconds
                     const increment = target / (duration / 16); // 60fps
-                    
+
                     let current = 0;
                     const updateCounter = () => {
                         current += increment;
@@ -194,6 +194,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const tiltCard = document.querySelector('.glass-card');
     const floatBadges = document.querySelectorAll('.float-ui');
     const heroText = document.querySelector('.hero-text');
+
+    // Apply will-change hints to prevent forced reflows
+    if (tiltCard) tiltCard.style.willChange = 'transform';
+    parallaxShapes.forEach(shape => shape.style.willChange = 'transform');
+    floatBadges.forEach(badge => badge.style.willChange = 'transform');
+    if (heroText) heroText.style.willChange = 'transform';
 
     if (heroSection) {
         heroSection.addEventListener('mousemove', (e) => {

@@ -26,8 +26,11 @@
 
     <!-- Performance: DNS Prefetch & Preconnect -->
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
     <link rel="dns-prefetch" href="//unpkg.com">
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
+    <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
     <link rel="preconnect" href="https://wa.me">
 
     <!-- Preload critical resources -->
@@ -889,21 +892,26 @@
     }
     </script>
 
-    <!-- Google Fonts: Space Grotesk & Inter -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@500;600;700&display=swap"
-        rel="stylesheet">
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome (deferred - non-critical for initial render) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </noscript>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/footer-modern.css">
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-    <!-- Swiper Slider CSS -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- AOS Animation Library (deferred - non-critical) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    </noscript>
+    <!-- Swiper Slider CSS (deferred - non-critical) -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" media="print"
+        onload="this.media='all'">
+    <noscript>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css">
+    </noscript>
 </head>
 
 <body>
@@ -977,9 +985,12 @@
 
                     <div class="hero-social-proof fade-in-up delay-2">
                         <div class="avatars">
-                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="User">
-                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="User">
-                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="User">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Usuario satisfecho"
+                                width="44" height="44" loading="lazy">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Usuario satisfecho"
+                                width="44" height="44" loading="lazy">
+                            <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Usuario satisfecho"
+                                width="44" height="44" loading="lazy">
                             <div class="avatar-count">+200k</div>
                         </div>
                         <div class="proof-text">
@@ -3034,14 +3045,14 @@
                     <div class="footer-brand-area">
                         <span class="brand-text">WorldBrain</span>
                         <div class="social-links">
-                            <a href="https://facebook.com/worldbrainmexico" target="_blank" rel="noopener noreferrer"><i
-                                    class="fab fa-facebook-f"></i></a>
-                            <a href="https://instagram.com/worldbrainmexico" target="_blank"
-                                rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                            <a href="https://tiktok.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer"><i
-                                    class="fab fa-tiktok"></i></a>
-                            <a href="https://youtube.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer"><i
-                                    class="fab fa-youtube"></i></a>
+                            <a href="https://facebook.com/worldbrainmexico" target="_blank" rel="noopener noreferrer"
+                                aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="https://instagram.com/worldbrainmexico" target="_blank" rel="noopener noreferrer"
+                                aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="https://tiktok.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer"
+                                aria-label="Síguenos en TikTok"><i class="fab fa-tiktok"></i></a>
+                            <a href="https://youtube.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer"
+                                aria-label="Síguenos en YouTube"><i class="fab fa-youtube"></i></a>
                         </div>
                     </div>
                     <div class="footer-legal">

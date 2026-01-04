@@ -8,6 +8,17 @@ const PORT = process.env.PORT || 3000;
 // Habilitar compresión Gzip/Brotli para mejor rendimiento
 app.use(compression());
 
+// Health Check - Para verificar si el servidor está vivo
+app.get('/health', (req, res) => {
+    res.status(200).send('OK - Server is running');
+});
+
+// Middleware de logging básico para debug
+app.use((req, res, next) => {
+    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
+    next();
+});
+
 // Cache headers para recursos estáticos (1 año para assets, 1 día para HTML)
 const oneDay = 86400000;
 const oneYear = 31536000000;

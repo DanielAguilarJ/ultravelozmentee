@@ -1,60 +1,74 @@
 const express = require('express');
 const compression = require('compression');
 const path = require('path');
+const fs = require('fs');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Habilitar compresión Gzip/Brotli para mejor rendimiento
+// Habilitar compresión
 app.use(compression());
 
-// Health Check - Para verificar si el servidor está vivo
-app.get('/health', (req, res) => {
-    res.status(200).send('OK - Server is running');
-});
-
-// Middleware de logging básico para debug
+// Logger para ver qué está pidiendo el navegador
 app.use((req, res, next) => {
     console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
     next();
 });
 
-// Cache headers para recursos estáticos (1 año para assets, 1 día para HTML)
-const oneDay = 86400000;
-const oneYear = 31536000000;
+// Ruta de diagnóstico para ver carpetas en Hostinger
+app.get('/debug-fs', (req, res) => {
+    const rootDir = __dirname;
+    const publicDir = path.join(rootDir, 'public');
 
-// Servir archivos estáticos con cache optimizado
-app.use(express.static(path.join(__dirname, 'public'), {
-    maxAge: oneDay, // Default: 1 día para HTML
+    let report = `Base Dir: ${rootDir}\n`;
+    report += `Public Dir: ${publicDir}\n\n`;
+
+    try {
+        report += `Files in Root:\n${fs.readdirSync(rootDir).join('\n')}\n\n`;
+        if (fs.existsSync(publicDir)) {
+            report += `Files in Public:\n${fs.readdirSync(publicDir).join('\n')}\n`;
+        } else {
+            report += `ERROR: Public directory NOT FOUND at ${publicDir}\n`;
+        }
+    } catch (err) {
+        report += `Error reading files: ${err.message}`;
+    }
+
+    res.header('Content-Type', 'text/plain');
+    res.send(report);
+});
+
+// Servir archivos estáticos con configuración robusta
+const publicPath = path.resolve(__dirname, 'public');
+app.use(express.static(publicPath, {
+    maxAge: '1d',
     setHeaders: (res, filePath) => {
-        // Cache largo para assets inmutables
         if (filePath.match(/\.(js|css|webp|jpg|jpeg|png|svg|woff2|woff|mp4)$/)) {
             res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
-        }
-        // Cache corto para HTML (permite actualizaciones rápidas)
-        if (filePath.endsWith('.html')) {
-            res.setHeader('Cache-Control', 'public, max-age=86400, must-revalidate');
         }
     }
 }));
 
-// Manejar rutas amigables (ej: /robotics carga robotics.html si existe)
+// Manejar rutas amigables (/fotolectura -> fotolectura.html)
 app.get('/:page', (req, res, next) => {
     const page = req.params.page;
-    if (page.includes('.')) return next(); // Si tiene extensión, pasar a static
 
-    const filePath = path.join(__dirname, 'public', `${page}.html`);
-    res.sendFile(filePath, (err) => {
-        if (err) next();
-    });
+    // Ignorar si tiene extensión (ya debería haberlo manejado el static)
+    if (page.includes('.')) return next();
+
+    const filePath = path.join(publicPath, `${page}.html`);
+    if (fs.existsSync(filePath)) {
+        return res.sendFile(filePath);
+    }
+    next();
 });
 
-// Fallback a index.html para cualquier otra ruta
+// Fallback a index.html
 app.get('*', (req, res) => {
-    res.sendFile(path.join(__dirname, 'public', 'index.html'));
+    res.sendFile(path.join(publicPath, 'index.html'));
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 Servidor listo en: http://localhost:${PORT}`);
-    console.log(`📁 Sirviendo archivos desde: ${path.join(__dirname, 'public')}`);
+    console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
+    console.log(`📂 Ruta de archivos: ${publicPath}`);
 });

@@ -6,41 +6,54 @@ const fs = require('fs');
 const app = express();
 const PORT = process.env.PORT || 3000;
 
+// Determinar automáticamente dónde están los archivos estáticos
+let staticPath;
+
+// Intentar diferentes ubicaciones posibles
+const possiblePaths = [
+    path.join(__dirname, 'public'),           // Estructura normal: ./public
+    __dirname,                                  // Archivos en la raíz
+    path.join(process.cwd(), 'public'),        // CWD/public
+    process.cwd()                               // CWD (raíz)
+];
+
+for (const testPath of possiblePaths) {
+    if (fs.existsSync(path.join(testPath, 'index.html'))) {
+        staticPath = testPath;
+        console.log(`✅ Archivos encontrados en: ${testPath}`);
+        break;
+    }
+}
+
+if (!staticPath) {
+    console.error('❌ ERROR: No se encontró index.html en ninguna ubicación conocida');
+    console.error('Rutas probadas:', possiblePaths);
+    staticPath = path.join(__dirname, 'public'); // Fallback
+}
+
 // Habilitar compresión
 app.use(compression());
 
-// Logger para ver qué está pidiendo el navegador
-app.use((req, res, next) => {
-    console.log(`[${new Date().toISOString()}] ${req.method} ${req.url}`);
-    next();
-});
-
-// Ruta de diagnóstico para ver carpetas en Hostinger
-app.get('/debug-fs', (req, res) => {
-    const rootDir = __dirname;
-    const publicDir = path.join(rootDir, 'public');
-
-    let report = `Base Dir: ${rootDir}\n`;
-    report += `Public Dir: ${publicDir}\n\n`;
+// Ruta de diagnóstico
+app.get('/debug', (req, res) => {
+    let info = {
+        dirname: __dirname,
+        cwd: process.cwd(),
+        staticPath: staticPath,
+        filesInStatic: []
+    };
 
     try {
-        report += `Files in Root:\n${fs.readdirSync(rootDir).join('\n')}\n\n`;
-        if (fs.existsSync(publicDir)) {
-            report += `Files in Public:\n${fs.readdirSync(publicDir).join('\n')}\n`;
-        } else {
-            report += `ERROR: Public directory NOT FOUND at ${publicDir}\n`;
-        }
+        info.filesInStatic = fs.readdirSync(staticPath);
     } catch (err) {
-        report += `Error reading files: ${err.message}`;
+        info.error = err.message;
     }
 
-    res.header('Content-Type', 'text/plain');
-    res.send(report);
+    res.json(info);
 });
 
-// Servir archivos estáticos con configuración robusta
-const publicPath = path.resolve(__dirname, 'public');
-app.use(express.static(publicPath, {
+// Servir archivos estáticos
+app.use(express.static(staticPath, {
     maxAge: '1d',
     setHeaders: (res, filePath) => {
         if (filePath.match(/\.(js|css|webp|jpg|jpeg|png|svg|woff2|woff|mp4)$/)) {
@@ -49,26 +62,24 @@ app.use(express.static(publicPath, {
     }
 }));
 
-// Manejar rutas amigables (/fotolectura -> fotolectura.html)
+// Rutas amigables
 app.get('/:page', (req, res, next) => {
     const page = req.params.page;
+    if (page.includes('.') || page === 'debug') return next();
 
-    // Ignorar si tiene extensión (ya debería haberlo manejado el static)
-    if (page.includes('.')) return next();
-
-    const filePath = path.join(publicPath, `${page}.html`);
+    const filePath = path.join(staticPath, `${page}.html`);
     if (fs.existsSync(filePath)) {
         return res.sendFile(filePath);
     }
     next();
 });
 
-// Fallback a index.html
+// Fallback
 app.get('*', (req, res) => {
-    res.sendFile(path.join(publicPath, 'index.html'));
+    res.sendFile(path.join(staticPath, 'index.html'));
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 Servidor corriendo en puerto ${PORT}`);
-    console.log(`📂 Ruta de archivos: ${publicPath}`);
+    console.log(`🚀 Servidor en puerto ${PORT}`);
+    console.log(`📂 Sirviendo desde: ${staticPath}`);
 });

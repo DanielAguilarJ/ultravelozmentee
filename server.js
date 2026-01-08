@@ -14,6 +14,44 @@ console.log(`📂 Sirviendo archivos desde: ${staticPath}`);
 // Habilitar compresión
 app.use(compression());
 
+// 301 Redirects for legacy URLs
+app.use((req, res, next) => {
+    const redirects = {
+        '/curso-de-desarrollo-humanista': '/neurocomunicacion.html',
+        '/curso-de-desarrollo-humanista/': '/neurocomunicacion.html',
+        '/curso-de-verano-2026': '/index.html',
+        '/curso-de-verano-2026/': '/index.html',
+        '/curso-de-neurocomunicacion': '/neurocomunicacion.html',
+        '/curso-de-neurocomunicacion/': '/neurocomunicacion.html',
+        '/expansion-de-vocabulario': '/lectoescritura.html',
+        '/expansion-de-vocabulario/': '/lectoescritura.html',
+        '/desarrollo-humanista': '/neurocomunicacion.html',
+        '/desarrollo-humanista/': '/neurocomunicacion.html',
+        '/curso-neuro-comunicacion-2026': '/neurocomunicacion.html',
+        '/curso-neuro-comunicacion-2026/': '/neurocomunicacion.html',
+        '/fastkids': '/fastkids.html',
+        '/fastkids/': '/fastkids.html',
+        '/mathekids': '/mathekids.html',
+        '/mathekids/': '/mathekids.html',
+        '/lectoescritura': '/lectoescritura.html',
+        '/lectoescritura/': '/lectoescritura.html',
+        '/robotics-code-robotica-para-mentes-brillantes': '/robotics.html',
+        '/robotics-code-robotica-para-mentes-brillantes/': '/robotics.html',
+        '/fotolectura-lectura-rapida': '/fotolectura.html',
+        '/fotolectura-lectura-rapida/': '/fotolectura.html',
+        '/cursos': '/index.html',
+        '/cursos/': '/index.html',
+        '/courses/marketing-2023-complete-guide-to-social-growth': '/index.html',
+        '/courses/marketing-2023-complete-guide-to-social-growth/': '/index.html'
+    };
+
+    const target = redirects[req.path];
+    if (target) {
+        return res.redirect(301, target);
+    }
+    next();
+});
+
 // Servir archivos estáticos desde la raíz
 app.use(express.static(staticPath, {
     maxAge: '1d',

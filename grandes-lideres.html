@@ -1,15 +1,51 @@
 <!DOCTYPE html>
 <html lang="es-MX">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Grandes Líderes - Programa de liderazgo infantil de WorldBrain México. Transforma la timidez en carácter y autonomía.">
     <title>Grandes Líderes | WorldBrain México - Formamos Líderes del Mañana</title>
+    <meta name="description"
+        content="Grandes Líderes - Programa de liderazgo infantil de WorldBrain México. Transforma la timidez en carácter y autonomía.">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="Grandes Líderes | WorldBrain México">
+    <meta property="og:description"
+        content="Programa de liderazgo infantil. Transforma la timidez en carácter y autonomía.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://ultravelozmente.com/grandes-lideres.html">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Grandes Líderes | WorldBrain México">
+    <meta name="twitter:description"
+        content="Programa de liderazgo infantil. Transforma la timidez en carácter y autonomía.">
+    <meta name="twitter:image" content="https://images.unsplash.com/photo-1519389950473-47ba0277781c">
+
+    <!-- Canonical -->
+    <link rel="canonical" href="https://ultravelozmente.com/grandes-lideres.html">
+
+    <!-- Schema.org -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Course",
+        "name": "Grandes Líderes",
+        "description": "Programa de liderazgo infantil para desarrollar carácter y autonomía.",
+        "provider": {
+            "@type": "Organization",
+            "name": "WorldBrain México",
+            "sameAs": "https://ultravelozmente.com"
+        }
+    }
+    </script>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
+
     <style>
         /* ========================================
            VARIABLES & RESET
@@ -35,7 +71,9 @@
             --neon-glow-purple: 0 0 20px var(--purple-glow), 0 0 40px var(--purple-glow), 0 0 60px rgba(157, 0, 255, 0.2);
         }
 
-        *, *::before, *::after {
+        *,
+        *::before,
+        *::after {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -79,12 +117,13 @@
                 animation-timeline: view();
                 animation-range: entry 0% cover 40%;
             }
-            
+
             @keyframes scrollFadeUp {
                 from {
                     opacity: 0;
                     transform: translateY(60px);
                 }
+
                 to {
                     opacity: 1;
                     transform: translateY(0);
@@ -104,6 +143,7 @@
                 opacity: 0;
                 transform: translateY(40px);
             }
+
             to {
                 opacity: 1;
                 transform: translateY(0);
@@ -167,10 +207,23 @@
         }
 
         @keyframes orbFloat {
-            0%, 100% { transform: translate(0, 0) scale(1); }
-            25% { transform: translate(50px, 30px) scale(1.1); }
-            50% { transform: translate(-30px, 60px) scale(0.95); }
-            75% { transform: translate(40px, -20px) scale(1.05); }
+
+            0%,
+            100% {
+                transform: translate(0, 0) scale(1);
+            }
+
+            25% {
+                transform: translate(50px, 30px) scale(1.1);
+            }
+
+            50% {
+                transform: translate(-30px, 60px) scale(0.95);
+            }
+
+            75% {
+                transform: translate(40px, -20px) scale(1.05);
+            }
         }
 
         /* Parallax Grid Pattern */
@@ -181,9 +234,9 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            background-image: 
-                linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+            background-image:
+                linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
             background-size: 60px 60px;
             transform: translateY(var(--scroll-y, 0));
             will-change: transform;
@@ -299,8 +352,15 @@
         }
 
         @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.5; }
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
         }
 
         .hero-title {
@@ -359,7 +419,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
             transition: left 0.5s;
         }
 
@@ -369,7 +429,7 @@
 
         .btn-neon:hover {
             transform: translateY(-3px) scale(1.08);
-            box-shadow: 
+            box-shadow:
                 var(--neon-glow-cyan),
                 0 0 80px var(--purple-glow),
                 0 0 120px rgba(0, 255, 255, 0.15);
@@ -437,8 +497,15 @@
         }
 
         @keyframes floatSlow {
-            0%, 100% { transform: translateY(0) rotate(0deg); }
-            50% { transform: translateY(-30px) rotate(10deg); }
+
+            0%,
+            100% {
+                transform: translateY(0) rotate(0deg);
+            }
+
+            50% {
+                transform: translateY(-30px) rotate(10deg);
+            }
         }
 
         /* ========================================
@@ -587,7 +654,7 @@
 
         .tilt-card:hover {
             border-color: var(--cyan);
-            box-shadow: 
+            box-shadow:
                 0 25px 80px rgba(0, 255, 255, 0.12),
                 0 0 40px rgba(0, 255, 255, 0.08);
         }
@@ -822,8 +889,15 @@
         }
 
         @keyframes pulseBorder {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(157, 0, 255, 0.4); }
-            50% { box-shadow: 0 0 0 10px rgba(157, 0, 255, 0); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(157, 0, 255, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 0 10px rgba(157, 0, 255, 0);
+            }
         }
 
         .cta-title {
@@ -858,14 +932,21 @@
         }
 
         @keyframes buttonPulse {
-            0%, 100% { box-shadow: 0 0 0 0 var(--cyan-glow); }
-            50% { box-shadow: 0 0 40px 10px var(--cyan-glow); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 var(--cyan-glow);
+            }
+
+            50% {
+                box-shadow: 0 0 40px 10px var(--cyan-glow);
+            }
         }
 
         .btn-giant:hover {
             transform: scale(1.1);
             animation: none;
-            box-shadow: 
+            box-shadow:
                 var(--neon-glow-cyan),
                 var(--neon-glow-purple),
                 0 0 100px rgba(0, 255, 255, 0.3),
@@ -928,7 +1009,10 @@
         }
 
         /* Image Styles */
-        .hero-image, .problem-image-img, .gallery-img, .booking-image {
+        .hero-image,
+        .problem-image-img,
+        .gallery-img,
+        .booking-image {
             width: 100%;
             height: 100%;
             object-fit: cover;
@@ -938,7 +1022,7 @@
 
         .hero-image {
             height: 500px;
-            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
         }
 
         .problem-image-img {
@@ -949,7 +1033,7 @@
         .booking-image {
             height: 200px;
             margin: 24px 0;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
         .hero-image-placeholder {
@@ -1261,7 +1345,7 @@
             border: 2px solid var(--border-glass);
             border-radius: 12px;
             font-size: 1rem;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             color: var(--text-primary);
             font-family: var(--font-main);
             transition: all 0.3s var(--transition-smooth);
@@ -1324,7 +1408,7 @@
             padding: 12px 16px;
             border: 2px solid var(--border-glass);
             border-radius: 10px;
-            background: rgba(255,255,255,0.05);
+            background: rgba(255, 255, 255, 0.05);
             cursor: pointer;
             font-weight: 500;
             transition: all 0.3s ease;
@@ -1344,10 +1428,10 @@
         }
 
         .time-slot:disabled {
-            background: rgba(255,255,255,0.02);
+            background: rgba(255, 255, 255, 0.02);
             color: var(--text-muted);
             cursor: not-allowed;
-            border-color: rgba(255,255,255,0.1);
+            border-color: rgba(255, 255, 255, 0.1);
         }
 
         /* Success State */
@@ -1376,7 +1460,7 @@
             margin-bottom: 10px;
         }
 
-        .success-content > p {
+        .success-content>p {
             color: var(--text-muted);
             margin-bottom: 30px;
         }
@@ -1436,6 +1520,7 @@
             .booking-grid {
                 grid-template-columns: 1fr;
             }
+
             .booking-info {
                 border-right: none;
                 border-bottom: 1px solid var(--border-glass);
@@ -1448,15 +1533,19 @@
                 grid-template-columns: 1fr;
                 gap: 40px;
             }
+
             .hero-content {
                 text-align: center;
             }
+
             .hero-visual {
                 order: -1;
             }
+
             .hero-image-placeholder {
                 height: 350px;
             }
+
             .hero-cta-group {
                 align-items: center;
             }
@@ -1467,9 +1556,11 @@
             .problem-content-grid {
                 grid-template-columns: 1fr;
             }
+
             .problem-image {
                 order: -1;
             }
+
             .image-placeholder-vertical {
                 min-height: 300px;
             }
@@ -1480,6 +1571,7 @@
             .gallery-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
             .gallery-item.large {
                 grid-column: span 2;
                 grid-row: span 1;
@@ -1490,6 +1582,7 @@
             .gallery-grid {
                 grid-template-columns: 1fr;
             }
+
             .gallery-item.large {
                 grid-column: span 1;
             }
@@ -1793,7 +1886,7 @@
             position: absolute;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, transparent 30%, rgba(0,0,0,0.3) 100%);
+            background: radial-gradient(circle, transparent 30%, rgba(0, 0, 0, 0.3) 100%);
         }
 
         .bento-stat {
@@ -2044,21 +2137,37 @@
             transform: translateY(0);
         }
 
-        .stagger-delay-1 { transition-delay: 0.1s; }
-        .stagger-delay-2 { transition-delay: 0.2s; }
-        .stagger-delay-3 { transition-delay: 0.3s; }
-        .stagger-delay-4 { transition-delay: 0.4s; }
-        .stagger-delay-5 { transition-delay: 0.5s; }
+        .stagger-delay-1 {
+            transition-delay: 0.1s;
+        }
+
+        .stagger-delay-2 {
+            transition-delay: 0.2s;
+        }
+
+        .stagger-delay-3 {
+            transition-delay: 0.3s;
+        }
+
+        .stagger-delay-4 {
+            transition-delay: 0.4s;
+        }
+
+        .stagger-delay-5 {
+            transition-delay: 0.5s;
+        }
 
         /* Responsive Bento Grid */
         @media (max-width: 1024px) {
             .bento-grid {
                 grid-template-columns: repeat(2, 1fr);
             }
+
             .bento-item.large {
                 grid-column: span 2;
                 grid-row: span 1;
             }
+
             .footer-main {
                 grid-template-columns: 1fr 1fr;
             }
@@ -2068,20 +2177,24 @@
             .bento-grid {
                 grid-template-columns: 1fr;
             }
+
             .bento-item.large,
             .bento-item.medium,
             .bento-item.tall {
                 grid-column: span 1;
                 grid-row: span 1;
             }
+
             .footer-main {
                 grid-template-columns: 1fr;
                 gap: 32px;
             }
+
             .footer-bottom {
                 flex-direction: column;
                 text-align: center;
             }
+
             .footer-legal {
                 flex-wrap: wrap;
                 justify-content: center;
@@ -2089,6 +2202,7 @@
         }
     </style>
 </head>
+
 <body>
 
     <!-- Animated Background -->
@@ -2105,7 +2219,8 @@
         <div class="container">
             <div class="nav-content">
                 <a href="index.html" class="nav-logo">WorldBrain <span>México</span></a>
-                <a href="https://wa.me/5215578107837?text=Hola,%20me%20interesa%20el%20curso%20Grandes%20L%C3%ADderes%20para%20mi%20hijo" class="nav-cta">
+                <a href="https://wa.me/5215578107837?text=Hola,%20me%20interesa%20el%20curso%20Grandes%20L%C3%ADderes%20para%20mi%20hijo"
+                    class="nav-cta">
                     <i class="fab fa-whatsapp"></i> Contactar Ahora
                 </a>
             </div>
@@ -2117,7 +2232,7 @@
         <div class="hero-float hero-float-1"></div>
         <div class="hero-float hero-float-2"></div>
         <div class="hero-float hero-float-3"></div>
-        
+
         <div class="container">
             <div class="hero-grid">
                 <div class="hero-content">
@@ -2125,17 +2240,17 @@
                         <i class="fas fa-bolt"></i>
                         <span>Programa de Alto Impacto — Cupos Limitados 2025</span>
                     </div>
-                    
+
                     <h1 class="hero-title fade-in stagger-delay-1">
                         ¿Tu hijo sigue instrucciones<br>
                         <span class="gradient-text">o las da?</span>
                     </h1>
-                    
+
                     <p class="hero-subtitle fade-in stagger-delay-2">
-                        El mundo pertenece a quienes se atreven a liderar. La timidez no es un destino. 
+                        El mundo pertenece a quienes se atreven a liderar. La timidez no es un destino.
                         En WorldBrain, <strong>transformamos la inseguridad en carácter y autonomía.</strong>
                     </p>
-                    
+
                     <div class="hero-cta-group fade-in stagger-delay-3">
                         <a href="#reservar" class="btn-neon">
                             <span>Despertar al Líder Interior</span>
@@ -2147,7 +2262,7 @@
                         </div>
                     </div>
                 </div>
-                
+
                 <!-- Hero Image -->
                 <div class="hero-visual fade-in stagger-delay-2">
                     <div class="hero-image-container">
@@ -2188,7 +2303,7 @@
                 <div class="problem-image fade-in">
                     <img src="images/gl-problem.jpg" alt="Niño pensativo" class="problem-image-img">
                 </div>
-                
+
                 <!-- Cards del lado derecho -->
                 <div class="problem-grid">
                     <div class="problem-card stagger-delay-1">
@@ -2196,7 +2311,8 @@
                             <i class="fas fa-hand-paper"></i>
                         </div>
                         <h3>Miedo a Opinar</h3>
-                        <p>No levanta la mano en clase. Tiene ideas brillantes pero las guarda por temor al "qué dirán". Su voz se pierde entre los demás.</p>
+                        <p>No levanta la mano en clase. Tiene ideas brillantes pero las guarda por temor al "qué dirán".
+                            Su voz se pierde entre los demás.</p>
                     </div>
 
                     <div class="problem-card stagger-delay-2">
@@ -2204,7 +2320,8 @@
                             <i class="fas fa-question-circle"></i>
                         </div>
                         <h3>Dependencia Total</h3>
-                        <p>Pregunta todo, decide nada. Necesita aprobación constante hasta para las decisiones más simples. Su autonomía está en riesgo.</p>
+                        <p>Pregunta todo, decide nada. Necesita aprobación constante hasta para las decisiones más
+                            simples. Su autonomía está en riesgo.</p>
                     </div>
 
                     <div class="problem-card stagger-delay-3">
@@ -2212,7 +2329,8 @@
                             <i class="fas fa-users"></i>
                         </div>
                         <h3>Seguidor de Masas</h3>
-                        <p>Sigue a las malas influencias por falta de criterio propio. Sin liderazgo interno, termina siendo el eco de otros, no su propia voz.</p>
+                        <p>Sigue a las malas influencias por falta de criterio propio. Sin liderazgo interno, termina
+                            siendo el eco de otros, no su propia voz.</p>
                     </div>
                 </div>
             </div>
@@ -2228,7 +2346,8 @@
                     Programa <span class="gradient-text">"Grandes Líderes"</span>
                 </h2>
                 <p class="section-subtitle fade-in stagger-delay-2">
-                    No enseñamos teoría. Forjamos carácter. Cada módulo está diseñado para detonar un cambio real y medible.
+                    No enseñamos teoría. Forjamos carácter. Cada módulo está diseñado para detonar un cambio real y
+                    medible.
                 </p>
             </div>
 
@@ -2242,7 +2361,8 @@
                             <i class="fas fa-arrow-right arrow-icon"></i>
                             <span class="state-after">"Resolver todo"</span>
                         </div>
-                        <p>Tu hijo aprenderá a tomar decisiones con confianza, evaluar consecuencias y actuar con criterio propio. Fin de la dependencia.</p>
+                        <p>Tu hijo aprenderá a tomar decisiones con confianza, evaluar consecuencias y actuar con
+                            criterio propio. Fin de la dependencia.</p>
                     </div>
                 </div>
 
@@ -2255,7 +2375,8 @@
                             <i class="fas fa-arrow-right arrow-icon"></i>
                             <span class="state-after">"Centro de Influencia"</span>
                         </div>
-                        <p>Dominará las dinámicas de grupo, sabrá leer a las personas y aprenderá a influir éticamente. Liderazgo genuino, no manipulación.</p>
+                        <p>Dominará las dinámicas de grupo, sabrá leer a las personas y aprenderá a influir éticamente.
+                            Liderazgo genuino, no manipulación.</p>
                     </div>
                 </div>
 
@@ -2268,7 +2389,8 @@
                             <i class="fas fa-arrow-right arrow-icon"></i>
                             <span class="state-after">"Argumentos sólidos"</span>
                         </div>
-                        <p>Defenderá sus ideas sin miedo ante cualquier autoridad. Presentaciones, debates, negociación. Su voz será escuchada y respetada.</p>
+                        <p>Defenderá sus ideas sin miedo ante cualquier autoridad. Presentaciones, debates, negociación.
+                            Su voz será escuchada y respetada.</p>
                     </div>
                 </div>
             </div>
@@ -2296,7 +2418,8 @@
                         <i class="fas fa-crown"></i>
                     </div>
                     <h3>Liderazgo Transformacional</h3>
-                    <p>El módulo central del programa. Tu hijo aprenderá los principios que distinguen a los grandes líderes de la historia.</p>
+                    <p>El módulo central del programa. Tu hijo aprenderá los principios que distinguen a los grandes
+                        líderes de la historia.</p>
                     <ul class="bento-list">
                         <li><i class="fas fa-check"></i> Visión estratégica y toma de decisiones</li>
                         <li><i class="fas fa-check"></i> Motivación de equipos y colaboración</li>
@@ -2314,7 +2437,8 @@
                         <i class="fas fa-comments"></i>
                     </div>
                     <h3>Comunicación Persuasiva</h3>
-                    <p>Dominio del lenguaje verbal y no verbal para influir, convencer y conectar con cualquier audiencia.</p>
+                    <p>Dominio del lenguaje verbal y no verbal para influir, convencer y conectar con cualquier
+                        audiencia.</p>
                 </div>
 
                 <!-- Item Stat -->
@@ -2367,7 +2491,8 @@
                         <i class="fas fa-project-diagram"></i>
                     </div>
                     <h3>Proyecto Final de Liderazgo</h3>
-                    <p>Cada alumno lidera un proyecto real aplicando todo lo aprendido. Presentación ante panel de evaluadores.</p>
+                    <p>Cada alumno lidera un proyecto real aplicando todo lo aprendido. Presentación ante panel de
+                        evaluadores.</p>
                 </div>
             </div>
         </div>
@@ -2406,7 +2531,7 @@
             <div class="testimonials-grid">
                 <div class="testimonial-card">
                     <p class="testimonial-text">
-                        "Mi hijo no hablaba en clase. Hoy es el presidente de la sociedad de alumnos. 
+                        "Mi hijo no hablaba en clase. Hoy es el presidente de la sociedad de alumnos.
                         WorldBrain no cambió sus calificaciones, <strong>cambió su identidad.</strong>"
                     </p>
                     <div class="testimonial-author">
@@ -2420,7 +2545,7 @@
 
                 <div class="testimonial-card">
                     <p class="testimonial-text">
-                        "Pensaba que la timidez era parte de su personalidad. Descubrí que solo necesitaba 
+                        "Pensaba que la timidez era parte de su personalidad. Descubrí que solo necesitaba
                         las herramientas correctas. Ahora <strong>lidera proyectos en su escuela.</strong>"
                     </p>
                     <div class="testimonial-author">
@@ -2434,7 +2559,7 @@
 
                 <div class="testimonial-card">
                     <p class="testimonial-text">
-                        "La inversión más importante que hice. Mi hija pasó de seguir a los demás a 
+                        "La inversión más importante que hice. Mi hija pasó de seguir a los demás a
                         <strong>ser quien propone las ideas.</strong> Su autoestima se transformó por completo."
                     </p>
                     <div class="testimonial-author">
@@ -2446,7 +2571,7 @@
                     </div>
                 </div>
             </div>
-            
+
             <!-- Galería de Imágenes -->
             <div class="gallery-section fade-in">
                 <h3 class="gallery-title">Nuestros <span class="gradient-text">Líderes en Acción</span></h3>
@@ -2489,7 +2614,9 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            El programa <strong>Grandes Líderes</strong> está diseñado para niños y adolescentes de <strong>8 a 16 años</strong>. Contamos con grupos diferenciados por edad para asegurar que cada actividad sea apropiada para su nivel de desarrollo.
+                            El programa <strong>Grandes Líderes</strong> está diseñado para niños y adolescentes de
+                            <strong>8 a 16 años</strong>. Contamos con grupos diferenciados por edad para asegurar que
+                            cada actividad sea apropiada para su nivel de desarrollo.
                         </div>
                     </div>
                 </div>
@@ -2501,7 +2628,9 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            El programa tiene una duración de <strong>12 semanas</strong> con sesiones de 2 horas cada sábado. Al finalizar, los participantes reciben un <strong>diploma oficial</strong> y presentan su proyecto final ante un panel de evaluadores.
+                            El programa tiene una duración de <strong>12 semanas</strong> con sesiones de 2 horas cada
+                            sábado. Al finalizar, los participantes reciben un <strong>diploma oficial</strong> y
+                            presentan su proyecto final ante un panel de evaluadores.
                         </div>
                     </div>
                 </div>
@@ -2513,7 +2642,10 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            ¡Absolutamente! De hecho, <strong>la mayoría de nuestros alumnos comienzan siendo tímidos</strong>. Nuestra metodología está diseñada específicamente para transformar la timidez en seguridad de forma gradual y respetuosa. Los cambios más dramáticos los vemos precisamente en los niños más reservados.
+                            ¡Absolutamente! De hecho, <strong>la mayoría de nuestros alumnos comienzan siendo
+                                tímidos</strong>. Nuestra metodología está diseñada específicamente para transformar la
+                            timidez en seguridad de forma gradual y respetuosa. Los cambios más dramáticos los vemos
+                            precisamente en los niños más reservados.
                         </div>
                     </div>
                 </div>
@@ -2525,7 +2657,9 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            La inversión varía según la modalidad y promociones vigentes. Contáctanos por <strong>WhatsApp</strong> para recibir información detallada de costos, opciones de pago y becas disponibles. También ofrecemos una <strong>sesión de diagnóstico gratuita</strong>.
+                            La inversión varía según la modalidad y promociones vigentes. Contáctanos por
+                            <strong>WhatsApp</strong> para recibir información detallada de costos, opciones de pago y
+                            becas disponibles. También ofrecemos una <strong>sesión de diagnóstico gratuita</strong>.
                         </div>
                     </div>
                 </div>
@@ -2537,7 +2671,9 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Sí, ofrecemos una <strong>clase muestra sin costo</strong> donde tu hijo puede experimentar nuestra metodología y tú puedes ver cómo reacciona. Además, te compartimos testimonios en video de padres y alumnos que han completado el programa.
+                            Sí, ofrecemos una <strong>clase muestra sin costo</strong> donde tu hijo puede experimentar
+                            nuestra metodología y tú puedes ver cómo reacciona. Además, te compartimos testimonios en
+                            video de padres y alumnos que han completado el programa.
                         </div>
                     </div>
                 </div>
@@ -2549,7 +2685,9 @@
                     </button>
                     <div class="faq-answer">
                         <div class="faq-answer-content">
-                            Nuestras instalaciones están ubicadas en la <strong>Ciudad de México</strong>. También contamos con modalidad híbrida para familias que no pueden asistir presencialmente todas las sesiones. Contáctanos para conocer la sede más cercana a tu ubicación.
+                            Nuestras instalaciones están ubicadas en la <strong>Ciudad de México</strong>. También
+                            contamos con modalidad híbrida para familias que no pueden asistir presencialmente todas las
+                            sesiones. Contáctanos para conocer la sede más cercana a tu ubicación.
                         </div>
                     </div>
                 </div>
@@ -2594,9 +2732,9 @@
                                     <span>Clase muestra sin compromiso</span>
                                 </li>
                             </ul>
-                            
+
                             <img src="images/gl-booking.jpg" alt="Niños líderes en acción" class="booking-image">
-                            
+
                             <div class="booking-contact">
                                 <p><i class="fas fa-phone"></i> (55) 7810-7837</p>
                                 <p><i class="fas fa-envelope"></i> info@worldbrain.com.mx</p>
@@ -2647,7 +2785,7 @@
                                     <i class="fas fa-arrow-left"></i> Volver
                                 </button>
                             </div>
-                            
+
                             <div class="form-group">
                                 <label for="date-picker-gl">Fecha</label>
                                 <input type="date" id="date-picker-gl" onchange="loadTimeSlotsGL()">
@@ -2665,8 +2803,9 @@
                                     <i class="fas fa-check"></i>
                                 </div>
                                 <h4>¡Cita Confirmada!</h4>
-                                <p>Hemos reservado tu espacio. Te contactaremos por WhatsApp para confirmar detalles.</p>
-                                
+                                <p>Hemos reservado tu espacio. Te contactaremos por WhatsApp para confirmar detalles.
+                                </p>
+
                                 <div class="success-actions">
                                     <a id="gcal-btn-gl" href="#" target="_blank" class="btn-calendar">
                                         <i class="fab fa-google"></i> Guardar en Google Calendar
@@ -2691,22 +2830,22 @@
                     <i class="fas fa-clock"></i>
                     <span>Inscripciones Abiertas — Lugares Limitados</span>
                 </div>
-                
+
                 <h2 class="cta-title">
                     El liderazgo se entrena <span class="gradient-text">HOY.</span><br>
                     Mañana puede ser tarde.
                 </h2>
-                
+
                 <p class="cta-subtitle">
-                    Cada día que pasa, tu hijo pierde oportunidades de desarrollar su potencial. 
+                    Cada día que pasa, tu hijo pierde oportunidades de desarrollar su potencial.
                     No esperes a que "madure solo". Actúa ahora.
                 </p>
-                
+
                 <a href="#reservar" class="btn-giant">
                     <i class="fas fa-calendar-check"></i>
                     <span>Agendar Entrevista de Admisión</span>
                 </a>
-                
+
                 <div class="cta-guarantee">
                     <i class="fas fa-phone-alt"></i>
                     <span>También puedes llamar: (55) 7810-7837</span>
@@ -2721,15 +2860,19 @@
             <div class="footer-main">
                 <div class="footer-brand-section">
                     <h3>WorldBrain México</h3>
-                    <p>+30 años transformando mentes y formando líderes del mañana. Metodologías innovadoras de aprendizaje acelerado.</p>
+                    <p>+30 años transformando mentes y formando líderes del mañana. Metodologías innovadoras de
+                        aprendizaje acelerado.</p>
                     <div class="footer-social">
-                        <a href="https://www.facebook.com/worldbrainmexico" target="_blank" rel="noopener" aria-label="Facebook">
+                        <a href="https://www.facebook.com/worldbrainmexico" target="_blank" rel="noopener"
+                            aria-label="Facebook">
                             <i class="fab fa-facebook-f"></i>
                         </a>
-                        <a href="https://www.instagram.com/worldbrainmexico" target="_blank" rel="noopener" aria-label="Instagram">
+                        <a href="https://www.instagram.com/worldbrainmexico" target="_blank" rel="noopener"
+                            aria-label="Instagram">
                             <i class="fab fa-instagram"></i>
                         </a>
-                        <a href="https://www.youtube.com/@worldbrainmexico" target="_blank" rel="noopener" aria-label="YouTube">
+                        <a href="https://www.youtube.com/@worldbrainmexico" target="_blank" rel="noopener"
+                            aria-label="YouTube">
                             <i class="fab fa-youtube"></i>
                         </a>
                         <a href="https://wa.me/5215578107837" target="_blank" rel="noopener" aria-label="WhatsApp">
@@ -2737,7 +2880,7 @@
                         </a>
                     </div>
                 </div>
-                
+
                 <div class="footer-links-section">
                     <h4>Programas</h4>
                     <ul class="footer-links-list">
@@ -2748,17 +2891,18 @@
                         <li><a href="homeschool.html"><i class="fas fa-arrow-right"></i> Homeschool</a></li>
                     </ul>
                 </div>
-                
+
                 <div class="footer-links-section">
                     <h4>Contacto</h4>
                     <ul class="footer-links-list">
                         <li><a href="tel:+525578107837"><i class="fas fa-arrow-right"></i> (55) 7810-7837</a></li>
-                        <li><a href="mailto:info@worldbrain.com.mx"><i class="fas fa-arrow-right"></i> info@worldbrain.com.mx</a></li>
+                        <li><a href="mailto:info@worldbrain.com.mx"><i class="fas fa-arrow-right"></i>
+                                info@worldbrain.com.mx</a></li>
                         <li><a href="index.html"><i class="fas fa-arrow-right"></i> Todos los cursos</a></li>
                     </ul>
                 </div>
             </div>
-            
+
             <div class="footer-bottom">
                 <div class="footer-copyright">
                     © 2025 WorldBrain México. Todos los derechos reservados.
@@ -2773,11 +2917,8 @@
     </footer>
 
     <!-- WhatsApp Floating Button -->
-    <a href="https://wa.me/5215578107837?text=Hola,%20me%20interesa%20el%20curso%20Grandes%20L%C3%ADderes" 
-       class="whatsapp-float" 
-       target="_blank" 
-       rel="noopener noreferrer"
-       aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/5215578107837?text=Hola,%20me%20interesa%20el%20curso%20Grandes%20L%C3%ADderes"
+        class="whatsapp-float" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
@@ -2817,7 +2958,7 @@
         function updateParallax() {
             const scrollY = window.pageYOffset;
             document.documentElement.style.setProperty('--scroll-y', `${scrollY * 0.3}px`);
-            
+
             // Move floating elements at different speeds
             document.querySelectorAll('.hero-float').forEach((el, i) => {
                 const speed = (i + 1) * 0.1;
@@ -2848,13 +2989,13 @@
                 const rect = card.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-                
+
                 const centerX = rect.width / 2;
                 const centerY = rect.height / 2;
-                
+
                 const rotateX = (y - centerY) / 15;
                 const rotateY = (centerX - x) / 15;
-                
+
                 card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) scale(1.02)`;
             });
 
@@ -2896,7 +3037,7 @@
         // BUTTON RIPPLE EFFECT
         // ========================================
         document.querySelectorAll('.btn-neon, .btn-giant').forEach(button => {
-            button.addEventListener('click', function(e) {
+            button.addEventListener('click', function (e) {
                 const rect = button.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
@@ -2914,7 +3055,7 @@
                     animation: rippleEffect 0.6s ease-out;
                     pointer-events: none;
                 `;
-                
+
                 button.style.position = 'relative';
                 button.style.overflow = 'hidden';
                 button.appendChild(ripple);
@@ -2954,12 +3095,12 @@
             button.addEventListener('click', () => {
                 const faqItem = button.parentElement;
                 const isActive = faqItem.classList.contains('active');
-                
+
                 // Close all other FAQs
                 document.querySelectorAll('.faq-item').forEach(item => {
                     item.classList.remove('active');
                 });
-                
+
                 // Toggle current FAQ
                 if (!isActive) {
                     faqItem.classList.add('active');
@@ -3005,15 +3146,15 @@
             const phone = document.getElementById('client-phone').value;
             const childName = document.getElementById('child-name').value;
             const childAge = document.getElementById('child-age').value;
-            
+
             if (!name || !phone || !childName || !childAge) {
                 alert('Por favor completa todos los campos');
                 return;
             }
-            
+
             document.getElementById('booking-step-1').classList.remove('active');
             document.getElementById('booking-step-2').classList.add('active');
-            
+
             // Set minimum date to today
             const today = new Date().toISOString().split('T')[0];
             document.getElementById('date-picker-gl').min = today;
@@ -3022,12 +3163,12 @@
         function loadTimeSlotsGL() {
             const dateInput = document.getElementById('date-picker-gl');
             const container = document.getElementById('slots-container-gl');
-            
+
             if (!dateInput.value) return;
-            
+
             const selectedDate = new Date(dateInput.value);
             const dayOfWeek = selectedDate.getDay();
-            
+
             // Available time slots (Saturday focused)
             let slots = [];
             if (dayOfWeek === 6) { // Sábado
@@ -3037,14 +3178,14 @@
             } else { // Entre semana
                 slots = ['16:00', '17:00', '18:00', '19:00'];
             }
-            
+
             container.innerHTML = '';
-            
+
             slots.forEach(slot => {
                 const btn = document.createElement('button');
                 btn.className = 'time-slot';
                 btn.textContent = slot;
-                btn.onclick = function() {
+                btn.onclick = function () {
                     document.querySelectorAll('#slots-container-gl .time-slot').forEach(s => s.classList.remove('selected'));
                     this.classList.add('selected');
                     selectedSlotGL = slot;
@@ -3061,28 +3202,28 @@
                 const childName = document.getElementById('child-name').value;
                 const childAge = document.getElementById('child-age').value;
                 const date = document.getElementById('date-picker-gl').value;
-                
+
                 // Show success step
                 document.getElementById('booking-step-2').classList.remove('active');
                 document.getElementById('booking-step-3').classList.add('active');
-                
+
                 // Create Google Calendar link
                 const startDate = new Date(date + 'T' + selectedSlotGL + ':00');
                 const endDate = new Date(startDate.getTime() + 60 * 60 * 1000); // 1 hour
-                
+
                 const formatDate = (d) => d.toISOString().replace(/-|:|\.\d+/g, '');
-                
+
                 const gcalUrl = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${encodeURIComponent('Sesión Diagnóstico - Grandes Líderes WorldBrain')}&dates=${formatDate(startDate)}/${formatDate(endDate)}&details=${encodeURIComponent('Sesión de diagnóstico para ' + childName + '. Contacto: ' + phone)}&location=${encodeURIComponent('WorldBrain México - CDMX')}`;
-                
+
                 document.getElementById('gcal-btn-gl').href = gcalUrl;
-                
+
                 // Open WhatsApp with confirmation
                 const message = `¡Hola! Acabo de agendar una cita de diagnóstico para el curso Grandes Líderes.\n\n📅 Fecha: ${date}\n🕐 Hora: ${selectedSlotGL}\n👤 Nombre: ${name}\n👦 Niño(a): ${childName} (${childAge} años)\n📱 WhatsApp: ${phone}\n\n¡Espero confirmación!`;
-                
+
                 setTimeout(() => {
                     window.open(`https://wa.me/5215578107837?text=${encodeURIComponent(message)}`, '_blank');
                 }, 1500);
-                
+
             }, 500);
         }
 
@@ -3096,4 +3237,5 @@
         console.log('%c+30 años formando mentes brillantes', 'color: #00FFFF; font-size: 12px;');
     </script>
 </body>
+
 </html>

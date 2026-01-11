@@ -900,7 +900,7 @@
     </noscript>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/footer-modern.css">
+    <link rel="stylesheet" href="css/footer-modern.css?v=2">
     <!-- AOS Animation Library (deferred - non-critical) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
@@ -2963,7 +2963,13 @@
     <footer class="footer-modern" role="contentinfo">
         <div class="footer-curve">
             <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
-                <path d="M0,100 C480,0 960,0 1440,100 V100 H0 Z" fill="#a5c4d4"></path>
+                <defs>
+                    <linearGradient id="footer-curve-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#0c0a1d;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0c0a1d;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,100 C480,0 960,0 1440,100 V100 H0 Z" fill="url(#footer-curve-gradient)"></path>
             </svg>
         </div>
         <div class="footer-content-wrapper">

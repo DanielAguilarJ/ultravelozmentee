@@ -7,23 +7,56 @@
     'use strict';
 
     /**
-     * Envía un evento a Meta de forma híbrida (Pixel + CAPI)
+     * Envía un evento de forma híbrida a TODAS las plataformas:
+     * - Meta Pixel (navegador)
+     * - Meta CAPI (servidor)
+     * - Google Ads (gtag)
      */
     window.trackMetaEvent = function (eventName, userData = {}) {
         // Generar un ID único para el evento (deduplicación)
         const eventId = 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
 
-        // 1. Enviar vía Navegador (Pixel)
+        // 1. Enviar vía Navegador (Meta Pixel)
         if (window.fbq) {
             window.fbq('track', eventName, userData, { eventID: eventId });
         }
 
-        // 2. Enviar vía Servidor (CAPI)
+        // 2. Enviar vía Servidor (Meta CAPI)
         fetch('/api/event', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ eventName, userData, eventId })
         }).catch(err => console.error('Error CAPI:', err));
+
+        // 3. Enviar a Google Ads (gtag) con mapeo de eventos
+        if (window.gtag) {
+            const gtagEventMap = {
+                'Contact': 'conversion',
+                'ViewContent': 'view_item',
+                'SubmitApplication': 'generate_lead',
+                'AddToWishlist': 'add_to_wishlist',
+                'Search': 'search',
+                'FindLocation': 'view_item',
+                'Lead': 'generate_lead'
+            };
+            const gtagEventName = gtagEventMap[eventName] || eventName.toLowerCase();
+
+            // Para conversiones específicas de Google Ads, usar evento de conversión
+            if (eventName === 'Contact' || eventName === 'SubmitApplication' || eventName === 'Lead') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-10846614576/default',
+                    'value': 1.0,
+                    'currency': 'MXN',
+                    'event_callback': function () { }
+                });
+            }
+
+            // También enviar evento estándar de GA4
+            gtag('event', gtagEventName, {
+                'event_category': userData.content_category || 'engagement',
+                'event_label': userData.content_name || eventName
+            });
+        }
     };
 
     /**

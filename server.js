@@ -2,6 +2,7 @@ const express = require('express');
 const compression = require('compression');
 const path = require('path');
 const fs = require('fs');
+const { sendCapiEvent } = require('./js/capi');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -13,6 +14,15 @@ console.log(`📂 Sirviendo archivos desde: ${staticPath}`);
 
 // Habilitar compresión
 app.use(compression());
+
+// Middleware de Meta Conversions API (CAPI)
+app.use((req, res, next) => {
+    // Solo registrar PageView para peticiones de páginas HTML (evitar estáticos como imágenes/js)
+    if (req.method === 'GET' && (req.path === '/' || req.path.endsWith('.html') || !req.path.includes('.'))) {
+        sendCapiEvent('PageView', req);
+    }
+    next();
+});
 
 // 301 Redirects for legacy URLs
 app.use((req, res, next) => {

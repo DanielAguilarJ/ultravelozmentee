@@ -27,6 +27,24 @@ app.use((req, res, next) => {
     next();
 });
 
+// Endpoint para recibir eventos del cliente (Pixel + CAPI)
+app.post('/api/event', async (req, res) => {
+    try {
+        const { eventName, userData, eventId } = req.body;
+
+        if (!eventName) {
+            return res.status(400).json({ error: 'Event Name is required' });
+        }
+
+        // Enviar evento a Meta CAPI con event_id para deduplicación
+        const result = await sendCapiEvent(eventName, req, userData, eventId);
+        res.json({ success: true, meta_id: result?.id });
+    } catch (error) {
+        console.error('Error processing client event:', error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+});
+
 // 301 Redirects for legacy URLs
 app.use((req, res, next) => {
     const redirects = {

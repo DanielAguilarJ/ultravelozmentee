@@ -15,7 +15,7 @@ function hashData(data) {
 /**
  * Envía un evento a la API de Conversiones de Meta
  */
-async function sendCapiEvent(eventName, req, userData = {}) {
+async function sendCapiEvent(eventName, req, userData = {}, eventId = null) {
     try {
         const payload = {
             data: [
@@ -24,6 +24,7 @@ async function sendCapiEvent(eventName, req, userData = {}) {
                     event_time: Math.floor(Date.now() / 1000),
                     action_source: 'website',
                     event_source_url: `${req.protocol}://${req.get('host')}${req.originalUrl}`,
+                    event_id: eventId,
                     user_data: {
                         client_ip_address: req.ip,
                         client_user_agent: req.get('user-agent'),

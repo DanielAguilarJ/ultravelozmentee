@@ -10,16 +10,19 @@
      * Envía un evento a Meta de forma híbrida (Pixel + CAPI)
      */
     window.trackMetaEvent = function (eventName, userData = {}) {
+        // Generar un ID único para el evento (deduplicación)
+        const eventId = 'evt_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+
         // 1. Enviar vía Navegador (Pixel)
         if (window.fbq) {
-            window.fbq('track', eventName, userData);
+            window.fbq('track', eventName, userData, { eventID: eventId });
         }
 
         // 2. Enviar vía Servidor (CAPI)
         fetch('/api/event', {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ eventName, userData })
+            body: JSON.stringify({ eventName, userData, eventId })
         }).catch(err => console.error('Error CAPI:', err));
     };
 

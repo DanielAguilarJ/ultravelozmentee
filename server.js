@@ -12,6 +12,9 @@ const staticPath = __dirname;
 
 console.log(`📂 Sirviendo archivos desde: ${staticPath}`);
 
+// Middleware para parsear JSON
+app.use(express.json());
+
 // Habilitar compresión
 app.use(compression());
 

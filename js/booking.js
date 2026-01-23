@@ -3,7 +3,7 @@
  * Este script maneja el formulario de reservas de citas para todos los cursos
  */
 
-(function() {
+(function () {
     'use strict';
 
     // Datos de reservas (en producción esto vendría de un backend)
@@ -35,7 +35,7 @@
     }
 
     // Ir al paso 2
-    window.goToStep2 = function() {
+    window.goToStep2 = function () {
         const nameInput = document.getElementById('client-name');
         const phoneInput = document.getElementById('client-phone');
         const courseSelect = document.getElementById('course-select');
@@ -58,6 +58,14 @@
         bookingData.phone = phone;
         bookingData.course = course;
 
+        // Evento IniciateCheckout al pasar al paso 2
+        if (window.trackMetaEvent) {
+            window.trackMetaEvent('InitiateCheckout', {
+                content_name: course,
+                content_category: 'Booking'
+            });
+        }
+
         const step1 = document.getElementById('booking-step-1');
         const step2 = document.getElementById('booking-step-2');
 
@@ -68,7 +76,7 @@
     };
 
     // Volver al paso 1
-    window.goToStep1 = function() {
+    window.goToStep1 = function () {
         const step1 = document.getElementById('booking-step-1');
         const step2 = document.getElementById('booking-step-2');
 
@@ -115,7 +123,7 @@
             const time = `${h}:00`;
             const btn = document.createElement('button');
             btn.type = 'button';
-            
+
             // Detectar qué clase usar según el prefijo CSS de la página
             const timeSlotClass = detectTimeSlotClass();
             btn.className = timeSlotClass;
@@ -127,7 +135,7 @@
                 btn.classList.add('booked');
                 btn.title = 'Horario Ocupado';
             } else {
-                btn.onclick = function() {
+                btn.onclick = function () {
                     selectSlot(time, btn, timeSlotClass);
                 };
             }
@@ -157,7 +165,7 @@
     // Seleccionar un horario
     function selectSlot(time, btnElement, timeSlotClass) {
         // Remover clase selected de otros botones
-        document.querySelectorAll('.' + timeSlotClass).forEach(function(b) {
+        document.querySelectorAll('.' + timeSlotClass).forEach(function (b) {
             b.classList.remove('selected');
         });
         btnElement.classList.add('selected');
@@ -165,7 +173,7 @@
         bookingData.time = time;
 
         // Confirmar después de un breve delay para mostrar la selección
-        setTimeout(function() {
+        setTimeout(function () {
             const formattedDate = formatDate(bookingData.date);
             if (confirm('¿Confirmar cita para el ' + formattedDate + ' a las ' + time + '?')) {
                 finalizeBooking();
@@ -183,6 +191,18 @@
     // Finalizar reserva
     function finalizeBooking() {
         try {
+            // Evento Lead al completar la reserva
+            if (window.trackMetaEvent) {
+                window.trackMetaEvent('Lead', {
+                    content_name: bookingData.course,
+                    content_category: 'Booking',
+                    user_data: {
+                        fn: bookingData.name,
+                        ph: bookingData.phone
+                    }
+                });
+            }
+
             // Guardar en "base de datos" local
             if (!bookedSlots[bookingData.date]) {
                 bookedSlots[bookingData.date] = [];

@@ -45,7 +45,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <!-- Performance: DNS Prefetch & Preconnect -->
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//unpkg.com">
-    <link rel="preconnect" href="https://wa.me">
+    <link rel="dns-prefetch" href="//randomuser.me">
+    <link rel="dns-prefetch" href="//connect.facebook.net">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+
+    <!-- Preload critical resources -->
+    <link rel="preload" href="css/fotolectura.css" as="style">
+    <link rel="preload" href="images/fl-hero-brain.webp" as="image" type="image/webp" fetchpriority="high">
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -54,18 +61,24 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=Syne:wght@700;800&display=swap"
         rel="stylesheet">
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome (deferred — non-critical for initial render) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
 
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS Animation Library (deferred — non-critical) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"
+        media="print" onload="this.media='all'">
+    <noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></noscript>
 
-    <!-- Swiper Carousel -->
-    <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css">
+    <!-- Swiper Carousel (deferred — non-critical) -->
+    <link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css"
+        media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://unpkg.com/swiper@9/swiper-bundle.min.css"></noscript>
 
-    <!-- GSAP for advanced animations -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- GSAP for advanced animations (deferred — not needed for initial paint) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js" defer></script>
 
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/styles.css">
@@ -787,7 +800,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                             <!-- Imagen central -->
                             <div class="fl-brain-core">
-                                <img src="images/fl-hero-brain.webp" alt="Cerebro y neurociencia" class="fl-brain-img">
+                                <img src="images/fl-hero-brain.webp" alt="Cerebro y neurociencia" class="fl-brain-img" fetchpriority="high" decoding="async">
                                 <div class="fl-brain-glow"></div>
                             </div>
 
@@ -1027,7 +1040,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         </div>
                         <div class="fl-live-content">
                             <div class="fl-live-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Usuario">
+                                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Usuario" width="48" height="48" loading="lazy" decoding="async">
                             </div>
                             <div class="fl-live-text">
                                 <strong>María G.</strong> acaba de completar
@@ -1193,7 +1206,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
                     <div class="fl-science-visual" data-aos="fade-left">
                         <img src="images/fl-science-learning.webp" alt="Cerebro Digital - Concept Art"
-                            class="fl-science-img">
+                            class="fl-science-img" loading="lazy" decoding="async" width="600" height="400">
 
                         <div class="fl-floating-badge top-right">
                             <i class="fas fa-bolt"></i>
@@ -1896,7 +1909,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     honores."</p>
                                 <div class="fl-testimonial-author">
                                     <div class="fl-testimonial-avatar">
-                                        <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Laura">
+                                        <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="Laura" width="56" height="56" loading="lazy" decoding="async">
                                     </div>
                                     <div class="fl-testimonial-info">
                                         <strong>Laura</strong>
@@ -1920,7 +1933,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     profesional por completo. Ahora soy el más rápido de mi equipo."</p>
                                 <div class="fl-testimonial-author">
                                     <div class="fl-testimonial-avatar">
-                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alejandro">
+                                        <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Alejandro" width="56" height="56" loading="lazy" decoding="async">
                                     </div>
                                     <div class="fl-testimonial-info">
                                         <strong>Alejandro</strong>
@@ -1944,7 +1957,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     ppm. Mi cerebro procesa la información de una manera que no creía posible."</p>
                                 <div class="fl-testimonial-author">
                                     <div class="fl-testimonial-avatar">
-                                        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Leonardo">
+                                        <img src="https://randomuser.me/api/portraits/men/44.jpg" alt="Leonardo" width="56" height="56" loading="lazy" decoding="async">
                                     </div>
                                     <div class="fl-testimonial-info">
                                         <strong>Leonardo</strong>
@@ -1968,7 +1981,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     legales sin agotarme. Vale cada minuto."</p>
                                 <div class="fl-testimonial-author">
                                     <div class="fl-testimonial-avatar">
-                                        <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Mariana">
+                                        <img src="https://randomuser.me/api/portraits/women/47.jpg" alt="Mariana" width="56" height="56" loading="lazy" decoding="async">
                                     </div>
                                     <div class="fl-testimonial-info">
                                         <strong>Mariana</strong>
@@ -2257,725 +2270,600 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ═══════════════════════════════════════════════════════════════════
          SCRIPTS
     ════════════════════════════════════════════════════════════════════ -->
-    <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js" defer></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script>
-        // ═══════════════════════════════════════════════════════════════════
-        // LOADING SCREEN
-        // ═══════════════════════════════════════════════════════════════════
-        window.addEventListener('load', () => {
-            const loadingScreen = document.getElementById('loadingScreen');
-            setTimeout(() => {
-                loadingScreen.classList.add('hidden');
-                document.body.style.overflow = 'auto';
-            }, 800);
-        });
+        /**
+         * Fotolectura Page Controller
+         * @description Handles animations, parallax, carousel, reading test, and UI interactions
+         * @version 2.0.0 — Performance-optimized (rAF throttle, passive listeners, event delegation, defensive guards)
+         */
+        ;(function () {
+            'use strict';
 
-        // ═══════════════════════════════════════════════════════════════════
-        // CUSTOM CURSOR
-        // ═══════════════════════════════════════════════════════════════════
-        const cursorDot = document.getElementById('cursorDot');
-        const cursorOutline = document.getElementById('cursorOutline');
-
-        let mouseX = 0, mouseY = 0;
-        let outlineX = 0, outlineY = 0;
-
-        document.addEventListener('mousemove', (e) => {
-            mouseX = e.clientX;
-            mouseY = e.clientY;
-
-            cursorDot.style.left = mouseX + 'px';
-            cursorDot.style.top = mouseY + 'px';
-        });
-
-        // Smooth cursor outline follow
-        function animateCursor() {
-            outlineX += (mouseX - outlineX) * 0.15;
-            outlineY += (mouseY - outlineY) * 0.15;
-
-            cursorOutline.style.left = outlineX + 'px';
-            cursorOutline.style.top = outlineY + 'px';
-
-            requestAnimationFrame(animateCursor);
-        }
-        animateCursor();
-
-        // Cursor hover effects
-        const hoverElements = document.querySelectorAll('a, button, .magnetic-btn, .fl-bento-card, .fl-problem-card, .fl-testimonial-card');
-        hoverElements.forEach(el => {
-            el.addEventListener('mouseenter', () => {
-                cursorOutline.classList.add('hovering');
-                cursorDot.style.transform = 'scale(2)';
-            });
-            el.addEventListener('mouseleave', () => {
-                cursorOutline.classList.remove('hovering');
-                cursorDot.style.transform = 'scale(1)';
-            });
-        });
-
-        // Hide cursor on mobile
-        if ('ontouchstart' in window) {
-            cursorDot.style.display = 'none';
-            cursorOutline.style.display = 'none';
-        }
-
-        // ═══════════════════════════════════════════════════════════════════
-        // MAGNETIC BUTTONS
-        // ═══════════════════════════════════════════════════════════════════
-        const magneticBtns = document.querySelectorAll('.magnetic-btn');
-        magneticBtns.forEach(btn => {
-            btn.addEventListener('mousemove', (e) => {
-                const rect = btn.getBoundingClientRect();
-                const x = e.clientX - rect.left - rect.width / 2;
-                const y = e.clientY - rect.top - rect.height / 2;
-
-                btn.style.transform = `translate(${x * 0.2}px, ${y * 0.2}px)`;
-            });
-
-            btn.addEventListener('mouseleave', () => {
-                btn.style.transform = 'translate(0, 0)';
-            });
-        });
-
-        // ═══════════════════════════════════════════════════════════════════
-        // GSAP SCROLL ANIMATIONS
-        // ═══════════════════════════════════════════════════════════════════
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Parallax background orbs
-        gsap.utils.toArray('.fl-orb-ultra').forEach((orb, i) => {
-            gsap.to(orb, {
-                y: -100 * (i + 1),
-                ease: 'none',
-                scrollTrigger: {
-                    trigger: '.fl-hero-ultra',
-                    start: 'top top',
-                    end: 'bottom top',
-                    scrub: 1
-                }
-            });
-        });
-
-        // Text reveal on scroll
-        gsap.utils.toArray('.fl-section-title').forEach(title => {
-            gsap.from(title, {
-                y: 50,
-                opacity: 0,
-                duration: 1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: title,
-                    start: 'top 85%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Stagger animation for grid items
-        gsap.utils.toArray('.fl-bento-card').forEach((card, i) => {
-            gsap.from(card, {
-                y: 60,
-                opacity: 0,
-                duration: 0.8,
-                delay: i * 0.1,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 90%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Bento chart bars animation
-        gsap.utils.toArray('.fl-chart-bar').forEach((bar, i) => {
-            gsap.from(bar, {
-                height: 0,
-                duration: 1,
-                delay: i * 0.15,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: bar.closest('.fl-bento-card'),
-                    start: 'top 80%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // Problem cards stagger
-        gsap.utils.toArray('.fl-problem-card').forEach((card, i) => {
-            gsap.from(card, {
-                x: i % 2 === 0 ? -50 : 50,
-                opacity: 0,
-                duration: 0.8,
-                ease: 'power3.out',
-                scrollTrigger: {
-                    trigger: card,
-                    start: 'top 85%',
-                    toggleActions: 'play none none reverse'
-                }
-            });
-        });
-
-        // ═══════════════════════════════════════════════════════════════════
-        // TESTIMONIOS CAROUSEL
-        // ═══════════════════════════════════════════════════════════════════
-        const testimonialSwiper = new Swiper('.fl-testimonials-carousel', {
-            loop: true,
-            speed: 700,
-            spaceBetween: 24,
-            slidesPerView: 1.05,
-            autoplay: {
-                delay: 5500,
-                disableOnInteraction: false
-            },
-            navigation: {
-                nextEl: '.fl-testimonials-next',
-                prevEl: '.fl-testimonials-prev'
-            },
-            pagination: {
-                el: '.fl-testimonials-pagination',
-                clickable: true
-            },
-            breakpoints: {
-                640: { slidesPerView: 1.2, spaceBetween: 20 },
-                768: { slidesPerView: 1.6, spaceBetween: 22 },
-                1024: { slidesPerView: 2.1, spaceBetween: 24 },
-                1280: { slidesPerView: 2.6, spaceBetween: 28 },
-                1440: { slidesPerView: 3, spaceBetween: 32 }
-            }
-        });
-
-        // ═══════════════════════════════════════════════════════════════════
-        // 3D CARD TILT EFFECT
-        // ═══════════════════════════════════════════════════════════════════
-        const cards3D = document.querySelectorAll('.card-3d');
-        cards3D.forEach(card => {
-            card.addEventListener('mousemove', (e) => {
-                const rect = card.getBoundingClientRect();
-                const x = e.clientX - rect.left;
-                const y = e.clientY - rect.top;
-
-                const centerX = rect.width / 2;
-                const centerY = rect.height / 2;
-
-                const rotateX = (y - centerY) / 20;
-                const rotateY = (centerX - x) / 20;
-
-                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateZ(10px)`;
-            });
-
-            card.addEventListener('mouseleave', () => {
-                card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
-            });
-        });
-
-        // ═══════════════════════════════════════════════════════════════════
-        // LIVE ACTIVITY SIMULATOR
-        // ═══════════════════════════════════════════════════════════════════
-        const names = ['Carlos M.', 'Ana G.', 'Roberto S.', 'María L.', 'Diego P.', 'Laura R.', 'Fernando H.', 'Sofía V.'];
-        const achievements = [
-            'completó 200 páginas en 15 min',
-            'alcanzó 20,000 ppm',
-            'terminó su tercer libro hoy',
-            'logró 95% de retención',
-            'dominó la técnica de flujo',
-            'procesó 3 libros en 1 hora'
-        ];
-        const avatars = [
-            'https://randomuser.me/api/portraits/women/32.jpg',
-            'https://randomuser.me/api/portraits/men/45.jpg',
-            'https://randomuser.me/api/portraits/women/67.jpg',
-            'https://randomuser.me/api/portraits/men/22.jpg',
-            'https://randomuser.me/api/portraits/women/89.jpg',
-            'https://randomuser.me/api/portraits/men/56.jpg'
-        ];
-
-        function updateLiveActivity() {
-            const liveText = document.querySelector('.fl-live-text');
-            const liveAvatar = document.querySelector('.fl-live-avatar img');
-
-            if (liveText && liveAvatar) {
-                const name = names[Math.floor(Math.random() * names.length)];
-                const achievement = achievements[Math.floor(Math.random() * achievements.length)];
-                const avatar = avatars[Math.floor(Math.random() * avatars.length)];
-
-                liveText.innerHTML = `<strong>${name}</strong> acaba de <span class="fl-live-highlight">${achievement}</span>`;
-                liveAvatar.src = avatar;
-            }
-        }
-
-        setInterval(updateLiveActivity, 5000);
-
-        // ═══════════════════════════════════════════════════════════════════
-        // INITIALIZE AOS
-        // ═══════════════════════════════════════════════════════════════════
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100,
-            easing: 'ease-out-cubic'
-        });
-
-        // ═══════════════════════════════════════════════════════════════════
-        // NAVBAR SCROLL EFFECT
-        // ═══════════════════════════════════════════════════════════════════
-        const navbar = document.getElementById('navbar');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('scrolled');
-            } else {
-                navbar.classList.remove('scrolled');
-            }
-        });
-
-        // ═══════════════════════════════════════════════════════════════════
-        // FLOATING CTA VISIBILITY
-        // ═══════════════════════════════════════════════════════════════════
-        const floatingCta = document.getElementById('floatingCta');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 600) {
-                floatingCta.classList.add('visible');
-            } else {
-                floatingCta.classList.remove('visible');
-            }
-        });
-
-        // ═══════════════════════════════════════════════════════════════════
-        // SMOOTH SCROLL
-        // ═══════════════════════════════════════════════════════════════════
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    const headerOffset = 100;
-                    const elementPosition = target.getBoundingClientRect().top;
-                    const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
+            /* ═══════════════════════════════════════════════════════════════
+               PERFORMANCE UTILITIES
+               ═══════════════════════════════════════════════════════════════ */
+            var _rafTicking = new WeakMap();
+            /** Returns a rAF-throttled wrapper — max 1 exec per frame (60fps ceiling) */
+            function throttleRAF(fn) {
+                return function () {
+                    var ctx = this, args = arguments;
+                    if (_rafTicking.get(fn)) return;
+                    _rafTicking.set(fn, true);
+                    requestAnimationFrame(function () {
+                        fn.apply(ctx, args);
+                        _rafTicking.set(fn, false);
                     });
-                }
-            });
-        });
-
-        // ═══════════════════════════════════════════════════════════════════
-        // SPEED TICKER ANIMATION
-        // ═══════════════════════════════════════════════════════════════════
-        const speedTicker = document.getElementById('speedTicker');
-        let currentSpeed = 0;
-        const targetSpeed = 25000;
-
-        function animateSpeedTicker() {
-            if (currentSpeed < targetSpeed) {
-                currentSpeed += Math.ceil((targetSpeed - currentSpeed) / 30);
-                if (currentSpeed > targetSpeed) currentSpeed = targetSpeed;
-                speedTicker.textContent = currentSpeed.toLocaleString();
-                requestAnimationFrame(animateSpeedTicker);
+                };
             }
-        }
 
-        // Trigger on scroll into view
-        const tickerObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    animateSpeedTicker();
-                    tickerObserver.unobserve(entry.target);
+            /** Shorthand selectors */
+            function $(sel, ctx) { return (ctx || document).querySelector(sel); }
+            function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
+
+            /* ═══════════════════════════════════════════════════════════════
+               LOADING SCREEN
+               ═══════════════════════════════════════════════════════════════ */
+            window.addEventListener('load', function () {
+                var ls = document.getElementById('loadingScreen');
+                if (ls) {
+                    setTimeout(function () {
+                        ls.classList.add('hidden');
+                        document.body.style.overflow = 'auto';
+                    }, 800);
                 }
             });
-        }, { threshold: 0.5 });
 
-        if (speedTicker) {
-            tickerObserver.observe(speedTicker.closest('.fl-speed-ticker'));
-        }
+            /* ═══════════════════════════════════════════════════════════════
+               CUSTOM CURSOR (desktop only — skip entirely on touch devices)
+               ═══════════════════════════════════════════════════════════════ */
+            var isTouchDevice = 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+            var cursorDot = document.getElementById('cursorDot');
+            var cursorOutline = document.getElementById('cursorOutline');
 
-        // ═══════════════════════════════════════════════════════════════════
-        // COUNTER ANIMATION FOR BENTO VALUES
-        // ═══════════════════════════════════════════════════════════════════
-        const animateValue = (element, start, end, duration, suffix = '') => {
-            let startTimestamp = null;
-            const step = (timestamp) => {
-                if (!startTimestamp) startTimestamp = timestamp;
-                const progress = Math.min((timestamp - startTimestamp) / duration, 1);
-                const value = Math.floor(progress * (end - start) + start);
-                element.textContent = value.toLocaleString() + suffix;
-                if (progress < 1) {
-                    window.requestAnimationFrame(step);
-                }
-            };
-            window.requestAnimationFrame(step);
-        };
+            if (isTouchDevice) {
+                if (cursorDot) cursorDot.style.display = 'none';
+                if (cursorOutline) cursorOutline.style.display = 'none';
+            } else if (cursorDot && cursorOutline) {
+                var mouseX = 0, mouseY = 0, outlineX = 0, outlineY = 0;
 
-        const valueObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    const valueEl = entry.target;
-                    const text = valueEl.dataset.value || valueEl.textContent;
+                document.addEventListener('mousemove', function (e) {
+                    mouseX = e.clientX;
+                    mouseY = e.clientY;
+                    cursorDot.style.left = mouseX + 'px';
+                    cursorDot.style.top  = mouseY + 'px';
+                }, { passive: true });
 
-                    if (text.includes('K')) {
-                        animateValue(valueEl, 0, 5, 1500, 'K+');
-                    } else if (text.includes('%')) {
-                        animateValue(valueEl, 0, parseInt(text), 1500, '%');
-                    } else if (text.includes('x')) {
-                        animateValue(valueEl, 0, 10, 1500, 'x');
+                (function animateCursor() {
+                    outlineX += (mouseX - outlineX) * 0.15;
+                    outlineY += (mouseY - outlineY) * 0.15;
+                    cursorOutline.style.left = outlineX + 'px';
+                    cursorOutline.style.top  = outlineY + 'px';
+                    requestAnimationFrame(animateCursor);
+                })();
+
+                /* Cursor hover — Event Delegation instead of N listeners */
+                var hoverSelectors = 'a, button, .magnetic-btn, .fl-bento-card, .fl-problem-card, .fl-testimonial-card';
+                document.addEventListener('mouseover', function (e) {
+                    if (e.target.closest(hoverSelectors)) {
+                        cursorOutline.classList.add('hovering');
+                        cursorDot.style.transform = 'scale(2)';
                     }
-
-                    valueObserver.unobserve(valueEl);
-                }
-            });
-        }, { threshold: 0.5 });
-
-        document.querySelectorAll('.fl-bento-value').forEach(el => {
-            el.dataset.value = el.textContent;
-            valueObserver.observe(el);
-        });
-
-        // ═══════════════════════════════════════════════════════════════════
-        // FAQ ACCORDION
-        // ═══════════════════════════════════════════════════════════════════
-        document.querySelectorAll('.fl-faq-item').forEach(item => {
-            item.addEventListener('toggle', () => {
-                const icon = item.querySelector('.fl-faq-icon i');
-                if (item.open) {
-                    icon.classList.replace('fa-plus', 'fa-minus');
-                } else {
-                    icon.classList.replace('fa-minus', 'fa-plus');
-                }
-            });
-        });
-
-        // ═══════════════════════════════════════════════════════════════════
-        // PARALLAX HERO VISUAL
-        // ═══════════════════════════════════════════════════════════════════
-        const heroVisual = document.querySelector('.fl-brain-container');
-        if (heroVisual) {
-            document.addEventListener('mousemove', (e) => {
-                const x = (window.innerWidth / 2 - e.clientX) / 30;
-                const y = (window.innerHeight / 2 - e.clientY) / 30;
-                heroVisual.style.transform = `rotateY(${x}deg) rotateX(${-y}deg)`;
-            });
-        }
-
-        // ═══════════════════════════════════════════════════════════════════
-        // TEST DE LECTURA RÁPIDA - FUNCIONALIDAD COMPLETA
-        // ═══════════════════════════════════════════════════════════════════
-
-        // Variables globales del test
-        let testTimer = null;
-        let testSeconds = 0;
-        let testData = {
-            startTime: null,
-            endTime: null,
-            readingTime: 0,
-            wordsCount: 489,
-            answers: {},
-            ppm: 0,
-            comprehension: 0,
-            userData: {}
-        };
-
-        // Respuestas correctas
-        const correctAnswers = {
-            q1: 'b', // 86 mil millones
-            q2: 'b', // 15%
-            q3: 'b', // Instituto de Neurociencia Cognitiva de Londres
-            q4: 'b', // Richard Bandler
-            q5: 'b', // Izquierdo
-            q6: 'b', // Google, Microsoft y Tesla
-            q7: 'b', // Cada 18 meses
-            q8: 'c'  // Los griegos
-        };
-
-        // Función para mostrar un paso específico
-        function showStep(stepNumber) {
-            document.querySelectorAll('.fl-test-step').forEach(step => {
-                step.classList.add('hidden');
-            });
-            document.getElementById(`testStep${stepNumber}`).classList.remove('hidden');
-
-            // Scroll suave al contenedor del test
-            document.querySelector('.fl-test-container').scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
-
-        // Función para iniciar la lectura
-        function startReading() {
-            showStep(2);
-            testData.startTime = new Date();
-            testSeconds = 0;
-
-            // Iniciar cronómetro
-            testTimer = setInterval(() => {
-                testSeconds++;
-                const minutes = Math.floor(testSeconds / 60);
-                const seconds = testSeconds % 60;
-                document.getElementById('timerDisplay').textContent =
-                    `${String(minutes).padStart(2, '0')}:${String(seconds).padStart(2, '0')}`;
-            }, 1000);
-        }
-
-        // Función para terminar la lectura
-        function finishReading() {
-            clearInterval(testTimer);
-            testData.endTime = new Date();
-            testData.readingTime = testSeconds;
-
-            // Calcular PPM
-            const minutes = testSeconds / 60;
-            testData.ppm = Math.round(testData.wordsCount / minutes);
-
-            showStep(3);
-        }
-
-        // Función para mostrar el formulario de datos
-        function showDataForm() {
-            // Recoger respuestas
-            const form = document.getElementById('comprehensionForm');
-            const formData = new FormData(form);
-
-            // Verificar que todas las preguntas estén respondidas
-            let allAnswered = true;
-            for (let i = 1; i <= 8; i++) {
-                if (!formData.get(`q${i}`)) {
-                    allAnswered = false;
-                    break;
-                }
-                testData.answers[`q${i}`] = formData.get(`q${i}`);
+                }, { passive: true });
+                document.addEventListener('mouseout', function (e) {
+                    if (e.target.closest(hoverSelectors)) {
+                        cursorOutline.classList.remove('hovering');
+                        cursorDot.style.transform = 'scale(1)';
+                    }
+                }, { passive: true });
             }
 
-            if (!allAnswered) {
-                // Mostrar alerta de que faltan respuestas
-                const questionCards = document.querySelectorAll('.fl-question-card');
-                questionCards.forEach((card, index) => {
-                    if (!formData.get(`q${index + 1}`)) {
-                        card.style.border = '2px solid var(--fl-danger)';
-                        card.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    } else {
-                        card.style.border = '1px solid var(--fl-border)';
+            /* ═══════════════════════════════════════════════════════════════
+               MAGNETIC BUTTONS (rAF-throttled mousemove)
+               ═══════════════════════════════════════════════════════════════ */
+            var magneticBtns = $$('.magnetic-btn');
+            magneticBtns.forEach(function (btn) {
+                var onMove = throttleRAF(function (e) {
+                    var rect = btn.getBoundingClientRect();
+                    var x = e.clientX - rect.left - rect.width / 2;
+                    var y = e.clientY - rect.top - rect.height / 2;
+                    btn.style.transform = 'translate(' + (x * 0.2) + 'px,' + (y * 0.2) + 'px)';
+                });
+                btn.addEventListener('mousemove', onMove, { passive: true });
+                btn.addEventListener('mouseleave', function () {
+                    btn.style.transform = 'translate(0,0)';
+                });
+            });
+
+            /* ═══════════════════════════════════════════════════════════════
+               GSAP SCROLL ANIMATIONS (defensive — wait for deferred GSAP)
+               ═══════════════════════════════════════════════════════════════ */
+            function initGSAP() {
+                if (typeof gsap === 'undefined' || typeof ScrollTrigger === 'undefined') return;
+                gsap.registerPlugin(ScrollTrigger);
+
+                /* Parallax background orbs */
+                gsap.utils.toArray('.fl-orb-ultra').forEach(function (orb, i) {
+                    gsap.to(orb, {
+                        y: -100 * (i + 1),
+                        ease: 'none',
+                        scrollTrigger: { trigger: '.fl-hero-ultra', start: 'top top', end: 'bottom top', scrub: 1 }
+                    });
+                });
+
+                /* Text reveal on scroll */
+                gsap.utils.toArray('.fl-section-title').forEach(function (title) {
+                    gsap.from(title, {
+                        y: 50, opacity: 0, duration: 1, ease: 'power3.out',
+                        scrollTrigger: { trigger: title, start: 'top 85%', toggleActions: 'play none none reverse' }
+                    });
+                });
+
+                /* Stagger bento cards */
+                gsap.utils.toArray('.fl-bento-card').forEach(function (card, i) {
+                    gsap.from(card, {
+                        y: 60, opacity: 0, duration: 0.8, delay: i * 0.1, ease: 'power3.out',
+                        scrollTrigger: { trigger: card, start: 'top 90%', toggleActions: 'play none none reverse' }
+                    });
+                });
+
+                /* Chart bars */
+                gsap.utils.toArray('.fl-chart-bar').forEach(function (bar, i) {
+                    gsap.from(bar, {
+                        height: 0, duration: 1, delay: i * 0.15, ease: 'power3.out',
+                        scrollTrigger: { trigger: bar.closest('.fl-bento-card'), start: 'top 80%', toggleActions: 'play none none reverse' }
+                    });
+                });
+
+                /* Problem cards stagger */
+                gsap.utils.toArray('.fl-problem-card').forEach(function (card, i) {
+                    gsap.from(card, {
+                        x: i % 2 === 0 ? -50 : 50, opacity: 0, duration: 0.8, ease: 'power3.out',
+                        scrollTrigger: { trigger: card, start: 'top 85%', toggleActions: 'play none none reverse' }
+                    });
+                });
+            }
+
+            /* ═══════════════════════════════════════════════════════════════
+               TESTIMONIOS CAROUSEL (defensive — wait for deferred Swiper)
+               ═══════════════════════════════════════════════════════════════ */
+            function initSwiper() {
+                if (typeof Swiper === 'undefined') return;
+                new Swiper('.fl-testimonials-carousel', {
+                    loop: true, speed: 700, spaceBetween: 24, slidesPerView: 1.05,
+                    autoplay: { delay: 5500, disableOnInteraction: false },
+                    navigation: { nextEl: '.fl-testimonials-next', prevEl: '.fl-testimonials-prev' },
+                    pagination: { el: '.fl-testimonials-pagination', clickable: true },
+                    breakpoints: {
+                        640:  { slidesPerView: 1.2, spaceBetween: 20 },
+                        768:  { slidesPerView: 1.6, spaceBetween: 22 },
+                        1024: { slidesPerView: 2.1, spaceBetween: 24 },
+                        1280: { slidesPerView: 2.6, spaceBetween: 28 },
+                        1440: { slidesPerView: 3,   spaceBetween: 32 }
                     }
                 });
-                return;
             }
 
-            // Calcular comprensión
-            let correctCount = 0;
-            for (let i = 1; i <= 8; i++) {
-                if (testData.answers[`q${i}`] === correctAnswers[`q${i}`]) {
-                    correctCount++;
-                }
+            /* ═══════════════════════════════════════════════════════════════
+               INITIALIZE AOS (defensive)
+               ═══════════════════════════════════════════════════════════════ */
+            function initAOS() {
+                if (typeof AOS === 'undefined') return;
+                AOS.init({ duration: 800, once: true, offset: 100, easing: 'ease-out-cubic' });
             }
-            testData.comprehension = Math.round((correctCount / 8) * 100);
 
-            showStep(4);
-        }
+            /* Deferred libs: poll until loaded (GSAP/Swiper/AOS are defer'd) */
+            function initDeferredLibs() {
+                var checks = 0;
+                var interval = setInterval(function () {
+                    checks++;
+                    var allReady = typeof gsap !== 'undefined' && typeof Swiper !== 'undefined' && typeof AOS !== 'undefined';
+                    if (allReady || checks > 50) {
+                        clearInterval(interval);
+                        initGSAP();
+                        initSwiper();
+                        initAOS();
+                    }
+                }, 100);
+            }
 
-        // Validación de formulario en tiempo real
-        document.getElementById('userDataForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-
-            const nameInput = document.getElementById('userName');
-            const emailInput = document.getElementById('userEmail');
-            const phoneInput = document.getElementById('userPhone');
-
-            let isValid = true;
-
-            // Validar nombre
-            if (!nameInput.value.trim() || nameInput.value.trim().length < 3) {
-                document.getElementById('nameError').textContent = 'Por favor, ingresa tu nombre completo';
-                nameInput.classList.add('error');
-                nameInput.classList.remove('valid');
-                isValid = false;
+            if (document.readyState === 'loading') {
+                document.addEventListener('DOMContentLoaded', initDeferredLibs);
             } else {
-                document.getElementById('nameError').textContent = '';
-                nameInput.classList.remove('error');
-                nameInput.classList.add('valid');
+                initDeferredLibs();
             }
 
-            // Validar email
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (!emailRegex.test(emailInput.value)) {
-                document.getElementById('emailError').textContent = 'Por favor, ingresa un email válido';
-                emailInput.classList.add('error');
-                emailInput.classList.remove('valid');
-                isValid = false;
-            } else {
-                document.getElementById('emailError').textContent = '';
-                emailInput.classList.remove('error');
-                emailInput.classList.add('valid');
-            }
-
-            // Validar teléfono (formato mexicano)
-            const phoneRegex = /^[\d\s\-\(\)]{10,15}$/;
-            const cleanPhone = phoneInput.value.replace(/\D/g, '');
-            if (cleanPhone.length < 10) {
-                document.getElementById('phoneError').textContent = 'Por favor, ingresa un número de WhatsApp válido (10 dígitos)';
-                phoneInput.classList.add('error');
-                phoneInput.classList.remove('valid');
-                isValid = false;
-            } else {
-                document.getElementById('phoneError').textContent = '';
-                phoneInput.classList.remove('error');
-                phoneInput.classList.add('valid');
-            }
-
-            if (isValid) {
-                testData.userData = {
-                    name: nameInput.value.trim(),
-                    email: emailInput.value.trim(),
-                    phone: phoneInput.value.trim()
-                };
-
-                showResults();
-            }
-        });
-
-        // Validación en tiempo real
-        document.getElementById('userName').addEventListener('input', function () {
-            if (this.value.trim().length >= 3) {
-                this.classList.remove('error');
-                this.classList.add('valid');
-                document.getElementById('nameError').textContent = '';
-            }
-        });
-
-        document.getElementById('userEmail').addEventListener('input', function () {
-            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-            if (emailRegex.test(this.value)) {
-                this.classList.remove('error');
-                this.classList.add('valid');
-                document.getElementById('emailError').textContent = '';
-            }
-        });
-
-        document.getElementById('userPhone').addEventListener('input', function () {
-            const cleanPhone = this.value.replace(/\D/g, '');
-            if (cleanPhone.length >= 10) {
-                this.classList.remove('error');
-                this.classList.add('valid');
-                document.getElementById('phoneError').textContent = '';
-            }
-        });
-
-        // Función para mostrar resultados
-        function showResults() {
-            showStep(5);
-
-            // Mostrar nombre
-            document.getElementById('resultName').textContent = testData.userData.name.split(' ')[0];
-
-            // Animar PPM
-            animateNumber('resultPPM', testData.ppm, 1500);
-
-            // Animar comprensión
-            setTimeout(() => {
-                document.getElementById('resultComprehension').textContent = testData.comprehension + '%';
-            }, 500);
-
-            // Determinar tipo de lector
-            let readerType = '';
-            let readerDescription = '';
-            let highlightRow = '';
-
-            if (testData.ppm < 250) {
-                readerType = 'Lector Tradicional';
-                readerDescription = 'Tu velocidad de lectura está en el rango promedio. Esto significa que estás utilizando técnicas de lectura convencionales que limitan tu potencial. La buena noticia: tienes un enorme margen de mejora.';
-                highlightRow = 'rowTraditional';
-            } else if (testData.ppm < 500) {
-                readerType = 'Lector Veloz';
-                readerDescription = '¡Buen trabajo! Tu velocidad está por encima del promedio. Ya tienes algunas habilidades de lectura rápida, pero aún puedes multiplicar tu velocidad exponencialmente con las técnicas correctas.';
-                highlightRow = 'rowFast';
-            } else {
-                readerType = 'Lector Inteligente';
-                readerDescription = '¡Excelente! Tienes habilidades avanzadas de lectura. Sin embargo, con Fotolectura podrías llevar estas habilidades al siguiente nivel y alcanzar velocidades de procesamiento que parecen imposibles.';
-                highlightRow = 'rowIntelligent';
-            }
-
-            document.getElementById('readerType').textContent = readerType;
-            document.getElementById('readerDescription').textContent = readerDescription;
-
-            // Resaltar fila actual en la tabla
-            document.querySelectorAll('.fl-reader-comparison-table tbody tr').forEach(row => {
-                row.classList.remove('current-reader');
+            /* ═══════════════════════════════════════════════════════════════
+               3D CARD TILT EFFECT (rAF-throttled per card)
+               ═══════════════════════════════════════════════════════════════ */
+            $$('.card-3d').forEach(function (card) {
+                var onTiltMove = throttleRAF(function (e) {
+                    var rect = card.getBoundingClientRect();
+                    var cx = rect.width / 2, cy = rect.height / 2;
+                    var rx = (e.clientY - rect.top - cy) / 20;
+                    var ry = (cx - (e.clientX - rect.left)) / 20;
+                    card.style.transform = 'perspective(1000px) rotateX(' + rx + 'deg) rotateY(' + ry + 'deg) translateZ(10px)';
+                });
+                card.addEventListener('mousemove', onTiltMove, { passive: true });
+                card.addEventListener('mouseleave', function () {
+                    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) translateZ(0)';
+                });
             });
-            document.getElementById(highlightRow).classList.add('current-reader');
 
-            // Calcular factor de mejora
-            const improvementFactor = Math.round(25000 / testData.ppm);
-            document.getElementById('improvementFactor').textContent = improvementFactor + 'x';
+            /* ═══════════════════════════════════════════════════════════════
+               LIVE ACTIVITY SIMULATOR (IntersectionObserver-gated)
+               ═══════════════════════════════════════════════════════════════ */
+            var names = ['Carlos M.', 'Ana G.', 'Roberto S.', 'María L.', 'Diego P.', 'Laura R.', 'Fernando H.', 'Sofía V.'];
+            var achievements = [
+                'completó 200 páginas en 15 min', 'alcanzó 20,000 ppm',
+                'terminó su tercer libro hoy', 'logró 95% de retención',
+                'dominó la técnica de flujo', 'procesó 3 libros en 1 hora'
+            ];
+            var avatarURLs = [
+                'https://randomuser.me/api/portraits/women/32.jpg',
+                'https://randomuser.me/api/portraits/men/45.jpg',
+                'https://randomuser.me/api/portraits/women/67.jpg',
+                'https://randomuser.me/api/portraits/men/22.jpg',
+                'https://randomuser.me/api/portraits/women/89.jpg',
+                'https://randomuser.me/api/portraits/men/56.jpg'
+            ];
+            var liveCard = $('.fl-bento-live');
+            var liveInterval = null;
 
-            // Clasificación visual del badge
-            const badge = document.querySelector('.fl-classification-badge');
-            if (testData.ppm < 250) {
-                badge.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
-            } else if (testData.ppm < 500) {
-                badge.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
-            } else {
-                badge.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+            function randPick(arr) { return arr[Math.floor(Math.random() * arr.length)]; }
+
+            function updateLiveActivity() {
+                var text = $('.fl-live-text');
+                var img  = $('.fl-live-avatar img');
+                if (!text || !img) return;
+                text.innerHTML = '<strong>' + randPick(names) + '</strong> acaba de <span class="fl-live-highlight">' + randPick(achievements) + '</span>';
+                img.src = randPick(avatarURLs);
             }
-        }
 
-        // Función para animar números
-        function animateNumber(elementId, target, duration) {
-            const element = document.getElementById(elementId);
-            let start = 0;
-            const startTime = performance.now();
+            /* Only run the interval when the live card is visible in viewport */
+            if (liveCard) {
+                var liveObs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        if (entry.isIntersecting && !liveInterval) {
+                            liveInterval = setInterval(updateLiveActivity, 5000);
+                        } else if (!entry.isIntersecting && liveInterval) {
+                            clearInterval(liveInterval);
+                            liveInterval = null;
+                        }
+                    });
+                }, { threshold: 0.1 });
+                liveObs.observe(liveCard);
+            }
 
-            function update(currentTime) {
-                const elapsed = currentTime - startTime;
-                const progress = Math.min(elapsed / duration, 1);
+            /* ═══════════════════════════════════════════════════════════════
+               NAVBAR + FLOATING CTA SCROLL (single rAF-throttled listener)
+               ═══════════════════════════════════════════════════════════════ */
+            var navbar = document.getElementById('navbar');
+            var floatingCta = document.getElementById('floatingCta');
 
-                const easeOutQuart = 1 - Math.pow(1 - progress, 4);
-                const current = Math.round(easeOutQuart * target);
-
-                element.textContent = current.toLocaleString();
-
-                if (progress < 1) {
-                    requestAnimationFrame(update);
+            var onScroll = throttleRAF(function () {
+                var y = window.scrollY;
+                if (navbar) {
+                    if (y > 50) navbar.classList.add('scrolled');
+                    else navbar.classList.remove('scrolled');
                 }
+                if (floatingCta) {
+                    if (y > 600) floatingCta.classList.add('visible');
+                    else floatingCta.classList.remove('visible');
+                }
+            });
+            window.addEventListener('scroll', onScroll, { passive: true });
+
+            /* ═══════════════════════════════════════════════════════════════
+               SMOOTH SCROLL (Event Delegation — single listener)
+               ═══════════════════════════════════════════════════════════════ */
+            document.addEventListener('click', function (e) {
+                var anchor = e.target.closest('a[href^="#"]');
+                if (!anchor) return;
+                var href = anchor.getAttribute('href');
+                if (!href || href === '#') return;
+                var target = $(href);
+                if (!target) return;
+                e.preventDefault();
+                var headerOffset = 100;
+                var pos = target.getBoundingClientRect().top + window.pageYOffset - headerOffset;
+                window.scrollTo({ top: pos, behavior: 'smooth' });
+            });
+
+            /* ═══════════════════════════════════════════════════════════════
+               SPEED TICKER ANIMATION (IntersectionObserver)
+               ═══════════════════════════════════════════════════════════════ */
+            var speedTicker = document.getElementById('speedTicker');
+            if (speedTicker) {
+                var tickerContainer = speedTicker.closest('.fl-speed-ticker');
+                var tickerObs = new IntersectionObserver(function (entries, obs) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) return;
+                        var current = 0, target = 25000;
+                        (function tick() {
+                            current += Math.ceil((target - current) / 30);
+                            if (current > target) current = target;
+                            speedTicker.textContent = current.toLocaleString();
+                            if (current < target) requestAnimationFrame(tick);
+                        })();
+                        obs.unobserve(entry.target);
+                    });
+                }, { threshold: 0.5 });
+                if (tickerContainer) tickerObs.observe(tickerContainer);
             }
 
-            requestAnimationFrame(update);
-        }
+            /* ═══════════════════════════════════════════════════════════════
+               COUNTER ANIMATION FOR BENTO VALUES
+               ═══════════════════════════════════════════════════════════════ */
+            function animateValue(el, start, end, duration, suffix) {
+                var startTime = null;
+                function step(ts) {
+                    if (!startTime) startTime = ts;
+                    var p = Math.min((ts - startTime) / duration, 1);
+                    el.textContent = Math.floor(p * (end - start) + start).toLocaleString() + (suffix || '');
+                    if (p < 1) requestAnimationFrame(step);
+                }
+                requestAnimationFrame(step);
+            }
 
-        // Función para reiniciar el test
-        function resetTest() {
-            // Limpiar datos
-            testData = {
-                startTime: null,
-                endTime: null,
-                readingTime: 0,
-                wordsCount: 489,
-                answers: {},
-                ppm: 0,
-                comprehension: 0,
-                userData: {}
+            var valObs = new IntersectionObserver(function (entries, obs) {
+                entries.forEach(function (entry) {
+                    if (!entry.isIntersecting) return;
+                    var el = entry.target;
+                    var text = el.dataset.value || el.textContent;
+                    if (text.indexOf('K') !== -1)       animateValue(el, 0, 5, 1500, 'K+');
+                    else if (text.indexOf('%') !== -1)   animateValue(el, 0, parseInt(text, 10), 1500, '%');
+                    else if (text.indexOf('x') !== -1)   animateValue(el, 0, 10, 1500, 'x');
+                    obs.unobserve(el);
+                });
+            }, { threshold: 0.5 });
+
+            $$('.fl-bento-value').forEach(function (el) {
+                el.dataset.value = el.textContent;
+                valObs.observe(el);
+            });
+
+            /* ═══════════════════════════════════════════════════════════════
+               FAQ ACCORDION (Event Delegation)
+               ═══════════════════════════════════════════════════════════════ */
+            var faqContainer = $('.fl-faq-container');
+            if (faqContainer) {
+                faqContainer.addEventListener('toggle', function (e) {
+                    var item = e.target.closest('.fl-faq-item');
+                    if (!item) return;
+                    var icon = item.querySelector('.fl-faq-icon i');
+                    if (!icon) return;
+                    if (item.open) icon.classList.replace('fa-plus', 'fa-minus');
+                    else icon.classList.replace('fa-minus', 'fa-plus');
+                }, true); /* useCapture: toggle doesn't bubble */
+            }
+
+            /* ═══════════════════════════════════════════════════════════════
+               PARALLAX HERO VISUAL (rAF-throttled)
+               ═══════════════════════════════════════════════════════════════ */
+            var heroVisual = $('.fl-brain-container');
+            if (heroVisual && !isTouchDevice) {
+                var onHeroMove = throttleRAF(function (e) {
+                    var x = (window.innerWidth / 2 - e.clientX) / 30;
+                    var y = (window.innerHeight / 2 - e.clientY) / 30;
+                    heroVisual.style.transform = 'rotateY(' + x + 'deg) rotateX(' + (-y) + 'deg)';
+                });
+                document.addEventListener('mousemove', onHeroMove, { passive: true });
+            }
+
+            /* ═══════════════════════════════════════════════════════════════
+               READING TEST — FULL FUNCTIONALITY
+               ═══════════════════════════════════════════════════════════════ */
+            var testTimer = null;
+            var testSeconds = 0;
+            var testData = {
+                startTime: null, endTime: null, readingTime: 0, wordsCount: 489,
+                answers: {}, ppm: 0, comprehension: 0, userData: {}
+            };
+            var correctAnswers = { q1:'b', q2:'b', q3:'b', q4:'b', q5:'b', q6:'b', q7:'b', q8:'c' };
+
+            function showStep(n) {
+                $$('.fl-test-step').forEach(function (s) { s.classList.add('hidden'); });
+                var step = document.getElementById('testStep' + n);
+                if (step) step.classList.remove('hidden');
+                var container = $('.fl-test-container');
+                if (container) container.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            }
+
+            /* Expose to onclick handlers */
+            window.startReading = function () {
+                showStep(2);
+                testData.startTime = new Date();
+                testSeconds = 0;
+                testTimer = setInterval(function () {
+                    testSeconds++;
+                    var m = Math.floor(testSeconds / 60), s = testSeconds % 60;
+                    var display = document.getElementById('timerDisplay');
+                    if (display) display.textContent = String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0');
+                }, 1000);
             };
 
-            // Limpiar formularios
-            document.getElementById('comprehensionForm').reset();
-            document.getElementById('userDataForm').reset();
+            window.finishReading = function () {
+                clearInterval(testTimer);
+                testData.endTime = new Date();
+                testData.readingTime = testSeconds;
+                testData.ppm = Math.round(testData.wordsCount / (testSeconds / 60));
+                showStep(3);
+            };
 
-            // Limpiar estilos de validación
-            document.querySelectorAll('.fl-form-group input').forEach(input => {
-                input.classList.remove('error', 'valid');
-            });
-            document.querySelectorAll('.fl-form-error').forEach(error => {
-                error.textContent = '';
-            });
-            document.querySelectorAll('.fl-question-card').forEach(card => {
-                card.style.border = '1px solid var(--fl-border)';
-            });
+            window.showDataForm = function () {
+                var form = document.getElementById('comprehensionForm');
+                if (!form) return;
+                var fd = new FormData(form);
+                var allAnswered = true;
 
-            // Reiniciar timer display
-            document.getElementById('timerDisplay').textContent = '00:00';
+                for (var i = 1; i <= 8; i++) {
+                    if (!fd.get('q' + i)) { allAnswered = false; break; }
+                    testData.answers['q' + i] = fd.get('q' + i);
+                }
 
-            // Volver al paso 1
-            showStep(1);
-        }
+                if (!allAnswered) {
+                    $$('.fl-question-card').forEach(function (card, idx) {
+                        if (!fd.get('q' + (idx + 1))) {
+                            card.style.border = '2px solid var(--fl-danger)';
+                            card.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                        } else {
+                            card.style.border = '1px solid var(--fl-border)';
+                        }
+                    });
+                    return;
+                }
+
+                var correct = 0;
+                for (var j = 1; j <= 8; j++) {
+                    if (testData.answers['q' + j] === correctAnswers['q' + j]) correct++;
+                }
+                testData.comprehension = Math.round((correct / 8) * 100);
+                showStep(4);
+            };
+
+            window.resetTest = function () {
+                testData = { startTime: null, endTime: null, readingTime: 0, wordsCount: 489, answers: {}, ppm: 0, comprehension: 0, userData: {} };
+                var cf = document.getElementById('comprehensionForm');
+                var uf = document.getElementById('userDataForm');
+                if (cf) cf.reset();
+                if (uf) uf.reset();
+                $$('.fl-form-group input').forEach(function (inp) { inp.classList.remove('error', 'valid'); });
+                $$('.fl-form-error').forEach(function (el) { el.textContent = ''; });
+                $$('.fl-question-card').forEach(function (c) { c.style.border = '1px solid var(--fl-border)'; });
+                var td = document.getElementById('timerDisplay');
+                if (td) td.textContent = '00:00';
+                showStep(1);
+            };
+
+            /* Animate number with easeOutQuart */
+            function animateNumber(id, target, duration) {
+                var el = document.getElementById(id);
+                if (!el) return;
+                var start = performance.now();
+                (function update(now) {
+                    var p = Math.min((now - start) / duration, 1);
+                    var ease = 1 - Math.pow(1 - p, 4);
+                    el.textContent = Math.round(ease * target).toLocaleString();
+                    if (p < 1) requestAnimationFrame(update);
+                })(start);
+            }
+
+            function showResults() {
+                showStep(5);
+                var firstName = (testData.userData.name || '').split(' ')[0];
+                var nameEl = document.getElementById('resultName');
+                if (nameEl) nameEl.textContent = firstName;
+
+                animateNumber('resultPPM', testData.ppm, 1500);
+                setTimeout(function () {
+                    var compEl = document.getElementById('resultComprehension');
+                    if (compEl) compEl.textContent = testData.comprehension + '%';
+                }, 500);
+
+                var type, desc, row;
+                if (testData.ppm < 250) {
+                    type = 'Lector Tradicional';
+                    desc = 'Tu velocidad de lectura está en el rango promedio. Esto significa que estás utilizando técnicas de lectura convencionales que limitan tu potencial. La buena noticia: tienes un enorme margen de mejora.';
+                    row = 'rowTraditional';
+                } else if (testData.ppm < 500) {
+                    type = 'Lector Veloz';
+                    desc = '¡Buen trabajo! Tu velocidad está por encima del promedio. Ya tienes algunas habilidades de lectura rápida, pero aún puedes multiplicar tu velocidad exponencialmente con las técnicas correctas.';
+                    row = 'rowFast';
+                } else {
+                    type = 'Lector Inteligente';
+                    desc = '¡Excelente! Tienes habilidades avanzadas de lectura. Sin embargo, con Fotolectura podrías llevar estas habilidades al siguiente nivel y alcanzar velocidades de procesamiento que parecen imposibles.';
+                    row = 'rowIntelligent';
+                }
+
+                var rtEl = document.getElementById('readerType');
+                var rdEl = document.getElementById('readerDescription');
+                if (rtEl) rtEl.textContent = type;
+                if (rdEl) rdEl.textContent = desc;
+
+                $$('.fl-reader-comparison-table tbody tr').forEach(function (r) { r.classList.remove('current-reader'); });
+                var highlightRow = document.getElementById(row);
+                if (highlightRow) highlightRow.classList.add('current-reader');
+
+                var factor = Math.round(25000 / testData.ppm);
+                var factorEl = document.getElementById('improvementFactor');
+                if (factorEl) factorEl.textContent = factor + 'x';
+
+                var badge = $('.fl-classification-badge');
+                if (badge) {
+                    if (testData.ppm < 250) badge.style.background = 'linear-gradient(135deg, #ef4444, #dc2626)';
+                    else if (testData.ppm < 500) badge.style.background = 'linear-gradient(135deg, #f59e0b, #d97706)';
+                    else badge.style.background = 'linear-gradient(135deg, #10b981, #059669)';
+                }
+            }
+
+            /* User data form submit */
+            var userForm = document.getElementById('userDataForm');
+            if (userForm) {
+                userForm.addEventListener('submit', function (e) {
+                    e.preventDefault();
+                    var nameIn  = document.getElementById('userName');
+                    var emailIn = document.getElementById('userEmail');
+                    var phoneIn = document.getElementById('userPhone');
+                    var valid = true;
+
+                    if (!nameIn.value.trim() || nameIn.value.trim().length < 3) {
+                        document.getElementById('nameError').textContent = 'Por favor, ingresa tu nombre completo';
+                        nameIn.classList.add('error'); nameIn.classList.remove('valid'); valid = false;
+                    } else {
+                        document.getElementById('nameError').textContent = '';
+                        nameIn.classList.remove('error'); nameIn.classList.add('valid');
+                    }
+
+                    var emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+                    if (!emailRe.test(emailIn.value)) {
+                        document.getElementById('emailError').textContent = 'Por favor, ingresa un email válido';
+                        emailIn.classList.add('error'); emailIn.classList.remove('valid'); valid = false;
+                    } else {
+                        document.getElementById('emailError').textContent = '';
+                        emailIn.classList.remove('error'); emailIn.classList.add('valid');
+                    }
+
+                    var cleanPhone = phoneIn.value.replace(/\D/g, '');
+                    if (cleanPhone.length < 10) {
+                        document.getElementById('phoneError').textContent = 'Por favor, ingresa un número de WhatsApp válido (10 dígitos)';
+                        phoneIn.classList.add('error'); phoneIn.classList.remove('valid'); valid = false;
+                    } else {
+                        document.getElementById('phoneError').textContent = '';
+                        phoneIn.classList.remove('error'); phoneIn.classList.add('valid');
+                    }
+
+                    if (valid) {
+                        testData.userData = {
+                            name: nameIn.value.trim(),
+                            email: emailIn.value.trim(),
+                            phone: phoneIn.value.trim()
+                        };
+                        showResults();
+                    }
+                });
+            }
+
+            /* Real-time validation (single delegated listener on form) */
+            if (userForm) {
+                userForm.addEventListener('input', function (e) {
+                    var t = e.target;
+                    if (t.id === 'userName' && t.value.trim().length >= 3) {
+                        t.classList.remove('error'); t.classList.add('valid');
+                        document.getElementById('nameError').textContent = '';
+                    }
+                    if (t.id === 'userEmail' && /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(t.value)) {
+                        t.classList.remove('error'); t.classList.add('valid');
+                        document.getElementById('emailError').textContent = '';
+                    }
+                    if (t.id === 'userPhone' && t.value.replace(/\D/g, '').length >= 10) {
+                        t.classList.remove('error'); t.classList.add('valid');
+                        document.getElementById('phoneError').textContent = '';
+                    }
+                });
+            }
+        })();
     </script>
     <!-- Video modal para 'Ver cómo funciona' -->
     <style>
@@ -3090,7 +2978,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             });
         })();
     </script>
-<script src="js/tracking.js"></script>
+<script src="js/tracking.js" defer></script>
 </body>
 
 </html>

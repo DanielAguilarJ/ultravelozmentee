@@ -47,10 +47,12 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
     <link rel="dns-prefetch" href="//cdn.jsdelivr.net">
     <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
-    <link rel="preconnect" href="https://wa.me">
+    <link rel="dns-prefetch" href="//randomuser.me">
+    <link rel="dns-prefetch" href="//connect.facebook.net">
 
     <!-- Preload critical resources -->
     <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="images/hero-bg.png" as="image" fetchpriority="high">
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVNrUpa28oXIk.woff2" as="font"
         type="font/woff2" crossorigin>
 
@@ -915,7 +917,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="css/footer-modern.css?v=2">
     <!-- AOS Animation Library (deferred - non-critical) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
@@ -1026,11 +1027,11 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div class="hero-social-proof fade-in-up delay-2">
                         <div class="avatars">
                             <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Usuario satisfecho"
-                                width="44" height="44" loading="lazy">
+                                width="44" height="44" loading="lazy" decoding="async">
                             <img src="https://randomuser.me/api/portraits/men/32.jpg" alt="Usuario satisfecho"
-                                width="44" height="44" loading="lazy">
+                                width="44" height="44" loading="lazy" decoding="async">
                             <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Usuario satisfecho"
-                                width="44" height="44" loading="lazy">
+                                width="44" height="44" loading="lazy" decoding="async">
                             <div class="avatar-count">+200k</div>
                         </div>
                         <div class="proof-text">
@@ -1048,7 +1049,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <div class="dot yellow"></div>
                             <div class="dot green"></div>
                         </div>
-                        <img src="images/hero-bg.png" alt="Estudiante WorldBrain" class="hero-img">
+                        <img src="images/hero-bg.png" alt="Estudiante WorldBrain" class="hero-img" fetchpriority="high" decoding="async">
 
                         <!-- Floating UI Cards -->
                         <div class="float-ui ui-stats">
@@ -2327,22 +2328,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </style>
 
             <script>
-                // Parallax Effect on Scroll
-                document.addEventListener('scroll', function () {
-                    const section = document.querySelector('.methodology-section-ultra');
+                // Parallax Effect on Scroll (rAF-throttled, cached selectors, passive)
+                ;(function () {
+                    var section = document.querySelector('.methodology-section-ultra');
                     if (!section) return;
-
-                    const rect = section.getBoundingClientRect();
-                    const scrolled = window.innerHeight - rect.top;
-
-                    if (rect.top < window.innerHeight && rect.bottom > 0) {
-                        const layers = section.querySelectorAll('.parallax-layer');
-                        layers.forEach(layer => {
-                            const speed = parseFloat(layer.dataset.speed) || 0.1;
-                            layer.style.transform = `translateY(${scrolled * speed}px)`;
+                    var layers = section.querySelectorAll('.parallax-layer');
+                    var ticking = false;
+                    window.addEventListener('scroll', function () {
+                        if (ticking) return;
+                        ticking = true;
+                        requestAnimationFrame(function () {
+                            var rect = section.getBoundingClientRect();
+                            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                                var scrolled = window.innerHeight - rect.top;
+                                for (var i = 0; i < layers.length; i++) {
+                                    var speed = parseFloat(layers[i].dataset.speed) || 0.1;
+                                    layers[i].style.transform = 'translateY(' + (scrolled * speed) + 'px)';
+                                }
+                            }
+                            ticking = false;
                         });
-                    }
-                });
+                    }, { passive: true });
+                })();
             </script>
         </section>
 
@@ -2369,7 +2376,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <div class="author">
                                     <img src="https://randomuser.me/api/portraits/women/44.jpg"
                                         alt="Laura Sánchez - Madre satisfecha con el curso MatheKids" width="56"
-                                        height="56" loading="lazy">
+                                        height="56" loading="lazy" decoding="async">
                                     <div>
                                         <h5>Laura Sánchez</h5>
                                         <span>Mamá de alumno MatheKids</span>
@@ -2389,7 +2396,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <div class="author">
                                     <img src="https://randomuser.me/api/portraits/men/32.jpg"
                                         alt="Carlos Méndez - Egresado del curso de Fotolectura" width="56" height="56"
-                                        loading="lazy">
+                                        loading="lazy" decoding="async">
                                     <div>
                                         <h5>Carlos Méndez</h5>
                                         <span>Egresado Fotolectura</span>
@@ -2408,7 +2415,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <div class="author">
                                     <img src="https://randomuser.me/api/portraits/women/68.jpg"
                                         alt="Patricia Gómez - Madre de alumna de Robótica" width="56" height="56"
-                                        loading="lazy">
+                                        loading="lazy" decoding="async">
                                     <div>
                                         <h5>Patricia Gómez</h5>
                                         <span>Mamá de alumna Robotics</span>
@@ -2427,7 +2434,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <div class="author">
                                     <img src="https://randomuser.me/api/portraits/men/75.jpg"
                                         alt="Diego Ramírez - Estudiante admitido en la UNAM" width="56" height="56"
-                                        loading="lazy">
+                                        loading="lazy" decoding="async">
                                     <div>
                                         <h5>Diego Ramírez</h5>
                                         <span>Admitido UNAM Medicina</span>
@@ -2446,7 +2453,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <div class="author">
                                     <img src="https://randomuser.me/api/portraits/women/45.jpg"
                                         alt="Ana Torres - Madre de alumna Homeschool" width="56" height="56"
-                                        loading="lazy">
+                                        loading="lazy" decoding="async">
                                     <div>
                                         <h5>Ana Torres</h5>
                                         <span>Mamá Homeschool Veloz</span>
@@ -3147,7 +3154,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             });
         }
     </script>
-    <script src="js/tracking.js"></script>
+    <script src="js/tracking.js" defer></script>
 </body>
 
 </html>

@@ -1,260 +1,265 @@
-document.addEventListener('DOMContentLoaded', () => {
+/**
+ * WorldBrain México — Main Page Controller
+ * @description Handles UI interactions, animations, parallax effects and scroll behaviors
+ * @version 2.0.0 — Performance-optimized (rAF throttle, passive listeners, batched DOM, event delegation)
+ */
+;(function () {
+    'use strict';
 
-    // Random urgency number
-    const urgencyBadge = document.querySelector('.cta-urgency-badge');
-    if (urgencyBadge) {
-        const randomNum = Math.floor(Math.random() * 9) + 2; // Random number between 2 and 10
-        urgencyBadge.textContent = '🔥 ¡Solo quedan ' + randomNum + ' lugares para este mes!';
+    /* ═══════════════════════════════════════════════════════
+       PERFORMANCE UTILITIES
+       ═══════════════════════════════════════════════════════ */
+
+    /**
+     * Returns a rAF-throttled version of a callback.
+     * Prevents layout thrashing on high-frequency events (scroll, mousemove).
+     * Only one frame is scheduled at a time → guaranteed 60 fps ceiling.
+     */
+    var _rafTicking = new WeakMap();
+    function throttleRAF(fn) {
+        return function () {
+            var ctx = this, args = arguments;
+            if (_rafTicking.get(fn)) return;
+            _rafTicking.set(fn, true);
+            requestAnimationFrame(function () {
+                fn.apply(ctx, args);
+                _rafTicking.set(fn, false);
+            });
+        };
     }
 
-    // Random live activity number
-    const liveActivityStrong = document.querySelector('.cta-live-activity span strong');
-    if (liveActivityStrong) {
-        const randomLiveNum = Math.floor(Math.random() * 8) + 3; // Random number between 3 and 10
-        liveActivityStrong.textContent = randomLiveNum + ' personas';
-    }
+    /** Shorthand DOM selectors — avoids repeated querySelector boilerplate */
+    function $(sel, ctx) { return (ctx || document).querySelector(sel); }
+    function $$(sel, ctx) { return Array.prototype.slice.call((ctx || document).querySelectorAll(sel)); }
 
-    // Create Floating Particles
-    const createParticles = () => {
-        const container = document.getElementById('particles');
-        if (!container) return;
+    /** Random integer in [min, max] inclusive */
+    function randInt(min, max) { return Math.floor(Math.random() * (max - min + 1)) + min; }
 
-        for (let i = 0; i < 20; i++) {
-            const particle = document.createElement('div');
-            particle.className = 'particle';
-            particle.style.left = Math.random() * 100 + '%';
-            particle.style.top = Math.random() * 100 + '%';
-            particle.style.animationDelay = Math.random() * 5 + 's';
-            particle.style.animationDuration = (10 + Math.random() * 10) + 's';
-            particle.style.opacity = 0.1 + Math.random() * 0.3;
-            particle.style.width = (4 + Math.random() * 4) + 'px';
-            particle.style.height = particle.style.width;
-            container.appendChild(particle);
+    /* ═══════════════════════════════════════════════════════
+       DOM READY
+       ═══════════════════════════════════════════════════════ */
+    document.addEventListener('DOMContentLoaded', function () {
+
+        /* ── Urgency & Social Proof Badges ────────────────── */
+        var urgencyBadge = $('.cta-urgency-badge');
+        if (urgencyBadge) {
+            urgencyBadge.textContent = '🔥 ¡Solo quedan ' + randInt(2, 10) + ' lugares para este mes!';
         }
-    };
-    createParticles();
 
-    // Mobile Menu Toggle (legacy - keeping for backwards compatibility)
-    const menuToggle = document.querySelector('.menu-toggle');
-    const navLinks = document.querySelector('.nav-links');
-    const navbar = document.querySelector('.navbar');
+        var liveStrong = $('.cta-live-activity span strong');
+        if (liveStrong) {
+            liveStrong.textContent = randInt(3, 10) + ' personas';
+        }
 
-    if (menuToggle) {
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
+        /* ── Floating Particles (batched with DocumentFragment) ── */
+        var particlesContainer = document.getElementById('particles');
+        if (particlesContainer) {
+            var fragment = document.createDocumentFragment();
+            var PARTICLE_COUNT = 20;
 
-            // Optional: Animate hamburger icon
-            const icon = menuToggle.querySelector('i');
-            if (navLinks.classList.contains('active')) {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-times');
-            } else {
-                icon.classList.remove('fa-times');
-                icon.classList.add('fa-bars');
+            for (var i = 0; i < PARTICLE_COUNT; i++) {
+                var particle = document.createElement('div');
+                particle.className = 'particle';
+                var size = (4 + Math.random() * 4) + 'px';
+                var s = particle.style;
+                s.left            = Math.random() * 100 + '%';
+                s.top             = Math.random() * 100 + '%';
+                s.animationDelay  = Math.random() * 5 + 's';
+                s.animationDuration = (10 + Math.random() * 10) + 's';
+                s.opacity         = (0.1 + Math.random() * 0.3).toString();
+                s.width           = size;
+                s.height          = size;
+                fragment.appendChild(particle);
             }
-        });
-    }
+            /* Single DOM write instead of 20 individual appendChild calls */
+            particlesContainer.appendChild(fragment);
+        }
 
-    // FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
+        /* ── Mobile Menu Toggle (legacy — backwards compat) ── */
+        var menuToggle = $('.menu-toggle');
+        var navLinks   = $('.nav-links');
+        var navbar     = $('.navbar');
 
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
-
-        question.addEventListener('click', () => {
-            // Close other open items
-            faqItems.forEach(otherItem => {
-                if (otherItem !== item && otherItem.classList.contains('active')) {
-                    otherItem.classList.remove('active');
+        if (menuToggle) {
+            menuToggle.addEventListener('click', function () {
+                navLinks.classList.toggle('active');
+                var icon = menuToggle.querySelector('i');
+                if (icon) {
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-times');
                 }
             });
+        }
 
-            // Toggle current item
-            item.classList.toggle('active');
-        });
-    });
+        /* ── FAQ Accordion (Event Delegation — single listener) ─── */
+        var faqContainer = $('.faq-container');
+        if (faqContainer) {
+            faqContainer.addEventListener('click', function (e) {
+                var question = e.target.closest('.faq-question');
+                if (!question) return;
 
-    // Smooth Scrolling
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            e.preventDefault();
+                var clickedItem = question.parentElement;
+                $$('.faq-item', faqContainer).forEach(function (item) {
+                    if (item !== clickedItem && item.classList.contains('active')) {
+                        item.classList.remove('active');
+                    }
+                });
+                clickedItem.classList.toggle('active');
+            });
+        }
 
-            const targetId = this.getAttribute('href');
+        /* ── Smooth Scrolling (Event Delegation — single listener) ── */
+        document.addEventListener('click', function (e) {
+            var anchor = e.target.closest('a[href^="#"]');
+            if (!anchor) return;
+
+            var targetId = anchor.getAttribute('href');
             if (targetId === '#') return;
 
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                // Close mobile menu if open
-                if (window.innerWidth <= 768) {
-                    navLinks.style.display = 'none';
+            var targetEl = $(targetId);
+            if (!targetEl) return;
+
+            e.preventDefault();
+
+            /* Close mobile menu if open */
+            if (window.innerWidth <= 768 && navLinks) {
+                navLinks.style.display = 'none';
+            }
+
+            var headerOffset   = 80;
+            var elPosition     = targetEl.getBoundingClientRect().top;
+            var offsetPosition = elPosition + window.pageYOffset - headerOffset;
+
+            window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
+        });
+
+        /* ── Initialize AOS (defensive — guard against CDN failure) ── */
+        if (typeof AOS !== 'undefined') {
+            AOS.init({ duration: 800, once: true, offset: 100 });
+        }
+
+        /* ── Initialize Swiper (defensive) ────────────────── */
+        if (typeof Swiper !== 'undefined') {
+            new Swiper('.testimonial-swiper', {
+                loop: true,
+                autoplay: { delay: 5000, disableOnInteraction: false },
+                pagination: { el: '.swiper-pagination', clickable: true },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
+                },
+                effect: 'coverflow',
+                coverflowEffect: {
+                    rotate: 0,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: false
+                },
+                breakpoints: {
+                    640:  { slidesPerView: 1 },
+                    768:  { slidesPerView: 2, spaceBetween: 20 },
+                    1024: { slidesPerView: 3, spaceBetween: 30 }
+                }
+            });
+        }
+
+        /* ── Number Counter Animation (IntersectionObserver) ── */
+        var counterObserver = new IntersectionObserver(function (entries, obs) {
+            entries.forEach(function (entry) {
+                if (!entry.isIntersecting) return;
+
+                var el       = entry.target;
+                var target   = +el.getAttribute('data-target');
+                var duration = 2000;                    // 2 seconds
+                var increment = target / (duration / 16); // ~60 fps steps
+                var suffix   = target > 99 ? '+' : '';
+                var current  = 0;
+
+                function updateCounter() {
+                    current += increment;
+                    if (current < target) {
+                        el.textContent = Math.ceil(current) + suffix;
+                        requestAnimationFrame(updateCounter);
+                    } else {
+                        el.textContent = target + suffix;
+                    }
                 }
 
-                const headerOffset = 80;
-                const elementPosition = targetElement.getBoundingClientRect().top;
-                const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+                updateCounter();
+                obs.unobserve(el);
+            });
+        }, { threshold: 0.5 });
 
-                window.scrollTo({
-                    top: offsetPosition,
-                    behavior: "smooth"
-                });
-            }
-        });
-    });
+        $$('.number').forEach(function (el) { counterObserver.observe(el); });
 
-    // Initialize AOS
-    AOS.init({
-        duration: 800,
-        once: true,
-        offset: 100
-    });
-
-    // Initialize Swiper
-    const swiper = new Swiper('.testimonial-swiper', {
-        loop: true,
-        autoplay: {
-            delay: 5000,
-            disableOnInteraction: false,
-        },
-        pagination: {
-            el: '.swiper-pagination',
-            clickable: true,
-        },
-        navigation: {
-            nextEl: '.swiper-button-next',
-            prevEl: '.swiper-button-prev',
-        },
-        effect: 'coverflow',
-        coverflowEffect: {
-            rotate: 0,
-            stretch: 0,
-            depth: 100,
-            modifier: 1,
-            slideShadows: false,
-        },
-        breakpoints: {
-            640: {
-                slidesPerView: 1,
-            },
-            768: {
-                slidesPerView: 2,
-                spaceBetween: 20,
-            },
-            1024: {
-                slidesPerView: 3,
-                spaceBetween: 30,
-            },
+        /* ── Navbar Scroll Effect (rAF-throttled + passive) ──── */
+        if (navbar) {
+            var onNavScroll = throttleRAF(function () {
+                navbar.style.boxShadow = window.scrollY > 50
+                    ? '0 2px 10px rgba(0,0,0,0.1)'
+                    : '0 2px 5px rgba(0,0,0,0.05)';
+            });
+            window.addEventListener('scroll', onNavScroll, { passive: true });
         }
-    });
 
-    // Number Counter Animation
-    const observerOptions = {
-        threshold: 0.5
-    };
+        /* ═══════════════════════════════════════════════════════
+           HERO PARALLAX & 3D TILT EFFECTS
+           ═══════════════════════════════════════════════════════ */
+        var heroSection    = $('.hero');
+        if (!heroSection) return;
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                if (entry.target.classList.contains('number')) {
-                    const target = +entry.target.getAttribute('data-target');
-                    const duration = 2000; // 2 seconds
-                    const increment = target / (duration / 16); // 60fps
+        var parallaxShapes = $$('.shape', heroSection);
+        var tiltCard       = $('.glass-card', heroSection);
+        var floatBadges    = $$('.float-ui', heroSection);
+        var heroText       = $('.hero-text', heroSection);
 
-                    let current = 0;
-                    const updateCounter = () => {
-                        current += increment;
-                        if (current < target) {
-                            entry.target.innerText = Math.ceil(current) + (target > 99 ? '+' : '');
-                            requestAnimationFrame(updateCounter);
-                        } else {
-                            entry.target.innerText = target + (target > 99 ? '+' : '');
-                        }
-                    };
-                    updateCounter();
-                    observer.unobserve(entry.target);
-                }
+        /* GPU compositing hint — applied once, avoids per-frame recalc */
+        [tiltCard, heroText].concat(parallaxShapes, floatBadges)
+            .filter(Boolean)
+            .forEach(function (el) { el.style.willChange = 'transform'; });
+
+        /** Hero mousemove handler — rAF-throttled to prevent jank */
+        var onHeroMouseMove = throttleRAF(function (e) {
+            var x = (e.clientX / window.innerWidth  - 0.5) * 2;   // -1 → 1
+            var y = (e.clientY / window.innerHeight - 0.5) * 2;   // -1 → 1
+
+            /* Parallax background shapes */
+            parallaxShapes.forEach(function (shape) {
+                var speed = parseFloat(shape.getAttribute('data-speed')) || 2;
+                shape.style.transform = 'translate(' + (x * speed * 20) + 'px,' + (y * speed * 20) + 'px)';
+            });
+
+            /* 3D tilt on hero image card */
+            if (tiltCard) {
+                tiltCard.style.transform = 'rotateY(' + (x * 5) + 'deg) rotateX(' + (-y * 5) + 'deg)';
+            }
+
+            /* Floating badge parallax */
+            floatBadges.forEach(function (badge, idx) {
+                var speed = (idx + 1) * 2;
+                badge.style.transform = 'translate(' + (x * speed * 3) + 'px,' + (y * speed * 3) + 'px)';
+            });
+
+            /* Subtle text parallax */
+            if (heroText) {
+                var textSpeed = parseFloat(heroText.getAttribute('data-speed')) || 1;
+                heroText.style.transform = 'translate(' + (x * textSpeed * 10) + 'px,' + (y * textSpeed * 10) + 'px)';
             }
         });
-    }, observerOptions);
 
-    const statNumbers = document.querySelectorAll('.number');
-    statNumbers.forEach(el => observer.observe(el));
-
-    // Navbar Scroll Effect
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            navbar.style.boxShadow = '0 2px 10px rgba(0,0,0,0.1)';
-        } else {
-            navbar.style.boxShadow = '0 2px 5px rgba(0,0,0,0.05)';
+        /** Reset all transforms on mouse leave */
+        function onHeroMouseLeave() {
+            var reset = 'translate(0,0)';
+            parallaxShapes.forEach(function (s) { s.style.transform = reset; });
+            floatBadges.forEach(function (b)    { b.style.transform = reset; });
+            if (tiltCard) tiltCard.style.transform = 'rotateY(0) rotateX(0)';
+            if (heroText) heroText.style.transform = reset;
         }
+
+        /* Passive: true — tells browser this handler won't call preventDefault,
+           allowing optimized scroll/touch compositing on mobile */
+        heroSection.addEventListener('mousemove',  onHeroMouseMove,  { passive: true });
+        heroSection.addEventListener('mouseleave', onHeroMouseLeave);
     });
-
-    // Slider Revolution Style Effects
-    const heroSection = document.querySelector('.hero');
-    const parallaxShapes = document.querySelectorAll('.shape');
-    const tiltCard = document.querySelector('.glass-card');
-    const floatBadges = document.querySelectorAll('.float-ui');
-    const heroText = document.querySelector('.hero-text');
-
-    // Apply will-change hints to prevent forced reflows
-    if (tiltCard) tiltCard.style.willChange = 'transform';
-    parallaxShapes.forEach(shape => shape.style.willChange = 'transform');
-    floatBadges.forEach(badge => badge.style.willChange = 'transform');
-    if (heroText) heroText.style.willChange = 'transform';
-
-    if (heroSection) {
-        heroSection.addEventListener('mousemove', (e) => {
-            const x = (e.clientX / window.innerWidth - 0.5) * 2; // -1 to 1
-            const y = (e.clientY / window.innerHeight - 0.5) * 2; // -1 to 1
-
-            // Parallax Background Shapes
-            parallaxShapes.forEach(shape => {
-                const speed = shape.getAttribute('data-speed') || 2;
-                const xOffset = x * speed * 20;
-                const yOffset = y * speed * 20;
-                shape.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-            });
-
-            // 3D Tilt Effect for Image
-            if (tiltCard) {
-                const rotateY = x * 5; // Max 5deg rotation
-                const rotateX = -y * 5;
-                tiltCard.style.transform = `rotateY(${rotateY}deg) rotateX(${rotateX}deg)`;
-            }
-
-            // Parallax for Floating Badges
-            floatBadges.forEach((badge, index) => {
-                const speed = (index + 1) * 2;
-                const xOffset = x * speed * 3;
-                const yOffset = y * speed * 3;
-                badge.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-            });
-
-            // Subtle Text Parallax
-            if (heroText) {
-                const speed = heroText.getAttribute('data-speed') || 1;
-                const xOffset = x * speed * 10;
-                const yOffset = y * speed * 10;
-                heroText.style.transform = `translate(${xOffset}px, ${yOffset}px)`;
-            }
-        });
-
-        // Reset on Mouse Leave
-        heroSection.addEventListener('mouseleave', () => {
-            parallaxShapes.forEach(shape => {
-                shape.style.transform = 'translate(0, 0)';
-            });
-
-            if (tiltCard) {
-                tiltCard.style.transform = 'rotateY(0) rotateX(0)';
-            }
-
-            floatBadges.forEach(badge => {
-                badge.style.transform = `translate(0, 0)`;
-            });
-
-            if (heroText) {
-                heroText.style.transform = 'translate(0, 0)';
-            }
-        });
-    }
-});
+})();

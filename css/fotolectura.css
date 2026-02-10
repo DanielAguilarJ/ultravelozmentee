@@ -4629,6 +4629,447 @@
     align-items: center;
 }
 
+/* Effective PPM Card */
+.fl-result-card.effective {
+    border-color: rgba(168, 85, 247, 0.3);
+    background: linear-gradient(145deg, rgba(168, 85, 247, 0.1), rgba(168, 85, 247, 0.02));
+}
+
+.fl-result-card.effective .fl-result-icon {
+    background: rgba(168, 85, 247, 0.2);
+    color: #a855f7;
+}
+
+.fl-result-card.effective .fl-result-value {
+    color: #a855f7;
+}
+
+/* Update grid for 3 cards */
+.fl-results-main {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    margin-bottom: 40px;
+}
+
+/* Reading Time Detail */
+.fl-reading-time-detail {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    padding: 16px 28px;
+    background: rgba(99, 102, 241, 0.08);
+    border: 1px solid rgba(99, 102, 241, 0.2);
+    border-radius: 14px;
+    margin-bottom: 32px;
+    font-size: 0.95rem;
+    color: var(--fl-text-muted);
+}
+
+.fl-reading-time-detail i {
+    color: var(--fl-accent);
+    font-size: 1.2rem;
+}
+
+.fl-reading-time-detail strong {
+    color: var(--fl-text);
+}
+
+/* Speed Comparison Bars */
+.fl-speed-comparison {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--fl-border);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 40px;
+    text-align: left;
+}
+
+.fl-speed-comparison h4 {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-size: 1.15rem;
+    color: var(--fl-text);
+    margin-bottom: 24px;
+}
+
+.fl-speed-comparison h4 i {
+    color: var(--fl-accent);
+}
+
+.fl-speed-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.fl-speed-bar-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.fl-speed-bar-label {
+    width: 120px;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--fl-text-muted);
+    text-align: right;
+    flex-shrink: 0;
+}
+
+.fl-speed-bar-track {
+    flex: 1;
+    height: 36px;
+    background: rgba(255, 255, 255, 0.04);
+    border-radius: 18px;
+    overflow: hidden;
+    position: relative;
+}
+
+.fl-speed-bar-fill {
+    height: 100%;
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding-right: 14px;
+    transition: width 1.5s cubic-bezier(0.22, 1, 0.36, 1);
+    min-width: fit-content;
+}
+
+.fl-speed-bar-fill.your-speed {
+    background: linear-gradient(90deg, #6366f1, #818cf8);
+}
+
+.fl-speed-bar-fill.avg-speed {
+    background: linear-gradient(90deg, #64748b, #94a3b8);
+}
+
+.fl-speed-bar-fill.foto-speed {
+    background: linear-gradient(90deg, #10b981, #34d399);
+}
+
+.fl-speed-bar-value {
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: white;
+    white-space: nowrap;
+}
+
+/* Real World Impact */
+.fl-real-world-impact {
+    background: rgba(255, 255, 255, 0.02);
+    border: 1px solid var(--fl-border);
+    border-radius: 20px;
+    padding: 32px;
+    margin-bottom: 40px;
+}
+
+.fl-real-world-impact h4 {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    font-size: 1.15rem;
+    color: var(--fl-text);
+    margin-bottom: 24px;
+}
+
+.fl-real-world-impact h4 i {
+    color: var(--fl-accent);
+}
+
+.fl-impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.fl-impact-card {
+    padding: 24px 20px;
+    border-radius: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    text-align: center;
+    position: relative;
+}
+
+.fl-impact-card.negative {
+    background: linear-gradient(145deg, rgba(239, 68, 68, 0.12), rgba(239, 68, 68, 0.03));
+    border: 1px solid rgba(239, 68, 68, 0.25);
+}
+
+.fl-impact-card.positive {
+    background: linear-gradient(145deg, rgba(16, 185, 129, 0.12), rgba(16, 185, 129, 0.03));
+    border: 1px solid rgba(16, 185, 129, 0.25);
+}
+
+.fl-impact-icon {
+    font-size: 1.6rem;
+}
+
+.fl-impact-card.negative .fl-impact-icon {
+    color: #ef4444;
+}
+
+.fl-impact-card.positive .fl-impact-icon {
+    color: #10b981;
+}
+
+.fl-impact-data {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.fl-impact-value {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 1.8rem;
+    font-weight: 800;
+    color: var(--fl-text);
+}
+
+.fl-impact-desc {
+    font-size: 0.8rem;
+    color: var(--fl-text-muted);
+    line-height: 1.3;
+}
+
+.fl-impact-tag {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 4px 12px;
+    border-radius: 20px;
+}
+
+.fl-impact-card.negative .fl-impact-tag {
+    background: rgba(239, 68, 68, 0.15);
+    color: #fca5a5;
+}
+
+.fl-impact-card.positive .fl-impact-tag {
+    background: rgba(16, 185, 129, 0.15);
+    color: #6ee7b7;
+}
+
+/* Urgency Message */
+.fl-urgency-message {
+    display: flex;
+    gap: 20px;
+    padding: 28px;
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.15), rgba(239, 68, 68, 0.08));
+    border: 2px solid rgba(245, 158, 11, 0.35);
+    border-radius: 20px;
+    margin-bottom: 40px;
+    text-align: left;
+    animation: urgencyGlow 3s ease-in-out infinite alternate;
+}
+
+@keyframes urgencyGlow {
+    0% {
+        border-color: rgba(245, 158, 11, 0.35);
+    }
+
+    100% {
+        border-color: rgba(239, 68, 68, 0.45);
+    }
+}
+
+.fl-urgency-icon {
+    width: 56px;
+    height: 56px;
+    background: rgba(245, 158, 11, 0.2);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.4rem;
+    color: #f59e0b;
+    flex-shrink: 0;
+}
+
+.fl-urgency-content h4 {
+    font-size: 1.15rem;
+    color: #fbbf24;
+    margin-bottom: 10px;
+}
+
+.fl-urgency-content p {
+    color: var(--fl-text-muted);
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+/* WhatsApp Booking Form */
+.fl-wa-booking {
+    background: linear-gradient(145deg, rgba(37, 211, 102, 0.1), rgba(37, 211, 102, 0.02));
+    border: 2px solid rgba(37, 211, 102, 0.3);
+    border-radius: 24px;
+    padding: 40px;
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.fl-wa-booking-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 20px;
+    margin-bottom: 32px;
+}
+
+.fl-wa-booking-icon {
+    width: 64px;
+    height: 64px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    border-radius: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    color: white;
+    flex-shrink: 0;
+}
+
+.fl-wa-booking-header h4 {
+    font-size: 1.3rem;
+    color: var(--fl-text);
+    margin-bottom: 8px;
+}
+
+.fl-wa-booking-header h4 strong {
+    color: #25d366;
+}
+
+.fl-wa-booking-header p {
+    font-size: 0.92rem;
+    color: var(--fl-text-muted);
+    line-height: 1.5;
+}
+
+/* WA Form Grid */
+.fl-wa-form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 28px;
+}
+
+.fl-wa-form .fl-form-group {
+    margin-bottom: 0;
+}
+
+.fl-form-full {
+    grid-column: 1 / -1;
+}
+
+.fl-wa-form .fl-form-group label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.88rem;
+    font-weight: 600;
+    color: var(--fl-text);
+    margin-bottom: 8px;
+}
+
+.fl-wa-form .fl-form-group label i {
+    color: #25d366;
+}
+
+.fl-wa-form .fl-form-group input,
+.fl-wa-form .fl-form-group select,
+.fl-wa-form .fl-form-group textarea {
+    width: 100%;
+    padding: 14px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 2px solid var(--fl-border);
+    border-radius: 12px;
+    color: var(--fl-text);
+    font-size: 0.95rem;
+    font-family: inherit;
+    transition: var(--fl-transition);
+    box-sizing: border-box;
+}
+
+.fl-wa-form .fl-form-group input::placeholder,
+.fl-wa-form .fl-form-group textarea::placeholder {
+    color: var(--fl-text-muted);
+}
+
+.fl-wa-form .fl-form-group input:focus,
+.fl-wa-form .fl-form-group select:focus,
+.fl-wa-form .fl-form-group textarea:focus {
+    outline: none;
+    border-color: #25d366;
+    background: rgba(37, 211, 102, 0.05);
+    box-shadow: 0 0 0 4px rgba(37, 211, 102, 0.15);
+}
+
+.fl-form-select {
+    appearance: none;
+    -webkit-appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%2394a3b8' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 16px center;
+    padding-right: 40px !important;
+    cursor: pointer;
+}
+
+/* WhatsApp Submit Button */
+.fl-wa-submit-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    width: 100%;
+    padding: 20px 36px;
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: white;
+    border: none;
+    border-radius: 16px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    box-shadow: 0 8px 32px rgba(37, 211, 102, 0.3);
+}
+
+.fl-wa-submit-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 40px rgba(37, 211, 102, 0.45);
+}
+
+.fl-wa-submit-btn:active {
+    transform: translateY(0);
+}
+
+.fl-wa-submit-btn i {
+    font-size: 1.5rem;
+}
+
+.fl-wa-privacy {
+    text-align: center;
+    font-size: 0.82rem;
+    color: var(--fl-text-muted);
+    margin-top: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.fl-wa-privacy i {
+    color: #25d366;
+}
+
 /* Responsive Test Styles */
 @media (max-width: 768px) {
     .fl-test-container {
@@ -4699,6 +5140,42 @@
 
     .fl-reader-comparison-table th:last-child {
         display: none;
+    }
+
+    /* New components responsive */
+    .fl-speed-bar-label {
+        width: 80px;
+        font-size: 0.75rem;
+    }
+
+    .fl-impact-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fl-wa-form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fl-wa-booking {
+        padding: 24px;
+    }
+
+    .fl-urgency-message {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .fl-wa-booking-header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .fl-reading-time-detail {
+        flex-direction: column;
+        text-align: center;
+        gap: 8px;
     }
 }
 

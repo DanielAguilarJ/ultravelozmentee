@@ -4765,3 +4765,257 @@ body:not([class*="-page"]) .hero-description strong {
     transform: translateZ(0);
     backface-visibility: hidden;
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MATHEKIDS - SCROLL-DRIVEN TIMELINE (Método Section)
+   ═══════════════════════════════════════════════════════════════════════════ */
+.mk-method-timeline {
+    position: relative;
+    padding-left: 24px;
+}
+
+.mk-timeline-track {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 2px;
+    overflow: hidden;
+}
+
+.mk-timeline-progress {
+    width: 100%;
+    height: 0%;
+    background: var(--course-gradient);
+    border-radius: 2px;
+    transition: height 0.15s linear;
+    box-shadow: 0 0 12px var(--course-accent-glow), 0 0 24px var(--course-accent-glow);
+}
+
+.mk-timeline-step {
+    position: relative;
+    opacity: 0.4;
+    transform: translateX(10px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.mk-timeline-step.is-active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.mk-timeline-step.is-active .step-number {
+    box-shadow: 0 0 20px var(--course-accent-glow), 0 10px 30px var(--course-accent-glow);
+}
+
+.mk-timeline-step.is-active .step-content {
+    border-color: rgba(245, 158, 11, 0.3);
+    background: rgba(245, 158, 11, 0.04);
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MATHEKIDS - VALUE STACK (Enrollment Section)
+   ═══════════════════════════════════════════════════════════════════════════ */
+.mk-value-stack {
+    max-width: 900px;
+    margin: 0 auto 60px;
+    padding: 48px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--course-border);
+    border-radius: var(--course-radius);
+    position: relative;
+    overflow: hidden;
+}
+
+.mk-value-stack::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: var(--course-gradient);
+}
+
+.mk-value-stack .section-header {
+    margin-bottom: 40px;
+}
+
+.mk-vs-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 32px;
+}
+
+.mk-vs-item {
+    display: grid;
+    grid-template-columns: 56px 1fr auto;
+    gap: 20px;
+    align-items: center;
+    padding: 20px 24px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid var(--course-border);
+    border-radius: 16px;
+    transition: var(--course-transition);
+}
+
+.mk-vs-item:hover {
+    border-color: rgba(245, 158, 11, 0.3);
+    background: rgba(245, 158, 11, 0.04);
+    transform: translateX(6px);
+}
+
+.mk-vs-icon {
+    width: 56px;
+    height: 56px;
+    background: var(--course-gradient);
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.3rem;
+    color: white;
+    flex-shrink: 0;
+    box-shadow: 0 8px 20px var(--course-accent-glow);
+}
+
+.mk-vs-content h4 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: var(--course-text);
+    margin-bottom: 4px;
+}
+
+.mk-vs-content p {
+    font-size: 0.9rem;
+    color: var(--course-text-muted);
+    line-height: 1.5;
+    margin: 0;
+}
+
+.mk-vs-price {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 4px;
+    flex-shrink: 0;
+}
+
+.mk-vs-value {
+    font-size: 0.85rem;
+    color: var(--course-text-muted);
+    text-decoration: line-through;
+}
+
+.mk-vs-free {
+    font-size: 1rem;
+    font-weight: 800;
+    color: #22c55e;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Value Stack Total */
+.mk-vs-total {
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--course-border);
+}
+
+.mk-vs-total-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    margin-bottom: 8px;
+}
+
+.mk-vs-total-label {
+    font-size: 1.1rem;
+    color: var(--course-text-muted);
+    font-weight: 600;
+}
+
+.mk-vs-total-crossed {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #ef4444;
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+
+.mk-vs-highlight {
+    margin-bottom: 16px;
+}
+
+.mk-vs-total-free {
+    font-family: 'Space Grotesk', sans-serif;
+    font-size: 2.5rem;
+    font-weight: 800;
+    background: linear-gradient(135deg, #22c55e 0%, #16a34a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    letter-spacing: -0.02em;
+}
+
+.mk-vs-urgency {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: #fbbf24;
+    font-weight: 600;
+    padding: 8px 20px;
+    background: rgba(251, 191, 36, 0.1);
+    border: 1px solid rgba(251, 191, 36, 0.25);
+    border-radius: var(--course-radius-full);
+    animation: urgencyPulse 2s ease-in-out infinite;
+}
+
+@keyframes urgencyPulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
+}
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   MATHEKIDS - VALUE STACK & TIMELINE RESPONSIVE
+   ═══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 768px) {
+    .mk-value-stack {
+        padding: 28px 20px;
+        margin-bottom: 40px;
+    }
+
+    .mk-vs-item {
+        grid-template-columns: 44px 1fr;
+        gap: 14px;
+        padding: 16px;
+    }
+
+    .mk-vs-icon {
+        width: 44px;
+        height: 44px;
+        font-size: 1.1rem;
+    }
+
+    .mk-vs-price {
+        grid-column: 1 / -1;
+        flex-direction: row;
+        align-items: center;
+        gap: 12px;
+        justify-content: flex-start;
+        padding-left: 58px;
+    }
+
+    .mk-vs-total-free {
+        font-size: 2rem;
+    }
+
+    .mk-method-timeline {
+        padding-left: 20px;
+    }
+}

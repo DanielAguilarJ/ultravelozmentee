@@ -261,6 +261,68 @@ document.querySelectorAll('[data-count]').forEach(counter => {
 });
 
 // ═══════════════════════════════════════════════════════════════════════════
+// GEO-TARGETING — REPLACE [data-geo-city] TEXT WITH DETECTED CITY
+// ═══════════════════════════════════════════════════════════════════════════
+(function () {
+    const GEO_CACHE_KEY = 'wbm_geo_city';
+    const GEO_API = 'https://ipapi.co/json/';
+    const FALLBACK = 'Ciudad de México';
+    const TTL = 24 * 60 * 60 * 1000;
+
+    function applyCity(city) {
+        const els = document.querySelectorAll('[data-geo-city]');
+        if (!els.length) return;
+        els.forEach(function (el) {
+            if (el.textContent.trim() === city) {
+                el.classList.add('geo-ready');
+                return;
+            }
+            el.classList.add('geo-fading');
+            setTimeout(function () {
+                el.textContent = city;
+                el.classList.remove('geo-fading');
+                el.classList.add('geo-ready');
+            }, 400);
+        });
+    }
+
+    function getCity() {
+        try {
+            var raw = localStorage.getItem(GEO_CACHE_KEY);
+            if (raw) {
+                var cached = JSON.parse(raw);
+                if (cached.exp && Date.now() < cached.exp) {
+                    applyCity(cached.city);
+                    return;
+                }
+            }
+        } catch (e) { /* ignore */ }
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('GET', GEO_API, true);
+        xhr.timeout = 4000;
+        xhr.onload = function () {
+            if (xhr.status === 200) {
+                try {
+                    var data = JSON.parse(xhr.responseText);
+                    var city = data.city || FALLBACK;
+                    localStorage.setItem(GEO_CACHE_KEY, JSON.stringify({ city: city, exp: Date.now() + TTL }));
+                    applyCity(city);
+                } catch (e) { applyCity(FALLBACK); }
+            } else { applyCity(FALLBACK); }
+        };
+        xhr.onerror = xhr.ontimeout = function () { applyCity(FALLBACK); };
+        xhr.send();
+    }
+
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', getCity);
+    } else {
+        getCity();
+    }
+})();
+
+// ═══════════════════════════════════════════════════════════════════════════
 // CONSOLE MESSAGE
 // ═══════════════════════════════════════════════════════════════════════════
 console.log('%c🧠 WorldBrain México', 'font-size: 24px; font-weight: bold; color: #6366f1;');

@@ -1,0 +1,1435 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Historias de Éxito | WorldBrain México</title>
+    <meta name="description"
+        content="Descubre cómo miles de alumnos y padres han transformado su vida con los programas de aprendizaje acelerado de WorldBrain México. Casos reales, resultados exactos.">
+    <link rel="canonical" href="https://ultravelozmente.com/testimonios.html">
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@500;600&display=swap"
+        rel="stylesheet">
+
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        /* ═══════════════════════════════════════════════════════════
+           TOKENS & RESET
+        ═══════════════════════════════════════════════════════════ */
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            /* Surfaces */
+            --bg: #fafafa;
+            --surface: #ffffff;
+            --surface-hover: #f8f8f8;
+            --dark: #0a0a0b;
+            --dark-elevated: #141416;
+            --dark-border: #1e1e22;
+
+            /* Text */
+            --ink: #0a0a0b;
+            --ink-secondary: #6b6b76;
+            --ink-muted: #9d9daa;
+            --ink-inverse: #f0f0f2;
+
+            /* Accent */
+            --accent: #2563eb;
+            --accent-light: #3b82f6;
+            --accent-glow: rgba(37, 99, 235, 0.15);
+            --accent-bg: #eff6ff;
+
+            /* Feedback */
+            --gold: #f59e0b;
+            --emerald: #10b981;
+            --violet: #8b5cf6;
+
+            /* Borders */
+            --border: #ebebee;
+            --border-hover: #d4d4d9;
+
+            /* Radius */
+            --r-sm: 8px;
+            --r-md: 12px;
+            --r-lg: 16px;
+            --r-xl: 20px;
+            --r-2xl: 24px;
+            --r-pill: 100px;
+
+            /* Shadows */
+            --sh-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+            --sh-sm: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.03);
+            --sh-md: 0 4px 12px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.03);
+            --sh-lg: 0 8px 30px rgba(0, 0, 0, 0.06), 0 2px 6px rgba(0, 0, 0, 0.03);
+            --sh-xl: 0 16px 50px rgba(0, 0, 0, 0.08), 0 4px 12px rgba(0, 0, 0, 0.04);
+            --sh-glow: 0 0 0 1px var(--accent), 0 0 20px var(--accent-glow);
+
+            /* Motion */
+            --ease: cubic-bezier(0.4, 0, 0.2, 1);
+            --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+            --dur: 0.25s;
+            --dur-slow: 0.5s;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            text-rendering: optimizeLegibility;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, -apple-system, sans-serif;
+            background: var(--bg);
+            color: var(--ink);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: color var(--dur) var(--ease);
+        }
+
+        img {
+            max-width: 100%;
+            display: block;
+        }
+
+        .wrap {
+            max-width: 1220px;
+            margin: 0 auto;
+            padding: 0 clamp(1.25rem, 4vw, 2.5rem);
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           NAVBAR — Floating Glass Pill
+        ═══════════════════════════════════════════════════════════ */
+        .nav {
+            position: fixed;
+            top: 1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            z-index: 1000;
+            background: rgba(10, 10, 11, 0.7);
+            backdrop-filter: blur(24px) saturate(180%);
+            -webkit-backdrop-filter: blur(24px) saturate(180%);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: var(--r-pill);
+            padding: 0.5rem 0.5rem 0.5rem 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.25rem;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.25), inset 0 1px 0 rgba(255, 255, 255, 0.05);
+            transition: all var(--dur-slow) var(--ease);
+        }
+
+        .nav.scrolled {
+            background: rgba(255, 255, 255, 0.82);
+            backdrop-filter: blur(24px) saturate(200%);
+            border-color: var(--border);
+            box-shadow: var(--sh-lg), inset 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        .nav-brand {
+            font-family: 'Outfit', sans-serif;
+            font-weight: 700;
+            font-size: 1rem;
+            color: #fff;
+            margin-right: 1rem;
+            letter-spacing: -0.02em;
+            white-space: nowrap;
+        }
+
+        .nav.scrolled .nav-brand {
+            color: var(--ink);
+        }
+
+        .nav-brand span {
+            color: var(--accent-light);
+        }
+
+        .nav-link {
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: rgba(255, 255, 255, 0.6);
+            padding: 0.5rem 0.875rem;
+            border-radius: var(--r-pill);
+            transition: all var(--dur) var(--ease);
+            white-space: nowrap;
+        }
+
+        .nav.scrolled .nav-link {
+            color: var(--ink-secondary);
+        }
+
+        .nav-link:hover {
+            color: #fff;
+            background: rgba(255, 255, 255, 0.08);
+        }
+
+        .nav.scrolled .nav-link:hover {
+            color: var(--ink);
+            background: rgba(0, 0, 0, 0.04);
+        }
+
+        .nav-link.current {
+            color: #fff;
+        }
+
+        .nav.scrolled .nav-link.current {
+            color: var(--accent);
+        }
+
+        .nav-cta {
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: var(--dark) !important;
+            background: #fff;
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--r-pill);
+            margin-left: 0.25rem;
+            transition: all var(--dur) var(--ease);
+        }
+
+        .nav.scrolled .nav-cta {
+            background: var(--accent);
+            color: #fff !important;
+        }
+
+        .nav-cta:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           HERO — Cinematic Dark
+        ═══════════════════════════════════════════════════════════ */
+        .hero {
+            min-height: 92vh;
+            background: var(--dark);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            padding: 6rem 2rem;
+        }
+
+        /* Ambient glow */
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            top: -200px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.14) 0%, transparent 70%);
+            filter: blur(60px);
+            pointer-events: none;
+        }
+
+        /* Noise grain */
+        .hero::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.015'/%3E%3C/svg%3E");
+            pointer-events: none;
+            opacity: 0.4;
+        }
+
+        .hero-inner {
+            position: relative;
+            z-index: 2;
+            max-width: 780px;
+        }
+
+        .hero-eyebrow {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            background: rgba(37, 99, 235, 0.1);
+            border: 1px solid rgba(37, 99, 235, 0.2);
+            padding: 0.4rem 1rem 0.4rem 0.6rem;
+            border-radius: var(--r-pill);
+            font-size: 0.75rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 2.5rem;
+        }
+
+        .hero-eyebrow-dot {
+            width: 6px;
+            height: 6px;
+            background: var(--emerald);
+            border-radius: 50%;
+            box-shadow: 0 0 8px rgba(16, 185, 129, 0.5);
+            animation: pulse-dot 2s infinite;
+        }
+
+        @keyframes pulse-dot {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8);
+            }
+        }
+
+        .hero-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(3.25rem, 7vw, 5.5rem);
+            font-weight: 800;
+            color: #fff;
+            line-height: 1;
+            letter-spacing: -0.04em;
+            margin-bottom: 1.75rem;
+        }
+
+        .hero-title em {
+            font-style: normal;
+            background: linear-gradient(135deg, #60a5fa, #818cf8, #c084fc);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-desc {
+            font-size: 1.125rem;
+            font-weight: 400;
+            color: var(--ink-muted);
+            max-width: 500px;
+            margin: 0 auto;
+            line-height: 1.75;
+        }
+
+        /* Stats row */
+        .hero-stats {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0;
+            margin-top: 4rem;
+            border: 1px solid var(--dark-border);
+            border-radius: var(--r-xl);
+            overflow: hidden;
+            background: var(--dark-elevated);
+        }
+
+        .hero-stat {
+            flex: 1;
+            padding: 1.5rem 1rem;
+            text-align: center;
+            border-right: 1px solid var(--dark-border);
+        }
+
+        .hero-stat:last-child {
+            border-right: none;
+        }
+
+        .hero-stat-value {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.02em;
+        }
+
+        .hero-stat-label {
+            font-size: 0.6875rem;
+            font-weight: 500;
+            color: var(--ink-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-top: 0.25rem;
+        }
+
+        @media (max-width: 600px) {
+            .hero-stats {
+                flex-wrap: wrap;
+            }
+
+            .hero-stat {
+                flex: 1 1 50%;
+                border-bottom: 1px solid var(--dark-border);
+            }
+
+            .hero-stat:nth-child(2) {
+                border-right: none;
+            }
+
+            .hero-stat:nth-child(3),
+            .hero-stat:nth-child(4) {
+                border-bottom: none;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           SECTION HEADER
+        ═══════════════════════════════════════════════════════════ */
+        .section {
+            padding: 5rem 0;
+        }
+
+        .section-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .section-chip i {
+            font-size: 0.5rem;
+        }
+
+        .section-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(1.875rem, 3vw, 2.75rem);
+            font-weight: 700;
+            letter-spacing: -0.03em;
+            line-height: 1.15;
+            margin-bottom: 0.75rem;
+        }
+
+        .section-sub {
+            font-size: 1rem;
+            color: var(--ink-secondary);
+            max-width: 480px;
+            line-height: 1.7;
+            margin-bottom: 3.5rem;
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           TESTIMONIAL BENTO GRID
+        ═══════════════════════════════════════════════════════════ */
+        .bento {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.25rem;
+        }
+
+        @media (max-width: 900px) {
+            .bento {
+                grid-template-columns: repeat(6, 1fr);
+            }
+        }
+
+        @media (max-width: 600px) {
+            .bento {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Bento spans */
+        .bento-8 {
+            grid-column: span 8;
+        }
+
+        .bento-4 {
+            grid-column: span 4;
+        }
+
+        .bento-6 {
+            grid-column: span 6;
+        }
+
+        .bento-12 {
+            grid-column: span 12;
+        }
+
+        @media (max-width: 900px) {
+
+            .bento-8,
+            .bento-4,
+            .bento-6,
+            .bento-12 {
+                grid-column: span 6;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .bento-8,
+            .bento-4,
+            .bento-6,
+            .bento-12 {
+                grid-column: span 1;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           CARD — Base
+        ═══════════════════════════════════════════════════════════ */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: var(--r-2xl);
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+            transition: border-color var(--dur) var(--ease), box-shadow var(--dur-slow) var(--ease), transform var(--dur) var(--ease);
+        }
+
+        .card:hover {
+            border-color: var(--border-hover);
+            box-shadow: var(--sh-lg);
+            transform: translateY(-3px);
+        }
+
+        /* ——— Dark Card ——— */
+        .card--dark {
+            background: var(--dark) !important;
+            border-color: var(--dark-border) !important;
+        }
+
+        .card--dark:hover {
+            border-color: #2a2a30 !important;
+            box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3) !important;
+        }
+
+        .card--dark,
+        .card--dark .t-quote,
+        .card--dark .t-solution {
+            color: var(--ink-inverse) !important;
+        }
+
+        .card--dark .t-pain {
+            color: #8a8a96 !important;
+        }
+
+        .card--dark .t-name {
+            color: #fff !important;
+        }
+
+        .card--dark .t-role {
+            color: #5a5a66 !important;
+        }
+
+        .card--dark .t-highlight {
+            color: var(--accent-light) !important;
+        }
+
+        .card--dark .t-author {
+            border-top-color: var(--dark-border) !important;
+        }
+
+        .card--dark .badge {
+            background: rgba(37, 99, 235, 0.12) !important;
+            border-color: rgba(37, 99, 235, 0.2) !important;
+        }
+
+        .card--dark .badge-val {
+            color: #fff !important;
+        }
+
+        .card--dark .badge-lbl {
+            color: #6a6a78 !important;
+        }
+
+        /* ——— Accent Card ——— */
+        .card--accent {
+            background: var(--accent) !important;
+            border-color: var(--accent) !important;
+        }
+
+        .card--accent:hover {
+            box-shadow: 0 12px 40px rgba(37, 99, 235, 0.25) !important;
+            border-color: var(--accent-light) !important;
+        }
+
+        .card--accent .t-quote,
+        .card--accent .t-solution,
+        .card--accent .t-name {
+            color: #fff !important;
+        }
+
+        .card--accent .t-pain {
+            color: rgba(255, 255, 255, 0.7) !important;
+        }
+
+        .card--accent .t-role {
+            color: rgba(255, 255, 255, 0.6) !important;
+        }
+
+        .card--accent .t-highlight {
+            color: #fff !important;
+            font-weight: 700 !important;
+            text-decoration: underline;
+            text-decoration-style: wavy;
+            text-underline-offset: 3px;
+        }
+
+        .card--accent .t-author {
+            border-top-color: rgba(255, 255, 255, 0.15) !important;
+        }
+
+        .card--accent .star {
+            color: #fde68a !important;
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           CARD INTERNALS
+        ═══════════════════════════════════════════════════════════ */
+
+        /* Stars */
+        .stars {
+            display: flex;
+            gap: 2px;
+            margin-bottom: 1.25rem;
+        }
+
+        .star {
+            font-size: 0.6875rem;
+            color: var(--gold);
+        }
+
+        /* Badges */
+        .badges {
+            display: flex;
+            gap: 0.625rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+        }
+
+        .badge {
+            background: var(--accent-bg);
+            border: 1px solid rgba(37, 99, 235, 0.08);
+            border-radius: var(--r-md);
+            padding: 0.5rem 0.875rem;
+            min-width: 0;
+        }
+
+        .badge-val {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1.125rem;
+            font-weight: 700;
+            color: var(--ink);
+            display: block;
+            letter-spacing: -0.01em;
+            white-space: nowrap;
+        }
+
+        .badge-lbl {
+            font-size: 0.625rem;
+            font-weight: 600;
+            color: var(--ink-muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            margin-top: 2px;
+        }
+
+        /* Quote text */
+        .t-quote {
+            font-size: 0.9375rem;
+            line-height: 1.8;
+            color: var(--ink);
+            flex-grow: 1;
+            margin-bottom: 1.5rem;
+        }
+
+        .t-pain {
+            color: var(--ink-secondary);
+            font-style: italic;
+            margin-bottom: 0.625rem;
+            display: block;
+        }
+
+        .t-solution {
+            display: block;
+        }
+
+        .t-highlight {
+            font-weight: 600;
+            color: var(--accent);
+            position: relative;
+        }
+
+        .t-highlight::after {
+            content: '';
+            position: absolute;
+            bottom: -1px;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent);
+            opacity: 0.25;
+            border-radius: 1px;
+        }
+
+        /* Author */
+        .t-author {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding-top: 1.25rem;
+            border-top: 1px solid var(--border);
+            margin-top: auto;
+        }
+
+        .t-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            overflow: hidden;
+            flex-shrink: 0;
+            box-shadow: var(--sh-sm);
+        }
+
+        .t-avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .t-initials {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--accent-bg);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'JetBrains Mono', monospace;
+            font-weight: 600;
+            font-size: 0.75rem;
+            flex-shrink: 0;
+        }
+
+        .card--dark .t-initials {
+            background: rgba(37, 99, 235, 0.15);
+            color: var(--accent-light);
+        }
+
+        .card--accent .t-initials {
+            background: rgba(255, 255, 255, 0.2);
+            color: #fff;
+        }
+
+        .t-name {
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--ink);
+            letter-spacing: -0.01em;
+        }
+
+        .t-role {
+            font-size: 0.6875rem;
+            font-weight: 400;
+            color: var(--ink-muted);
+            margin-top: 1px;
+        }
+
+        /* Video */
+        .t-video {
+            position: relative;
+            border-radius: var(--r-lg);
+            overflow: hidden;
+            aspect-ratio: 16/9;
+            margin-bottom: 1.25rem;
+            cursor: pointer;
+        }
+
+        .t-video img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform var(--dur-slow) var(--ease);
+        }
+
+        .card:hover .t-video img {
+            transform: scale(1.03);
+        }
+
+        .play-btn {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 52px;
+            height: 52px;
+            background: rgba(255, 255, 255, 0.92);
+            backdrop-filter: blur(8px);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8125rem;
+            color: var(--ink);
+            box-shadow: var(--sh-md);
+            transition: all var(--dur) var(--ease-spring);
+        }
+
+        .card:hover .play-btn {
+            background: var(--accent);
+            color: #fff;
+            transform: translate(-50%, -50%) scale(1.08);
+            box-shadow: 0 8px 24px rgba(37, 99, 235, 0.3);
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           TRUST STRIP
+        ═══════════════════════════════════════════════════════════ */
+        .trust {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 3rem;
+            padding: 3.5rem 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+        }
+
+        .trust-item {
+            display: flex;
+            align-items: center;
+            gap: 0.625rem;
+            font-size: 0.8125rem;
+            font-weight: 500;
+            color: var(--ink-secondary);
+        }
+
+        .trust-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: var(--accent-bg);
+            color: var(--accent);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.875rem;
+        }
+
+        @media (max-width: 700px) {
+            .trust {
+                flex-wrap: wrap;
+                gap: 1.5rem;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           CTA SECTION
+        ═══════════════════════════════════════════════════════════ */
+        .cta-section {
+            padding: 2rem 0 6rem;
+        }
+
+        .cta-box {
+            background: var(--dark);
+            border-radius: var(--r-2xl);
+            padding: clamp(3rem, 6vw, 5rem) 2rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-box::before {
+            content: '';
+            position: absolute;
+            width: 600px;
+            height: 600px;
+            bottom: -300px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: radial-gradient(circle, rgba(37, 99, 235, 0.18), transparent 70%);
+            filter: blur(40px);
+            pointer-events: none;
+        }
+
+        .cta-inner {
+            position: relative;
+            z-index: 2;
+        }
+
+        .cta-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.6875rem;
+            font-weight: 600;
+            color: var(--accent-light);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 1.5rem;
+        }
+
+        .cta-chip i {
+            font-size: 0.5rem;
+        }
+
+        .cta-title {
+            font-family: 'Outfit', sans-serif;
+            font-size: clamp(2rem, 4.5vw, 3.25rem);
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 1.25rem;
+        }
+
+        .cta-desc {
+            font-size: 1.0625rem;
+            color: var(--ink-muted);
+            max-width: 440px;
+            margin: 0 auto 2.5rem;
+            line-height: 1.7;
+        }
+
+        .cta-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.625rem;
+            background: #fff;
+            color: var(--dark);
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            padding: 0.9rem 2.25rem;
+            border-radius: var(--r-pill);
+            transition: all var(--dur) var(--ease);
+            box-shadow: 0 4px 20px rgba(255, 255, 255, 0.08);
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(255, 255, 255, 0.12);
+        }
+
+        .cta-btn .fa-whatsapp {
+            color: #25D366;
+            font-size: 1.125rem;
+        }
+
+        .cta-note {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.375rem;
+            margin-top: 1.5rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: #52525b;
+        }
+
+        .cta-note i {
+            color: var(--emerald);
+            font-size: 0.625rem;
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           FOOTER
+        ═══════════════════════════════════════════════════════════ */
+        .footer {
+            background: var(--dark);
+            padding: 3.5rem 0 2rem;
+        }
+
+        .footer-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid var(--dark-border);
+            margin-bottom: 2rem;
+        }
+
+        .footer-brand {
+            font-family: 'Outfit', sans-serif;
+            font-size: 1rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .footer-brand span {
+            color: var(--accent-light);
+        }
+
+        .footer-social {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .footer-social a {
+            width: 34px;
+            height: 34px;
+            border-radius: 50%;
+            background: var(--dark-elevated);
+            border: 1px solid var(--dark-border);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #5a5a66;
+            font-size: 0.8125rem;
+            transition: all var(--dur) var(--ease);
+        }
+
+        .footer-social a:hover {
+            background: #1e1e22;
+            color: #fff;
+            border-color: #2e2e34;
+        }
+
+        .footer-bar {
+            background: var(--dark-elevated);
+            border: 1px solid var(--dark-border);
+            border-radius: var(--r-lg);
+            padding: 1.25rem 1.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            margin-bottom: 2rem;
+        }
+
+        .footer-bar-text {
+            font-size: 0.875rem;
+            color: #7a7a88;
+            max-width: 480px;
+        }
+
+        .footer-bar-text strong {
+            color: #d0d0d6;
+            font-weight: 600;
+        }
+
+        .footer-bar-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.375rem;
+            font-family: 'Outfit', sans-serif;
+            font-size: 0.8125rem;
+            font-weight: 600;
+            color: #fff;
+            background: var(--accent);
+            padding: 0.5rem 1.25rem;
+            border-radius: var(--r-pill);
+            transition: all var(--dur) var(--ease);
+            white-space: nowrap;
+        }
+
+        .footer-bar-link:hover {
+            background: var(--accent-light);
+            transform: translateY(-1px);
+        }
+
+        .footer-bar-link i {
+            font-size: 0.625rem;
+        }
+
+        .footer-bottom {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .footer-copy {
+            font-size: 0.6875rem;
+            color: #3a3a42;
+        }
+
+        .footer-links {
+            display: flex;
+            gap: 1.5rem;
+        }
+
+        .footer-links a {
+            font-size: 0.6875rem;
+            color: #3a3a42;
+        }
+
+        .footer-links a:hover {
+            color: #7a7a88;
+        }
+
+        @media (max-width: 700px) {
+
+            .footer-top,
+            .footer-bar,
+            .footer-bottom {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+        }
+
+        /* ═══════════════════════════════════════════════════════════
+           SCROLL ANIMATIONS
+        ═══════════════════════════════════════════════════════════ */
+        .reveal {
+            opacity: 0;
+            transform: translateY(28px);
+            transition: opacity 0.7s var(--ease), transform 0.7s var(--ease);
+        }
+
+        .reveal.in {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Stagger children */
+        .reveal-stagger>.reveal:nth-child(2) {
+            transition-delay: 0.08s;
+        }
+
+        .reveal-stagger>.reveal:nth-child(3) {
+            transition-delay: 0.16s;
+        }
+
+        .reveal-stagger>.reveal:nth-child(4) {
+            transition-delay: 0.24s;
+        }
+
+        .reveal-stagger>.reveal:nth-child(5) {
+            transition-delay: 0.32s;
+        }
+
+        .reveal-stagger>.reveal:nth-child(6) {
+            transition-delay: 0.40s;
+        }
+
+        .reveal-stagger>.reveal:nth-child(7) {
+            transition-delay: 0.48s;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- ═══════════  NAVBAR  ═══════════ -->
+    <nav class="nav" id="nav">
+        <div class="nav-brand">WorldBrain <span>·</span></div>
+        <a href="index.html#cursos" class="nav-link">Cursos</a>
+        <a href="index.html#metodologia" class="nav-link">Método</a>
+        <a href="testimonios.html" class="nav-link current">Testimonios</a>
+        <a href="blog-index.html" class="nav-link">Blog</a>
+        <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20una%20evaluación%20gratis" class="nav-cta"
+            target="_blank" rel="noopener noreferrer">Evaluación Gratis</a>
+    </nav>
+
+    <!-- ═══════════  HERO  ═══════════ -->
+    <section class="hero">
+        <div class="hero-inner">
+            <div class="hero-eyebrow">
+                <div class="hero-eyebrow-dot"></div>
+                Verificado por 10,000+ graduados
+            </div>
+            <h1 class="hero-title">
+                Resultados que<br><em>hablan solos.</em>
+            </h1>
+            <p class="hero-desc">
+                No somos academia. Somos un centro de alto rendimiento mental con 30+ años formando mentes
+                excepcionales.
+            </p>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-value">10,847</div>
+                    <div class="hero-stat-label">Graduados</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">4.9<span
+                            style="font-size:0.875rem;color:var(--gold);margin-left:4px;">★</span></div>
+                    <div class="hero-stat-label">Calificación</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">97%</div>
+                    <div class="hero-stat-label">Recomiendan</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-value">30+</div>
+                    <div class="hero-stat-label">Años</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════  TRUST STRIP  ═══════════ -->
+    <div class="trust">
+        <div class="trust-item">
+            <div class="trust-icon"><i class="fas fa-shield-halved"></i></div>
+            <span>Certificación SEP</span>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon"><i class="fas fa-award"></i></div>
+            <span>30+ años de experiencia</span>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon"><i class="fas fa-users"></i></div>
+            <span>+200,000 alumnos</span>
+        </div>
+        <div class="trust-item">
+            <div class="trust-icon"><i class="fas fa-star"></i></div>
+            <span>4.9/5 promedio</span>
+        </div>
+    </div>
+
+    <!-- ═══════════  TESTIMONIALS  ═══════════ -->
+    <section class="section">
+        <div class="wrap">
+            <div class="section-chip reveal"><i class="fas fa-circle"></i> Lo que dicen nuestros graduados</div>
+            <h2 class="section-title reveal">Historias reales.<br>Números exactos.</h2>
+            <p class="section-sub reveal">Cada testimonio proviene de padres y profesionistas que alguna vez dudaron —
+                exactamente igual que tú.</p>
+
+            <div class="bento reveal-stagger">
+
+                <!-- ★ FEATURED — Objeción Precio: Pain + ROI Exacto -->
+                <div class="card card--dark bento-8 reveal">
+                    <div class="stars"><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i></div>
+                    <div class="badges">
+                        <div class="badge">
+                            <span class="badge-val">6.2 → 9.1</span>
+                            <span class="badge-lbl">Promedio escolar</span>
+                        </div>
+                        <div class="badge">
+                            <span class="badge-val">$4,800/mes</span>
+                            <span class="badge-lbl">Ahorro mensual</span>
+                        </div>
+                    </div>
+                    <div class="t-quote">
+                        <span class="t-pain">"Veníamos de gastar miles de pesos al año en clases particulares
+                            interminables y mi hijo seguía reprobando matemáticas. Lloraba de frustración cada
+                            tarea."</span>
+                        <span class="t-solution">"En solo <span class="t-highlight">4 semanas</span> con MatheKids,
+                            dejamos las clases extra y su promedio saltó de 6.2 a 9.1. La inversión se pagó sola en el
+                            segundo mes. Lo más valioso: le devolvieron la seguridad en sí mismo."</span>
+                    </div>
+                    <div class="t-author">
+                        <div class="t-avatar"><img src="https://randomuser.me/api/portraits/women/44.jpg"
+                                alt="Elena V."></div>
+                        <div>
+                            <div class="t-name">Dra. Elena Villalobos</div>
+                            <div class="t-role">Pediatra · Madre de Mateo (11 años)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objeción Tiempo — C-Level -->
+                <div class="card bento-4 reveal">
+                    <div class="stars"><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i></div>
+                    <div class="t-quote">
+                        <span class="t-pain">"Como director de operaciones, mi objeción era el tiempo. Tenía 14 libros
+                            de management acumulándose sin leer."</span>
+                        <span class="t-solution">"WorldBrain me enseñó a leer 300 páginas en <span
+                                class="t-highlight">34 minutos</span> con retención real. Ahora devoro 2 libros por
+                            semana durante mis vuelos."</span>
+                    </div>
+                    <div class="t-author">
+                        <div class="t-avatar"><img src="https://randomuser.me/api/portraits/men/32.jpg"
+                                alt="Alejandro T."></div>
+                        <div>
+                            <div class="t-name">Alejandro Torres</div>
+                            <div class="t-role">Dir. Operaciones · TechLogistics</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Video Testimonial -->
+                <div class="card bento-4 reveal">
+                    <div class="t-video">
+                        <img src="https://images.unsplash.com/photo-1577896851231-70ef18881754?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80"
+                            alt="Graduación WorldBrain">
+                        <div class="play-btn"><i class="fas fa-play"></i></div>
+                    </div>
+                    <div class="stars"><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i></div>
+                    <div class="t-quote">
+                        "Mi hija tenía pánico escénico severo. Verla exponer frente a 200 personas con total
+                        seguridad... no tiene precio."
+                    </div>
+                    <div class="t-author">
+                        <div class="t-initials">CP</div>
+                        <div>
+                            <div class="t-name">Carlos y Patricia</div>
+                            <div class="t-role">Padres de Sofía (14 años)</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Objeción Eficacia — Accent Card -->
+                <div class="card card--accent bento-4 reveal">
+                    <div class="stars"><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i></div>
+                    <div class="t-quote">
+                        <span class="t-pain">"Después de 3 años de apps y cursos online, seguía congelándome en juntas
+                            corporativas."</span>
+                        <span class="t-solution">"En <span class="t-highlight">mi junta del mes 3</span> presenté un
+                            reporte en inglés sin titubear. Conseguí el ascenso a cuenta regional."</span>
+                    </div>
+                    <div class="t-author">
+                        <div class="t-avatar"><img src="https://randomuser.me/api/portraits/women/68.jpg"
+                                alt="Mariana R."></div>
+                        <div>
+                            <div class="t-name">Mariana Robles</div>
+                            <div class="t-role">Key Account Mgr · Finanzas</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- COMIPEMS — With Badge -->
+                <div class="card bento-4 reveal">
+                    <div class="stars"><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i></div>
+                    <div class="badges">
+                        <div class="badge" style="flex:1;">
+                            <span class="badge-val">118/128</span>
+                            <span class="badge-lbl">Aciertos COMIPEMS</span>
+                        </div>
+                    </div>
+                    <div class="t-quote">
+                        <span class="t-pain">"El estrés del COMIPEMS tenía a mi hijo con insomnio. Sus simuladores no
+                            pasaban de 72."</span>
+                        <span class="t-solution">"Fotolectura y súper-memoria eliminaron su ansiedad. Sacó <span
+                                class="t-highlight">118 de 128</span> y quedó en Prepa 6 UNAM."</span>
+                    </div>
+                    <div class="t-author">
+                        <div class="t-avatar"><img src="https://randomuser.me/api/portraits/women/22.jpg"
+                                alt="Silvia O."></div>
+                        <div>
+                            <div class="t-name">Silvia Ortiz</div>
+                            <div class="t-role">Mamá de Diego · COMIPEMS 2025</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Homeschool -->
+                <div class="card bento-4 reveal">
+                    <div class="stars"><i class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i><i class="star fas fa-star"></i><i
+                            class="star fas fa-star"></i></div>
+                    <div class="t-quote">
+                        <span class="t-pain">"Sacamos a nuestros hijos del sistema escolar pero nos aterraba no tener
+                            validez oficial."</span>
+                        <span class="t-solution">"WorldBrain nos dio Homeschool con <span
+                                class="t-highlight">certificación SEP</span>, tutores especializados y una comunidad
+                            increíble. Aprenden más en 4 horas que en 8 de escuela tradicional."</span>
+                    </div>
+                    <div class="t-author">
+                        <div class="t-initials">RG</div>
+                        <div>
+                            <div class="t-name">Ricardo y Gabriela</div>
+                            <div class="t-role">Familia Homeschooler · 3 hijos</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════  CTA  ═══════════ -->
+    <section class="cta-section">
+        <div class="wrap">
+            <div class="cta-box reveal">
+                <div class="cta-inner">
+                    <div class="cta-chip"><i class="fas fa-circle" style="color:var(--emerald);"></i> Cupos limitados —
+                        CDMX</div>
+                    <h2 class="cta-title">Tú puedes ser la<br>próxima historia.</h2>
+                    <p class="cta-desc">Agenda una evaluación cognitiva gratuita. Sin compromiso, sin letra chica. Solo
+                        resultados.</p>
+                    <a href="https://wa.me/5215578107837?text=Hola,%20leí%20los%20testimonios%20y%20quiero%20agendar%20una%20evaluación%20gratis"
+                        target="_blank" rel="noopener noreferrer" class="cta-btn">
+                        <i class="fab fa-whatsapp"></i>
+                        Reclamar mi sesión gratis
+                    </a>
+                    <div class="cta-note">
+                        <i class="fas fa-shield-halved"></i>
+                        Sin compromiso · Respuesta en menos de 2 horas
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═══════════  FOOTER  ═══════════ -->
+    <footer class="footer">
+        <div class="wrap">
+            <div class="footer-top">
+                <div class="footer-brand">WorldBrain <span>México</span></div>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/WorldBrainMx/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="https://www.instagram.com/worldbrainmx1/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://x.com/WorldBrainMx" target="_blank" rel="noopener noreferrer" aria-label="X"><i
+                            class="fab fa-x-twitter"></i></a>
+                    <a href="https://youtube.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer"
+                        aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                    <a href="https://tiktok.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer"
+                        aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-bar">
+                <div class="footer-bar-text">
+                    <strong>¿Aún con dudas?</strong> Únete a las más de 10,000 personas que ya transformaron su vida.
+                    Descubre sus historias y toma acción hoy.
+                </div>
+                <a href="testimonios.html" class="footer-bar-link">
+                    Ver Casos de Éxito <i class="fas fa-arrow-right"></i>
+                </a>
+            </div>
+            <div class="footer-bottom">
+                <span class="footer-copy">&copy; 2026 WorldBrain México. Todos los derechos reservados.</span>
+                <div class="footer-links">
+                    <a href="#">Privacidad</a>
+                    <a href="#">Términos</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ═══════════  SCRIPTS  ═══════════ -->
+    <script>
+        // Navbar scroll
+        const nav = document.getElementById('nav');
+        window.addEventListener('scroll', () => nav.classList.toggle('scrolled', scrollY > 60), { passive: true });
+
+        // Reveal on scroll – IntersectionObserver
+        const io = new IntersectionObserver((entries) => {
+            entries.forEach(e => {
+                if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -30px 0px' });
+        document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+    </script>
+</body>
+
+</html>

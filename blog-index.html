@@ -1,0 +1,567 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10846614576"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'AW-10846614576');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blog Educativo | WorldBrain México</title>
+    <meta name="description"
+        content="Artículos de valor sobre educación acelerada, liderazgo y desarrollo cognitivo para padres, estudiantes y profesionales.">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/marketing-toolkit.css">
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- AOS CSS -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+    <style>
+        /* Estilos específicos para el listado del Blog */
+        .blog-hero {
+            padding: 12rem 0 6rem;
+            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(12, 10, 29, 1) 100%);
+            position: relative;
+            text-align: center;
+        }
+
+        .blog-hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-hero p {
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2.5rem;
+            padding: 4rem 0;
+        }
+
+        .blog-card {
+            background: var(--bg-card);
+            border: 1px solid var(--border-color);
+            border-radius: 1rem;
+            overflow: hidden;
+            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            border-color: rgba(37, 99, 235, 0.4);
+        }
+
+        .blog-card-image {
+            width: 100%;
+            height: 240px;
+            background-color: #1a1a2e;
+            /* placeholder color */
+            position: relative;
+            overflow: hidden;
+        }
+
+        .blog-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-card:hover .blog-card-image img {
+            transform: scale(1.05);
+        }
+
+        .blog-badge {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: var(--primary);
+            color: white;
+            padding: 0.4rem 1rem;
+            border-radius: 2rem;
+            font-size: 0.8rem;
+            font-weight: 600;
+            z-index: 2;
+        }
+
+        .blog-card-content {
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.9rem;
+            color: var(--text-muted);
+            margin-bottom: 1rem;
+        }
+
+        .blog-meta span {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .blog-card-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            line-height: 1.3;
+            color: var(--text-color);
+        }
+
+        .blog-card-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            flex-grow: 1;
+            line-height: 1.6;
+        }
+
+        .blog-read-more {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--brand-blue);
+            font-weight: 600;
+            font-family: var(--font-heading);
+            transition: gap 0.3s ease;
+        }
+
+        .blog-card:hover .blog-read-more {
+            gap: 1rem;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Navegación principal">
+        <div class="container">
+            <a href="index.html" class="logo">WorldBrain <span class="highlight">México</span></a>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="index.html#cursos">Cursos</a></li>
+                <li><a href="index.html#metodologia">Metodología</a></li>
+                <li><a href="index.html#testimonios">Éxito</a></li>
+                <li><a href="blog-index.html" style="color: #ffffff;">Blog</a></li>
+                <li class="nav-cta-mobile"><a href="index.html#contacto" class="btn-primary">Agenda tu Clase</a></li>
+            </ul>
+            <a href="index.html#contacto" class="btn-primary nav-cta nav-cta-desktop">Agenda tu Clase Gratis</a>
+            <div class="hamburger" id="hamburger" aria-label="Menú" role="button" tabindex="0">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <main role="main">
+        <section class="blog-hero">
+            <div class="container">
+                <span class="badge" data-aos="fade-up" style="margin: 0 auto 1.5rem;">
+                    <i class="fas fa-book-open"></i> Centro de Conocimiento
+                </span>
+                <h1 data-aos="fade-up" data-aos-delay="100">
+                    Blog <span class="text-gradient">Educativo</span>
+                </h1>
+                <p data-aos="fade-up" data-aos-delay="200">
+                    Artículos profundos sobre contenido orgánico, educación acelerada, liderazgo y neurocomunicación. El
+                    conocimiento es tu mejor herramienta.
+                </p>
+            </div>
+        </section>
+
+        <section class="blog-list" style="background: var(--bg-body);">
+            <div class="container blog-grid">
+
+                <!-- Blog 1 -->
+                <a href="blog-1-poder-contenido-organico.html" class="blog-card" data-aos="fade-up">
+                    <div class="blog-badge">Redacción y SEO</div>
+                    <div class="blog-card-image">
+                        <!-- Placeholder until real image is generated -->
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> 20 Feb 2026</span>
+                            <span><i class="far fa-clock"></i> 5 min de lectura</span>
+                        </div>
+                        <h2 class="blog-card-title">El Poder del Contenido Orgánico en la Era Digital</h2>
+                        <p class="blog-card-excerpt">Descubre por qué el contenido orgánico genera mayor confianza y
+                            autoridad a largo plazo en comparación con la publicidad pagada (ads) y cómo dominarlo.</p>
+                        <div class="blog-read-more">
+                            Leer Artículo <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Blog 2 -->
+                <a href="blog-2-contenido-organico-liderazgo.html" class="blog-card" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="blog-badge">Liderazgo</div>
+                    <div class="blog-card-image">
+                        <!-- Placeholder until real image is generated -->
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> 22 Feb 2026</span>
+                            <span><i class="far fa-clock"></i> 6 min de lectura</span>
+                        </div>
+                        <h2 class="blog-card-title">Cómo el Contenido Orgánico Transforma el Liderazgo y la Comunicación
+                        </h2>
+                        <p class="blog-card-excerpt">Los líderes modernos no anuncian, comunican valor. Entiende por qué
+                            publicar constantemente consolida tu influencia, impacto y reputación profesional.</p>
+                        <div class="blog-read-more">
+                            Leer Artículo <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Blog 3 -->
+                <a href="blog-3-creacion-contenido-seo.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-badge">Marketing Educativo</div>
+                    <div class="blog-card-image">
+                        <!-- Placeholder until real image is generated -->
+                    </div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta">
+                            <span><i class="far fa-calendar"></i> 25 Feb 2026</span>
+                            <span><i class="far fa-clock"></i> 7 min de lectura</span>
+                        </div>
+                        <h2 class="blog-card-title">Creación de Contenido Orgánico: La Clave para Dominar el SEO</h2>
+                        <p class="blog-card-excerpt">Una guía paso a paso sobre estrategias para estructurar y escribir
+                            textos que los motores de búsqueda aman y las personas devoran. Aprende a escribir para
+                            humanos y algoritmos.</p>
+                        <div class="blog-read-more">
+                            Leer Artículo <i class="fas fa-arrow-right"></i>
+                        </div>
+                    </div>
+                </a>
+
+                <!-- Blog 4 -->
+                <a href="blog-4-despertar-inteligencia-infantil.html" class="blog-card" data-aos="fade-up">
+                    <div class="blog-badge">Desarrollo Infantil</div>
+                    <div class="blog-card-image"></div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 28 Feb 2026</span><span><i
+                                    class="far fa-clock"></i> 5 min</span></div>
+                        <h2 class="blog-card-title">El Despertar de la Inteligencia Infantil</h2>
+                        <p class="blog-card-excerpt">Cómo estimular tempranamente a los niños con matemáticas básicas y
+                            lectoescritura a través de metodologías basadas en el juego.</p>
+                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- Blog 5 -->
+                <a href="blog-5-eliminar-miedo-matematicas.html" class="blog-card" data-aos="fade-up"
+                    data-aos-delay="100">
+                    <div class="blog-badge">Matemáticas Divertidas</div>
+                    <div class="blog-card-image"></div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 02 Mar 2026</span><span><i
+                                    class="far fa-clock"></i> 6 min</span></div>
+                        <h2 class="blog-card-title">Cómo Eliminar el Miedo a los Números</h2>
+                        <p class="blog-card-excerpt">El Ábaco Soroban como herramienta definitiva para pasar del odio a
+                            las matemáticas hacia la capacidad de realizar cálculo mental de forma natural.</p>
+                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- Blog 6 -->
+                <a href="blog-6-robotica-ciencia-futuro.html" class="blog-card" data-aos="fade-up" data-aos-delay="200">
+                    <div class="blog-badge">Robótica y Ciencia</div>
+                    <div class="blog-card-image"></div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 05 Mar 2026</span><span><i
+                                    class="far fa-clock"></i> 6 min</span></div>
+                        <h2 class="blog-card-title">Preparando a la Generación del Mañana</h2>
+                        <p class="blog-card-excerpt">Robótica y pensamiento científico para adolescentes. Transformando
+                            jóvenes consumidores en ingenieros del futuro.</p>
+                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- Blog 7 -->
+                <a href="blog-7-ingles-sin-gramatica.html" class="blog-card" data-aos="fade-up">
+                    <div class="blog-badge">Idiomas</div>
+                    <div class="blog-card-image"></div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 06 Mar 2026</span><span><i
+                                    class="far fa-clock"></i> 5 min</span></div>
+                        <h2 class="blog-card-title">Inglés e Innovación para Niños</h2>
+                        <p class="blog-card-excerpt">Conoce el sistema cognitivo Inmersivo de FastKids donde los niños
+                            asimilan el idioma por medio de neurociencia aplicada, sin exámenes aburridos.</p>
+                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- Blog 8 -->
+                <a href="blog-8-educacion-alternativa.html" class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-badge">Flexibilidad Educativa</div>
+                    <div class="blog-card-image"></div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 08 Mar 2026</span><span><i
+                                    class="far fa-clock"></i> 7 min</span></div>
+                        <h2 class="blog-card-title">Sistema Tradicional vs Alternativo</h2>
+                        <p class="blog-card-excerpt">Desde niños libres estudiando a través de Homeschooling hasta
+                            ejecutivos maduros graduándose de Universidades Dominicales con respaldo SEP.</p>
+                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- Blog 9 -->
+                <a href="blog-9-vencer-examenes-admision.html" class="blog-card" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="blog-badge">Desempeño Universitario</div>
+                    <div class="blog-card-image"></div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 09 Mar 2026</span><span><i
+                                    class="far fa-clock"></i> 6 min</span></div>
+                        <h2 class="blog-card-title">Rescate y Triunfo Académico</h2>
+                        <p class="blog-card-excerpt">Tácticas implacables para derrotar los exámenes de Admisión a
+                            universidades (UNAM, IPN) o superar problemas graves académicos en tiempo exprés.</p>
+                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- Blog 10 -->
+                <a href="blog-10-super-cerebro.html" class="blog-card" data-aos="fade-up" data-aos-delay="100">
+                    <div class="blog-badge">Biohacking Mental</div>
+                    <div class="blog-card-image"></div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 10 Mar 2026</span><span><i
+                                    class="far fa-clock"></i> 8 min</span></div>
+                        <h2 class="blog-card-title">Técnicas del Súper Cerebro</h2>
+                        <p class="blog-card-excerpt">La conjunción absoluta entre leer 300 páginas en apenas 30 minutos
+                            por medio de la Fotolectura y poseer una Memoria Prodigiosa digna de genios.</p>
+                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+                <!-- Blog 11 -->
+                <a href="blog-11-jovenes-lideres-finanzas.html" class="blog-card" data-aos="fade-up"
+                    data-aos-delay="200">
+                    <div class="blog-badge">Juventud Ejecutiva</div>
+                    <div class="blog-card-image"></div>
+                    <div class="blog-card-content">
+                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 12 Mar 2026</span><span><i
+                                    class="far fa-clock"></i> 6 min</span></div>
+                        <h2 class="blog-card-title">Liderazgo y Educación Financiera</h2>
+                        <p class="blog-card-excerpt">Rompe con el gran virus de la inestabilidad social enseñando
+                            habilidades de liderazgo de alto rendimiento (oratoria) y administración de finanzas reales.
+                        </p>
+                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer-modern" role="contentinfo">
+        <div class="footer-curve">
+            <svg viewBox="0 0 1440 100" preserveAspectRatio="none">
+                <defs>
+                    <linearGradient id="footer-curve-gradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" style="stop-color:#0c0a1d;stop-opacity:1" />
+                        <stop offset="100%" style="stop-color:#0c0a1d;stop-opacity:1" />
+                    </linearGradient>
+                </defs>
+                <path d="M0,100 C480,0 960,0 1440,100 V100 H0 Z" fill="url(#footer-curve-gradient)"></path>
+            </svg>
+        </div>
+        <div class="footer-content-wrapper">
+            <div class="container">
+
+            
+<!-- Global Social Proof Footer -->
+<div class="global-social-proof-footer" style="padding: 4rem 0; background: #0a0a0b; border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <p style="color: #3b82f6; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 0.8rem; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">Resultados Probados</p>
+            <h2 style="color: white; font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 1rem;">Historias que inspiran acción.</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+            <!-- Card 1: Elena Villalobos -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2rem; border-radius: 20px; transition: transform 0.3s ease;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <img src="https://i.pravatar.cc/150?u=elena" alt="Dra. Elena Villalobos" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h4 style="color: white; margin: 0; font-size: 1rem; font-family: 'Outfit', sans-serif;">Dra. Elena Villalobos</h4>
+                        <p style="color: #64748b; margin: 0; font-size: 0.8rem;">Pediatra · Madre de Mateo</p>
+                    </div>
+                </div>
+                <div style="color: #3b82f6; font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 700;">6.2 → 9.1 <span style="font-size: 0.7rem; color: #64748b;">PROMEDIO</span></div>
+                <p style="color: #cbd5e1; font-style: italic; line-height: 1.6; font-size: 0.95rem;">"El promedio de Mateo saltó de 6.2 a 9.1 en solo 4 semanas. La inversión se pagó sola en el segundo mes."</p>
+            </div>
+
+            <!-- Card 2: Alejandro Torres -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2rem; border-radius: 20px; transition: transform 0.3s ease;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <img src="https://i.pravatar.cc/150?u=alejandro" alt="Alejandro Torres" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h4 style="color: white; margin: 0; font-size: 1rem; font-family: 'Outfit', sans-serif;">Alejandro Torres</h4>
+                        <p style="color: #64748b; margin: 0; font-size: 0.8rem;">Dir. Operaciones · TechLogistics</p>
+                    </div>
+                </div>
+                <div style="color: #3b82f6; font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 700;">34 MIN <span style="font-size: 0.7rem; color: #64748b;">300 PÁGINAS</span></div>
+                <p style="color: #cbd5e1; font-style: italic; line-height: 1.6; font-size: 0.95rem;">"WorldBrain me enseñó a leer 300 páginas en 34 minutos con retención real. Ahora devoro 2 libros por semana."</p>
+            </div>
+
+            <!-- Card 3: Silvia Ortiz -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2rem; border-radius: 20px; transition: transform 0.3s ease;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <img src="https://i.pravatar.cc/150?u=silvia" alt="Silvia Ortiz" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h4 style="color: white; margin: 0; font-size: 1rem; font-family: 'Outfit', sans-serif;">Silvia Ortiz</h4>
+                        <p style="color: #64748b; margin: 0; font-size: 0.8rem;">Mamá de Diego · COMIPEMS</p>
+                    </div>
+                </div>
+                <div style="color: #3b82f6; font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 700;">118 / 128 <span style="font-size: 0.7rem; color: #64748b;">ACIERTOS</span></div>
+                <p style="color: #cbd5e1; font-style: italic; line-height: 1.6; font-size: 0.95rem;">"Mi hijo sacó 118 de 128 y quedó en Prepa 6 UNAM gracias a Fotolectura y súper-memoria."</p>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="testimonios.html" style="display: inline-block; background: #2563eb; color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(37,99,235,0.2); font-family: 'Outfit', sans-serif;">
+                Ver más casos de éxito <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+                <div class="footer-grid">
+                    <div class="footer-col">
+                        <h4>Cursos</h4>
+                        <ul>
+                            <li><a href="fotolectura.html">Fotolectura</a></li>
+                            <li><a href="mathekids.html">MatheKids</a></li>
+                            <li><a href="robotics.html">Robotics</a></li>
+                            <li><a href="homeschool.html">Homeschool</a></li>
+                            <li><a href="fastkids.html">FastKids</a></li>
+                            <li><a href="ciencia-astronomia.html">Ciencia y Astronomía</a></li>
+                            <li><a href="lectoescritura.html">Lectoescritura</a></li>
+                            <li><a href="juniormath_v2.html">JuniorMath</a></li>
+                            <li><a href="regularizacion-express.html">Regularización Express</a></li>
+                            <li><a href="memoria-prodigiosa.html">Memoria Prodigiosa</a></li>
+                            <li><a href="neurocomunicacion.html">Neurocomunicación</a></li>
+                            <li><a href="grandes-lideres.html">Grandes Líderes</a></li>
+                            <li><a href="redaccion-ejecutiva.html">Redacción Ejecutiva</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Metodología</h4>
+                        <ul>
+                            <li><a href="index.html#metodologia">Aprendizaje Acelerado</a></li>
+                            <li><a href="index.html#metodologia">Mapas Mentales</a></li>
+                            <li><a href="index.html#metodologia">Lectura Rápida</a></li>
+                            <li><a href="index.html#metodologia">Cálculo Mental</a></li>
+                            <li><a href="index.html#metodologia">Gamificación</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Recursos</h4>
+                        <ul>
+                            <li><a href="blog-index.html">Blog Educativo</a></li>
+                            <li><a href="index.html#testimonios">Testimonios</a></li>
+                            <li><a href="index.html#testimonios">Casos de Éxito</a></li>
+                            <li><a href="#">Webinars</a></li>
+                            <li><a href="#">Guías para Padres</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>WorldBrain</h4>
+                        <ul>
+                            <li><a href="#">Sobre Nosotros</a></li>
+                            <li><a href="#">Nuestra Historia</a></li>
+                            <li><a href="#">Instructores</a></li>
+                            <li><a href="#">Bolsa de Trabajo</a></li>
+                            <li><a href="index.html#contacto">Contacto</a></li>
+                        </ul>
+                    </div>
+                    <div class="footer-col">
+                        <h4>Soporte</h4>
+                        <ul>
+                            <li><a href="index.html#faq">Preguntas Frecuentes</a></li>
+                            <li><a href="index.html#contacto">Ayuda</a></li>
+                            <li><a href="index.html#contacto">Ubicación</a></li>
+                            <li><a href="#">Políticas</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="footer-bottom-row">
+                    <div class="footer-brand-area">
+                        <span class="brand-text">WorldBrain</span>
+                        <div class="social-links">
+    <a href="https://www.facebook.com/WorldBrainMx/" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/worldbrainmx1/" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram (Principal)"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/worldbrainmx/" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en Instagram (Cuautitlán Izcalli)"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/WorldBrainMx" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://youtube.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://tiktok.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer" aria-label="Síguenos en TikTok"><i class="fab fa-tiktok"></i></a>
+</div>
+                    </div>
+                    <div class="footer-legal">
+                        <p>&copy; 2026 WorldBrain México</p>
+                        <a href="#">Términos</a>
+                        <a href="#">Privacidad</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- AOS Animation Library -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800,
+            once: true,
+            offset: 100
+        });
+
+        // Hamburger menu toggle
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        if (hamburger && navLinks) {
+            hamburger.addEventListener('click', () => {
+                hamburger.classList.toggle('active');
+                navLinks.classList.toggle('active');
+            });
+        }
+    </script>
+</body>
+
+</html>

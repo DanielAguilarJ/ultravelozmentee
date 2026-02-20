@@ -399,10 +399,12 @@
             }
         ],
         "sameAs": [
-            "https://www.facebook.com/WorldBrainMx",
-            "https://www.instagram.com/worldbrainmx",
-            "https://www.youtube.com/@worldbrainmexico",
-            "https://www.tiktok.com/@worldbrainmx"
+            "https://www.facebook.com/WorldBrainMx/",
+            "https://www.instagram.com/worldbrainmx1/",
+            "https://www.instagram.com/worldbrainmx/",
+            "https://x.com/WorldBrainMx",
+            "https://youtube.com/@worldbrainmexico",
+            "https://tiktok.com/@worldbrainmexico"
         ],
         "address": {
             "@type": "PostalAddress",
@@ -961,9 +963,39 @@
                 <div class="fl-bento-grid">
                     <!-- Card Grande - Principal -->
                     <div class="fl-bento-card fl-bento-large glass-card card-3d" data-aos="fade-up">
-                        <div class="fl-bento-icon blob">
-                            <i class="fas fa-bolt"></i>
-                        </div>
+                        <svg viewBox="0 0 100 100" class="fl-premium-svg"
+                            style="width: 100%; height: 100%; filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));">
+                            <defs>
+                                <linearGradient id="bolt-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                    <stop offset="0%" stop-color="#fcd34d" />
+                                    <stop offset="50%" stop-color="#f59e0b" />
+                                    <stop offset="100%" stop-color="#b45309" />
+                                </linearGradient>
+                                <filter id="glow-bolt" x="-20%" y="-20%" width="140%" height="140%">
+                                    <feGaussianBlur stdDeviation="3" result="blur" />
+                                    <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                </filter>
+                            </defs>
+                            <g filter="url(#glow-bolt)">
+                                <path d="M45,15 L25,55 L45,55 L35,85 L65,45 L45,45 L55,15 Z" fill="url(#bolt-grad)"
+                                    stroke="#fff" stroke-width="1.5">
+                                    <animate attributeName="opacity" values="1;0.7;1" dur="1.5s"
+                                        repeatCount="indefinite" />
+                                </path>
+                                <!-- Sparks -->
+                                <circle cx="65" cy="30" r="2" fill="#fff">
+                                    <animate attributeName="opacity" values="0;1;0" dur="1s" repeatCount="indefinite" />
+                                </circle>
+                                <circle cx="30" cy="70" r="2" fill="#fff">
+                                    <animate attributeName="opacity" values="0;1;0" dur="1.3s" repeatCount="indefinite"
+                                        begin="0.3s" />
+                                </circle>
+                                <circle cx="55" cy="65" r="1.5" fill="#fcd34d">
+                                    <animate attributeName="opacity" values="0;1;0" dur="0.8s" repeatCount="indefinite"
+                                        begin="0.5s" />
+                                </circle>
+                            </g>
+                        </svg>
                         <div class="fl-bento-content">
                             <div class="fl-bento-value gradient-text-animated">10x</div>
                             <div class="fl-bento-label">Velocidad de Aprendizaje</div>
@@ -1085,7 +1117,43 @@
                     <div class="fl-problem-card glass-card card-3d glow-effect magnetic-btn" data-aos="fade-up">
                         <div class="fl-problem-number">01</div>
                         <div class="fl-problem-icon blob">
-                            <i class="fas fa-tachometer-alt"></i>
+                            <svg viewBox="0 0 100 100" class="fl-premium-svg"
+                                style="width: 100%; height: 100%; filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.5));">
+                                <defs>
+                                    <linearGradient id="meter-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#ef4444" />
+                                        <stop offset="50%" stop-color="#eab308" />
+                                        <stop offset="100%" stop-color="#22c55e" />
+                                    </linearGradient>
+                                    <filter id="glow-meter" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="2" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+                                <g filter="url(#glow-meter)">
+                                    <!-- Dial Background -->
+                                    <path d="M 20 70 A 40 40 0 0 1 80 70" fill="none" stroke="#334155" stroke-width="8"
+                                        stroke-linecap="round" />
+                                    <!-- Colored Dial -->
+                                    <path d="M 20 70 A 40 40 0 0 1 80 70" fill="none" stroke="url(#meter-grad)"
+                                        stroke-width="8" stroke-linecap="round" stroke-dasharray="100 100"
+                                        stroke-dashoffset="100">
+                                        <animate attributeName="stroke-dashoffset" values="100;20;100" dur="4s"
+                                            repeatCount="indefinite" ease="ease-in-out" />
+                                    </path>
+                                    <!-- Ticks -->
+                                    <path d="M 30 40 L 35 45 M 50 30 L 50 35 M 70 40 L 65 45" stroke="#94a3b8"
+                                        stroke-width="2" stroke-linecap="round" />
+                                    <!-- Needle -->
+                                    <polygon points="48,70 52,70 50,35" fill="#fff">
+                                        <animateTransform attributeName="transform" type="rotate"
+                                            values="-45 50 70; 45 50 70; -45 50 70" dur="4s" repeatCount="indefinite" />
+                                    </polygon>
+                                    <!-- Center Hub -->
+                                    <circle cx="50" cy="70" r="5" fill="#e2e8f0" />
+                                    <circle cx="50" cy="70" r="2" fill="#0f172a" />
+                                </g>
+                            </svg>
                         </div>
                         <h3>Velocidad de "Tortuga"</h3>
                         <p>Tu cerebro es una supercomputadora capaz de procesar imágenes en milisegundos, pero tu
@@ -1102,7 +1170,62 @@
                         data-aos-delay="100">
                         <div class="fl-problem-number">02</div>
                         <div class="fl-problem-icon blob">
-                            <i class="fas fa-brain"></i>
+                            <svg viewBox="0 0 100 100" class="fl-premium-svg"
+                                style="width: 100%; height: 100%; filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.5));">
+                                <defs>
+                                    <linearGradient id="brain-leak-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#f472b6" />
+                                        <stop offset="100%" stop-color="#a855f7" />
+                                    </linearGradient>
+                                </defs>
+                                <!-- Brain Silhouette -->
+                                <path d="M50 20 C 30 20, 20 40, 30 65 C 40 80, 60 80, 70 65 C 80 40, 70 20, 50 20 Z"
+                                    fill="none" stroke="url(#brain-leak-grad)" stroke-width="3" stroke-dasharray="3 3">
+                                    <animate attributeName="stroke-dashoffset" from="30" to="0" dur="2s"
+                                        repeatCount="indefinite" />
+                                </path>
+                                <!-- Nodes leaking -->
+                                <g fill="#fff">
+                                    <circle cx="40" cy="40" r="2.5">
+                                        <animate attributeName="cy" values="40;80" dur="2s" repeatCount="indefinite" />
+                                        <animate attributeName="opacity" values="1;0" dur="2s"
+                                            repeatCount="indefinite" />
+                                    </circle>
+                                    <circle cx="60" cy="45" r="2">
+                                        <animate attributeName="cy" values="45;90" dur="2.5s" repeatCount="indefinite"
+                                            begin="0.5s" />
+                                        <animate attributeName="opacity" values="1;0" dur="2.5s"
+                                            repeatCount="indefinite" begin="0.5s" />
+                                    </circle>
+                                    <circle cx="50" cy="35" r="3">
+                                        <animate attributeName="cy" values="35;85" dur="1.8s" repeatCount="indefinite"
+                                            begin="1s" />
+                                        <animate attributeName="opacity" values="1;0" dur="1.8s"
+                                            repeatCount="indefinite" begin="1s" />
+                                    </circle>
+                                    <circle cx="35" cy="55" r="1.5">
+                                        <animate attributeName="cy" values="55;95" dur="1.5s" repeatCount="indefinite"
+                                            begin="0.2s" />
+                                        <animate attributeName="opacity" values="1;0" dur="1.5s"
+                                            repeatCount="indefinite" begin="0.2s" />
+                                    </circle>
+                                </g>
+                                <!-- Brain connection lines -->
+                                <g stroke="#a855f7" stroke-width="1.5" opacity="0.5">
+                                    <line x1="40" y1="40" x2="60" y2="45">
+                                        <animate attributeName="opacity" values="0.5;0;0.5" dur="2s"
+                                            repeatCount="indefinite" />
+                                    </line>
+                                    <line x1="60" y1="45" x2="50" y2="35">
+                                        <animate attributeName="opacity" values="0.5;0;0.5" dur="2.5s"
+                                            repeatCount="indefinite" begin="0.5s" />
+                                    </line>
+                                    <line x1="50" y1="35" x2="40" y2="40">
+                                        <animate attributeName="opacity" values="0.5;0;0.5" dur="1.8s"
+                                            repeatCount="indefinite" begin="1s" />
+                                    </line>
+                                </g>
+                            </svg>
                         </div>
                         <h3>El Efecto "Colador"</h3>
                         <p>Devoras libros, artículos y cursos, pero al momento de necesitar esa información, tu mente
@@ -1118,7 +1241,35 @@
                         data-aos-delay="200">
                         <div class="fl-problem-number">03</div>
                         <div class="fl-problem-icon blob">
-                            <i class="fas fa-battery-empty"></i>
+                            <svg viewBox="0 0 100 100" class="fl-premium-svg"
+                                style="width: 100%; height: 100%; filter: drop-shadow(0 0 10px rgba(16, 185, 129, 0.5));">
+                                <defs>
+                                    <linearGradient id="battery-grad" x1="0%" y1="100%" x2="0%" y2="0%">
+                                        <stop offset="0%" stop-color="#ef4444" />
+                                        <stop offset="50%" stop-color="#eab308" />
+                                        <stop offset="100%" stop-color="#10b981" />
+                                    </linearGradient>
+                                    <filter id="glow-battery" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="3" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+                                <!-- Battery Outline -->
+                                <rect x="35" y="30" width="30" height="50" rx="4" fill="none" stroke="#94a3b8"
+                                    stroke-width="3" />
+                                <rect x="45" y="25" width="10" height="5" rx="1" fill="#94a3b8" />
+                                <!-- Battery Level -->
+                                <rect x="38" y="33" width="24" height="44" rx="2" fill="url(#battery-grad)"
+                                    filter="url(#glow-battery)">
+                                    <animate attributeName="height" values="10;44;10" dur="4s"
+                                        repeatCount="indefinite" />
+                                    <animate attributeName="y" values="67;33;67" dur="4s" repeatCount="indefinite" />
+                                </rect>
+                                <!-- Energy Pulse / Bolt -->
+                                <path d="M52,45 L43,58 L50,58 L48,70 L58,55 L51,55 L55,45 Z" fill="#fff" opacity="0.8">
+                                    <animate attributeName="opacity" values="0;1;0" dur="2s" repeatCount="indefinite" />
+                                </path>
+                            </svg>
                         </div>
                         <h3>Fatiga Mental Crónica</h3>
                         <p>Leer te da sueño. A los 20 minutos tus ojos pesan y tu concentración se rompe. Estás usando
@@ -1134,7 +1285,61 @@
                         data-aos-delay="300">
                         <div class="fl-problem-number">04</div>
                         <div class="fl-problem-icon blob">
-                            <i class="fas fa-chart-line"></i>
+                            <svg viewBox="0 0 100 100" class="fl-premium-svg"
+                                style="width: 100%; height: 100%; filter: drop-shadow(0 0 10px rgba(245, 158, 11, 0.5));">
+                                <defs>
+                                    <linearGradient id="chart-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                        <stop offset="0%" stop-color="#60a5fa" />
+                                        <stop offset="100%" stop-color="#3b82f6" />
+                                    </linearGradient>
+                                    <linearGradient id="line-grad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        <stop offset="0%" stop-color="#fcd34d" />
+                                        <stop offset="100%" stop-color="#f59e0b" />
+                                    </linearGradient>
+                                    <filter id="glow-chart" x="-20%" y="-20%" width="140%" height="140%">
+                                        <feGaussianBlur stdDeviation="2" result="blur" />
+                                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                                    </filter>
+                                </defs>
+                                <g transform="translate(0, 5)">
+                                    <!-- Axes -->
+                                    <path d="M 20 80 L 80 80 M 20 80 L 20 20" stroke="#475569" stroke-width="3"
+                                        stroke-linecap="round" stroke-linejoin="round" />
+                                    <!-- Bars -->
+                                    <rect x="30" y="60" width="8" height="20" rx="2" fill="url(#chart-grad)">
+                                        <animate attributeName="height" values="20;15;20" dur="3s"
+                                            repeatCount="indefinite" />
+                                        <animate attributeName="y" values="60;65;60" dur="3s"
+                                            repeatCount="indefinite" />
+                                    </rect>
+                                    <rect x="45" y="45" width="8" height="35" rx="2" fill="url(#chart-grad)">
+                                        <animate attributeName="height" values="35;30;35" dur="3s"
+                                            repeatCount="indefinite" begin="0.5s" />
+                                        <animate attributeName="y" values="45;50;45" dur="3s" repeatCount="indefinite"
+                                            begin="0.5s" />
+                                    </rect>
+                                    <rect x="60" y="25" width="8" height="55" rx="2" fill="url(#chart-grad)">
+                                        <animate attributeName="height" values="55;65;55" dur="3s"
+                                            repeatCount="indefinite" begin="1s" />
+                                        <animate attributeName="y" values="25;15;25" dur="3s" repeatCount="indefinite"
+                                            begin="1s" />
+                                    </rect>
+                                    <!-- Ascending Line -->
+                                    <path d="M 20 70 L 35 55 L 50 35 L 75 15" fill="none" stroke="url(#line-grad)"
+                                        stroke-width="3" stroke-linecap="round" stroke-linejoin="round"
+                                        filter="url(#glow-chart)">
+                                        <animate attributeName="stroke-dasharray" values="0 150; 150 0; 0 150" dur="5s"
+                                            repeatCount="indefinite" />
+                                    </path>
+                                    <!-- Pointer/Arrow at end of line -->
+                                    <polygon points="70,15 78,13 75,21" fill="#f59e0b" filter="url(#glow-chart)">
+                                        <animateTransform attributeName="transform" type="translate"
+                                            values="-5,5; 0,0; -5,5" dur="5s" repeatCount="indefinite" />
+                                        <animate attributeName="opacity" values="0;1;0" dur="5s"
+                                            repeatCount="indefinite" />
+                                    </polygon>
+                                </g>
+                            </svg>
                         </div>
                         <h3>Obsolescencia Profesional</h3>
                         <p>Mientras luchas por terminar un PDF técnico, tu competencia ya implementó tres nuevas
@@ -2365,20 +2570,78 @@
     <footer class="fl-footer" role="contentinfo">
         <div class="container">
             <div class="fl-footer-grid">
+
+            
+<!-- Global Social Proof Footer -->
+<div class="global-social-proof-footer" style="padding: 4rem 0; background: #0a0a0b; border-top: 1px solid rgba(255,255,255,0.05);">
+    <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1.5rem;">
+        <div style="text-align: center; margin-bottom: 3rem;">
+            <p style="color: #3b82f6; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; font-size: 0.8rem; margin-bottom: 0.5rem; font-family: 'Outfit', sans-serif;">Resultados Probados</p>
+            <h2 style="color: white; font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 4vw, 2.2rem); margin-bottom: 1rem;">Historias que inspiran acción.</h2>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-bottom: 3rem;">
+            <!-- Card 1: Elena Villalobos -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2rem; border-radius: 20px; transition: transform 0.3s ease;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <img src="https://i.pravatar.cc/150?u=elena" alt="Dra. Elena Villalobos" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h4 style="color: white; margin: 0; font-size: 1rem; font-family: 'Outfit', sans-serif;">Dra. Elena Villalobos</h4>
+                        <p style="color: #64748b; margin: 0; font-size: 0.8rem;">Pediatra · Madre de Mateo</p>
+                    </div>
+                </div>
+                <div style="color: #3b82f6; font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 700;">6.2 → 9.1 <span style="font-size: 0.7rem; color: #64748b;">PROMEDIO</span></div>
+                <p style="color: #cbd5e1; font-style: italic; line-height: 1.6; font-size: 0.95rem;">"El promedio de Mateo saltó de 6.2 a 9.1 en solo 4 semanas. La inversión se pagó sola en el segundo mes."</p>
+            </div>
+
+            <!-- Card 2: Alejandro Torres -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2rem; border-radius: 20px; transition: transform 0.3s ease;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <img src="https://i.pravatar.cc/150?u=alejandro" alt="Alejandro Torres" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h4 style="color: white; margin: 0; font-size: 1rem; font-family: 'Outfit', sans-serif;">Alejandro Torres</h4>
+                        <p style="color: #64748b; margin: 0; font-size: 0.8rem;">Dir. Operaciones · TechLogistics</p>
+                    </div>
+                </div>
+                <div style="color: #3b82f6; font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 700;">34 MIN <span style="font-size: 0.7rem; color: #64748b;">300 PÁGINAS</span></div>
+                <p style="color: #cbd5e1; font-style: italic; line-height: 1.6; font-size: 0.95rem;">"WorldBrain me enseñó a leer 300 páginas en 34 minutos con retención real. Ahora devoro 2 libros por semana."</p>
+            </div>
+
+            <!-- Card 3: Silvia Ortiz -->
+            <div style="background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08); padding: 2rem; border-radius: 20px; transition: transform 0.3s ease;">
+                <div style="display: flex; align-items: center; gap: 1rem; margin-bottom: 1.5rem;">
+                    <img src="https://i.pravatar.cc/150?u=silvia" alt="Silvia Ortiz" style="width: 48px; height: 48px; border-radius: 50%; object-fit: cover;">
+                    <div>
+                        <h4 style="color: white; margin: 0; font-size: 1rem; font-family: 'Outfit', sans-serif;">Silvia Ortiz</h4>
+                        <p style="color: #64748b; margin: 0; font-size: 0.8rem;">Mamá de Diego · COMIPEMS</p>
+                    </div>
+                </div>
+                <div style="color: #3b82f6; font-family: 'JetBrains Mono', monospace; font-size: 1.2rem; margin-bottom: 1rem; font-weight: 700;">118 / 128 <span style="font-size: 0.7rem; color: #64748b;">ACIERTOS</span></div>
+                <p style="color: #cbd5e1; font-style: italic; line-height: 1.6; font-size: 0.95rem;">"Mi hijo sacó 118 de 128 y quedó en Prepa 6 UNAM gracias a Fotolectura y súper-memoria."</p>
+            </div>
+        </div>
+
+        <div style="text-align: center;">
+            <a href="testimonios.html" style="display: inline-block; background: #2563eb; color: white; padding: 1rem 2.5rem; border-radius: 50px; text-decoration: none; font-weight: 700; transition: all 0.3s ease; box-shadow: 0 10px 20px rgba(37,99,235,0.2); font-family: 'Outfit', sans-serif;">
+                Ver más casos de éxito <i class="fas fa-arrow-right" style="margin-left: 0.5rem;"></i>
+            </a>
+        </div>
+    </div>
+</div>
+
+
                 <div class="fl-footer-brand">
                     <h3>WorldBrain <span class="fl-gradient-text">México</span></h3>
                     <p>Pioneros en Neuroaprendizaje y Desarrollo Mental Acelerado desde 2010. Transformamos la manera en
                         que Latinoamérica aprende.</p>
                     <div class="fl-social-links">
-                        <a href="https://facebook.com/worldbrainmexico" class="fl-social-btn" target="_blank"
-                            rel="noopener noreferrer"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://instagram.com/worldbrainmexico" class="fl-social-btn" target="_blank"
-                            rel="noopener noreferrer"><i class="fab fa-instagram"></i></a>
-                        <a href="https://youtube.com/@worldbrainmexico" class="fl-social-btn" target="_blank"
-                            rel="noopener noreferrer"><i class="fab fa-youtube"></i></a>
-                        <a href="https://www.linkedin.com/company/worldbrainmexico" class="fl-social-btn"
-                            target="_blank" rel="noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+    <a href="https://www.facebook.com/WorldBrainMx/" class="fl-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/worldbrainmx1/" class="fl-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram Principal"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.instagram.com/worldbrainmx/" class="fl-social-btn" target="_blank" rel="noopener noreferrer" aria-label="Instagram Secundaria"><i class="fab fa-instagram"></i></a>
+    <a href="https://x.com/WorldBrainMx" class="fl-social-btn" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
+    <a href="https://youtube.com/@worldbrainmexico" class="fl-social-btn" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+    <a href="https://tiktok.com/@worldbrainmexico" class="fl-social-btn" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+</div>
                 </div>
 
                 <div>
@@ -2419,7 +2682,7 @@
             </div>
 
             <div class="fl-footer-bottom">
-                <div>&copy; 2025 WorldBrain México. Todos los derechos reservados.</div>
+                <div>&copy; 2026 WorldBrain México. Todos los derechos reservados.</div>
                 <div>
                     <a href="https://worldbrain.mx/privacidad" target="_blank" rel="noopener noreferrer">Privacidad</a>
                     <a href="https://worldbrain.mx/terminos" target="_blank" rel="noopener noreferrer">Términos</a>

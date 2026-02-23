@@ -63,36 +63,46 @@ async function sendCapiEvent(eventName, req, userData = {}, eventId = null) {
             }
         }
 
-        // ── Separar user_data de custom_data y formatear como arreglos ──
+        // ── Separar user_data, custom_data y root event fields ──
         // Meta requiere que los campos PII vayan dentro de arreglos (ej. "em": ["hash"])
         const piiFields = ['em', 'ph', 'fn', 'ln', 'ge', 'db', 'ct', 'st', 'zp', 'country', 'external_id'];
-        const metadataFields = ['fbc', 'fbp', 'client_ip_address', 'client_user_agent'];
+
+        // metadataFields van dentro de user_data pero NO son arreglos (Strings puros)
+        const metadataFields = [
+            'fbc', 'fbp', 'client_ip_address', 'client_user_agent',
+            'subscription_id', 'fb_login_id', 'lead_id', 'anon_id', 'madid',
+            'page_id', 'page_scoped_user_id', 'ctwa_clid', 'ig_account_id', 'ig_sid'
+        ];
+
+        // rootEventFields van directamente al mismo nivel que event_name
+        const rootEventFields = [
+            'attribution_data', 'original_event_data', 'opt_out',
+            'data_processing_options', 'data_processing_options_country',
+            'data_processing_options_state', 'referrer_url', 'customer_segmentation'
+        ];
 
         const customData = {};
         const piiData = {};
+        const rootData = {};
 
-        // Manejar attribution_data y original_event_data si el cliente los envía
-        let attributionData = null;
-        let originalEventData = null;
-
-        if (enhancedUserData.attribution_data) {
-            attributionData = enhancedUserData.attribution_data;
-            delete enhancedUserData.attribution_data;
-        }
-        if (enhancedUserData.original_event_data) {
-            originalEventData = enhancedUserData.original_event_data;
-            delete enhancedUserData.original_event_data;
+        // 1. Extraer rootEventFields
+        for (const field of rootEventFields) {
+            if (enhancedUserData[field] !== undefined) {
+                rootData[field] = enhancedUserData[field];
+                delete enhancedUserData[field];
+            }
         }
 
+        // 2. Extraer el resto de PII, Metadata Local y Custom Data
         for (const [key, value] of Object.entries(enhancedUserData)) {
             if (piiFields.includes(key)) {
-                // Meta requiere que el PII sea un array
+                // PII siempre en array (a menos que no se proporcione)
                 piiData[key] = Array.isArray(value) ? value : [value];
             } else if (metadataFields.includes(key)) {
-                // metadata no va en array
+                // Metadata como subscription_id, fb_login_id NO llevan array
                 piiData[key] = value;
             } else {
-                // todo lo demás va a custom_data
+                // Todo lo demás a custom_data (e.g., currency, value, content_name)
                 customData[key] = value;
             }
         }
@@ -109,23 +119,17 @@ async function sendCapiEvent(eventName, req, userData = {}, eventId = null) {
                 fbc: fbc,
                 fbp: fbp,
                 ...piiData
-            }
+            },
+            ...rootData
         };
 
-        // Solo agregar custom_data si hay datos
+        // Solo agregar custom_data si tiene algún valor
         if (Object.keys(customData).length > 0) {
             eventPayload.custom_data = customData;
         }
 
-        // Agregar attribution_data y original_event_data si existen
-        if (attributionData) {
-            eventPayload.attribution_data = attributionData;
-        }
-        if (originalEventData) {
-            eventPayload.original_event_data = originalEventData;
-        }
-
         const payload = { data: [eventPayload] };
+
 
 
         const response = await axios.post(

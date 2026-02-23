@@ -108,7 +108,7 @@ app.post('/api/event', async (req, res) => {
             builder.processRequest(
                 req.headers.host,
                 req.query || {},
-                req.cookies || {},
+                Object.assign({}, req.cookies || {}),
                 req.headers.referer || null,
                 req.headers['x-forwarded-for'] || null,
                 req.socket.remoteAddress || null

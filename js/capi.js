@@ -63,17 +63,36 @@ async function sendCapiEvent(eventName, req, userData = {}, eventId = null) {
             }
         }
 
-        // ── Separar user_data de custom_data ──
-        // Meta requiere que content_name, content_category, etc. vayan en custom_data
-        const userDataFields = ['em', 'ph', 'fn', 'ln', 'fbc', 'fbp', 'client_ip_address', 'client_user_agent',
-            'external_id', 'db', 'ge', 'ct', 'st', 'zp', 'country'];
+        // ── Separar user_data de custom_data y formatear como arreglos ──
+        // Meta requiere que los campos PII vayan dentro de arreglos (ej. "em": ["hash"])
+        const piiFields = ['em', 'ph', 'fn', 'ln', 'ge', 'db', 'ct', 'st', 'zp', 'country', 'external_id'];
+        const metadataFields = ['fbc', 'fbp', 'client_ip_address', 'client_user_agent'];
+
         const customData = {};
         const piiData = {};
 
+        // Manejar attribution_data y original_event_data si el cliente los envía
+        let attributionData = null;
+        let originalEventData = null;
+
+        if (enhancedUserData.attribution_data) {
+            attributionData = enhancedUserData.attribution_data;
+            delete enhancedUserData.attribution_data;
+        }
+        if (enhancedUserData.original_event_data) {
+            originalEventData = enhancedUserData.original_event_data;
+            delete enhancedUserData.original_event_data;
+        }
+
         for (const [key, value] of Object.entries(enhancedUserData)) {
-            if (userDataFields.includes(key)) {
+            if (piiFields.includes(key)) {
+                // Meta requiere que el PII sea un array
+                piiData[key] = Array.isArray(value) ? value : [value];
+            } else if (metadataFields.includes(key)) {
+                // metadata no va en array
                 piiData[key] = value;
             } else {
+                // todo lo demás va a custom_data
                 customData[key] = value;
             }
         }
@@ -96,6 +115,14 @@ async function sendCapiEvent(eventName, req, userData = {}, eventId = null) {
         // Solo agregar custom_data si hay datos
         if (Object.keys(customData).length > 0) {
             eventPayload.custom_data = customData;
+        }
+
+        // Agregar attribution_data y original_event_data si existen
+        if (attributionData) {
+            eventPayload.attribution_data = attributionData;
+        }
+        if (originalEventData) {
+            eventPayload.original_event_data = originalEventData;
         }
 
         const payload = { data: [eventPayload] };

@@ -329,7 +329,8 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
-<script src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
+    <script
+        src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
 </head>
 
 <body class="mk-page smooth-scroll">
@@ -345,6 +346,16 @@
     <div class="loading-screen" id="loadingScreen">
         <div class="loader"></div>
     </div>
+    <script>
+        window.addEventListener('load', function () {
+            var ls = document.getElementById('loadingScreen');
+            if (ls) { ls.classList.add('hidden'); }
+        });
+        setTimeout(function () {
+            var ls = document.getElementById('loadingScreen');
+            if (ls) { ls.classList.add('hidden'); }
+        }, 4000);
+    </script>
 
     <!-- Custom Cursor -->
     <div class="cursor-dot" id="cursorDot"></div>

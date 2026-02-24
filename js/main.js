@@ -3,7 +3,7 @@
  * @description Handles UI interactions, animations, parallax effects and scroll behaviors
  * @version 2.0.0 — Performance-optimized (rAF throttle, passive listeners, batched DOM, event delegation)
  */
-;(function () {
+; (function () {
     'use strict';
 
     /* ═══════════════════════════════════════════════════════
@@ -38,6 +38,19 @@
     /* ═══════════════════════════════════════════════════════
        DOM READY
        ═══════════════════════════════════════════════════════ */
+
+    /* ── Loading Screen Fix (Global) ── */
+    window.addEventListener('load', function () {
+        var loader = document.getElementById('loadingScreen');
+        if (loader) {
+            loader.style.transition = 'opacity 0.5s ease';
+            loader.style.opacity = '0';
+            setTimeout(function () {
+                loader.style.display = 'none';
+            }, 500);
+        }
+    });
+
     document.addEventListener('DOMContentLoaded', function () {
 
         /* ── Urgency & Social Proof Badges ────────────────── */
@@ -62,13 +75,13 @@
                 particle.className = 'particle';
                 var size = (4 + Math.random() * 4) + 'px';
                 var s = particle.style;
-                s.left            = Math.random() * 100 + '%';
-                s.top             = Math.random() * 100 + '%';
-                s.animationDelay  = Math.random() * 5 + 's';
+                s.left = Math.random() * 100 + '%';
+                s.top = Math.random() * 100 + '%';
+                s.animationDelay = Math.random() * 5 + 's';
                 s.animationDuration = (10 + Math.random() * 10) + 's';
-                s.opacity         = (0.1 + Math.random() * 0.3).toString();
-                s.width           = size;
-                s.height          = size;
+                s.opacity = (0.1 + Math.random() * 0.3).toString();
+                s.width = size;
+                s.height = size;
                 fragment.appendChild(particle);
             }
             /* Single DOM write instead of 20 individual appendChild calls */
@@ -77,8 +90,8 @@
 
         /* ── Mobile Menu Toggle (legacy — backwards compat) ── */
         var menuToggle = $('.menu-toggle');
-        var navLinks   = $('.nav-links');
-        var navbar     = $('.navbar');
+        var navLinks = $('.nav-links');
+        var navbar = $('.navbar');
 
         if (menuToggle) {
             menuToggle.addEventListener('click', function () {
@@ -126,8 +139,8 @@
                 navLinks.style.display = 'none';
             }
 
-            var headerOffset   = 80;
-            var elPosition     = targetEl.getBoundingClientRect().top;
+            var headerOffset = 80;
+            var elPosition = targetEl.getBoundingClientRect().top;
             var offsetPosition = elPosition + window.pageYOffset - headerOffset;
 
             window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
@@ -157,8 +170,8 @@
                     slideShadows: false
                 },
                 breakpoints: {
-                    640:  { slidesPerView: 1 },
-                    768:  { slidesPerView: 2, spaceBetween: 20 },
+                    640: { slidesPerView: 1 },
+                    768: { slidesPerView: 2, spaceBetween: 20 },
                     1024: { slidesPerView: 3, spaceBetween: 30 }
                 }
             });
@@ -169,12 +182,12 @@
             entries.forEach(function (entry) {
                 if (!entry.isIntersecting) return;
 
-                var el       = entry.target;
-                var target   = +el.getAttribute('data-target');
+                var el = entry.target;
+                var target = +el.getAttribute('data-target');
                 var duration = 2000;                    // 2 seconds
                 var increment = target / (duration / 16); // ~60 fps steps
-                var suffix   = target > 99 ? '+' : '';
-                var current  = 0;
+                var suffix = target > 99 ? '+' : '';
+                var current = 0;
 
                 function updateCounter() {
                     current += increment;
@@ -206,13 +219,13 @@
         /* ═══════════════════════════════════════════════════════
            HERO PARALLAX & 3D TILT EFFECTS
            ═══════════════════════════════════════════════════════ */
-        var heroSection    = $('.hero');
+        var heroSection = $('.hero');
         if (!heroSection) return;
 
         var parallaxShapes = $$('.shape', heroSection);
-        var tiltCard       = $('.glass-card', heroSection);
-        var floatBadges    = $$('.float-ui', heroSection);
-        var heroText       = $('.hero-text', heroSection);
+        var tiltCard = $('.glass-card', heroSection);
+        var floatBadges = $$('.float-ui', heroSection);
+        var heroText = $('.hero-text', heroSection);
 
         /* GPU compositing hint — applied once, avoids per-frame recalc */
         [tiltCard, heroText].concat(parallaxShapes, floatBadges)
@@ -221,7 +234,7 @@
 
         /** Hero mousemove handler — rAF-throttled to prevent jank */
         var onHeroMouseMove = throttleRAF(function (e) {
-            var x = (e.clientX / window.innerWidth  - 0.5) * 2;   // -1 → 1
+            var x = (e.clientX / window.innerWidth - 0.5) * 2;   // -1 → 1
             var y = (e.clientY / window.innerHeight - 0.5) * 2;   // -1 → 1
 
             /* Parallax background shapes */
@@ -252,14 +265,14 @@
         function onHeroMouseLeave() {
             var reset = 'translate(0,0)';
             parallaxShapes.forEach(function (s) { s.style.transform = reset; });
-            floatBadges.forEach(function (b)    { b.style.transform = reset; });
+            floatBadges.forEach(function (b) { b.style.transform = reset; });
             if (tiltCard) tiltCard.style.transform = 'rotateY(0) rotateX(0)';
             if (heroText) heroText.style.transform = reset;
         }
 
         /* Passive: true — tells browser this handler won't call preventDefault,
            allowing optimized scroll/touch compositing on mobile */
-        heroSection.addEventListener('mousemove',  onHeroMouseMove,  { passive: true });
+        heroSection.addEventListener('mousemove', onHeroMouseMove, { passive: true });
         heroSection.addEventListener('mouseleave', onHeroMouseLeave);
     });
 })();

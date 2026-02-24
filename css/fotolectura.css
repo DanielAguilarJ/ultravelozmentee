@@ -2116,9 +2116,11 @@
         font-size: 1.2rem;
     }
 
+    /* Ajuste para tablets y móviles grandes */
     .fl-brain-container {
-        width: 280px;
-        height: 280px;
+        width: 300px;
+        height: 300px;
+        margin: 0 auto;
     }
 
     .fl-brain-core {
@@ -2127,7 +2129,28 @@
     }
 
     .fl-float-node {
-        display: none;
+        padding: 8px 12px;
+        transform: scale(0.85);
+    }
+
+    .fl-float-node-1 {
+        left: -10%;
+        top: 0;
+    }
+
+    .fl-float-node-2 {
+        right: -10%;
+        top: 0;
+    }
+
+    .fl-float-node-3 {
+        right: -15%;
+        bottom: 5%;
+    }
+
+    .fl-float-node-4 {
+        left: -15%;
+        bottom: 5%;
     }
 
     .fl-mini-stats {
@@ -2165,6 +2188,69 @@
         left: auto;
         transform: none;
         margin-top: 30px;
+    }
+}
+
+/* Ajustes especiales para Celulares Pequeños (Smartphones) */
+@media (max-width: 480px) {
+    .fl-hero-ultra {
+        padding: 100px 0 50px;
+    }
+
+    .fl-title-ultra {
+        font-size: 1.8rem;
+    }
+
+    .fl-subtitle-ultra {
+        font-size: 0.95rem;
+    }
+
+    /* Reducción extrema del SVG Container para evitar Scroll Horizontal */
+    .fl-brain-container {
+        width: 240px;
+        height: 240px;
+    }
+
+    .fl-brain-core {
+        width: 140px;
+        height: 140px;
+    }
+
+    .fl-float-node {
+        transform: scale(0.7);
+        padding: 6px 10px;
+    }
+
+    .fl-float-node-1 {
+        left: -15%;
+        top: -5%;
+    }
+
+    .fl-float-node-2 {
+        right: -15%;
+        top: -5%;
+    }
+
+    .fl-float-node-3 {
+        right: -20%;
+        bottom: 0;
+    }
+
+    .fl-float-node-4 {
+        left: -20%;
+        bottom: 0;
+    }
+
+    .fl-mini-stats {
+        flex-wrap: wrap;
+        flex-direction: row;
+        gap: 15px;
+        padding: 15px;
+        justify-content: center;
+    }
+
+    .fl-mini-stat-divider {
+        display: none;
     }
 }
 

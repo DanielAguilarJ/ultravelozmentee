@@ -4272,6 +4272,45 @@
     </script>
     <script src="js/tracking.js" defer></script>
     <script src="js/param-builder-client.js" defer></script>
+
+    <!-- Swiper JS CDN -->
+    <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+
+    <!-- Inicialización del Slider de Testimonios -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof Swiper !== 'undefined') {
+                const testimonialSwiper = new Swiper('.fl-testimonials-carousel', {
+                    slidesPerView: 1,
+                    spaceBetween: 30,
+                    loop: true,
+                    grabCursor: true,
+                    autoplay: {
+                        delay: 5000,
+                        disableOnInteraction: false,
+                    },
+                    pagination: {
+                        el: '.fl-testimonials-pagination',
+                        clickable: true,
+                    },
+                    navigation: {
+                        nextEl: '.fl-testimonials-next',
+                        prevEl: '.fl-testimonials-prev',
+                    },
+                    breakpoints: {
+                        768: {
+                            slidesPerView: 2,
+                            spaceBetween: 20
+                        },
+                        1024: {
+                            slidesPerView: 3,
+                            spaceBetween: 30
+                        }
+                    }
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

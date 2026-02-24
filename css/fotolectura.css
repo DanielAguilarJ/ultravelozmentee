@@ -6057,3 +6057,324 @@
         grid-template-columns: 1fr;
     }
 }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RESPONSIVE MAESTRO - TODAS LAS SECCIONES (MÓVIL)
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+/* === GLOBAL OVERFLOW FIX === */
+html,
+body,
+.fl-page {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+}
+
+/* === TABLET (max-width: 1024px) === */
+@media (max-width: 1024px) {
+
+    /* Causa/Efecto Premium Box */
+    .fl-ce-box-premium {
+        padding: 2rem;
+    }
+
+    .fl-ce-cards-row {
+        flex-direction: column;
+        gap: 24px;
+    }
+
+    .fl-ce-arrow-premium {
+        transform: rotate(90deg);
+    }
+}
+
+/* === SMARTPHONE (max-width: 768px) === */
+@media (max-width: 768px) {
+
+    /* --- General Sections --- */
+    .fl-section-header {
+        padding: 0 16px;
+    }
+
+    .fl-section-title {
+        font-size: 2rem;
+    }
+
+    .fl-section-subtitle {
+        font-size: 1rem;
+    }
+
+    section {
+        padding: 60px 0;
+    }
+
+    .container {
+        padding: 0 16px;
+    }
+
+    /* --- Problem Cards --- */
+    .fl-problem-card {
+        padding: 24px 20px;
+    }
+
+    .fl-problem-number {
+        font-size: 2.5rem;
+        top: 12px;
+        right: 16px;
+    }
+
+    .fl-problem-icon {
+        width: 56px;
+        height: 56px;
+        min-width: 56px;
+        min-height: 56px;
+        margin-bottom: 16px;
+    }
+
+    .fl-problem-icon svg,
+    .fl-problem-icon .fl-premium-svg {
+        width: 100% !important;
+        height: 100% !important;
+    }
+
+    .fl-problem-card h3 {
+        font-size: 1.15rem;
+    }
+
+    .fl-problem-card p {
+        font-size: 0.9rem;
+        line-height: 1.6;
+        margin-bottom: 16px;
+    }
+
+    .fl-problem-stat {
+        flex-wrap: wrap;
+        gap: 8px;
+        padding: 12px;
+        font-size: 0.8rem;
+        justify-content: center;
+    }
+
+    /* --- Navbar --- */
+    .fl-navbar .container {
+        padding: 0 16px;
+    }
+
+    .fl-nav-links {
+        display: none;
+    }
+
+    .fl-nav-cta {
+        display: none;
+    }
+
+    /* --- Causa/Efecto Premium (Inline Styles in HTML) --- */
+    .fl-ce-box-premium {
+        padding: 1.5rem;
+        border-radius: 16px;
+    }
+
+    .fl-ce-cards-row {
+        flex-direction: column !important;
+        gap: 20px !important;
+    }
+
+    .fl-ce-card {
+        padding: 20px !important;
+    }
+
+    .fl-ce-arrow-premium {
+        transform: rotate(90deg);
+        font-size: 1.8rem !important;
+    }
+
+    .fl-cta-ultra-premium {
+        padding: 14px 28px !important;
+        font-size: 0.95rem !important;
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* --- Science Section (Pasos) --- */
+    .fl-science-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fl-step {
+        padding: 20px;
+    }
+
+    .fl-step-number {
+        font-size: 2rem;
+        width: 48px;
+        height: 48px;
+    }
+
+    /* --- Comparison Table --- */
+    .fl-comparison-wrapper {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .fl-comparison-table {
+        min-width: 500px;
+    }
+
+    /* --- Testimonials --- */
+    .fl-testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .fl-testimonial-card {
+        padding: 24px;
+    }
+
+    /* --- FAQ --- */
+    .fl-faq-item {
+        margin-bottom: 12px;
+    }
+
+    .fl-faq-summary {
+        padding: 16px 20px;
+    }
+
+    .fl-faq-summary span {
+        font-size: 0.95rem;
+    }
+
+    .fl-faq-content {
+        padding: 0 20px 16px;
+        font-size: 0.9rem;
+    }
+
+    /* --- Roadmap / Benefits --- */
+    .fl-benefits-grid {
+        grid-template-columns: 1fr;
+    }
+
+    /* --- Booking Widget --- */
+    .fl-booking-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .fl-booking-sidebar {
+        padding: 24px;
+        border-right: none;
+        border-bottom: 1px solid var(--fl-border);
+    }
+
+    .fl-booking-title {
+        font-size: 1.4rem;
+    }
+
+    .fl-booking-form-container {
+        padding: 24px;
+    }
+
+    .fl-slots-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* --- Marquee/Speed Ticker (Overflow Fix) --- */
+    .fl-marquee-track {
+        animation-duration: 30s;
+    }
+
+    /* --- Section Paddings --- */
+    .fl-science,
+    .fl-problems,
+    .fl-metrics,
+    .fl-comparison,
+    .fl-testimonials,
+    .fl-faq,
+    .fl-offer {
+        padding: 50px 0;
+    }
+
+    /* --- Footer --- */
+    .fl-footer-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .fl-footer-bottom {
+        flex-direction: column;
+        gap: 12px;
+        text-align: center;
+    }
+}
+
+/* === SMARTPHONE PEQUEÑO (max-width: 480px) === */
+@media (max-width: 480px) {
+
+    /* --- Problem Cards Extra Small --- */
+    .fl-problem-card {
+        padding: 20px 16px;
+    }
+
+    .fl-problem-icon {
+        width: 48px;
+        height: 48px;
+        min-width: 48px;
+        min-height: 48px;
+        border-radius: 14px;
+    }
+
+    .fl-problem-card h3 {
+        font-size: 1.05rem;
+    }
+
+    .fl-problem-card p {
+        font-size: 0.85rem;
+    }
+
+    .fl-problem-number {
+        font-size: 2rem;
+    }
+
+    /* --- Causa/Efecto --- */
+    .fl-ce-box-premium {
+        padding: 1.2rem;
+    }
+
+    .fl-ce-card h3 {
+        font-size: 1.1rem !important;
+    }
+
+    /* --- Section Titles --- */
+    .fl-section-title {
+        font-size: 1.6rem;
+    }
+
+    .fl-section-subtitle {
+        font-size: 0.9rem;
+    }
+
+    /* --- Booking --- */
+    .fl-booking-sidebar {
+        padding: 20px;
+    }
+
+    .fl-booking-form-container {
+        padding: 20px;
+    }
+
+    .fl-booking-title {
+        font-size: 1.2rem;
+    }
+
+    .fl-slots-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    /* --- Comparison Table: hide less important column --- */
+    .fl-comparison-table {
+        min-width: 400px;
+    }
+
+    /* --- Bento Grid Extra Small --- */
+    .fl-bento-large .fl-bento-value {
+        font-size: 2.8rem;
+    }
+}

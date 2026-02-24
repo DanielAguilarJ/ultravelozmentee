@@ -784,8 +784,9 @@
                                 <span class="fl-cta-arrow"><i class="fas fa-arrow-right"></i></span>
                             </a>
                             <a href="#" id="fl-play-btn" class="fl-cta-secondary-ultra"
+                                aria-label="Reproducir video explicativo sobre el funcionamiento de fotolectura"
                                 data-video="Curso-de-Fotolectura-lectura-rapida.mp4">
-                                <i class="fas fa-play-circle"></i>
+                                <i class="fas fa-play-circle" aria-hidden="true"></i>
                                 Ver cómo funciona
                             </a>
                         </div>
@@ -817,10 +818,173 @@
                             <div class="fl-brain-ring fl-brain-ring-3"></div>
 
                             <!-- Imagen central -->
-                            <div class="fl-brain-core">
-                                <img src="images/fl-hero-brain.webp" alt="Cerebro y neurociencia" class="fl-brain-img"
-                                    fetchpriority="high" decoding="async">
-                                <div class="fl-brain-glow"></div>
+                            <!-- Modelo Cerebral Interactivo Front-End SVG Avanzado -->
+                            <div class="fl-brain-core"
+                                style="position: relative; width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; z-index: 5;">
+                                <svg viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg"
+                                    style="width: 110%; height: 110%; filter: drop-shadow(0 20px 40px rgba(99, 102, 241, 0.4)); transform: translateY(-5%);">
+                                    <defs>
+                                        <!-- Gradient Core Brain -->
+                                        <radialGradient id="brain-glow" cx="50%" cy="50%" r="50%" fx="30%" fy="30%">
+                                            <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9" />
+                                            <stop offset="40%" stop-color="#818cf8" stop-opacity="0.8" />
+                                            <stop offset="80%" stop-color="#4338ca" stop-opacity="0.9" />
+                                            <stop offset="100%" stop-color="#1e1b4b" stop-opacity="0.6" />
+                                        </radialGradient>
+
+                                        <!-- Gradient Synapses -->
+                                        <linearGradient id="synapse-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                            <stop offset="0%" stop-color="#a855f7" />
+                                            <stop offset="50%" stop-color="#6366f1" />
+                                            <stop offset="100%" stop-color="#3b82f6" />
+                                        </linearGradient>
+
+                                        <!-- Neon Glow Filter -->
+                                        <filter id="neon-glow-brain" x="-30%" y="-30%" width="160%" height="160%">
+                                            <feGaussianBlur stdDeviation="8" result="blur1" />
+                                            <feGaussianBlur stdDeviation="15" result="blur2" />
+                                            <feMerge>
+                                                <feMergeNode in="blur2" />
+                                                <feMergeNode in="blur1" />
+                                                <feMergeNode in="SourceGraphic" />
+                                            </feMerge>
+                                        </filter>
+
+                                        <!-- Pulse Data Line -->
+                                        <linearGradient id="data-pulse" x1="0%" y1="0%" x2="100%" y2="0%">
+                                            <stop offset="0%" stop-color="transparent" />
+                                            <stop offset="50%" stop-color="#06b6d4" />
+                                            <stop offset="100%" stop-color="transparent" />
+                                        </linearGradient>
+                                    </defs>
+
+                                    <!-- Aura de Energía de Fondo -->
+                                    <circle cx="200" cy="200" r="140" fill="url(#brain-glow)" opacity="0.15"
+                                        filter="url(#neon-glow-brain)">
+                                        <animate attributeName="r" values="130;150;130" dur="4s"
+                                            repeatCount="indefinite" ease="ease-in-out" />
+                                        <animate attributeName="opacity" values="0.1;0.25;0.1" dur="4s"
+                                            repeatCount="indefinite" ease="ease-in-out" />
+                                    </circle>
+
+                                    <!-- Base Estructural Hemisferio Izquierdo (Lógico) -->
+                                    <g opacity="0.85" filter="url(#neon-glow-brain)">
+                                        <path
+                                            d="M 200 80 C 130 80, 70 130, 70 200 C 70 260, 110 300, 160 320 C 180 328, 195 310, 200 290"
+                                            fill="none" stroke="url(#synapse-grad)" stroke-width="4"
+                                            stroke-linecap="round" />
+                                        <path d="M 90 160 Q 140 100, 180 150 T 170 230" fill="none" stroke="#818cf8"
+                                            stroke-width="2" stroke-dasharray="6,4" opacity="0.6" />
+                                        <path d="M 80 220 Q 120 280, 190 260" fill="none" stroke="#6366f1"
+                                            stroke-width="2.5" opacity="0.5" />
+                                        <path d="M 120 120 C 160 140, 140 200, 190 190" fill="none" stroke="#a855f7"
+                                            stroke-width="2" opacity="0.7" />
+                                    </g>
+
+                                    <!-- Base Estructural Hemisferio Derecho (Creativo) -->
+                                    <g opacity="0.85" filter="url(#neon-glow-brain)">
+                                        <path
+                                            d="M 200 80 C 270 80, 330 130, 330 200 C 330 260, 290 300, 240 320 C 220 328, 205 310, 200 290"
+                                            fill="none" stroke="url(#synapse-grad)" stroke-width="4"
+                                            stroke-linecap="round" />
+                                        <path d="M 310 160 Q 260 100, 220 150 T 230 230" fill="none" stroke="#3b82f6"
+                                            stroke-width="2.5" opacity="0.6" />
+                                        <path d="M 320 220 Q 280 280, 210 260" fill="none" stroke="#2dd4bf"
+                                            stroke-width="2" stroke-dasharray="8,4" opacity="0.5" />
+                                        <path d="M 280 120 C 240 140, 260 200, 210 190" fill="none" stroke="#c084fc"
+                                            stroke-width="2" opacity="0.7" />
+                                    </g>
+
+                                    <!-- Tronco Cerebral / Médula Espinal -->
+                                    <path d="M 185 300 Q 200 350, 195 380 M 215 300 Q 200 350, 205 380" fill="none"
+                                        stroke="#6366f1" stroke-width="6" stroke-linecap="round" opacity="0.4"
+                                        filter="url(#neon-glow-brain)" />
+
+                                    <!-- Nodos de Sinapsis Brillantes -->
+                                    <g fill="#ffffff">
+                                        <!-- Animación de "disparos" neuronales -->
+                                        <circle cx="140" cy="140" r="4">
+                                            <animate attributeName="opacity" values="0.2;1;0.2" dur="2.1s"
+                                                repeatCount="indefinite" />
+                                        </circle>
+                                        <circle cx="260" cy="130" r="5">
+                                            <animate attributeName="opacity" values="0.3;1;0.3" dur="1.7s"
+                                                repeatCount="indefinite" />
+                                        </circle>
+                                        <circle cx="100" cy="200" r="3.5">
+                                            <animate attributeName="opacity" values="0.1;1;0.1" dur="3s"
+                                                repeatCount="indefinite" />
+                                        </circle>
+                                        <circle cx="300" cy="210" r="4.5">
+                                            <animate attributeName="opacity" values="0.2;0.9;0.2" dur="2.4s"
+                                                repeatCount="indefinite" />
+                                        </circle>
+                                        <circle cx="160" cy="270" r="3">
+                                            <animate attributeName="opacity" values="0;1;0" dur="1.5s"
+                                                repeatCount="indefinite" />
+                                        </circle>
+                                        <circle cx="240" cy="260" r="4">
+                                            <animate attributeName="opacity" values="0.1;0.8;0.1" dur="2.8s"
+                                                repeatCount="indefinite" />
+                                        </circle>
+                                    </g>
+
+                                    <!-- Superposición de Absorción de Datos (Fotolectura effect) -->
+                                    <g filter="url(#neon-glow-brain)">
+                                        <!-- Líneas que fluyen hacia el cerebro -->
+                                        <path d="M 200 0 L 200 80" fill="none" stroke="url(#data-pulse)"
+                                            stroke-width="3">
+                                            <animate attributeName="stroke-dasharray" values="0 100; 100 0" dur="1s"
+                                                repeatCount="indefinite" />
+                                        </path>
+                                        <path d="M 250 20 L 230 90" fill="none" stroke="url(#data-pulse)"
+                                            stroke-width="2">
+                                            <animate attributeName="stroke-dasharray" values="0 100; 100 0" dur="1.2s"
+                                                repeatCount="indefinite" begin="0.3s" />
+                                        </path>
+                                        <path d="M 150 20 L 170 90" fill="none" stroke="url(#data-pulse)"
+                                            stroke-width="2">
+                                            <animate attributeName="stroke-dasharray" values="0 100; 100 0" dur="0.9s"
+                                                repeatCount="indefinite" begin="0.1s" />
+                                        </path>
+
+                                        <!-- Scanner Holográfico Central -->
+                                        <ellipse cx="200" cy="200" rx="40" ry="80" fill="none" stroke="#22d3ee"
+                                            stroke-width="1" opacity="0.6">
+                                            <animateTransform attributeName="transform" type="rotate"
+                                                values="0 200 200; 360 200 200" dur="10s" repeatCount="indefinite" />
+                                        </ellipse>
+
+                                        <!-- Anillos de Enfoque y Retención (Círculos concéntricos en el núcleo) -->
+                                        <circle cx="200" cy="200" r="20" fill="none" stroke="#8b5cf6" stroke-width="2"
+                                            opacity="0.8">
+                                            <animate attributeName="r" values="10; 25; 10" dur="2s"
+                                                repeatCount="indefinite" />
+                                            <animate attributeName="opacity" values="0.8; 0.2; 0.8" dur="2s"
+                                                repeatCount="indefinite" />
+                                        </circle>
+                                    </g>
+
+                                    <!-- Partículas Flotantes Vectoriales -->
+                                    <g fill="#e0e7ff" opacity="0.6">
+                                        <circle cx="80" cy="100" r="2">
+                                            <animateTransform attributeName="transform" type="translate"
+                                                values="0,0; -10,-20; 0,0" dur="3s" repeatCount="indefinite" />
+                                        </circle>
+                                        <circle cx="320" cy="90" r="1.5">
+                                            <animateTransform attributeName="transform" type="translate"
+                                                values="0,0; 15,-15; 0,0" dur="4s" repeatCount="indefinite" />
+                                        </circle>
+                                        <circle cx="70" cy="280" r="2.5">
+                                            <animateTransform attributeName="transform" type="translate"
+                                                values="0,0; -5,15; 0,0" dur="3.5s" repeatCount="indefinite" />
+                                        </circle>
+                                        <circle cx="330" cy="270" r="2">
+                                            <animateTransform attributeName="transform" type="translate"
+                                                values="0,0; 10,10; 0,0" dur="2.5s" repeatCount="indefinite" />
+                                        </circle>
+                                    </g>
+                                </svg>
                             </div>
 
                             <!-- Nodos flotantes -->
@@ -872,31 +1036,316 @@
         <section class="cause-effect-section" data-aos="fade-up"
             style="background: var(--fl-primary); padding: 60px 0;">
             <div class="container">
-                <div class="ce-box fl-ce-box"
-                    style="box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(99, 102, 241, 0.12);">
-                    <div class="ce-content">
-                        <div class="ce-cause">
-                            <span class="ce-label">CAUSA</span>
-                            <p>Al dominar la <strong>FOTOLECTURA</strong>...</p>
+                <style>
+                    /* Premium Cause/Effect Box Styles */
+                    .fl-ce-box-premium {
+                        position: relative;
+                        background: linear-gradient(145deg, rgba(30, 27, 75, 0.8) 0%, rgba(15, 23, 42, 0.9) 100%);
+                        border: 1px solid rgba(99, 102, 241, 0.2);
+                        border-radius: 24px;
+                        padding: 3rem;
+                        box-shadow: 0 30px 60px rgba(0, 0, 0, 0.6), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+                        overflow: hidden;
+                        backdrop-filter: blur(20px);
+                        transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.5s;
+                        z-index: 1;
+                    }
+
+                    .fl-ce-box-premium::before {
+                        content: '';
+                        position: absolute;
+                        top: -50%;
+                        left: -50%;
+                        width: 200%;
+                        height: 200%;
+                        background: radial-gradient(circle at center, rgba(99, 102, 241, 0.15) 0%, transparent 50%);
+                        opacity: 0;
+                        transition: opacity 0.5s;
+                        pointer-events: none;
+                        z-index: -1;
+                    }
+
+                    .fl-ce-box-premium:hover {
+                        transform: translateY(-5px);
+                        box-shadow: 0 40px 80px rgba(0, 0, 0, 0.8), 0 0 40px rgba(99, 102, 241, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+                        border-color: rgba(99, 102, 241, 0.5);
+                    }
+
+                    .fl-ce-box-premium:hover::before {
+                        opacity: 1;
+                        animation: rotateGlow 10s linear infinite;
+                    }
+
+                    @keyframes rotateGlow {
+                        100% {
+                            transform: rotate(360deg);
+                        }
+                    }
+
+                    .fl-ce-content-premium {
+                        display: flex;
+                        align-items: center;
+                        justify-content: space-between;
+                        gap: 2rem;
+                        margin-bottom: 3rem;
+                    }
+
+                    .fl-ce-card {
+                        flex: 1;
+                        background: rgba(255, 255, 255, 0.03);
+                        border: 1px solid rgba(255, 255, 255, 0.05);
+                        border-radius: 16px;
+                        padding: 2rem;
+                        position: relative;
+                        transition: all 0.4s ease;
+                    }
+
+                    .fl-ce-card:hover {
+                        background: rgba(255, 255, 255, 0.06);
+                        transform: scale(1.02);
+                    }
+
+                    .fl-ce-card.cause {
+                        border-left: 4px solid var(--fl-accent, #6366f1);
+                    }
+
+                    .fl-ce-card.effect {
+                        border-left: 4px solid #a855f7;
+                        background: linear-gradient(145deg, rgba(168, 85, 247, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+                    }
+
+                    .fl-ce-label-premium {
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 8px;
+                        font-size: 0.85rem;
+                        font-weight: 800;
+                        letter-spacing: 2px;
+                        text-transform: uppercase;
+                        margin-bottom: 1rem;
+                        padding: 6px 12px;
+                        border-radius: 8px;
+                    }
+
+                    .fl-ce-card.cause .fl-ce-label-premium {
+                        background: rgba(99, 102, 241, 0.15);
+                        color: #6366f1;
+                    }
+
+                    .fl-ce-card.effect .fl-ce-label-premium {
+                        background: rgba(168, 85, 247, 0.15);
+                        color: #c084fc;
+                    }
+
+                    .fl-ce-card p {
+                        font-size: 1.15rem;
+                        line-height: 1.7;
+                        color: #e2e8f0;
+                        margin: 0;
+                    }
+
+                    .fl-ce-card p strong {
+                        color: #fff;
+                        font-weight: 700;
+                    }
+
+                    .fl-ce-card.effect p strong {
+                        background: linear-gradient(to right, #c084fc, #818cf8);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                    }
+
+                    .fl-ce-arrow-premium {
+                        display: flex;
+                        flex-direction: column;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        color: rgba(255, 255, 255, 0.4);
+                        font-size: 2.5rem;
+                        position: relative;
+                    }
+
+                    .fl-ce-arrow-premium i {
+                        background: linear-gradient(135deg, #6366f1, #a855f7);
+                        -webkit-background-clip: text;
+                        -webkit-text-fill-color: transparent;
+                        filter: drop-shadow(0 0 10px rgba(168, 85, 247, 0.4));
+                        animation: pulseArrow 2s infinite;
+                    }
+
+                    @keyframes pulseArrow {
+
+                        0%,
+                        100% {
+                            transform: translateX(0) scale(1);
+                            opacity: 0.7;
+                        }
+
+                        50% {
+                            transform: translateX(10px) scale(1.1);
+                            opacity: 1;
+                            filter: drop-shadow(0 0 15px rgba(168, 85, 247, 0.8));
+                        }
+                    }
+
+                    .fl-ce-cta-wrapper {
+                        text-align: center;
+                        position: relative;
+                    }
+
+                    .fl-cta-ultra-premium {
+                        position: relative;
+                        display: inline-flex;
+                        align-items: center;
+                        gap: 16px;
+                        padding: 18px 40px;
+                        background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+                        color: #ffffff !important;
+                        font-size: 1.1rem;
+                        font-weight: 800;
+                        letter-spacing: 0.5px;
+                        border-radius: 50px;
+                        text-decoration: none;
+                        overflow: hidden;
+                        transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+                        box-shadow: 0 10px 25px -5px rgba(99, 102, 241, 0.5), 0 0 0 1px rgba(255, 255, 255, 0.1) inset;
+                        z-index: 1;
+                    }
+
+                    .fl-cta-ultra-premium::before {
+                        content: '';
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        right: 0;
+                        bottom: 0;
+                        background: linear-gradient(135deg, #7c3aed 0%, #4f46e5 100%);
+                        opacity: 0;
+                        transition: opacity 0.4s ease;
+                        z-index: -1;
+                    }
+
+                    .fl-cta-ultra-premium::after {
+                        content: '';
+                        position: absolute;
+                        top: -50%;
+                        left: -50%;
+                        width: 200%;
+                        height: 200%;
+                        background: linear-gradient(transparent, rgba(255, 255, 255, 0.3), transparent);
+                        transform: rotate(45deg) translateY(-100%);
+                        transition: transform 0.6s ease;
+                        z-index: -1;
+                    }
+
+                    .fl-cta-ultra-premium:hover {
+                        transform: translateY(-3px) scale(1.02);
+                        box-shadow: 0 20px 40px -10px rgba(124, 58, 237, 0.7), 0 0 20px rgba(124, 58, 237, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.2) inset;
+                    }
+
+                    .fl-cta-ultra-premium:hover::before {
+                        opacity: 1;
+                    }
+
+                    .fl-cta-ultra-premium:hover::after {
+                        transform: rotate(45deg) translateY(100%);
+                    }
+
+                    .fl-cta-ultra-premium i {
+                        font-size: 1.4rem;
+                        filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+                    }
+
+                    .fl-ce-guarantee {
+                        display: inline-flex;
+                        align-items: center;
+                        justify-content: center;
+                        gap: 8px;
+                        margin-top: 20px;
+                        padding: 10px 20px;
+                        background: rgba(255, 255, 255, 0.03);
+                        border-radius: 30px;
+                        border: 1px solid rgba(255, 255, 255, 0.1);
+                        color: #94a3b8;
+                        font-size: 0.9rem;
+                        font-weight: 500;
+                        backdrop-filter: blur(5px);
+                        transition: background 0.3s;
+                    }
+
+                    .fl-ce-guarantee:hover {
+                        background: rgba(255, 255, 255, 0.08);
+                    }
+
+                    .fl-ce-guarantee i.fa-shield-check,
+                    .fl-ce-guarantee i.fa-shield-alt {
+                        color: #10b981;
+                    }
+
+                    @media (max-width: 768px) {
+                        .fl-ce-content-premium {
+                            flex-direction: column;
+                            gap: 1.5rem;
+                        }
+
+                        .fl-ce-arrow-premium {
+                            transform: rotate(90deg);
+                            margin: -10px 0;
+                        }
+
+                        .fl-ce-box-premium {
+                            padding: 2rem 1.5rem;
+                        }
+
+                        .fl-cta-ultra-premium {
+                            width: 100%;
+                            justify-content: center;
+                            padding: 16px 24px;
+                        }
+                    }
+                </style>
+
+                <div class="fl-ce-box-premium">
+                    <div class="fl-ce-content-premium">
+                        <!-- Causa -->
+                        <div class="fl-ce-card cause">
+                            <span class="fl-ce-label-premium">
+                                <i class="fas fa-seedling"></i> CAUSA
+                            </span>
+                            <p>Al dominar el método neurocientífico de <strong>FOTOLECTURA</strong> y entrenar tu visión
+                                periférica...</p>
                         </div>
-                        <div class="ce-arrow">
+
+                        <!-- Flecha Animada -->
+                        <div class="fl-ce-arrow-premium">
                             <i class="fas fa-arrow-right"></i>
                         </div>
-                        <div class="ce-effect">
-                            <span class="ce-label">EFECTO</span>
-                            <p>...absorbes <strong>libros completos en minutos</strong>, multiplicas tu velocidad de
-                                aprendizaje por 10x y desbloqueas tu <strong>supercerebro</strong>.</p>
+
+                        <!-- Efecto -->
+                        <div class="fl-ce-card effect">
+                            <span class="fl-ce-label-premium">
+                                <i class="fas fa-rocket"></i> EFECTO
+                            </span>
+                            <p>...absorbes <strong>libros completos en minutos</strong>, multiplicas tu retención por
+                                10x y desbloqueas tu <strong>supercerebro</strong>.</p>
                         </div>
                     </div>
-                    <div style="margin-top: 30px; text-align: center;">
+
+                    <div class="fl-ce-cta-wrapper">
                         <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20mi%20cita%20de%20cortesía%20para%20conocer%20el%20método%20de%20Fotolectura"
-                            class="enroll-cta"
-                            style="display: inline-flex; align-items: center; gap: 12px; padding: 16px 32px; background: linear-gradient(135deg, var(--fl-accent), #1e1b4b); color: white; border-radius: var(--fl-radius-sm); font-weight: 700; text-decoration: none; transition: var(--fl-transition); box-shadow: 0 10px 30px rgba(99, 102, 241, 0.3);">
-                            <i class="fab fa-whatsapp" style="font-size: 1.3rem;"></i>
-                            Agendar Cita de Cortesía
+                            class="fl-cta-ultra-premium magnetic-btn">
+                            <i class="fab fa-whatsapp"></i>
+                            <span>Agendar Cita de Cortesía</span>
+                            <i class="fas fa-chevron-right"
+                                style="font-size: 0.9rem; margin-left: -5px; opacity: 0.8;"></i>
                         </a>
-                        <p style="margin-top: 12px; color: var(--fl-text-muted); font-size: 0.9rem;">Sin compromiso • Te
-                            explicamos el método personalizado</p>
+                        <div style="margin-top: 15px;">
+                            <div class="fl-ce-guarantee">
+                                <i class="fas fa-shield-alt"></i>
+                                <span>Sin compromiso • Diagnóstico personalizado gratuito</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

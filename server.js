@@ -24,6 +24,25 @@ app.use(cookieParser());
 app.use(compression());
 
 // ─────────────────────────────────────────────────────────────
+//  Content Security Policy — Permitir Google, Meta y CDNs
+// ─────────────────────────────────────────────────────────────
+app.use((req, res, next) => {
+    res.setHeader('Content-Security-Policy', [
+        "default-src 'self'",
+        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
+        "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
+        "img-src 'self' data: https: http:",
+        "connect-src 'self' https://www.google-analytics.com https://google-analytics.com https://www.googletagmanager.com https://googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com",
+        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
+        "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
+        "frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com https://www.facebook.com",
+        "object-src 'none'",
+        "base-uri 'self'"
+    ].join('; '));
+    next();
+});
+
+// ─────────────────────────────────────────────────────────────
 //  META PARAMBUILDER — Server-Side Middleware
 //  Procesa _fbc, _fbp, client_ip_address en cada petición HTML
 // ─────────────────────────────────────────────────────────────

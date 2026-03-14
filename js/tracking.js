@@ -81,7 +81,7 @@
             // Para conversiones específicas de Google Ads
             if (eventName === 'Contact' || eventName === 'SubmitApplication' || eventName === 'Lead') {
                 gtag('event', 'conversion', {
-                    'send_to': 'AW-10846614576/default',
+                    'send_to': 'AW-10846614576/3anQCMTY77oDELDoiLQo',
                     'value': 1.0,
                     'currency': 'MXN',
                     'event_callback': function () { }
@@ -219,8 +219,20 @@
         });
     }
 
+    /**
+     * Enviar conversión "Vista de página" automáticamente al cargar
+     */
+    function sendPageViewConversion() {
+        if (window.gtag) {
+            gtag('event', 'conversion', {
+                'send_to': 'AW-10846614576/3anQCMTY77oDELDoiLQo'
+            });
+        }
+    }
+
     // Inicializar todos los trackers
     function initAllTracking() {
+        sendPageViewConversion();
         setupWhatsAppTracking();
         setupViewContentTracking();
         setupSearchTracking();

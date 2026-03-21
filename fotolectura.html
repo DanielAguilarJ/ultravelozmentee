@@ -3358,8 +3358,23 @@
                 </div>
             </div>
 
-            <div class="fl-footer-bottom">
-                <div>&copy; 2026 WorldBrain México. Todos los derechos reservados.</div>
+                                                            <div class="fl-footer-bottom">
+                <p style="color: #94a3b8; font-size: 0.85rem; margin-bottom: 5px; text-align: center;">WorldBrain Corporativo Educativo S.A. de C.V. | RFC: XXXXXXXX | Domicilio: Ciudad de México.</p>
+                <div style="display: flex; flex-direction: column; align-items: center; gap: 10px;">
+                    <p>&copy; 2026 WorldBrain México. Todos los derechos reservados.</p>
+                    <div class="fl-legal-links" style="display: flex; gap: 15px; justify-content: center; flex-wrap: wrap;">
+                        <a href="terminos.html" style="color: #94a3b8; text-decoration: none;">Términos y Condiciones</a>
+                        <a href="privacidad.html" style="color: #94a3b8; text-decoration: none;">Aviso de Privacidad</a>
+                        <a href="reembolsos.html" style="color: #94a3b8; text-decoration: none;">Políticas de Devolución</a>
+                    </div>
+                </div>
+            </div>
+                </div>
+            </div>
+                </div>
+            </div>
+                </div>
+            </div>
                 <div>
                     <a href="https://worldbrain.mx/privacidad" target="_blank" rel="noopener noreferrer">Privacidad</a>
                     <a href="https://worldbrain.mx/terminos" target="_blank" rel="noopener noreferrer">Términos</a>
@@ -4311,6 +4326,26 @@
             }
         });
     </script>
+
+    <script>
+    // Clickwrap Validation Script
+    document.addEventListener("DOMContentLoaded", function() {
+        // Enlazar checkbox global con botones de WhatsApp de intención de compra
+        var ctas = document.querySelectorAll('a[href*="wa.me"]:not(.floating-whatsapp)');
+        ctas.forEach(function(cta) {
+            cta.addEventListener('click', function(e) {
+                var container = cta.closest('section') || cta.closest('div.container') || cta.closest('div.hero-content') || document;
+                var check = container.querySelector('.acepto-terminos-global');
+                // Si hay un checkbox en la misma sección, lo validamos
+                if(check && !check.checked) {
+                    e.preventDefault();
+                    alert("Por requerimiento de PROFECO, debes aceptar los Términos, Condiciones y Políticas de Reembolso marcando la casilla antes de continuar con tu inscripción o agendamiento.");
+                }
+            });
+        });
+    });
+    </script>
+
 </body>
 
 </html>

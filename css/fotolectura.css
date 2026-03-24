@@ -2052,208 +2052,115 @@
     }
 }
 
-/* --- Responsive Hero Ultra --- */
+/* =========================================================================
+   MEDIA QUERIES CONSOLIDADOS DEL HERO (Fixes de Responsividad Móvil)
+   ========================================================================= */
+
+/* --- BREAKPOINT TABLET (<= 1024px) --- */
 @media (max-width: 1024px) {
     .fl-hero-grid-ultra {
         grid-template-columns: 1fr;
-        gap: 60px;
+        gap: 40px;
         text-align: center;
     }
-
-    .fl-hero-text-ultra {
-        order: 1;
-    }
-
-    .fl-hero-visual-ultra {
-        order: 0;
-    }
-
-    .fl-brain-container {
-        width: 350px;
-        height: 350px;
-    }
-
-    .fl-brain-core {
-        width: 220px;
-        height: 220px;
-    }
-
-    .fl-mini-stats {
-        justify-content: center;
-    }
-
-    .fl-cta-group-ultra {
-        justify-content: center;
-        flex-wrap: wrap;
-    }
-
-    .fl-trust-badges {
-        justify-content: center;
-    }
-
-    .fl-subtitle-ultra {
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-    .fl-title-highlight {
-        justify-content: center;
-    }
+    .fl-hero-text-ultra { order: 1; }
+    .fl-hero-visual-ultra { order: 0; }
+    .fl-mini-stats { justify-content: center; }
+    .fl-cta-group-ultra { justify-content: center; flex-wrap: wrap; }
+    .fl-trust-badges { justify-content: center; }
+    .fl-subtitle-ultra { margin-left: auto; margin-right: auto; }
+    .fl-title-highlight { justify-content: center; }
+    
+    /* Fix 1: Visual rings en tablet intermedia */
+    .fl-ring-1 { width: 80%; height: 80%; }
+    .fl-ring-2 { width: 95%; height: 95%; }
+    .fl-ring-3 { width: 100%; height: 100%; max-width: 100%; max-height: 100%; }
 }
 
+/* --- BREAKPOINT MÓVIL (<= 768px) --- */
 @media (max-width: 768px) {
     .fl-hero-ultra {
-        padding: 120px 0 60px;
+        padding: 100px 16px 48px;
+        min-height: auto;
     }
-
-    .fl-title-ultra {
-        font-size: 2.2rem;
-    }
-
-    .fl-title-icon {
-        width: 44px;
-        height: 44px;
-        font-size: 1.2rem;
-    }
-
-    /* Ajuste para tablets y móviles grandes */
-    .fl-brain-container {
-        width: 300px;
-        height: 300px;
+    .fl-hero-grid-ultra { gap: 24px; }
+    .fl-hero-visual-ultra {
+        max-width: 100%;
+        overflow: hidden;
+        box-sizing: border-box;
         margin: 0 auto;
     }
-
-    .fl-brain-core {
-        width: 180px;
-        height: 180px;
-    }
-
-    .fl-float-node {
-        padding: 8px 12px;
-        transform: scale(0.85);
-    }
-
-    .fl-float-node-1 {
-        left: -10%;
-        top: 0;
-    }
-
-    .fl-float-node-2 {
-        right: -10%;
-        top: 0;
-    }
-
-    .fl-float-node-3 {
-        right: -15%;
-        bottom: 5%;
-    }
-
-    .fl-float-node-4 {
-        left: -15%;
-        bottom: 5%;
-    }
-
-    .fl-mini-stats {
-        flex-direction: column;
-        gap: 16px;
-    }
-
-    .fl-mini-stat-divider {
-        width: 60px;
-        height: 1px;
-    }
-
-    .fl-cta-group-ultra {
-        flex-direction: column;
-    }
-
-    .fl-cta-primary-ultra,
-    .fl-cta-secondary-ultra {
+    .fl-title-ultra { font-size: 2.2rem; line-height: 1.2; word-wrap: break-word; }
+    .fl-subtitle-ultra { font-size: 1rem; padding: 0 5px; }
+    .fl-title-icon { width: 44px; height: 44px; font-size: 1.2rem; }
+    
+    .fl-brain-container {
         width: 100%;
-        justify-content: center;
+        max-width: 350px;
+        height: auto;
+        aspect-ratio: 1 / 1;
+        margin: 0 auto;
     }
-
-    .fl-trust-badges {
-        flex-direction: column;
-        gap: 12px;
+    /* Fix 2: Brain core relativo al contenedor */
+    .fl-brain-core {
+        width: 65% !important;
+        height: auto !important;
+        aspect-ratio: 1 / 1;
     }
-
-    .fl-scroll-indicator {
-        display: none;
+    
+    /* Fix 3: SVG inline overflow */
+    .fl-brain-core svg {
+        width: 100% !important;
+        height: 100% !important;
+        max-width: 100%;
     }
+    .fl-visual-ring { max-width: 100%; max-height: 100%; }
+    .fl-ring-1 { width: 75%; height: 75%; }
+    .fl-ring-2 { width: 90%; height: 90%; }
+    .fl-ring-3 { width: 100%; height: 100%; }
 
+    .fl-float-node { transform: scale(0.85); padding: 8px 12px; }
+    .fl-float-node-1 { left: 5%; top: 5%; }
+    .fl-float-node-2 { right: 5%; top: 5%; }
+    .fl-float-node-3 { right: 5%; bottom: 5%; }
+    .fl-float-node-4 { left: 5%; bottom: 5%; }
+
+    .fl-particles-grid { transform: none; opacity: 0.3; background-size: 30px 30px; }
+
+    .fl-mini-stats { flex-direction: column; gap: 16px; background: rgba(255,255,255,0.03); padding: 15px; border-radius: 12px; margin-bottom: 25px; align-items: center; }
+    .fl-mini-stat-divider { width: 60px; height: 1px; }
+    
+    .fl-cta-group-ultra { flex-direction: column; gap: 15px; align-items: stretch; }
+    .fl-cta-primary-ultra, .fl-cta-secondary-ultra { width: 100%; justify-content: center; box-sizing: border-box; }
+    .fl-trust-badges { flex-direction: column; gap: 12px; align-items: center; margin-top: 20px; }
+    
+    .fl-scroll-indicator { display: none; }
+    
     .fl-speed-ticker {
         position: relative;
         bottom: auto;
-        left: auto;
+        left: 0;
         transform: none;
-        margin-top: 30px;
+        margin-top: 20px;
+        width: 100%;
+        box-sizing: border-box;
     }
 }
 
-/* Ajustes especiales para Celulares Pequeños (Smartphones) */
+/* --- BREAKPOINT MÓVIL PEQUEÑO (<= 480px) --- */
 @media (max-width: 480px) {
-    .fl-hero-ultra {
-        padding: 100px 0 50px;
-    }
-
-    .fl-title-ultra {
-        font-size: 1.8rem;
-    }
-
-    .fl-subtitle-ultra {
-        font-size: 0.95rem;
-    }
-
-    /* Reducción extrema del SVG Container para evitar Scroll Horizontal */
-    .fl-brain-container {
-        width: 240px;
-        height: 240px;
-    }
-
-    .fl-brain-core {
-        width: 140px;
-        height: 140px;
-    }
-
-    .fl-float-node {
-        transform: scale(0.7);
-        padding: 6px 10px;
-    }
-
-    .fl-float-node-1 {
-        left: -15%;
-        top: -5%;
-    }
-
-    .fl-float-node-2 {
-        right: -15%;
-        top: -5%;
-    }
-
-    .fl-float-node-3 {
-        right: -20%;
-        bottom: 0;
-    }
-
-    .fl-float-node-4 {
-        left: -20%;
-        bottom: 0;
-    }
-
-    .fl-mini-stats {
-        flex-wrap: wrap;
-        flex-direction: row;
-        gap: 15px;
-        padding: 15px;
-        justify-content: center;
-    }
-
-    .fl-mini-stat-divider {
-        display: none;
-    }
+    .fl-hero-ultra { padding: 88px 12px 40px; }
+    .fl-title-ultra { font-size: 1.85rem; }
+    .fl-subtitle-ultra { font-size: 0.95rem; }
+    .fl-brain-container { max-width: 280px; }
+    .fl-float-node { transform: scale(0.7); padding: 6px 10px; }
+    .fl-float-node-1 { left: 0%; top: 0%; }
+    .fl-float-node-2 { right: 0%; top: 0%; }
+    .fl-float-node-3 { right: 0%; bottom: 0%; }
+    .fl-float-node-4 { left: 0%; bottom: 0%; }
+    .fl-mini-stats { flex-wrap: wrap; flex-direction: row; gap: 15px; padding: 15px; justify-content: center; }
+    .fl-mini-stat-divider { display: none; }
 }
-
 /* --- RESET Y BASE PARA FOTOLECTURA --- */
 .fl-page {
     background: var(--fl-primary);
@@ -6381,112 +6288,12 @@ body,
 
 /* =========================================================================
    ENHANCED MOBILE ADAPTABILITY FIXES (APP-LIKE EXPERIENCE ON PHONES)
-========================================================================= */
-@media (max-width: 1024px) {
-    .fl-hero-text-ultra, .fl-hero-visual-ultra {
-        max-width: 100%;
-        overflow: hidden;
-    }
-}
-
-@media (max-width: 768px) {
-    body, html {
-        overflow-x: hidden !important;
-        width: 100%;
-    }
-
-    .fl-hero-ultra {
-        padding: 100px 15px 40px !important;
-        min-height: auto;
-    }
-
-    .fl-title-ultra {
-        font-size: 2.2rem !important;
-        line-height: 1.2 !important;
-        white-space: normal !important;
-        word-wrap: break-word;
-    }
-
-    .fl-subtitle-ultra {
-        font-size: 1rem !important;
-        line-height: 1.5 !important;
-        padding: 0 10px;
-    }
-
-    .fl-metrics-grid {
-        grid-template-columns: 1fr !important;
-        gap: 20px;
-    }
-
-    .fl-btn-primary, .fl-hero-cta {
-        width: 100%;
-        text-align: center;
-        justify-content: center;
-        padding: 15px 20px !important;
-        font-size: 1rem !important;
-    }
-
-    .fl-brain-container {
-        width: 100% !important;
-        max-width: 300px;
-        height: auto !important;
-        aspect-ratio: 1/1;
-        margin: 0 auto;
-    }
-
-    .fl-brain-core {
-        width: 100% !important;
-        height: auto !important;
-    }
-
-    .fl-bento-feature-grid, .fl-slots-grid, .fl-pricing-grid, 
-    .fl-results-main, .fl-impact-grid, .fl-methods-grid, .fl-step-content {
-        grid-template-columns: 1fr !important;
-    }
-
-    * {
-        word-break: normal;
-        /* Let's be careful with word-wrap everywhere except titles */
-    }
-
-    .fl-title-ultra {
-        word-break: break-word;
-    }
-
-    .container, .fl-container {
-        padding-left: 20px !important;
-        padding-right: 20px !important;
-        max-width: 100vw !important;
-        box-sizing: border-box;
-    }
-}
-
-@media (max-width: 480px) {
-    .fl-title-ultra {
-        font-size: 1.9rem !important;
-    }
-
-    .fl-hero-ultra {
-        padding: 90px 10px 40px !important;
-    }
-
-    .fl-bento-card, .fl-problem-card, .fl-ce-box-premium, .fl-pricing-card {
-        padding: 20px 15px !important;
-    }
-
-    .container, .fl-container {
-        padding-left: 15px !important;
-        padding-right: 15px !important;
-    }
-}
-
-/* =========================================================================
-   ENHANCED MOBILE ADAPTABILITY FIXES (APP-LIKE EXPERIENCE ON PHONES)
-========================================================================= */
+   ========================================================================= */
 @media (max-width: 768px) {
     body, html {
         overflow-x: hidden !important;
         width: 100vw;
+        box-sizing: border-box;
     }
 
     /* Force grids to single columns that might be breaking on tablet/phones */
@@ -6499,28 +6306,14 @@ body,
     .fl-methods-grid, 
     .fl-step-content,
     .fl-benefits-grid,
-    .fl-hero-grid-ultra,
     .fl-science-grid,
-    .fl-problems-grid {
+    .fl-problems-grid,
+    .fl-cause-effect-grid {
         grid-template-columns: 1fr !important;
+        gap: 20px;
     }
 
-    .fl-hero-ultra {
-        padding: 90px 15px 40px !important;
-        min-height: auto;
-    }
-
-    .fl-title-ultra {
-        font-size: 2.2rem !important;
-        line-height: 1.15 !important;
-        word-wrap: break-word;
-        white-space: normal !important;
-    }
-
-    .fl-subtitle-ultra {
-        font-size: 1rem !important;
-        padding: 0 5px;
-    }
+    * { word-break: normal; }
 
     /* Fix text readability on mobile */
     .seo-hook-intro {
@@ -6529,6 +6322,8 @@ body,
         margin-bottom: 1.2rem !important;
         padding: 0 10px;
         text-align: left;
+        max-width: 100% !important;
+        box-sizing: border-box;
     }
     
     .fl-cause-effect-box, .fl-stat-item-premium {
@@ -6538,20 +6333,6 @@ body,
         box-sizing: border-box;
     }
 
-
-    /* Fix image and SVG scales */
-    .fl-brain-container {
-        width: 100% !important;
-        max-width: 300px !important;
-        height: auto !important;
-        aspect-ratio: 1/1;
-        margin: 20px auto !important;
-    }
-    .fl-brain-core {
-        width: 100% !important;
-        height: auto !important;
-    }
-    
     img, video, iframe {
         max-width: 100% !important;
         height: auto !important;
@@ -6565,23 +6346,17 @@ body,
     }
     
     /* Bigger buttons on mobile for tapping */
-    .fl-btn-primary, .fl-hero-cta {
+    .fl-btn-primary {
         width: 100% !important;
+        text-align: center;
         justify-content: center;
         padding: 16px 20px !important;
         font-size: 1rem !important;
+        box-sizing: border-box;
     }
 }
 
 @media (max-width: 480px) {
-    .fl-title-ultra {
-        font-size: 1.85rem !important;
-    }
-
-    .fl-hero-ultra {
-        padding: 85px 12px 30px !important;
-    }
-
     .fl-bento-card, .fl-problem-card, .fl-ce-box-premium, .fl-pricing-card {
         padding: 20px 15px !important;
     }
@@ -6589,138 +6364,5 @@ body,
     .container, .fl-container {
         padding-left: 15px !important;
         padding-right: 15px !important;
-    }
-}
-
-/* Specific Fixes for Text and Spacing in Mobile Hero */
-@media (max-width: 768px) {
-    .seo-hook-intro {
-        font-size: 0.95rem !important;
-        line-height: 1.6 !important;
-        margin-bottom: 1.2rem !important;
-        padding: 0;
-        text-align: left;
-        max-width: 100% !important;
-        box-sizing: border-box;
-    }
-    
-    .fl-cause-effect-box {
-        padding: 1rem !important;
-        margin: 1.5rem 0 !important;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .fl-cause-effect-grid {
-        grid-template-columns: 1fr !important;
-        gap: 15px !important;
-    }
-
-    .fl-stat-item-premium {
-        padding: 10px 5px !important;
-    }
-
-    .fl-hero-stats-premium {
-        flex-direction: column;
-        gap: 15px;
-        align-items: stretch;
-        width: 100%;
-    }
-}
-
-/* Specific Fixes for Text and Spacing in Mobile Hero */
-@media (max-width: 768px) {
-    .seo-hook-intro {
-        font-size: 0.95rem !important;
-        line-height: 1.6 !important;
-        margin-bottom: 1.2rem !important;
-        padding: 0;
-        text-align: left;
-        max-width: 100% !important;
-        box-sizing: border-box;
-    }
-    
-    .fl-cause-effect-box {
-        padding: 1rem !important;
-        margin: 1.5rem 0 !important;
-        width: 100%;
-        box-sizing: border-box;
-    }
-
-    .fl-cause-effect-grid {
-        grid-template-columns: 1fr !important;
-        gap: 15px !important;
-    }
-
-    .fl-stat-item-premium {
-        padding: 10px 5px !important;
-    }
-
-    .fl-hero-stats-premium {
-        flex-direction: column;
-        gap: 15px;
-        align-items: stretch;
-        width: 100%;
-    }
-}
-
-@media (max-width: 768px) {
-    .fl-mini-stats {
-        gap: 15px !important;
-        flex-wrap: wrap;
-        justify-content: center;
-        background: rgba(255,255,255,0.03);
-        padding: 15px;
-        border-radius: 12px;
-        margin-bottom: 25px;
-    }
-    .fl-mini-stat {
-        flex: 1 1 30%;
-        min-width: 80px;
-    }
-    .fl-mini-stat-value {
-        font-size: 1.2rem !important;
-    }
-    .fl-mini-stat-label {
-        font-size: 0.75rem !important;
-    }
-    .fl-mini-stat-divider {
-        display: none !important;
-    }
-
-    .fl-cta-group-ultra {
-        display: flex;
-        flex-direction: column;
-        gap: 15px;
-        width: 100%;
-        align-items: stretch;
-    }
-    .fl-cta-primary-ultra, .fl-cta-secondary-ultra {
-        width: 100%;
-        box-sizing: border-box;
-        text-align: center;
-        justify-content: center;
-    }
-}
-
-@media (max-width: 480px) {
-    .fl-trust-badges {
-        display: flex;
-        flex-direction: column;
-        gap: 10px;
-        align-items: center;
-        margin-top: 15px;
-    }
-    .fl-trust-item {
-        font-size: 0.85rem;
-    }
-}
-@media (max-width: 768px) {
-    .fl-trust-badges {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        gap: 15px;
-        margin-top: 20px;
     }
 }

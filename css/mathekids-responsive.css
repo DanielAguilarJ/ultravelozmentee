@@ -1,0 +1,1117 @@
+/* =====================================================
+   MATHEKIDS RESPONSIVE & UI/UX IMPROVEMENTS
+   Loaded AFTER styles.css & courses.css to override
+   without modifying existing shared stylesheets.
+   ===================================================== */
+
+/* ---------------------------------------------------
+   1. DESIGN TOKENS - Consistent Spacing System
+   --------------------------------------------------- */
+:root {
+    --mk-section-pad-xl: 120px;
+    --mk-section-pad-lg: 90px;
+    --mk-section-pad-md: 64px;
+    --mk-section-pad-sm: 48px;
+    --mk-section-pad-xs: 36px;
+    --mk-container-pad: 24px;
+    --mk-card-radius: 20px;
+    --mk-transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --mk-touch-min: 44px;
+    --mk-shadow-hover: 0 20px 40px rgba(0, 0, 0, 0.15);
+    --mk-shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* ---------------------------------------------------
+   2. GLOBAL OVERRIDES - Smooth Scroll & Spacing
+   --------------------------------------------------- */
+.mk-page {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+    overflow-x: hidden;
+}
+
+/* Prevent horizontal overflow from decorative elements */
+.mk-page .course-hero,
+.mk-page .hero-visual,
+.mk-page .visual-container {
+    overflow: hidden;
+}
+
+/* Better section rhythm - eliminate dead zones */
+.mk-page .benefits-section,
+.mk-page .method-section,
+.mk-page .levels-section,
+.mk-page .testimonials-section,
+.mk-page .enrollment-section,
+.mk-page .faq-section {
+    padding: var(--mk-section-pad-xl) 0;
+}
+
+/* Subtle section separation for visual flow */
+.mk-page .benefits-section {
+    position: relative;
+}
+
+.mk-page .method-section {
+    position: relative;
+}
+
+.mk-page .method-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90%, 1000px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+}
+
+.mk-page .levels-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(90%, 1000px);
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.06), transparent);
+}
+
+.mk-page .levels-section {
+    position: relative;
+}
+
+/* ---------------------------------------------------
+   3. TYPOGRAPHY - Fluid Scaling
+   --------------------------------------------------- */
+.mk-page .section-title {
+    font-size: clamp(1.6rem, 4vw, 2.5rem);
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.mk-page .section-subtitle {
+    font-size: clamp(0.95rem, 1.8vw, 1.15rem);
+    line-height: 1.6;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.mk-page .benefit-card h3 {
+    font-size: clamp(1.05rem, 2vw, 1.3rem);
+    line-height: 1.3;
+}
+
+.mk-page .benefit-card p {
+    font-size: clamp(0.88rem, 1.5vw, 0.95rem);
+    line-height: 1.6;
+}
+
+.mk-page .method-step h3 {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+}
+
+.mk-page .method-step p {
+    font-size: clamp(0.88rem, 1.5vw, 0.95rem);
+    line-height: 1.6;
+}
+
+.mk-page .level-content h3 {
+    font-size: clamp(1rem, 1.8vw, 1.2rem);
+}
+
+.mk-page .level-content p {
+    font-size: clamp(0.85rem, 1.4vw, 0.95rem);
+    line-height: 1.5;
+}
+
+/* ---------------------------------------------------
+   4. HERO SECTION - Better Adaptability
+   --------------------------------------------------- */
+
+/* Reduce dead space below hero */
+.mk-page .course-hero {
+    padding-bottom: 60px;
+}
+
+/* Hero stats: better flex wrap */
+.mk-page .hero-stats {
+    flex-wrap: wrap;
+    gap: 16px;
+    justify-content: center;
+}
+
+.mk-page .hero-stats .hero-stat {
+    min-width: 100px;
+    flex: 1 1 auto;
+}
+
+/* Hero CTAs: consistent sizing */
+.mk-page .hero-ctas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    align-items: stretch;
+}
+
+.mk-page .hero-ctas .cta-primary,
+.mk-page .hero-ctas .cta-secondary {
+    min-height: var(--mk-touch-min);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Hero trust items */
+.mk-page .hero-trust {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px;
+}
+
+/* ---------------------------------------------------
+   5. CAUSE/EFFECT SECTION - Tighter spacing
+   --------------------------------------------------- */
+.mk-page .cause-effect-section {
+    padding: 40px 0 20px;
+}
+
+/* Legal Checkbox - responsive class (replaces inline styles) */
+.mk-legal-checkbox {
+    text-align: left;
+    background: rgba(0, 0, 0, 0.05);
+    padding: 16px;
+    border-radius: 10px;
+    margin: 16px 0;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.light-mode .mk-legal-checkbox {
+    background: rgba(0, 0, 0, 0.03);
+    border-color: rgba(0, 0, 0, 0.08);
+}
+
+.mk-legal-checkbox label {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    cursor: pointer;
+    font-size: 0.82rem;
+    color: inherit;
+    line-height: 1.5;
+}
+
+.mk-legal-checkbox input[type="checkbox"] {
+    margin-top: 3px;
+    min-width: 18px;
+    min-height: 18px;
+    cursor: pointer;
+    accent-color: var(--accent, #f59e0b);
+}
+
+.mk-legal-checkbox a {
+    text-decoration: underline;
+    text-underline-offset: 2px;
+}
+
+/* ---------------------------------------------------
+   6. BENEFITS SECTION - Responsive Grid
+   --------------------------------------------------- */
+.mk-page .benefits-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+/* Card improvements */
+.mk-page .benefit-card {
+    border-radius: var(--mk-card-radius);
+    transition: transform var(--mk-transition), box-shadow var(--mk-transition);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.mk-page .benefit-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--mk-shadow-hover);
+}
+
+.mk-page .benefit-card p {
+    flex-grow: 1;
+}
+
+.mk-page .benefit-metric {
+    margin-top: auto;
+    padding-top: 16px;
+}
+
+/* ---------------------------------------------------
+   7. METHOD SECTION - Better layout
+   --------------------------------------------------- */
+.mk-page .method-grid {
+    gap: 48px;
+    align-items: start;
+}
+
+.mk-page .method-visual .visual-frame {
+    border-radius: var(--mk-card-radius);
+    overflow: hidden;
+    position: sticky;
+    top: 100px;
+}
+
+.mk-page .method-visual .visual-frame img {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: cover;
+}
+
+/* Timeline steps: better spacing */
+.mk-page .method-step {
+    transition: opacity var(--mk-transition), transform var(--mk-transition);
+}
+
+.mk-page .method-step.mk-timeline-step.is-active {
+    opacity: 1;
+}
+
+.mk-page .method-step .step-content {
+    padding-bottom: 24px;
+}
+
+/* ---------------------------------------------------
+   8. LEVELS SECTION - Responsive Timeline
+   --------------------------------------------------- */
+.mk-page .levels-timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 24px;
+    position: relative;
+}
+
+.mk-page .level-card {
+    width: 100%;
+    border-radius: var(--mk-card-radius);
+    transition: transform var(--mk-transition), box-shadow var(--mk-transition);
+}
+
+.mk-page .level-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--mk-shadow-hover);
+}
+
+/* ---------------------------------------------------
+   9. TESTIMONIALS - Fix overflow & responsive
+   --------------------------------------------------- */
+.mk-page .testimonials-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.mk-page .testimonial-card {
+    border-radius: var(--mk-card-radius);
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    transition: transform var(--mk-transition), box-shadow var(--mk-transition);
+}
+
+.mk-page .testimonial-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--mk-shadow-hover);
+}
+
+/* FIX: Featured card overflow on mobile */
+.mk-page .testimonial-card.featured {
+    transform: scale(1);
+}
+
+.mk-page .testimonial-card .testimonial-quote {
+    flex-grow: 1;
+}
+
+.mk-page .testimonial-card .testimonial-result {
+    margin-top: auto;
+}
+
+/* ---------------------------------------------------
+   10. ENROLLMENT / VALUE STACK
+   --------------------------------------------------- */
+.mk-page .enrollment-section {
+    padding-top: var(--mk-section-pad-lg);
+}
+
+.mk-page .mk-vs-grid {
+    gap: 16px;
+}
+
+.mk-page .mk-vs-item {
+    border-radius: 16px;
+    transition: transform var(--mk-transition), box-shadow var(--mk-transition);
+}
+
+.mk-page .mk-vs-item:hover {
+    transform: translateX(4px);
+    box-shadow: var(--mk-shadow-card);
+}
+
+/* Booking form: Remove forced min-height on mobile */
+.mk-page .course-booking-grid {
+    min-height: auto;
+}
+
+/* Form inputs: consistent touch targets */
+.mk-page .course-form-input,
+.mk-page .course-form-select {
+    min-height: var(--mk-touch-min);
+    font-size: 16px; /* Prevents iOS zoom on focus */
+    border-radius: 10px;
+    padding: 12px 16px;
+}
+
+/* Booking buttons */
+.mk-page .mk-booking-next-btn {
+    min-height: 52px;
+    font-size: 1rem;
+    border-radius: 12px;
+}
+
+/* ---------------------------------------------------
+   11. FAQ SECTION - Better touch & spacing
+   --------------------------------------------------- */
+.mk-page .faq-section {
+    padding-bottom: var(--mk-section-pad-lg);
+}
+
+.mk-page .faq-item summary {
+    min-height: var(--mk-touch-min);
+    padding: 18px 20px;
+    font-size: clamp(0.95rem, 1.5vw, 1.05rem);
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background var(--mk-transition);
+}
+
+.mk-page .faq-item summary:hover {
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.mk-page .faq-content {
+    padding: 0 20px 20px;
+    font-size: clamp(0.88rem, 1.4vw, 0.95rem);
+    line-height: 1.7;
+}
+
+/* ---------------------------------------------------
+   12. FOOTER SOCIAL PROOF - Classes (replaces inline)
+   --------------------------------------------------- */
+.mk-footer-social-proof {
+    padding: 4rem 0;
+    background: #0a0a0b;
+    border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.mk-fsp-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+.mk-fsp-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.mk-fsp-tag {
+    color: #3b82f6;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 700;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+    font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+.mk-fsp-title {
+    color: white;
+    font-family: 'Outfit', 'Inter', sans-serif;
+    font-size: clamp(1.5rem, 4vw, 2.2rem);
+    margin-bottom: 1rem;
+}
+
+.mk-fsp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.mk-fsp-card {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 2rem;
+    border-radius: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.mk-fsp-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 32px rgba(0, 0, 0, 0.3);
+}
+
+.mk-fsp-card-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.mk-fsp-avatar {
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.mk-fsp-name {
+    color: white;
+    margin: 0;
+    font-size: 1rem;
+    font-family: 'Outfit', 'Inter', sans-serif;
+}
+
+.mk-fsp-role {
+    color: #64748b;
+    margin: 0;
+    font-size: 0.8rem;
+}
+
+.mk-fsp-metric {
+    color: #3b82f6;
+    font-family: 'JetBrains Mono', 'Space Grotesk', monospace;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.mk-fsp-metric span {
+    font-size: 0.7rem;
+    color: #64748b;
+}
+
+.mk-fsp-quote {
+    color: #cbd5e1;
+    font-style: italic;
+    line-height: 1.6;
+    font-size: 0.95rem;
+    margin: 0;
+}
+
+.mk-fsp-cta-wrap {
+    text-align: center;
+}
+
+.mk-fsp-cta {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: #2563eb;
+    color: white;
+    padding: 1rem 2.5rem;
+    border-radius: 50px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
+    font-family: 'Outfit', 'Inter', sans-serif;
+    min-height: var(--mk-touch-min);
+    line-height: 1;
+    gap: 0.5rem;
+}
+
+.mk-fsp-cta:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 14px 28px rgba(37, 99, 235, 0.3);
+    background: #1d4ed8;
+    color: white;
+}
+
+/* ---------------------------------------------------
+   13. FOOTER BOTTOM - Classes (replaces inline)
+   --------------------------------------------------- */
+.mk-footer-bottom-info {
+    color: #94a3b8;
+    font-size: 0.85rem;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+.mk-legal-links {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 10px;
+}
+
+.mk-legal-links a {
+    color: #94a3b8;
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+    padding: 4px 0;
+}
+
+.mk-legal-links a:hover {
+    color: #cbd5e1;
+    text-decoration: underline;
+}
+
+/* ---------------------------------------------------
+   14. FLOATING WHATSAPP - Better mobile position
+   --------------------------------------------------- */
+.mk-page .floating-whatsapp {
+    bottom: 20px;
+    right: 20px;
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 1.5rem;
+    z-index: 1000;
+    box-shadow: 0 4px 16px rgba(37, 211, 102, 0.3);
+    transition: transform var(--mk-transition), box-shadow var(--mk-transition);
+}
+
+.mk-page .floating-whatsapp:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 24px rgba(37, 211, 102, 0.4);
+}
+
+/* ---------------------------------------------------
+   15. NAVBAR - Better touch & sticky behavior
+   --------------------------------------------------- */
+.mk-page .course-navbar .course-nav-cta {
+    min-height: 40px;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 20px;
+}
+
+/* ===================================================
+   RESPONSIVE BREAKPOINTS
+   =================================================== */
+
+/* ---------------------------------------------------
+   BREAKPOINT: 1200px (Large tablets / small desktops)
+   --------------------------------------------------- */
+@media (max-width: 1200px) {
+    .mk-page .benefits-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .mk-page .testimonials-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    /* Third testimonial spans full width for balance */
+    .mk-page .testimonials-grid .testimonial-card:last-child {
+        grid-column: 1 / -1;
+        max-width: 600px;
+        margin: 0 auto;
+    }
+
+    .mk-page .levels-timeline {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .mk-page .benefits-section,
+    .mk-page .method-section,
+    .mk-page .levels-section,
+    .mk-page .testimonials-section,
+    .mk-page .enrollment-section,
+    .mk-page .faq-section {
+        padding: var(--mk-section-pad-lg) 0;
+    }
+
+    .mk-page .hero-stats {
+        gap: 12px;
+    }
+}
+
+/* ---------------------------------------------------
+   BREAKPOINT: 1024px (Tablets landscape)
+   --------------------------------------------------- */
+@media (max-width: 1024px) {
+    .mk-page .method-grid {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+
+    .mk-page .method-visual .visual-frame {
+        position: static;
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* Show hero visual at smaller size on tablets */
+    .mk-page .hero-visual {
+        display: block;
+    }
+
+    .mk-page .visual-container {
+        max-width: 360px;
+        margin: 0 auto;
+    }
+
+    /* Hide float cards to prevent overflow */
+    .mk-page .float-card {
+        display: none;
+    }
+
+    .mk-page .abacus-animation {
+        display: none;
+    }
+
+    .mk-page .benefits-section,
+    .mk-page .method-section,
+    .mk-page .levels-section,
+    .mk-page .testimonials-section,
+    .mk-page .enrollment-section,
+    .mk-page .faq-section {
+        padding: var(--mk-section-pad-md) 0;
+    }
+
+    /* Featured testimonial: NO scale on tablet */
+    .mk-page .testimonial-card.featured {
+        transform: none;
+    }
+}
+
+/* ---------------------------------------------------
+   BREAKPOINT: 900px (Small tablets)
+   --------------------------------------------------- */
+@media (max-width: 900px) {
+    .mk-page .hero-visual {
+        display: none;
+    }
+
+    .mk-page .hero-content {
+        text-align: center;
+    }
+
+    .mk-page .hero-ctas {
+        justify-content: center;
+    }
+
+    .mk-page .hero-trust {
+        justify-content: center;
+    }
+
+    .mk-page .hero-stats {
+        justify-content: center;
+    }
+
+    .mk-page .hero-badge {
+        justify-content: center;
+    }
+
+    .mk-page .mk-seo-intro {
+        text-align: center;
+    }
+
+    /* Social proof bar stacks cleanly */
+    .mk-page .mk-social-proof-bar {
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .mk-page .mk-proof-divider {
+        display: none;
+    }
+
+    /* Booking grid stacks */
+    .mk-page .course-booking-grid {
+        grid-template-columns: 1fr;
+        min-height: auto;
+    }
+
+    /* Value stack items */
+    .mk-page .mk-vs-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 12px;
+    }
+}
+
+/* ---------------------------------------------------
+   BREAKPOINT: 768px (Mobile landscape / large phones)
+   --------------------------------------------------- */
+@media (max-width: 768px) {
+    :root {
+        --mk-container-pad: 16px;
+    }
+
+    .mk-page .benefits-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .mk-page .testimonials-grid {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .mk-page .testimonials-grid .testimonial-card:last-child {
+        grid-column: auto;
+        max-width: none;
+    }
+
+    .mk-page .levels-timeline {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .mk-page .timeline-line {
+        display: none;
+    }
+
+    .mk-page .benefits-section,
+    .mk-page .method-section,
+    .mk-page .levels-section,
+    .mk-page .testimonials-section,
+    .mk-page .enrollment-section,
+    .mk-page .faq-section {
+        padding: var(--mk-section-pad-sm) 0;
+    }
+
+    /* Hero adjustments */
+    .mk-page .course-hero {
+        padding-bottom: 40px;
+    }
+
+    .mk-page .hero-ctas {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .mk-page .hero-ctas .cta-primary,
+    .mk-page .hero-ctas .cta-secondary {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+    /* Cause/Effect stacks properly */
+    .mk-page .ce-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+        gap: 16px;
+    }
+
+    .mk-page .ce-arrow {
+        transform: rotate(90deg);
+    }
+
+    /* Stats: allow wrapping */
+    .mk-page .stat-divider {
+        display: none;
+    }
+
+    .mk-page .hero-stats {
+        gap: 8px;
+    }
+
+    .mk-page .hero-stats .hero-stat {
+        min-width: 80px;
+        padding: 12px 8px;
+    }
+
+    /* Legal checkbox: bigger touch target for readability */
+    .mk-legal-checkbox {
+        padding: 14px;
+    }
+
+    .mk-legal-checkbox label {
+        font-size: 0.78rem;
+        gap: 10px;
+    }
+
+    .mk-legal-checkbox input[type="checkbox"] {
+        min-width: 20px;
+        min-height: 20px;
+    }
+
+    /* Footer social proof */
+    .mk-footer-social-proof {
+        padding: 3rem 0;
+    }
+
+    .mk-fsp-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .mk-fsp-card {
+        padding: 1.5rem;
+    }
+
+    .mk-fsp-cta {
+        padding: 0.875rem 2rem;
+        font-size: 0.95rem;
+        width: 100%;
+        max-width: 320px;
+    }
+
+    /* Floating WhatsApp: keep accessible */
+    .mk-page .floating-whatsapp {
+        bottom: 16px;
+        right: 16px;
+        width: 52px;
+        height: 52px;
+    }
+
+    /* FAQ items */
+    .mk-page .faq-item summary {
+        padding: 16px;
+        font-size: 0.95rem;
+    }
+
+    .mk-page .faq-content {
+        padding: 0 16px 16px;
+    }
+
+    /* Booking form: full width buttons */
+    .mk-page .mk-booking-next-btn {
+        width: 100%;
+    }
+
+    .mk-page .mk-success-actions {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    .mk-page .mk-success-actions .cta-primary {
+        width: 100%;
+        justify-content: center;
+    }
+
+    /* Footer legal links stack */
+    .mk-legal-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 8px;
+    }
+
+    /* Container padding */
+    .mk-page .container {
+        padding-left: var(--mk-container-pad);
+        padding-right: var(--mk-container-pad);
+    }
+}
+
+/* ---------------------------------------------------
+   BREAKPOINT: 480px (Small phones)
+   --------------------------------------------------- */
+@media (max-width: 480px) {
+    .mk-page .benefits-section,
+    .mk-page .method-section,
+    .mk-page .levels-section,
+    .mk-page .testimonials-section,
+    .mk-page .enrollment-section,
+    .mk-page .faq-section {
+        padding: var(--mk-section-pad-xs) 0;
+    }
+
+    .mk-page .course-hero {
+        padding-bottom: 30px;
+    }
+
+    .mk-page .hero-stats .hero-stat {
+        min-width: 70px;
+        padding: 10px 6px;
+    }
+
+    .mk-page .mk-hero-stats .stat-number {
+        font-size: 1.5rem !important;
+    }
+
+    .mk-page .mk-hero-stats .stat-label {
+        font-size: 0.7rem;
+    }
+
+    /* Benefit cards: tighter padding */
+    .mk-page .benefit-card {
+        padding: 20px 16px;
+    }
+
+    /* Value stack tighter */
+    .mk-page .mk-vs-item {
+        padding: 16px;
+    }
+
+    .mk-page .mk-vs-price {
+        text-align: center;
+    }
+
+    /* Section headers tighter */
+    .mk-page .section-header {
+        margin-bottom: 28px;
+    }
+
+    /* Scroll indicator hide on very small screens */
+    .mk-page .scroll-indicator {
+        display: none;
+    }
+
+    /* Footer social proof */
+    .mk-fsp-card {
+        padding: 1.25rem;
+    }
+
+    .mk-fsp-metric {
+        font-size: 1.05rem;
+    }
+
+    .mk-footer-bottom-info {
+        font-size: 0.75rem;
+    }
+
+    /* Marquee smaller */
+    .mk-page .marquee-item {
+        padding: 0 16px;
+        font-size: 0.78rem;
+    }
+}
+
+/* ---------------------------------------------------
+   16. ACCESSIBILITY - Reduced Motion
+   --------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    .mk-page,
+    .mk-page * {
+        scroll-behavior: auto !important;
+    }
+
+    .mk-page .hero-orb,
+    .mk-page .floating-num,
+    .mk-page .scroll-wheel,
+    .mk-page .badge-dot,
+    .mk-page .abacus-bead,
+    .mk-page .float-card {
+        animation: none !important;
+    }
+
+    .mk-page .benefit-card,
+    .mk-page .testimonial-card,
+    .mk-page .level-card,
+    .mk-page .mk-vs-item,
+    .mk-page .mk-fsp-card,
+    .mk-page .floating-whatsapp {
+        transition: none !important;
+    }
+
+    .mk-page .cta-primary,
+    .mk-page .cta-secondary,
+    .mk-page .enroll-cta,
+    .mk-page .mk-booking-next-btn {
+        animation: none !important;
+    }
+
+    /* Disable shimmer effect */
+    .mk-page .cta-primary::before {
+        animation: none !important;
+    }
+}
+
+/* ---------------------------------------------------
+   17. FOCUS STATES - Accessibility
+   --------------------------------------------------- */
+.mk-page :focus-visible {
+    outline: 2px solid var(--accent, #f59e0b);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.mk-page .cta-primary:focus-visible,
+.mk-page .cta-secondary:focus-visible,
+.mk-page .enroll-cta:focus-visible {
+    outline-offset: 4px;
+}
+
+.mk-page .faq-item summary:focus-visible {
+    outline-offset: 2px;
+}
+
+/* ---------------------------------------------------
+   18. CARD UNIFORMITY - Equal heights in grids
+   --------------------------------------------------- */
+.mk-page .benefits-grid,
+.mk-page .testimonials-grid {
+    align-items: stretch;
+}
+
+/* ---------------------------------------------------
+   19. SMOOTH HOVER TRANSITIONS (performance)
+   --------------------------------------------------- */
+.mk-page .benefit-card,
+.mk-page .testimonial-card,
+.mk-page .level-card,
+.mk-page .faq-item {
+    will-change: transform;
+}
+
+/* ---------------------------------------------------
+   20. MARQUEE - Better spacing & readability
+   --------------------------------------------------- */
+.mk-page .course-marquee {
+    padding: 14px 0;
+}
+
+.mk-page .marquee-item {
+    padding: 0 24px;
+    font-size: clamp(0.8rem, 1.3vw, 0.9rem);
+    white-space: nowrap;
+}
+
+/* ---------------------------------------------------
+   21. IMAGES - Prevent layout shift
+   --------------------------------------------------- */
+.mk-page .testimonial-avatar img {
+    aspect-ratio: 1;
+    object-fit: cover;
+}
+
+.mk-page .visual-main img {
+    aspect-ratio: 4/3;
+    object-fit: cover;
+}
+
+.mk-page .method-visual img {
+    aspect-ratio: 16/10;
+    object-fit: cover;
+}
+
+/* ---------------------------------------------------
+   22. SCROLL INDICATOR - Subtle animation
+   --------------------------------------------------- */
+.mk-page .scroll-indicator {
+    opacity: 0.7;
+    transition: opacity 0.3s ease;
+}
+
+.mk-page .scroll-indicator:hover {
+    opacity: 1;
+}

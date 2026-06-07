@@ -29,12 +29,14 @@
         // Gamified Wheel
         wheelScrollPercent: 0.60,
         wheelCooldownDays: 7,
+        wheelMinVisits: 3, // Only show wheel on 3rd+ visit
 
         // Countdown — end date (auto-rolls to next Sunday midnight)
         countdownEndDate: null, // auto-calculated
 
         // Exit Intent
         exitIntentSensitivity: 10, // px from top of viewport
+        exitIntentMinTimeMs: 8000, // minimum time on page before exit intent fires
 
         // Geolocation
         geoApiUrl: 'https://ipapi.co/json/',
@@ -42,7 +44,10 @@
 
         // WhatsApp CTA
         whatsappNumber: '5215578107837',
-        whatsappBaseUrl: 'https://wa.me/'
+        whatsappBaseUrl: 'https://wa.me/',
+
+        // Visit tracking
+        lightboxMinVisits: 2 // Only show lightbox on 2nd+ visit
     };
 
     /* Auto-calculate next Sunday midnight for countdown */
@@ -406,6 +411,10 @@
         init: function () {
             if (Store.has('lightbox_dismissed')) return;
 
+            // Only show on 2nd+ visit
+            var visitCount = parseInt(localStorage.getItem('wbm_visit_count') || '1', 10);
+            if (visitCount < CONFIG.lightboxMinVisits) return;
+
             var self = this;
 
             // Trigger: scroll depth
@@ -532,30 +541,56 @@
     var ExitIntent = {
         _shown: false,
         _el: null,
+        _pageLoadTime: Date.now(),
 
         init: function () {
             if (Store.has('exit_shown')) return;
 
             var self = this;
 
-            // Desktop: mouse leaves viewport toward top
+            // Desktop: mouse leaves viewport toward top (with minimum time check)
             document.documentElement.addEventListener('mouseleave', function (e) {
                 if (e.clientY <= CONFIG.exitIntentSensitivity && !self._shown) {
-                    self.show();
+                    if (Date.now() - self._pageLoadTime >= CONFIG.exitIntentMinTimeMs) {
+                        self.show();
+                    }
                 }
             });
 
-            // Mobile: visibility change (switching tab / pressing back)
+            // Mobile: back button / tab switch detection
             document.addEventListener('visibilitychange', function () {
                 if (document.visibilityState === 'hidden' && !self._shown) {
-                    // Mark for showing when they come back
-                    self._pendingShow = true;
+                    if (Date.now() - self._pageLoadTime >= CONFIG.exitIntentMinTimeMs) {
+                        self._pendingShow = true;
+                    }
                 }
                 if (document.visibilityState === 'visible' && self._pendingShow && !self._shown) {
                     self._pendingShow = false;
                     self.show();
                 }
             });
+
+            // Mobile: rapid scroll up detection (user scrolling back to top fast = leaving)
+            var lastScrollY = window.scrollY;
+            var rapidScrollCount = 0;
+            var scrollCheckTimer = null;
+
+            window.addEventListener('scroll', function () {
+                if (self._shown) return;
+                var currentY = window.scrollY;
+                var diff = lastScrollY - currentY;
+
+                // Rapid scroll up (more than 200px upward in one frame)
+                if (diff > 200 && currentY < 100 && Date.now() - self._pageLoadTime >= CONFIG.exitIntentMinTimeMs) {
+                    rapidScrollCount++;
+                    if (rapidScrollCount >= 2) {
+                        self.show();
+                    }
+                    clearTimeout(scrollCheckTimer);
+                    scrollCheckTimer = setTimeout(function () { rapidScrollCount = 0; }, 2000);
+                }
+                lastScrollY = currentY;
+            }, { passive: true });
         },
 
         show: function () {
@@ -656,6 +691,10 @@
 
         init: function () {
             if (Store.has('wheel_played')) return;
+
+            // Only show wheel on 3rd+ visit
+            var visitCount = parseInt(localStorage.getItem('wbm_visit_count') || '1', 10);
+            if (visitCount < CONFIG.wheelMinVisits) return;
 
             var self = this;
             var shown = false;
@@ -838,6 +877,11 @@
        ═══════════════════════════════════════════════════════ */
 
     function init() {
+        // Track visit count
+        var visitCount = parseInt(localStorage.getItem('wbm_visit_count') || '0', 10);
+        visitCount++;
+        localStorage.setItem('wbm_visit_count', visitCount.toString());
+
         // 1. Page targeting (sync)
         PageTargeting.init();
 

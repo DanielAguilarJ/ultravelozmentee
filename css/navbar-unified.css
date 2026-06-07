@@ -659,3 +659,23 @@ html.light-mode .nav-pill-theme .icon-sun {
 .nav-skip-link:focus {
     top: 16px;
 }
+
+/* =============================================
+   PROMO BAR INTERACTION
+   When marketing floating bar is visible, push pill down
+   ============================================= */
+
+.wbm-bar-active .nav-pill {
+    top: 60px;
+    transition: top 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.wbm-bar-active .nav-pill.scrolled {
+    top: 56px;
+}
+
+@media (max-width: 768px) {
+    .wbm-bar-active .nav-pill {
+        top: 56px;
+    }
+}

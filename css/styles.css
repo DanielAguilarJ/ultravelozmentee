@@ -123,10 +123,7 @@ html.light-mode {
 /* ===== LIGHT MODE COMPONENT OVERRIDES ===== */
 
 /* Navbar */
-html.light-mode .navbar {
-    background: rgba(248, 247, 255, 0.8);
-    border-bottom-color: rgba(0, 0, 0, 0.06);
-}
+/* Old light-mode navbar - now in navbar-unified.css */
 
 /* Hero glows - softer in light mode */
 html.light-mode .hero::before {
@@ -265,13 +262,7 @@ html.light-mode .cta-box .small-text i {
 
 /* Footer styles moved to css/footer-modern.css */
 
-/* Mobile nav */
-@media (max-width: 1024px) {
-    html.light-mode .nav-links {
-        background: #f0eef9;
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.1);
-    }
-}
+/* Old mobile nav styles removed - now in navbar-unified.css */
 
 /* Bento item with bg images - lighter overlay */
 html.light-mode .bento-item.has-bg-image::before {
@@ -731,68 +722,7 @@ img {
 }
 
 /* Navbar */
-.navbar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 1000;
-    padding: 20px 0;
-    transition: all 0.3s ease;
-    background: rgba(2, 6, 23, 0.6);
-    backdrop-filter: blur(16px);
-    border-bottom: 1px solid var(--glass-border);
-}
-
-.navbar .container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.logo {
-    font-size: 1.5rem;
-    font-weight: 800;
-    color: var(--text-main);
-    display: flex;
-    align-items: center;
-    gap: 8px;
-    font-family: 'Space Grotesk', sans-serif;
-}
-
-.nav-links {
-    display: flex;
-    gap: 32px;
-}
-
-.nav-links a {
-    color: var(--text-body);
-    font-weight: 500;
-}
-
-.nav-links a:hover {
-    color: var(--accent);
-}
-
-/* Nav CTA visibility */
-.nav-cta-desktop {
-    display: inline-flex;
-}
-
-.nav-cta-mobile {
-    display: none;
-}
-
-@media (max-width: 1024px) {
-    .nav-cta-desktop {
-        display: none;
-    }
-
-    .nav-cta-mobile {
-        display: block;
-        margin-top: 16px;
-    }
-}
+/* Old navbar styles removed - now using css/navbar-unified.css */
 
 /* Hero Section */
 .hero {
@@ -1532,68 +1462,12 @@ img {
 }
 
 /* ===== MOBILE HAMBURGER MENU ===== */
-.hamburger {
-    display: none;
-    flex-direction: column;
-    gap: 5px;
-    cursor: pointer;
-    padding: 10px;
-    z-index: 1001;
-}
-
-.hamburger span {
-    width: 25px;
-    height: 3px;
-    background: var(--text-main);
-    border-radius: 3px;
-    transition: all 0.3s ease;
-}
-
-.hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-}
-
-.hamburger.active span:nth-child(2) {
-    opacity: 0;
-}
-
-.hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(7px, -6px);
-}
+/* Old hamburger styles removed - now using css/navbar-unified.css */
 
 /* ===== RESPONSIVE BREAKPOINTS ===== */
 
 /* Tablet */
 @media (max-width: 1024px) {
-    .hamburger {
-        display: flex;
-    }
-
-    .nav-links {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 80%;
-        max-width: 320px;
-        height: 100vh;
-        background: var(--primary);
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        gap: 32px;
-        transition: right 0.4s var(--ease-out-expo);
-        box-shadow: -10px 0 30px rgba(0, 0, 0, 0.5);
-        z-index: 1000;
-    }
-
-    .nav-links.active {
-        right: 0;
-    }
-
-    .nav-links a {
-        font-size: 1.25rem;
-        padding: 12px 24px;
-    }
 
     .hero-content {
         grid-template-columns: 1fr;

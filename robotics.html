@@ -957,6 +957,7 @@
     <script
         src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
     <link rel="stylesheet" href="css/footer-modern.css">
+        <link rel="stylesheet" href="css/navbar-unified.css">
     </head>
 
 <body class="rb-page smooth-scroll">
@@ -990,33 +991,94 @@
     <div class="cursor-dot" id="cursorDot"></div>
     <div class="cursor-outline" id="cursorOutline"></div>
 
-    <!-- Navigation -->
-    <nav class="course-navbar glass-card" id="navbar" role="navigation" aria-label="Navegación principal">
-        <div class="container">
-            <a href="index.html" class="course-logo rb-logo">
-                <span class="logo-icon"><i class="fas fa-robot"></i></span>
-                Robotics<span class="code-text">Code</span>
-            </a>
-            <div class="course-nav-links">
-                <a href="#cursos" class="nav-link">Cursos</a>
-                <a href="#tecnologias" class="nav-link">Tecnologías</a>
-                <a href="#proyectos" class="nav-link">Proyectos</a>
-                <a href="#testimonios" class="nav-link">Testimonios</a>
-                <a href="#inscripcion" class="course-nav-cta rb-nav-cta">
-                    <i class="fas fa-code"></i> Inscribirme
-                </a>
-            </div>
-            <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
-                <span class="icon-moon">🌙</span>
-                <span class="icon-sun">☀️</span>
+    <!-- Skip to content -->
+<a href="#main-content" class="nav-skip-link">Saltar al contenido</a>
+
+<!-- Unified Pill Navbar -->
+<nav class="nav-pill" role="navigation" aria-label="Navegaci&oacute;n principal">
+    <a href="index.html" class="nav-pill-logo">World<span>Brain</span></a>
+
+    <div class="nav-pill-links">
+        <div class="nav-dropdown">
+            <button class="nav-pill-link" aria-expanded="false" aria-haspopup="true">
+                Cursos <i class="fas fa-chevron-down"></i>
             </button>
-            <div class="mobile-menu-toggle" id="mobileMenuToggle">
-                <span></span>
-                <span></span>
-                <span></span>
+            <div class="nav-dropdown-menu" role="menu">
+                <div>
+                    <span class="dropdown-group-title">Ni&ntilde;os</span>
+                    <a href="fastkids.html" role="menuitem"><i class="fas fa-child"></i> FastKids</a>
+                    <a href="mathekids.html" role="menuitem"><i class="fas fa-calculator"></i> MatheKids</a>
+                    <a href="juniormath_v2.html" role="menuitem"><i class="fas fa-square-root-alt"></i> JuniorMath</a>
+                    <a href="lectoescritura.html" role="menuitem"><i class="fas fa-book-reader"></i> Lectoescritura</a>
+                    <a href="ciencia-astronomia.html" role="menuitem"><i class="fas fa-rocket"></i> Ciencia y Astronom&iacute;a</a>
+                    <a href="robotics.html" role="menuitem"><i class="fas fa-robot"></i> Robotics Code</a>
+                    <a href="homeschool.html" role="menuitem"><i class="fas fa-home"></i> Homeschool</a>
+                </div>
+                <div>
+                    <span class="dropdown-group-title">J&oacute;venes y Adultos</span>
+                    <a href="fotolectura.html" role="menuitem"><i class="fas fa-bolt"></i> Fotolectura</a>
+                    <a href="memoria-prodigiosa.html" role="menuitem"><i class="fas fa-brain"></i> Memoria Prodigiosa</a>
+                    <a href="neurocomunicacion.html" role="menuitem"><i class="fas fa-comments"></i> Neurocomunicaci&oacute;n</a>
+                    <a href="grandes-lideres.html" role="menuitem"><i class="fas fa-users"></i> Grandes L&iacute;deres</a>
+                    <a href="redaccion-ejecutiva.html" role="menuitem"><i class="fas fa-pen-nib"></i> Redacci&oacute;n Ejecutiva</a>
+                    <a href="admision-universitaria.html" role="menuitem"><i class="fas fa-graduation-cap"></i> Admisi&oacute;n Universitaria</a>
+                    <a href="universidad-dominical.html" role="menuitem"><i class="fas fa-university"></i> Universidad Dominical</a>
+                    <a href="regularizacion-express.html" role="menuitem"><i class="fas fa-clipboard-check"></i> Regularizaci&oacute;n Express</a>
+                    <a href="alfa-cash.html" role="menuitem"><i class="fas fa-coins"></i> ALFA-CASH</a>
+                </div>
             </div>
+        </div>
+        <a href="index.html#metodologia" class="nav-pill-link">Metodolog&iacute;a</a>
+        <a href="testimonios.html" class="nav-pill-link">Testimonios</a>
+        <a href="blog-index.html" class="nav-pill-link">Blog</a>
+        <a href="index.html#contacto" class="nav-pill-cta">Contacto</a>
+    </div>
+
+    <button class="nav-pill-theme" id="navThemeToggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
+        <span class="icon-moon">&#x1F319;</span>
+        <span class="icon-sun">&#x2600;&#xFE0F;</span>
+    </button>
+
+    <button class="nav-pill-hamburger" id="navHamburger" aria-label="Abrir men&uacute;" aria-expanded="false" aria-controls="navMobilePanel">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+</nav>
+
+<!-- Mobile Menu Panel -->
+<div class="nav-mobile-overlay" id="navMobileOverlay"></div>
+<div class="nav-mobile-panel" id="navMobilePanel" aria-hidden="true">
+    <button class="nav-pill-link mobile-dropdown-toggle" id="mobileDropdownBtn" aria-expanded="false">
+        Cursos <i class="fas fa-chevron-down" style="transition: transform 0.2s ease;"></i>
+    </button>
+    <div class="mobile-dropdown-content" id="mobileDropdownContent">
+        <span class="dropdown-group-title">Ni&ntilde;os</span>
+        <a href="fastkids.html"><i class="fas fa-child"></i> FastKids</a>
+        <a href="mathekids.html"><i class="fas fa-calculator"></i> MatheKids</a>
+        <a href="juniormath_v2.html"><i class="fas fa-square-root-alt"></i> JuniorMath</a>
+        <a href="lectoescritura.html"><i class="fas fa-book-reader"></i> Lectoescritura</a>
+        <a href="ciencia-astronomia.html"><i class="fas fa-rocket"></i> Ciencia y Astronom&iacute;a</a>
+        <a href="robotics.html"><i class="fas fa-robot"></i> Robotics Code</a>
+        <a href="homeschool.html"><i class="fas fa-home"></i> Homeschool</a>
+        <span class="dropdown-group-title">J&oacute;venes y Adultos</span>
+        <a href="fotolectura.html"><i class="fas fa-bolt"></i> Fotolectura</a>
+        <a href="memoria-prodigiosa.html"><i class="fas fa-brain"></i> Memoria Prodigiosa</a>
+        <a href="neurocomunicacion.html"><i class="fas fa-comments"></i> Neurocomunicaci&oacute;n</a>
+        <a href="grandes-lideres.html"><i class="fas fa-users"></i> Grandes L&iacute;deres</a>
+        <a href="redaccion-ejecutiva.html"><i class="fas fa-pen-nib"></i> Redacci&oacute;n Ejecutiva</a>
+        <a href="admision-universitaria.html"><i class="fas fa-graduation-cap"></i> Admisi&oacute;n Universitaria</a>
+        <a href="universidad-dominical.html"><i class="fas fa-university"></i> Universidad Dominical</a>
+        <a href="regularizacion-express.html"><i class="fas fa-clipboard-check"></i> Regularizaci&oacute;n Express</a>
+        <a href="alfa-cash.html"><i class="fas fa-coins"></i> ALFA-CASH</a>
+    </div>
+    <a href="index.html#metodologia" class="nav-pill-link">Metodolog&iacute;a</a>
+    <a href="testimonios.html" class="nav-pill-link">Testimonios</a>
+    <a href="blog-index.html" class="nav-pill-link">Blog</a>
+    <a href="index.html#contacto" class="nav-pill-cta">Contacto</a>
 </div>
-    </nav>
+
+
 
     <!-- Hero Section -->
     <main id="main-content" role="main">
@@ -2338,6 +2400,7 @@
             });
         }
     </script>
-</body>
+    <script src="js/navbar.js" defer></script>
+    </body>
 
 </html>

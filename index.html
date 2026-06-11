@@ -60,7 +60,7 @@
     <link rel="dns-prefetch" href="//connect.facebook.net">
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="css/styles.css" as="style">
+    <link rel="preload" href="css/styles.min.css" as="style">
     <link rel="preload" href="images/hero-bg.png" as="image" fetchpriority="high">
     <link rel="preload" href="https://fonts.gstatic.com/s/inter/v18/UcCO3FwrK3iLTeHuS_nVNrUpa28oXIk.woff2" as="font"
         type="font/woff2" crossorigin>
@@ -83,9 +83,10 @@
     </script>
 
     <!-- Design System -->
-    <link rel="stylesheet" href="css/styles.css">
-    <!-- Marketing & Conversion Toolkit -->
-    <link rel="stylesheet" href="css/marketing-toolkit.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <!-- Marketing & Conversion Toolkit (deferred - modals not needed for FCP) -->
+    <link rel="stylesheet" href="css/marketing-toolkit.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/marketing-toolkit.min.css"></noscript>
 
     <!-- Schema.org Markup Avanzado para SEO -->
 
@@ -939,8 +940,11 @@
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
-    <!-- Custom CSS -->
-    <link rel="stylesheet" href="css/footer-modern.css?v=2">
+    <!-- Override FontAwesome font-display for better FCP -->
+    <style>@font-face{font-family:'Font Awesome 6 Free';font-display:swap}@font-face{font-family:'Font Awesome 6 Brands';font-display:swap}</style>
+    <!-- Custom CSS (footer deferred - below fold) -->
+    <link rel="stylesheet" href="css/footer-modern.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/footer-modern.min.css"></noscript>
     <!-- AOS Animation Library (deferred - non-critical) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript>
@@ -972,9 +976,9 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
-    <script
+    <script defer
         src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
-    <link rel="stylesheet" href="css/navbar-unified.css">
+    <link rel="stylesheet" href="css/navbar-unified.min.css">
     </head>
 
 <body>
@@ -4101,7 +4105,7 @@
                                 <i class="fa-solid fa-brain"></i>
                             </div>
                             <div class="item-content">
-                                <h4>Diagnóstico Neuro-Cognitivo</h4>
+                                <h3 class="vs-item-title">Diagnóstico Neuro-Cognitivo</h3>
                                 <p>Valor real: <span class="price-strikethrough">$1,500</span></p>
                             </div>
                         </div>
@@ -4112,7 +4116,7 @@
                                 <i class="fa-solid fa-map"></i>
                             </div>
                             <div class="item-content">
-                                <h4>Hoja de Ruta Académica</h4>
+                                <h3 class="vs-item-title">Hoja de Ruta Académica</h3>
                                 <p>Valor real: <span class="price-strikethrough">$800</span></p>
                             </div>
                         </div>
@@ -4123,7 +4127,7 @@
                                 <i class="fa-solid fa-book-open"></i>
                             </div>
                             <div class="item-content">
-                                <h4>Ebook: Hacks de Memoria</h4>
+                                <h3 class="vs-item-title">Ebook: Hacks de Memoria</h3>
                                 <p>Valor real: <span class="price-strikethrough">$500</span></p>
                             </div>
                         </div>
@@ -4134,7 +4138,7 @@
                                 <i class="fa-solid fa-trophy"></i>
                             </div>
                             <div class="item-content">
-                                <h4>Acceso a Comunidad Elite</h4>
+                                <h3 class="vs-item-title">Acceso a Comunidad Elite</h3>
                                 <p>Valor real: <span class="price-strikethrough">Invaluable</span></p>
                             </div>
                         </div>
@@ -4611,15 +4615,15 @@
     <!-- Swiper Slider JS -->
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
     <!-- Main JS -->
-    <script src="js/main.js" defer></script>
+    <script src="js/main.min.js" defer></script>
 
     <!-- Hamburger Menu -->
-    <!-- Old hamburger script removed - using js/navbar.js -->
-    <script src="js/tracking.js" defer></script>
+    <!-- Old hamburger script removed - using js/navbar.min.js -->
+    <script src="js/tracking.min.js" defer></script>
     <!-- Marketing & Conversion Toolkit -->
-    <script src="js/marketing-toolkit.js" defer></script>
-    <script src="js/param-builder-client.js" defer></script>
-    <script src="js/navbar.js" defer></script>
+    <script src="js/marketing-toolkit.min.js" defer></script>
+    <script src="js/param-builder-client.min.js" defer></script>
+    <script src="js/navbar.min.js" defer></script>
     </body>
 
 </html>

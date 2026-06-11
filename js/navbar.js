@@ -90,6 +90,23 @@
     // =========================================
     // MOBILE MENU (Hamburger)
     // =========================================
+    // Helper: manage focusability of mobile panel interactive elements
+    function setMobilePanelFocusable(focusable) {
+        if (!mobilePanel) return;
+        var elements = mobilePanel.querySelectorAll('a, button, input, select, textarea, [tabindex]');
+        elements.forEach(function (el) {
+            if (focusable) {
+                el.removeAttribute('tabindex');
+            } else {
+                el.setAttribute('tabindex', '-1');
+            }
+        });
+        mobilePanel.setAttribute('aria-hidden', focusable ? 'false' : 'true');
+    }
+
+    // Initialize: hide mobile panel elements from tab order
+    setMobilePanelFocusable(false);
+
     function openMobileMenu() {
         if (hamburger && mobilePanel && mobileOverlay) {
             hamburger.classList.add('active');
@@ -97,6 +114,7 @@
             mobileOverlay.classList.add('active');
             document.body.style.overflow = 'hidden';
             hamburger.setAttribute('aria-expanded', 'true');
+            setMobilePanelFocusable(true);
         }
     }
 
@@ -107,6 +125,7 @@
             mobileOverlay.classList.remove('active');
             document.body.style.overflow = '';
             hamburger.setAttribute('aria-expanded', 'false');
+            setMobilePanelFocusable(false);
         }
     }
 

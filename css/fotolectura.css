@@ -512,6 +512,7 @@
     align-items: center;
     padding: 140px 0 80px;
     overflow: hidden;
+    contain: layout style;
 }
 
 /* --- Fondo con efectos geométricos y limpios (Neuro-Tech) --- */
@@ -521,6 +522,7 @@
     overflow: hidden;
     pointer-events: none;
     z-index: 0;
+    contain: layout style;
 }
 
 /* Halo Central Muy Sutil (Iluminación trasera limpia) */
@@ -697,11 +699,13 @@
     background: linear-gradient(90deg, transparent, var(--fl-accent), rgba(168, 85, 247, 0.8), transparent);
     animation: scannerMove 4s ease-in-out infinite;
     box-shadow: 0 0 20px var(--fl-accent), 0 0 40px var(--fl-accent);
+    will-change: transform, opacity;
+    contain: layout style;
 }
 
 @keyframes scannerMove {
     0% {
-        top: 0;
+        transform: translateY(0);
         opacity: 0;
     }
 
@@ -714,7 +718,7 @@
     }
 
     100% {
-        top: 100%;
+        transform: translateY(calc(100vh - 2px));
         opacity: 0;
     }
 }
@@ -3167,7 +3171,8 @@
     margin-bottom: 24px;
 }
 
-.fl-testimonial-card h4 {
+.fl-testimonial-card h4,
+.fl-testimonial-card .fl-testimonial-title {
     font-size: 1.2rem;
     font-weight: 700;
     margin-bottom: 16px;

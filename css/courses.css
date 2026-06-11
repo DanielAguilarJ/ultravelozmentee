@@ -528,6 +528,7 @@
     inset: 0;
     overflow: hidden;
     pointer-events: none;
+    contain: layout style;
 }
 
 .hero-orb {
@@ -536,6 +537,8 @@
     filter: blur(100px);
     opacity: 0.6;
     animation: orbFloat 20s ease-in-out infinite;
+    will-change: transform;
+    contain: layout style;
 }
 
 .hero-orb-1 {
@@ -1423,7 +1426,7 @@ body:not([class*="-page"]) .hero-description strong {
 }
 
 .marquee-item {
-    color: var(--course-bg);
+    color: #000000;
     font-weight: 700;
     font-size: 1.1rem;
     display: flex;
@@ -1901,7 +1904,8 @@ body:not([class*="-page"]) .hero-description strong {
     margin-bottom: 16px;
 }
 
-.testimonial-info h4 {
+.testimonial-info h4,
+.testimonial-info .testimonial-name {
     color: var(--course-text);
     font-size: 1.1rem;
     margin-bottom: 4px;
@@ -5259,7 +5263,8 @@ body:not([class*="-page"]) .hero-description strong {
     flex-grow: 1;
 }
 
-.mk-vs-content h4 {
+.mk-vs-content h4,
+.mk-vs-content .mk-vs-title {
     font-size: 1.1rem;
     font-weight: 700;
     color: var(--course-text);

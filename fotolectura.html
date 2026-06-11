@@ -54,7 +54,7 @@
     <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
     <!-- Preload critical resources -->
-    <link rel="preload" href="css/fotolectura.css" as="style">
+    <link rel="preload" href="css/fotolectura.min.css" as="style">
     <link rel="preload" href="images/fl-hero-brain.webp" as="image" type="image/webp" fetchpriority="high">
 
     <!-- Google Fonts -->
@@ -70,6 +70,7 @@
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
+    <style>@font-face{font-family:'Font Awesome 6 Free';font-display:swap}@font-face{font-family:'Font Awesome 6 Brands';font-display:swap}</style>
 
     <!-- AOS Animation Library (deferred — non-critical) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
@@ -99,8 +100,8 @@
         })();
     </script>
 
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/fotolectura.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="css/fotolectura.min.css">
 
     <!-- Inline Critical Styles for 2025 Effects -->
     <style>
@@ -641,10 +642,11 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
-    <script
+    <script defer
         src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
-    <link rel="stylesheet" href="css/footer-modern.css">
-        <link rel="stylesheet" href="css/navbar-unified.css">
+    <link rel="stylesheet" href="css/footer-modern.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/footer-modern.min.css"></noscript>
+        <link rel="stylesheet" href="css/navbar-unified.min.css">
     </head>
 
 <body class="fl-page smooth-scroll">
@@ -3091,7 +3093,7 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <h4>"1,237% de mejora real"</h4>
+                                <p class="fl-testimonial-title"><strong>"1,237% de mejora real"</strong></p>
                                 <p class="fl-quote">"Leí 3 libros en una tarde y aprobé mi examen de medicina con
                                     honores."</p>
                                 <div class="fl-testimonial-author">
@@ -3116,7 +3118,7 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <h4>"2,885% de aumento en velocidad"</h4>
+                                <p class="fl-testimonial-title"><strong>"2,885% de aumento en velocidad"</strong></p>
                                 <p class="fl-quote">"Increíble. De 236 ppm a 6,810 ppm. Fotolectura cambió mi carrera
                                     profesional por completo. Ahora soy el más rápido de mi equipo."</p>
                                 <div class="fl-testimonial-author">
@@ -3141,7 +3143,7 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <h4>"4,169% de mejora (Récord)"</h4>
+                                <p class="fl-testimonial-title"><strong>"4,169% de mejora (Récord)"</strong></p>
                                 <p class="fl-quote">"Empecé muy lento, con 130 ppm. Terminé el curso leyendo a 5,420
                                     ppm. Mi cerebro procesa la información de una manera que no creía posible."</p>
                                 <div class="fl-testimonial-author">
@@ -3166,7 +3168,7 @@
                                     <i class="fas fa-star"></i>
                                     <i class="fas fa-star"></i>
                                 </div>
-                                <h4>"Resultados desde la primera semana"</h4>
+                                <p class="fl-testimonial-title"><strong>"Resultados desde la primera semana"</strong></p>
                                 <p class="fl-quote">"En 7 días multipliqué mi comprensión y puedo leer documentos
                                     legales sin agotarme. Vale cada minuto."</p>
                                 <div class="fl-testimonial-author">
@@ -3297,15 +3299,15 @@
                                 <form id="contact-form" onsubmit="return false;">
                                     <div style="display: grid; gap: 20px;">
                                         <div class="fl-form-group">
-                                            <label class="fl-form-label">Nombre Completo</label>
+                                            <label class="fl-form-label" for="client-name">Nombre Completo</label>
                                             <input type="text" id="client-name" required="" class="fl-form-input">
                                         </div>
                                         <div class="fl-form-group">
-                                            <label class="fl-form-label">WhatsApp</label>
+                                            <label class="fl-form-label" for="client-phone">WhatsApp</label>
                                             <input type="tel" id="client-phone" required="" class="fl-form-input">
                                         </div>
                                         <div class="fl-form-group">
-                                            <label class="fl-form-label">Curso de Interés</label>
+                                            <label class="fl-form-label" for="course-select">Curso de Interés</label>
                                             <select id="course-select" class="fl-form-select">
                                                 <option value="Fotolectura" style="color: black;" selected>Fotolectura
                                                 </option>
@@ -3372,7 +3374,7 @@
                 </div>
 
                 <!-- Script de Reservas Centralizado -->
-                <script src="js/booking.js"></script>
+                <script src="js/booking.min.js"></script>
             </div>
         </section>
     </main>
@@ -4427,11 +4429,8 @@
             });
         })();
     </script>
-    <script src="js/tracking.js" defer></script>
-    <script src="js/param-builder-client.js" defer></script>
-
-    <!-- Swiper JS CDN -->
-    <script src="https://unpkg.com/swiper@9/swiper-bundle.min.js"></script>
+    <script src="js/tracking.min.js" defer></script>
+    <script src="js/param-builder-client.min.js" defer></script>
 
     <!-- Inicialización del Slider de Testimonios -->
     <script>
@@ -4500,7 +4499,7 @@
             });
         }
     </script>
-    <script src="js/navbar.js" defer></script>
+    <script src="js/navbar.min.js" defer></script>
     </body>
 
 </html>

@@ -48,7 +48,8 @@
     <!-- Performance: DNS Prefetch & Preconnect -->
     <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
     <link rel="dns-prefetch" href="//unpkg.com">
-    <link rel="preconnect" href="https://wa.me">
+    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
+    <link rel="preconnect" href="https://unpkg.com" crossorigin>
 
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -57,15 +58,18 @@
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@400;600;700;800&display=swap"
         rel="stylesheet">
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- FontAwesome (deferred - not needed for FCP) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <style>@font-face{font-family:'Font Awesome 6 Free';font-display:swap}@font-face{font-family:'Font Awesome 6 Brands';font-display:swap}</style>
 
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <!-- AOS Animation Library (deferred) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></noscript>
 
-    <!-- GSAP -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <!-- GSAP (deferred) -->
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
 
     <!-- Custom CSS -->
     <!-- Theme: FOUC Prevention -->
@@ -78,9 +82,9 @@
         })();
     </script>
 
-    <link rel="stylesheet" href="css/styles.css?v=2">
-    <link rel="stylesheet" href="css/courses.css?v=2">
-    <link rel="stylesheet" href="css/mathekids-responsive.css?v=1">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="css/courses.min.css">
+    <link rel="stylesheet" href="css/mathekids-responsive.min.css">
 
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -340,10 +344,11 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
-    <script
+    <script defer
         src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
-    <link rel="stylesheet" href="css/footer-modern.css">
-        <link rel="stylesheet" href="css/navbar-unified.css">
+    <link rel="stylesheet" href="css/footer-modern.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/footer-modern.min.css"></noscript>
+        <link rel="stylesheet" href="css/navbar-unified.min.css">
     </head>
 
 <body class="mk-page smooth-scroll">
@@ -975,7 +980,7 @@
                                 <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Madre">
                             </div>
                             <div class="testimonial-info">
-                                <h4>María González</h4>
+                                <p class="testimonial-name"><strong>María González</strong></p>
                                 <span>Mamá de Santiago, 8 años</span>
                                 <span class="mk-verified-badge"><i class="fas fa-check-circle"></i> Verificado</span>
                             </div>
@@ -1002,7 +1007,7 @@
                                 <img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Padre">
                             </div>
                             <div class="testimonial-info">
-                                <h4>Roberto Pérez</h4>
+                                <p class="testimonial-name"><strong>Roberto Pérez</strong></p>
                                 <span>Papá de Valentina, 10 años</span>
                                 <span class="mk-verified-badge"><i class="fas fa-check-circle"></i> Verificado</span>
                             </div>
@@ -1030,7 +1035,7 @@
                                 <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Madre">
                             </div>
                             <div class="testimonial-info">
-                                <h4>Ana Martínez</h4>
+                                <p class="testimonial-name"><strong>Ana Martínez</strong></p>
                                 <span>Mamá de Diego, 7 años</span>
                                 <span class="mk-verified-badge"><i class="fas fa-check-circle"></i> Verificado</span>
                             </div>
@@ -1077,7 +1082,7 @@
                         <div class="mk-vs-item">
                             <div class="mk-vs-icon"><i class="fas fa-chalkboard-teacher"></i></div>
                             <div class="mk-vs-content">
-                                <h4>Clase de Prueba Soroban</h4>
+                                <h3 class="mk-vs-title">Clase de Prueba Soroban</h3>
                                 <p>Sesión personalizada donde tu hijo experimenta el método con un instructor
                                     certificado.</p>
                             </div>
@@ -1090,7 +1095,7 @@
                         <div class="mk-vs-item">
                             <div class="mk-vs-icon"><i class="fas fa-tachometer-alt"></i></div>
                             <div class="mk-vs-content">
-                                <h4>Test de Velocidad Mental</h4>
+                                <h3 class="mk-vs-title">Test de Velocidad Mental</h3>
                                 <p>Diagnóstico completo del nivel actual de cálculo, concentración y memoria de tu hijo.
                                 </p>
                             </div>
@@ -1103,7 +1108,7 @@
                         <div class="mk-vs-item">
                             <div class="mk-vs-icon"><i class="fas fa-file-download"></i></div>
                             <div class="mk-vs-content">
-                                <h4>Material Digital de Práctica</h4>
+                                <h3 class="mk-vs-title">Material Digital de Práctica</h3>
                                 <p>Ejercicios descargables para que tu hijo practique en casa desde el primer día.</p>
                             </div>
                             <div class="mk-vs-price">
@@ -1154,15 +1159,15 @@
                                 <form id="contact-form" onsubmit="return false;">
                                     <div class="mk-booking-form-fields">
                                         <div class="course-form-group">
-                                            <label class="course-form-label">Nombre del Niño/a</label>
+                                            <label class="course-form-label" for="client-name">Nombre del Niño/a</label>
                                             <input type="text" id="client-name" required="" class="course-form-input">
                                         </div>
                                         <div class="course-form-group">
-                                            <label class="course-form-label">WhatsApp de Papá/Mamá</label>
+                                            <label class="course-form-label" for="client-phone">WhatsApp de Papá/Mamá</label>
                                             <input type="tel" id="client-phone" required="" class="course-form-input">
                                         </div>
                                         <div class="course-form-group">
-                                            <label class="course-form-label">Curso de Interés</label>
+                                            <label class="course-form-label" for="course-select">Curso de Interés</label>
                                             <select id="course-select" class="course-form-select">
                                                 <option value="MatheKids" style="color: black;" selected>MatheKids
                                                 </option>
@@ -1224,7 +1229,7 @@
                 </div>
 
                 <!-- Script de Reservas Centralizado -->
-                <script src="js/booking.js"></script>
+                <script src="js/booking.min.js"></script>
             </div>
         </section>
 
@@ -1431,13 +1436,13 @@
 
 
     <!-- Floating WhatsApp -->
-    <a href="https://wa.me/5215578107837" class="floating-whatsapp" target="_blank">
-        <i class="fab fa-whatsapp"></i>
+    <a href="https://wa.me/5215578107837" class="floating-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="js/courses.js"></script>
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="js/courses.min.js"></script>
 
     <!-- MatheKids: Scroll-driven Timeline -->
     <script>
@@ -1476,8 +1481,8 @@
         })();
     </script>
 
-    <script src="js/tracking.js"></script>
-    <script src="js/param-builder-client.js" defer></script>
+    <script defer src="js/tracking.min.js"></script>
+    <script src="js/param-builder-client.min.js" defer></script>
 
     <script>
     // Clickwrap Validation Script
@@ -1498,7 +1503,7 @@
     });
     </script>
 
-    <script src="js/navbar.js" defer></script>
+    <script src="js/navbar.min.js" defer></script>
     </body>
 
 </html>

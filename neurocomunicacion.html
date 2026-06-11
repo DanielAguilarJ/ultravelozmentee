@@ -50,10 +50,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <style>@font-face{font-family:'Font Awesome 6 Free';font-display:swap}@font-face{font-family:'Font Awesome 6 Brands';font-display:swap}</style>
 
     <!-- Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></noscript>
 
     <!-- Styles -->
     <!-- Theme: FOUC Prevention -->
@@ -66,7 +69,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         })();
     </script>
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.min.css">
 
     <!-- Schema.org Markup -->
     <script type="application/ld+json">
@@ -513,9 +516,10 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<script src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
-    <link rel="stylesheet" href="css/footer-modern.css">
-        <link rel="stylesheet" href="css/navbar-unified.css">
+<script defer src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
+    <link rel="stylesheet" href="css/footer-modern.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/footer-modern.min.css"></noscript>
+        <link rel="stylesheet" href="css/navbar-unified.min.css">
     </head>
 
 <body class="nc-page">
@@ -614,6 +618,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <!-- Hero Section -->
+
+    <main id="main-content">
     <header class="nc-hero">
         <div class="neural-bg"></div>
         <div class="container">
@@ -992,7 +998,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     </div>
                                     <div class="form-group">
                                         <label
-                                            style="display: block; margin-bottom: 8px; color: var(--nc-text-muted);">WhatsApp</label>
+                                            style="display: block; margin-bottom: 8px; color: var(--nc-text-muted);" for="client-phone">WhatsApp</label>
                                         <input type="tel" id="client-phone" required
                                             style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none;">
                                     </div>
@@ -1115,7 +1121,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </style>
 
         <!-- Script de Reservas Centralizado -->
-        <script src="js/booking.js"></script>
+        <script defer src="js/booking.min.js"></script>
     </section>
 
     <!-- CTA Section -->
@@ -1286,12 +1292,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Floating WhatsApp -->
     <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20información%20sobre%20Neurocomunicación"
-        style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: all 0.3s ease; color: white; font-size: 2rem; text-decoration: none;">
-        <i class="fab fa-whatsapp"></i>
+        style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: all 0.3s ease; color: white; font-size: 2rem; text-decoration: none;"
+        aria-label="Contactar por WhatsApp" rel="noopener noreferrer" target="_blank">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
             duration: 1000,
@@ -1299,8 +1306,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             offset: 100
         });
     </script>
-<script src="js/tracking.js"></script>
-    <script src="js/param-builder-client.js" defer></script>
+<script defer src="js/tracking.min.js"></script>
+    <script src="js/param-builder-client.min.js" defer></script>
 
     <script>
         // Theme Toggle
@@ -1313,7 +1320,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             });
         }
     </script>
-    <script src="js/navbar.js" defer></script>
-    </body>
+    <script src="js/navbar.min.js" defer></script>
+        </main>
+</body>
 
 </html>

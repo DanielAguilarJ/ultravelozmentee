@@ -50,10 +50,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <style>@font-face{font-family:'Font Awesome 6 Free';font-display:swap}@font-face{font-family:'Font Awesome 6 Brands';font-display:swap}</style>
 
     <!-- Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></noscript>
 
     <!-- Styles -->
     <!-- Theme: FOUC Prevention -->
@@ -66,8 +69,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         })();
     </script>
 
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/courses.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="css/courses.min.css">
 
     <style>
         /* 
@@ -669,9 +672,10 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<script src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
-    <link rel="stylesheet" href="css/footer-modern.css">
-        <link rel="stylesheet" href="css/navbar-unified.css">
+<script defer src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
+    <link rel="stylesheet" href="css/footer-modern.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/footer-modern.min.css"></noscript>
+        <link rel="stylesheet" href="css/navbar-unified.min.css">
     </head>
 
 <body class="fk-page">
@@ -773,6 +777,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <!-- Hero Section -->
+
+    <main id="main-content">
     <header class="fk-hero">
         <div class="fk-hero-bg-elements">
             <div class="fk-floating-word" style="top: 15%; left: 10%; font-size: 4rem;">HELLO</div>
@@ -1477,15 +1483,15 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <form id="contact-form" onsubmit="return false;">
                                 <div style="display: grid; gap: 20px;">
                                     <div class="fk-form-group">
-                                        <label class="fk-form-label">Nombre Completo</label>
+                                        <label class="fk-form-label" for="client-name">Nombre Completo</label>
                                         <input type="text" id="client-name" required="" class="fk-form-input">
                                     </div>
                                     <div class="fk-form-group">
-                                        <label class="fk-form-label">WhatsApp</label>
+                                        <label class="fk-form-label" for="client-phone">WhatsApp</label>
                                         <input type="tel" id="client-phone" required="" class="fk-form-input">
                                     </div>
                                     <div class="fk-form-group">
-                                        <label class="fk-form-label">Curso de Interés</label>
+                                        <label class="fk-form-label" for="course-select">Curso de Interés</label>
                                         <select id="course-select" class="fk-form-select">
                                             <option value="FastKids" style="color: black;" selected>FastKids (Inglés)
                                             </option>
@@ -1551,7 +1557,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
         </div>
 
         <!-- Script de Reservas Centralizado -->
-        <script src="js/booking.js" defer></script>
+        <script src="js/booking.min.js" defer></script>
     </section>
 
     <!-- Footer Unificado WorldBrain -->
@@ -1700,21 +1706,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
     <!-- Floating WhatsApp -->
     <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20información%20sobre%20FastKids" class="fk-whatsapp-float"
-        style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: all 0.3s ease; color: white; font-size: 2rem;">
-        <i class="fab fa-whatsapp"></i>
+        style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: #25D366; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4); z-index: 1000; transition: all 0.3s ease; color: white; font-size: 2rem;"
+        aria-label="Contactar por WhatsApp" rel="noopener noreferrer" target="_blank">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
     <!-- Scripts -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
     <script>
-        AOS.init({
-            duration: 800,
-            once: true,
-            offset: 100
+        document.addEventListener('DOMContentLoaded', function() {
+            if (typeof AOS !== 'undefined') {
+                AOS.init({
+                    duration: 800,
+                    once: true,
+                    offset: 100
+                });
+            }
         });
     </script>
-<script src="js/tracking.js"></script>
-    <script src="js/param-builder-client.js" defer></script>
+<script defer src="js/tracking.min.js"></script>
+    <script src="js/param-builder-client.min.js" defer></script>
 
     <script>
         // Theme Toggle
@@ -1727,7 +1738,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             });
         }
     </script>
-    <script src="js/navbar.js" defer></script>
-    </body>
+    <script src="js/navbar.min.js" defer></script>
+        </main>
+</body>
 
 </html>

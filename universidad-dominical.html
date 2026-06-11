@@ -268,10 +268,13 @@
         rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <style>@font-face{font-family:'Font Awesome 6 Free';font-display:swap}@font-face{font-family:'Font Awesome 6 Brands';font-display:swap}</style>
 
     <!-- Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></noscript>
 
     <!-- Styles -->
     <!-- Theme: FOUC Prevention -->
@@ -284,8 +287,8 @@
         })();
     </script>
 
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="css/universidad-dominical.css">
+    <link rel="stylesheet" href="css/styles.min.css">
+    <link rel="stylesheet" href="css/universidad-dominical.min.css">
 
     <style>
         /* 
@@ -586,10 +589,11 @@
     <noscript><img height="1" width="1" style="display:none"
             src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1" /></noscript>
     <!-- End Meta Pixel Code -->
-    <script
+    <script defer
         src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
-    <link rel="stylesheet" href="css/footer-modern.css">
-        <link rel="stylesheet" href="css/navbar-unified.css">
+    <link rel="stylesheet" href="css/footer-modern.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/footer-modern.min.css"></noscript>
+        <link rel="stylesheet" href="css/navbar-unified.min.css">
     </head>
 
 <body class="uni-page">
@@ -688,6 +692,8 @@
 
 
     <!-- Hero Section Editorial -->
+
+    <main id="main-content">
     <header class="uni-hero-editorial section-wave">
         <div class="hero-editorial-content container">
             <div class="hero-text-col" data-aos="fade-right">
@@ -828,7 +834,7 @@
                                 agilizar su titulación oficial.</p>
                         </div>
                         <a href="#agendar"
-                            style="color: #3b82f6; font-weight: 700; text-decoration: none; margin-top: 20px; display: inline-flex; align-items: center; gap: 8px;">
+                            style="color: #60a5fa; font-weight: 700; text-decoration: none; margin-top: 20px; display: inline-flex; align-items: center; gap: 8px;">
                             Ver ruta <i class="fas fa-arrow-right"></i>
                         </a>
                     </div>
@@ -1009,7 +1015,7 @@
                 <div data-aos="fade-left" style="position: relative;">
                     <div class="img-reveal-wrapper" style="margin-bottom: 24px;">
                         <img src="images/study-model.png" alt="Modelo de Estudio Universidad Dominical"
-                            class="parallax-img" data-speed="0.08" style="width: 100%; height: auto; display: block;">
+                            class="parallax-img" data-speed="0.08" width="640" height="640" style="width: 100%; height: auto; display: block;">
                         <div class="img-overlay"></div>
                     </div>
                     <div class="uni-card"
@@ -1487,7 +1493,7 @@
                                     </div>
                                     <div>
                                         <label
-                                            style="display: block; margin-bottom: 8px; font-weight: 500; color: #94a3b8;">WhatsApp</label>
+                                            style="display: block; margin-bottom: 8px; font-weight: 500; color: #94a3b8;" for="client-phone">WhatsApp</label>
                                         <input type="tel" id="client-phone" required
                                             style="width: 100%; padding: 14px 18px; border: 2px solid rgba(59, 130, 246, 0.3); border-radius: 12px; font-size: 1rem; background: rgba(255,255,255,0.05); color: white;">
                                     </div>
@@ -1568,7 +1574,7 @@
         </div>
 
         <!-- Script de Reservas Centralizado -->
-        <script src="js/booking.js"></script>
+        <script defer src="js/booking.min.js"></script>
 
         <style>
             .uni-time-slot,
@@ -1761,16 +1767,16 @@
 
 
     <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
             duration: 1000,
             once: true
         });
     </script>
-    <script src="js/tracking.js"></script>
-    <script src="js/param-builder-client.js" defer></script>
-    <script src="js/universidad-dominical.js" defer></script>
+    <script defer src="js/tracking.min.js"></script>
+    <script src="js/param-builder-client.min.js" defer></script>
+    <script src="js/universidad-dominical.min.js" defer></script>
 
     <script>
         // Theme Toggle
@@ -1783,7 +1789,8 @@
             });
         }
     </script>
-    <script src="js/navbar.js" defer></script>
-    </body>
+    <script src="js/navbar.min.js" defer></script>
+        </main>
+</body>
 
 </html>

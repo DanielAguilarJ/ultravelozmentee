@@ -251,10 +251,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         rel="stylesheet">
 
     <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
+    <style>@font-face{font-family:'Font Awesome 6 Free';font-display:swap}@font-face{font-family:'Font Awesome 6 Brands';font-display:swap}</style>
 
     <!-- Animations -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></noscript>
 
     <!-- Base Styles -->
     <!-- Theme: FOUC Prevention -->
@@ -267,7 +270,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         })();
     </script>
 
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/styles.min.css">
 
     <style>
         :root {
@@ -2060,9 +2063,10 @@ fbq('track', 'PageView');
 src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Meta Pixel Code -->
-<script src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
-    <link rel="stylesheet" href="css/footer-modern.css">
-        <link rel="stylesheet" href="css/navbar-unified.css">
+<script defer src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
+    <link rel="stylesheet" href="css/footer-modern.min.css" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="css/footer-modern.min.css"></noscript>
+        <link rel="stylesheet" href="css/navbar-unified.min.css">
     </head>
 
 <body class="mp-page">
@@ -2169,6 +2173,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
 
     <!-- Hero Section -->
+
+    <main id="main-content">
     <header class="mp-hero">
         <div class="mp-bg-glow" style="top: -100px; left: -100px;"></div>
         <div class="mp-bg-glow"
@@ -2290,7 +2296,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 <div class="mp-quiz-image" data-aos="fade-right" style="text-align: center;">
                     <img src="I_want_you_202512222049.jpeg" alt="Curso de mnemotecnia para mejorar la memoria - WorldBrain México"
                         style="width: 100%; max-width: 550px; border-radius: 24px; box-shadow: 0 20px 60px rgba(0,0,0,0.2); transform: rotate(-2deg); transition: transform 0.3s ease;"
-                        width="550" height="550"
+                        width="800" height="450"
                         onmouseover="this.style.transform='rotate(0deg) scale(1.02)'"
                         onmouseout="this.style.transform='rotate(-2deg)'">
                 </div>
@@ -2929,17 +2935,17 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <form id="contact-form" onsubmit="return false;">
                                 <div style="display: grid; gap: 20px;">
                                     <div class="mp-form-group">
-                                        <label class="mp-form-label">Nombre Completo</label>
+                                        <label class="mp-form-label" for="client-name">Nombre Completo</label>
                                         <input type="text" id="client-name" required class="mp-form-input"
                                             placeholder="Ej: Juan Pérez">
                                     </div>
                                     <div class="mp-form-group">
-                                        <label class="mp-form-label">WhatsApp</label>
+                                        <label class="mp-form-label" for="client-phone">WhatsApp</label>
                                         <input type="tel" id="client-phone" required class="mp-form-input"
                                             placeholder="Ej: 55 1234 5678">
                                     </div>
                                     <div class="mp-form-group">
-                                        <label class="mp-form-label">Curso de Interés</label>
+                                        <label class="mp-form-label" for="course-select">Curso de Interés</label>
                                         <select id="course-select" class="mp-form-select">
                                             <option value="Memoria Prodigiosa" selected>Memoria Prodigiosa</option>
                                             <option value="Fotolectura">Fotolectura</option>
@@ -3004,7 +3010,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
 
             <!-- Script de Reservas -->
-            <script src="js/booking.js"></script>
+            <script defer src="js/booking.min.js"></script>
         </div>
     </section>
 
@@ -3183,12 +3189,13 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <a href="https://wa.me/5215578107837?text=Hola,%20tengo%20una%20duda%20sobre%20Memoria%20Prodigiosa"
         class="mp-whatsapp-float"
         style="position: fixed; bottom: 30px; right: 30px; width: 60px; height: 60px; background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%; display: flex; align-items: center; justify-content: center; color: white; font-size: 2rem; box-shadow: 0 10px 30px rgba(37, 211, 102, 0.4), 0 0 20px rgba(37, 211, 102, 0.2); z-index: 1000; transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);"
+        aria-label="Contactar por WhatsApp" rel="noopener noreferrer" target="_blank"
         onmouseover="this.style.transform='scale(1.1) rotate(10deg)'; this.style.boxShadow='0 15px 40px rgba(37, 211, 102, 0.5), 0 0 30px rgba(37, 211, 102, 0.3)'"
         onmouseout="this.style.transform='scale(1) rotate(0deg)'; this.style.boxShadow='0 10px 30px rgba(37, 211, 102, 0.4), 0 0 20px rgba(37, 211, 102, 0.2)'">
-        <i class="fab fa-whatsapp"></i>
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
     </a>
 
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script defer src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         // ═══════════════════════════════════════════════════════════════════
         // INITIALIZE AOS WITH ENHANCED SETTINGS
@@ -3415,8 +3422,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                 lugar</a>
         </div>
     </div>
-<script src="js/tracking.js"></script>
-    <script src="js/param-builder-client.js" defer></script>
+<script defer src="js/tracking.min.js"></script>
+    <script src="js/param-builder-client.min.js" defer></script>
 
     <script>
         // Theme Toggle
@@ -3429,7 +3436,8 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             });
         }
     </script>
-    <script src="js/navbar.js" defer></script>
-    </body>
+    <script src="js/navbar.min.js" defer></script>
+        </main>
+</body>
 
 </html>

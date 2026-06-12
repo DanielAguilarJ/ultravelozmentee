@@ -61,7 +61,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@400;500;600;700;800&family=Space+Grotesk:wght@500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- Tailwind CSS -->
@@ -102,8 +102,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <style>
         /* Custom Styles & Animations */
         body {
-            background-color: #050505;
-            color: #e2e8f0;
             overflow-x: hidden;
         }
 
@@ -213,6 +211,14 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             break-inside: avoid;
             margin-bottom: 1.5rem;
         }
+
+        /* Fix Tailwind .container conflict inside footer */
+        .footer-modern .container {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px;
+            width: 100%;
+        }
     </style>
 
 <!-- Meta Pixel Code -->
@@ -244,9 +250,10 @@ src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1"
     </script>
     <link rel="stylesheet" href="css/footer-modern.min.css">
         <link rel="stylesheet" href="css/navbar-unified.min.css">
+        <link rel="stylesheet" href="css/redaccion-ejecutiva.min.css">
     </head>
 
-<body class="antialiased selection:bg-amber-400 selection:text-black">
+<body class="re-page antialiased selection:bg-amber-400 selection:text-black">
 
     <!-- Skip to content -->
 <a href="#main-content" class="nav-skip-link">Saltar al contenido</a>
@@ -344,8 +351,27 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ============================================
          HERO SECTION
          ============================================ -->
-    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16">
-        <!-- Background Elements -->
+    <section class="re-hero relative min-h-screen flex items-center justify-center overflow-hidden pt-20 pb-16">
+        <!-- Neural Network Animated Background -->
+        <div class="re-hero-bg">
+            <div class="re-hero-neural">
+                <div class="re-neural-line"></div>
+                <div class="re-neural-line"></div>
+                <div class="re-neural-line"></div>
+                <div class="re-neural-line"></div>
+                <div class="re-neural-line"></div>
+                <div class="re-neural-node"></div>
+                <div class="re-neural-node"></div>
+                <div class="re-neural-node"></div>
+                <div class="re-neural-node"></div>
+                <div class="re-neural-node"></div>
+            </div>
+            <div class="re-hero-grid"></div>
+        </div>
+        <!-- Hero Visual Element -->
+        <div class="re-hero-visual"></div>
+
+        <!-- Background Glow Elements -->
         <div class="absolute inset-0 z-0">
             <div class="absolute top-0 left-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-[120px]"></div>
             <div class="absolute bottom-0 right-1/4 w-96 h-96 bg-amber-500/5 rounded-full blur-[120px]"></div>
@@ -601,6 +627,62 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     </section>
 
     <!-- ============================================
+         TEMARIO - Contenido del Programa
+         ============================================ -->
+    <section class="re-temario">
+        <div class="re-container">
+            <div class="re-temario-grid">
+                <div class="re-temario-content">
+                    <span class="re-pretitle">Contenido del Programa</span>
+                    <h2 class="re-title">Domina el arte de <span class="re-gradient-text">escribir con poder.</span></h2>
+                    <p class="re-subtitle">3 modulos intensivos disenados para transformar tu comunicacion escrita de ordinaria a irresistible.</p>
+
+                    <div class="re-modules">
+                        <div class="re-module">
+                            <div class="re-module-number">1</div>
+                            <div class="re-module-content">
+                                <h4>Diagnostico de Impacto</h4>
+                                <p>Identificamos tus vicios ocultos de redaccion que estan saboteando tu autoridad.</p>
+                            </div>
+                        </div>
+                        <div class="re-module">
+                            <div class="re-module-number">2</div>
+                            <div class="re-module-content">
+                                <h4>Estructura de Poder</h4>
+                                <p>Las 3 estructuras psicologicas para correos, informes y propuestas que obligan a decir SI.</p>
+                            </div>
+                        </div>
+                        <div class="re-module">
+                            <div class="re-module-number">3</div>
+                            <div class="re-module-content">
+                                <h4>Persuasion Neuro-Linguistica</h4>
+                                <p>Palabras gatillo y tono de voz que proyectan liderazgo absoluto.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="re-temario-visual">
+                    <div class="re-visual-card">
+                        <div class="re-visual-header">
+                            <div class="re-visual-dots">
+                                <span></span><span></span><span></span>
+                            </div>
+                        </div>
+                        <div class="re-visual-body">
+                            <div class="re-visual-line"></div>
+                            <div class="re-visual-line"></div>
+                            <div class="re-visual-line"></div>
+                            <div class="re-visual-line"></div>
+                        </div>
+                        <div class="re-visual-cursor"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================
          IDENTITY FILTER (POLARIZATION)
          ============================================ -->
     <section class="py-24 bg-black relative">
@@ -819,6 +901,26 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             </div>
         </div>
     </section>
+
+    <!-- ============================================
+         GUARANTEE
+         ============================================ -->
+    <section class="re-guarantee">
+        <div class="re-container">
+            <div class="re-guarantee-content">
+                <div class="re-guarantee-icon">
+                    <i class="fas fa-shield-alt"></i>
+                </div>
+                <h3 class="re-title" style="font-size: clamp(1.5rem, 3vw, 2rem); margin-bottom: 0.5rem;">Garantia de Satisfaccion Total</h3>
+                <p>Si dentro de los primeros <strong>7 dias</strong> no sientes que tu redaccion ha mejorado dramaticamente, te devolvemos el 100% de tu inversion. Sin preguntas, sin complicaciones. Confiamos en nuestro metodo porque funciona.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- WhatsApp Floating Button -->
+    <a href="https://wa.me/5215578107837?text=Hola,%20me%20interesa%20el%20curso%20de%20Redacci%C3%B3n%20Ejecutiva" class="re-whatsapp-float" aria-label="Contactar por WhatsApp" rel="noopener noreferrer" target="_blank">
+        <i class="fab fa-whatsapp" aria-hidden="true"></i>
+    </a>
 
     <!-- Footer Unificado WorldBrain -->
 <footer class="footer-modern" role="contentinfo">

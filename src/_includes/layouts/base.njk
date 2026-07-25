@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es-MX">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>{{ title }} | {{ site.name }}</title>
+  <meta name="description" content="{{ description }}">
+  <link rel="canonical" href="{{ site.url }}{{ page.url }}">
+
+  <meta property="og:type" content="website">
+  <meta property="og:locale" content="es_MX">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:title" content="{{ title }} | {{ site.name }}">
+  <meta property="og:description" content="{{ description }}">
+  {% if ogImage %}<meta property="og:image" content="{{ site.url }}{{ ogImage }}">{% endif %}
+
+  <link rel="stylesheet" href="/css/main.css">
+
+  {% block schema %}{% endblock %}
+</head>
+<body>
+  {% include "components/nav.njk" %}
+
+  <main id="main-content">
+    {{ content | safe }}
+  </main>
+
+  <footer class="site-footer">
+    <p>{{ site.name }} — Pioneros en Neuroaprendizaje desde {{ site.foundedYear }}.</p>
+    <address>
+      <a href="{{ site.phoneHref }}">{{ site.phone }}</a> ·
+      <a href="{{ site.whatsappNumber | waUrl('Hola, quiero información de WorldBrain') }}">WhatsApp</a> ·
+      <a href="mailto:{{ site.email }}">{{ site.email }}</a>
+    </address>
+    <small>{{ site.legal.razonSocial }} | RFC: {{ site.legal.rfc }} | {{ site.legal.domicilio }}</small>
+    <small>&copy; {% year %} {{ site.name }}. Todos los derechos reservados.</small>
+    <nav aria-label="Legal">
+      <a href="/terminos/">Términos</a> ·
+      <a href="/privacidad/">Privacidad</a> ·
+      <a href="/reembolsos/">Devoluciones</a>
+    </nav>
+  </footer>
+
+  <script src="/js/main.js" defer></script>
+</body>
+</html>

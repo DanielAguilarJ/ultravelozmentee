@@ -1,0 +1,9 @@
+<section aria-labelledby="faq-title">
+  <h2 id="faq-title">Preguntas Frecuentes</h2>
+  {% for item in courses[courseId].faq %}
+  <details>
+    <summary>{{ item.q }}</summary>
+    <p>{{ item.a }}</p>
+  </details>
+  {% endfor %}
+</section>

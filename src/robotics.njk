@@ -1,0 +1,102 @@
+---
+layout: layouts/base.njk
+title: Curso de Robótica y Programación para Niños 7-17 años
+description: Robótica educativa: LEGO Mindstorms, Scratch, Arduino, Python e IA. Grupos de máximo 7 alumnos. CDMX y Cuautitlán Izcalli. Primera clase gratis.
+ogImage: /images/rb-hero-robot.webp
+permalink: /robotics/
+---
+
+<section class="hero">
+  <p class="hero-eyebrow">Para niños y adolescentes de 7 a 17 años</p>
+  <h1>Curso de Robótica y Programación para Niños</h1>
+  <p class="hero-tagline">De LEGO a Python e Inteligencia Artificial <span aria-hidden="true">🤖</span></p>
+  <a class="btn btn-whatsapp" data-cta="hero"
+     href="{{ site.whatsappNumber | waUrl('Hola, quiero mi clase de prueba GRATIS de Robotics Code') }}">
+    Clase de Prueba Gratis
+  </a>
+  <a class="btn btn-outline" href="#proyectos">Ver Proyectos</a>
+  <img src="/images/rb-hero-robot.webp"
+       alt="Niño programando un robot LEGO Mindstorms en el laboratorio de WorldBrain"
+       width="640" height="640" fetchpriority="high" decoding="async">
+</section>
+
+<section id="diferenciador" aria-labelledby="dif-title">
+  <span class="section-badge">El Método WorldBrain</span>
+  <h2 id="dif-title">Máximo {{ site.method.maxGroupSize }} alumnos por grupo. Sí, en serio.</h2>
+  <p class="section-intro">
+    Con máximo {{ site.method.maxGroupSize }} alumnos por instructor,
+    <strong>cada niño tiene su kit en las manos, todo el tiempo</strong>.
+  </p>
+  <div class="dif-grid">
+    <article class="dif-card">
+      <h3><span aria-hidden="true">👥</span> Grupos de máximo {{ site.method.maxGroupSize }}</h3>
+      <p>Atención casi personalizada. El instructor conoce el ritmo de cada alumno por nombre.</p>
+    </article>
+    <article class="dif-card">
+      <h3><span aria-hidden="true">🧠</span> "{{ site.method.signature }}"</h3>
+      <p>{{ site.method.signatureDesc }}. El cerebro llega <em>listo para aprender</em>.</p>
+    </article>
+    <article class="dif-card">
+      <h3><span aria-hidden="true">🏗️</span> Método probado desde {{ site.foundedYear }}</h3>
+      <p>Un instituto de neuroaprendizaje que aplica su metodología a la tecnología.</p>
+    </article>
+    <article class="dif-card">
+      <h3><span aria-hidden="true">🔧</span> Kit en mano, siempre</h3>
+      <p>Todo el equipo incluido: LEGO Mindstorms, Arduino, laptops. Tu hijo construye, no observa.</p>
+    </article>
+  </div>
+</section>
+
+<section aria-labelledby="sedes-title">
+  <h2 id="sedes-title">Clases presenciales y online</h2>
+  <div class="locations-grid">
+    {% for loc in site.locations %}{% if loc.verified %}
+    <article class="location-card">
+      <h3>{{ loc.city }}</h3>
+      <p class="location-tag">{{ loc.tag }}</p>
+    </article>
+    {% endif %}{% endfor %}
+  </div>
+  <p class="hours-note">Horarios: {{ site.hours }}</p>
+</section>
+
+<section aria-labelledby="niveles-title">
+  <h2 id="niveles-title">Elige el curso perfecto</h2>
+  <div class="levels-grid">
+    {% for level in courses.robotics.levels %}
+    <article class="level-card {% if level.popular %}level-card--popular{% endif %}">
+      {% if level.popular %}<span class="badge-popular">MÁS POPULAR</span>{% endif %}
+      <p class="level-ages">{{ level.ages }} años</p>
+      <h3>{{ level.name }}</h3>
+      <ul>
+        {% for item in level.stack %}<li>{{ item }}</li>{% endfor %}
+      </ul>
+      <h4>Proyectos que crearán:</h4>
+      <ul class="level-projects">
+        {% for p in level.projects %}<li>{{ p }}</li>{% endfor %}
+      </ul>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+{% set courseId = "robotics" %}
+{% include "components/testimonials.njk" %}
+
+{% include "components/faq.njk" %}
+
+<section id="inscripcion" aria-labelledby="cta-title">
+  <h2 id="cta-title">Inicia su camino en la tecnología</h2>
+  <p>La primera clase es <strong>gratis</strong>. Grupos de máximo
+     {{ site.method.maxGroupSize }} — los lugares se asignan por orden de llegada.</p>
+  <a class="btn btn-whatsapp btn-lg" data-cta="cierre"
+     href="{{ site.whatsappNumber | waUrl('Hola, quiero reservar la clase gratis de Robotics Code') }}">
+    Reservar Clase Gratis
+  </a>
+</section>
+
+{% block schema %}
+<script type="application/ld+json">
+{{ courses.robotics.schema | dump | safe }}
+</script>
+{% endblock %}

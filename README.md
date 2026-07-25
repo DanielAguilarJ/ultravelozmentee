@@ -1,42 +1,29 @@
-# UltraVelozmente 🚀
+# WorldBrain México — ultravelozmente.com
 
-Este proyecto es el sitio web de UltraVelozmente, optimizado para alto rendimiento y desplegado con Node.js.
+Sitio estático de neuroaprendizaje y robótica educativa. **Ningún dato de negocio vive en HTML.**
 
-## 📋 Requisitos
+## Tareas comunes
 
-- Node.js v18+
-- npm v9+
+### Cambiar teléfono, horarios, sedes o cifras
+Edita `data/site-data.js` (o `src/_data/site.json`). Un solo archivo actualiza las páginas.
 
-## 🛠️ Instalación y Uso Local
+### Añadir un testimonio
+1. Consigue consentimiento firmado + evidencia → archívalos en Drive.
+2. Añádelo a `data/site-data.js` con `"verified": true`.
+3. Sin evidencia → `"verified": false` → no se publica (regla en el build, no negociable).
 
-1.  **Instalar dependencias:**
-    ```bash
-    npm install
-    ```
+### Abrir la sede de Guadalajara
+`data/site-data.js` → locations → Guadalajara → `"verified": true`. Eso es todo.
 
-2.  **Iniciar servidor de desarrollo:**
-    ```bash
-    npm run dev
-    ```
-    El sitio estará visible en `http://localhost:3000`.
+### Modificar niveles/proyectos/FAQ de un curso
+`src/_data/courses.json`. El FAQ visible y el schema de Google salen del mismo dato.
 
-3.  **Iniciar en producción:**
-    ```bash
-    npm start
-    ```
+## Comandos
+- `npm run dev` — servidor local con hot reload
+- `npm run build` — genera `_site/`
+- `npm run check:external` — verifica cero imágenes de terceros
 
-## 📂 Estructura del Proyecto
-
--   **`public/`**: Contiene todos los archivos estáticos (HTML, CSS, JS, Imágenes).
--   **`server.js`**: Servidor Express con compresión Gzip habilitada.
--   **`package.json`**: Configuración del proyecto y dependencias.
-
-## 🚀 Despliegue en Hostinger
-
-1.  Sube este repositorio a GitHub.
-2.  En Hostinger, ve a la sección **Node.js**.
-3.  Conecta tu repositorio y configura:
-    -   **Root Directory:** `./`
-    -   **Build Command:** `npm install`
-    -   **Start Command:** `npm start`
-4.  ¡Listo! Hostinger desplegará automáticamente los cambios.
+## Reglas que el CI hace cumplir
+1. Cero `randomuser.me` / `pravatar.cc` (credibilidad/legal)
+2. Cero sedes hardcodeadas desiertas (publicidad engañosa)
+3. Build debe pasar

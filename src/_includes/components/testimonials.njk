@@ -1,0 +1,17 @@
+{% set items = testimonials | verifiedFor(courseId) %}
+{% if items.length %}
+<section aria-labelledby="testimonials-title">
+  <h2 id="testimonials-title">Casos de éxito</h2>
+  <div class="testimonials-grid">
+    {% for t in items %}
+    <article class="testimonial-card">
+      <div class="avatar-initials" data-hue="{{ t.hue }}" aria-hidden="true">{{ t.initials }}</div>
+      <h3 class="testimonial-name">{{ t.name }}</h3>
+      <p class="testimonial-role">{{ t.role }}</p>
+      <blockquote><p>"{{ t.quote }}"</p></blockquote>
+      <p class="testimonial-badge">✓ {{ t.badge }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}

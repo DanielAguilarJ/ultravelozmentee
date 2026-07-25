@@ -1,0 +1,843 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Diplomado en Matemáticas y Física — Programa Oficial Santillana | WorldBrain México</title>
+<meta name="description" content="Domina las matemáticas en tiempo récord. Diplomados con programa oficial Santillana para primaria, secundaria y preparatoria. Matemáticas, Física y Razonamiento Verbal. Clases en línea o presenciales.">
+<meta property="og:title" content="Diplomado en Matemáticas y Física — WorldBrain México">
+<meta property="og:description" content="Formación académica integral con programa oficial Santillana. Primaria, secundaria y preparatoria.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:ital,wght@0,400;0,500;0,700;0,900;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Diplomado en Matemáticas y Física",
+  "description": "Formación académica integral con programa oficial Santillana. Matemáticas, Física y Razonamiento Verbal para primaria, secundaria y preparatoria. Clases en línea o presenciales.",
+  "provider": { "@type": "Organization", "name": "WorldBrain México", "sameAs": "https://ultravelozmente.com" }
+}
+</script>
+<style>
+/* ================================================================
+   DIPLOMADO MATEMÁTICAS Y FÍSICA — BLUEPRINT ACADÉMICO · WB 2026
+   ================================================================ */
+:root{
+  --ice:#F4F6FB;
+  --paper:#FFFFFF;
+  --ink:#0E1230;
+  --ink-soft:#4A5070;
+  --blue:#2743F0;
+  --blue-deep:#1B2FB8;
+  --orange:#FF6B2C;
+  --teal:#0FA98E;
+  --grid:rgba(39,67,240,.08);
+  --line:#DDE2F2;
+  --sans:'Archivo',system-ui,sans-serif;
+  --mono:'IBM Plex Mono',monospace;
+  --sh:0 20px 50px -20px rgba(14,18,48,.18);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--sans);background:var(--ice);color:var(--ink);
+  line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+/* Retícula blueprint global */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background-image:
+    linear-gradient(var(--grid) 1px,transparent 1px),
+    linear-gradient(90deg,var(--grid) 1px,transparent 1px);
+  background-size:48px 48px;
+  mask-image:radial-gradient(ellipse 90% 80% at 50% 0%,#000 40%,transparent 100%);
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{line-height:1.08;letter-spacing:-.025em;text-wrap:balance;font-weight:900}
+::selection{background:var(--blue);color:#fff}
+
+.wrap{max-width:1180px;margin:0 auto;padding:0 26px;position:relative;z-index:2}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);font-weight:600}
+.kicker{display:inline-flex;align-items:center;gap:.6rem;margin-bottom:1.2rem}
+.kicker::before{content:"";width:26px;height:2px;background:var(--orange)}
+
+/* ---------- Botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;cursor:pointer;
+  font-family:var(--sans);font-weight:700;font-size:.95rem;border-radius:12px;
+  padding:1rem 1.9rem;border:2px solid var(--ink);transition:all .2s ease;
+}
+.btn-blue{background:var(--blue);border-color:var(--blue);color:#fff;box-shadow:0 10px 24px -10px rgba(39,67,240,.55)}
+.btn-blue:hover{background:var(--blue-deep);border-color:var(--blue-deep);transform:translateY(-2px)}
+.btn-ink{background:var(--ink);border-color:var(--ink);color:#fff}
+.btn-ink:hover{background:var(--blue);border-color:var(--blue);transform:translateY(-2px)}
+.btn-ghost{background:var(--paper);color:var(--ink)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn .arr{transition:transform .2s}
+.btn:hover .arr{transform:translateX(4px)}
+
+/* ---------- Header ---------- */
+header{
+  position:sticky;top:0;z-index:100;background:rgba(244,246,251,.88);
+  backdrop-filter:blur(12px);border-bottom:1px solid var(--line);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:.95rem 26px}
+.logo{font-weight:900;font-size:1.2rem;text-decoration:none;letter-spacing:-.03em}
+.logo span{color:var(--blue)}
+.nav-links{display:flex;gap:2rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-size:.9rem;font-weight:500;color:var(--ink-soft);transition:color .2s}
+.nav-links a:hover{color:var(--blue)}
+.nav-cta{font-size:.8rem;padding:.6rem 1.3rem}
+.burger{display:none;background:var(--paper);border:2px solid var(--ink);border-radius:10px;padding:.45rem .8rem;font-size:1.1rem;cursor:pointer}
+.mmenu{display:none;flex-direction:column;gap:1rem;padding:1.3rem 26px 1.7rem;border-bottom:1px solid var(--line);background:var(--ice)}
+.mmenu a{text-decoration:none;font-weight:700}
+.mmenu.open{display:flex}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:5.5rem 0 4.5rem;min-height:88svh;display:flex;align-items:center;overflow:hidden}
+#heroCanvas{position:absolute;inset:0;width:100%;height:100%;z-index:1;pointer-events:none}
+.hero-inner{position:relative;z-index:2;max-width:640px}
+.hero .badge-row{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.hero-badge{
+  font-family:var(--mono);font-size:.68rem;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  background:var(--paper);border:1.5px solid var(--ink);border-radius:8px;padding:.45rem .9rem;
+  box-shadow:3px 3px 0 var(--blue);
+}
+.hero h1{font-size:clamp(2.5rem,6vw,4.4rem);margin-bottom:1.6rem}
+.hero h1 .ul{position:relative;white-space:nowrap}
+.hero h1 .ul::after{
+  content:"";position:absolute;left:0;right:0;bottom:.05em;height:.28em;
+  background:var(--orange);z-index:-1;transform:scaleX(0);transform-origin:left;
+  animation:underline 1s .5s cubic-bezier(.7,0,.3,1) forwards;
+}
+@keyframes underline{to{transform:scaleX(1)}}
+.hero .lead{font-size:1.15rem;color:var(--ink-soft);margin-bottom:2.2rem;max-width:34rem}
+.hero .lead b{color:var(--ink)}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.4rem}
+.hero-meta{display:flex;gap:1.8rem;flex-wrap:wrap;font-family:var(--mono);font-size:.75rem;color:var(--ink-soft)}
+.hero-meta b{color:var(--blue);display:block;font-size:1.3rem;font-family:var(--sans);font-weight:900;letter-spacing:-.02em}
+
+/* ---------- Reveal ---------- */
+@supports (animation-timeline: view()){
+  .rv{animation:rvup both;animation-timeline:view();animation-range:entry 0% entry 38%}
+  @keyframes rvup{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+}
+
+/* ---------- Cinta de fórmulas ---------- */
+.strip{background:var(--ink);color:#fff;overflow:hidden;padding:.95rem 0;border-block:2px solid var(--ink)}
+.strip-track{display:flex;gap:3rem;white-space:nowrap;animation:strip 30s linear infinite;font-family:var(--mono);font-size:.9rem}
+.strip-track em{color:var(--orange);font-style:normal}
+@keyframes strip{to{transform:translateX(-50%)}}
+
+/* ---------- Secciones ---------- */
+section{padding:6.5rem 0;position:relative;z-index:2}
+h2.title{font-size:clamp(1.9rem,4.2vw,3rem);margin-bottom:1rem;max-width:24ch}
+.sub{color:var(--ink-soft);max-width:38rem;font-size:1.05rem}
+
+/* ---------- Bento beneficios ---------- */
+.bento{display:grid;grid-template-columns:repeat(6,1fr);gap:1.3rem;margin-top:3rem}
+.bcard{
+  background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:1.9rem;
+  transition:all .25s;position:relative;overflow:hidden;
+}
+.bcard:hover{border-color:var(--blue);transform:translateY(-4px);box-shadow:var(--sh)}
+.bcard .tagno{font-family:var(--mono);font-size:.65rem;color:var(--blue);letter-spacing:.15em;display:block;margin-bottom:1rem}
+.bcard h3{font-size:1.15rem;margin-bottom:.6rem;font-weight:700}
+.bcard p{color:var(--ink-soft);font-size:.94rem}
+.b-lg{grid-column:span 3}
+.b-md{grid-column:span 2}
+.b-santillana{
+  grid-column:span 6;background:var(--blue);border-color:var(--blue);color:#fff;
+  display:grid;grid-template-columns:auto 1fr auto;gap:2rem;align-items:center;
+}
+.b-santillana h3{color:#fff;font-size:1.4rem}
+.b-santillana p{color:rgba(255,255,255,.82)}
+.b-santillana .seal{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.15em;border:1.5px dashed rgba(255,255,255,.5);
+  border-radius:50%;width:110px;height:110px;display:grid;place-items:center;text-align:center;
+  padding:.8rem;animation:spin 24s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg)}}
+
+/* ---------- Selector de plan ---------- */
+.picker-zone{background:var(--paper);border-block:1.5px solid var(--line)}
+.picker{display:flex;gap:.8rem;flex-wrap:wrap;margin:2.4rem 0}
+.pick{
+  font-family:var(--sans);font-weight:700;font-size:.95rem;cursor:pointer;
+  background:var(--ice);border:2px solid var(--line);border-radius:999px;padding:.85rem 1.7rem;
+  transition:all .2s;
+}
+.pick:hover{border-color:var(--blue);color:var(--blue)}
+.pick.on{background:var(--ink);border-color:var(--ink);color:#fff}
+.plans{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem}
+.plan{
+  background:var(--ice);border:2px solid var(--line);border-radius:22px;padding:2.4rem;
+  transition:all .3s;position:relative;
+}
+.plan.lit{border-color:var(--blue);background:#fff;box-shadow:var(--sh)}
+.plan.lit::before{
+  content:"RECOMENDADO PARA TI";position:absolute;top:-13px;left:1.8rem;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.18em;font-weight:600;
+  background:var(--orange);color:#fff;border-radius:999px;padding:.35rem 1rem;
+}
+.plan .mono{display:block;margin-bottom:.8rem}
+.plan h3{font-size:1.5rem;margin-bottom:.4rem}
+.plan .for{color:var(--ink-soft);font-size:.92rem;margin-bottom:1.6rem}
+.spec{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.6rem}
+.spec div{background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:.9rem 1.1rem}
+.plan.lit .spec div{background:var(--ice)}
+.spec b{display:block;font-size:1.05rem;letter-spacing:-.01em}
+.spec span{font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-soft)}
+.plan ul{list-style:none;display:flex;flex-direction:column;gap:.7rem;margin-bottom:2rem}
+.plan li{display:flex;gap:.7rem;font-size:.94rem;color:var(--ink-soft)}
+.plan li::before{content:"▸";color:var(--orange);font-weight:900}
+
+/* ---------- Módulos (ruta) ---------- */
+.route{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:3rem;counter-reset:mod}
+.mod{
+  position:relative;padding:2rem 1.6rem 2rem 0;counter-increment:mod;
+  border-top:2px solid var(--line);
+}
+.mod::before{
+  content:"";position:absolute;top:-7px;left:0;width:12px;height:12px;border-radius:50%;
+  background:var(--paper);border:3px solid var(--blue);
+}
+.mod .mono{display:block;margin-bottom:.7rem}
+.mod .mono::before{content:"MÓDULO 0" counter(mod)}
+.mod h3{font-size:1.05rem;font-weight:700;margin-bottom:.5rem}
+.mod p{font-size:.88rem;color:var(--ink-soft)}
+
+/* ---------- LABORATORIO ---------- */
+.lab{background:var(--ink);color:#fff;border-block:2px solid var(--ink)}
+.lab .title,.lab h3{color:#fff}
+.lab .sub{color:rgba(255,255,255,.65)}
+.lab-grid{display:grid;grid-template-columns:340px 1fr;gap:2.5rem;margin-top:3rem;align-items:start}
+.lab-panel{
+  background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.14);
+  border-radius:18px;padding:1.8rem;
+}
+.lab-panel label{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(255,255,255,.6);display:flex;justify-content:space-between;margin-bottom:.5rem}
+.lab-panel label output{color:var(--orange);font-weight:600}
+.lab-panel input[type=range]{width:100%;margin-bottom:1.6rem;accent-color:var(--orange);cursor:pointer}
+.lab-eq{
+  font-family:var(--mono);font-size:.8rem;background:rgba(255,255,255,.06);
+  border:1px dashed rgba(255,255,255,.25);border-radius:12px;padding:1rem 1.2rem;
+  margin-bottom:1.6rem;color:rgba(255,255,255,.85);line-height:1.9;
+}
+.lab-eq em{color:var(--orange);font-style:normal}
+#labFire{width:100%;justify-content:center}
+.lab-stage{
+  background:linear-gradient(180deg,#141838 0%,#0E1230 100%);
+  border:1px solid rgba(255,255,255,.14);border-radius:18px;overflow:hidden;position:relative;
+}
+#labCanvas{width:100%;height:auto;display:block}
+.lab-hud{
+  position:absolute;top:1rem;left:1.2rem;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.12em;color:rgba(255,255,255,.55);
+}
+.lab-hud b{color:var(--orange);font-weight:600}
+
+/* ---------- Stats ---------- */
+.statband{background:var(--paper);border-block:1.5px solid var(--line)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center;padding:3.4rem 0}
+.stat b{font-size:clamp(2.2rem,4.6vw,3.4rem);font-weight:900;letter-spacing:-.03em;color:var(--blue);display:block}
+.stat span{font-family:var(--mono);font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft)}
+
+/* ---------- Metodología pasos ---------- */
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
+.step{
+  background:var(--paper);border:1.5px solid var(--line);border-radius:18px;padding:2rem;
+  position:relative;transition:all .25s;
+}
+.step:hover{border-color:var(--orange);transform:translateY(-4px);box-shadow:var(--sh)}
+.step .big{
+  font-family:var(--mono);font-weight:600;font-size:2.6rem;color:transparent;
+  -webkit-text-stroke:1.5px var(--blue);display:block;margin-bottom:1rem;
+}
+.step h3{font-size:1.15rem;font-weight:700;margin-bottom:.6rem}
+.step p{color:var(--ink-soft);font-size:.94rem}
+
+/* ---------- CTA final ---------- */
+.final{
+  background:var(--blue);color:#fff;text-align:center;border-block:2px solid var(--blue);
+  position:relative;overflow:hidden;
+}
+.final::before{
+  content:"";position:absolute;inset:0;
+  background-image:linear-gradient(rgba(255,255,255,.07) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.07) 1px,transparent 1px);
+  background-size:48px 48px;
+}
+.final .wrap{position:relative}
+.final h2{color:#fff;font-size:clamp(2rem,5vw,3.4rem);max-width:22ch;margin:0 auto 1.2rem}
+.final p{color:rgba(255,255,255,.8);max-width:34rem;margin:0 auto 2.4rem}
+.final .btn-ghost{border-color:#fff;background:#fff;color:var(--blue)}
+.final .btn-ghost:hover{background:var(--orange);border-color:var(--orange);color:#fff}
+.contact-row{display:flex;gap:2rem;justify-content:center;flex-wrap:wrap;margin-top:2.6rem;font-family:var(--mono);font-size:.8rem}
+.contact-row a{color:rgba(255,255,255,.85);text-decoration:none}
+.contact-row a:hover{color:#fff;text-decoration:underline}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:720px;margin:3rem auto 0}
+.faq details{background:var(--paper);border:1.5px solid var(--line);border-radius:14px;margin-bottom:.9rem;overflow:hidden;transition:border-color .2s}
+.faq details[open]{border-color:var(--blue)}
+.faq summary{
+  font-weight:700;padding:1.25rem 1.5rem;cursor:pointer;list-style:none;
+  display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-family:var(--mono);font-size:1.3rem;color:var(--blue);transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 1.5rem 1.3rem;color:var(--ink-soft)}
+
+/* ---------- Footer ---------- */
+footer{background:var(--ink);color:rgba(255,255,255,.75);padding:4rem 0 2rem;font-size:.88rem;position:relative;z-index:2}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem}
+footer h4{font-family:var(--mono);font-size:.68rem;letter-spacing:.2em;text-transform:uppercase;color:var(--orange);margin-bottom:1.1rem}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+footer a{text-decoration:none;color:rgba(255,255,255,.7);transition:color .2s}
+footer a:hover{color:#fff}
+.foot-legal{border-top:1px solid rgba(255,255,255,.12);padding-top:1.5rem;font-size:.74rem;opacity:.65;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+
+/* ---------- WhatsApp flotante ---------- */
+.wa{
+  position:fixed;bottom:24px;right:24px;z-index:200;width:58px;height:58px;border-radius:50%;
+  background:#25D366;border:2.5px solid var(--ink);display:grid;place-items:center;
+  font-size:1.6rem;text-decoration:none;box-shadow:0 10px 26px -8px rgba(37,211,102,.6);
+  transition:transform .2s;
+}
+.wa:hover{transform:scale(1.1) rotate(6deg)}
+
+/* ---------- Responsive ---------- */
+@media (max-width:960px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .bento{grid-template-columns:1fr 1fr}
+  .b-lg,.b-md{grid-column:span 2}
+  .b-santillana{grid-column:span 2;grid-template-columns:1fr;text-align:center;justify-items:center}
+  .plans{grid-template-columns:1fr}
+  .route{grid-template-columns:1fr 1fr}
+  .lab-grid{grid-template-columns:1fr}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .steps{grid-template-columns:1fr}
+  section{padding:4.5rem 0}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <nav class="nav">
+    <a class="logo" href="index.html">World<span>Brain</span></a>
+    <ul class="nav-links">
+      <li><a href="#beneficios">Beneficios</a></li>
+      <li><a href="#plan">Elige tu plan</a></li>
+      <li><a href="#lab">Laboratorio</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a class="btn btn-blue nav-cta" href="https://wa.me/5215578107837?text=Hola,%20quiero%20informes%20del%20Diplomado%20en%20Matem%C3%A1ticas%20y%20F%C3%ADsica">Solicitar informes</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menú">☰</button>
+  </nav>
+  <div class="mmenu" id="mmenu">
+    <a href="#beneficios">Beneficios</a>
+    <a href="#plan">Elige tu plan</a>
+    <a href="#lab">Laboratorio</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20informes%20del%20Diplomado%20en%20Matem%C3%A1ticas%20y%20F%C3%ADsica" style="color:var(--blue)">Solicitar informes →</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <canvas id="heroCanvas" aria-hidden="true"></canvas>
+  <div class="wrap hero-inner">
+    <div class="badge-row">
+      <span class="hero-badge">Programa Oficial Santillana</span>
+      <span class="hero-badge">En línea o presencial</span>
+    </div>
+    <h1>Domina las matemáticas <span class="ul">en tiempo récord.</span></h1>
+    <p class="lead">Diplomados en <b>Matemáticas, Física y Razonamiento Verbal</b> para primaria, secundaria y preparatoria. Formación académica integral que fortalece conocimientos clave, desarrolla habilidades críticas y fomenta una actitud proactiva y autónoma hacia el aprendizaje.</p>
+    <div class="hero-ctas">
+      <a class="btn btn-blue" href="#plan">Encontrar mi diplomado <span class="arr">→</span></a>
+      <a class="btn btn-ghost" href="#lab">🧪 Probar el laboratorio</a>
+    </div>
+    <div class="hero-meta">
+      <div><b>30+</b>años WorldBrain</div>
+      <div><b>3</b>niveles escolares</div>
+      <div><b>2</b>modalidades</div>
+      <div><b>100%</b>programa oficial</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CINTA DE FÓRMULAS ================= -->
+<div class="strip" aria-hidden="true">
+  <div class="strip-track" id="strip">
+    <span>E = mc<sup>2</sup></span><span><em>F</em> = ma</span><span>a² + b² = c²</span>
+    <span>v = d/t</span><span><em>Δ</em>x = v₀t + ½at²</span><span>πr²</span>
+    <span>∑ = comprensión total</span><span><em>P</em> = W/t</span><span>sen²θ + cos²θ = 1</span>
+    <span>x = (−b ± √(b²−4ac)) / 2a</span>
+  </div>
+</div>
+
+<!-- ================= BENEFICIOS (BENTO) ================= -->
+<section id="beneficios">
+  <div class="wrap">
+    <span class="kicker mono rv">Beneficios</span>
+    <h2 class="title rv">Todo lo que tu cerebro necesita para <em style="color:var(--blue);font-style:normal">dominar los números</em></h2>
+    <p class="sub rv">No es un curso más de regularización. Es una formación completa con método, técnica y programa oficial.</p>
+    <div class="bento">
+      <div class="bcard b-lg rv">
+        <span class="tagno">BEN-01 / COMPRENSIÓN</span>
+        <h3>Comprende y retiene de verdad</h3>
+        <p>Aprender y repasar los temas de la materia mejorará tu comprensión y retención de manera efectiva. Nada de memorizar sin entender: aquí los conceptos se quedan.</p>
+      </div>
+      <div class="bcard b-md rv">
+        <span class="tagno">BEN-02 / TÉCNICAS</span>
+        <h3>Temas y técnicas actuales</h3>
+        <p>Temas clave de la materia empleando métodos educativos actualizados.</p>
+      </div>
+      <div class="bcard b-md rv">
+        <span class="tagno">BEN-03 / HABILIDADES</span>
+        <h3>Rendimiento académico y profesional</h3>
+        <p>Habilidades para mejorar tu rendimiento académico y profesional, dentro y fuera del aula.</p>
+      </div>
+      <div class="bcard b-lg rv">
+        <span class="tagno">BEN-04 / TECNOLOGÍA</span>
+        <h3>Competencias digitales fortalecidas</h3>
+        <p>Habilidades tecnológicas y digitales integradas al aprendizaje. Clases en línea o presenciales: tú eliges la modalidad que mejor se adapta a tu ritmo.</p>
+      </div>
+      <div class="bcard b-santillana rv">
+        <div class="seal">PROGRAMA<br>OFICIAL<br>★<br>SANTILLANA</div>
+        <div>
+          <h3>Programa Oficial de Santillana</h3>
+          <p>Programa educativo diseñado para niños y jóvenes que apoya el aprendizaje en diferentes niveles escolares. El respaldo editorial más reconocido de habla hispana, con la metodología acelerada de WorldBrain.</p>
+        </div>
+        <a class="btn btn-ghost" href="#plan">Ver planes <span class="arr">→</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SELECTOR DE PLAN ================= -->
+<section class="picker-zone" id="plan">
+  <div class="wrap">
+    <span class="kicker mono rv">Diagnóstico rápido</span>
+    <h2 class="title rv">¿Qué diplomado es para ti?</h2>
+    <p class="sub rv">Selecciona el nivel escolar del estudiante y te mostramos el plan ideal al instante.</p>
+    <div class="picker rv" role="tablist" aria-label="Nivel escolar">
+      <button class="pick" data-level="primaria">🎒 Primaria</button>
+      <button class="pick on" data-level="secundaria">📘 Secundaria</button>
+      <button class="pick" data-level="prepa">🎓 Preparatoria</button>
+    </div>
+    <div class="plans">
+      <article class="plan lit rv" id="planSec">
+        <span class="mono">PLAN A · INTENSIVO</span>
+        <h3>Diplomado Matemáticas y Física</h3>
+        <p class="for" id="planSecFor">Diseñado para secundaria</p>
+        <div class="spec">
+          <div><b>1 año</b><span>Duración total</span></div>
+          <div><b>4 módulos</b><span>1–3 meses c/u</span></div>
+          <div><b>2 materias</b><span>Matemáticas y Física</span></div>
+          <div><b>Dual</b><span>En línea o presencial</span></div>
+        </div>
+        <ul>
+          <li>Comprensión y retención efectiva de los temas clave</li>
+          <li>Métodos educativos actualizados</li>
+          <li>Competencias fortalecidas + habilidades digitales</li>
+          <li>Programa oficial Santillana</li>
+        </ul>
+        <a class="btn btn-blue" id="ctaSec" href="https://wa.me/5215578107837?text=Hola,%20quiero%20inscribir%20a%20mi%20hijo%20de%20SECUNDARIA%20al%20Diplomado%20en%20Matem%C3%A1ticas%20y%20F%C3%ADsica%20(1%20a%C3%B1o,%204%20m%C3%B3dulos)">Quiero este plan <span class="arr">→</span></a>
+      </article>
+      <article class="plan rv" id="planFull">
+        <span class="mono">PLAN B · COMPLETO</span>
+        <h3>Diplomados Verbal, Matemáticas y Física</h3>
+        <p class="for">Primaria, secundaria y preparatoria</p>
+        <div class="spec">
+          <div><b>18 meses</b><span>Duración total</span></div>
+          <div><b>3 módulos</b><span>6 meses c/u</span></div>
+          <div><b>3 materias</b><span>Verbal + Mate + Física</span></div>
+          <div><b>Dual</b><span>En línea o presencial</span></div>
+        </div>
+        <ul>
+          <li>Formación académica integral en 3 áreas</li>
+          <li>Razonamiento verbal para comprensión lectora</li>
+          <li>Competencias fortalecidas + habilidades digitales</li>
+          <li>Programa oficial Santillana</li>
+        </ul>
+        <a class="btn btn-ink" id="ctaFull" href="https://wa.me/5215578107837?text=Hola,%20quiero%20informes%20del%20Diplomado%20COMPLETO%20(Verbal,%20Matem%C3%A1ticas%20y%20F%C3%ADsica,%203%20m%C3%B3dulos)">Quiero este plan <span class="arr">→</span></a>
+      </article>
+    </div>
+
+    <!-- Ruta de módulos -->
+    <div style="margin-top:5rem">
+      <span class="kicker mono rv">Ruta de aprendizaje · Plan intensivo</span>
+      <div class="route">
+        <div class="mod rv"><span class="mono"></span><h3>Fundamentos sólidos</h3><p>Aritmética, álgebra base y lenguaje matemático. Cimientos a prueba de exámenes.</p></div>
+        <div class="mod rv"><span class="mono"></span><h3>Álgebra y geometría</h3><p>Ecuaciones, funciones y razonamiento espacial con métodos actualizados.</p></div>
+        <div class="mod rv"><span class="mono"></span><h3>Física aplicada</h3><p>Movimiento, fuerza y energía. La física se entiende viéndola en acción.</p></div>
+        <div class="mod rv"><span class="mono"></span><h3>Dominio y examen</h3><p>Integración total, simulacros y técnicas de resolución en tiempo récord.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= LABORATORIO INTERACTIVO ================= -->
+<section class="lab" id="lab">
+  <div class="wrap">
+    <span class="kicker mono rv" style="color:var(--orange)">Laboratorio en vivo</span>
+    <h2 class="title rv">Así se siente entender la física</h2>
+    <p class="sub rv">Esto es tiro parabólico — el tema que aterroriza en los exámenes. Ajusta el ángulo y la velocidad, dispara, y mira la fórmula convertirse en realidad. <b style="color:#fff">Así enseñamos: jugando con las leyes del universo.</b></p>
+    <div class="lab-grid">
+      <div class="lab-panel rv">
+        <label>Ángulo de lanzamiento <output id="angOut">45°</output></label>
+        <input type="range" id="ang" min="10" max="80" value="45">
+        <label>Velocidad inicial <output id="velOut">28 m/s</output></label>
+        <input type="range" id="vel" min="10" max="45" value="28">
+        <div class="lab-eq">
+          x(t) = v·cos(θ)·t<br>
+          y(t) = v·sen(θ)·t − ½gt²<br>
+          <em id="eqLive">Alcance ≈ 79.9 m · Altura máx ≈ 20.0 m</em>
+        </div>
+        <button class="btn btn-blue" id="labFire">🚀 Lanzar proyectil</button>
+      </div>
+      <div class="lab-stage rv">
+        <div class="lab-hud">SIMULADOR WB-01 · g = 9.81 m/s² · <b id="hudState">LISTO</b></div>
+        <canvas id="labCanvas" width="900" height="480" aria-label="Simulador de tiro parabólico"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<div class="statband">
+  <div class="wrap stats">
+    <div class="stat rv"><b data-n="30" data-suf="+">0</b><span>Años de experiencia</span></div>
+    <div class="stat rv"><b data-n="200000" data-suf="+">0</b><span>Graduados WorldBrain</span></div>
+    <div class="stat rv"><b data-n="3">0</b><span>Niveles escolares</span></div>
+    <div class="stat rv"><b data-n="100" data-suf="%">0</b><span>Programa oficial</span></div>
+  </div>
+</div>
+
+<!-- ================= METODOLOGÍA ================= -->
+<section>
+  <div class="wrap">
+    <span class="kicker mono rv">Cómo lo logramos</span>
+    <h2 class="title rv">Tres motores, un solo objetivo: <em style="color:var(--blue);font-style:normal">que domine la materia</em></h2>
+    <div class="steps">
+      <div class="step rv">
+        <span class="big">01</span>
+        <h3>Comprensión antes que memorización</h3>
+        <p>Aprender y repasar cada tema con métodos que garantizan comprensión y retención efectiva. Cuando entiendes el porqué, nunca lo olvidas.</p>
+      </div>
+      <div class="step rv">
+        <span class="big">02</span>
+        <h3>Técnicas educativas actualizadas</h3>
+        <p>Temas clave de la materia con los métodos educativos más actuales, integrando habilidades tecnológicas y digitales en cada módulo.</p>
+      </div>
+      <div class="step rv">
+        <span class="big">03</span>
+        <h3>Actitud proactiva y autónoma</h3>
+        <p>Fomentamos una actitud proactiva hacia el aprendizaje. El alumno deja de estudiar por obligación y empieza a avanzar por convicción.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <span class="kicker mono rv">Dudas frecuentes</span>
+    <h2 class="title rv">Preguntas de papás y alumnos</h2>
+    <div class="faq">
+      <details class="rv">
+        <summary>¿Para qué niveles escolares está disponible?</summary>
+        <p>Tenemos dos planes: el Diplomado en Matemáticas y Física para secundaria (1 año, 4 módulos de 1 a 3 meses), y los Diplomados Verbal, Matemáticas y Física para primaria, secundaria y preparatoria (3 módulos de 6 meses cada uno).</p>
+      </details>
+      <details class="rv">
+        <summary>¿Las clases son en línea o presenciales?</summary>
+        <p>Ambas. Puedes elegir la modalidad 100% en línea o presencial en nuestras sedes de Ciudad de México y Cuautitlán Izcalli, según lo que mejor se adapte a tu familia.</p>
+      </details>
+      <details class="rv">
+        <summary>¿Qué respaldo académico tiene el programa?</summary>
+        <p>El diplomado utiliza el Programa Oficial de Santillana, diseñado para niños y jóvenes y que apoya el aprendizaje en diferentes niveles escolares, combinado con los más de 30 años de metodología de aprendizaje acelerado de WorldBrain México.</p>
+      </details>
+      <details class="rv">
+        <summary>¿Qué habilidades desarrolla además de matemáticas?</summary>
+        <p>Además del dominio de Matemáticas, Física y Razonamiento Verbal, el alumno desarrolla competencias fortalecidas, habilidades tecnológicas y digitales, pensamiento crítico y una actitud proactiva y autónoma hacia el aprendizaje que le servirá toda la vida.</p>
+      </details>
+      <details class="rv">
+        <summary>¿Cómo me inscribo o pido informes?</summary>
+        <p>Escríbenos por WhatsApp al 55 7810 7837 o llámanos al 55 5868 6784. Un asesor académico te explicará horarios, sedes, costos y el plan ideal según el nivel escolar del estudiante.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="final">
+  <div class="wrap rv">
+    <h2>Las matemáticas no son el enemigo. El método equivocado, sí.</h2>
+    <p>Da el primer paso hoy: pide informes sin compromiso y descubre el plan ideal para tu nivel escolar.</p>
+    <a class="btn btn-ghost" href="https://wa.me/5215578107837?text=Hola,%20quiero%20informes%20del%20Diplomado%20en%20Matem%C3%A1ticas%20y%20F%C3%ADsica">Solicitar informes por WhatsApp <span class="arr">→</span></a>
+    <div class="contact-row">
+      <a href="tel:+525558686784">📞 55 5868 6784</a>
+      <a href="tel:+525578107837">📱 55 7810 7837</a>
+      <a href="https://www.facebook.com/worldbrainmx1" target="_blank" rel="noopener">Worldbrain México</a>
+      <a href="https://www.instagram.com/worldbrainmx1" target="_blank" rel="noopener">@worldbrainmx1</a>
+      <a href="https://twitter.com/WorldBrainMx" target="_blank" rel="noopener">@WorldBrainMx</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="index.html" style="color:#fff">World<span style="color:var(--orange)">Brain</span></a>
+        <p style="margin-top:1rem">Pioneros en Neuroaprendizaje y Desarrollo Mental Acelerado desde 2000. Transformamos la manera en que Latinoamérica aprende.</p>
+      </div>
+      <div>
+        <h4>Niños</h4>
+        <ul>
+          <li><a href="fastkids.html">FastKids</a></li>
+          <li><a href="mathekids.html">MatheKids</a></li>
+          <li><a href="juniormath_v2.html">JuniorMath</a></li>
+          <li><a href="lectoescritura.html">Lectoescritura</a></li>
+          <li><a href="ciencia-astronomia.html">Ciencia y Astronomía</a></li>
+          <li><a href="robotics.html">Robotics Code</a></li>
+          <li><a href="homeschool.html">Homeschool</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Jóvenes y Adultos</h4>
+        <ul>
+          <li><a href="fotolectura.html">Fotolectura</a></li>
+          <li><a href="memoria-prodigiosa.html">Memoria Prodigiosa</a></li>
+          <li><a href="neurocomunicacion.html">Neurocomunicación</a></li>
+          <li><a href="grandes-lideres.html">Grandes Líderes</a></li>
+          <li><a href="redaccion-ejecutiva.html">Redacción Ejecutiva</a></li>
+          <li><a href="admision-universitaria.html">Admisión Universitaria</a></li>
+          <li><a href="universidad-dominical.html">Universidad Dominical</a></li>
+          <li><a href="regularizacion-express.html">Regularización Express</a></li>
+          <li><a href="alfa-cash.html">ALFA-CASH</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+525558686784">55 5868 6784</a></li>
+          <li><a href="tel:+525578107837">55 7810 7837</a></li>
+          <li><a href="https://wa.me/5215578107837">WhatsApp</a></li>
+          <li><a href="mailto:contacto@ultravelozmente.com">contacto@ultravelozmente.com</a></li>
+          <li>Cuautitlán Izcalli, Edo. de Méx.</li>
+          <li><a href="blog-index.html">Blog Educativo</a></li>
+          <li><a href="testimonios.html">Testimonios</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>CWBMX, S.C. | RFC: CWB170626UH4 | Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano, Cuautitlán Izcalli, Edo. de Méx., C.P. 54700. © 2026 WorldBrain México.</span>
+      <span><a href="terminos.html">Términos</a> · <a href="privacidad.html">Privacidad</a> · <a href="reembolsos.html">Devoluciones</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/5215578107837?text=Hola,%20quiero%20informes%20del%20Diplomado%20en%20Matem%C3%A1ticas%20y%20F%C3%ADsica" aria-label="WhatsApp">💬</a>
+
+<script>
+/* ============ Menú móvil ============ */
+document.getElementById('burger').addEventListener('click',()=>{
+  document.getElementById('mmenu').classList.toggle('open');
+});
+
+/* ============ Cinta de fórmulas: loop infinito ============ */
+const strip=document.getElementById('strip');
+strip.innerHTML+=strip.innerHTML;
+
+/* ============ HERO: fórmulas con física real ============ */
+(function(){
+  const cv=document.getElementById('heroCanvas'),cx=cv.getContext('2d');
+  const SYMS=['E=mc²','πr²','F=ma','√x','∑','∫','Δx','x²','θ','α','a²+b²=c²','½at²','9.81','∞'];
+  let W,H,dpr,parts=[],mouse={x:-999,y:-999};
+  const reduced=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  function size(){
+    dpr=Math.min(devicePixelRatio||1,2);
+    W=cv.offsetWidth;H=cv.offsetHeight;
+    cv.width=W*dpr;cv.height=H*dpr;cx.scale(dpr,dpr);
+  }
+  function spawn(n){
+    for(let i=0;i<n;i++)parts.push({
+      t:SYMS[Math.floor(Math.random()*SYMS.length)],
+      x:Math.random()*W,y:-30-Math.random()*H,
+      vx:(Math.random()-.5)*.4,vy:0,
+      s:13+Math.random()*15,r:(Math.random()-.5)*.6,
+      o:.12+Math.random()*.18
+    });
+  }
+  function frame(){
+    cx.clearRect(0,0,W,H);
+    parts.forEach(p=>{
+      p.vy+=.045;                       /* gravedad */
+      const dx=p.x-mouse.x,dy=p.y-mouse.y,d=Math.hypot(dx,dy);
+      if(d<110){p.vx+=dx/d*.9;p.vy+=dy/d*.9;} /* huyen del cursor */
+      p.x+=p.vx;p.y+=p.vy;p.vx*=.985;
+      if(p.y>H-14){p.y=H-14;p.vy*=-.45;p.vx*=.92;} /* rebote */
+      if(p.x<0||p.x>W)p.vx*=-1;
+      if(Math.abs(p.vy)<.05&&p.y>H-20&&Math.random()<.002){p.y=-40;p.vy=0;p.x=Math.random()*W;}
+      cx.save();cx.translate(p.x,p.y);cx.rotate(p.r);
+      cx.font=`600 ${p.s}px 'IBM Plex Mono',monospace`;
+      cx.fillStyle=`rgba(39,67,240,${p.o})`;
+      cx.fillText(p.t,0,0);cx.restore();
+    });
+    requestAnimationFrame(frame);
+  }
+  size();spawn(reduced?0:34);
+  addEventListener('resize',size);
+  document.querySelector('.hero').addEventListener('pointermove',e=>{
+    const r=cv.getBoundingClientRect();
+    mouse.x=e.clientX-r.left;mouse.y=e.clientY-r.top;
+  },{passive:true});
+  if(!reduced)frame();
+})();
+
+/* ============ Selector de plan ============ */
+(function(){
+  const picks=document.querySelectorAll('.pick');
+  const pSec=document.getElementById('planSec'),pFull=document.getElementById('planFull');
+  const secFor=document.getElementById('planSecFor');
+  const MAP={
+    primaria:{lit:'full',msg:'Hola, mi hijo está en PRIMARIA. Quiero informes del Diplomado Verbal, Matemáticas y Física'},
+    secundaria:{lit:'sec',msg:'Hola, mi hijo está en SECUNDARIA. Quiero inscribirlo al Diplomado en Matemáticas y Física (1 año, 4 módulos)'},
+    prepa:{lit:'full',msg:'Hola, mi hijo está en PREPARATORIA. Quiero informes del Diplomado Verbal, Matemáticas y Física'}
+  };
+  picks.forEach(btn=>btn.addEventListener('click',()=>{
+    picks.forEach(b=>b.classList.remove('on'));btn.classList.add('on');
+    const lv=btn.dataset.level,cfg=MAP[lv];
+    pSec.classList.toggle('lit',cfg.lit==='sec');
+    pFull.classList.toggle('lit',cfg.lit==='full');
+    secFor.textContent=lv==='secundaria'?'✓ Ideal para tu nivel: Secundaria':'Diseñado para secundaria';
+    const wa='https://wa.me/5215578107837?text='+encodeURIComponent(cfg.msg);
+    (cfg.lit==='sec'?document.getElementById('ctaSec'):document.getElementById('ctaFull')).href=wa;
+  }));
+})();
+
+/* ============ Laboratorio: tiro parabólico ============ */
+(function(){
+  const cv=document.getElementById('labCanvas'),cx=cv.getContext('2d');
+  const ang=document.getElementById('ang'),vel=document.getElementById('vel');
+  const angOut=document.getElementById('angOut'),velOut=document.getElementById('velOut');
+  const eq=document.getElementById('eqLive'),hud=document.getElementById('hudState');
+  const G=9.81,SC=5.4,W=900,H=480,PAD=40;
+  let anim=null,trail=[];
+
+  function stats(){
+    const th=ang.value*Math.PI/180,v=+vel.value;
+    return{th,v,range:v*v*Math.sin(2*th)/G,hmax:(v*Math.sin(th))**2/(2*G),T:2*v*Math.sin(th)/G};
+  }
+  function drawBase(){
+    cx.clearRect(0,0,W,H);
+    /* retícula del simulador */
+    cx.strokeStyle='rgba(255,255,255,.05)';cx.lineWidth=1;
+    for(let x=PAD;x<W;x+=50){cx.beginPath();cx.moveTo(x,0);cx.lineTo(x,H);cx.stroke();}
+    for(let y=H-PAD;y>0;y-=50){cx.beginPath();cx.moveTo(0,y);cx.lineTo(W,y);cx.stroke();}
+    /* suelo */
+    cx.strokeStyle='rgba(255,255,255,.3)';cx.lineWidth=2;
+    cx.beginPath();cx.moveTo(0,H-PAD);cx.lineTo(W,H-PAD);cx.stroke();
+    /* marcas de distancia */
+    cx.font='11px "IBM Plex Mono",monospace';cx.fillStyle='rgba(255,255,255,.35)';
+    for(let m=25;m<=150;m+=25){
+      const x=PAD+m*SC;if(x<W-10)cx.fillText(m+'m',x-10,H-PAD+22);
+    }
+    /* estela previa */
+    if(trail.length>1){
+      cx.strokeStyle='rgba(255,107,44,.35)';cx.lineWidth=2;cx.setLineDash([5,6]);
+      cx.beginPath();trail.forEach((p,i)=>i?cx.lineTo(p.x,p.y):cx.moveTo(p.x,p.y));cx.stroke();
+      cx.setLineDash([]);
+    }
+    /* cañón */
+    const {th}=stats();
+    cx.save();cx.translate(PAD,H-PAD);cx.rotate(-th);
+    cx.fillStyle='#FF6B2C';cx.fillRect(0,-5,34,10);cx.restore();
+    cx.beginPath();cx.arc(PAD,H-PAD,10,0,7);cx.fillStyle='#fff';cx.fill();
+  }
+  function updateUI(){
+    const s=stats();
+    angOut.textContent=ang.value+'°';
+    velOut.textContent=vel.value+' m/s';
+    eq.textContent=`Alcance ≈ ${s.range.toFixed(1)} m · Altura máx ≈ ${s.hmax.toFixed(1)} m`;
+    drawBase();
+  }
+  function fire(){
+    if(anim)cancelAnimationFrame(anim);
+    const s=stats(),t0=performance.now();
+    const pts=[];hud.textContent='EN VUELO…';
+    function step(now){
+      const t=(now-t0)/1000*1.4;               /* tiempo acelerado */
+      const x=PAD+s.v*Math.cos(s.th)*t*SC;
+      const y=H-PAD-(s.v*Math.sin(s.th)*t-.5*G*t*t)*SC;
+      drawBase();
+      /* trayectoria en vivo */
+      pts.push({x,y});
+      cx.strokeStyle='#FF6B2C';cx.lineWidth=2.5;
+      cx.beginPath();pts.forEach((p,i)=>i?cx.lineTo(p.x,p.y):cx.moveTo(p.x,p.y));cx.stroke();
+      /* proyectil */
+      cx.beginPath();cx.arc(x,y,8,0,7);cx.fillStyle='#FF6B2C';cx.fill();
+      cx.beginPath();cx.arc(x,y,13,0,7);cx.strokeStyle='rgba(255,107,44,.4)';cx.stroke();
+      if(t<s.T){anim=requestAnimationFrame(step);}
+      else{
+        trail=pts;drawBase();
+        /* punto de impacto */
+        const ix=PAD+s.range*SC;
+        cx.beginPath();cx.arc(ix,H-PAD,7,0,7);cx.fillStyle='#0FA98E';cx.fill();
+        cx.font='600 13px "IBM Plex Mono",monospace';cx.fillStyle='#0FA98E';
+        cx.fillText('IMPACTO: '+s.range.toFixed(1)+' m',Math.min(ix-40,W-160),H-PAD-16);
+        hud.innerHTML='IMPACTO · <b>'+s.range.toFixed(1)+' m</b>';
+        anim=null;
+      }
+    }
+    anim=requestAnimationFrame(step);
+  }
+  ang.addEventListener('input',updateUI);
+  vel.addEventListener('input',updateUI);
+  document.getElementById('labFire').addEventListener('click',fire);
+  updateUI();
+})();
+
+/* ============ Contadores animados ============ */
+const io=new IntersectionObserver(es=>{
+  es.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,end=+el.dataset.n,suf=el.dataset.suf||'',t0=performance.now();
+    const step=t=>{
+      const p=Math.min((t-t0)/1500,1),ease=1-Math.pow(1-p,3);
+      el.textContent=Math.round(end*ease).toLocaleString('es-MX')+suf;
+      if(p<1)requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);io.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('.stat b[data-n]').forEach(el=>io.observe(el));
+
+/* ============ Fallback reveal (sin animation-timeline) ============ */
+if(!CSS.supports('animation-timeline: view()')){
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';ro.unobserve(e.target);}
+  }),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>{
+    el.style.opacity='0';el.style.transform='translateY(38px)';
+    el.style.transition='opacity .65s ease, transform .65s ease';
+    ro.observe(el);
+  });
+}
+</script>
+</body>
+</html>

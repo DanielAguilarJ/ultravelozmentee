@@ -495,6 +495,29 @@ dialog.cmdk::backdrop{background:rgba(22,21,18,.35);backdrop-filter:blur(6px)}
 /* Modo lite: elegancia intacta, costo cero */
 html.lite #field{display:none}
 html.lite .letter{filter:none}
+
+/* ---------- Los 5 Minutos ---------- */
+.fivemin{padding:7rem 0;content-visibility:auto;contain-intrinsic-size:auto 620px}
+.fivemin-head{max-width:44rem;margin-bottom:3rem}
+.fivemin-head h2{font-size:clamp(2rem,4.6vw,3.2rem);font-weight:400}
+.fivemin-head h2 em{color:var(--klein)}
+.rituals{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--ink-12);border:1px solid var(--ink-12);border-radius:18px;overflow:hidden}
+.ritual{background:var(--porcelain);padding:2.2rem 1.8rem;transition:background .3s}
+.ritual:hover{background:#fff}
+.ritual .ic{font-size:1.7rem;display:block;margin-bottom:1rem}
+.ritual h3{font-family:var(--serif);font-weight:400;font-size:1.15rem;margin-bottom:.5rem}
+.ritual p{font-size:.88rem;color:var(--ink-60)}
+@media (max-width:980px){.rituals{grid-template-columns:1fr 1fr}}
+
+/* ---------- Ficha operativa ---------- */
+.ops{padding:6rem 0;border-top:1px solid var(--ink-12);content-visibility:auto;contain-intrinsic-size:auto 480px}
+.ops-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2.5rem}
+.ops-col h3{font-family:var(--mono);font-size:.68rem;letter-spacing:.18em;text-transform:uppercase;color:var(--klein);font-weight:500;margin-bottom:1.2rem}
+.ops-col dl{border-top:1px solid var(--ink-12)}
+.ops-col div{display:flex;justify-content:space-between;gap:1rem;padding:.85rem 0;border-bottom:1px solid var(--ink-12)}
+.ops-col dt{color:var(--ink-60);font-size:.92rem}
+.ops-col dd{font-weight:600;font-size:.92rem;text-align:right;font-variant-numeric:tabular-nums}
+@media (max-width:980px){.ops-grid{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
@@ -570,6 +593,23 @@ html.lite .letter{filter:none}
   </div>
 </section>
 
+<!-- ═══════════ LOS 5 MINUTOS ═══════════ -->
+<section class="fivemin" aria-label="El ritual de los cinco minutos">
+  <div class="wrap">
+    <div class="fivemin-head rv">
+      <span class="mono klein">El ritual WorldBrain</span>
+      <h2 style="margin-top:1rem">Cada clase empieza con <em>cinco minutos</em> que lo cambian todo.</h2>
+      <p style="color:var(--ink-60);margin-top:1rem;max-width:36rem">Antes de tocar un libro o un ábaco, dedicamos cinco minutos a preparar el cerebro: estimulamos ambos hemisferios para que el aprendizaje entre sin fricción. Es nuestro sello desde hace 30 años.</p>
+    </div>
+    <div class="rituals">
+      <div class="ritual rv"><span class="ic">🧠</span><h3>Integración de hemisferios</h3><p>Colaboración entre hemisferio izquierdo y derecho para mejorar cognición, creatividad y emociones.</p></div>
+      <div class="ritual rv"><span class="ic">🎵</span><h3>Musicoterapia</h3><p>El poder de la música para activar creatividad, positividad y fortaleza antes de aprender.</p></div>
+      <div class="ritual rv"><span class="ic">🌿</span><h3>Aromaterapia</h3><p>Aceites esenciales que equilibran cuerpo y mente, con beneficios educativos comprobados.</p></div>
+      <div class="ritual rv"><span class="ic">🎲</span><h3>Ludoterapia</h3><p>El juego como herramienta para superar bloqueos emocionales y fortalecer habilidades sociales.</p></div>
+    </div>
+  </div>
+</section>
+
 <!-- ═══════════ FINDER ═══════════ -->
 <section class="finder" id="finder" aria-label="Encuentra tu programa">
   <div class="wrap">
@@ -623,9 +663,9 @@ html.lite .letter{filter:none}
       </div>
     </div>
     <ul class="dir-list" id="dirList">
-      <li class="row star" data-cat="jovenes adultos" style="view-transition-name:p-foto"><a href="fotolectura.html"><span class="no">01</span><span class="name">Fotolectura</span><span class="desc">Libros completos en minutos, con retención real. Hasta 25,000 palabras por minuto.</span><span class="meta"><span class="word">velocidad</span><span class="age">15+ AÑOS</span><span class="go">→</span></span></a></li>
+      <li class="row star" data-cat="jovenes adultos" style="view-transition-name:p-foto"><a href="fotolectura.html"><span class="no">01</span><span class="name">Fotolectura</span><span class="desc">Sistema de lectura integral: 300 páginas en 30 minutos con comprensión y retención reales.</span><span class="meta"><span class="word">velocidad</span><span class="age">15+ AÑOS</span><span class="go">→</span></span></a></li>
       <li class="row star" data-cat="ninos" style="view-transition-name:p-mathe"><a href="mathekids.html"><span class="no">02</span><span class="name">MatheKids</span><span class="desc">Cálculo mental con Ábaco Soroban: 90 operaciones en 6 minutos.</span><span class="meta"><span class="word">precisión</span><span class="age">6–12 AÑOS</span><span class="go">→</span></span></a></li>
-      <li class="row" data-cat="ninos" style="view-transition-name:p-junior"><a href="juniormath_v2.html"><span class="no">03</span><span class="name">JuniorMath</span><span class="desc">Las matemáticas convertidas en juego. Del "no puedo" al "mira esto, mamá".</span><span class="meta"><span class="word">confianza</span><span class="age">6–12 AÑOS</span><span class="go">→</span></span></a></li>
+      <li class="row" data-cat="ninos jovenes" style="view-transition-name:p-junior"><a href="juniormath_v2.html"><span class="no">03</span><span class="name">JuniorMath</span><span class="desc">Cálculo mental avanzado rumbo a secundaria. Del "no puedo" al "mira esto, mamá".</span><span class="meta"><span class="word">confianza</span><span class="age">6–12 AÑOS</span><span class="go">→</span></span></a></li>
       <li class="row" data-cat="ninos" style="view-transition-name:p-lecto"><a href="lectoescritura.html"><span class="no">04</span><span class="name">Lectoescritura</span><span class="desc">De lectura silabeada a lectura fluida con comprensión total.</span><span class="meta"><span class="word">fluidez</span><span class="age">4–8 AÑOS</span><span class="go">→</span></span></a></li>
       <li class="row" data-cat="ninos jovenes" style="view-transition-name:p-robot"><a href="robotics.html"><span class="no">05</span><span class="name">Robotics Code</span><span class="desc">Scratch, Python, Arduino e IA. De consumidor de pantallas a creador de tecnología.</span><span class="meta"><span class="word">creación</span><span class="age">7–17 AÑOS</span><span class="go">→</span></span></a></li>
       <li class="row" data-cat="ninos jovenes adultos" style="view-transition-name:p-fast"><a href="fastkids.html"><span class="no">06</span><span class="name">FastKids · Inglés</span><span class="desc">Neuro-aprendizaje para fluidez real, sin gramática aburrida.</span><span class="meta"><span class="word">fluency</span><span class="age">TODAS LAS EDADES</span><span class="go">→</span></span></a></li>
@@ -694,6 +734,39 @@ html.lite .letter{filter:none}
       <button id="prevL" aria-label="Testimonio anterior">←</button>
       <span class="stack-count"><span id="curL">1</span> / 5</span>
       <button id="nextL" aria-label="Testimonio siguiente">→</button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ FICHA OPERATIVA ═══════════ -->
+<section class="ops" aria-label="Horarios, grupos y planes">
+  <div class="wrap">
+    <div class="ops-grid">
+      <div class="ops-col rv">
+        <h3>Horarios de atención</h3>
+        <dl>
+          <div><dt>Lunes a jueves</dt><dd>09:00 – 18:00</dd></div>
+          <div><dt>Viernes</dt><dd>09:00 – 17:00</dd></div>
+          <div><dt>Sábado</dt><dd>08:00 – 15:00</dd></div>
+        </dl>
+      </div>
+      <div class="ops-col rv">
+        <h3>Planes de sesiones semanales</h3>
+        <dl>
+          <div><dt>Plan A</dt><dd>1 sesión · 3 hrs</dd></div>
+          <div><dt>Plan B</dt><dd>3 sesiones · 2 hrs</dd></div>
+          <div><dt>Plan C</dt><dd>5 sesiones · 3 hrs</dd></div>
+        </dl>
+        <p style="font-family:var(--mono);font-size:.62rem;letter-spacing:.12em;color:var(--ink-30);margin-top:.8rem">SEGÚN EL CURSO A INGRESAR</p>
+      </div>
+      <div class="ops-col rv">
+        <h3>Así trabajamos</h3>
+        <dl>
+          <div><dt>Alumnos por grupo</dt><dd>Máx. 7</dd></div>
+          <div><dt>Práctica en casa</dt><dd>5–10 min/día</dd></div>
+          <div><dt>Garantía</dt><dd>100%</dd></div>
+        </dl>
+      </div>
     </div>
   </div>
 </section>
@@ -925,7 +998,7 @@ $$('#mmenu a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
   const MATRIX={
     'peque:academico':['Lectoescritura','De lectura silabeada a lectura veloz con comprensión total. La base de todo lo demás.','lectoescritura.html'],
     'peque:examen':['Lectoescritura','Primero los cimientos: lectura fluida y escritura clara desde los 4 años.','lectoescritura.html'],
-    'peque:mente':['JuniorMath','Matemáticas como juego: la concentración y memoria se entrenan jugando.','juniormath_v2.html'],
+    'peque:mente':['JuniorMath','Cálculo mental que entrena concentración y memoria jugando (6-12 años).','juniormath_v2.html'],
     'peque:futuro':['Ciencia y Astronomía','Pensamiento crítico y asombro científico, a la medida de su edad.','ciencia-astronomia.html'],
     'nino:academico':['MatheKids','Ábaco Soroban japonés: 90 operaciones en 6 minutos y promedio arriba de 9.','mathekids.html'],
     'nino:examen':['MatheKids','La velocidad mental que se nota en cada examen de la escuela.','mathekids.html'],
@@ -933,7 +1006,7 @@ $$('#mmenu a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
     'nino:futuro':['Robotics Code','Scratch, Python, Arduino e IA. De consumidor a creador.','robotics.html'],
     'joven:academico':['Regularización Express','Recupera calificaciones con métodos acelerados, ya.','regularizacion-express.html'],
     'joven:examen':['Admisión Universitaria','Estrategia probada para UNAM, IPN y COMIPEMS.','admision-universitaria.html'],
-    'joven:mente':['Fotolectura','Libros completos en minutos con retención real.','fotolectura.html'],
+    'joven:mente':['Fotolectura','300 páginas en 30 minutos con comprensión real. El sistema de lectura integral.','fotolectura.html'],
     'joven:futuro':['Grandes Líderes','Oratoria, confianza y presencia para destacar.','grandes-lideres.html'],
     'adulto:academico':['Universidad Dominical','Tu licenciatura estudiando en domingo, sin dejar de trabajar.','universidad-dominical.html'],
     'adulto:examen':['Admisión Universitaria','Preparación intensiva para el examen que viene.','admision-universitaria.html'],

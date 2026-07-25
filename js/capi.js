@@ -1,80 +1,89 @@
-const axios = require('axios');
+'use strict';
+
 const crypto = require('crypto');
 
-const PIXEL_ID = '280967147554736';
-const ACCESS_TOKEN = 'EAAFHi6gU8qEBQnBLJRSdKkalE6w9ZA2h4FoinmKf1aKUyIIVdZBQwY5jL3hJrUx28rmqzIF77B32nVJGEvFOmZC9yg3EmdeY1QQItsZBe5fmDdfzRymeV07FSCVqQYpHaeZBoe6Ec6JwbhET0DeFa69eQV3jZCvf2VtpCgfYzArQgtUSECwfiRl2pENYf5WwZDZD';
+// ─────────────────────────────────────────────────────────────
+// CONFIG — todo por variables de entorno. NUNCA hardcodear
+// tokens en el código (el anterior quedó expuesto en GitHub:
+// debe rotarse en Meta Events Manager).
+// ─────────────────────────────────────────────────────────────
+const PIXEL_ID = process.env.META_PIXEL_ID || '280967147554736';
+const ACCESS_TOKEN = process.env.META_ACCESS_TOKEN || '';
+const TEST_EVENT_CODE = process.env.META_TEST_EVENT_CODE || null; // opcional: para probar en Events Manager
+const GRAPH_VERSION = 'v21.0';
+const CAPI_TIMEOUT_MS = 5000; // Meta lento ≠ sitio lento
+
+let warnedNoToken = false;
 
 /**
- * Genera un hash SHA256 de un dato (requerido por Meta para datos PII)
- * Se usa como fallback si ParamBuilder no está disponible
+ * SHA256 fallback si ParamBuilder no está disponible
  */
 function hashData(data) {
     if (!data) return null;
-    return crypto.createHash('sha256').update(data.trim().toLowerCase()).digest('hex');
+    return crypto.createHash('sha256').update(String(data).trim().toLowerCase()).digest('hex');
 }
 
 /**
- * Envía un evento a la API de Conversiones de Meta
- * Usa ParamBuilder para obtener valores óptimos de fbc, fbp, client_ip_address
- * y PII normalizado/hasheado cuando está disponible
+ * Verifica si un valor ya está hasheado en SHA256 (64 chars hex)
+ */
+function isHashed(value) {
+    return typeof value === 'string' && /^[a-f0-9]{64}$/i.test(value);
+}
+
+/**
+ * Normaliza y hashea PII con ParamBuilder si existe; fallback a SHA256 manual.
+ */
+function normalizePII(pb, value, type) {
+    if (!value || isHashed(value)) return value;
+    if (pb?.getNormalizedAndHashedPII) {
+        try {
+            return pb.getNormalizedAndHashedPII(value, type);
+        } catch (e) { /* fallback abajo */ }
+    }
+    return hashData(value);
+}
+
+/**
+ * Envía un evento a la API de Conversiones de Meta.
+ * - fetch nativo (Node 18+), sin dependencias externas
+ * - timeout con AbortController: nunca bloquea el request del usuario
+ * - fail-safe: cualquier error se loggea y se devuelve null, jamás crashea
  */
 async function sendCapiEvent(eventName, req, userData = {}, eventId = null) {
-    try {
-        const pb = req.paramBuilder; // ParamBuilder instance from middleware
+    if (!ACCESS_TOKEN) {
+        if (!warnedNoToken) {
+            console.warn('⚠️ META_ACCESS_TOKEN no configurado: eventos CAPI deshabilitados.');
+            warnedNoToken = true;
+        }
+        return null;
+    }
 
-        // ── Obtener fbc, fbp, client_ip_address ──
-        // Priorizar ParamBuilder, fallback a cookies/req directos
+    try {
+        const pb = req.paramBuilder;
+
+        // ── fbc, fbp, client_ip: ParamBuilder primero, fallback a cookies/req ──
         const fbc = pb?.getFbc?.() || req.cookies?._fbc || null;
         const fbp = pb?.getFbp?.() || req.cookies?._fbp || null;
         const clientIp = pb?.getClientIpAddress?.() || req.ip;
 
-        // ── Normalizar y hashear PII si viene en userData ──
+        // ── Normalizar y hashear PII ──
         const enhancedUserData = { ...userData };
-
-        if (pb && userData.em && !isHashed(userData.em)) {
-            try {
-                enhancedUserData.em = pb.getNormalizedAndHashedPII(userData.em, 'email');
-            } catch (e) {
-                enhancedUserData.em = hashData(userData.em);
+        const piiTypes = { em: 'email', ph: 'phone', fn: 'first_name', ln: 'last_name' };
+        for (const [key, type] of Object.entries(piiTypes)) {
+            if (enhancedUserData[key]) {
+                enhancedUserData[key] = normalizePII(pb, enhancedUserData[key], type);
             }
         }
 
-        if (pb && userData.ph && !isHashed(userData.ph)) {
-            try {
-                enhancedUserData.ph = pb.getNormalizedAndHashedPII(userData.ph, 'phone');
-            } catch (e) {
-                enhancedUserData.ph = hashData(userData.ph);
-            }
-        }
-
-        if (pb && userData.fn && !isHashed(userData.fn)) {
-            try {
-                enhancedUserData.fn = pb.getNormalizedAndHashedPII(userData.fn, 'first_name');
-            } catch (e) {
-                enhancedUserData.fn = hashData(userData.fn);
-            }
-        }
-
-        if (pb && userData.ln && !isHashed(userData.ln)) {
-            try {
-                enhancedUserData.ln = pb.getNormalizedAndHashedPII(userData.ln, 'last_name');
-            } catch (e) {
-                enhancedUserData.ln = hashData(userData.ln);
-            }
-        }
-
-        // ── Separar user_data, custom_data y root event fields ──
-        // Meta requiere que los campos PII vayan dentro de arreglos (ej. "em": ["hash"])
+        // ── Clasificación de campos ──
         const piiFields = ['em', 'ph', 'fn', 'ln', 'ge', 'db', 'ct', 'st', 'zp', 'country', 'external_id'];
 
-        // metadataFields van dentro de user_data pero NO son arreglos (Strings puros)
         const metadataFields = [
             'fbc', 'fbp', 'client_ip_address', 'client_user_agent',
             'subscription_id', 'fb_login_id', 'lead_id', 'anon_id', 'madid',
             'page_id', 'page_scoped_user_id', 'ctwa_clid', 'ig_account_id', 'ig_sid'
         ];
 
-        // rootEventFields van directamente al mismo nivel que event_name
         const rootEventFields = [
             'attribution_data', 'original_event_data', 'opt_out',
             'data_processing_options', 'data_processing_options_country',
@@ -85,7 +94,6 @@ async function sendCapiEvent(eventName, req, userData = {}, eventId = null) {
         const piiData = {};
         const rootData = {};
 
-        // 1. Extraer rootEventFields
         for (const field of rootEventFields) {
             if (enhancedUserData[field] !== undefined) {
                 rootData[field] = enhancedUserData[field];
@@ -93,17 +101,13 @@ async function sendCapiEvent(eventName, req, userData = {}, eventId = null) {
             }
         }
 
-        // 2. Extraer el resto de PII, Metadata Local y Custom Data
         for (const [key, value] of Object.entries(enhancedUserData)) {
             if (piiFields.includes(key)) {
-                // PII siempre en array (a menos que no se proporcione)
-                piiData[key] = Array.isArray(value) ? value : [value];
+                piiData[key] = Array.isArray(value) ? value : [value]; // PII siempre en array
             } else if (metadataFields.includes(key)) {
-                // Metadata como subscription_id, fb_login_id NO llevan array
-                piiData[key] = value;
+                piiData[key] = value; // metadata: string plano
             } else {
-                // Todo lo demás a custom_data (e.g., currency, value, content_name)
-                customData[key] = value;
+                customData[key] = value; // currency, value, content_name...
             }
         }
 
@@ -116,43 +120,51 @@ async function sendCapiEvent(eventName, req, userData = {}, eventId = null) {
             user_data: {
                 client_ip_address: clientIp,
                 client_user_agent: req.get('user-agent'),
-                fbc: fbc,
-                fbp: fbp,
+                fbc,
+                fbp,
                 ...piiData
             },
             ...rootData
         };
 
-        // Solo agregar custom_data si tiene algún valor
         if (Object.keys(customData).length > 0) {
             eventPayload.custom_data = customData;
         }
 
         const payload = { data: [eventPayload] };
+        if (TEST_EVENT_CODE) payload.test_event_code = TEST_EVENT_CODE;
 
+        // ── fetch nativo con timeout ──
+        const url = `https://graph.facebook.com/${GRAPH_VERSION}/${PIXEL_ID}/events?access_token=${encodeURIComponent(ACCESS_TOKEN)}`;
 
+        const controller = new AbortController();
+        const timer = setTimeout(() => controller.abort(), CAPI_TIMEOUT_MS);
 
-        const response = await axios.post(
-            `https://graph.facebook.com/v21.0/${PIXEL_ID}/events`,
-            payload,
-            {
-                params: { access_token: ACCESS_TOKEN },
-                headers: { 'Content-Type': 'application/json' }
+        let responseData;
+        try {
+            const response = await fetch(url, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(payload),
+                signal: controller.signal
+            });
+            responseData = await response.json().catch(() => ({}));
+            if (!response.ok) {
+                throw new Error(`Meta ${response.status}: ${JSON.stringify(responseData?.error || responseData)}`);
             }
-        );
+        } finally {
+            clearTimeout(timer);
+        }
 
-        console.log(`✅ Evento CAPI '${eventName}' enviado [fbc: ${fbc ? '✓' : '✗'} | fbp: ${fbp ? '✓' : '✗'} | ip: ${clientIp ? '✓' : '✗'}]`);
-        return response.data;
+        console.log(`✅ CAPI '${eventName}' [fbc: ${fbc ? '✓' : '✗'} | fbp: ${fbp ? '✓' : '✗'} | ip: ${clientIp ? '✓' : '✗'}]`);
+        return responseData;
     } catch (error) {
-        console.error(`❌ Error al enviar evento CAPI '${eventName}':`, error.response?.data || error.message);
+        const msg = error.name === 'AbortError'
+            ? `timeout tras ${CAPI_TIMEOUT_MS}ms`
+            : error.message;
+        console.error(`❌ CAPI '${eventName}': ${msg}`);
+        return null; // nunca propagar: analytics jamás tira el sitio
     }
-}
-
-/**
- * Verifica si un valor ya está hasheado en SHA256 (64 chars hex)
- */
-function isHashed(value) {
-    return typeof value === 'string' && /^[a-f0-9]{64}$/i.test(value);
 }
 
 module.exports = { sendCapiEvent };

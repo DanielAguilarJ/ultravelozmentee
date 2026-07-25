@@ -71,6 +71,23 @@ if [ -n "$found_phones" ]; then
   fail=1
 fi
 
+# ── Gate 8: dependencias de server.js declaradas en package.json ──
+# Causa raíz del incidente 'Cannot find module express': un
+# package.json de build reemplazó al de runtime. Nunca más.
+if [ -f server.js ] && [ -f package.json ]; then
+  NODE_BUILTINS="fs|path|http|https|url|crypto|os|stream|events|util|buffer|querystring|child_process"
+  server_deps=$(grep -oE "require\('([a-z0-9@/_-]+)'\)" server.js \
+    | sed "s/require('//;s/')//" \
+    | grep -v "^\." | grep -vE "^($NODE_BUILTINS)$" | sort -u)   # excluye requires locales y builtins
+  for dep in $server_deps; do
+    if ! grep -q "\"$dep\"" package.json; then
+      say "❌ Gate 8: server.js requiere '$dep' pero no está en package.json"
+      say "   Fix: npm install $dep --save"
+      fail=1
+    fi
+  done
+fi
+
 # ── Veredicto ────────────────────────────────────────────────
 if [ "$fail" -eq 1 ]; then
   say ""
@@ -79,4 +96,4 @@ if [ "$fail" -eq 1 ]; then
   exit 1
 fi
 
-say "✅ Todos los gates pasan (7/7)."
+say "✅ Todos los gates pasan (8/8)."

@@ -1,12 +1,23 @@
 {
   "name": "ultravelozmente",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "private": true,
-  "description": "Sitio WorldBrain México — Eleventy static site",
+  "description": "Sitio WorldBrain México — Express server + Eleventy build",
+  "main": "server.js",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
+    "start": "node server.js",
     "dev": "eleventy --serve --quiet",
     "build": "eleventy",
     "check:external": "grep -rn 'randomuser\\|pravatar' src/ && exit 1 || echo '✓ Sin dependencias de imágenes externas'"
+  },
+  "dependencies": {
+    "express": "^4.21.2",
+    "compression": "^1.7.5",
+    "cookie-parser": "^1.4.7",
+    "capi-param-builder-nodejs": "^1.0.0"
   },
   "devDependencies": {
     "@11ty/eleventy": "^3.0.0"

@@ -43,6 +43,10 @@ app.use((req, res, next) => {
   if (req.path.length > 1 && req.path.endsWith('/')) {
     return res.redirect(301, req.path.slice(0, -1));
   }
+  // Backups y archivos internos: nunca servibles, ni por URL directa
+  if (/backup|-old/.test(req.path) || req.path.startsWith('/_archive')) {
+    return res.redirect(301, '/');
+  }
   next();
 });
 
@@ -141,6 +145,39 @@ app.use((req, res, next) => {
 });
 
 // ─────────────────────────────────────────────────────────────
+// 4.5) RATE LIMIT — /api/event es público y reenvía a Meta CAPI.
+// Sin límite, un bot infla conversiones y contamina la
+// optimización de campañas. Ventana fija en memoria: suficiente
+// para 1 instancia; si escalas horizontal, migrar a Redis.
+// ─────────────────────────────────────────────────────────────
+const rateBuckets = new Map();
+const RATE_LIMIT = { windowMs: 60_000, max: 20 }; // 20 eventos/min/IP
+
+setInterval(() => {
+  const cutoff = Date.now() - RATE_LIMIT.windowMs;
+  for (const [ip, bucket] of rateBuckets) {
+    if (bucket.start < cutoff) rateBuckets.delete(ip);
+  }
+}, 5 * 60_000).unref(); // limpieza pasiva, no bloquea el shutdown
+
+function rateLimit(req, res, next) {
+  const ip = (req.headers['x-forwarded-for'] || '').split(',')[0].trim()
+    || req.socket.remoteAddress || 'unknown';
+  const now = Date.now();
+  const bucket = rateBuckets.get(ip);
+
+  if (!bucket || now - bucket.start > RATE_LIMIT.windowMs) {
+    rateBuckets.set(ip, { start: now, count: 1 });
+    return next();
+  }
+  if (++bucket.count > RATE_LIMIT.max) {
+    res.setHeader('Retry-After', Math.ceil(RATE_LIMIT.windowMs / 1000));
+    return res.status(429).json({ error: 'Demasiadas solicitudes' });
+  }
+  next();
+}
+
+// ─────────────────────────────────────────────────────────────
 // 5) API — IP y eventos de cliente
 // ─────────────────────────────────────────────────────────────
 app.get('/api/ip', (req, res) => {
@@ -153,7 +190,7 @@ app.get('/api/ip', (req, res) => {
   res.json({ ip });
 });
 
-app.post('/api/event', async (req, res) => {
+app.post('/api/event', rateLimit, async (req, res) => {
   try {
     const { eventName, userData, eventId } = req.body;
     if (!eventName) return res.status(400).json({ error: 'Event Name is required' });
@@ -400,6 +437,33 @@ app.use((req, res) => {
   if (fs.existsSync(nf)) return res.sendFile(nf);
   res.type('html').send('<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>404</title></head><body style="font-family:sans-serif;text-align:center;padding:4rem"><h1>404</h1><p>Esta página no existe.</p><a href="/">← Volver al inicio</a></body></html>');
 });
+
+// ─────────────────────────────────────────────────────────────
+// 11) STARTUP AUDIT — el server se niega a arrancar limpio si
+// detecta contenido vetado. Ruido temprano > vergüenza tardía.
+// En producción solo advierte (no tira el sitio por un warning);
+// en desarrollo falla duro para que se arregle antes del push.
+// ─────────────────────────────────────────────────────────────
+(function startupAudit() {
+  const BANNED = [/pravatar\.cc/, /randomuser\.me/];
+  const offenders = fs.readdirSync(staticPath)
+    .filter(f => f.endsWith('.html') && !f.includes('backup') && !f.includes('-old'))
+    .filter(f => {
+      const html = fs.readFileSync(path.join(staticPath, f), 'utf8');
+      return BANNED.some(rx => rx.test(html));
+    });
+
+  if (offenders.length) {
+    const msg = `⛔ AUDIT: contenido vetado (avatares falsos) en: ${offenders.join(', ')}`;
+    if (process.env.NODE_ENV === 'production') {
+      console.error(msg + ' — CORRIGE HOY: python3 fix_fake_testimonials.py');
+    } else {
+      throw new Error(msg);
+    }
+  } else {
+    console.log('✅ AUDIT: contenido limpio.');
+  }
+})();
 
 app.listen(PORT, () => {
   console.log(`🚀 Servidor listo en puerto ${PORT} — canónica: ${BASE}`);

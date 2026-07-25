@@ -762,3 +762,28 @@
         font-size: 1.4rem;
     }
 }
+
+/* ================================================================
+   AVATAR CON INICIALES — sustituto local de pravatar/randomuser.
+   48px para igualar el tamaño de las fotos que reemplaza (evita CLS).
+   ================================================================ */
+.avatar-initials {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 1.05rem;
+  color: #fff;
+  flex-shrink: 0;
+  user-select: none;
+  font-family: 'Outfit', 'Inter', sans-serif;
+  vertical-align: middle;
+}
+.avatar-initials[data-hue="1"] { background: linear-gradient(135deg, #6366f1, #4338ca); }
+.avatar-initials[data-hue="2"] { background: linear-gradient(135deg, #0ea5e9, #0369a1); }
+.avatar-initials[data-hue="3"] { background: linear-gradient(135deg, #10b981, #047857); }
+.avatar-initials[data-hue="4"] { background: linear-gradient(135deg, #f59e0b, #b45309); }
+

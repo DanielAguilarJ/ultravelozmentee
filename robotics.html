@@ -1,2407 +1,952 @@
 <!DOCTYPE html>
-<html lang="es-MX">
-
+<html lang="es">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10846614576"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Robotics Code — Robótica, Programación e IA para niños de 7 a 17 años | WorldBrain México</title>
+<meta name="description" content="Tu hijo no jugará videojuegos: los creará. Robótica con LEGO y Arduino, Scratch, Python, IA y Metaverso en 6 módulos. Kit de robótica incluido. Clases en CDMX, Cuautitlán Izcalli, EdoMex y Guadalajara. Primera clase gratis.">
+<meta name="theme-color" content="#0A0E14">
+<link rel="canonical" href="https://ultravelozmente.com/robotics">
+<meta property="og:title" content="Robotics Code — Inventa, programa y aprende | WorldBrain México">
+<meta property="og:description" content="De LEGO a Inteligencia Artificial en 6 módulos. Niños y jóvenes de 7 a 17 años. Primera clase gratis.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=JetBrains+Mono:ital,wght@0,400;0,500;0,700;1,400&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "Robotics Code",
+  "description": "Programación y robótica para niños y jóvenes de 7 a 17 años: LEGO, Scratch, Arduino, Python, IA y Metaverso. 6 módulos con kit de robótica incluido.",
+  "provider": { "@type": "Organization", "name": "WorldBrain México", "sameAs": "https://ultravelozmente.com" },
+  "audience": { "@type": "EducationalAudience", "educationalRole": "student", "audienceType": "Niños y jóvenes de 7 a 17 años" }
+}
+</script>
+<style>
+/* ════════════════════════════════════════════════════════════════
+   ROBOTICS CODE — "EL IDE" · WorldBrain México 2026
+   La página es un entorno de desarrollo. Cada sección, una ventana.
+   ════════════════════════════════════════════════════════════════ */
+:root{
+  /* Paleta de terminal — calibrada sobre OLED, contraste AA+ */
+  --bg:#0A0E14;
+  --bg-2:#0E131C;
+  --panel:#121826;
+  --chrome:#1A2233;
+  --line:rgba(122,255,178,.1);
+  --line-2:rgba(255,255,255,.07);
+  --text:#D9E2F1;
+  --text-dim:#8492AC;
+  --green:#5AF78E;         /* éxito / run */
+  --cyan:#6BE5FF;          /* keywords */
+  --violet:#B389FF;        /* funciones */
+  --amber:#FFC66B;         /* strings */
+  --red:#FF6B7A;           /* traffic light / error */
+  --display:'Chakra Petch',sans-serif;
+  --mono:'JetBrains Mono',monospace;
+  --sans:'Inter',system-ui,sans-serif;
+  --spring:linear(0,.007,.029 2.9%,.115 6.4%,.559 19%,.735 25.5%,.855 31.8%,
+    .937 38.4%,.987 45.5%,1.008 53.6%,1.01 63.5%,1 100%);
+}
+@supports not (transition-timing-function:linear(0,1)){
+  :root{--spring:cubic-bezier(.22,1,.36,1)}
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:84px}
+body{
+  font-family:var(--sans);background:var(--bg);color:var(--text);
+  line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+/* Scanlines sutiles de monitor — textura, no ruido */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:1;opacity:.4;
+  background:repeating-linear-gradient(180deg,transparent 0 3px,rgba(0,0,0,.12) 3px 4px);
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);line-height:1.1;letter-spacing:-.01em;text-wrap:balance}
+::selection{background:var(--green);color:var(--bg)}
+:focus-visible{outline:2px solid var(--green);outline-offset:3px;border-radius:3px}
 
-        gtag('config', 'AW-10846614576');
-    </script>
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-MWMFXQS7');</script>
-    <!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mejor Curso de Robótica Online 2026 + IA | LEGO y Arduino México</title>
-    <meta name="description"
-        content="🥇 Cursos de Robótica con LEGO Mindstorms, Arduino y programación para niños. Clases online y presenciales en CDMX, Guadalajara y todo México. Certificado oficial. ¡Clase gratis!">
+.wrap{max-width:1180px;margin:0 auto;padding:0 clamp(18px,4vw,44px);position:relative;z-index:2}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--green)}
+.cmt{color:var(--text-dim)}     /* comentario de código */
+.kw{color:var(--cyan)}          /* keyword */
+.fn{color:var(--violet)}        /* función */
+.str{color:var(--amber)}        /* string */
 
-    <!-- Open Graph / Facebook -->
-    <meta property="og:title" content="Cursos Robótica Online 2026 | LEGO + Arduino + IA | WorldBrain México">
-    <meta property="og:description"
-        content="El mejor curso de robótica para niños en México. Clases de LEGO Mindstorms, Arduino e Inteligencia Artificial. Online y presencial en CDMX, Guadalajara, Edo. México. ¡1ra clase GRATIS!">
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://ultravelozmente.com/robotics.html">
-    <meta property="og:image" content="https://ultravelozmente.com/images/rb-hero-robot.webp">
-    <meta property="og:image:width" content="1200">
-    <meta property="og:image:height" content="630">
-    <meta property="og:image:alt"
-        content="Niños aprendiendo robótica con LEGO Mindstorms y Arduino en WorldBrain México">
-    <meta property="og:locale" content="es_MX">
-    <meta property="og:site_name" content="WorldBrain México - Academia de Robótica">
+/* ---------- Ventana IDE: el componente madre ---------- */
+.win{
+  background:var(--panel);border:1px solid var(--line-2);border-radius:14px;
+  overflow:hidden;box-shadow:0 30px 80px -30px rgba(0,0,0,.6);
+}
+.win-bar{
+  display:flex;align-items:center;gap:.55rem;padding:.75rem 1.1rem;
+  background:var(--chrome);border-bottom:1px solid var(--line-2);
+}
+.win-bar .dot{width:11px;height:11px;border-radius:50%}
+.win-bar .dot:nth-child(1){background:var(--red)}
+.win-bar .dot:nth-child(2){background:var(--amber)}
+.win-bar .dot:nth-child(3){background:var(--green)}
+.win-bar .tab{
+  margin-left:.8rem;font-family:var(--mono);font-size:.68rem;color:var(--text-dim);
+  background:var(--panel);border:1px solid var(--line-2);border-bottom:0;
+  border-radius:8px 8px 0 0;padding:.35rem .9rem;transform:translateY(6px);
+}
+.win-bar .tab b{color:var(--green);font-weight:500}
+.win-body{padding:clamp(1.4rem,3vw,2.2rem)}
 
-    <!-- Twitter Card -->
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:site" content="@WorldBrainMx">
-    <meta name="twitter:creator" content="@WorldBrainMx">
-    <meta name="twitter:title" content="🤖 Mejor Curso Robótica Online 2026 | LEGO + Arduino + IA">
-    <meta name="twitter:description"
-        content="Cursos de robótica con LEGO Mindstorms, Arduino y Python para niños 7-17 años. Desarrolla pensamiento lógico y crea robots. Online y presencial en CDMX.">
-    <meta name="twitter:image" content="https://ultravelozmente.com/images/rb-hero-robot.webp">
+/* ---------- Botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;cursor:pointer;
+  font-family:var(--mono);font-weight:700;font-size:.85rem;letter-spacing:.02em;
+  padding:1rem 1.8rem;border-radius:10px;border:1px solid transparent;
+  transition:transform .3s var(--spring),box-shadow .3s,background .3s;
+}
+.btn-run{background:var(--green);color:var(--bg);box-shadow:0 0 24px -6px rgba(90,247,142,.5)}
+.btn-run:hover{transform:translateY(-2px);box-shadow:0 0 40px -6px rgba(90,247,142,.75)}
+.btn-run::before{content:"▶";font-size:.7em}
+.btn-ghost{border-color:var(--line-2);color:var(--text)}
+.btn-ghost:hover{border-color:var(--green);color:var(--green)}
+.btn:active{transform:translateY(0) scale(.98)}
 
-    <!-- Additional SEO Meta Tags -->
-    <meta name="keywords"
-        content="cursos robótica online, clases LEGO Mindstorms, curso Arduino niños, IA robótica educativa, mejor curso robótica 2026, robótica para niños México, formación STEAM, construcción robots LEGO, programación niños CDMX, robótica Guadalajara">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
-    <meta name="author" content="WorldBrain México">
-    <meta name="geo.region" content="MX">
-    <meta name="geo.placename" content="Ciudad de México, Guadalajara, Estado de México">
-    <meta name="language" content="Spanish">
+/* ---------- Header ---------- */
+#sentinel{position:absolute;top:0;height:1px;width:1px}
+header{
+  position:fixed;inset:0 0 auto;z-index:100;border-bottom:1px solid transparent;
+  transition:background .35s,border-color .35s;
+}
+header.scrolled{
+  background:color-mix(in oklab,var(--bg) 86%,transparent);
+  backdrop-filter:blur(14px);border-color:var(--line-2);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;max-width:1180px;margin:0 auto;padding:.95rem clamp(18px,4vw,44px)}
+.logo{font-family:var(--display);font-weight:700;font-size:1.15rem;text-decoration:none}
+.logo span{color:var(--green)}
+.nav-links{display:flex;gap:1.9rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-family:var(--mono);font-size:.78rem;color:var(--text-dim);transition:color .2s}
+.nav-links a:hover{color:var(--green)}
+.nav-links a::before{content:"./";color:var(--line-2)}
+.nav-cta{font-size:.72rem;padding:.6rem 1.2rem}
+.burger{display:none;background:var(--panel);border:1px solid var(--line-2);border-radius:8px;color:var(--text);padding:.5rem .9rem;font-family:var(--mono);font-size:.8rem;cursor:pointer}
+.mmenu{display:none;position:fixed;inset:58px 0 0;z-index:99;background:var(--bg);flex-direction:column;padding:1.6rem clamp(18px,4vw,44px);overflow:auto}
+.mmenu.open{display:flex}
+.mmenu a{
+  text-decoration:none;font-family:var(--mono);font-size:1.05rem;padding:1rem 0;
+  border-bottom:1px solid var(--line-2);color:var(--text);
+}
+.mmenu a::before{content:"$ cd ";color:var(--text-dim)}
 
-    <!-- Canonical -->
-    <link rel="canonical" href="https://ultravelozmente.com/robotics.html">
+/* ---------- Hero ---------- */
+.hero{min-height:100svh;display:flex;align-items:center;padding:7.5rem 0 4rem;position:relative;overflow:hidden}
+/* Grid de placa de circuito de fondo */
+.hero::before{
+  content:"";position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--line) 1px,transparent 1px),
+    linear-gradient(90deg,var(--line) 1px,transparent 1px);
+  background-size:52px 52px;
+  mask-image:radial-gradient(ellipse 75% 65% at 60% 40%,#000 20%,transparent 100%);
+}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:3.5rem;align-items:center}
+.hero .badge{
+  display:inline-flex;gap:.6rem;align-items:center;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.12em;color:var(--cyan);border:1px solid rgba(107,229,255,.3);
+  border-radius:999px;padding:.5rem 1.1rem;margin-bottom:1.6rem;
+}
+.hero .badge i{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 1.6s infinite;font-style:normal}
+@keyframes blink{50%{opacity:.3}}
+.hero h1{font-size:clamp(2.4rem,5.8vw,4.4rem);font-weight:700;margin-bottom:1.4rem}
+.hero h1 .g{color:var(--green)}
+.hero h1 .c{color:var(--cyan)}
+.hero .lead{font-size:1.12rem;color:var(--text-dim);max-width:32rem;margin-bottom:2.2rem}
+.hero .lead b{color:var(--text)}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2.6rem}
+.hero-stats{display:flex;gap:2.2rem;flex-wrap:wrap;font-family:var(--mono);font-size:.7rem;color:var(--text-dim)}
+.hero-stats b{display:block;font-family:var(--display);font-size:1.5rem;color:var(--green);letter-spacing:0}
+/* Terminal auto-escribiente */
+.term{font-family:var(--mono);font-size:.85rem;line-height:1.9}
+.term .ln{display:flex;gap:1.1rem}
+.term .no{color:var(--line-2);user-select:none;min-width:1.4ch;text-align:right}
+.term .cursor{display:inline-block;width:.6em;height:1.1em;background:var(--green);vertical-align:text-bottom;animation:blink 1s step-end infinite}
+.term .out{color:var(--green)}
 
-    <!-- ============================================= -->
-    <!-- SCHEMA.ORG MARKUP AVANZADO - ROBOTICS CODE -->
-    <!-- ============================================= -->
+/* ---------- Reveal ---------- */
+@supports (animation-timeline: view()){
+  .rv{animation:rvup both;animation-timeline:view();animation-range:entry 0% entry 36%}
+  @keyframes rvup{from{opacity:0;transform:translateY(36px)}to{opacity:1;transform:none}}
+}
 
-    <!-- 1. Organization Schema (WorldBrain México) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": ["EducationalOrganization", "LocalBusiness"],
-        "@id": "https://ultravelozmente.com/#organization",
-        "name": "WorldBrain México",
-        "alternateName": ["Ultravelozmente", "WorldBrain", "World Brain México"],
-        "legalName": "WorldBrain México",
-        "url": "https://ultravelozmente.com",
-        "logo": {
-            "@type": "ImageObject",
-            "url": "https://ultravelozmente.com/images/logo.svg",
-            "width": 512,
-            "height": 512
-        },
-        "image": [
-            "https://ultravelozmente.com/images/og-image.jpg",
-            "https://ultravelozmente.com/images/og-image.jpg",
-            "https://ultravelozmente.com/images/rb-hero-robot.webp"
-        ],
-        "description": "Institución líder en educación acelerada con más de 30 años de experiencia y 200,000+ graduados. Cursos de Fotolectura, MatheKids, Robótica y Homeschool.",
-        "slogan": "Desbloquea el Genio Interior",
-        "foundingDate": "1994",
-        "founder": {
-            "@type": "Person",
-            "name": "WorldBrain México"
-        },
-        "address": {
-            "@type": "PostalAddress",
-            "streetAddress": "Avenida Primero De Mayo S/N, Int. Local 282, Colonia Centro Urbano Sector C 24 B (Los Reyes)",
-            "addressLocality": "Cuautitlán Izcalli",
-            "addressRegion": "Estado de México",
-            "postalCode": "54700",
-            "addressCountry": "MX"
-        },
-        "geo": {
-            "@type": "GeoCoordinates",
-            "latitude": 19.6577,
-            "longitude": -99.2150
-        },
-        "hasMap": "https://www.google.com/maps?q=19.6577,-99.2150",
-        "contactPoint": [
-            {
-                "@type": "ContactPoint",
-                "telephone": "+52-55-7810-7837",
-                "contactType": "customer service",
-                "email": "contacto@ultravelozmente.com",
-                "areaServed": "MX",
-                "availableLanguage": ["Spanish", "es"],
-                "hoursAvailable": [
-                    {
-                        "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                        "opens": "09:00",
-                        "closes": "19:00"
-                    },
-                    {
-                        "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": "Saturday",
-                        "opens": "10:00",
-                        "closes": "18:00"
-                    },
-                    {
-                        "@type": "OpeningHoursSpecification",
-                        "dayOfWeek": "Sunday",
-                        "opens": "11:00",
-                        "closes": "17:00"
-                    }
-                ]
-            },
-            {
-                "@type": "ContactPoint",
-                "telephone": "+52-55-5868-6784",
-                "contactType": "sales",
-                "email": "contacto@ultravelozmente.com",
-                "areaServed": ["Estado de México", "CDMX"],
-                "availableLanguage": "Spanish"
-            },
-            {
-                "@type": "ContactPoint",
-                "telephone": "+52-777-532-6012",
-                "contactType": "customer service",
-                "email": "contacto@ultravelozmente.com",
-                "areaServed": "Cuernavaca",
-                "availableLanguage": "Spanish"
-            }
-        ],
-        "openingHoursSpecification": [
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                "opens": "09:00",
-                "closes": "19:00"
-            },
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Saturday",
-                "opens": "10:00",
-                "closes": "18:00"
-            },
-            {
-                "@type": "OpeningHoursSpecification",
-                "dayOfWeek": "Sunday",
-                "opens": "11:00",
-                "closes": "17:00"
-            }
-        ],
-        "priceRange": "$$",
-        "currenciesAccepted": "MXN",
-        "paymentAccepted": ["Cash", "Credit Card", "Debit Card", "Bank Transfer", "Vouchers"],
-        "sameAs": [
-            "https://www.facebook.com/WorldBrainMx/",
-            "https://www.instagram.com/worldbrainmx1/",
-            "https://www.instagram.com/worldbrainmx/",
-            "https://x.com/WorldBrainMx",
-            "https://youtube.com/@worldbrainmexico",
-            "https://tiktok.com/@worldbrainmexico"
-        ],
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "456",
-            "bestRating": "5",
-            "worstRating": "1"
-        },
-        "numberOfEmployees": {
-            "@type": "QuantitativeValue",
-            "minValue": 20,
-            "maxValue": 50
-        },
-        "areaServed": [
-            {
-                "@type": "Country",
-                "name": "México"
-            },
-            {
-                "@type": "City",
-                "name": "Ciudad de México"
-            },
-            {
-                "@type": "City",
-                "name": "Cuautitlán Izcalli"
-            },
-            {
-                "@type": "AdministrativeArea",
-                "name": "Estado de México"
-            },
-            {
-                "@type": "City",
-                "name": "Guadalajara"
-            },
-            {
-                "@type": "City",
-                "name": "Cuernavaca"
-            }
-        ],
-        "knowsAbout": [
-            "Clases LEGO Mindstorms",
-            "Construcción robots LEGO",
-            "Curso Arduino para niños",
-            "IA en robótica educativa",
-            "Cursos robótica online",
-            "Formación STEAM",
-            "Programación para niños",
-            "Robótica educativa",
-            "Scratch",
-            "Python",
-            "JavaScript",
-            "Inteligencia Artificial",
-            "Machine Learning básico",
-            "Desarrollo de videojuegos"
-        ],
-        "teaches": [
-            "Robótica",
-            "LEGO Mindstorms",
-            "Arduino",
-            "Inteligencia Artificial",
-            "Programación",
-            "Python",
-            "Scratch",
-            "Pensamiento lógico",
-            "Construcción de robots"
-        ],
-        "hasCredential": {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "Certificate",
-            "name": "Certificado de Competencias en Programación y Robótica 2026"
-        }
-    }
-    </script>
+/* ---------- Marquee stack ---------- */
+.stack-strip{border-block:1px solid var(--line-2);background:var(--bg-2);overflow:hidden;padding:1rem 0}
+.stack-track{display:flex;gap:2.6rem;white-space:nowrap;animation:mq 30s linear infinite;font-family:var(--mono);font-size:.82rem;color:var(--text-dim)}
+.stack-track b{color:var(--cyan);font-weight:500}
+@keyframes mq{to{transform:translateX(-50%)}}
 
-    <!-- 2. WebSite Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebSite",
-        "@id": "https://ultravelozmente.com/#website",
-        "name": "WorldBrain México - Robotics Code",
-        "alternateName": "Ultravelozmente",
-        "url": "https://ultravelozmente.com",
-        "description": "Cursos de programación y robótica para niños y jóvenes en México",
-        "publisher": {
-            "@id": "https://ultravelozmente.com/#organization"
-        },
-        "inLanguage": "es-MX",
-        "potentialAction": {
-            "@type": "SearchAction",
-            "target": {
-                "@type": "EntryPoint",
-                "urlTemplate": "https://ultravelozmente.com/search?q={search_term_string}"
-            },
-            "query-input": "required name=search_term_string"
-        }
-    }
-    </script>
+/* ---------- Secciones ---------- */
+section{padding:6.5rem 0;position:relative;z-index:2;content-visibility:auto;contain-intrinsic-size:auto 800px}
+h2.title{font-size:clamp(1.8rem,4.2vw,3rem);font-weight:700;margin:.9rem 0 1rem;max-width:24ch}
+h2.title .g{color:var(--green)}
+.sub{color:var(--text-dim);max-width:38rem;font-size:1.03rem}
 
-    <!-- 3. WebPage Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "WebPage",
-        "@id": "https://ultravelozmente.com/robotics.html#webpage",
-        "url": "https://ultravelozmente.com/robotics.html",
-        "name": "Robotics Code: Programación y Robótica para Niños | WorldBrain México",
-        "description": "Cursos de programación y robótica para niños y jóvenes de 6 a 18 años. Aprende Scratch, Python, JavaScript, Arduino y crea robots, videojuegos y aplicaciones.",
-        "isPartOf": {
-            "@id": "https://ultravelozmente.com/#website"
-        },
-        "about": {
-            "@type": "Course",
-            "@id": "https://ultravelozmente.com/robotics.html#course"
-        },
-        "primaryImageOfPage": {
-            "@type": "ImageObject",
-            "url": "https://ultravelozmente.com/images/robotics-og.jpg"
-        },
-        "datePublished": "2020-01-01",
-        "dateModified": "2025-11-27",
-        "inLanguage": "es-MX",
-        "breadcrumb": {
-            "@id": "https://ultravelozmente.com/robotics.html#breadcrumb"
-        },
-        "speakable": {
-            "@type": "SpeakableSpecification",
-            "cssSelector": [".hero-title", ".hero-description", ".section-title"]
-        }
-    }
-    </script>
+/* ---------- PLAYGROUND: programa tu robot ---------- */
+.play-zone{background:var(--bg-2);border-block:1px solid var(--line-2)}
+.play-grid{display:grid;grid-template-columns:340px 1fr;gap:1.6rem;margin-top:2.6rem;align-items:start}
+.blocks-panel .win-body{display:flex;flex-direction:column;gap:1.2rem;padding:1.2rem}
+.block-tray,.program{display:flex;flex-wrap:wrap;gap:.6rem;min-height:56px;border-radius:10px;padding:.7rem}
+.block-tray{background:rgba(255,255,255,.03)}
+.program{background:rgba(90,247,142,.05);border:1.5px dashed rgba(90,247,142,.3)}
+.program:empty::after{
+  content:"Toca los bloques para armar tu programa →";
+  font-family:var(--mono);font-size:.7rem;color:var(--text-dim);align-self:center;
+}
+.blk{
+  font-family:var(--mono);font-size:.85rem;font-weight:700;cursor:pointer;user-select:none;
+  border:none;border-radius:9px;padding:.7rem 1rem;min-height:44px;   /* target táctil niño */
+  color:var(--bg);display:inline-flex;align-items:center;gap:.4rem;
+  transition:transform .2s var(--spring),box-shadow .2s;
+  touch-action:manipulation;
+}
+.blk:hover{transform:translateY(-2px)}
+.blk:active{transform:scale(.94)}
+.blk-move{background:var(--cyan)}
+.blk-turnl,.blk-turnr{background:var(--violet)}
+.blk-loop{background:var(--amber)}
+.program .blk{box-shadow:0 3px 0 rgba(0,0,0,.35)}
+.play-actions{display:flex;gap:.7rem}
+.play-actions .btn{flex:1;justify-content:center;padding:.85rem}
+.btn-clear{background:transparent;border-color:var(--line-2);color:var(--text-dim);font-size:.75rem}
+.btn-clear:hover{border-color:var(--red);color:var(--red)}
+/* Tablero del robot */
+.board-wrap .win-body{padding:1rem}
+.board{display:grid;gap:5px;aspect-ratio:1;max-width:480px;margin:0 auto}
+.cell{background:rgba(255,255,255,.035);border-radius:7px;display:grid;place-items:center;font-size:clamp(1.1rem,3.4vw,1.7rem);position:relative;transition:background .3s}
+.cell.wall{background:rgba(255,107,122,.12);box-shadow:inset 0 0 0 1.5px rgba(255,107,122,.35)}
+.cell.goal{background:rgba(255,198,107,.14);box-shadow:inset 0 0 0 1.5px rgba(255,198,107,.5)}
+.cell.trail{background:rgba(90,247,142,.14)}
+.bot{
+  position:absolute;inset:0;display:grid;place-items:center;
+  transition:transform .34s var(--spring);will-change:transform;font-size:inherit;
+}
+.play-msg{
+  font-family:var(--mono);font-size:.78rem;text-align:center;padding:.9rem;min-height:44px;
+  color:var(--text-dim);
+}
+.play-msg.ok{color:var(--green)}
+.play-msg.err{color:var(--red)}
 
-    <!-- 4. BreadcrumbList Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "@id": "https://ultravelozmente.com/robotics.html#breadcrumb",
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "name": "Inicio",
-                "item": "https://ultravelozmente.com/"
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "name": "Cursos",
-                "item": "https://ultravelozmente.com/#cursos"
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "name": "Robotics Code",
-                "item": "https://ultravelozmente.com/robotics.html"
-            }
-        ]
-    }
-    </script>
+/* ---------- Módulos: git log ---------- */
+.gitlog{margin-top:3rem;position:relative;padding-left:2.2rem}
+.gitlog::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--green),var(--cyan),var(--violet))}
+.commit{position:relative;padding:0 0 2.6rem}
+.commit:last-child{padding-bottom:0}
+.commit::before{
+  content:"";position:absolute;left:-2.2rem;top:6px;width:20px;height:20px;border-radius:50%;
+  background:var(--bg);border:2.5px solid var(--green);z-index:1;
+}
+.commit:nth-child(3)::before,.commit:nth-child(4)::before{border-color:var(--cyan)}
+.commit:nth-child(5)::before,.commit:nth-child(6)::before{border-color:var(--violet)}
+.commit .hash{font-family:var(--mono);font-size:.7rem;color:var(--amber)}
+.commit h3{font-family:var(--display);font-size:1.25rem;margin:.3rem 0 .45rem}
+.commit p{color:var(--text-dim);font-size:.94rem;max-width:52ch}
+.commit .tags{display:flex;gap:.5rem;flex-wrap:wrap;margin-top:.8rem}
+.commit .tag{
+  font-family:var(--mono);font-size:.64rem;letter-spacing:.08em;color:var(--cyan);
+  border:1px solid rgba(107,229,255,.25);border-radius:999px;padding:.3rem .75rem;
+}
 
-    <!-- 5. Course Schema Principal - Robotics Code -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Course",
-        "@id": "https://ultravelozmente.com/robotics.html#course",
-        "name": "Robotics Code - Programación y Robótica para Niños y Jóvenes",
-        "alternateName": ["Robotics Code", "Curso de Robótica WorldBrain", "Programación para Niños"],
-        "description": "Programa completo de programación y robótica para niños y jóvenes de 6 a 18 años. Incluye Scratch, Arduino, HTML, C++, Python, desarrollo de videojuegos, IoT e Inteligencia Artificial. Desde fundamentos hasta proyectos avanzados.",
-        "url": "https://ultravelozmente.com/robotics.html",
-        "image": [
-            "https://ultravelozmente.com/images/robotics-hero.jpg",
-            "https://ultravelozmente.com/images/rb-hero-robot.webp",
-            "https://ultravelozmente.com/images/students-coding.jpg"
-        ],
-        "provider": {
-            "@type": "Organization",
-            "name": "WorldBrain México",
-            "@id": "https://ultravelozmente.com/#organization"
-        },
-        "creator": {
-            "@type": "Organization",
-            "name": "WorldBrain México"
-        },
-        "educationalLevel": ["Principiante", "Intermedio", "Avanzado"],
-        "audience": {
-            "@type": "EducationalAudience",
-            "educationalRole": "student",
-            "audienceType": "Niños y jóvenes de 6 a 18 años"
-        },
-        "teaches": [
-            "Programación visual con Scratch",
-            "Python básico y avanzado",
-            "JavaScript y desarrollo web",
-            "HTML y CSS",
-            "C++ para Arduino",
-            "Electrónica básica",
-            "Robótica con Lego Mindstorms",
-            "Arduino y microcontroladores",
-            "Desarrollo de videojuegos con Unity",
-            "Inteligencia Artificial",
-            "Machine Learning básico",
-            "Internet de las Cosas (IoT)",
-            "Desarrollo de aplicaciones móviles",
-            "Pensamiento lógico y computacional",
-            "Resolución de problemas",
-            "Trabajo en equipo"
-        ],
-        "assesses": [
-            "Habilidades de programación",
-            "Pensamiento lógico",
-            "Creatividad digital",
-            "Capacidad de resolución de problemas"
-        ],
-        "competencyRequired": "Ninguno - Curso para principiantes totales",
-        "coursePrerequisites": "Solo curiosidad y ganas de aprender",
-        "educationalCredentialAwarded": "Certificado de Competencias en Programación y Robótica",
-        "inLanguage": "es",
-        "availableLanguage": ["es", "Spanish"],
-        "isAccessibleForFree": false,
-        "hasCourseInstance": [
-            {
-                "@type": "CourseInstance",
-                "name": "Robotics Kids (7-10 años)",
-                "description": "Introducción a programación visual con Scratch y robótica básica con Lego WeDo",
-                "courseMode": ["onsite", "blended"],
-                "courseWorkload": "PT3H",
-                "duration": "P6M",
-                "repeatFrequency": "P1W",
-                "repeatCount": 24,
-                "startDate": "2025-01-15",
-                "endDate": "2025-07-15",
-                "instructor": {
-                    "@type": "Person",
-                    "name": "Equipo Robotics Code WorldBrain"
-                },
-                "location": {
-                    "@type": "Place",
-                    "name": "WorldBrain México - Campus Principal",
-                    "address": {
-                        "@type": "PostalAddress",
-                        "streetAddress": "Avenida Primero De Mayo S/N, Int. Local 282",
-                        "addressLocality": "Cuautitlán Izcalli",
-                        "addressRegion": "Estado de México",
-                        "postalCode": "54700",
-                        "addressCountry": "MX"
-                    }
-                },
-                "offers": {
-                    "@type": "Offer",
-                    "category": "Curso Presencial",
-                    "priceCurrency": "MXN",
-                    "availability": "https://schema.org/InStock",
-                    "validFrom": "2025-01-01"
-                }
-            },
-            {
-                "@type": "CourseInstance",
-                "name": "Robotics Junior (11-14 años)",
-                "description": "Transición a programación real con Python, Arduino y competencias de robótica",
-                "courseMode": ["onsite", "blended"],
-                "courseWorkload": "PT3H",
-                "duration": "P8M",
-                "startDate": "2025-01-15",
-                "instructor": {
-                    "@type": "Person",
-                    "name": "Equipo Robotics Code WorldBrain"
-                },
-                "location": {
-                    "@type": "Place",
-                    "name": "WorldBrain México - Campus Principal"
-                }
-            },
-            {
-                "@type": "CourseInstance",
-                "name": "Robotics Pro (15-17 años)",
-                "description": "Desarrollo profesional con Python avanzado, JavaScript, React, IA, Machine Learning y drones",
-                "courseMode": ["onsite", "blended"],
-                "courseWorkload": "PT3H",
-                "duration": "P12M",
-                "startDate": "2025-01-15",
-                "instructor": {
-                    "@type": "Person",
-                    "name": "Equipo Robotics Code WorldBrain"
-                }
-            }
-        ],
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "456",
-            "bestRating": "5",
-            "worstRating": "1"
-        },
-        "review": [
-            {
-                "@type": "Review",
-                "author": {
-                    "@type": "Person",
-                    "name": "Laura Mendoza"
-                },
-                "datePublished": "2025-09-15",
-                "reviewBody": "Andrés pasaba todo el día jugando videojuegos. Ahora pasa todo el día CREANDO videojuegos. La diferencia es abismal. Está desarrollando su propio juego para móviles.",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                }
-            },
-            {
-                "@type": "Review",
-                "author": {
-                    "@type": "Person",
-                    "name": "Carlos Ramírez"
-                },
-                "datePublished": "2025-08-20",
-                "reviewBody": "Mi hija ganó una beca completa para estudiar Ingeniería en el TEC gracias a su portafolio de proyectos de Robotics Code. ¡La inversión valió cada peso!",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                }
-            },
-            {
-                "@type": "Review",
-                "author": {
-                    "@type": "Person",
-                    "name": "Patricia López"
-                },
-                "datePublished": "2025-07-10",
-                "reviewBody": "Pensé que era muy pequeño para programar, pero en Scratch creó una historia animada sobre dinosaurios que presentó en su escuela. ¡Sus maestros quedaron impresionados!",
-                "reviewRating": {
-                    "@type": "Rating",
-                    "ratingValue": "5",
-                    "bestRating": "5"
-                }
-            }
-        ],
-        "syllabusSections": [
-            {
-                "@type": "Syllabus",
-                "name": "Módulo 1: Fundamentos de Programación",
-                "description": "Introducción al pensamiento computacional con Scratch"
-            },
-            {
-                "@type": "Syllabus",
-                "name": "Módulo 2: Robótica Básica",
-                "description": "Construcción y programación de robots con Lego WeDo y Mindstorms"
-            },
-            {
-                "@type": "Syllabus",
-                "name": "Módulo 3: Python y Arduino",
-                "description": "Programación textual y electrónica con microcontroladores"
-            },
-            {
-                "@type": "Syllabus",
-                "name": "Módulo 4: Desarrollo Web y Apps",
-                "description": "HTML, CSS, JavaScript y desarrollo de aplicaciones"
-            },
-            {
-                "@type": "Syllabus",
-                "name": "Módulo 5: IA y Proyectos Avanzados",
-                "description": "Inteligencia Artificial, Machine Learning e IoT"
-            }
-        ]
-    }
-    </script>
+/* ---------- Programas por edad ---------- */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem;margin-top:3rem}
+.tier{
+  background:var(--panel);border:1px solid var(--line-2);border-radius:16px;padding:2rem;
+  display:flex;flex-direction:column;transition:transform .3s var(--spring),border-color .3s,box-shadow .3s;
+}
+.tier:hover{transform:translateY(-6px);border-color:rgba(90,247,142,.4);box-shadow:0 24px 60px -24px rgba(90,247,142,.25)}
+.tier.pop{border-color:rgba(90,247,142,.5);position:relative}
+.tier.pop::before{
+  content:"// MÁS POPULAR";position:absolute;top:-11px;left:1.6rem;
+  font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;
+  background:var(--green);color:var(--bg);border-radius:999px;padding:.3rem .9rem;font-weight:700;
+}
+.tier .age{font-family:var(--mono);font-size:.7rem;color:var(--amber);letter-spacing:.14em}
+.tier h3{font-family:var(--display);font-size:1.5rem;margin:.5rem 0 .3rem}
+.tier .lvl{font-family:var(--mono);font-size:.65rem;color:var(--text-dim);letter-spacing:.14em;margin-bottom:1.2rem}
+.tier ul{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.4rem}
+.tier li{display:flex;gap:.6rem;font-size:.92rem;color:var(--text-dim)}
+.tier li::before{content:">";color:var(--green);font-family:var(--mono);font-weight:700}
+.tier .projects{
+  border-top:1px dashed var(--line-2);padding-top:1.1rem;margin-top:auto;
+  font-size:.85rem;color:var(--text-dim);line-height:2;
+}
+.tier .projects b{color:var(--text);font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;display:block;margin-bottom:.3rem}
 
-    <!-- 6. ItemList - Niveles del Curso -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "ItemList",
-        "name": "Niveles de Robotics Code",
-        "description": "Programa estructurado por edades y niveles de experiencia",
-        "numberOfItems": 3,
-        "itemListElement": [
-            {
-                "@type": "ListItem",
-                "position": 1,
-                "item": {
-                    "@type": "Course",
-                    "name": "Robotics Kids",
-                    "description": "Programación visual con Scratch y Lego WeDo para niños de 7 a 10 años",
-                    "educationalLevel": "Principiante",
-                    "audience": {
-                        "@type": "EducationalAudience",
-                        "audienceType": "Niños de 7-10 años"
-                    },
-                    "teaches": ["Scratch Jr", "Scratch", "Lego WeDo 2.0", "Creación de juegos", "Robots básicos"]
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 2,
-                "item": {
-                    "@type": "Course",
-                    "name": "Robotics Junior",
-                    "description": "Transición a programación real con Python y Arduino para jóvenes de 11 a 14 años",
-                    "educationalLevel": "Intermedio",
-                    "audience": {
-                        "@type": "EducationalAudience",
-                        "audienceType": "Jóvenes de 11-14 años"
-                    },
-                    "teaches": ["Python básico", "Arduino", "Lego Mindstorms", "Competencias de robótica"]
-                }
-            },
-            {
-                "@type": "ListItem",
-                "position": 3,
-                "item": {
-                    "@type": "Course",
-                    "name": "Robotics Pro",
-                    "description": "Desarrollo profesional con tecnologías de la industria para jóvenes de 15 a 17 años",
-                    "educationalLevel": "Avanzado",
-                    "audience": {
-                        "@type": "EducationalAudience",
-                        "audienceType": "Jóvenes de 15-17 años"
-                    },
-                    "teaches": ["Python avanzado", "JavaScript", "React", "IA", "Machine Learning", "Drones", "IoT"]
-                }
-            }
-        ]
-    }
-    </script>
+/* ---------- Portfolio ---------- */
+.pfilters{display:flex;gap:.5rem;flex-wrap:wrap;margin:2rem 0}
+.pf{
+  font-family:var(--mono);font-size:.68rem;letter-spacing:.12em;cursor:pointer;
+  border:1px solid var(--line-2);border-radius:999px;padding:.55rem 1.1rem;
+  background:transparent;color:var(--text-dim);transition:all .25s;
+}
+.pf:hover{border-color:var(--green);color:var(--green)}
+.pf.on{background:var(--green);border-color:var(--green);color:var(--bg);font-weight:700}
+.pgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem}
+.proj{
+  background:var(--panel);border:1px solid var(--line-2);border-radius:14px;padding:1.5rem;
+  transition:transform .3s var(--spring),border-color .3s;
+}
+.proj[hidden]{display:none}
+.proj:hover{transform:translateY(-4px);border-color:rgba(179,137,255,.45)}
+.proj .cat{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;color:var(--violet)}
+.proj .emoji{font-size:2rem;display:block;margin:.7rem 0}
+.proj h3{font-family:var(--display);font-size:1.05rem;margin-bottom:.4rem}
+.proj p{font-size:.85rem;color:var(--text-dim)}
+.proj .who{font-family:var(--mono);font-size:.68rem;color:var(--amber);margin-top:.9rem;display:block}
+@media (prefers-reduced-motion:no-preference){
+  ::view-transition-old(*),::view-transition-new(*){animation-duration:.4s;animation-timing-function:var(--spring)}
+}
 
-    <!-- 7. FAQPage Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-            {
-                "@type": "Question",
-                "name": "¿Mi hijo necesita conocimientos previos para tomar Robotics Code?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "No, absolutamente ninguno. Nuestros cursos están diseñados para principiantes totales. Lo único que necesita es curiosidad y ganas de aprender. Tenemos niveles desde los 6 años (adaptable desde 4 años) hasta los 18 años."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "¿Necesita computadora propia para las clases?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "No para las clases presenciales, todo el equipo está incluido. Para práctica en casa recomendamos una computadora básica, pero no es obligatorio. Las clases online utilizan Zoom, Microsoft Teams o Google Classroom."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "¿Cuántas horas de clase por semana tiene el curso de robótica?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Recomendamos 2 sesiones de 1.5 horas por semana (3 horas totales). También ofrecemos modalidad intensiva de sábados (3 horas en un solo día) para quienes prefieren concentrar las clases."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "¿Los niños se llevan los proyectos a casa?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "¡Sí! Los proyectos digitales (juegos, apps, código) son suyos para siempre. Los robots se construyen con materiales que pueden adquirir opcionalmente. Todo el código queda en sus cuentas personales."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "¿Qué tecnologías aprenden en Robotics Code?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Dependiendo del nivel: Scratch, Python, JavaScript, HTML, CSS, C++, Arduino, Lego Mindstorms, Unity para videojuegos, desarrollo de apps móviles, IoT (Internet de las Cosas) e introducción a Inteligencia Artificial y Machine Learning."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "¿Ofrecen clase de prueba gratuita?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Sí, la primera clase es completamente gratis y sin compromiso. Incluye evaluación de nivel y edad, un mini proyecto completado, tour por el laboratorio, interacción con robots y recomendación del curso ideal."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "¿Cuáles son las formas de pago aceptadas?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Aceptamos tarjetas de crédito, tarjetas de débito, vales, transferencia bancaria, pago contra entrega y sistema de apartado. Ofrecemos planes de pago flexibles."
-                }
-            },
-            {
-                "@type": "Question",
-                "name": "¿Dónde están ubicados?",
-                "acceptedAnswer": {
-                    "@type": "Answer",
-                    "text": "Nuestra sede principal está en Avenida Primero De Mayo S/N, Int. Local 282, Cuautitlán Izcalli, Estado de México (C.P. 54700). También tenemos sucursales en CDMX y Cuernavaca."
-                }
-            }
-        ]
-    }
-    </script>
+/* ---------- Sedes ---------- */
+.nodes{display:grid;grid-template-columns:repeat(4,1fr);gap:1.2rem;margin-top:2.6rem}
+.node{
+  background:var(--panel);border:1px solid var(--line-2);border-radius:14px;padding:1.6rem;
+  font-size:.9rem;transition:border-color .3s;
+}
+.node:hover{border-color:rgba(107,229,255,.4)}
+.node .st{font-family:var(--mono);font-size:.62rem;color:var(--green);letter-spacing:.12em}
+.node .st::before{content:"● ";animation:blink 2s infinite}
+.node h3{font-family:var(--display);font-size:1.05rem;margin:.5rem 0 .3rem}
+.node p{color:var(--text-dim);font-size:.85rem}
 
-    <!-- 8. Product Schema (Servicio como producto) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Product",
-        "name": "Robotics Code - Curso de Programación y Robótica",
-        "description": "Programa educativo completo de programación y robótica para niños y jóvenes. Incluye materiales, acceso a laboratorio y certificación.",
-        "image": "https://ultravelozmente.com/images/robotics-product.jpg",
-        "brand": {
-            "@type": "Brand",
-            "name": "WorldBrain México"
-        },
-        "manufacturer": {
-            "@type": "Organization",
-            "name": "WorldBrain México"
-        },
-        "category": "Educación > Cursos de Tecnología > Programación para niños",
-        "audience": {
-            "@type": "PeopleAudience",
-            "suggestedMinAge": 6,
-            "suggestedMaxAge": 18
-        },
-        "aggregateRating": {
-            "@type": "AggregateRating",
-            "ratingValue": "5.0",
-            "reviewCount": "456",
-            "bestRating": "5",
-            "worstRating": "1"
-        },
-        "offers": {
-            "@type": "AggregateOffer",
-            "priceCurrency": "MXN",
-            "availability": "https://schema.org/InStock",
-            "offerCount": 3,
-            "lowPrice": "0",
-            "highPrice": "15000",
-            "offers": [
-                {
-                    "@type": "Offer",
-                    "name": "Clase de Prueba Gratuita",
-                    "price": "0",
-                    "priceCurrency": "MXN",
-                    "availability": "https://schema.org/InStock",
-                    "validFrom": "2025-01-01",
-                    "priceValidUntil": "2025-12-31"
-                }
-            ]
-        }
-    }
-    </script>
+/* ---------- Kit + IA banda ---------- */
+.kit-band{background:var(--bg-2);border-block:1px solid var(--line-2)}
+.kit-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.kit-list{list-style:none;display:flex;flex-direction:column;gap:.8rem;margin-top:1.6rem}
+.kit-list li{display:flex;gap:.8rem;font-size:.95rem;color:var(--text-dim)}
+.kit-list li::before{content:"[✓]";font-family:var(--mono);color:var(--green);font-weight:700}
+.ia-chips{display:flex;gap:.6rem;flex-wrap:wrap;margin-top:1.4rem}
+.chip{
+  font-family:var(--mono);font-size:.7rem;letter-spacing:.08em;color:var(--violet);
+  border:1px solid rgba(179,137,255,.3);border-radius:999px;padding:.5rem 1rem;
+}
 
-    <!-- 9. Event Schema - Clase de Prueba -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "Event",
-        "name": "Clase de Prueba Gratis - Robotics Code",
-        "description": "Primera clase de programación y robótica gratuita. Incluye evaluación de nivel, mini proyecto, tour por el laboratorio e interacción con robots.",
-        "startDate": "2025-01-01",
-        "endDate": "2025-12-31",
-        "eventStatus": "https://schema.org/EventScheduled",
-        "eventAttendanceMode": "https://schema.org/MixedEventAttendanceMode",
-        "location": [
-            {
-                "@type": "Place",
-                "name": "WorldBrain México - Campus Principal",
-                "address": {
-                    "@type": "PostalAddress",
-                    "streetAddress": "Avenida Primero De Mayo S/N, Int. Local 282",
-                    "addressLocality": "Cuautitlán Izcalli",
-                    "addressRegion": "Estado de México",
-                    "postalCode": "54700",
-                    "addressCountry": "MX"
-                }
-            },
-            {
-                "@type": "VirtualLocation",
-                "url": "https://zoom.us/worldbrainmexico"
-            }
-        ],
-        "image": "https://ultravelozmente.com/images/robotics-event.jpg",
-        "organizer": {
-            "@type": "Organization",
-            "name": "WorldBrain México",
-            "url": "https://ultravelozmente.com"
-        },
-        "performer": {
-            "@type": "Organization",
-            "name": "Equipo Robotics Code"
-        },
-        "offers": {
-            "@type": "Offer",
-            "name": "Clase de Prueba",
-            "price": "0",
-            "priceCurrency": "MXN",
-            "availability": "https://schema.org/InStock",
-            "validFrom": "2025-01-01",
-            "url": "https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20una%20clase%20de%20prueba%20de%20Robotics%20Code"
-        },
-        "typicalAgeRange": "6-18",
-        "audience": {
-            "@type": "EducationalAudience",
-            "educationalRole": "student"
-        }
-    }
-    </script>
+/* ---------- FAQ ---------- */
+.faq{max-width:720px;margin:2.6rem auto 0}
+.faq details{background:var(--panel);border:1px solid var(--line-2);border-radius:12px;margin-bottom:.8rem;transition:border-color .25s}
+.faq details[open]{border-color:rgba(90,247,142,.4)}
+.faq summary{
+  font-family:var(--mono);font-size:.9rem;font-weight:500;padding:1.15rem 1.4rem;cursor:pointer;
+  list-style:none;display:flex;justify-content:space-between;gap:1rem;align-items:center;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::before{content:"> ";color:var(--green)}
+.faq summary::after{content:"+";color:var(--green);font-size:1.2rem;transition:transform .25s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 1.4rem 1.2rem;color:var(--text-dim);font-size:.94rem}
+@supports (interpolate-size:allow-keywords){
+  .faq details::details-content{block-size:0;overflow:clip;transition:block-size .4s var(--spring),content-visibility .4s allow-discrete}
+  .faq details[open]::details-content{block-size:auto}
+}
 
-    <!-- 10. HowTo Schema - Proceso de Inscripción -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": "Cómo inscribirse en Robotics Code",
-        "description": "Proceso simple para iniciar en el curso de programación y robótica para niños",
-        "totalTime": "PT5M",
-        "estimatedCost": {
-            "@type": "MonetaryAmount",
-            "currency": "MXN",
-            "value": "0"
-        },
-        "step": [
-            {
-                "@type": "HowToStep",
-                "position": 1,
-                "name": "Agenda tu clase de prueba gratis",
-                "text": "Contacta por WhatsApp al 55 7810 7837 o llama para agendar una clase de prueba sin costo ni compromiso.",
-                "url": "https://wa.me/5215578107837"
-            },
-            {
-                "@type": "HowToStep",
-                "position": 2,
-                "name": "Asiste a la evaluación",
-                "text": "En la clase de prueba evaluamos el nivel y edad de tu hijo, realiza un mini proyecto y conoce el laboratorio."
-            },
-            {
-                "@type": "HowToStep",
-                "position": 3,
-                "name": "Recibe tu recomendación personalizada",
-                "text": "Te recomendamos el nivel ideal: Kids (7-10 años), Junior (11-14 años) o Pro (15-17 años)."
-            },
-            {
-                "@type": "HowToStep",
-                "position": 4,
-                "name": "Inscríbete y comienza",
-                "text": "Elige tu plan de pago (efectivo, tarjeta, transferencia o apartado) y comienza tu camino en la tecnología."
-            }
-        ]
-    }
-    </script>
+/* ---------- CTA final ---------- */
+.deploy{text-align:center;position:relative;overflow:hidden}
+.deploy .win{max-width:640px;margin:0 auto;text-align:left}
+.deploy h2{font-size:clamp(1.9rem,4.5vw,3rem);margin-bottom:1rem;text-align:center}
+.deploy .free{
+  font-family:var(--display);font-size:clamp(2.2rem,6vw,3.4rem);color:var(--green);
+  display:block;text-align:center;margin:.4rem 0 1.4rem;
+}
+.deploy ul{list-style:none;display:flex;flex-direction:column;gap:.6rem;font-size:.95rem;color:var(--text-dim)}
+.deploy li::before{content:"[✓] ";font-family:var(--mono);color:var(--green)}
 
-    <!-- 11. VideoObject Schema (para contenido multimedia) -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "VideoObject",
-        "name": "Robotics Code - Construye el Futuro con WorldBrain México",
-        "description": "Descubre cómo niños y jóvenes aprenden programación y robótica en WorldBrain México. Más de 110 millones de reproducciones en TikTok.",
-        "thumbnailUrl": "https://ultravelozmente.com/images/robotics-video-thumb.jpg",
-        "uploadDate": "2025-01-01",
-        "duration": "PT2M30S",
-        "contentUrl": "https://ultravelozmente.com/videos/robotics-intro.mp4",
-        "embedUrl": "https://www.youtube.com/embed/worldbrainmexico",
-        "interactionStatistic": {
-            "@type": "InteractionCounter",
-            "interactionType": "https://schema.org/WatchAction",
-            "userInteractionCount": 110000000
-        },
-        "publisher": {
-            "@type": "Organization",
-            "name": "WorldBrain México",
-            "@id": "https://ultravelozmente.com/#organization"
-        }
-    }
-    </script>
+/* ---------- Footer ---------- */
+footer{border-top:1px solid var(--line-2);background:var(--bg-2);padding:4rem 0 2rem;font-size:.88rem}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2.4rem;margin-bottom:3rem}
+footer h4{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:1.1rem}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+footer a{text-decoration:none;color:var(--text-dim);transition:color .2s}
+footer a:hover{color:var(--green)}
+.foot-legal{border-top:1px solid var(--line-2);padding-top:1.5rem;font-size:.72rem;color:var(--text-dim);opacity:.7;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
 
-    <!-- 12. EducationalOccupationalProgram Schema -->
-    <script type="application/ld+json">
-    {
-        "@context": "https://schema.org",
-        "@type": "EducationalOccupationalProgram",
-        "name": "Programa Robotics Code",
-        "description": "Programa educativo integral de programación y robótica que prepara a niños y jóvenes para carreras en tecnología",
-        "provider": {
-            "@type": "Organization",
-            "name": "WorldBrain México"
-        },
-        "programType": "Certificate Program",
-        "timeToComplete": "P12M",
-        "occupationalCategory": ["15-1252.00", "15-1256.00"],
-        "occupationalCredentialAwarded": {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "Certificate",
-            "name": "Certificado de Competencias en Programación y Robótica"
-        },
-        "trainingSalary": {
-            "@type": "MonetaryAmountDistribution",
-            "currency": "MXN",
-            "duration": "P1Y"
-        },
-        "offers": {
-            "@type": "Offer",
-            "category": "Tuition",
-            "priceSpecification": {
-                "@type": "PriceSpecification",
-                "priceCurrency": "MXN"
-            }
-        },
-        "programPrerequisites": {
-            "@type": "EducationalOccupationalCredential",
-            "credentialCategory": "None required"
-        }
-    }
-    </script>
+/* ---------- WhatsApp ---------- */
+.wa{
+  position:fixed;bottom:22px;right:22px;z-index:200;width:56px;height:56px;border-radius:50%;
+  background:var(--green);color:var(--bg);display:grid;place-items:center;font-size:1.5rem;
+  text-decoration:none;box-shadow:0 0 34px -6px rgba(90,247,142,.6);
+  transition:transform .3s var(--spring);
+}
+.wa:hover{transform:scale(1.1) rotate(8deg)}
 
-    <!-- Performance: DNS Prefetch & Preconnect -->
-    <link rel="dns-prefetch" href="//cdnjs.cloudflare.com">
-    <link rel="preconnect" href="https://cdnjs.cloudflare.com" crossorigin>
-    <link rel="dns-prefetch" href="//unpkg.com">
-    <link rel="preconnect" href="https://unpkg.com" crossorigin>
+/* ---------- Responsive ---------- */
+@media (max-width:960px){
+  .nav-links{display:none}
+  .burger{display:block}
+  .hero-grid{grid-template-columns:1fr}
+  .play-grid{grid-template-columns:1fr}
+  .board-wrap{order:-1}            /* tablero arriba: el niño ve el robot primero */
+  .tiers{grid-template-columns:1fr}
+  .pgrid{grid-template-columns:1fr 1fr}
+  .nodes{grid-template-columns:1fr 1fr}
+  .kit-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr 1fr}
+  section{padding:4.4rem 0}
+}
+@media (max-width:520px){
+  .pgrid,.nodes{grid-template-columns:1fr}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+.sr-only{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+</style>
+</head>
+<body>
 
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@500;600;700&family=Poppins:wght@400;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
-        rel="stylesheet">
+<a class="skip sr-only" href="#main">Saltar al contenido</a>
+<div id="sentinel" aria-hidden="true"></div>
 
-    <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"></noscript>
-    <style>@font-face{font-family:'Font Awesome 6 Free';font-display:swap}@font-face{font-family:'Font Awesome 6 Brands';font-display:swap}</style>
+<!-- ═══════════ HEADER ═══════════ -->
+<header id="hdr">
+  <nav class="nav" aria-label="Principal">
+    <a class="logo" href="index.html">World<span>Brain</span>_</a>
+    <ul class="nav-links">
+      <li><a href="#playground">playground</a></li>
+      <li><a href="#modulos">modulos</a></li>
+      <li><a href="#programas">programas</a></li>
+      <li><a href="#portfolio">portfolio</a></li>
+      <li><a class="btn btn-run nav-cta" href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20la%20clase%20de%20prueba%20gratis%20de%20Robotics%20Code">clase_gratis</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">menu</button>
+  </nav>
+  <div class="mmenu" id="mmenu">
+    <a href="#playground">playground</a>
+    <a href="#modulos">modulos</a>
+    <a href="#programas">programas</a>
+    <a href="#portfolio">portfolio</a>
+    <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20la%20clase%20de%20prueba%20gratis%20de%20Robotics%20Code" style="color:var(--green)">clase_gratis --free</a>
+  </div>
+</header>
 
-    <!-- AOS Animation Library -->
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet"></noscript>
+<main id="main">
 
-    <!-- GSAP -->
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script defer src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-
-    <!-- Custom CSS -->
-    <!-- Theme: FOUC Prevention -->
-    <script>
-        (function() {
-            var theme = localStorage.getItem('theme');
-            if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-                document.documentElement.classList.add('light-mode');
-            }
-        })();
-    </script>
-
-    <link rel="stylesheet" href="css/styles.min.css">
-    <link rel="stylesheet" href="css/courses.min.css">
-
-    <!-- Meta Pixel Code -->
-    <script>
-        !function (f, b, e, v, n, t, s) {
-            if (f.fbq) return; n = f.fbq = function () {
-                n.callMethod ?
-                n.callMethod.apply(n, arguments) : n.queue.push(arguments)
-            };
-            if (!f._fbq) f._fbq = n; n.push = n; n.loaded = !0; n.version = '2.0';
-            n.queue = []; t = b.createElement(e); t.async = !0;
-            t.src = v; s = b.getElementsByTagName(e)[0];
-            s.parentNode.insertBefore(t, s)
-        }(window, document, 'script',
-            'https://connect.facebook.net/en_US/fbevents.js');
-        fbq('init', '280967147554736');
-        fbq('track', 'PageView');
-    </script>
-    <noscript><img height="1" width="1" style="display:none"
-            src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1" /></noscript>
-    <!-- End Meta Pixel Code -->
-    <script defer
-        src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
-    <link rel="stylesheet" href="css/footer-modern.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="css/footer-modern.min.css"></noscript>
-        <link rel="stylesheet" href="css/navbar-unified.min.css">
-    </head>
-
-<body class="rb-page smooth-scroll">
-    <!-- Google Tag Manager (noscript) -->
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWMFXQS7" height="0" width="0"
-            style="display:none;visibility:hidden"></iframe></noscript>
-    <!-- End Google Tag Manager (noscript) -->
-<!-- Loading Screen -->
-    <div class="loading-screen" id="loadingScreen">
-        <div class="loader"></div>
+<!-- ═══════════ HERO ═══════════ -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="badge"><i></i>NIÑOS Y JÓVENES DE 7 A 17 AÑOS</span>
+      <h1>Tu hijo no jugará videojuegos.<br><span class="g">Los va a</span> <span class="c">crear</span><span class="g">();</span></h1>
+      <p class="lead">Robótica con <b>LEGO y Arduino</b>, programación con <b>Scratch y Python</b>, e introducción real a la <b>Inteligencia Artificial</b>. Seis módulos, kit de robótica incluido y grupos multiculturales. De espectador de pantallas a ingeniero de su futuro.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-run" href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20la%20clase%20de%20prueba%20gratis%20de%20Robotics%20Code">ejecutar_clase_gratis</a>
+        <a class="btn btn-ghost" href="#playground">probar el playground ↓</a>
+      </div>
+      <div class="hero-stats">
+        <div><b>5,000+</b>pequeños ingenieros</div>
+        <div><b>6</b>módulos progresivos</div>
+        <div><b>30+</b>años WorldBrain</div>
+      </div>
     </div>
-    <script>
-        window.addEventListener('load', function () {
-            var ls = document.getElementById('loadingScreen');
-            if (ls) { ls.classList.add('hidden'); }
-        });
-        setTimeout(function () {
-            var ls = document.getElementById('loadingScreen');
-            if (ls) { ls.classList.add('hidden'); }
-        }, 4000);
-    </script>
-
-    <!-- Matrix Rain Effect -->
-    <div class="matrix-rain" id="matrixRain"></div>
-
-    <!-- Custom Cursor -->
-    <div class="cursor-dot" id="cursorDot"></div>
-    <div class="cursor-outline" id="cursorOutline"></div>
-
-    <!-- Skip to content -->
-<a href="#main-content" class="nav-skip-link">Saltar al contenido</a>
-
-<!-- Unified Pill Navbar -->
-<nav class="nav-pill" role="navigation" aria-label="Navegaci&oacute;n principal">
-    <a href="index.html" class="nav-pill-logo">World<span>Brain</span></a>
-
-    <div class="nav-pill-links">
-        <div class="nav-dropdown">
-            <button class="nav-pill-link" aria-expanded="false" aria-haspopup="true">
-                Cursos <i class="fas fa-chevron-down"></i>
-            </button>
-            <div class="nav-dropdown-menu" role="menu">
-                <div>
-                    <span class="dropdown-group-title">Ni&ntilde;os</span>
-                    <a href="fastkids.html" role="menuitem"><i class="fas fa-child"></i> FastKids</a>
-                    <a href="mathekids.html" role="menuitem"><i class="fas fa-calculator"></i> MatheKids</a>
-                    <a href="juniormath_v2.html" role="menuitem"><i class="fas fa-square-root-alt"></i> JuniorMath</a>
-                    <a href="lectoescritura.html" role="menuitem"><i class="fas fa-book-reader"></i> Lectoescritura</a>
-                    <a href="ciencia-astronomia.html" role="menuitem"><i class="fas fa-rocket"></i> Ciencia y Astronom&iacute;a</a>
-                    <a href="robotics.html" role="menuitem"><i class="fas fa-robot"></i> Robotics Code</a>
-                    <a href="homeschool.html" role="menuitem"><i class="fas fa-home"></i> Homeschool</a>
-                </div>
-                <div>
-                    <span class="dropdown-group-title">J&oacute;venes y Adultos</span>
-                    <a href="fotolectura.html" role="menuitem"><i class="fas fa-bolt"></i> Fotolectura</a>
-                    <a href="memoria-prodigiosa.html" role="menuitem"><i class="fas fa-brain"></i> Memoria Prodigiosa</a>
-                    <a href="neurocomunicacion.html" role="menuitem"><i class="fas fa-comments"></i> Neurocomunicaci&oacute;n</a>
-                    <a href="grandes-lideres.html" role="menuitem"><i class="fas fa-users"></i> Grandes L&iacute;deres</a>
-                    <a href="redaccion-ejecutiva.html" role="menuitem"><i class="fas fa-pen-nib"></i> Redacci&oacute;n Ejecutiva</a>
-                    <a href="admision-universitaria.html" role="menuitem"><i class="fas fa-graduation-cap"></i> Admisi&oacute;n Universitaria</a>
-                    <a href="universidad-dominical.html" role="menuitem"><i class="fas fa-university"></i> Universidad Dominical</a>
-                    <a href="regularizacion-express.html" role="menuitem"><i class="fas fa-clipboard-check"></i> Regularizaci&oacute;n Express</a>
-                    <a href="alfa-cash.html" role="menuitem"><i class="fas fa-coins"></i> ALFA-CASH</a>
-                </div>
-            </div>
-        </div>
-        <a href="index.html#metodologia" class="nav-pill-link">Metodolog&iacute;a</a>
-        <a href="testimonios.html" class="nav-pill-link">Testimonios</a>
-        <a href="blog-index.html" class="nav-pill-link">Blog</a>
-        <a href="index.html#contacto" class="nav-pill-cta">Contacto</a>
+    <div class="win rv" aria-hidden="true">
+      <div class="win-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="tab">mi_futuro<b>.py</b></span></div>
+      <div class="win-body term" id="term"></div>
     </div>
+    <p class="sr-only">Ejemplo de código: def crear_futuro(hijo): hijo.aprende("robótica", "python", "IA"); return "ingeniero de su propio futuro"</p>
+  </div>
+</section>
 
-    <button class="nav-pill-theme" id="navThemeToggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
-        <span class="icon-moon">&#x1F319;</span>
-        <span class="icon-sun">&#x2600;&#xFE0F;</span>
-    </button>
-
-    <button class="nav-pill-hamburger" id="navHamburger" aria-label="Abrir men&uacute;" aria-expanded="false" aria-controls="navMobilePanel">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-</nav>
-
-<!-- Mobile Menu Panel -->
-<div class="nav-mobile-overlay" id="navMobileOverlay"></div>
-<div class="nav-mobile-panel" id="navMobilePanel" aria-hidden="true">
-    <button class="nav-pill-link mobile-dropdown-toggle" id="mobileDropdownBtn" aria-expanded="false">
-        Cursos <i class="fas fa-chevron-down" style="transition: transform 0.2s ease;"></i>
-    </button>
-    <div class="mobile-dropdown-content" id="mobileDropdownContent">
-        <span class="dropdown-group-title">Ni&ntilde;os</span>
-        <a href="fastkids.html"><i class="fas fa-child"></i> FastKids</a>
-        <a href="mathekids.html"><i class="fas fa-calculator"></i> MatheKids</a>
-        <a href="juniormath_v2.html"><i class="fas fa-square-root-alt"></i> JuniorMath</a>
-        <a href="lectoescritura.html"><i class="fas fa-book-reader"></i> Lectoescritura</a>
-        <a href="ciencia-astronomia.html"><i class="fas fa-rocket"></i> Ciencia y Astronom&iacute;a</a>
-        <a href="robotics.html"><i class="fas fa-robot"></i> Robotics Code</a>
-        <a href="homeschool.html"><i class="fas fa-home"></i> Homeschool</a>
-        <span class="dropdown-group-title">J&oacute;venes y Adultos</span>
-        <a href="fotolectura.html"><i class="fas fa-bolt"></i> Fotolectura</a>
-        <a href="memoria-prodigiosa.html"><i class="fas fa-brain"></i> Memoria Prodigiosa</a>
-        <a href="neurocomunicacion.html"><i class="fas fa-comments"></i> Neurocomunicaci&oacute;n</a>
-        <a href="grandes-lideres.html"><i class="fas fa-users"></i> Grandes L&iacute;deres</a>
-        <a href="redaccion-ejecutiva.html"><i class="fas fa-pen-nib"></i> Redacci&oacute;n Ejecutiva</a>
-        <a href="admision-universitaria.html"><i class="fas fa-graduation-cap"></i> Admisi&oacute;n Universitaria</a>
-        <a href="universidad-dominical.html"><i class="fas fa-university"></i> Universidad Dominical</a>
-        <a href="regularizacion-express.html"><i class="fas fa-clipboard-check"></i> Regularizaci&oacute;n Express</a>
-        <a href="alfa-cash.html"><i class="fas fa-coins"></i> ALFA-CASH</a>
-    </div>
-    <a href="index.html#metodologia" class="nav-pill-link">Metodolog&iacute;a</a>
-    <a href="testimonios.html" class="nav-pill-link">Testimonios</a>
-    <a href="blog-index.html" class="nav-pill-link">Blog</a>
-    <a href="index.html#contacto" class="nav-pill-cta">Contacto</a>
+<!-- ═══════════ STACK MARQUEE ═══════════ -->
+<div class="stack-strip" aria-hidden="true">
+  <div class="stack-track" id="stackTrack">
+    <span><b>Scratch</b> // programación visual</span><span><b>mBlock</b> // robots + bloques</span>
+    <span><b>Arduino</b> // electrónica real</span><span><b>Python</b> // el lenguaje de la IA</span>
+    <span><b>C++</b> // 54 sensores</span><span><b>Unity</b> // videojuegos 3D</span>
+    <span><b>TensorFlow</b> // machine learning</span><span><b>Alexa Skills</b> // asistentes de voz</span>
+    <span><b>Unreal Engine</b> // metaverso</span><span><b>LEGO Mindstorms</b> // robótica educativa</span>
+  </div>
 </div>
 
-
-
-    <!-- Hero Section -->
-    <main id="main-content" role="main">
-        <header class="course-hero rb-hero">
-            <!-- Efectos de fondo -->
-            <div class="hero-bg-effects">
-                <div class="hero-orb hero-orb-1 rb-orb"></div>
-                <div class="hero-orb hero-orb-2 rb-orb"></div>
-                <div class="hero-orb hero-orb-3 rb-orb"></div>
-                <div class="circuit-lines">
-                    <svg class="circuit-svg" viewBox="0 0 100 100" preserveAspectRatio="none">
-                        <path class="circuit-path" d="M0,50 L30,50 L35,30 L65,30 L70,50 L100,50" />
-                        <path class="circuit-path delay-1" d="M0,70 L20,70 L25,85 L75,85 L80,70 L100,70" />
-                        <path class="circuit-path delay-2" d="M50,0 L50,20 L30,25 L30,75 L50,80 L50,100" />
-                    </svg>
-                </div>
-                <div class="floating-code">
-                    <span class="code-line" style="--delay: 0s; --x: 5%; --y: 20%;">&lt;/&gt;</span>
-                    <span class="code-line" style="--delay: 1s; --x: 90%; --y: 15%;">01</span>
-                    <span class="code-line" style="--delay: 2s; --x: 80%; --y: 75%;">{ }</span>
-                    <span class="code-line" style="--delay: 0.5s; --x: 15%; --y: 80%;">( )</span>
-                    <span class="code-line" style="--delay: 1.5s; --x: 45%; --y: 8%;">&&</span>
-                    <span class="code-line" style="--delay: 2.5s; --x: 95%; --y: 50%;">==</span>
-                </div>
-                <div class="grid-pattern rb-grid"></div>
+<!-- ═══════════ PLAYGROUND ═══════════ -->
+<section class="play-zone" id="playground">
+  <div class="wrap">
+    <span class="mono rv">// tu primera clase, ahora mismo</span>
+    <h2 class="title rv">Programa tu primer robot <span class="g">en 60 segundos</span></h2>
+    <p class="sub rv">Así se ve una clase real de Robotics Code: bloques como Scratch, lógica como la de un ingeniero. Toca los bloques para armar tu programa, presiona <b style="color:var(--green)">RUN</b> y lleva el robot 🤖 hasta la estrella ⭐. Cuidado con los muros.</p>
+    <div class="play-grid">
+      <div class="win blocks-panel rv">
+        <div class="win-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="tab">programa<b>.blocks</b></span></div>
+        <div class="win-body">
+          <div>
+            <p class="mono" style="margin-bottom:.5rem;color:var(--text-dim)">// bloques disponibles</p>
+            <div class="block-tray" id="tray">
+              <button class="blk blk-move" data-cmd="F">↑ avanzar</button>
+              <button class="blk blk-turnl" data-cmd="L">↺ girar izq</button>
+              <button class="blk blk-turnr" data-cmd="R">↻ girar der</button>
+              <button class="blk blk-loop" data-cmd="F3">⟳ avanzar ×3</button>
             </div>
-
-            <div class="container">
-                <div class="hero-grid">
-                    <!-- Texto del Hero -->
-                    <div class="hero-content" data-aos="fade-right">
-                        <div class="hero-badge rb-badge">
-                            <span class="badge-dot rb-dot"></span>
-                            <i class="fas fa-microchip"></i>
-                            <span>Para niños de 7 a 17 años</span>
-                        </div>
-
-                        <h1 class="hero-title">
-                            <span class="title-line">Cursos de Robótica Online e IA</span>
-                            <span class="title-highlight rb-gradient">
-                                <span class="gradient-text">Crea tu <span id="typingText">Futuro</span></span>
-                                <span class="title-emoji">🤖</span>
-                            </span>
-                        </h1>
-
-                        <!-- SEO Snippet Paragraph - Optimizado para Featured Snippets -->
-                        <p class="hero-description seo-intro">
-                            <strong>WorldBrain México</strong> es la academia líder en <strong>robótica
-                                educativa</strong>
-                            con más de 30 años formando creadores de tecnología. Nuestros cursos desarrollan
-                            <strong>pensamiento lógico</strong>, enseñan <strong>construcción de robots</strong> con
-                            LEGO
-                            Mindstorms y Arduino, e introducen a niños desde los 7 años a la
-                            <strong>programación</strong>.
-                            Modalidad <strong>online en todo México</strong> y clases presenciales en CDMX, Cuautitlán
-                            Izcalli, Estado de México y Guadalajara. ¡Más de 5,000 pequeños ingenieros certificados!
-                        </p>
-
-                        <!-- Stats rápidas -->
-                        <div class="hero-stats rb-stats">
-                            <div class="hero-stat">
-                                <span class="stat-icon"><i class="fas fa-robot"></i></span>
-                                <span class="stat-number">10+</span>
-                                <span class="stat-label">Robots creados</span>
-                            </div>
-                            <div class="stat-divider"></div>
-                            <div class="hero-stat">
-                                <span class="stat-icon"><i class="fas fa-gamepad"></i></span>
-                                <span class="stat-number">5+</span>
-                                <span class="stat-label">Videojuegos</span>
-                            </div>
-                            <div class="stat-divider"></div>
-                            <div class="hero-stat">
-                                <span class="stat-icon"><i class="fas fa-code"></i></span>
-                                <span class="stat-number">∞</span>
-                                <span class="stat-label">Posibilidades</span>
-                            </div>
-                        </div>
-
-                        <!-- CTAs -->
-                        <div class="hero-ctas">
-                            <a href="#inscripcion" class="cta-primary rb-cta">
-                                <span class="cta-icon"><i class="fas fa-rocket"></i></span>
-                                <span class="cta-content">
-                                    <span class="cta-main">Clase de Prueba</span>
-                                    <span class="cta-sub">Gratis y sin compromiso</span>
-                                </span>
-                                <span class="cta-arrow"><i class="fas fa-terminal"></i></span>
-                            </a>
-                            <a href="#proyectos" class="cta-secondary rb-cta-secondary">
-                                <i class="fas fa-eye"></i>
-                                Ver Proyectos
-                            </a>
-                        </div>
-
-                        <!-- Technologies -->
-                        <div class="hero-tech">
-                            <span class="tech-label">Tecnologías:</span>
-                            <div class="tech-icons">
-                                <div class="tech-icon" title="Scratch"><i class="fab fa-scratch"></i></div>
-                                <div class="tech-icon" title="Python"><i class="fab fa-python"></i></div>
-                                <div class="tech-icon" title="JavaScript"><i class="fab fa-js"></i></div>
-                                <div class="tech-icon" title="Arduino"><i class="fas fa-microchip"></i></div>
-                                <div class="tech-icon" title="Lego"><i class="fas fa-cubes"></i></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Visual del Hero -->
-                    <div class="hero-visual" data-aos="fade-left">
-                        <div class="visual-container rb-visual">
-                            <!-- Imagen principal -->
-                            <div class="visual-main">
-                                <img src="images/rb-hero-robot.webp" alt="Robot y tecnología" class="main-image">
-                                <div class="image-overlay rb-overlay"></div>
-                                <div class="scan-line"></div>
-                            </div>
-
-                            <!-- Tarjetas flotantes -->
-                            <div class="float-card card-1 rb-card">
-                                <div class="card-icon"><i class="fas fa-robot"></i></div>
-                                <div class="card-content">
-                                    <span class="card-value">Build</span>
-                                    <span class="card-label">Robots</span>
-                                </div>
-                            </div>
-
-                            <div class="float-card card-2 rb-card">
-                                <div class="card-icon"><i class="fas fa-code"></i></div>
-                                <div class="card-content">
-                                    <span class="card-value">Code</span>
-                                    <span class="card-label">Games</span>
-                                </div>
-                            </div>
-
-                            <div class="float-card card-3 rb-card">
-                                <div class="card-icon"><i class="fas fa-lightbulb"></i></div>
-                                <div class="card-content">
-                                    <span class="card-value">Create</span>
-                                    <span class="card-label">Ideas</span>
-                                </div>
-                            </div>
-
-                            <!-- Terminal animada -->
-                            <div class="terminal-widget">
-                                <div class="terminal-header">
-                                    <span class="terminal-dot red"></span>
-                                    <span class="terminal-dot yellow"></span>
-                                    <span class="terminal-dot green"></span>
-                                    <span class="terminal-title">robotics.py</span>
-                                </div>
-                                <div class="terminal-body">
-                                    <div class="terminal-line">
-                                        <span class="code-keyword">def</span> <span
-                                            class="code-function">create_robot</span>():
-                                    </div>
-                                    <div class="terminal-line indent">
-                                        <span class="code-keyword">return</span> <span class="code-string">"🤖
-                                            Amazing!"</span>
-                                    </div>
-                                    <div class="terminal-line typing">
-                                        <span class="terminal-prompt">>>> </span>
-                                        <span class="code-cursor">|</span>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Scroll indicator -->
-            <div class="scroll-indicator rb-scroll">
-                <span>&lt;scroll /&gt;</span>
-                <div class="scroll-mouse">
-                    <div class="scroll-wheel"></div>
-                </div>
-            </div>
-        </header>
-
-        <!-- Cause/Effect Section -->
-        <section class="cause-effect-section" data-aos="fade-up">
-            <div class="container">
-                <div class="ce-box rb-ce-box">
-                    <div class="ce-content">
-                        <div class="ce-cause">
-                            <span class="ce-label">CAUSA</span>
-                            <p>Cuando aprende <strong>ROBOTICS CODE</strong>...</p>
-                        </div>
-                        <div class="ce-arrow">
-                            <i class="fas fa-arrow-right"></i>
-                        </div>
-                        <div class="ce-effect">
-                            <span class="ce-label">EFECTO</span>
-                            <p>...deja de ser un espectador pasivo y se convierte en un <strong>ingeniero de su propio
-                                    futuro</strong>, desarrollando lógica, creatividad y resolución de problemas.</p>
-                        </div>
-                    </div>
-                    <div class="ce-cta-wrapper">
-                        <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20mi%20cita%20de%20cortesía%20para%20conocer%20Robotics%20Code"
-                            class="enroll-cta rb-enroll-cta">
-                            <i class="fab fa-whatsapp"></i>
-                            Agendar Cita de Cortesía
-                        </a>
-                        <p class="ce-cta-note">Sin compromiso - Te explicamos el método personalizado</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Marquee -->
-        <section class="course-marquee rb-marquee">
-            <div class="marquee-container">
-                <div class="marquee-content">
-                    <div class="marquee-item"><i class="fab fa-python"></i> Python</div>
-                    <div class="marquee-item"><i class="fab fa-js"></i> JavaScript</div>
-                    <div class="marquee-item"><i class="fas fa-robot"></i> Arduino</div>
-                    <div class="marquee-item"><i class="fas fa-gamepad"></i> Unity</div>
-                    <div class="marquee-item"><i class="fas fa-cubes"></i> Lego Mindstorms</div>
-                    <div class="marquee-item"><i class="fas fa-brain"></i> IA & Machine Learning</div>
-                    <div class="marquee-item"><i class="fas fa-mobile-alt"></i> App Development</div>
-                    <div class="marquee-item"><i class="fas fa-vr-cardboard"></i> Realidad Virtual</div>
-                    <!-- Duplicados -->
-                    <div class="marquee-item"><i class="fab fa-python"></i> Python</div>
-                    <div class="marquee-item"><i class="fab fa-js"></i> JavaScript</div>
-                    <div class="marquee-item"><i class="fas fa-robot"></i> Arduino</div>
-                    <div class="marquee-item"><i class="fas fa-gamepad"></i> Unity</div>
-                    <div class="marquee-item"><i class="fas fa-cubes"></i> Lego Mindstorms</div>
-                    <div class="marquee-item"><i class="fas fa-brain"></i> IA & Machine Learning</div>
-                </div>
-            </div>
-        </section>
-
-        <!-- ============================================= -->
-        <!-- SECCIÓN SEO ESTRATÉGICA - ARQUITECTURA 2026 -->
-        <!-- ============================================= -->
-
-        <!-- Sección: Clases Presenciales Multi-Ciudad (H2 Localización) -->
-        <section class="seo-local-section" id="ubicaciones" data-aos="fade-up">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge rb-badge-alt">
-                        <i class="fas fa-map-marker-alt"></i>
-                        Cobertura Nacional
-                    </span>
-                    <h2 class="section-title seo-h2">
-                        Clases Presenciales de <span class="gradient-text">LEGO Mindstorms y Arduino</span> en Todo
-                        México
-                    </h2>
-                    <p class="section-subtitle">
-                        Aprende robótica con instructores certificados en nuestras sedes. Laboratorios equipados con
-                        tecnología de vanguardia en CDMX, Cuautitlán Izcalli, Estado de México, Guadalajara y más.
-                    </p>
-                </div>
-
-                <div class="locations-grid">
-                    <div class="location-card" data-aos="fade-up">
-                        <div class="location-icon"><i class="fas fa-landmark"></i></div>
-                        <h3>CDMX - Ciudad de México</h3>
-                        <p>Clases de robótica y programación en la capital. Cursos de LEGO Mindstorms y Arduino para
-                            niños.</p>
-                        <span class="location-tag">🏙️ Zona Metropolitana</span>
-                    </div>
-                    <div class="location-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="location-icon"><i class="fas fa-building"></i></div>
-                        <h3>Cuautitlán Izcalli</h3>
-                        <p>Sede principal con laboratorio de robótica completo. Formación STEAM certificada.</p>
-                        <span class="location-tag">🏢 Sede Central</span>
-                    </div>
-                    <div class="location-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="location-icon"><i class="fas fa-tree"></i></div>
-                        <h3>Estado de México</h3>
-                        <p>Cobertura en municipios del EdoMex. Cursos de construcción de robots LEGO.</p>
-                        <span class="location-tag">🌳 Zona Norte</span>
-                    </div>
-                    <div class="location-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="location-icon"><i class="fas fa-sun"></i></div>
-                        <h3>Guadalajara, Jalisco</h3>
-                        <p>Academia de robótica en el Silicon Valley mexicano. Clases de Arduino y Python.</p>
-                        <span class="location-tag">🌅 Occidente</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección: IA en Robótica Educativa (H2 Tendencia - +400% crecimiento) -->
-        <section class="seo-ai-section" id="ia-robotica" data-aos="fade-up">
-            <div class="container">
-                <div class="ai-content-grid">
-                    <div class="ai-text-content">
-                        <span class="section-badge trending-badge">
-                            <i class="fas fa-fire"></i>
-                            Tendencia 2026 • +400% crecimiento
-                        </span>
-                        <h2 class="section-title seo-h2">
-                            Domina la <span class="gradient-text">IA en Robótica Educativa</span>
-                        </h2>
-                        <p class="ai-description">
-                            La <strong>Inteligencia Artificial</strong> está revolucionando la educación tecnológica.
-                            En WorldBrain México, integramos <strong>Machine Learning básico</strong> y reconocimiento
-                            de patrones en nuestros cursos de robótica. Tus hijos aprenderán a crear robots que
-                            <strong>piensan, aprenden y se adaptan</strong> – las mismas habilidades que demandan
-                            las empresas tech más innovadoras del mundo.
-                        </p>
-                        <div class="ai-features">
-                            <div class="ai-feature">
-                                <i class="fas fa-eye"></i>
-                                <span>Visión artificial</span>
-                            </div>
-                            <div class="ai-feature">
-                                <i class="fas fa-microphone"></i>
-                                <span>Reconocimiento de voz</span>
-                            </div>
-                            <div class="ai-feature">
-                                <i class="fas fa-robot"></i>
-                                <span>Robots autónomos</span>
-                            </div>
-                            <div class="ai-feature">
-                                <i class="fas fa-brain"></i>
-                                <span>Aprendizaje automático</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="ai-visual">
-                        <div class="ai-glow-orb"></div>
-                        <div class="ai-icon-display">
-                            <i class="fas fa-microchip"></i>
-                            <div class="neural-lines">
-                                <span></span><span></span><span></span><span></span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección: Plataformas - LEGO hasta Python (H2 Plataformas) -->
-        <section class="seo-platforms-section" id="tecnologias-aprendes" data-aos="fade-up">
-            <div class="container">
-                <div class="section-header">
-                    <span class="section-badge rb-badge-alt">
-                        <i class="fas fa-layer-group"></i>
-                        Ruta de Aprendizaje
-                    </span>
-                    <h2 class="section-title seo-h2">
-                        Aprende Construyendo: Desde <span class="gradient-text">LEGO hasta Arduino y Python</span>
-                    </h2>
-                    <p class="section-subtitle">
-                        Progresión natural desde bloques físicos hasta código profesional. Cada etapa construye
-                        sobre la anterior, asegurando bases sólidas.
-                    </p>
-                </div>
-
-                <div class="learning-path">
-                    <div class="path-step" data-aos="fade-right">
-                        <span class="step-number">01</span>
-                        <div class="step-content">
-                            <h3>Construcción Robots LEGO</h3>
-                            <p>Inicia con LEGO WeDo 2.0 y Mindstorms. Aprende mecánica, sensores y motores de forma
-                                tangible.</p>
-                            <span class="step-tech">LEGO WeDo • Mindstorms EV3 • SPIKE Prime</span>
-                        </div>
-                    </div>
-                    <div class="path-connector"><i class="fas fa-arrow-down"></i></div>
-                    <div class="path-step" data-aos="fade-left" data-aos-delay="100">
-                        <span class="step-number">02</span>
-                        <div class="step-content">
-                            <h3>Programación Visual con Scratch</h3>
-                            <p>Transición a programación visual. Crea animaciones, juegos y proyectos interactivos.</p>
-                            <span class="step-tech">Scratch Jr • Scratch 3.0 • Blockly</span>
-                        </div>
-                    </div>
-                    <div class="path-connector"><i class="fas fa-arrow-down"></i></div>
-                    <div class="path-step" data-aos="fade-right" data-aos-delay="200">
-                        <span class="step-number">03</span>
-                        <div class="step-content">
-                            <h3>Electrónica con Arduino</h3>
-                            <p>Entra al mundo del hardware. LEDs, sensores, motores y primeros proyectos de IoT.</p>
-                            <span class="step-tech">Arduino Uno • ESP32 • Sensores</span>
-                        </div>
-                    </div>
-                    <div class="path-connector"><i class="fas fa-arrow-down"></i></div>
-                    <div class="path-step" data-aos="fade-left" data-aos-delay="300">
-                        <span class="step-number">04</span>
-                        <div class="step-content">
-                            <h3>Código Profesional con Python</h3>
-                            <p>El lenguaje de la IA y ciencia de datos. Prepárate para carreras en tecnología.</p>
-                            <span class="step-tech">Python • JavaScript • C++</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Sección: FAQ SEO Long-tail (H3 Keywords) -->
-        <section class="seo-faq-section" id="preguntas-frecuentes" data-aos="fade-up">
-            <div class="container">
-                <div class="faq-grid">
-                    <div class="faq-item">
-                        <h3 class="seo-h3">¿Cuál es el mejor curso de robótica para niños?</h3>
-                        <p>
-                            El <strong>mejor curso de robótica para niños</strong> en México es el que combina
-                            aprendizaje práctico con herramientas apropiadas para cada edad. En WorldBrain,
-                            ofrecemos <strong>Robotics Kids</strong> (7-10 años) con LEGO Mindstorms,
-                            <strong>Robotics Junior</strong> (11-14 años) con Arduino, y <strong>Robotics Pro</strong>
-                            (15-17 años) con IA y Python. Todos incluyen certificación, proyectos reales y
-                            acceso a competencias nacionales de robótica.
-                        </p>
-                    </div>
-                    <div class="faq-item">
-                        <h3 class="seo-h3">Inscripciones Abiertas y Precios 2026</h3>
-                        <p>
-                            Las <strong>inscripciones 2026</strong> están abiertas todo el año. Ofrecemos una
-                            <strong>primera clase 100% gratis</strong> para que tu hijo experimente la metodología
-                            sin compromiso. Los precios varían según la modalidad (online o presencial) y la
-                            frecuencia de clases. Contáctanos por WhatsApp al <strong>55 7810 7837</strong> para
-                            recibir información personalizada y conocer las promociones vigentes.
-                        </p>
-                        <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20información%20de%20inscripciones%20y%20precios%202026"
-                            class="faq-cta">
-                            <i class="fab fa-whatsapp"></i> Consultar Precios 2026
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Por qué programar Section -->
-        <section class="why-code-section">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <span class="section-badge rb-badge-alt">
-                        <i class="fas fa-question-circle"></i>
-                        El Lenguaje del Futuro
-                    </span>
-                    <h2 class="section-title">
-                        ¿Por qué tus hijos deben aprender a <span class="gradient-text">programar</span>?
-                    </h2>
-                    <p class="section-subtitle">
-                        La programación es la nueva alfabetización del siglo XXI. Prepara a tus hijos para liderar el
-                        futuro.
-                    </p>
-                </div>
-
-                <div class="why-grid">
-                    <div class="why-card" data-aos="fade-up">
-                        <div class="why-icon">
-                            <i class="fas fa-briefcase"></i>
-                        </div>
-                        <h3>Empleos del Futuro</h3>
-                        <p>El 85% de los trabajos de 2030 aún no existen. La programación será tan esencial como leer y
-                            escribir.</p>
-                        <div class="why-stat">
-                            <span class="stat-value">$120K+</span>
-                            <span class="stat-desc">Salario promedio desarrollador</span>
-                        </div>
-                    </div>
-
-                    <div class="why-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="why-icon">
-                            <i class="fas fa-brain"></i>
-                        </div>
-                        <h3>Pensamiento Lógico</h3>
-                        <p>Programar es resolver problemas. Tus hijos desarrollarán habilidades de análisis que
-                            aplicarán en cualquier área.</p>
-                        <div class="why-stat">
-                            <span class="stat-value">+40%</span>
-                            <span class="stat-desc">Mejora en matemáticas</span>
-                        </div>
-                    </div>
-
-                    <div class="why-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="why-icon">
-                            <i class="fas fa-palette"></i>
-                        </div>
-                        <h3>Creatividad Sin Límites</h3>
-                        <p>De consumidores a creadores. Pasarán de jugar videojuegos a diseñar los suyos propios.</p>
-                        <div class="why-stat">
-                            <span class="stat-value">100%</span>
-                            <span class="stat-desc">Proyectos originales</span>
-                        </div>
-                    </div>
-
-                    <div class="why-card" data-aos="fade-up" data-aos-delay="300">
-                        <div class="why-icon">
-                            <i class="fas fa-rocket"></i>
-                        </div>
-                        <h3>Emprendimiento Tech</h3>
-                        <p>Las startups más exitosas fueron fundadas por programadores. Dale a tu hijo las herramientas
-                            para crear su empresa.</p>
-                        <div class="why-stat">
-                            <span class="stat-value">∞</span>
-                            <span class="stat-desc">Oportunidades</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Cursos Section -->
-        <section class="courses-section" id="cursos">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <span class="section-badge rb-badge-alt">
-                        <i class="fas fa-graduation-cap"></i>
-                        Programas por Edad
-                    </span>
-                    <h2 class="section-title">
-                        Elige el <span class="gradient-text">curso perfecto</span>
-                    </h2>
-                    <p class="section-subtitle">
-                        Programas diseñados para cada etapa de desarrollo. Tu hijo avanza a su ritmo con proyectos
-                        reales.
-                    </p>
-                </div>
-
-                <div class="courses-grid">
-                    <!-- Curso Kids -->
-                    <div class="course-card-large" data-aos="fade-up">
-                        <div class="course-level kids">
-                            <span class="level-tag">PRINCIPIANTES</span>
-                            <div class="level-ages">7-10 años</div>
-                        </div>
-                        <div class="course-card-content">
-                            <h3>Robotics <span class="code-accent">Kids</span></h3>
-                            <p>Introducción al mundo de la programación y robótica con herramientas visuales. Perfecto
-                                para los más pequeños.</p>
-
-                            <div class="course-features">
-                                <div class="feature">
-                                    <i class="fas fa-puzzle-piece"></i>
-                                    <span>Scratch Jr & Scratch</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-cube"></i>
-                                    <span>Lego WeDo 2.0</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-gamepad"></i>
-                                    <span>Creación de juegos</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-robot"></i>
-                                    <span>Robots básicos</span>
-                                </div>
-                            </div>
-
-                            <div class="course-projects">
-                                <h4>Proyectos que crearán:</h4>
-                                <div class="project-tags">
-                                    <span class="project-tag">🎮 Videojuego de plataformas</span>
-                                    <span class="project-tag">🤖 Robot seguidor de línea</span>
-                                    <span class="project-tag">🎨 Animación interactiva</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Curso Junior -->
-                    <div class="course-card-large featured" data-aos="fade-up" data-aos-delay="100">
-                        <div class="popular-ribbon">MÁS POPULAR</div>
-                        <div class="course-level junior">
-                            <span class="level-tag">INTERMEDIO</span>
-                            <div class="level-ages">11-14 años</div>
-                        </div>
-                        <div class="course-card-content">
-                            <h3>Robotics <span class="code-accent">Junior</span></h3>
-                            <p>Transición a programación real con código. Creación de proyectos más complejos y
-                                competencias de robótica.</p>
-
-                            <div class="course-features">
-                                <div class="feature">
-                                    <i class="fab fa-python"></i>
-                                    <span>Python básico</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-microchip"></i>
-                                    <span>Arduino</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-cubes"></i>
-                                    <span>Lego Mindstorms</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-trophy"></i>
-                                    <span>Competencias</span>
-                                </div>
-                            </div>
-
-                            <div class="course-projects">
-                                <h4>Proyectos que crearán:</h4>
-                                <div class="project-tags">
-                                    <span class="project-tag">🕹️ Juego tipo Flappy Bird</span>
-                                    <span class="project-tag">🦾 Brazo robótico</span>
-                                    <span class="project-tag">📱 App móvil simple</span>
-                                    <span class="project-tag">🏆 Robot de competencia</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Curso Pro -->
-                    <div class="course-card-large" data-aos="fade-up" data-aos-delay="200">
-                        <div class="course-level pro">
-                            <span class="level-tag">AVANZADO</span>
-                            <div class="level-ages">15-17 años</div>
-                        </div>
-                        <div class="course-card-content">
-                            <h3>Robotics <span class="code-accent">Pro</span></h3>
-                            <p>Desarrollo profesional con tecnologías de la industria. Preparación para carrera en
-                                tecnología o emprendimiento.</p>
-
-                            <div class="course-features">
-                                <div class="feature">
-                                    <i class="fab fa-python"></i>
-                                    <span>Python avanzado</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fab fa-js"></i>
-                                    <span>JavaScript & React</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-brain"></i>
-                                    <span>IA & Machine Learning</span>
-                                </div>
-                                <div class="feature">
-                                    <i class="fas fa-drone"></i>
-                                    <span>Drones & IoT</span>
-                                </div>
-                            </div>
-
-                            <div class="course-projects">
-                                <h4>Proyectos que crearán:</h4>
-                                <div class="project-tags">
-                                    <span class="project-tag">🌐 Sitio web completo</span>
-                                    <span class="project-tag">🤖 Robot con IA</span>
-                                    <span class="project-tag">📊 Dashboard de datos</span>
-                                    <span class="project-tag">🚁 Control de dron</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Tecnologías Section -->
-        <section class="technologies-section" id="tecnologias">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <span class="section-badge rb-badge-alt">
-                        <i class="fas fa-tools"></i>
-                        Stack Tecnológico
-                    </span>
-                    <h2 class="section-title">
-                        Herramientas que <span class="gradient-text">dominarán</span>
-                    </h2>
-                    <p class="section-subtitle">
-                        Las mismas tecnologías que usan empresas como Google, Meta y Apple. Preparación real para el
-                        mundo real.
-                    </p>
-                </div>
-
-                <div class="tech-grid">
-                    <div class="tech-card" data-aos="fade-up">
-                        <div class="tech-logo">
-                            <i class="fab fa-scratch"></i>
-                        </div>
-                        <h4>Scratch</h4>
-                        <p>Programación visual por bloques. Ideal para iniciar.</p>
-                    </div>
-
-                    <div class="tech-card" data-aos="fade-up" data-aos-delay="50">
-                        <div class="tech-logo python">
-                            <i class="fab fa-python"></i>
-                        </div>
-                        <h4>Python</h4>
-                        <p>El lenguaje más demandado. Fácil y poderoso.</p>
-                    </div>
-
-                    <div class="tech-card" data-aos="fade-up" data-aos-delay="100">
-                        <div class="tech-logo js">
-                            <i class="fab fa-js"></i>
-                        </div>
-                        <h4>JavaScript</h4>
-                        <p>Web, apps y juegos. El lenguaje de internet.</p>
-                    </div>
-
-                    <div class="tech-card" data-aos="fade-up" data-aos-delay="150">
-                        <div class="tech-logo arduino">
-                            <i class="fas fa-microchip"></i>
-                        </div>
-                        <h4>Arduino</h4>
-                        <p>Electrónica y microcontroladores.</p>
-                    </div>
-
-                    <div class="tech-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="tech-logo lego">
-                            <i class="fas fa-cubes"></i>
-                        </div>
-                        <h4>Lego Mindstorms</h4>
-                        <p>Robótica educativa de alta calidad.</p>
-                    </div>
-
-                    <div class="tech-card" data-aos="fade-up" data-aos-delay="250">
-                        <div class="tech-logo unity">
-                            <i class="fas fa-gamepad"></i>
-                        </div>
-                        <h4>Unity</h4>
-                        <p>Desarrollo de videojuegos 2D y 3D.</p>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Proyectos Section -->
-        <section class="projects-section" id="proyectos">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <span class="section-badge rb-badge-alt">
-                        <i class="fas fa-folder-open"></i>
-                        Portfolio de Alumnos
-                    </span>
-                    <h2 class="section-title">
-                        Lo que nuestros alumnos han <span class="gradient-text">creado</span>
-                    </h2>
-                    <p class="section-subtitle">
-                        Proyectos 100% originales desarrollados por nuestros estudiantes. De la idea al producto
-                        terminado.
-                    </p>
-                </div>
-
-                <div class="projects-gallery">
-                    <div class="project-item" data-aos="fade-up">
-                        <div class="project-image">
-                            <img src="images/rb-project-sumo.webp" alt="Robot de competencia" loading="lazy">
-                            <div class="project-overlay">
-                                <span class="project-category">Robótica</span>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h4>Robot Sumo</h4>
-                            <p>Robot de competencia que ganó 2do lugar en torneo nacional.</p>
-                            <span class="project-author">- Diego, 13 años</span>
-                        </div>
-                    </div>
-
-                    <div class="project-item" data-aos="fade-up" data-aos-delay="100">
-                        <div class="project-image">
-                            <img src="images/rb-project-game.webp" alt="Videojuego" loading="lazy">
-                            <div class="project-overlay">
-                                <span class="project-category">Videojuego</span>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h4>Space Adventure</h4>
-                            <p>Juego estilo arcade con más de 500 descargas en App Store.</p>
-                            <span class="project-author">- Sofía, 15 años</span>
-                        </div>
-                    </div>
-
-                    <div class="project-item" data-aos="fade-up" data-aos-delay="200">
-                        <div class="project-image">
-                            <img src="images/rb-project-iot.webp" alt="Sistema IoT" loading="lazy">
-                            <div class="project-overlay">
-                                <span class="project-category">IoT</span>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h4>Smart Garden</h4>
-                            <p>Sistema de riego automático con sensores y app móvil.</p>
-                            <span class="project-author">- Miguel, 16 años</span>
-                        </div>
-                    </div>
-
-                    <div class="project-item" data-aos="fade-up" data-aos-delay="300">
-                        <div class="project-image">
-                            <img src="images/rb-project-web.webp" alt="Website" loading="lazy">
-                            <div class="project-overlay">
-                                <span class="project-category">Web Dev</span>
-                            </div>
-                        </div>
-                        <div class="project-info">
-                            <h4>E-Commerce Store</h4>
-                            <p>Tienda en línea funcional con carrito y pagos.</p>
-                            <span class="project-author">- Ana, 17 años</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Testimonios Section -->
-        <section class="testimonials-section" id="testimonios">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <span class="section-badge rb-badge-alt">
-                        <i class="fas fa-comments"></i>
-                        Casos de Éxito
-                    </span>
-                    <h2 class="section-title">
-                        Futuros <span class="gradient-text">innovadores</span>
-                    </h2>
-                    <p class="section-subtitle">
-                        Historias reales de familias que transformaron el futuro de sus hijos con Robotics Code.
-                    </p>
-                </div>
-
-                <div class="testimonials-grid">
-                    <div class="testimonial-card" data-aos="fade-up">
-                        <div class="testimonial-header">
-                            <div class="testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/55.jpg" alt="Madre" loading="lazy">
-                            </div>
-                            <div class="testimonial-info">
-                                <h4>Laura Mendoza</h4>
-                                <span>Mamá de Andrés, 12 años</span>
-                            </div>
-                            <div class="testimonial-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="testimonial-quote">"Mi hijo de 10 años creó su propia App. No puedo creer lo que ha
-                            avanzado. Antes solo jugaba, ahora entiende cómo funcionan las cosas."</p>
-                        <div class="testimonial-result">
-                            <i class="fas fa-mobile-alt"></i>
-                            <span>Creó su primera App</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card featured" data-aos="fade-up" data-aos-delay="100">
-                        <div class="testimonial-header">
-                            <div class="testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/men/42.jpg" alt="Padre" loading="lazy">
-                            </div>
-                            <div class="testimonial-info">
-                                <h4>Carlos Ramírez</h4>
-                                <span>Papá de Valentina, 15 años</span>
-                            </div>
-                            <div class="testimonial-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="testimonial-quote">"Mi hija ganó una beca completa para estudiar Ingeniería en el TEC
-                            gracias a su portafolio de proyectos de Robotics Code. ¡La inversión valió cada peso!"</p>
-                        <div class="testimonial-result">
-                            <i class="fas fa-university"></i>
-                            <span>Beca 100% TEC de Monterrey</span>
-                        </div>
-                    </div>
-
-                    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-                        <div class="testimonial-header">
-                            <div class="testimonial-avatar">
-                                <img src="https://randomuser.me/api/portraits/women/33.jpg" alt="Madre" loading="lazy">
-                            </div>
-                            <div class="testimonial-info">
-                                <h4>Patricia López</h4>
-                                <span>Mamá de Emiliano, 9 años</span>
-                            </div>
-                            <div class="testimonial-stars">
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                                <i class="fas fa-star"></i>
-                            </div>
-                        </div>
-                        <p class="testimonial-quote">"Pensé que era muy pequeño para programar, pero en Scratch creó una
-                            historia animada sobre dinosaurios que presentó en su escuela. ¡Sus maestros quedaron
-                            impresionados!"</p>
-                        <div class="testimonial-result">
-                            <i class="fas fa-award"></i>
-                            <span>Proyecto destacado en escuela</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Inscripción Section -->
-        <section class="enrollment-section" id="inscripcion">
-            <div class="container">
-                <div class="enrollment-box rb-enrollment" data-aos="zoom-in">
-                    <div class="enrollment-header">
-                        <div class="code-decoration">&lt;inscripción&gt;</div>
-                        <h2>Inicia su camino en la tecnología</h2>
-                        <p>La primera clase es gratis. Ven a conocer nuestras instalaciones, conoce a los instructores y
-                            deja que tu hijo experimente la magia de crear con código.</p>
-                    </div>
-
-                    <div class="enrollment-content">
-                        <div class="enrollment-includes">
-                            <h3><i class="fas fa-laptop-code"></i> La clase de prueba incluye:</h3>
-                            <ul>
-                                <li><i class="fas fa-check"></i> Evaluación de nivel y edad</li>
-                                <li><i class="fas fa-check"></i> Proyecto mini completado</li>
-                                <li><i class="fas fa-check"></i> Tour por el laboratorio</li>
-                                <li><i class="fas fa-check"></i> Interacción con robots</li>
-                                <li><i class="fas fa-check"></i> Recomendación de curso ideal</li>
-                            </ul>
-                        </div>
-
-                        <div class="enrollment-cta">
-                            <div class="price-box rb-price">
-                                <p class="price-label">Clase de Prueba</p>
-                                <p class="price-current">GRATIS</p>
-                                <p class="price-note">*Cupos limitados por semana</p>
-                            </div>
-
-                            <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20una%20clase%20de%20prueba%20de%20Robotics%20Code"
-                                class="enroll-cta rb-enroll-cta">
-                                <i class="fab fa-whatsapp"></i>
-                                Reservar Clase Gratis
-                            </a>
-                            <p class="enroll-note">&lt;sin_compromiso /&gt; &bull; &lt;respuesta_24h /&gt;</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- FAQ Section -->
-        <section class="faq-section">
-            <div class="container">
-                <div class="section-header" data-aos="fade-up">
-                    <h2 class="section-title">Preguntas <span class="gradient-text">Frecuentes</span></h2>
-                </div>
-
-                <div class="faq-container">
-                    <details class="faq-item" data-aos="fade-up">
-                        <summary>
-                            <span>¿Mi hijo necesita conocimientos previos?</span>
-                            <i class="fas fa-plus"></i>
-                        </summary>
-                        <div class="faq-content">
-                            No, absolutamente ninguno. Nuestros cursos están diseñados para principiantes totales. Lo
-                            único que necesita es curiosidad y ganas de aprender.
-                        </div>
-                    </details>
-
-                    <details class="faq-item" data-aos="fade-up" data-aos-delay="50">
-                        <summary>
-                            <span>¿Necesita computadora propia?</span>
-                            <i class="fas fa-plus"></i>
-                        </summary>
-                        <div class="faq-content">
-                            No para las clases presenciales, todo el equipo está incluido. Para práctica en casa
-                            recomendamos una computadora básica, pero no es obligatorio.
-                        </div>
-                    </details>
-
-                    <details class="faq-item" data-aos="fade-up" data-aos-delay="100">
-                        <summary>
-                            <span>¿Cuántas horas de clase por semana?</span>
-                            <i class="fas fa-plus"></i>
-                        </summary>
-                        <div class="faq-content">
-                            Recomendamos 2 sesiones de 1.5 horas por semana. También ofrecemos modalidad intensiva de
-                            sábados (3 horas) para quienes prefieren un solo día.
-                        </div>
-                    </details>
-
-                    <details class="faq-item" data-aos="fade-up" data-aos-delay="150">
-                        <summary>
-                            <span>¿Se llevan los proyectos a casa?</span>
-                            <i class="fas fa-plus"></i>
-                        </summary>
-                        <div class="faq-content">
-                            ¡Sí! Los proyectos digitales (juegos, apps, código) son suyos para siempre. Los robots se
-                            construyen con materiales que pueden adquirir opcionalmente.
-                        </div>
-                    </details>
-                </div>
-            </div>
-        </section>
-
-        <!-- Booking Section -->
-        <section class="rb-booking-section" id="agendar">
-            <div class="container">
-                <div class="course-booking-card rb-booking-card" data-aos="fade-up">
-                    <div class="course-booking-grid">
-                        <!-- Sidebar / Info -->
-                        <div class="course-booking-sidebar">
-                            <div>
-                                <h3 class="course-booking-title">Tu Clase de Prueba Incluye:</h3>
-                                <ul class="course-booking-list">
-                                    <li>
-                                        <i class="fas fa-check-circle"></i> Proyecto práctico completo
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i> Evaluación de aptitudes
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i> Recomendación personalizada
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i> Tour por el laboratorio
-                                    </li>
-                                    <li>
-                                        <i class="fas fa-check-circle"></i> Interacción con robots reales
-                                    </li>
-                                </ul>
-                            </div>
-                            <div>
-                                <p class="course-booking-note">* Las citas son limitadas y se asignan por orden de llegada.</p>
-                            </div>
-                        </div>
-
-                        <!-- Form Container -->
-                        <div class="course-booking-form-container">
-
-                            <!-- Step 1: Contact Info -->
-                            <div id="booking-step-1" class="booking-step">
-                                <h4 class="course-booking-step-title">1. Tus Datos</h4>
-                                <form id="contact-form" onsubmit="return false;">
-                                    <div class="course-form-group">
-                                        <label class="course-form-label" for="client-name">Nombre del Estudiante</label>
-                                        <input type="text" id="client-name" required class="course-form-input"
-                                            placeholder="Ej: Santiago López">
-                                    </div>
-                                    <div class="course-form-group">
-                                        <label class="course-form-label" for="client-phone">WhatsApp de Contacto</label>
-                                        <input type="tel" id="client-phone" required class="course-form-input"
-                                            placeholder="Ej: 55 1234 5678">
-                                    </div>
-                                    <div class="course-form-group">
-                                        <label class="course-form-label" for="course-select">Curso de Interés</label>
-                                        <select id="course-select" class="course-form-select">
-                                            <option value="Robotics Code - Scratch">Scratch (6-9 años)</option>
-                                            <option value="Robotics Code - Roblox">Roblox Studio (9-13 años)</option>
-                                            <option value="Robotics Code - Python">Python (12+ años)</option>
-                                            <option value="No estoy seguro">No estoy seguro</option>
-                                        </select>
-                                    </div>
-                                    <button type="button" onclick="goToStep2()" class="course-btn-form">
-                                        Siguiente: Elegir Horario <i class="fas fa-arrow-right"></i>
-                                    </button>
-                                </form>
-                            </div>
-
-                            <!-- Step 2: Calendar -->
-                            <div id="booking-step-2" class="booking-step" style="display: none;">
-                                <div class="booking-step-header">
-                                    <h4 class="course-booking-step-title">2. Selecciona Horario</h4>
-                                    <button onclick="goToStep1()" class="booking-step-back">
-                                        <i class="fas fa-arrow-left"></i> Volver
-                                    </button>
-                                </div>
-
-                                <div class="course-form-group">
-                                    <label class="course-form-label">Fecha</label>
-                                    <input type="date" id="date-picker" onchange="loadTimeSlots()"
-                                        class="course-form-input">
-                                </div>
-
-                                <div id="slots-container" class="course-slots-grid">
-                                    <p>Selecciona una fecha para ver horarios disponibles.</p>
-                                </div>
-                            </div>
-
-                            <!-- Step 3: Success -->
-                            <div id="booking-step-3" class="booking-step" style="display: none; text-align: center;">
-                                <div class="booking-success-icon">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <h4 class="course-booking-step-title">¡Cita Confirmada!</h4>
-                                <p class="booking-success-text">Hemos reservado tu espacio. Te contactaremos por WhatsApp para confirmar detalles.</p>
-
-                                <div class="booking-success-actions">
-                                    <a id="gcal-btn" href="#" target="_blank" class="course-btn-form btn-gcal">
-                                        <i class="fab fa-google"></i> Guardar en Google Calendar
-                                    </a>
-                                    <a href="tel:+525578107837" class="course-btn-form btn-secondary">
-                                        <i class="fas fa-phone"></i> Llamar Ahora
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Script de Reservas Centralizado -->
-            <script defer src="js/booking.min.js"></script>
-        </section>
-    </main>
-
-    <!-- Footer Unificado WorldBrain -->
-<footer class="footer-modern" role="contentinfo">
-    <div class="footer-content-wrapper">
-        <div class="footer-cta-card">
-            <div class="cta-content">
-                <h2>Aprende a la velocidad de tu potencial</h2>
-                <p>Agenda una clase muestra gratuita y descubre de lo que eres capaz.</p>
-                <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20una%20clase%20muestra" class="btn-cta-footer">
-                    <i class="fab fa-whatsapp"></i> Agendar Clase Muestra
-                </a>
-            </div>
-            <div class="footer-shape footer-shape-1"></div>
-            <div class="footer-shape footer-shape-2"></div>
-            <div class="footer-shape footer-shape-3"></div>
-            <div class="footer-shape footer-shape-4"></div>
+          </div>
+          <div>
+            <p class="mono" style="margin-bottom:.5rem;color:var(--text-dim)">// tu programa <span id="progCount"></span></p>
+            <div class="program" id="program" aria-live="polite"></div>
+          </div>
+          <div class="play-actions">
+            <button class="btn btn-run" id="runBtn">RUN</button>
+            <button class="btn btn-clear" id="clearBtn">borrar</button>
+          </div>
         </div>
-
-        <div class="container">
-            <!-- Social Proof -->
-            <div class="footer-social-proof">
-                <div class="proof-header">
-                    <p class="proof-label">Resultados Probados</p>
-                    <h3 class="proof-title">Historias que inspiran accion.</h3>
-                </div>
-                <div class="proof-grid">
-                    <div class="proof-card">
-                        <div class="proof-card-header">
-                            <img src="https://i.pravatar.cc/150?u=elena" alt="Dra. Elena Villalobos" class="proof-avatar" loading="lazy">
-                            <div>
-                                <h4 class="proof-name">Dra. Elena Villalobos</h4>
-                                <p class="proof-role">Pediatra &middot; Madre de Mateo</p>
-                            </div>
-                        </div>
-                        <div class="proof-metric">6.2 &rarr; 9.1 <span>PROMEDIO</span></div>
-                        <p class="proof-quote">&ldquo;El promedio de Mateo salt&oacute; de 6.2 a 9.1 en solo 4 semanas. La inversi&oacute;n se pag&oacute; sola en el segundo mes.&rdquo;</p>
-                    </div>
-                    <div class="proof-card">
-                        <div class="proof-card-header">
-                            <img src="https://i.pravatar.cc/150?u=alejandro" alt="Alejandro Torres" class="proof-avatar" loading="lazy">
-                            <div>
-                                <h4 class="proof-name">Alejandro Torres</h4>
-                                <p class="proof-role">Dir. Operaciones &middot; TechLogistics</p>
-                            </div>
-                        </div>
-                        <div class="proof-metric">34 MIN <span>300 P&Aacute;GINAS</span></div>
-                        <p class="proof-quote">&ldquo;WorldBrain me ense&ntilde;&oacute; a leer 300 p&aacute;ginas en 34 minutos con retenci&oacute;n real. Ahora devoro 2 libros por semana.&rdquo;</p>
-                    </div>
-                    <div class="proof-card">
-                        <div class="proof-card-header">
-                            <img src="https://i.pravatar.cc/150?u=silvia" alt="Silvia Ortiz" class="proof-avatar" loading="lazy">
-                            <div>
-                                <h4 class="proof-name">Silvia Ortiz</h4>
-                                <p class="proof-role">Mam&aacute; de Diego &middot; COMIPEMS</p>
-                            </div>
-                        </div>
-                        <div class="proof-metric">118 / 128 <span>ACIERTOS</span></div>
-                        <p class="proof-quote">&ldquo;Mi hijo sac&oacute; 118 de 128 y qued&oacute; en Prepa 6 UNAM gracias a Fotolectura y s&uacute;per-memoria.&rdquo;</p>
-                    </div>
-                </div>
-                <div class="proof-cta">
-                    <a href="testimonios.html">Ver m&aacute;s casos de &eacute;xito <i class="fas fa-arrow-right"></i></a>
-                </div>
-            </div>
-
-            <!-- Footer Grid -->
-            <div class="footer-grid">
-                <div class="footer-brand-col">
-                    <div class="footer-brand-name">World<span>Brain</span></div>
-                    <p class="footer-tagline">Pioneros en Neuroaprendizaje y Desarrollo Mental Acelerado desde 2000. Transformamos la manera en que Latinoam&eacute;rica aprende.</p>
-                    <div class="footer-socials">
-                        <a href="https://www.facebook.com/WorldBrainMx/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://www.instagram.com/worldbrainmx1/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Principal"><i class="fab fa-instagram"></i></a>
-                        <a href="https://www.instagram.com/worldbrainmx/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Cuautitl&aacute;n Izcalli"><i class="fab fa-instagram"></i></a>
-                        <a href="https://x.com/WorldBrainMx" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                        <a href="https://youtube.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://tiktok.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                    </div>
-                </div>
-                <div class="footer-col">
-                    <h4>Ni&ntilde;os</h4>
-                    <ul>
-                        <li><a href="fastkids.html">FastKids</a></li>
-                        <li><a href="mathekids.html">MatheKids</a></li>
-                        <li><a href="juniormath_v2.html">JuniorMath</a></li>
-                        <li><a href="lectoescritura.html">Lectoescritura</a></li>
-                        <li><a href="ciencia-astronomia.html">Ciencia y Astronom&iacute;a</a></li>
-                        <li><a href="robotics.html">Robotics Code</a></li>
-                        <li><a href="homeschool.html">Homeschool</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>J&oacute;venes y Adultos</h4>
-                    <ul>
-                        <li><a href="fotolectura.html">Fotolectura</a></li>
-                        <li><a href="memoria-prodigiosa.html">Memoria Prodigiosa</a></li>
-                        <li><a href="neurocomunicacion.html">Neurocomunicaci&oacute;n</a></li>
-                        <li><a href="grandes-lideres.html">Grandes L&iacute;deres</a></li>
-                        <li><a href="redaccion-ejecutiva.html">Redacci&oacute;n Ejecutiva</a></li>
-                        <li><a href="admision-universitaria.html">Admisi&oacute;n Universitaria</a></li>
-                        <li><a href="universidad-dominical.html">Universidad Dominical</a></li>
-                        <li><a href="regularizacion-express.html">Regularizaci&oacute;n Express</a></li>
-                        <li><a href="alfa-cash.html">ALFA-CASH</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col footer-contact-col">
-                    <h4>Contacto</h4>
-                    <div class="contact-item">
-                        <i class="fas fa-phone"></i>
-                        <a href="tel:+525578107837">+52 (55) 7810-7837</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fab fa-whatsapp"></i>
-                        <a href="https://wa.me/5215578107837">WhatsApp</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-envelope"></i>
-                        <a href="mailto:contacto@ultravelozmente.com">contacto@ultravelozmente.com</a>
-                    </div>
-                    <div class="contact-item">
-                        <i class="fas fa-map-marker-alt"></i>
-                        <span>Cuautitl&aacute;n Izcalli, Edo. de M&eacute;x.</span>
-                    </div>
-                    <ul style="margin-top: 16px; padding: 0; list-style: none;">
-                        <li style="margin-bottom: 10px;"><a href="blog-index.html">Blog Educativo</a></li>
-                        <li><a href="testimonios.html">Testimonios</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <!-- Footer Bottom -->
-            <div class="footer-bottom-bar">
-                <p class="footer-legal-text">CWBMX, S.C. | RFC: CWB170626UH4 | Domicilio: Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano, Cuautitl&aacute;n Izcalli, Edo. de M&eacute;x., C.P. 54700.</p>
-                <p class="footer-copyright">&copy; 2026 WorldBrain M&eacute;xico. Todos los derechos reservados.</p>
-                <div class="footer-legal-links">
-                    <a href="terminos.html">T&eacute;rminos y Condiciones</a>
-                    <a href="privacidad.html">Aviso de Privacidad</a>
-                    <a href="reembolsos.html">Pol&iacute;ticas de Devoluci&oacute;n</a>
-                </div>
-            </div>
+      </div>
+      <div class="win board-wrap rv">
+        <div class="win-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="tab">simulador<b>.bot</b></span></div>
+        <div class="win-body">
+          <div class="board" id="board" role="img" aria-label="Laberinto del robot"></div>
+          <p class="play-msg" id="playMsg">El robot mira hacia la derecha →. Arma tu secuencia.</p>
         </div>
+      </div>
     </div>
+  </div>
+</section>
+
+<!-- ═══════════ MÓDULOS: GIT LOG ═══════════ -->
+<section id="modulos">
+  <div class="wrap">
+    <span class="mono rv">$ git log --ruta-de-aprendizaje</span>
+    <h2 class="title rv">Seis módulos. <span class="g">De bloques a Inteligencia Artificial.</span></h2>
+    <p class="sub rv">Cada módulo construye sobre el anterior, como commits en una rama. 1 sesión de 2 horas por semana; cada módulo dura 6 meses.</p>
+    <div class="gitlog">
+      <article class="commit rv">
+        <span class="hash">commit 01 — mBlock</span>
+        <h3>Programación gráfica de objetos</h3>
+        <p>Primer contacto con la programación: bloques visuales que mueven robots reales. Juego de laberinto, historias animadas y piano interactivo.</p>
+        <div class="tags"><span class="tag">mBlock</span><span class="tag">robots + bloques</span></div>
+      </article>
+      <article class="commit rv">
+        <span class="hash">commit 02 — Scratch</span>
+        <h3>Lógica y videojuegos</h3>
+        <p>Código y lógica de verdad: juegos de estrategia, simuladores de movimiento y sistemas de mensajería animados. Aquí nace el pensamiento de ingeniero.</p>
+        <div class="tags"><span class="tag">Scratch 3.0</span><span class="tag">game design</span></div>
+      </article>
+      <article class="commit rv">
+        <span class="hash">commit 03 — Arduino / C++</span>
+        <h3>Electrónica y hardware real</h3>
+        <p>Programación con 54 sensores: semáforo inteligente, estación meteorológica, lámpara nocturna, sistema de riego automático y robot explorador. Wiring, LEDs, fotoceldas y voltaje.</p>
+        <div class="tags"><span class="tag">Arduino</span><span class="tag">C++</span><span class="tag">54 sensores</span><span class="tag">IoT</span></div>
+      </article>
+      <article class="commit rv">
+        <span class="hash">commit 04 — Animación Digital</span>
+        <h3>Diseño e impresión 3D</h3>
+        <p>Del código al objeto físico: diseño de juguetes, casas en miniatura, prótesis simplificadas y modelos de arquitectura con Tinkercad y impresión 3D.</p>
+        <div class="tags"><span class="tag">3D print</span><span class="tag">Tinkercad</span><span class="tag">Thingiverse</span></div>
+      </article>
+      <article class="commit rv">
+        <span class="hash">commit 05 — Python + IA</span>
+        <h3>El lenguaje de la Inteligencia Artificial</h3>
+        <p>Chatbot cuentacuentos, reconocimiento de voz, asistentes virtuales, detectores de sentimientos y sistemas de recomendación. Las mismas herramientas de la industria.</p>
+        <div class="tags"><span class="tag">Python</span><span class="tag">TensorFlow</span><span class="tag">scikit-learn</span><span class="tag">Alexa Skills</span></div>
+      </article>
+      <article class="commit rv">
+        <span class="hash">commit 06 — Metaverso</span>
+        <h3>Realidad virtual y mundos propios</h3>
+        <p>Mundos virtuales personalizados, juegos de plataformas, niveles de videojuego y simulaciones de realidad virtual con los motores de la industria.</p>
+        <div class="tags"><span class="tag">Unity</span><span class="tag">Unreal Engine</span><span class="tag">ARKit</span><span class="tag">Oculus SDK</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PROGRAMAS POR EDAD ═══════════ -->
+<section id="programas" style="padding-top:0">
+  <div class="wrap">
+    <span class="mono rv">// elige tu versión</span>
+    <h2 class="title rv">Un programa para <span class="g">cada etapa</span></h2>
+    <div class="tiers">
+      <article class="tier rv">
+        <span class="age">7–10 AÑOS</span>
+        <h3>Robotics Kids</h3>
+        <span class="lvl">v1.0 — PRINCIPIANTES</span>
+        <ul>
+          <li>Scratch Jr y Scratch</li>
+          <li>LEGO WeDo 2.0</li>
+          <li>Creación de juegos</li>
+          <li>Robots básicos</li>
+        </ul>
+        <div class="projects"><b>// PROYECTOS</b>🎮 Videojuego de plataformas · 🤖 Robot seguidor de línea · 🎨 Animación interactiva</div>
+      </article>
+      <article class="tier pop rv">
+        <span class="age">11–14 AÑOS</span>
+        <h3>Robotics Junior</h3>
+        <span class="lvl">v2.0 — INTERMEDIO</span>
+        <ul>
+          <li>Python básico</li>
+          <li>Arduino y sensores</li>
+          <li>LEGO Mindstorms</li>
+          <li>Competencias de robótica</li>
+        </ul>
+        <div class="projects"><b>// PROYECTOS</b>🕹️ Juego tipo Flappy Bird · 🦾 Brazo robótico · 📱 App móvil · 🏆 Robot de competencia</div>
+      </article>
+      <article class="tier rv">
+        <span class="age">15–17 AÑOS</span>
+        <h3>Robotics Pro</h3>
+        <span class="lvl">v3.0 — AVANZADO</span>
+        <ul>
+          <li>Python avanzado</li>
+          <li>JavaScript y desarrollo web</li>
+          <li>IA y Machine Learning</li>
+          <li>Drones e IoT</li>
+        </ul>
+        <div class="projects"><b>// PROYECTOS</b>🌐 Sitio web completo · 🤖 Robot con IA · 📊 Dashboard de datos · 🚁 Control de dron</div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ KIT + IA ═══════════ -->
+<section class="kit-band">
+  <div class="wrap kit-grid">
+    <div class="rv">
+      <span class="mono">// incluido en tu inscripción</span>
+      <h2 class="title">Kit de robótica <span class="g">en tus manos</span></h2>
+      <p class="sub">No solo pantallas: hardware real que se ensambla, se conecta y cobra vida.</p>
+      <ul class="kit-list">
+        <li>Kit de robótica para ensamble (Arduino, Mito, Robot)</li>
+        <li>Clases de ingeniería inversa: desarma para entender</li>
+        <li>Proyectos de domótica, CNC e impresión 3D</li>
+        <li>Grupos multiculturales — inglés aplicado a la tecnología</li>
+        <li>Clases interactivas y divertidas, con los 5 Minutos WorldBrain</li>
+      </ul>
+    </div>
+    <div class="rv">
+      <span class="mono" style="color:var(--violet)">// tendencia +400% crecimiento</span>
+      <h2 class="title" style="font-size:clamp(1.4rem,3vw,2rem)">La IA no es el futuro. <span style="color:var(--violet)">Es su presente.</span></h2>
+      <p class="sub">Integramos Machine Learning y reconocimiento de patrones desde el módulo 5: robots que piensan, aprenden y se adaptan.</p>
+      <div class="ia-chips">
+        <span class="chip">visión artificial</span><span class="chip">reconocimiento de voz</span>
+        <span class="chip">robots autónomos</span><span class="chip">aprendizaje automático</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ PORTFOLIO ═══════════ -->
+<section id="portfolio">
+  <div class="wrap">
+    <span class="mono rv">$ ls ./proyectos_de_alumnos</span>
+    <h2 class="title rv">Hecho por niños <span class="g">de verdad</span></h2>
+    <div class="pfilters rv" role="group" aria-label="Filtrar proyectos">
+      <button class="pf on" data-f="all">--all</button>
+      <button class="pf" data-f="robot">robótica</button>
+      <button class="pf" data-f="game">videojuegos</button>
+      <button class="pf" data-f="iot">IoT</button>
+      <button class="pf" data-f="web">web</button>
+    </div>
+    <div class="pgrid">
+      <article class="proj rv" data-cat="robot" style="view-transition-name:pj-sumo"><span class="cat">ROBÓTICA</span><span class="emoji">🤖</span><h3>Robot Sumo</h3><p>2do lugar en torneo nacional de robótica.</p><span class="who">— Diego, 13 años</span></article>
+      <article class="proj rv" data-cat="game" style="view-transition-name:pj-space"><span class="cat">VIDEOJUEGO</span><span class="emoji">🚀</span><h3>Space Adventure</h3><p>Arcade con más de 500 descargas en App Store.</p><span class="who">— Sofía, 15 años</span></article>
+      <article class="proj rv" data-cat="iot" style="view-transition-name:pj-garden"><span class="cat">IOT</span><span class="emoji">🌱</span><h3>Smart Garden</h3><p>Riego automático con sensores y app móvil.</p><span class="who">— Miguel, 16 años</span></article>
+      <article class="proj rv" data-cat="web" style="view-transition-name:pj-store"><span class="cat">WEB DEV</span><span class="emoji">🛒</span><h3>E-Commerce Store</h3><p>Tienda en línea funcional con carrito y pagos.</p><span class="who">— Ana, 17 años</span></article>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ SEDES ═══════════ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="mono rv">$ ping sedes.worldbrain.mx</span>
+    <h2 class="title rv">Nodos <span class="g">activos</span></h2>
+    <div class="nodes">
+      <div class="node rv"><span class="st">ONLINE</span><h3>CDMX</h3><p>Clases de robótica y programación en la capital. Zona Metropolitana.</p></div>
+      <div class="node rv"><span class="st">ONLINE</span><h3>Cuautitlán Izcalli</h3><p>Sede central con laboratorio de robótica completo. Formación STEAM.</p></div>
+      <div class="node rv"><span class="st">ONLINE</span><h3>Estado de México</h3><p>Cobertura en municipios del EdoMex. Zona Norte.</p></div>
+      <div class="node rv"><span class="st">ONLINE</span><h3>Guadalajara</h3><p>El Silicon Valley mexicano. Arduino y Python en Occidente.</p></div>
+    </div>
+    <p class="rv" style="margin-top:1.4rem;font-family:var(--mono);font-size:.75rem;color:var(--text-dim)">// modalidad_online: disponible en toda la República →  1 sesión de 2 hrs/semana</p>
+  </div>
+</section>
+
+<!-- ═══════════ FAQ ═══════════ -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="mono rv">$ man robotics_code</span>
+    <h2 class="title rv">Preguntas <span class="g">frecuentes</span></h2>
+    <div class="faq rv">
+      <details name="faq" open>
+        <summary>¿Mi hijo necesita conocimientos previos?</summary>
+        <p>No, absolutamente ninguno. Los cursos están diseñados para principiantes totales. Lo único que necesita es curiosidad y ganas de aprender.</p>
+      </details>
+      <details name="faq">
+        <summary>¿Necesita computadora propia?</summary>
+        <p>No para las clases presenciales: todo el equipo está incluido, además del kit de robótica. Para practicar en casa basta una computadora básica, pero no es obligatorio.</p>
+      </details>
+      <details name="faq">
+        <summary>¿Cuántas horas de clase por semana?</summary>
+        <p>1 sesión de 2 horas por semana. Cada módulo dura 6 meses y la práctica en casa es de 5 a 10 minutos diarios, como todo en WorldBrain.</p>
+      </details>
+      <details name="faq">
+        <summary>¿Se llevan los proyectos a casa?</summary>
+        <p>¡Sí! Los proyectos digitales (juegos, apps, código) son suyos para siempre, y construyen su portafolio para becas y universidades.</p>
+      </details>
+      <details name="faq">
+        <summary>¿Qué son "los 5 minutos" de cada clase?</summary>
+        <p>Todas nuestras clases inician con cinco minutos de preparación cerebral: integración de hemisferios, musicoterapia, aromaterapia o ludoterapia. Es el sello WorldBrain desde hace 30 años.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════ CTA DEPLOY ═══════════ -->
+<section class="deploy" id="inscripcion">
+  <div class="wrap">
+    <h2 class="rv">$ deploy <span class="g">su_futuro</span> --now</h2>
+    <div class="win rv">
+      <div class="win-bar"><span class="dot"></span><span class="dot"></span><span class="dot"></span><span class="tab">clase_de_prueba<b>.free</b></span></div>
+      <div class="win-body">
+        <span class="mono" style="color:var(--amber)">// primera clase</span>
+        <span class="free">GRATIS</span>
+        <ul>
+          <li>Proyecto práctico completado en la sesión</li>
+          <li>Evaluación de nivel y edad</li>
+          <li>Tour por el laboratorio + interacción con robots reales</li>
+          <li>Recomendación del programa ideal (Kids / Junior / Pro)</li>
+        </ul>
+        <div style="text-align:center;margin-top:1.8rem">
+          <a class="btn btn-run" href="https://wa.me/5215578107837?text=Hola,%20quiero%20reservar%20la%20clase%20de%20prueba%20GRATIS%20de%20Robotics%20Code">reservar_clase_gratis</a>
+          <p style="font-family:var(--mono);font-size:.68rem;color:var(--text-dim);margin-top:1rem">// cupos limitados por semana · respuesta &lt; 24h</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="index.html">World<span>Brain</span>_</a>
+        <p style="margin-top:1rem;color:var(--text-dim)">Pioneros en neuroaprendizaje y desarrollo mental acelerado desde 1994. Transformamos la manera en que Latinoamérica aprende.</p>
+      </div>
+      <div>
+        <h4>Niños</h4>
+        <ul>
+          <li><a href="fastkids.html">FastKids</a></li>
+          <li><a href="mathekids.html">MatheKids</a></li>
+          <li><a href="juniormath_v2.html">JuniorMath</a></li>
+          <li><a href="lectoescritura.html">Lectoescritura</a></li>
+          <li><a href="ciencia-astronomia.html">Ciencia y Astronomía</a></li>
+          <li><a href="robotics.html">Robotics Code</a></li>
+          <li><a href="homeschool.html">Homeschool</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Jóvenes y Adultos</h4>
+        <ul>
+          <li><a href="fotolectura.html">Fotolectura</a></li>
+          <li><a href="memoria-prodigiosa.html">Memoria Prodigiosa</a></li>
+          <li><a href="neurocomunicacion.html">Neurocomunicación</a></li>
+          <li><a href="grandes-lideres.html">Grandes Líderes</a></li>
+          <li><a href="redaccion-ejecutiva.html">Redacción Ejecutiva</a></li>
+          <li><a href="admision-universitaria.html">Admisión Universitaria</a></li>
+          <li><a href="universidad-dominical.html">Universidad Dominical</a></li>
+          <li><a href="regularizacion-express.html">Regularización Express</a></li>
+          <li><a href="alfa-cash.html">ALFA-CASH</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+525558686784">55 5868 6784</a></li>
+          <li><a href="tel:+525578107837">55 7810 7837</a></li>
+          <li><a href="https://wa.me/5215578107837">WhatsApp</a></li>
+          <li><a href="mailto:contacto@ultravelozmente.com">contacto@ultravelozmente.com</a></li>
+          <li style="color:var(--text-dim)">Cuautitlán Izcalli, Edo. de Méx.</li>
+          <li><a href="blog-index.html">Blog Educativo</a></li>
+          <li><a href="testimonios.html">Testimonios</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>CWBMX, S.C. · RFC: CWB170626UH4 · Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano, Cuautitlán Izcalli, Edo. de Méx., C.P. 54700 · © 2026 WorldBrain México</span>
+      <span><a href="terminos.html">Términos</a> · <a href="privacidad.html">Privacidad</a> · <a href="reembolsos.html">Devoluciones</a></span>
+    </div>
+  </div>
 </footer>
 
+<a class="wa" href="https://wa.me/5215578107837?text=Hola,%20quiero%20info%20de%20Robotics%20Code" aria-label="Escribir por WhatsApp">💬</a>
 
-    <!-- Floating WhatsApp -->
-    <a href="https://wa.me/5215578107837" class="floating-whatsapp rb-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contactar por WhatsApp">
-        <i class="fab fa-whatsapp" aria-hidden="true"></i>
-    </a>
+<script>
+'use strict';
+const $=(s,c=document)=>c.querySelector(s);
+const $$=(s,c=document)=>[...c.querySelectorAll(s)];
+const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 
-    <!-- Scripts -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js" defer></script>
-    <script src="js/courses.min.js" defer></script>
-    <script>
-        // Typing effect for hero
-        const words = ['Futuro', 'Robots', 'Juegos', 'Apps', 'Ideas'];
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-        const typingText = document.getElementById('typingText');
+/* ── Header por sentinel ─────────────────────────────────────── */
+new IntersectionObserver(([e])=>$('#hdr').classList.toggle('scrolled',!e.isIntersecting))
+  .observe($('#sentinel'));
 
-        function typeEffect() {
-            if (!typingText) return;
-            const currentWord = words[wordIndex];
+/* ── Menú móvil con scroll-lock ──────────────────────────────── */
+const toggleMenu=f=>{
+  const open=$('#mmenu').classList.toggle('open',f);
+  $('#burger').setAttribute('aria-expanded',open);
+  $('#burger').textContent=open?'cerrar':'menu';
+  document.body.style.overflow=open?'hidden':'';
+};
+$('#burger').addEventListener('click',()=>toggleMenu());
+$$('#mmenu a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
 
-            if (isDeleting) {
-                typingText.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-            } else {
-                typingText.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
+/* ── Marquee: duplicar para loop ─────────────────────────────── */
+$('#stackTrack').innerHTML+=$('#stackTrack').innerHTML;
 
-            let typeSpeed = isDeleting ? 50 : 100;
+/* ── Terminal typewriter ─────────────────────────────────────── */
+(async()=>{
+  const LINES=[
+    {h:'<span class="kw">def</span> <span class="fn">crear_futuro</span>(hijo):'},
+    {h:'    hijo.<span class="fn">aprende</span>(<span class="str">"robótica"</span>, <span class="str">"python"</span>, <span class="str">"IA"</span>)'},
+    {h:'    <span class="kw">return</span> hijo.<span class="fn">nivel</span> + <span class="str">1</span>'},
+    {h:''},
+    {h:'<span class="cmt"># salida:</span>'},
+    {h:'<span class="out">&gt;&gt;&gt; "ingeniero de su propio futuro" 🤖</span>'}
+  ];
+  const term=$('#term');
+  if(REDUCED){ /* sin animación: render directo */
+    term.innerHTML=LINES.map((l,i)=>`<div class="ln"><span class="no">${i+1}</span><span>${l.h}</span></div>`).join('');
+    return;
+  }
+  for(let i=0;i<LINES.length;i++){
+    const row=document.createElement('div');row.className='ln';
+    row.innerHTML=`<span class="no">${i+1}</span><span></span>`;
+    term.appendChild(row);
+    const slot=row.lastElementChild,html=LINES[i].h;
+    const plain=html.replace(/<[^>]+>/g,'');
+    const cur=document.createElement('span');cur.className='cursor';slot.after(cur);
+    for(let c=0;c<=plain.length;c++){
+      slot.textContent=plain.slice(0,c);
+      await sleep(plain[c-1]===' '?14:34);
+    }
+    slot.innerHTML=html;      /* swap final: texto plano → sintaxis coloreada */
+    cur.remove();
+    if(i<LINES.length-1)await sleep(160);
+    else{const c2=document.createElement('span');c2.className='cursor';slot.after(c2);}
+  }
+})();
 
-            if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % words.length;
-                typeSpeed = 500;
-            }
+/* ── PLAYGROUND: motor del robot ─────────────────────────────── */
+(()=>{
+  /* Mapa 6×6 — 0 libre · 1 muro · 2 meta. Solución mínima: F,F,R,F,F,L,F3 */
+  const MAP=[
+    [0,0,0,1,0,0],
+    [1,1,0,1,0,0],
+    [0,0,0,0,0,1],
+    [0,1,1,1,0,0],
+    [0,0,0,1,1,0],
+    [1,1,0,0,0,2]
+  ];
+  const N=6,START={x:0,y:0,dir:0};           /* dir: 0→ 1↓ 2← 3↑ */
+  const ARROWS=['→','↓','←','↑'],DX=[1,0,-1,0],DY=[0,1,0,-1];
+  const board=$('#board'),prog=$('#program'),msg=$('#playMsg');
+  let program=[],running=false,cancel=false;
 
-            setTimeout(typeEffect, typeSpeed);
+  /* Construcción del tablero — una sola vez, celdas reutilizadas */
+  board.style.gridTemplateColumns=`repeat(${N},1fr)`;
+  const cells=[];
+  for(let y=0;y<N;y++)for(let x=0;x<N;x++){
+    const c=document.createElement('div');
+    c.className='cell'+(MAP[y][x]===1?' wall':MAP[y][x]===2?' goal':'');
+    c.textContent=MAP[y][x]===2?'⭐':MAP[y][x]===1?'🧱':'';
+    board.appendChild(c);cells.push(c);
+  }
+  const bot=document.createElement('div');bot.className='bot';bot.textContent='🤖';
+  const at=(x,y)=>cells[y*N+x];
+
+  function reset(clearTrail=true){
+    cancel=true;running=false;
+    if(clearTrail)cells.forEach(c=>c.classList.remove('trail'));
+    at(START.x,START.y).appendChild(bot);
+    bot.style.transform='rotate(0deg)';
+    setMsg(`El robot mira hacia la derecha ${ARROWS[0]}. Arma tu secuencia.`);
+  }
+  function setMsg(t,cls=''){msg.textContent=t;msg.className='play-msg '+cls;}
+
+  function renderProgram(){
+    prog.innerHTML=program.map((cmd,i)=>{
+      const L={F:['blk-move','↑ avanzar'],L:['blk-turnl','↺ girar izq'],R:['blk-turnr','↻ girar der'],F3:['blk-loop','⟳ avanzar ×3']}[cmd];
+      return `<button class="blk ${L[0]}" data-i="${i}" title="Toca para quitar">${L[1]}</button>`;
+    }).join('');
+    $('#progCount').textContent=program.length?`(${program.length} bloques)`:'';
+  }
+
+  /* Agregar bloques (tap = añadir; en el programa, tap = quitar) */
+  $('#tray').addEventListener('click',e=>{
+    const b=e.target.closest('.blk');if(!b||running)return;
+    if(program.length>=12){setMsg('Máximo 12 bloques — ¡los buenos programas son cortos!','err');return;}
+    program.push(b.dataset.cmd);renderProgram();
+  });
+  prog.addEventListener('click',e=>{
+    const b=e.target.closest('.blk');if(!b||running)return;
+    program.splice(+b.dataset.i,1);renderProgram();
+  });
+  $('#clearBtn').addEventListener('click',()=>{program=[];renderProgram();reset();});
+
+  /* Ejecución: async cancelable, paso a paso */
+  $('#runBtn').addEventListener('click',async()=>{
+    if(running||!program.length){if(!program.length)setMsg('Primero arma tu programa con los bloques.','err');return;}
+    cancel=false;running=true;
+    cells.forEach(c=>c.classList.remove('trail'));
+    let {x,y,dir}=START;
+    at(x,y).appendChild(bot);
+    const steps=program.flatMap(c=>c==='F3'?['F','F','F']:[c]);   /* expansión del loop */
+    setMsg('Ejecutando…');
+    for(const cmd of steps){
+      if(cancel)return;
+      await sleep(REDUCED?60:380);
+      if(cmd==='L')dir=(dir+3)%4;
+      else if(cmd==='R')dir=(dir+1)%4;
+      else{
+        const nx=x+DX[dir],ny=y+DY[dir];
+        if(nx<0||nx>=N||ny<0||ny>=N||MAP[ny][nx]===1){
+          setMsg(`💥 ¡Crash contra ${nx<0||nx>=N||ny<0||ny>=N?'el borde':'un muro'}! Ajusta tu programa e inténtalo de nuevo — así aprende un ingeniero.`,'err');
+          running=false;return;
         }
+        at(x,y).classList.add('trail');x=nx;y=ny;
+        at(x,y).appendChild(bot);
+      }
+      bot.style.transform=`rotate(${dir*90}deg)`;
+      if(MAP[y][x]===2){
+        setMsg(`🎉 ¡Lo lograste con ${program.length} bloques! Esto es exactamente lo que tu hijo hará en su primera clase.`,'ok');
+        running=false;
+        /* CTA contextual: el logro viaja al WhatsApp */
+        const wa=$('.wa');
+        wa.href='https://wa.me/5215578107837?text='+encodeURIComponent(
+          `¡Hola! Acabo de programar el robot del playground en ${program.length} bloques 🤖. Quiero la clase de prueba gratis de Robotics Code.`);
+        return;
+      }
+    }
+    running=false;
+    setMsg('El programa terminó sin llegar a la ⭐. ¿Qué bloque falta?','err');
+  });
+  reset();
+})();
 
-        document.addEventListener('DOMContentLoaded', () => {
-            if (typingText) setTimeout(typeEffect, 1000);
-        });
-    </script>
-    <script defer src="js/tracking.min.js"></script>
-    <script src="js/param-builder-client.min.js" defer></script>
+/* ── Portfolio: filtros con View Transitions ─────────────────── */
+(()=>{
+  const apply=f=>$$('.proj').forEach(p=>p.hidden=f!=='all'&&p.dataset.cat!==f);
+  $$('.pf').forEach(b=>b.addEventListener('click',()=>{
+    $$('.pf').forEach(x=>x.classList.toggle('on',x===b));
+    if('startViewTransition' in document)document.startViewTransition(()=>apply(b.dataset.f));
+    else apply(b.dataset.f);
+  }));
+})();
 
-    <script>
-    // Clickwrap Validation Script
-    document.addEventListener("DOMContentLoaded", function() {
-        // Enlazar checkbox global con botones de WhatsApp de intención de compra
-        var ctas = document.querySelectorAll('a[href*="wa.me"]:not(.floating-whatsapp)');
-        ctas.forEach(function(cta) {
-            cta.addEventListener('click', function(e) {
-                var container = cta.closest('section') || cta.closest('div.container') || cta.closest('div.hero-content') || document;
-                var check = container.querySelector('.acepto-terminos-global');
-                // Si hay un checkbox en la misma sección, lo validamos
-                if(check && !check.checked) {
-                    e.preventDefault();
-                    alert("Por requerimiento de PROFECO, debes aceptar los Términos, Condiciones y Políticas de Reembolso marcando la casilla antes de continuar con tu inscripción o agendamiento.");
-                }
-            });
-        });
-    });
-    </script>
-
-
-    <script>
-        // Theme Toggle
-        var themeToggle = document.getElementById('themeToggle');
-        if (themeToggle) {
-            themeToggle.addEventListener('click', function () {
-                document.documentElement.classList.toggle('light-mode');
-                var isLight = document.documentElement.classList.contains('light-mode');
-                localStorage.setItem('theme', isLight ? 'light' : 'dark');
-            });
-        }
-    </script>
-    <script src="js/navbar.min.js" defer></script>
-    </body>
-
+/* ── Fallback reveal ─────────────────────────────────────────── */
+if(!CSS.supports('animation-timeline: view()')){
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';ro.unobserve(e.target);}
+  }),{threshold:.12});
+  $$('.rv').forEach(el=>{
+    el.style.cssText+='opacity:0;transform:translateY(32px);transition:opacity .6s ease,transform .6s ease';
+    ro.observe(el);
+  });
+}
+</script>
+</body>
 </html>

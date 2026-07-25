@@ -1,0 +1,237 @@
+/* 
+ * ======== BLOG POST STYLES ========
+ * Enhanced typography and reading experience for WorldBrain Blog
+ */
+
+.blog-post-hero {
+    padding: 12rem 0 6rem;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(12, 10, 29, 1) 100%);
+    position: relative;
+    text-align: center;
+}
+
+.blog-post-header {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.blog-post-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    margin-bottom: 2rem;
+}
+
+.blog-post-meta span {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.blog-post-title {
+    font-size: 3rem;
+    line-height: 1.2;
+    margin-bottom: 2rem;
+    color: var(--text-color);
+}
+
+.blog-post-cover {
+    width: 100%;
+    max-width: 1000px;
+    height: 500px;
+    margin: -3rem auto 4rem;
+    border-radius: 1rem;
+    overflow: hidden;
+    position: relative;
+    z-index: 2;
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    background: #1a1a2e;
+}
+
+.blog-post-cover img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.blog-content {
+    max-width: 760px;
+    margin: 0 auto;
+    font-size: 1.15rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.85);
+    padding-bottom: 6rem;
+}
+
+.blog-content h2 {
+    font-size: 2.2rem;
+    color: var(--text-color);
+    margin: 3.5rem 0 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.blog-content h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 60px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+}
+
+.blog-content h3 {
+    font-size: 1.6rem;
+    color: var(--text-color);
+    margin: 2.5rem 0 1rem;
+}
+
+.blog-content p {
+    margin-bottom: 1.8rem;
+}
+
+.blog-content ul,
+.blog-content ol {
+    margin-bottom: 2rem;
+    padding-left: 1.5rem;
+}
+
+.blog-content li {
+    margin-bottom: 0.8rem;
+}
+
+.blog-content blockquote {
+    margin: 3rem 0;
+    padding: 2rem 2.5rem;
+    background: rgba(37, 99, 235, 0.05);
+    border-left: 4px solid var(--primary);
+    border-radius: 0 1rem 1rem 0;
+    font-size: 1.3rem;
+    font-style: italic;
+    color: var(--text-color);
+    position: relative;
+}
+
+.blog-content blockquote::before {
+    content: '"';
+    position: absolute;
+    top: -10px;
+    left: 10px;
+    font-size: 5rem;
+    color: rgba(37, 99, 235, 0.2);
+    font-family: Georgia, serif;
+    line-height: 1;
+}
+
+.blog-content img.inline-img {
+    width: 100%;
+    border-radius: 0.8rem;
+    margin: 2.5rem 0;
+    box-shadow: var(--shadow-md);
+}
+
+.blog-cta-box {
+    margin: 4rem 0;
+    padding: 3rem;
+    background: linear-gradient(135deg, rgba(37, 99, 235, 0.1) 0%, rgba(12, 10, 29, 1) 100%);
+    border: 1px solid rgba(37, 99, 235, 0.2);
+    border-radius: 1rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.blog-cta-box::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(37, 99, 235, 0.1) 0%, transparent 60%);
+    animation: rotate 20s linear infinite;
+    z-index: 0;
+}
+
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.blog-cta-box>* {
+    position: relative;
+    z-index: 1;
+}
+
+.blog-cta-box h3 {
+    margin-top: 0;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+
+.blog-cta-box p {
+    color: var(--text-secondary);
+    margin-bottom: 2rem;
+    font-size: 1.1rem;
+}
+
+.blog-author {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    padding-top: 3rem;
+    margin-top: 4rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.blog-author-img {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.blog-author-info h4 {
+    margin: 0 0 0.3rem 0;
+    font-size: 1.2rem;
+}
+
+.blog-author-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+}
+
+@media (max-width: 768px) {
+    .blog-post-title {
+        font-size: 2.2rem;
+    }
+
+    .blog-post-hero {
+        padding: 8rem 0 4rem;
+    }
+
+    .blog-post-cover {
+        height: 300px;
+        margin: -2rem auto 3rem;
+        border-radius: 0;
+    }
+
+    .blog-content {
+        padding: 0 1.5rem;
+    }
+
+    .blog-cta-box {
+        padding: 2rem 1.5rem;
+    }
+}

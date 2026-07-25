@@ -1,0 +1,787 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JuniorMath — 90 operaciones en 6 minutos | WorldBrain México</title>
+<meta name="description" content="El sistema que reemplaza el 'No Puedo' por 'Mira esto, mamá' en 90 días. Ábaco Soroban japonés + gamificación para niños de 6 a 12 años. CDMX y Edo. de México.">
+<meta property="og:title" content="JuniorMath — Desbloquea la mente de genio de tu hijo">
+<meta property="og:description" content="90 operaciones mentales en 6 minutos. Método japonés Soroban validado en +10,000 niños.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Unbounded:wght@500;700;900&family=Space+Grotesk:wght@400;500;700&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Course",
+  "name": "JuniorMath",
+  "description": "Cálculo mental con Ábaco Soroban japonés y gamificación para niños de 6 a 12 años. 90 operaciones en 6 minutos.",
+  "provider": { "@type": "Organization", "name": "WorldBrain México", "sameAs": "https://ultravelozmente.com" },
+  "offers": { "@type": "Offer", "price": "3500", "priceCurrency": "MXN" }
+}
+</script>
+<style>
+/* ============================================================
+   JUNIORMATH — PLAYFUL NEO-BRUTALISM · WorldBrain México 2026
+   ============================================================ */
+:root{
+  --paper:#FFFBEF;
+  --ink:#0F0E17;
+  --violet:#6C3CE9;
+  --yellow:#FFC800;
+  --coral:#FF4D6D;
+  --mint:#00C896;
+  --sky:#29B5FF;
+  --border:3px solid var(--ink);
+  --shadow:7px 7px 0 var(--ink);
+  --shadow-sm:4px 4px 0 var(--ink);
+  --r:22px;
+  --font-display:'Unbounded',sans-serif;
+  --font-body:'Space Grotesk',sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--font-body);
+  background:var(--paper);
+  color:var(--ink);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+/* Grano de fondo (tendencia grainy textures) */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:9999;opacity:.05;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='120' height='120' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--font-display);line-height:1.1;letter-spacing:-.01em}
+::selection{background:var(--yellow);color:var(--ink)}
+
+/* ---------- Utilidades ---------- */
+.wrap{max-width:1200px;margin:0 auto;padding:0 24px}
+.tag{
+  display:inline-block;font-family:var(--font-display);font-size:.72rem;font-weight:700;
+  padding:.5rem 1.1rem;border:var(--border);border-radius:999px;background:#fff;
+  box-shadow:var(--shadow-sm);text-transform:uppercase;letter-spacing:.06em;
+}
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;font-family:var(--font-display);
+  font-weight:700;font-size:.95rem;text-decoration:none;cursor:pointer;
+  padding:1.05rem 1.9rem;border:var(--border);border-radius:16px;
+  box-shadow:var(--shadow);transition:transform .15s,box-shadow .15s;user-select:none;
+}
+.btn:hover{transform:translate(3px,3px);box-shadow:4px 4px 0 var(--ink)}
+.btn:active{transform:translate(7px,7px);box-shadow:0 0 0 var(--ink)}
+.btn-violet{background:var(--violet);color:#fff}
+.btn-yellow{background:var(--yellow);color:var(--ink)}
+.btn-ghost{background:#fff}
+.sticker{
+  position:absolute;font-family:var(--font-display);font-weight:700;font-size:.8rem;
+  padding:.6rem 1rem;border:var(--border);border-radius:14px;box-shadow:var(--shadow-sm);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0) rotate(var(--rot,0deg))}50%{transform:translateY(-12px) rotate(var(--rot,0deg))}}
+
+/* ---------- Header ---------- */
+header{
+  position:sticky;top:0;z-index:100;background:var(--paper);
+  border-bottom:var(--border);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;padding:.9rem 24px;max-width:1200px;margin:0 auto}
+.logo{font-family:var(--font-display);font-weight:900;font-size:1.15rem;text-decoration:none}
+.logo span{color:var(--violet)}
+.nav-links{display:flex;gap:1.6rem;align-items:center;list-style:none}
+.nav-links a{text-decoration:none;font-weight:500;font-size:.95rem}
+.nav-links a:hover{text-decoration:underline;text-decoration-thickness:3px;text-decoration-color:var(--yellow)}
+.nav-cta{font-size:.8rem;padding:.7rem 1.2rem}
+.burger{display:none;background:#fff;border:var(--border);border-radius:12px;box-shadow:var(--shadow-sm);padding:.5rem .8rem;font-size:1.2rem;cursor:pointer}
+.mobile-menu{display:none;flex-direction:column;gap:1rem;padding:1.2rem 24px;border-bottom:var(--border);background:var(--paper)}
+.mobile-menu a{text-decoration:none;font-weight:700}
+.mobile-menu.open{display:flex}
+
+/* ---------- Hero ---------- */
+.hero{position:relative;padding:4.5rem 0 3.5rem;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3rem;align-items:center}
+.hero h1{font-size:clamp(2rem,4.8vw,3.6rem);font-weight:900;margin:1.2rem 0}
+.hero h1 .hl{background:var(--yellow);padding:0 .3rem;border-radius:8px;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero p.lead{font-size:1.15rem;max-width:34rem;margin-bottom:1.8rem}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:1.6rem}
+.trust-row{display:flex;gap:1.4rem;flex-wrap:wrap;font-weight:700;font-size:.85rem}
+.trust-row span{display:inline-flex;align-items:center;gap:.4rem}
+.hero-art{position:relative;display:flex;justify-content:center}
+.hero-card{
+  background:#fff;border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);
+  padding:1.6rem;width:100%;max-width:400px;transform:rotate(2deg);
+}
+.hero-card h3{font-size:.9rem;margin-bottom:1rem;text-transform:uppercase}
+
+/* ---------- Marquee cinético ---------- */
+.marquee{border-block:var(--border);background:var(--violet);color:#fff;overflow:hidden;padding:.85rem 0}
+.marquee-track{display:flex;gap:2.5rem;white-space:nowrap;animation:scroll 28s linear infinite;font-family:var(--font-display);font-weight:700;font-size:.95rem}
+.marquee-track span{display:inline-flex;align-items:center;gap:.7rem}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* ---------- Secciones genéricas ---------- */
+section{padding:5rem 0}
+.sec-head{text-align:center;max-width:44rem;margin:0 auto 3rem}
+.sec-head h2{font-size:clamp(1.7rem,3.6vw,2.7rem);font-weight:900;margin:1rem 0 .8rem}
+.sec-head p{font-size:1.05rem}
+
+/* Scroll-driven reveal (tendencia CSS nativa 2025) */
+@supports (animation-timeline: view()){
+  .reveal{animation:rise both;animation-timeline:view();animation-range:entry 0% entry 42%}
+  @keyframes rise{from{opacity:0;transform:translateY(46px)}to{opacity:1;transform:none}}
+}
+
+/* ---------- Ábaco Soroban interactivo ---------- */
+.soroban-zone{background:var(--mint);border-block:var(--border)}
+.soroban-wrap{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:center}
+.soroban{
+  background:#fff;border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);
+  padding:1.8rem;display:flex;gap:1.4rem;justify-content:center;transform:rotate(-1.5deg);
+}
+.rod{display:flex;flex-direction:column;align-items:center;gap:6px;position:relative}
+.rod::before{content:"";position:absolute;top:0;bottom:0;width:6px;background:var(--ink);border-radius:3px;z-index:0}
+.bead{
+  width:52px;height:30px;border:3px solid var(--ink);border-radius:50%;
+  background:var(--yellow);cursor:pointer;z-index:1;transition:transform .18s,background .18s;
+}
+.bead.heaven{background:var(--coral)}
+.bead:hover{transform:scale(1.08)}
+.bead.on{background:var(--violet)}
+.bar{width:64px;height:8px;background:var(--ink);border-radius:4px;z-index:1;margin:4px 0}
+.soroban-value{
+  font-family:var(--font-display);font-weight:900;font-size:clamp(2.4rem,5vw,4rem);
+  background:#fff;border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);
+  padding:1rem 2rem;display:inline-block;transform:rotate(1deg);min-width:220px;text-align:center;
+}
+
+/* ---------- Bento metodología ---------- */
+.bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(190px,auto);gap:1.4rem}
+.bento-card{
+  border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);padding:1.7rem;
+  background:#fff;transition:transform .18s;
+}
+.bento-card:hover{transform:translate(-3px,-3px)}
+.bento-card h3{font-size:1.05rem;margin:.8rem 0 .6rem}
+.bento-card .emoji{font-size:2rem}
+.b1{grid-column:span 2;background:var(--yellow)}
+.b2{grid-column:span 2;background:#fff}
+.b3{grid-column:span 2;background:var(--sky)}
+.b4{grid-column:span 2;background:#fff}
+
+/* ---------- Stats ---------- */
+.stats-band{background:var(--ink);color:var(--paper);border-block:var(--border)}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
+.stat b{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--yellow);display:block}
+.stat span{font-weight:500}
+
+/* ---------- Timeline horizontal (scroll-snap) ---------- */
+.timeline{display:flex;gap:1.4rem;overflow-x:auto;scroll-snap-type:x mandatory;padding:1rem .4rem 1.6rem;-webkit-overflow-scrolling:touch}
+.timeline::-webkit-scrollbar{height:12px}
+.timeline::-webkit-scrollbar-thumb{background:var(--ink);border-radius:6px}
+.timeline::-webkit-scrollbar-track{background:transparent;border:2px dashed var(--ink);border-radius:6px}
+.t-card{
+  flex:0 0 300px;scroll-snap-align:start;border:var(--border);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:1.6rem;background:#fff;
+}
+.t-card.bad{background:#FFE1E7}
+.t-card.good{background:#DCF9EF}
+.t-card .week{font-family:var(--font-display);font-weight:900;font-size:.75rem;display:inline-block;border:var(--border);border-radius:999px;padding:.35rem .9rem;background:#fff;margin-bottom:1rem}
+.t-card h3{font-size:1.05rem;margin-bottom:.5rem}
+
+/* ---------- Mini-juego ---------- */
+.game-zone{background:var(--yellow);border-block:var(--border)}
+.game-box{
+  max-width:560px;margin:0 auto;background:#fff;border:var(--border);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:2.2rem;text-align:center;
+  transform:rotate(-1deg);
+}
+.game-q{font-family:var(--font-display);font-weight:900;font-size:clamp(2rem,6vw,3.4rem);margin:1rem 0}
+.game-input{
+  font-family:var(--font-display);font-weight:700;font-size:1.6rem;text-align:center;
+  width:180px;padding:.7rem;border:var(--border);border-radius:14px;background:var(--paper);
+}
+.game-input:focus{outline:4px solid var(--violet)}
+.game-meta{display:flex;justify-content:space-between;font-family:var(--font-display);font-weight:700;margin-bottom:.6rem;font-size:.9rem}
+.game-bar{height:16px;border:var(--border);border-radius:999px;overflow:hidden;background:var(--paper);margin-bottom:1.4rem}
+.game-bar i{display:block;height:100%;background:var(--coral);width:100%;transition:width 1s linear}
+.game-result{display:none}
+.game-result.show{display:block}
+.game-score{font-family:var(--font-display);font-weight:900;font-size:3rem;color:var(--violet)}
+.shake{animation:shake .3s}
+@keyframes shake{0%,100%{transform:translateX(0)}25%{transform:translateX(-8px)}75%{transform:translateX(8px)}}
+.pop{animation:pop .25s}
+@keyframes pop{50%{transform:scale(1.15)}}
+
+/* ---------- Oferta ---------- */
+.offer-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:2.5rem;align-items:start}
+.offer-list{list-style:none;display:flex;flex-direction:column;gap:1rem}
+.offer-list li{
+  display:flex;justify-content:space-between;gap:1rem;align-items:center;
+  border:var(--border);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);padding:1rem 1.3rem;font-weight:500;
+}
+.offer-list li b{font-family:var(--font-display);white-space:nowrap}
+.offer-list li.bonus{background:var(--yellow)}
+.price-card{
+  border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);background:var(--violet);
+  color:#fff;padding:2.2rem;text-align:center;position:sticky;top:110px;transform:rotate(1.5deg);
+}
+.price-old{text-decoration:line-through;opacity:.75;font-size:1.1rem}
+.price-now{font-family:var(--font-display);font-weight:900;font-size:clamp(2.6rem,5vw,3.6rem);color:var(--yellow);margin:.4rem 0}
+.price-card small{display:block;margin:.8rem 0 1.4rem;opacity:.9}
+.guarantee{
+  margin-top:1.6rem;border:3px dashed #fff;border-radius:16px;padding:1.1rem;font-size:.9rem;text-align:left;
+}
+.guarantee b{font-family:var(--font-display)}
+
+/* ---------- Testimonios ---------- */
+.testi-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.6rem}
+.testi{
+  border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);background:#fff;padding:1.7rem;
+}
+.testi:nth-child(1){transform:rotate(-1.4deg)}
+.testi:nth-child(2){transform:rotate(1deg);background:#F1EAFF}
+.testi:nth-child(3){transform:rotate(-.6deg)}
+.testi-head{display:flex;gap:.9rem;align-items:center;margin-bottom:1rem}
+.testi-head img{width:52px;height:52px;border-radius:50%;border:3px solid var(--ink)}
+.testi-head b{font-family:var(--font-display);font-size:.85rem;display:block}
+.testi-head span{font-size:.8rem}
+.testi .metric{display:inline-block;font-family:var(--font-display);font-weight:700;font-size:.72rem;border:var(--border);border-radius:999px;padding:.35rem .8rem;background:var(--mint);margin-bottom:.8rem}
+
+/* ---------- FAQ ---------- */
+.faq{max-width:760px;margin:0 auto;display:flex;flex-direction:column;gap:1rem}
+.faq details{border:var(--border);border-radius:16px;background:#fff;box-shadow:var(--shadow-sm);overflow:hidden}
+.faq summary{
+  font-family:var(--font-display);font-weight:700;font-size:.95rem;padding:1.2rem 1.4rem;
+  cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:1rem;
+}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";font-size:1.6rem;font-weight:400;transition:transform .2s}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details p{padding:0 1.4rem 1.3rem}
+
+/* ---------- CTA final ---------- */
+.final-cta{background:var(--coral);border-block:var(--border);text-align:center;color:#fff}
+.final-cta h2{font-size:clamp(1.8rem,4vw,3rem);font-weight:900;color:#fff;margin-bottom:1rem}
+.final-cta p{max-width:34rem;margin:0 auto 2rem}
+
+/* ---------- Footer ---------- */
+footer{background:var(--ink);color:var(--paper);padding:3.5rem 0 2rem;font-size:.9rem}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2rem;margin-bottom:2.5rem}
+footer h4{font-family:var(--font-display);font-size:.85rem;color:var(--yellow);margin-bottom:1rem}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+footer a{text-decoration:none;opacity:.85}
+footer a:hover{opacity:1;text-decoration:underline}
+.foot-legal{border-top:2px solid #333;padding-top:1.5rem;font-size:.78rem;opacity:.7;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+
+/* ---------- WhatsApp flotante ---------- */
+.wa-float{
+  position:fixed;bottom:22px;right:22px;z-index:200;width:62px;height:62px;border-radius:50%;
+  background:#25D366;border:var(--border);box-shadow:var(--shadow-sm);display:flex;
+  align-items:center;justify-content:center;font-size:1.8rem;text-decoration:none;
+  animation:float 3s ease-in-out infinite;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width:920px){
+  .hero-grid,.soroban-wrap,.offer-grid{grid-template-columns:1fr}
+  .bento{grid-template-columns:repeat(2,1fr)}
+  .b1,.b2,.b3,.b4{grid-column:span 2}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .testi-grid{grid-template-columns:1fr}
+  .price-card{position:static}
+  .nav-links{display:none}
+  .burger{display:block}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <nav class="nav">
+    <a class="logo" href="index.html">World<span>Brain</span></a>
+    <ul class="nav-links">
+      <li><a href="#metodo">Método</a></li>
+      <li><a href="#reto">Reto 30s</a></li>
+      <li><a href="#oferta">Precio</a></li>
+      <li><a href="#faq">FAQ</a></li>
+      <li><a class="btn btn-violet nav-cta" href="https://wa.me/5215578107837?text=Hola,%20quiero%20info%20de%20JuniorMath">Clase muestra gratis</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menú">☰</button>
+  </nav>
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#metodo">Método</a>
+    <a href="#reto">Reto 30s</a>
+    <a href="#oferta">Precio</a>
+    <a href="#faq">FAQ</a>
+    <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20info%20de%20JuniorMath">Clase muestra gratis →</a>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="tag">🧮 Método validado en +10,000 niños</span>
+      <h1>Tu hijo hará <span class="hl">90 operaciones en 6 minutos</span> — y va a pedir más.</h1>
+      <p class="lead">El sistema que reemplaza el "No Puedo" por <b>"Mira esto, mamá"</b> en menos de 90 días. Ábaco Soroban japonés + gamificación para niños de 6 a 12 años.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-violet" href="https://wa.me/5215578107837?text=Hola,%20quiero%20hablar%20con%20un%20Coordinador%20Acad%C3%A9mico%20sobre%20JuniorMath">Hablar con un Coordinador →</a>
+        <a class="btn btn-ghost" href="#reto">🎮 Probar el reto de 30s</a>
+      </div>
+      <div class="trust-row">
+        <span>✅ Garantía de resultados</span>
+        <span>👧 +10,000 niños</span>
+        <span>⭐ 4.9/5</span>
+      </div>
+    </div>
+    <div class="hero-art">
+      <div class="hero-card">
+        <h3>Marcador de hoy</h3>
+        <div class="stats" style="grid-template-columns:1fr 1fr;text-align:left">
+          <div class="stat"><b style="color:var(--violet)" class="count" data-n="90">0</b><span>ops / 6 min</span></div>
+          <div class="stat"><b style="color:var(--coral)" class="count" data-n="9">0</b><span>promedio +</span></div>
+        </div>
+      </div>
+      <span class="sticker" style="top:-14px;left:6%;--rot:-8deg;background:var(--yellow)">¡Nivel superado!</span>
+      <span class="sticker" style="bottom:-10px;right:4%;--rot:6deg;background:var(--mint)">Concentración láser 🎯</span>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MARQUEE ================= -->
+<div class="marquee" aria-hidden="true">
+  <div class="marquee-track" id="marquee">
+    <span>✦ +200,000 graduados WorldBrain</span><span>✦ 30+ años de experiencia</span>
+    <span>✦ Neurociencia aplicada</span><span>✦ Metodología japonesa Soroban</span>
+    <span>✦ Resultados garantizados en 90 días</span><span>✦ Niños de 6 a 12 años</span>
+    <span>✦ Presencial en CDMX</span><span>✦ Garantía de satisfacción 100%</span>
+  </div>
+</div>
+
+<!-- ================= ÁBACO INTERACTIVO ================= -->
+<section class="soroban-zone" id="abaco">
+  <div class="wrap soroban-wrap">
+    <div class="reveal">
+      <span class="tag">👆 Tócalo, es real</span>
+      <h2 style="font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:900;margin:1rem 0 .8rem">Así piensa tu hijo con el Soroban</h2>
+      <p style="margin-bottom:1.2rem">Este es el ábaco japonés que usamos en clase. <b>Mueve las fichas</b> y mira cómo se forma el número. Al mover fichas físicas se activan ambos hemisferios cerebrales: los dedos aprenden a pensar. Después de unas semanas, tu hijo ya no necesita el ábaco… lo visualiza en su mente.</p>
+      <div class="soroban-value" id="sorobanValue">0</div>
+    </div>
+    <div class="soroban reveal" id="soroban" aria-label="Ábaco Soroban interactivo"></div>
+  </div>
+</section>
+
+<!-- ================= PROBLEMA / SOLUCIÓN ================= -->
+<section id="transformacion">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Transformación real</span>
+      <h2>Del "No Puedo" al "Mira Esto, Mamá"</h2>
+    </div>
+    <div class="bento" style="grid-auto-rows:auto">
+      <div class="bento-card reveal" style="grid-column:span 2;background:#FFE1E7">
+        <span class="emoji">😰</span>
+        <h3>¿Tu hijo sufre con las matemáticas?</h3>
+        <p>No es culpa de tu hijo que odie los números. El sistema tradicional es lento, aburrido y basado en la memorización forzada. Esto genera frustración, baja autoestima y la creencia limitante de "no soy bueno para esto". <b>El 73% de los niños en México reportan ansiedad matemática.</b></p>
+      </div>
+      <div class="bento-card reveal" style="grid-column:span 2;background:#DCF9EF">
+        <span class="emoji">⚡</span>
+        <h3>Activamos su velocidad mental</h3>
+        <p>Nosotros cambiamos el chip. Con el Ábaco Soroban japonés y gamificación, convertimos el cálculo en un juego de velocidad. En semanas verás cómo resuelve problemas complejos mentalmente, recupera su seguridad escolar y <b>pide más retos</b>.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= METODOLOGÍA (BENTO) ================= -->
+<section id="metodo" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Metodología</span>
+      <h2>El Arsenal del Genio</h2>
+      <p>Nuestra metodología tridimensional activa todo el potencial cerebral de tu hijo.</p>
+    </div>
+    <div class="bento">
+      <div class="bento-card b1 reveal">
+        <span class="emoji">🧮</span>
+        <h3>Ábaco Soroban (Tacto)</h3>
+        <p>Conectamos el tacto con el cerebro. Al mover las fichas se activan ambos hemisferios, permitiendo cálculos a la velocidad de la luz. Es como aprender piano: los dedos piensan por sí mismos.</p>
+      </div>
+      <div class="bento-card b2 reveal">
+        <span class="emoji">🧠</span>
+        <h3>Gimnasia Cerebral</h3>
+        <p>Ejercicios diseñados para potenciar la neuroplasticidad. Mejoramos concentración, memoria fotográfica y agilidad mental. Un superpoder cognitivo.</p>
+      </div>
+      <div class="bento-card b3 reveal">
+        <span class="emoji">🎮</span>
+        <h3>Gamificación (Adiós Aburrimiento)</h3>
+        <p>Aprendizaje basado en retos y recompensas. Tu hijo competirá consigo mismo para superar sus récords cada día. Las matemáticas serán su videojuego favorito.</p>
+      </div>
+      <div class="bento-card b4 reveal">
+        <span class="emoji">📊</span>
+        <h3>Progreso en Tiempo Real</h3>
+        <p>Cada semana recibes un reporte detallado: velocidad, precisión y desarrollo cognitivo. Sin sorpresas, solo resultados medibles.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats-band">
+  <div class="wrap stats">
+    <div class="stat reveal"><b class="count" data-n="90">0</b><span>Operaciones / 6 min</span></div>
+    <div class="stat reveal"><b class="count" data-n="10000" data-suf="+">0</b><span>Niños entrenados</span></div>
+    <div class="stat reveal"><b class="count" data-n="30" data-suf="+">0</b><span>Años de experiencia</span></div>
+    <div class="stat reveal"><b class="count" data-n="98" data-suf="%">0</b><span>Satisfacción</span></div>
+  </div>
+</section>
+
+<!-- ================= TIMELINE ================= -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Cronología</span>
+      <h2>La Ruta de Transformación</h2>
+      <p>Del miedo a los números al dominio total en 12 semanas. <b>Desliza →</b></p>
+    </div>
+    <div class="timeline">
+      <div class="t-card bad"><span class="week">Semana 0</span><h3>"Odio las matemáticas"</h3><p>Frustración, bloqueo mental, no quiere hacer tarea.</p></div>
+      <div class="t-card bad"><span class="week">Antes</span><h3>Promedio: 6.2</h3><p>Bajas calificaciones, comparación con compañeros, autoestima en el piso.</p></div>
+      <div class="t-card bad"><span class="week">Antes</span><h3>Dependencia</h3><p>Necesita calculadora para todo. No puede resolver mentalmente ni sumas simples.</p></div>
+      <div class="t-card good"><span class="week">Semana 4</span><h3>"¡Mira mamá, sin ábaco!"</h3><p>Primeras operaciones mentales, confianza creciente.</p></div>
+      <div class="t-card good"><span class="week">Semana 8</span><h3>Promedio: 9.1</h3><p>Es el mejor de su clase. Los maestros preguntan qué cambió. Orgullo absoluto.</p></div>
+      <div class="t-card good"><span class="week">Semana 12</span><h3>Independencia total</h3><p>90 operaciones en 6 minutos. Cálculo mental instantáneo. Pide más retos por diversión.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= MINI-JUEGO ================= -->
+<section class="game-zone" id="reto">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">🎮 Gamificación en vivo</span>
+      <h2>El Reto de los 30 Segundos</h2>
+      <p>Así se siente una clase de JuniorMath. ¿Cuántas resuelves tú, papá o mamá? Los niños del programa hacen <b>90 en 6 minutos</b>.</p>
+    </div>
+    <div class="game-box reveal">
+      <div id="gameStart">
+        <p style="font-size:1.05rem;margin-bottom:1.4rem">Resuelve todas las operaciones que puedas en 30 segundos.</p>
+        <button class="btn btn-violet" id="btnStart">▶ Empezar reto</button>
+      </div>
+      <div id="gamePlay" style="display:none">
+        <div class="game-meta"><span id="gTime">30s</span><span>Aciertos: <span id="gScore">0</span></span></div>
+        <div class="game-bar"><i id="gBar"></i></div>
+        <div class="game-q" id="gQ">7 + 8</div>
+        <input class="game-input" id="gInput" type="number" inputmode="numeric" autocomplete="off" placeholder="?">
+      </div>
+      <div class="game-result" id="gameEnd">
+        <p style="font-family:var(--font-display);font-weight:700">Tu marcador:</p>
+        <div class="game-score" id="gFinal">0</div>
+        <p style="margin:.8rem 0 1.4rem" id="gMsg"></p>
+        <a class="btn btn-violet" id="gWa" href="#">📲 Retar a mi hijo — Clase muestra</a>
+        <button class="btn btn-ghost" id="btnAgain" style="margin-top:.8rem">↻ Otra vez</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= OFERTA ================= -->
+<section id="oferta">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">🎁 Oferta especial por tiempo limitado</span>
+      <h2>Invierte en su Futuro</h2>
+      <p>Todo lo que necesita para desbloquear su genio interior.</p>
+    </div>
+    <div class="offer-grid">
+      <ul class="offer-list">
+        <li class="reveal"><span>Programa Completo JuniorMath (3 meses)</span><b>$6,000 MXN</b></li>
+        <li class="reveal"><span>Materiales y Ábaco Soroban físico</span><b>$1,200 MXN</b></li>
+        <li class="reveal"><span>Plataforma de entrenamiento 24/7</span><b>$2,500 MXN</b></li>
+        <li class="reveal"><span>Diagnóstico de habilidades inicial</span><b>$800 MXN</b></li>
+        <li class="bonus reveal"><span>⚡ BONO DE ACCIÓN RÁPIDA (solo hoy): Acceso al Club de Tareas WorldBrain</span><b>GRATIS</b></li>
+      </ul>
+      <div class="price-card reveal">
+        <p>Valor total: <span class="price-old">$10,500 MXN</span></p>
+        <div class="price-now">$3,500 MXN</div>
+        <small>*Pago único o 3 mensualidades de $1,300</small>
+        <a class="btn btn-yellow" href="https://wa.me/5215578107837?text=Hola,%20quiero%20aprovechar%20la%20oferta%20Grand%20Slam%20de%20JuniorMath">👉 Reclamar oferta ahora</a>
+        <div class="guarantee">
+          <b>🛡️ Garantía de "Brillo en los Ojos"</b><br>
+          Si en 30 días tu hijo no ama practicar y no ves resultados medibles, te devolvemos el 100% de tu dinero. Sin preguntas.
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= TESTIMONIOS ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">Resultados probados</span>
+      <h2>Historias que Inspiran Acción</h2>
+    </div>
+    <div class="testi-grid">
+      <article class="testi reveal">
+        <div class="testi-head">
+          <img src="https://i.pravatar.cc/150?u=elena" alt="Dra. Elena Villalobos" loading="lazy">
+          <div><b>Dra. Elena Villalobos</b><span>Pediatra · Madre de Mateo</span></div>
+        </div>
+        <span class="metric">6.2 → 9.1 PROMEDIO</span>
+        <p>"El promedio de Mateo saltó de 6.2 a 9.1 en solo 4 semanas. La inversión se pagó sola en el segundo mes."</p>
+      </article>
+      <article class="testi reveal">
+        <div class="testi-head">
+          <img src="https://i.pravatar.cc/150?u=roberto" alt="Roberto Fuentes" loading="lazy">
+          <div><b>Roberto Fuentes</b><span>Ingeniero · Padre de Valentina</span></div>
+        </div>
+        <span class="metric" style="background:var(--yellow)">90 ops / 6 min VELOCIDAD</span>
+        <p>"Valentina ahora resuelve operaciones más rápido que yo con calculadora. Fue la mejor decisión como padre."</p>
+      </article>
+      <article class="testi reveal">
+        <div class="testi-head">
+          <img src="https://i.pravatar.cc/150?u=silvia" alt="Silvia Ortiz" loading="lazy">
+          <div><b>Silvia Ortiz</b><span>Mamá de Diego</span></div>
+        </div>
+        <span class="metric" style="background:var(--sky)">3 SEMANAS · PRIMER CAMBIO</span>
+        <p>"Diego pasó de llorar con la tarea a pedir más ejercicios por diversión. Ahora es el primero en levantar la mano en clase."</p>
+      </article>
+    </div>
+    <p style="text-align:center;margin-top:2rem"><a class="btn btn-ghost" href="testimonios.html">Ver más casos de éxito →</a></p>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <span class="tag">FAQ</span>
+      <h2>Preguntas Frecuentes</h2>
+    </div>
+    <div class="faq">
+      <details class="reveal">
+        <summary>¿A qué edad puede ingresar mi hijo a JuniorMath?</summary>
+        <p>JuniorMath está diseñado para niños de 6 a 12 años. El ábaco Soroban se adapta a cada nivel cognitivo, desde sumas y restas básicas hasta multiplicaciones y divisiones complejas. Cada grupo se forma según edad y nivel para garantizar atención personalizada.</p>
+      </details>
+      <details class="reveal">
+        <summary>¿Cuánto tiempo toma ver resultados?</summary>
+        <p>La mayoría de los padres reportan mejoras visibles en las primeras 2-3 semanas: mayor concentración, menos frustración y primeras operaciones mentales. En 90 días, tu hijo podrá realizar 90 operaciones mentales en 6 minutos con precisión.</p>
+      </details>
+      <details class="reveal">
+        <summary>¿Las clases son presenciales o en línea?</summary>
+        <p>Las clases son 100% presenciales en nuestras sedes de Ciudad de México. Esto garantiza la atención personalizada, el uso correcto del ábaco Soroban físico, y la interacción con otros niños que potencia la motivación.</p>
+      </details>
+      <details class="reveal">
+        <summary>¿Qué incluye el programa completo?</summary>
+        <p>El programa incluye: 3 meses de clases presenciales, ábaco Soroban físico profesional, materiales didácticos completos, acceso a plataforma digital de entrenamiento 24/7, diagnóstico de habilidades inicial, y reportes semanales de progreso para los padres.</p>
+      </details>
+      <details class="reveal">
+        <summary>¿Ofrecen garantía de resultados?</summary>
+        <p>¡Absolutamente! Contamos con la Garantía de "Brillo en los Ojos": si en 30 días tu hijo no ama practicar y no ves resultados medibles, te devolvemos el 100% de tu dinero sin preguntas. Más de 10,000 niños respaldan nuestro método.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="final-cta">
+  <div class="wrap reveal">
+    <h2>Aprende a la velocidad de tu potencial</h2>
+    <p>Agenda una clase muestra gratuita y descubre de lo que tu hijo es capaz.</p>
+    <a class="btn btn-yellow" href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20una%20clase%20muestra%20de%20JuniorMath">Agendar Clase Muestra Gratis →</a>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="index.html" style="color:#fff">World<span style="color:var(--yellow)">Brain</span></a>
+        <p style="margin-top:1rem;opacity:.85">Pioneros en Neuroaprendizaje y Desarrollo Mental Acelerado desde 2000. Transformamos la manera en que Latinoamérica aprende.</p>
+      </div>
+      <div>
+        <h4>Niños</h4>
+        <ul>
+          <li><a href="fastkids.html">FastKids</a></li>
+          <li><a href="mathekids.html">MatheKids</a></li>
+          <li><a href="juniormath_v2.html">JuniorMath</a></li>
+          <li><a href="lectoescritura.html">Lectoescritura</a></li>
+          <li><a href="ciencia-astronomia.html">Ciencia y Astronomía</a></li>
+          <li><a href="robotics.html">Robotics Code</a></li>
+          <li><a href="homeschool.html">Homeschool</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Jóvenes y Adultos</h4>
+        <ul>
+          <li><a href="fotolectura.html">Fotolectura</a></li>
+          <li><a href="memoria-prodigiosa.html">Memoria Prodigiosa</a></li>
+          <li><a href="neurocomunicacion.html">Neurocomunicación</a></li>
+          <li><a href="grandes-lideres.html">Grandes Líderes</a></li>
+          <li><a href="redaccion-ejecutiva.html">Redacción Ejecutiva</a></li>
+          <li><a href="admision-universitaria.html">Admisión Universitaria</a></li>
+          <li><a href="universidad-dominical.html">Universidad Dominical</a></li>
+          <li><a href="regularizacion-express.html">Regularización Express</a></li>
+          <li><a href="alfa-cash.html">ALFA-CASH</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+525578107837">+52 (55) 7810-7837</a></li>
+          <li><a href="https://wa.me/5215578107837">WhatsApp</a></li>
+          <li><a href="mailto:contacto@ultravelozmente.com">contacto@ultravelozmente.com</a></li>
+          <li>Cuautitlán Izcalli, Edo. de Méx.</li>
+          <li><a href="blog-index.html">Blog Educativo</a></li>
+          <li><a href="testimonios.html">Testimonios</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>CWBMX, S.C. | RFC: CWB170626UH4 | Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano, Cuautitlán Izcalli, Edo. de Méx., C.P. 54700. © 2026 WorldBrain México.</span>
+      <span><a href="terminos.html">Términos</a> · <a href="privacidad.html">Privacidad</a> · <a href="reembolsos.html">Devoluciones</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa-float" href="https://wa.me/5215578107837?text=Hola,%20quiero%20info%20de%20JuniorMath" aria-label="WhatsApp">💬</a>
+
+<script>
+/* ========== Menú móvil ========== */
+document.getElementById('burger').addEventListener('click',()=>{
+  document.getElementById('mobileMenu').classList.toggle('open');
+});
+
+/* ========== Marquee: duplicar contenido para loop infinito ========== */
+const mq=document.getElementById('marquee');
+mq.innerHTML+=mq.innerHTML;
+
+/* ========== Contadores animados ========== */
+const io=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{
+    if(!e.isIntersecting)return;
+    const el=e.target,end=+el.dataset.n,suf=el.dataset.suf||'',t0=performance.now();
+    const step=t=>{
+      const p=Math.min((t-t0)/1400,1),ease=1-Math.pow(1-p,3);
+      el.textContent=Math.round(end*ease).toLocaleString('es-MX')+suf;
+      if(p<1)requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+    io.unobserve(el);
+  });
+},{threshold:.5});
+document.querySelectorAll('.count').forEach(el=>io.observe(el));
+
+/* ========== Ábaco Soroban interactivo ========== */
+(function(){
+  const box=document.getElementById('soroban'),valEl=document.getElementById('sorobanValue');
+  const RODS=4;
+  const state=[];
+  for(let r=0;r<RODS;r++){
+    state.push({heaven:false,earth:0});
+    const rod=document.createElement('div');rod.className='rod';
+    const hv=document.createElement('div');hv.className='bead heaven';hv.title='Vale 5';
+    hv.onclick=()=>{state[r].heaven=!state[r].heaven;hv.classList.toggle('on');update();};
+    rod.appendChild(hv);
+    const bar=document.createElement('div');bar.className='bar';rod.appendChild(bar);
+    for(let b=0;b<4;b++){
+      const bd=document.createElement('div');bd.className='bead';bd.title='Vale 1';
+      bd.onclick=()=>{
+        state[r].earth=(state[r].earth===b+1)?b:b+1;
+        [...rod.querySelectorAll('.bead:not(.heaven)')].forEach((x,i)=>x.classList.toggle('on',i<state[r].earth));
+        update();
+      };
+      rod.appendChild(bd);
+    }
+    box.appendChild(rod);
+  }
+  function update(){
+    let v=0;
+    state.forEach((s,i)=>{v+=((s.heaven?5:0)+s.earth)*Math.pow(10,RODS-1-i);});
+    valEl.textContent=v.toLocaleString('es-MX');
+    valEl.classList.remove('pop');void valEl.offsetWidth;valEl.classList.add('pop');
+  }
+})();
+
+/* ========== Mini-juego: Reto de 30 segundos ========== */
+(function(){
+  const $=id=>document.getElementById(id);
+  const start=$('gameStart'),play=$('gamePlay'),end=$('gameEnd');
+  const qEl=$('gQ'),inp=$('gInput'),scoreEl=$('gScore'),timeEl=$('gTime'),bar=$('gBar');
+  let score=0,ans=0,timer=null,left=30;
+
+  function newQ(){
+    const ops=['+','-','×'];
+    const op=ops[Math.floor(Math.random()*ops.length)];
+    let a,b;
+    if(op==='×'){a=2+Math.floor(Math.random()*8);b=2+Math.floor(Math.random()*8);ans=a*b;}
+    else if(op==='-'){a=10+Math.floor(Math.random()*80);b=1+Math.floor(Math.random()*a);ans=a-b;}
+    else{a=5+Math.floor(Math.random()*45);b=5+Math.floor(Math.random()*45);ans=a+b;}
+    qEl.textContent=`${a} ${op} ${b}`;
+    inp.value='';inp.focus();
+  }
+
+  function startGame(){
+    score=0;left=30;scoreEl.textContent='0';
+    start.style.display='none';end.classList.remove('show');play.style.display='block';
+    bar.style.width='100%';timeEl.textContent='30s';
+    newQ();
+    timer=setInterval(()=>{
+      left--;
+      timeEl.textContent=left+'s';
+      bar.style.width=(left/30*100)+'%';
+      if(left<=0)finish();
+    },1000);
+  }
+
+  function finish(){
+    clearInterval(timer);
+    play.style.display='none';end.classList.add('show');
+    $('gFinal').textContent=score+(score===1?' acierto':' aciertos');
+    const msg=score>=15?'🔥 ¡Impresionante! Imagina lo que tu hijo lograría con entrenamiento.'
+      :score>=8?'💪 ¡Nada mal! Los niños de JuniorMath llegan a 90 en 6 minutos.'
+      :'😅 Difícil, ¿verdad? Por eso el Soroban cambia todo. Tu hijo puede lograrlo.';
+    $('gMsg').textContent=msg;
+    $('gWa').href='https://wa.me/5215578107837?text='+encodeURIComponent(
+      `¡Hola! Hice ${score} aciertos en el Reto de 30 segundos de JuniorMath 🧮. Quiero agendar una clase muestra para mi hijo.`);
+  }
+
+  inp?.addEventListener('input',()=>{
+    if(inp.value!==''&&+inp.value===ans){
+      score++;scoreEl.textContent=score;
+      scoreEl.parentElement.classList.remove('pop');void scoreEl.offsetWidth;scoreEl.parentElement.classList.add('pop');
+      newQ();
+    }else if(inp.value.length>=String(ans).length&&+inp.value!==ans){
+      inp.classList.remove('shake');void inp.offsetWidth;inp.classList.add('shake');
+      inp.value='';
+    }
+  });
+
+  $('btnStart').addEventListener('click',startGame);
+  $('btnAgain').addEventListener('click',startGame);
+})();
+
+/* ========== Fallback reveal para navegadores sin animation-timeline ========== */
+if(!CSS.supports('animation-timeline: view()')){
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';ro.unobserve(e.target);}
+  }),{threshold:.15});
+  document.querySelectorAll('.reveal').forEach(el=>{
+    el.style.opacity='0';el.style.transform='translateY(40px)';
+    el.style.transition='opacity .6s ease, transform .6s ease';
+    ro.observe(el);
+  });
+}
+</script>
+</body>
+</html>

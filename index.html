@@ -8,6 +8,8 @@
 <meta property="og:title" content="WorldBrain México — Aprende a la velocidad de tu potencial">
 <meta property="og:description" content="30 años. 200,000 graduados. 16 programas de alto rendimiento cognitivo.">
 <meta property="og:type" content="website">
+<meta name="theme-color" content="#F6F4EE">
+<link rel="canonical" href="https://ultravelozmente.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -423,9 +425,27 @@ footer li a:hover{color:var(--klein)}
   *,*::before,*::after{animation:none!important;transition:none!important}
   .letter{transition:none}
 }
+
+/* ---------- PATCH: fixes de auditoría ---------- */
+/* Fix #1: keyframes propios para el finder (eliminaba la colisión con .rv) */
+.freco.show{display:flex;animation:frise .5s var(--spring) both}
+@keyframes frise{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:none}}
+/* Fix #3: skip link visible solo con teclado */
+.skip{
+  position:fixed;top:-100%;left:1rem;z-index:999;background:var(--ink);color:var(--porcelain);
+  padding:.8rem 1.4rem;border-radius:0 0 12px 12px;text-decoration:none;font-weight:600;
+  transition:top .3s var(--spring);
+}
+.skip:focus{top:0}
+/* Fix #4: bloqueo de scroll con menú abierto */
+body.locked{overflow:hidden}
+/* Fix #6: sr-only en el head, no suelto en el body */
+.sr-only{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
 </style>
 </head>
 <body>
+
+<a class="skip" href="#main-content">Saltar al contenido</a>
 
 <div id="sentinel" aria-hidden="true"></div>
 
@@ -469,9 +489,9 @@ footer li a:hover{color:var(--klein)}
     </div>
     <div class="ledger" role="list" aria-label="Cifras del instituto">
       <div role="listitem"><b><span class="count" style="--n:30" aria-hidden="true"></span><span class="sr-only">30</span>+</b><span>Años de método</span></div>
-      <div role="listitem"><b><span class="count" style="--n:200" aria-hidden="true"></span>,000+</b><span>Graduados</span></div>
-      <div role="listitem"><b><span class="count" style="--n:16" aria-hidden="true"></span></b><span>Programas</span></div>
-      <div role="listitem"><b><span class="count" style="--n:97" aria-hidden="true"></span>%</b><span>Tasa de éxito</span></div>
+      <div role="listitem"><b><span class="count" style="--n:200" aria-hidden="true"></span><span class="sr-only">200</span>,000+</b><span>Graduados</span></div>
+      <div role="listitem"><b><span class="count" style="--n:16" aria-hidden="true"></span><span class="sr-only">16</span></b><span>Programas</span></div>
+      <div role="listitem"><b><span class="count" style="--n:97" aria-hidden="true"></span><span class="sr-only">97</span>%</b><span>Tasa de éxito</span></div>
     </div>
   </div>
 </section>
@@ -747,15 +767,15 @@ new IntersectionObserver(([e])=>{
   $('#hdr').classList.toggle('scrolled',!e.isIntersecting);
 }).observe($('#sentinel'));
 
-/* ── Menú móvil ──────────────────────────────────────────────── */
-$('#burger').addEventListener('click',()=>{
-  const open=$('#mmenu').classList.toggle('open');
+/* ── Menú móvil (con scroll lock) ────────────────────────────── */
+const toggleMenu=force=>{
+  const open=$('#mmenu').classList.toggle('open',force);
   $('#burger').setAttribute('aria-expanded',open);
   $('#burger').textContent=open?'Cerrar':'Menú';
-});
-$$('#mmenu a').forEach(a=>a.addEventListener('click',()=>{
-  $('#mmenu').classList.remove('open');$('#burger').textContent='Menú';
-}));
+  document.body.classList.toggle('locked',open);
+};
+$('#burger').addEventListener('click',()=>toggleMenu());
+$$('#mmenu a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
 
 /* ── Hero: campo de puntos que respira (pausable) ────────────── */
 (()=>{
@@ -808,12 +828,18 @@ $$('#mmenu a').forEach(a=>a.addEventListener('click',()=>{
     :seg.split(/\s+/).filter(Boolean).map(w=>`<span>${w}</span>`).join(' ')
   ).join(' ');
   const words=$$('#creed span');
-  addEventListener('scroll',()=>{
+  let ticking=false;
+  const paint=()=>{
     const r=p.getBoundingClientRect();
     const t=Math.min(1,Math.max(0,(innerHeight*.85-r.top)/(r.height+innerHeight*.35)));
     const lit=Math.floor(t*words.length);
     words.forEach((w,i)=>w.classList.toggle('lit',i<=lit));
+    ticking=false;
+  };
+  addEventListener('scroll',()=>{
+    if(!ticking){ticking=true;requestAnimationFrame(paint);}
   },{passive:true});
+  paint(); /* estado inicial correcto sin esperar el primer scroll */
 })();
 
 /* ── Finder: matriz de decisión declarativa ──────────────────── */
@@ -862,8 +888,8 @@ $$('#mmenu a').forEach(a=>a.addEventListener('click',()=>{
   $$('.filter').forEach(btn=>btn.addEventListener('click',()=>{
     $$('.filter').forEach(b=>b.classList.toggle('on',b===btn));
     const f=btn.dataset.f;
-    /* El navegador anima el reflow; fallback: cambio directo */
-    document.startViewTransition?.(()=>apply(f)) ?? apply(f);
+    if('startViewTransition' in document){document.startViewTransition(()=>apply(f));}
+    else{apply(f);}
   }));
 })();
 
@@ -917,6 +943,5 @@ if(!CSS.supports('animation-timeline: view()')){
   $$('.count').forEach(el=>co.observe(el));
 }
 </script>
-<style>.sr-only{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden}</style>
 </body>
 </html>

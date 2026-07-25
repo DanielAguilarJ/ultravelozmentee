@@ -9,8 +9,9 @@
   },
   "scripts": {
     "start": "node server.js",
+    "build": "echo 'Sin build: Express sirve archivos estáticos de la raíz'",
+    "build:eleventy": "eleventy",
     "dev": "eleventy --serve --quiet",
-    "build": "eleventy",
     "check:external": "grep -rn 'randomuser\\|pravatar' src/ && exit 1 || echo '✓ Sin dependencias de imágenes externas'"
   },
   "dependencies": {

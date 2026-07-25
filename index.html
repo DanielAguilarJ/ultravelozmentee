@@ -39,6 +39,15 @@
   "telephone": "+52-55-7810-7837"
 }
 </script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"¿A qué edad pueden ingresar mis hijos?","acceptedAnswer":{"@type":"Answer","text":"Tenemos programas desde los 4 años hasta adultos profesionales: Lectoescritura (4-8), MatheKids y JuniorMath (6-12), Robotics Code (7-17), Fotolectura y Memoria Prodigiosa (15+)."}},
+{"@type":"Question","name":"¿Las clases son presenciales o en línea?","acceptedAnswer":{"@type":"Answer","text":"Los programas principales son presenciales en CDMX y Cuautitlán Izcalli. Algunos como Homeschool y los diplomados ofrecen modalidad híbrida o en línea."}},
+{"@type":"Question","name":"¿Ofrecen garantía de resultados?","acceptedAnswer":{"@type":"Answer","text":"Sí. Si sigues la metodología y en 30 días no hay avance medible, devolvemos el 100% de la inversión. Más de 200,000 graduados respaldan el método."}},
+{"@type":"Question","name":"¿Cuánto cuesta?","acceptedAnswer":{"@type":"Answer","text":"Varía por programa y modalidad, con planes de pago flexibles. El diagnóstico gratuito incluye precio exacto y plan personalizado, sin compromiso."}},
+{"@type":"Question","name":"¿Dónde están ubicados?","acceptedAnswer":{"@type":"Answer","text":"En Cuautitlán Izcalli, Estado de México (Av. 1 de Mayo, Col. Centro Urbano) y sedes en Ciudad de México."}}
+]}
+</script>
 <style>
 /* ═══════════════════════════════════════════════════════════════
    WORLDBRAIN — EL PROSPECTO EDITORIAL · index.html · 2026
@@ -441,6 +450,51 @@ footer li a:hover{color:var(--klein)}
 body.locked{overflow:hidden}
 /* Fix #6: sr-only en el head, no suelto en el body */
 .sr-only{position:absolute;width:1px;height:1px;clip-path:inset(50%);overflow:hidden;white-space:nowrap}
+
+/* ---------- Command Palette ⌘K ---------- */
+.cmdk-btn{
+  display:inline-flex;align-items:center;gap:.6rem;font-family:var(--mono);font-size:.7rem;
+  letter-spacing:.1em;color:var(--ink-60);border:1px solid var(--ink-12);border-radius:8px;
+  padding:.5rem .9rem;background:var(--porcelain);cursor:pointer;transition:all .25s;
+}
+.cmdk-btn:hover{border-color:var(--ink);color:var(--ink)}
+.cmdk-btn kbd{
+  font-family:var(--mono);font-size:.62rem;border:1px solid var(--ink-12);border-radius:4px;
+  padding:.1rem .4rem;background:var(--porcelain-2);
+}
+dialog.cmdk{
+  width:min(560px,92vw);border:1px solid var(--ink-12);border-radius:18px;padding:0;
+  background:var(--porcelain);box-shadow:0 40px 100px -20px rgba(22,21,18,.35);
+  margin:12vh auto auto;
+}
+dialog.cmdk::backdrop{background:rgba(22,21,18,.35);backdrop-filter:blur(6px)}
+.cmdk input{
+  width:100%;border:0;border-bottom:1px solid var(--ink-12);background:transparent;
+  font-family:var(--sans);font-size:1.05rem;padding:1.2rem 1.4rem;color:var(--ink);
+}
+.cmdk input:focus{outline:none}
+.cmdk ul{list-style:none;max-height:46vh;overflow:auto;padding:.5rem}
+.cmdk li a{
+  display:flex;justify-content:space-between;align-items:baseline;gap:1rem;
+  padding:.85rem 1rem;border-radius:10px;text-decoration:none;
+}
+.cmdk li a:hover,.cmdk li.sel a{background:var(--porcelain-2)}
+.cmdk li .n{font-family:var(--serif);font-size:1.05rem}
+.cmdk li .a{font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--ink-30)}
+.cmdk li mark{background:none;color:var(--klein);font-weight:600}
+.cmdk .empty{padding:1.6rem;text-align:center;color:var(--ink-30);font-family:var(--serif);font-style:italic}
+.cmdk .hint{padding:.7rem 1.4rem;border-top:1px solid var(--ink-12);font-family:var(--mono);font-size:.6rem;letter-spacing:.12em;color:var(--ink-30);display:flex;gap:1.4rem}
+
+/* ---------- Franja de prensa ---------- */
+.press{border-block:1px solid var(--ink-12);padding:1.6rem 0;background:var(--porcelain)}
+.press .wrap{display:flex;align-items:center;gap:clamp(1.5rem,5vw,4rem);flex-wrap:wrap;justify-content:center}
+.press span{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:var(--ink-30)}
+.press b{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--ink-60);letter-spacing:.04em;transition:color .25s}
+.press b:hover{color:var(--ink)}
+
+/* Modo lite: elegancia intacta, costo cero */
+html.lite #field{display:none}
+html.lite .letter{filter:none}
 </style>
 </head>
 <body>
@@ -458,6 +512,7 @@ body.locked{overflow:hidden}
       <li><a href="#metodo">Método</a></li>
       <li><a href="#cartas">Historias</a></li>
       <li><a href="blog-index.html">Blog</a></li>
+      <li><button class="cmdk-btn" id="cmdkOpen" aria-label="Buscar programa">Buscar <kbd>⌘K</kbd></button></li>
       <li><a class="btn btn-solid nav-cta no-prerender" href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20un%20diagn%C3%B3stico%20gratuito">Diagnóstico gratuito</a></li>
     </ul>
     <button class="burger" id="burger" aria-label="Abrir menú" aria-expanded="false">Menú</button>
@@ -495,6 +550,13 @@ body.locked{overflow:hidden}
     </div>
   </div>
 </section>
+
+<div class="press" aria-label="Reconocimientos de prensa">
+  <div class="wrap">
+    <span>RECONOCIDOS EN</span>
+    <b>FORBES</b><b>ENTREPRENEUR</b><b>TEDx</b><b>EL UNIVERSAL</b>
+  </div>
+</div>
 
 <!-- ═══════════ MANIFIESTO ═══════════ -->
 <section class="manifesto" aria-label="Manifiesto">
@@ -699,6 +761,12 @@ body.locked{overflow:hidden}
   </div>
 </section>
 
+<dialog class="cmdk" id="cmdk" aria-label="Buscador de programas">
+  <input type="text" id="cmdkInput" placeholder="Escribe: lectura, mate, inglés, examen…" autocomplete="off">
+  <ul id="cmdkList" role="listbox"></ul>
+  <div class="hint"><span>↑↓ navegar</span><span>↵ abrir</span><span>ESC cerrar</span></div>
+</dialog>
+
 </main>
 
 <!-- ═══════════ FOOTER ═══════════ -->
@@ -762,6 +830,16 @@ const $=(s,c=document)=>c.querySelector(s);
 const $$=(s,c=document)=>[...c.querySelectorAll(s)];
 const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
 
+/* ── Conciencia de dispositivo: degradación elegante ─────────── */
+const LITE=(navigator.connection?.saveData===true)          /* ahorro de datos activado */
+  ||['slow-2g','2g'].includes(navigator.connection?.effectiveType||'')
+  ||(navigator.hardwareConcurrency||8)<=2;                  /* CPU de gama baja */
+if(LITE){
+  /* Sin prerender especulativo: no gastamos los datos del usuario */
+  document.querySelector('script[type="speculationrules"]')?.remove();
+  document.documentElement.classList.add('lite');
+}
+
 /* ── Header: sentinel, cero scroll listeners ─────────────────── */
 new IntersectionObserver(([e])=>{
   $('#hdr').classList.toggle('scrolled',!e.isIntersecting);
@@ -779,7 +857,7 @@ $$('#mmenu a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
 
 /* ── Hero: campo de puntos que respira (pausable) ────────────── */
 (()=>{
-  if(REDUCED)return;
+  if(REDUCED||LITE)return;
   const cv=$('#field'),cx=cv.getContext('2d',{alpha:true});
   let W,H,pts=[],raf=null,mx=-1e4,my=-1e4;
   const DPR=Math.min(devicePixelRatio||1,2);
@@ -942,6 +1020,56 @@ if(!CSS.supports('animation-timeline: view()')){
   }),{threshold:.5});
   $$('.count').forEach(el=>co.observe(el));
 }
+
+/* ── Command Palette ⌘K ──────────────────────────────────────── */
+(()=>{
+  const dlg=$('#cmdk'),inp=$('#cmdkInput'),list=$('#cmdkList');
+  /* Índice construido desde el DOM real: cero duplicación de datos */
+  const ITEMS=$$('.row').map(r=>({
+    name:$('.name',r).textContent.trim(),
+    age:$('.age',r).textContent.trim(),
+    desc:$('.desc',r).textContent.trim(),
+    href:$('a',r).getAttribute('href')
+  }));
+  let sel=0,results=[];
+  const norm=s=>s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g,'');
+  const render=q=>{
+    const nq=norm(q);
+    results=q?ITEMS.filter(i=>norm(i.name+' '+i.desc).includes(nq)):ITEMS.slice(0,6);
+    sel=0;
+    list.innerHTML=results.length
+      ?results.map((i,x)=>`<li class="${x===0?'sel':''}" role="option"><a href="${i.href}">
+          <span class="n">${q?i.name.replace(new RegExp(`(${q})`,'i'),'<mark>$1</mark>'):i.name}</span>
+          <span class="a">${i.age}</span></a></li>`).join('')
+      :`<li class="empty">Sin resultados para "${q}" — pregúntanos por WhatsApp</li>`;
+  };
+  const open=()=>{dlg.showModal();inp.value='';render('');inp.focus();};
+  $('#cmdkOpen').addEventListener('click',open);
+  addEventListener('keydown',e=>{
+    if((e.metaKey||e.ctrlKey)&&e.key==='k'){e.preventDefault();dlg.open?dlg.close():open();}
+    if(!dlg.open)return;
+    if(e.key==='ArrowDown'||e.key==='ArrowUp'){
+      e.preventDefault();
+      sel=(sel+(e.key==='ArrowDown'?1:-1)+results.length)%results.length;
+      $$('#cmdkList li').forEach((li,i)=>li.classList.toggle('sel',i===sel));
+    }
+    if(e.key==='Enter'&&results[sel])location.href=results[sel].href;
+  });
+  inp.addEventListener('input',()=>render(inp.value.trim()));
+  dlg.addEventListener('click',e=>{if(e.target===dlg)dlg.close();});
+})();
+
+/* ── Estado de atención en vivo (hora real CDMX) ─────────────── */
+(()=>{
+  const now=new Date(new Date().toLocaleString('en-US',{timeZone:'America/Mexico_City'}));
+  const h=now.getHours(),d=now.getDay();
+  const open=d>=1&&d<=6&&h>=9&&h<20;
+  const micro=$('.finale .micro');
+  if(micro)micro.textContent=open
+    ?'● En línea ahora — respuesta por WhatsApp en menos de 5 minutos'
+    :'Fuera de horario — te respondemos mañana a primera hora (Lun–Sáb 9:00–20:00)';
+  if(open)micro.style.color='var(--klein)';
+})();
 </script>
 </body>
 </html>

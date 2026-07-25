@@ -1,3 +1,5 @@
+'use strict';
+
 const express = require('express');
 const compression = require('compression');
 const cookieParser = require('cookie-parser');
@@ -8,505 +10,397 @@ const { sendCapiEvent } = require('./js/capi');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
-
-// Servir archivos desde la raíz del proyecto (donde está server.js)
 const staticPath = __dirname;
+const BASE = 'https://ultravelozmente.com';
 
-console.log(`📂 Sirviendo archivos desde: ${staticPath}`);
-
-// Middleware para parsear JSON
 app.use(express.json());
-
-// Middleware para parsear cookies (necesario para ParamBuilder)
 app.use(cookieParser());
-
-// Habilitar compresión
 app.use(compression());
 
 // ─────────────────────────────────────────────────────────────
-//  Security & SEO Headers
+// 1) CANONICALIZACIÓN — SIEMPRE PRIMERO (antes de analytics,
+//    para no disparar PageView en redirects)
+//    Una sola URL por página: https, sin www, sin .html, sin /
 // ─────────────────────────────────────────────────────────────
 app.use((req, res, next) => {
-    // HSTS - Force HTTPS (critical for SEO: prevents duplicate HTTP/HTTPS indexing)
-    res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
-    // Prevent MIME-type sniffing
-    res.setHeader('X-Content-Type-Options', 'nosniff');
-    // Prevent clickjacking
-    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
-    // Control referrer information
-    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
-    // Permissions Policy
-    res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
-    next();
+  const host = req.headers.host || '';
+  const proto = req.headers['x-forwarded-proto'] || req.protocol;
+
+  // https + non-www en UN solo 301 (sin cadenas de redirects)
+  if ((proto !== 'https' && process.env.NODE_ENV === 'production') || host.startsWith('www.')) {
+    return res.redirect(301, `https://${host.replace(/^www\./, '')}${req.originalUrl}`);
+  }
+  // /index.html y /index → /
+  if (req.path === '/index.html' || req.path === '/index') {
+    return res.redirect(301, '/');
+  }
+  // .html → URL limpia
+  if (req.path.endsWith('.html')) {
+    const qs = req.originalUrl.includes('?') ? req.originalUrl.slice(req.originalUrl.indexOf('?')) : '';
+    return res.redirect(301, req.path.slice(0, -5) + qs);
+  }
+  // trailing slash (excepto raíz)
+  if (req.path.length > 1 && req.path.endsWith('/')) {
+    return res.redirect(301, req.path.slice(0, -1));
+  }
+  next();
 });
 
 // ─────────────────────────────────────────────────────────────
-//  Content Security Policy — Permitir Google, Meta y CDNs
+// 2) REDIRECTS LEGACY — AUDITADOS: targets limpios (sin .html)
+//    FIX: antes apuntaban a .html → bucle infinito con el
+//    middleware canónico. Eliminadas las entradas /curso → /curso.html
+//    (la ruta limpia ya las sirve directo, sin redirect).
 // ─────────────────────────────────────────────────────────────
+const LEGACY = {
+  '/curso-de-desarrollo-humanista': '/neurocomunicacion',
+  '/curso-de-verano-2026': '/',
+  '/curso-de-neurocomunicacion': '/neurocomunicacion',
+  '/expansion-de-vocabulario': '/lectoescritura',
+  '/desarrollo-humanista': '/neurocomunicacion',
+  '/curso-neuro-comunicacion-2026': '/neurocomunicacion',
+  '/robotics-code-robotica-para-mentes-brillantes': '/robotics',
+  '/fotolectura-lectura-rapida': '/fotolectura',
+  '/cursos': '/',
+  '/courses/marketing-2023-complete-guide-to-social-growth': '/'
+};
 app.use((req, res, next) => {
-    res.setHeader('Content-Security-Policy', [
-        "default-src 'self'",
-        "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
-        "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
-        "img-src 'self' data: https: http:",
-        "connect-src 'self' https://www.google-analytics.com https://google-analytics.com https://www.googletagmanager.com https://googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com",
-        "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
-        "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
-        "frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com https://www.facebook.com",
-        "object-src 'none'",
-        "base-uri 'self'"
-    ].join('; '));
-    next();
+  const target = LEGACY[req.path];
+  if (target) return res.redirect(301, target);
+  next();
 });
 
 // ─────────────────────────────────────────────────────────────
-//  META PARAMBUILDER — Server-Side Middleware
-//  Procesa _fbc, _fbp, client_ip_address en cada petición HTML
+// 3) SECURITY & SEO HEADERS
 // ─────────────────────────────────────────────────────────────
 app.use((req, res, next) => {
-    // Solo procesar peticiones de páginas HTML (no estáticos)
-    if (req.method === 'GET' && (req.path === '/' || req.path.endsWith('.html') || !req.path.includes('.'))) {
-        try {
-            const builder = new ParamBuilder(['ultravelozmente.com', 'localhost']);
+  res.setHeader('Strict-Transport-Security', 'max-age=31536000; includeSubDomains; preload');
+  res.setHeader('X-Content-Type-Options', 'nosniff');
+  res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+  res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+  res.setHeader('Permissions-Policy', 'camera=(), microphone=(), geolocation=()');
+  res.setHeader('Cross-Origin-Opener-Policy', 'same-origin-allow-popups');
+  next();
+});
 
-            // Extraer query params como mapa compatible
-            const params = req.query || {};
+app.use((req, res, next) => {
+  res.setHeader('Content-Security-Policy', [
+    "default-src 'self'",
+    "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
+    "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
+    "img-src 'self' data: https:",
+    "connect-src 'self' https://www.google-analytics.com https://google-analytics.com https://www.googletagmanager.com https://googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com",
+    "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
+    "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
+    "frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com https://www.facebook.com",
+    "object-src 'none'",
+    "base-uri 'self'"
+  ].join('; '));
+  next();
+});
 
-            // Procesar request — genera cookies _fbc, _fbp y extrae IP
-            const cookiesToSet = builder.processRequest(
-                req.headers.host,                       // host
-                params,                                 // query params
-                Object.assign({}, req.cookies || {}),   // cookies actuales (plain object para hasOwnProperty)
-                req.headers.referer || null,             // referer (mejora precisión)
-                req.headers['x-forwarded-for'] || null, // IPv6/IPv4 forwarded
-                req.socket.remoteAddress || null         // IP directa
-            );
+// ─────────────────────────────────────────────────────────────
+// 4) META CAPI / ParamBuilder
+//    FIX: excluye /api/ y /.well-known/ (antes disparaba
+//    PageView en llamadas de API → analytics contaminado)
+// ─────────────────────────────────────────────────────────────
+const isPageRequest = p =>
+  !p.startsWith('/api/') && !p.startsWith('/.well-known/') && !p.includes('.');
 
-            // Guardar cookies recomendadas por ParamBuilder como first-party
-            if (cookiesToSet && Array.isArray(cookiesToSet)) {
-                for (const cookie of cookiesToSet) {
-                    res.cookie(cookie.name, cookie.value, {
-                        maxAge: cookie.maxAge * 1000, // Express usa milisegundos
-                        domain: cookie.domain,
-                        path: '/',
-                        httpOnly: false, // Permitir lectura desde JS del cliente
-                        sameSite: 'Lax'
-                    });
-                }
-            }
-
-            // Adjuntar builder al request para uso downstream (CAPI, etc.)
-            req.paramBuilder = builder;
-
-            // Enviar evento PageView con parámetros mejorados
-            sendCapiEvent('PageView', req);
-        } catch (err) {
-            console.error('⚠️ ParamBuilder error:', err.message);
-            // Fallback: enviar PageView sin ParamBuilder
-            sendCapiEvent('PageView', req);
+app.use((req, res, next) => {
+  if (req.method === 'GET' && (req.path === '/' || isPageRequest(req.path))) {
+    try {
+      const builder = new ParamBuilder(['ultravelozmente.com', 'localhost']);
+      const cookiesToSet = builder.processRequest(
+        req.headers.host,
+        req.query || {},
+        Object.assign({}, req.cookies || {}),
+        req.headers.referer || null,
+        req.headers['x-forwarded-for'] || null,
+        req.socket.remoteAddress || null
+      );
+      if (Array.isArray(cookiesToSet)) {
+        for (const c of cookiesToSet) {
+          res.cookie(c.name, c.value, {
+            maxAge: c.maxAge * 1000,
+            domain: c.domain,
+            path: '/',
+            httpOnly: false,
+            sameSite: 'Lax'
+          });
         }
+      }
+      req.paramBuilder = builder;
+      sendCapiEvent('PageView', req);
+    } catch (err) {
+      console.error('⚠️ ParamBuilder error:', err.message);
+      sendCapiEvent('PageView', req);
     }
-    next();
+  }
+  next();
 });
 
 // ─────────────────────────────────────────────────────────────
-//  ENDPOINT: /api/ip — Devuelve la IP del visitante (IPv6 preferido)
-//  Usado por clientParamBuilder.processAndCollectAllParams(url, getIpFn)
+// 5) API — IP y eventos de cliente
 // ─────────────────────────────────────────────────────────────
 app.get('/api/ip', (req, res) => {
-    // Priorizar IPv6 de X-Forwarded-For, luego remoteAddress
-    const forwardedFor = req.headers['x-forwarded-for'];
-    let ip = req.socket.remoteAddress || req.ip;
-
-    if (forwardedFor) {
-        // X-Forwarded-For puede tener múltiples IPs, tomar la primera (cliente)
-        const ips = forwardedFor.split(',').map(s => s.trim());
-        // Preferir IPv6 si existe
-        const ipv6 = ips.find(addr => addr.includes(':'));
-        ip = ipv6 || ips[0] || ip;
-    }
-
-    res.json({ ip });
+  const fwd = req.headers['x-forwarded-for'];
+  let ip = req.socket.remoteAddress || req.ip;
+  if (fwd) {
+    const ips = fwd.split(',').map(s => s.trim());
+    ip = ips.find(a => a.includes(':')) || ips[0] || ip;
+  }
+  res.json({ ip });
 });
 
-// Endpoint para recibir eventos del cliente (Pixel + CAPI)
 app.post('/api/event', async (req, res) => {
+  try {
+    const { eventName, userData, eventId } = req.body;
+    if (!eventName) return res.status(400).json({ error: 'Event Name is required' });
     try {
-        const { eventName, userData, eventId } = req.body;
-
-        if (!eventName) {
-            return res.status(400).json({ error: 'Event Name is required' });
-        }
-
-        // Crear ParamBuilder para procesar PII del evento
-        try {
-            const builder = new ParamBuilder(['ultravelozmente.com', 'localhost']);
-            builder.processRequest(
-                req.headers.host,
-                req.query || {},
-                Object.assign({}, req.cookies || {}),
-                req.headers.referer || null,
-                req.headers['x-forwarded-for'] || null,
-                req.socket.remoteAddress || null
-            );
-            req.paramBuilder = builder;
-        } catch (e) {
-            console.error('⚠️ ParamBuilder POST error:', e.message);
-        }
-
-        // Enviar evento a Meta CAPI con event_id para deduplicación
-        const result = await sendCapiEvent(eventName, req, userData, eventId);
-        res.json({ success: true, meta_id: result?.id });
-    } catch (error) {
-        console.error('Error processing client event:', error);
-        res.status(500).json({ error: 'Internal Server Error' });
-    }
+      const builder = new ParamBuilder(['ultravelozmente.com', 'localhost']);
+      builder.processRequest(
+        req.headers.host, req.query || {},
+        Object.assign({}, req.cookies || {}),
+        req.headers.referer || null,
+        req.headers['x-forwarded-for'] || null,
+        req.socket.remoteAddress || null
+      );
+      req.paramBuilder = builder;
+    } catch (e) { console.error('⚠️ ParamBuilder POST error:', e.message); }
+    const result = await sendCapiEvent(eventName, req, userData, eventId);
+    res.json({ success: true, meta_id: result?.id });
+  } catch (error) {
+    console.error('Error processing client event:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
+  }
 });
 
 // ─────────────────────────────────────────────────────────────
-//  AUTOMATION BLOG API (Make.com Integration)
+// 6) BLOG API (Make.com) — FIX: token SOLO por env, sin fallback
+//    ⚠️ ROTA el token viejo hoy: quedó público en GitHub
 // ─────────────────────────────────────────────────────────────
-const API_TOKEN = process.env.API_TOKEN || 'uv-make-automation-psy-2026';
+const API_TOKEN = process.env.API_TOKEN;
+if (!API_TOKEN) console.warn('⚠️  API_TOKEN no configurado: API de blog deshabilitada.');
 
-// Middleware para autenticar peticiones de Make.com
 const authenticateBlogAPI = (req, res, next) => {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        return res.status(401).json({ error: 'Falta token de autenticacion (Bearer Token)' });
-    }
-    const token = authHeader.split(' ')[1];
-    if (token !== API_TOKEN) {
-        return res.status(403).json({ error: 'Token de autenticacion invalido' });
-    }
-    next();
+  if (!API_TOKEN) return res.status(503).json({ error: 'API no disponible' });
+  const h = req.headers.authorization;
+  if (!h?.startsWith('Bearer ') || h.split(' ')[1] !== API_TOKEN) {
+    return res.status(401).json({ error: 'No autorizado' });
+  }
+  next();
 };
 
-// Obtener listado de posts dinamicos creados por la automatización
 app.get('/api/posts', (req, res) => {
-    const postsJsonPath = path.join(staticPath, 'data', 'posts.json');
-    if (fs.existsSync(postsJsonPath)) {
-        try {
-            const posts = JSON.parse(fs.readFileSync(postsJsonPath, 'utf8'));
-            return res.json(posts);
-        } catch (e) {
-            return res.json([]);
-        }
-    }
-    res.json([]);
+  const p = path.join(staticPath, 'data', 'posts.json');
+  if (fs.existsSync(p)) {
+    try { return res.json(JSON.parse(fs.readFileSync(p, 'utf8'))); } catch (e) { /* fallthrough */ }
+  }
+  res.json([]);
 });
 
-// Crear y publicar un post bilingüe desde Make.com
 app.post('/api/posts', authenticateBlogAPI, (req, res) => {
-    try {
-        const { title, content, category, excerpt, slug, date, author, readTime } = req.body;
-        if (!title || !content || !slug) {
-            return res.status(400).json({ error: 'title, content y slug son requeridos' });
-        }
+  try {
+    const { title, content, category, excerpt, slug, date, author, readTime } = req.body;
+    if (!title || !content || !slug) {
+      return res.status(400).json({ error: 'title, content y slug son requeridos' });
+    }
+    const cleanSlug = slug.toLowerCase().replace(/[^a-z0-9-_]/g, '');
+    const filename = `blog-${cleanSlug}.html`;
+    const postDate = date || new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
+    const meta = {
+      title, slug: cleanSlug, filename,
+      category: category || 'Educación',
+      excerpt: excerpt || 'Artículo del blog educativo WorldBrain.',
+      date: postDate,
+      readTime: readTime || '4 min de lectura',
+      author: author || 'Equipo Editorial WorldBrain',
+      createdAt: new Date().toISOString()
+    };
+    const html = buildBlogHtml(meta, content);
+    fs.writeFileSync(path.join(staticPath, filename), html);
 
-        // Limpiar slug para evitar nombres de archivo inválidos
-        const cleanSlug = slug.toLowerCase().replace(/[^a-z0-9-_]/g, '');
-        const filename = `blog-${cleanSlug}.html`;
-        const filePath = path.join(staticPath, filename);
+    const dataDir = path.join(staticPath, 'data');
+    if (!fs.existsSync(dataDir)) fs.mkdirSync(dataDir);
+    const postsPath = path.join(dataDir, 'posts.json');
+    let posts = [];
+    if (fs.existsSync(postsPath)) {
+      try { posts = JSON.parse(fs.readFileSync(postsPath, 'utf8')); } catch (e) { posts = []; }
+    }
+    const i = posts.findIndex(p => p.slug === cleanSlug);
+    if (i !== -1) posts[i] = meta; else posts.unshift(meta);
+    fs.writeFileSync(postsPath, JSON.stringify(posts, null, 2));
+    sitemapCache = null; // invalidar: el nuevo post entra al sitemap al instante
+    res.json({ success: true, url: `/blog-${cleanSlug}`, slug: cleanSlug });
+  } catch (error) {
+    console.error('Error al guardar el post:', error);
+    res.status(500).json({ error: 'Error interno al publicar' });
+  }
+});
 
-        const postDate = date || new Date().toLocaleDateString('es-MX', { day: 'numeric', month: 'long', year: 'numeric' });
-        const postCategory = category || 'Psicoterapia';
-        const postExcerpt = excerpt || 'Articulo de psicoterapia en modo terapeuta.';
-        const postAuthor = author || 'Terapeuta Turbo';
-        const postReadTime = readTime || '4 min de lectura';
-
-        // Estructura HTML del nuevo post basado en la estética premium de la web
-        const html = `<!DOCTYPE html>
-<html lang="es-MX">
+// Plantilla de post — AUDITADA: canónica limpia, JSON-LD Article,
+// sin enlaces externos raros (antes enlazaba reclusive.app y "psicoterapia")
+function buildBlogHtml(m, content) {
+  return `<!DOCTYPE html>
+<html lang="es">
 <head>
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10846614576"></script>
-    <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
-        gtag('config', 'AW-10846614576');
-    </script>
-    <!-- Google Tag Manager -->
-    <script>(function (w, d, s, l, i) {
-            w[l] = w[l] || []; w[l].push({
-                'gtm.start':
-                    new Date().getTime(), event: 'gtm.js'
-            }); var f = d.getElementsByTagName(s)[0],
-                j = d.createElement(s), dl = l != 'dataLayer' ? '&l=' + l : ''; j.async = true; j.src =
-                    'https://www.googletagmanager.com/gtm.js?id=' + i + dl; f.parentNode.insertBefore(j, f);
-        })(window, document, 'script', 'dataLayer', 'GTM-MWMFXQS7');</script>
-    <!-- End Google Tag Manager -->
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>${title} | Blog WorldBrain</title>
-    <meta name="description" content="${postExcerpt}">
-    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
-    <link rel="canonical" href="https://ultravelozmente.com/${filename}">
-    
-    <!-- Open Graph -->
-    <meta property="og:type" content="article">
-    <meta property="og:title" content="${title}">
-    <meta property="og:description" content="${postExcerpt}">
-    <meta property="og:url" content="https://ultravelozmente.com/${filename}">
-    <meta property="og:site_name" content="WorldBrain Mexico">
-    <meta property="og:locale" content="es_MX">
-    <meta property="article:published_time" content="${new Date().toISOString().split('T')[0]}">
-    <meta property="article:section" content="${postCategory}">
-
-    <!-- Theme: FOUC Prevention -->
-    <script>
-        (function() {
-            var theme = localStorage.getItem('theme');
-            if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-                document.documentElement.classList.add('light-mode');
-            }
-        })();
-    </script>
-
-    <link rel="stylesheet" href="css/styles.min.css">
-    <link rel="stylesheet" href="css/blog.min.css">
-    <link rel="stylesheet" href="css/marketing-toolkit.min.css">
-    <link rel="stylesheet" href="css/footer-modern.min.css">
-    <link rel="stylesheet" href="css/navbar-unified.min.css">
-
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&family=Georgia&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>${m.title} | Blog WorldBrain México</title>
+<meta name="description" content="${m.excerpt}">
+<link rel="canonical" href="${BASE}/blog-${m.slug}">
+<meta property="og:title" content="${m.title}">
+<meta property="og:description" content="${m.excerpt}">
+<meta property="og:type" content="article">
+<script type="application/ld+json">
+${JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: m.title, description: m.excerpt,
+  author: { '@type': 'Organization', name: 'WorldBrain México' },
+  publisher: { '@type': 'Organization', name: 'WorldBrain México' },
+  datePublished: m.createdAt, mainEntityOfPage: `${BASE}/blog-${m.slug}`
+})}
+</script>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root{--porcelain:#F6F4EE;--ink:#161512;--ink-60:rgba(22,21,18,.6);--klein:#2B36E8}
+body{margin:0;font-family:'Geist',sans-serif;background:var(--porcelain);color:var(--ink);line-height:1.7}
+.wrap{max-width:720px;margin:0 auto;padding:4rem 24px}
+h1{font-family:'Instrument Serif',serif;font-weight:400;font-size:clamp(2rem,5vw,3.2rem);line-height:1.1}
+.meta{font-family:monospace;font-size:.7rem;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-60);margin:1rem 0 2.5rem}
+article p{margin-bottom:1.2rem;color:var(--ink-60)}
+article h2,article h3{font-family:'Instrument Serif',serif;font-weight:400;color:var(--ink);margin:2rem 0 .8rem}
+.cta{background:var(--ink);color:var(--porcelain);border-radius:18px;padding:2rem;margin-top:3rem;text-align:center}
+.cta a{display:inline-block;background:var(--klein);color:#fff;text-decoration:none;padding:.9rem 1.7rem;border-radius:999px;font-weight:500;margin-top:1rem}
+nav a{color:var(--ink);text-decoration:none;font-weight:500}
+</style>
 </head>
 <body>
-    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWMFXQS7" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-    <a href="#main-content" class="nav-skip-link">Saltar al contenido</a>
-
-    <!-- Unified Pill Navbar -->
-    <nav class="nav-pill" role="navigation" aria-label="Navegaci&oacute;n principal">
-        <a href="index.html" class="nav-pill-logo">World<span>Brain</span></a>
-        <div class="nav-pill-links">
-            <a href="index.html" class="nav-pill-link">Inicio</a>
-            <a href="testimonios.html" class="nav-pill-link">Testimonios</a>
-            <a href="blog-index.html" class="nav-pill-link active">Blog</a>
-            <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20una%20clase%20muestra" class="btn-nav-whatsapp">
-                <i class="fab fa-whatsapp"></i> Agendar Clase Muestra
-            </a>
-            <button id="themeToggle" class="theme-toggle-btn" aria-label="Cambiar tema">
-                <i class="fas fa-moon"></i>
-            </button>
-        </div>
-    </nav>
-
-    <main id="main-content" style="padding-top: 100px;">
-        <header class="blog-post-hero">
-            <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> ${postCategory}
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">${title}</h1>
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> ${postDate}</span>
-                    <span><i class="far fa-clock"></i> ${postReadTime}</span>
-                    <span><i class="far fa-user"></i> ${postAuthor}</span>
-                </div>
-            </div>
-        </header>
-
-        <article class="blog-content">
-            ${content}
-
-            <!-- CTA Box Warning & Referral requested by User -->
-            <div class="blog-cta-box" data-aos="fade-up" style="border-left: 5px solid #2563eb; background: rgba(37, 99, 235, 0.05); padding: 2.5rem; border-radius: 12px; margin: 4rem 0; box-shadow: 0 4px 20px rgba(0,0,0,0.05);">
-                <h3 style="color: #2563eb; margin-top: 0; font-size: 1.5rem; font-family: 'Space Grotesk', sans-serif;"><i class="fas fa-info-circle"></i> Aspecto Preponderante</h3>
-                <p style="font-size: 1.15rem; line-height: 1.7; color: var(--text-color); margin-bottom: 1.5rem;">
-                    <strong>Habla con tu especialista sobre la educación de tus hijos.</strong> En WorldBrain te daremos retroalimentación directa y personalizada para guiar su potencial cognitivo y emocional de la mejor manera.
-                </p>
-                <p style="font-size: 1.1rem; line-height: 1.6; color: var(--text-color); margin-bottom: 1.5rem;">
-                    Agenda o consulta de inmediato mediante nuestra plataforma interactiva de entrevistas para hablar con un especialista en modo turbo.
-                </p>
-                <a href="https://reclusive.app" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display: inline-flex; align-items: center; justify-content: center; font-size: 1.1rem; padding: 1rem 2rem; background: #2563eb; color: #fff; text-decoration: none; border-radius: 8px; font-weight: bold; gap: 10px; border: none; transition: background 0.2s;">
-                    Hablar con Especialista (Modo Turbo) <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="blog-author">
-                <img src="https://randomuser.me/api/portraits/women/68.jpg" alt="Editorial Team" class="blog-author-img">
-                <div class="blog-author-info">
-                    <h4>${postAuthor}</h4>
-                    <p>Colaboradora Editorial. Analizando las mejores prácticas mundiales de psicoterapia, relaciones y sanación emocional.</p>
-                </div>
-            </div>
-        </article>
-    </main>
-
-    <!-- Footer Unificado WorldBrain -->
-    <footer class="footer-modern" role="contentinfo">
-        <div class="footer-content-wrapper">
-            <div class="footer-cta-card">
-                <div class="cta-content">
-                    <h2>Aprende a la velocidad de tu potencial</h2>
-                    <p>Agenda una clase muestra gratuita y descubre de lo que eres capaz.</p>
-                    <a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20una%20clase%20muestra" class="btn-cta-footer">
-                        <i class="fab fa-whatsapp"></i> Agendar Clase Muestra
-                    </a>
-                </div>
-            </div>
-            <div class="footer-bottom-bar">
-                <p class="footer-legal-text">CWBMX, S.C. | RFC: CWB170626UH4 | Domicilio: Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano, Cuautitl&aacute;n Izcalli, Edo. de M&eacute;x., C.P. 54700.</p>
-                <p class="footer-copyright">&copy; 2026 WorldBrain M&eacute;xico. Todos los derechos reservados.</p>
-                <div class="footer-legal-links">
-                    <a href="terminos.html">T&eacute;rminos y Condiciones</a>
-                    <a href="privacidad.html">Aviso de Privacidad</a>
-                    <a href="reembolsos.html">Pol&iacute;ticas de Devoluci&oacute;n</a>
-                </div>
-            </div>
-        </div>
-    </footer>
-
-    <!-- AOS Animation Library -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        AOS.init({ duration: 800, once: true, offset: 100 });
-        const themeToggle = document.getElementById('themeToggle');
-        if (themeToggle) {
-            themeToggle.addEventListener('click', function () {
-                document.documentElement.classList.toggle('light-mode');
-                var isLight = document.documentElement.classList.contains('light-mode');
-                localStorage.setItem('theme', isLight ? 'light' : 'dark');
-            });
-        }
-    </script>
+<div class="wrap">
+<nav><a href="/">← WorldBrain</a> · <a href="/blog-index">Blog</a></nav>
+<h1>${m.title}</h1>
+<p class="meta">${m.category} · ${m.date} · ${m.readTime} · ${m.author}</p>
+<article>${content}</article>
+<div class="cta">
+<h3 style="font-family:'Instrument Serif',serif;font-weight:400;margin:0">Aprende a la velocidad de tu potencial</h3>
+<p style="color:rgba(246,244,238,.7)">Agenda una clase muestra gratuita y descubre de lo que eres capaz.</p>
+<a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20una%20clase%20muestra">Agendar clase muestra</a>
+</div>
+</div>
 </body>
 </html>`;
+}
 
-        fs.writeFileSync(filePath, html);
+// ─────────────────────────────────────────────────────────────
+// 7) SITEMAP DINÁMICO — cacheado en memoria (TTL 1h)
+// ─────────────────────────────────────────────────────────────
+let sitemapCache = null, sitemapCacheAt = 0;
 
-        // 2. Guardar metadatos en posts.json para cargar dinámicamente en el index del blog
-        const dataDir = path.join(staticPath, 'data');
-        if (!fs.existsSync(dataDir)) {
-            fs.mkdirSync(dataDir);
-        }
-        const postsJsonPath = path.join(dataDir, 'posts.json');
-        let posts = [];
-        if (fs.existsSync(postsJsonPath)) {
-            try {
-                posts = JSON.parse(fs.readFileSync(postsJsonPath, 'utf8'));
-            } catch (e) {
-                posts = [];
-            }
-        }
+app.get('/sitemap.xml', (req, res) => {
+  if (!sitemapCache || Date.now() - sitemapCacheAt > 36e5) {
+    const PAGES = [
+      { f: 'index.html', u: '/', p: '1.0', c: 'weekly' },
+      { f: 'fotolectura.html', u: '/fotolectura', p: '0.9', c: 'monthly' },
+      { f: 'mathekids.html', u: '/mathekids', p: '0.9', c: 'monthly' },
+      { f: 'robotics.html', u: '/robotics', p: '0.9', c: 'monthly' },
+      { f: 'fastkids.html', u: '/fastkids', p: '0.9', c: 'monthly' },
+      { f: 'homeschool.html', u: '/homeschool', p: '0.9', c: 'monthly' },
+      { f: 'admision-universitaria.html', u: '/admision-universitaria', p: '0.9', c: 'monthly' },
+      { f: 'memoria-prodigiosa.html', u: '/memoria-prodigiosa', p: '0.9', c: 'monthly' },
+      { f: 'comipems.html', u: '/comipems', p: '0.9', c: 'monthly' },
+      { f: 'diplomado-matematicas-fisica.html', u: '/diplomado-matematicas-fisica', p: '0.8', c: 'monthly' },
+      { f: 'juniormath_v2.html', u: '/juniormath_v2', p: '0.8', c: 'monthly' },
+      { f: 'lectoescritura.html', u: '/lectoescritura', p: '0.8', c: 'monthly' },
+      { f: 'neurocomunicacion.html', u: '/neurocomunicacion', p: '0.8', c: 'monthly' },
+      { f: 'grandes-lideres.html', u: '/grandes-lideres', p: '0.8', c: 'monthly' },
+      { f: 'universidad-dominical.html', u: '/universidad-dominical', p: '0.8', c: 'monthly' },
+      { f: 'regularizacion-express.html', u: '/regularizacion-express', p: '0.8', c: 'monthly' },
+      { f: 'ciencia-astronomia.html', u: '/ciencia-astronomia', p: '0.7', c: 'monthly' },
+      { f: 'alfa-cash.html', u: '/alfa-cash', p: '0.7', c: 'monthly' },
+      { f: 'redaccion-ejecutiva.html', u: '/redaccion-ejecutiva', p: '0.7', c: 'monthly' },
+      { f: 'testimonios.html', u: '/testimonios', p: '0.7', c: 'monthly' },
+      { f: 'blog-index.html', u: '/blog-index', p: '0.7', c: 'weekly' },
+      { f: 'privacidad.html', u: '/privacidad', p: '0.3', c: 'yearly' },
+      { f: 'terminos.html', u: '/terminos', p: '0.3', c: 'yearly' },
+      { f: 'reembolsos.html', u: '/reembolsos', p: '0.3', c: 'yearly' }
+    ];
+    // Blogs: estáticos + generados por Make.com — auto-descubiertos.
+    // AUDITADO: excluye backups y archivos "-old" (no deben indexarse)
+    fs.readdirSync(staticPath)
+      .filter(f => f.startsWith('blog-') && f.endsWith('.html')
+        && f !== 'blog-index.html' && !f.includes('backup') && !f.includes('-old'))
+      .forEach(f => PAGES.push({ f, u: '/' + f.slice(0, -5), p: '0.6', c: 'monthly' }));
 
-        // Evitar duplicados de slug en el JSON
-        const existingIndex = posts.findIndex(p => p.slug === cleanSlug);
-        const postMeta = {
-            title,
-            slug: cleanSlug,
-            filename,
-            category: postCategory,
-            excerpt: postExcerpt,
-            date: postDate,
-            readTime: postReadTime,
-            author: postAuthor,
-            createdAt: new Date().toISOString()
-        };
+    const rows = PAGES.map(pg => {
+      let lastmod = '';
+      try {
+        lastmod = `\n    <lastmod>${fs.statSync(path.join(staticPath, pg.f)).mtime.toISOString().slice(0, 10)}</lastmod>`;
+      } catch (e) { return null; } // archivo inexistente: fuera del sitemap
+      return `  <url>\n    <loc>${BASE}${pg.u}</loc>${lastmod}\n    <changefreq>${pg.c}</changefreq>\n    <priority>${pg.p}</priority>\n  </url>`;
+    }).filter(Boolean).join('\n');
 
-        if (existingIndex !== -1) {
-            posts[existingIndex] = postMeta;
-        } else {
-            posts.unshift(postMeta); // Agregar al inicio para mostrar los más nuevos primero
-        }
-
-        fs.writeFileSync(postsJsonPath, JSON.stringify(posts, null, 2));
-
-        res.json({ 
-            success: true, 
-            url: `/${filename}`, 
-            slug: cleanSlug,
-            message: 'Artículo publicado con éxito en tu API propia' 
-        });
-    } catch (error) {
-        console.error('Error al guardar el post:', error);
-        res.status(500).json({ error: 'Error interno del servidor al publicar' });
-    }
+    sitemapCache = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${rows}\n</urlset>`;
+    sitemapCacheAt = Date.now();
+  }
+  res.setHeader('Content-Type', 'application/xml; charset=utf-8');
+  res.setHeader('Cache-Control', 'public, max-age=3600');
+  res.send(sitemapCache);
 });
 
+// ─────────────────────────────────────────────────────────────
+// 8) HEADERS COMPARTIDOS — una sola fuente de verdad
+//    (los usan express.static Y las rutas limpias; antes las
+//    rutas limpias con sendFile se saltaban todos los headers)
+// ─────────────────────────────────────────────────────────────
+function applyFileHeaders(res, filePath) {
+  if (filePath.endsWith('.html')) {
+    // HTML siempre fresco: cambios visibles al instante para Googlebot y usuarios
+    res.setHeader('Cache-Control', 'no-cache, must-revalidate');
+    res.setHeader('X-Robots-Tag', 'index, follow, max-image-preview:large');
+  } else if (/\.(js|css|webp|jpg|jpeg|png|svg|woff2|woff|mp4)$/.test(filePath)) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+  }
+  if (filePath.endsWith('robots.txt')) {
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+  }
+}
 
-// 301 Redirects for legacy URLs
-app.use((req, res, next) => {
-    const redirects = {
-        '/curso-de-desarrollo-humanista': '/neurocomunicacion.html',
-        '/curso-de-desarrollo-humanista/': '/neurocomunicacion.html',
-        '/curso-de-verano-2026': '/index.html',
-        '/curso-de-verano-2026/': '/index.html',
-        '/curso-de-neurocomunicacion': '/neurocomunicacion.html',
-        '/curso-de-neurocomunicacion/': '/neurocomunicacion.html',
-        '/expansion-de-vocabulario': '/lectoescritura.html',
-        '/expansion-de-vocabulario/': '/lectoescritura.html',
-        '/desarrollo-humanista': '/neurocomunicacion.html',
-        '/desarrollo-humanista/': '/neurocomunicacion.html',
-        '/curso-neuro-comunicacion-2026': '/neurocomunicacion.html',
-        '/curso-neuro-comunicacion-2026/': '/neurocomunicacion.html',
-        '/fastkids': '/fastkids.html',
-        '/fastkids/': '/fastkids.html',
-        '/mathekids': '/mathekids.html',
-        '/mathekids/': '/mathekids.html',
-        '/lectoescritura': '/lectoescritura.html',
-        '/lectoescritura/': '/lectoescritura.html',
-        '/robotics-code-robotica-para-mentes-brillantes': '/robotics.html',
-        '/robotics-code-robotica-para-mentes-brillantes/': '/robotics.html',
-        '/fotolectura-lectura-rapida': '/fotolectura.html',
-        '/fotolectura-lectura-rapida/': '/fotolectura.html',
-        '/cursos': '/index.html',
-        '/cursos/': '/index.html',
-        '/courses/marketing-2023-complete-guide-to-social-growth': '/index.html',
-        '/courses/marketing-2023-complete-guide-to-social-growth/': '/index.html'
-    };
-
-    const target = redirects[req.path];
-    if (target) {
-        return res.redirect(301, target);
-    }
-    next();
-});
-
-// Servir archivos estáticos desde la raíz
+// Archivos estáticos (css, js, imágenes; el sitemap ya fue interceptado arriba)
 app.use(express.static(staticPath, {
-    maxAge: '1d',
-    setHeaders: (res, filePath) => {
-        if (filePath.match(/\.(js|css|webp|jpg|jpeg|png|svg|woff2|woff|mp4)$/)) {
-            res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
-        }
-        // SEO: Proper cache for sitemap and robots
-        if (filePath.endsWith('sitemap.xml')) {
-            res.setHeader('Cache-Control', 'public, max-age=86400');
-            res.setHeader('Content-Type', 'application/xml; charset=utf-8');
-        }
-        if (filePath.endsWith('robots.txt')) {
-            res.setHeader('Cache-Control', 'public, max-age=86400');
-            res.setHeader('Content-Type', 'text/plain; charset=utf-8');
-        }
-        // SEO: X-Robots-Tag header for all HTML pages
-        if (filePath.endsWith('.html')) {
-            res.setHeader('X-Robots-Tag', 'index, follow, max-image-preview:large');
-        }
-    }
+  setHeaders: applyFileHeaders,
+  index: 'index.html'
 }));
 
-// Rutas amigables (ej: /robotics carga robotics.html)
+// ─────────────────────────────────────────────────────────────
+// 9) RUTAS LIMPIAS — /fotolectura sirve fotolectura.html
+//    con status 200 y los MISMOS headers que el estático.
+//    AUDITADO: nunca sirve backups ni archivos ocultos.
+// ─────────────────────────────────────────────────────────────
 app.get('/:page', (req, res, next) => {
-    const page = req.params.page;
-    if (page.includes('.')) return next();
-
-    const filePath = path.join(staticPath, `${page}.html`);
-    if (fs.existsSync(filePath)) {
-        return res.sendFile(filePath);
-    }
-    next();
+  const page = req.params.page;
+  if (page.includes('.') || page.includes('backup') || page.includes('-old')) return next();
+  const filePath = path.join(staticPath, `${page}.html`);
+  // path.join + validación: sin traversal posible (":page" no admite "/")
+  if (fs.existsSync(filePath)) {
+    applyFileHeaders(res, filePath);
+    return res.sendFile(filePath);
+  }
+  next();
 });
 
-// Fallback a index.html
-app.get('*', (req, res) => {
-    res.sendFile(path.join(staticPath, 'index.html'));
+// ─────────────────────────────────────────────────────────────
+// 10) 404 REAL — el fin del soft-404. Última línea de defensa.
+// ─────────────────────────────────────────────────────────────
+app.use((req, res) => {
+  res.status(404);
+  res.setHeader('X-Robots-Tag', 'noindex');
+  const nf = path.join(staticPath, '404.html');
+  if (fs.existsSync(nf)) return res.sendFile(nf);
+  res.type('html').send('<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>404</title></head><body style="font-family:sans-serif;text-align:center;padding:4rem"><h1>404</h1><p>Esta página no existe.</p><a href="/">← Volver al inicio</a></body></html>');
 });
 
 app.listen(PORT, () => {
-    console.log(`🚀 Servidor listo en puerto ${PORT}`);
+  console.log(`🚀 Servidor listo en puerto ${PORT} — canónica: ${BASE}`);
 });

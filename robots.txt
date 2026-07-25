@@ -1,27 +1,43 @@
-# robots.txt - WorldBrain Mexico / UltraVelozmente
+# robots.txt — WorldBrain México / UltraVelozmente
 # https://ultravelozmente.com
 
 User-agent: *
 Allow: /
 
-# Block private/API areas
+# Privado / interno
 Disallow: /api/
+Disallow: /data/
 Disallow: /node_modules/
+Disallow: /graphify-out/
 Disallow: /js/capi.js
-Disallow: /redaccion-ejecutiva/_next/
 Disallow: /*.py$
+Disallow: /*backup*
+Disallow: /*-old*
 
-# Allow all public resources for rendering
+# URLs .html: canónicas son las limpias (el server hace 301, esto ahorra crawl budget)
+Disallow: /*.html$
+Allow: /*.html?*
+
+# Recursos de renderizado
 Allow: /css/
 Allow: /js/
 Allow: /images/
 
-# Sitemaps
 Sitemap: https://ultravelozmente.com/sitemap.xml
 
-# Crawl-delay (optional, for polite crawlers)
+# Crawlers SEO de terceros: educados
 User-agent: AhrefsBot
 Crawl-delay: 10
 
 User-agent: SemrushBot
 Crawl-delay: 10
+
+# Crawlers de IA — tus cursos citables en ChatGPT/Perplexity/Claude = tráfico nuevo
+User-agent: GPTBot
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /

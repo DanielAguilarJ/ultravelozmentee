@@ -361,16 +361,20 @@ main .kicker + h2{ margin-top:.2rem; }
 /* 4. Textura de papel sutil (grain SVG inline, cero requests) */
 body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
 
-/* 5. Stagger: los hijos revelados entran en cascada (JS pone --d) */
-.rv{transition-delay:calc(var(--d,0)*90ms)}
-
-/* 6. Pulido óptico fino */
+/* 5. Pulido óptico fino */
 .hero h1{text-wrap:balance}
 .h2,main h2{text-wrap:balance}
 main p,.lead{text-wrap:pretty}
 .spec dd,.stat .n,.spec-cd .n{font-variant-numeric:tabular-nums}
 .doc table{font-variant-numeric:tabular-nums}
 html{-webkit-text-size-adjust:100%}
+
+/* Botón variante papel: autocontenido para fondos oscuros */
+.btn-paper{background:transparent;border-color:var(--paper);color:var(--paper)}
+.btn-paper:hover{background:var(--accent);border-color:var(--accent);color:var(--paper)}
+/* El h2 final decide sus propios saltos según viewport */
+.final h2{max-width:18ch;text-wrap:balance}
+
 
 
 

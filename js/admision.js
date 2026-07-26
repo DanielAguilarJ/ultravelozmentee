@@ -34,14 +34,26 @@
   }, { passive: true });
   onScroll();
 
-  /* ---------- 3. Reveal on scroll (one-shot: libera memoria al desconectar) ---------- */
+  /* ---------- 3. Reveal con stagger emergente ----------
+     Los elementos que entran JUNTOS al viewport se escalonan entre sí.
+     El delay se aplica al momento de revelar y SE LIMPIA al terminar:
+     el DOM queda sin estilos inline. Cero configuración manual. */
+  const STAGGER_MS = 80;
+  const STAGGER_MAX = 6;
   const revealIO = new IntersectionObserver((entries) => {
-    for (const e of entries) {
-      if (e.isIntersecting) {
-        e.target.classList.add("on");
-        revealIO.unobserve(e.target);
-      }
-    }
+    entries
+      .filter((e) => e.isIntersecting)
+      .forEach((e, i) => {
+        const el = e.target;
+        el.style.transitionDelay = `${Math.min(i, STAGGER_MAX) * STAGGER_MS}ms`;
+        el.classList.add("on");
+        el.addEventListener(
+          "transitionend",
+          () => { el.style.transitionDelay = ""; },
+          { once: true }
+        );
+        revealIO.unobserve(el);
+      });
   }, { threshold: 0.12, rootMargin: "0px 0px -40px" });
   $$(".rv").forEach((el) => revealIO.observe(el));
 
@@ -135,14 +147,6 @@
     });
     addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
   }
-
-  /* ---------- 9. Stagger automático: asigna --d según orden entre hermanos.
-        Cero clases manuales; la cascada emerge del DOM. ---------- */
-  $$(".rv").forEach((el) => {
-    const sibs = el.parentElement
-      ? [...el.parentElement.children].filter((c) => c.classList.contains("rv"))
-      : [el];
-    el.style.setProperty("--d", sibs.indexOf(el));
-  });
 })();
+
 

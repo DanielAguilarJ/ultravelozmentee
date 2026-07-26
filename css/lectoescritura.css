@@ -1228,3 +1228,678 @@ main#main-content *::after {
 
     .lecto-stats { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ══════════════════════════════════════════════════════
+   Adaptación senior: responsive, contraste y reflujo
+   ══════════════════════════════════════════════════════ */
+
+:root {
+    --lecto-action: #c2410c;
+    --lecto-action-hover: #9a3412;
+    --lecto-action-text: #ffffff;
+    --lecto-content-max: 1128px;
+    color-scheme: dark;
+}
+
+.light-mode {
+    --lecto-ink-faint: #625b76;
+    --lecto-green: #166534;
+    --lecto-action: #c2410c;
+    --lecto-action-hover: #9a3412;
+    color-scheme: light;
+}
+
+html {
+    scroll-padding-top: 110px;
+}
+
+body {
+    overflow-x: clip;
+}
+
+main#main-content {
+    width: 100%;
+    overflow: clip;
+    background: var(--lecto-bg);
+}
+
+main#main-content .container {
+    width: 100%;
+    max-width: var(--lecto-content-max);
+    margin-inline: auto;
+    padding-inline: 24px;
+}
+
+main#main-content .container-narrow {
+    width: 100%;
+    max-width: 808px;
+    margin-inline: auto;
+    padding-inline: 24px;
+}
+
+.footer-modern .container {
+    width: min(calc(100% - 48px), 1200px);
+    max-width: 1200px;
+    margin-inline: auto;
+    padding-inline: 0;
+}
+
+#problema,
+#metodo,
+#programa,
+#beneficios,
+#testimonios,
+#faq,
+#inscripcion {
+    scroll-margin-top: 110px;
+}
+
+.lecto-hero,
+.lecto-section {
+    width: 100%;
+}
+
+.lecto-hero {
+    padding-block:
+        clamp(118px, 11vw, 156px)
+        clamp(58px, 7vw, 78px);
+}
+
+.lecto-section {
+    padding-block: clamp(64px, 8vw, 96px);
+}
+
+.lecto-hero-grid,
+.lecto-cards-3,
+.lecto-grid-6,
+.lecto-booking,
+.lecto-stats {
+    min-width: 0;
+}
+
+.lecto-hero-grid > *,
+.lecto-cards-3 > *,
+.lecto-grid-6 > *,
+.lecto-booking > *,
+.lecto-stats > * {
+    min-width: 0;
+}
+
+.lecto-hero-copy h1,
+.section-head h2 {
+    overflow-wrap: break-word;
+}
+
+@supports (text-wrap: balance) {
+    .lecto-hero-copy h1,
+    .section-head h2,
+    .lecto-card h3,
+    .lecto-mini h3,
+    .lecto-offer-card h3 {
+        text-wrap: balance;
+    }
+}
+
+.lecto-lead,
+.section-sub,
+.lecto-card p,
+.lecto-mini p,
+.lecto-quote blockquote,
+.lecto-faq p {
+    overflow-wrap: break-word;
+}
+
+/* Botones con contraste AA y área táctil suficiente */
+
+.btn-lecto-primary {
+    min-height: 48px;
+    background: var(--lecto-action);
+    color: var(--lecto-action-text);
+    line-height: 1.25;
+}
+
+.btn-lecto-primary:hover {
+    background: var(--lecto-action-hover);
+    box-shadow: 0 8px 24px rgba(154, 52, 18, 0.32);
+}
+
+.btn-lecto-primary:focus-visible,
+.btn-lecto-ghost:focus-visible,
+.demo-tab:focus-visible,
+.btn-demo-play:focus-visible,
+.booking-back:focus-visible,
+.course-time-slot:focus-visible,
+.field-check input:focus-visible {
+    outline: 3px solid var(--lecto-accent);
+    outline-offset: 3px;
+}
+
+.btn-lecto-ghost,
+.demo-tab,
+.btn-demo-play,
+.booking-back,
+.course-time-slot {
+    min-height: 44px;
+}
+
+.btn-lecto-ghost {
+    line-height: 1.25;
+}
+
+/* Hero */
+
+.lecto-hero-grid {
+    grid-template-columns:
+        minmax(0, 1.04fr)
+        minmax(360px, 0.96fr);
+    gap: clamp(40px, 5vw, 64px);
+}
+
+.lecto-hero-copy h1 {
+    font-size: clamp(2.5rem, 4.8vw, 3.65rem);
+    max-width: 16ch;
+}
+
+.lecto-lead {
+    max-width: 58ch;
+}
+
+.lecto-trustline {
+    max-width: 62ch;
+    line-height: 1.6;
+}
+
+.lecto-stats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: clamp(18px, 3vw, 30px);
+}
+
+.lecto-stats strong,
+.lecto-stats span {
+    overflow-wrap: break-word;
+}
+
+/* Demo interactiva */
+
+.lecto-demo-card {
+    width: 100%;
+    max-width: 560px;
+    justify-self: end;
+    overflow: hidden;
+    user-select: text;
+    -webkit-user-select: text;
+}
+
+.demo-tabs {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.demo-tab {
+    min-width: 0;
+    line-height: 1.35;
+}
+
+.demo-stage {
+    overflow: hidden;
+}
+
+.demo-text {
+    overflow-wrap: anywhere;
+}
+
+.demo-actions {
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    align-items: center;
+}
+
+.demo-compare {
+    width: 100%;
+    min-width: 0;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto minmax(0, 1fr);
+    gap: 10px;
+}
+
+.demo-compare.is-hidden {
+    display: none;
+}
+
+.compare-col,
+.compare-value,
+.compare-label {
+    min-width: 0;
+}
+
+.demo-micro-cta {
+    max-width: 100%;
+    align-items: flex-start;
+    line-height: 1.5;
+}
+
+.demo-micro-cta span {
+    min-width: 0;
+    overflow-wrap: break-word;
+}
+
+/* Tarjetas */
+
+.lecto-cards-3,
+.lecto-grid-6 {
+    align-items: stretch;
+}
+
+.lecto-card,
+.lecto-quote,
+.lecto-offer-card {
+    width: 100%;
+    height: 100%;
+}
+
+.lecto-card,
+.lecto-offer-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.lecto-card p,
+.lecto-offer-card p {
+    overflow-wrap: break-word;
+}
+
+.lecto-offer-card .offer-price {
+    margin-top: auto;
+    margin-bottom: 0;
+    padding-top: 8px;
+}
+
+.lecto-mini {
+    height: 100%;
+}
+
+.lecto-pullquote {
+    max-width: 680px;
+}
+
+/* Pasos */
+
+.lecto-steps {
+    max-width: 860px;
+}
+
+.lecto-step {
+    grid-template-columns: 52px minmax(0, 1fr);
+}
+
+.lecto-step > div {
+    min-width: 0;
+}
+
+/* FAQ */
+
+.lecto-faq summary {
+    min-height: 64px;
+    display: flex;
+    align-items: center;
+    line-height: 1.45;
+    overflow-wrap: break-word;
+}
+
+.lecto-faq summary::after {
+    line-height: 1;
+}
+
+/* Formulario */
+
+.lecto-booking {
+    grid-template-columns:
+        minmax(0, 0.88fr)
+        minmax(0, 1.12fr);
+    align-items: start;
+}
+
+.booking-aside,
+.booking-widget {
+    min-width: 0;
+}
+
+.booking-widget {
+    overflow: clip;
+}
+
+.booking-step h3,
+.booking-success h3 {
+    font-family: var(--lecto-serif);
+    font-size: 1.25rem;
+    font-weight: 520;
+    line-height: 1.2;
+    color: var(--lecto-ink);
+    margin: 0 0 22px;
+}
+
+.booking-step2-head h3 {
+    margin: 0;
+}
+
+.field input,
+.field select {
+    min-width: 0;
+    min-height: 48px;
+    line-height: 1.3;
+}
+
+.field-help {
+    display: block;
+    margin-top: 7px;
+    font-family: var(--lecto-sans);
+    font-size: 0.78rem;
+    line-height: 1.5;
+    color: var(--lecto-ink-faint);
+}
+
+.field-check {
+    align-items: flex-start;
+    cursor: default;
+}
+
+.field-check input {
+    width: 20px;
+    height: 20px;
+    margin-top: 2px;
+}
+
+.field-check label {
+    min-width: 0;
+    cursor: pointer;
+}
+
+.field-check a {
+    overflow-wrap: anywhere;
+}
+
+.booking-back {
+    padding: 8px 10px;
+    border-radius: 8px;
+}
+
+.lecto-slots {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.course-time-slot {
+    min-width: 0;
+    min-height: 46px;
+    background: transparent;
+    text-decoration: none;
+}
+
+.course-time-slot.selected {
+    background: var(--lecto-action);
+    border-color: var(--lecto-action);
+    color: var(--lecto-action-text);
+}
+
+.course-time-slot.booked,
+.course-time-slot:disabled {
+    opacity: 0.55;
+}
+
+/* Barra móvil */
+
+.lecto-sticky-cta[hidden] {
+    display: none !important;
+}
+
+.lecto-sticky-cta {
+    left: max(12px, calc(50% - 360px));
+    right: max(12px, calc(50% - 360px));
+    bottom: max(12px, env(safe-area-inset-bottom));
+    padding-bottom: max(12px, env(safe-area-inset-bottom));
+}
+
+.floating-whatsapp {
+    bottom: calc(96px + env(safe-area-inset-bottom));
+}
+
+/* Reveal progresivo: el contenido permanece visible si falla JS */
+
+.reveal {
+    opacity: 1;
+    transform: none;
+}
+
+html.lecto-enhanced .reveal {
+    opacity: 0;
+    transform: translateY(14px);
+}
+
+html.lecto-enhanced .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* Tablet y pantallas medianas */
+
+@media (max-width: 1023px) {
+    .lecto-hero-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 42px;
+    }
+
+    .lecto-hero-copy {
+        max-width: 760px;
+    }
+
+    .lecto-demo-card {
+        max-width: 720px;
+        justify-self: center;
+    }
+
+    .lecto-booking {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+@media (min-width: 768px) and (max-width: 959px) {
+    .lecto-cards-3 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .lecto-grid-6 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+/* Móvil */
+
+@media (max-width: 767px) {
+    main#main-content .container,
+    main#main-content .container-narrow {
+        padding-inline: 20px;
+    }
+
+    .footer-modern .container {
+        width: min(calc(100% - 40px), 1200px);
+    }
+
+    .lecto-hero {
+        padding-top: 112px;
+        padding-bottom: 54px;
+    }
+
+    .lecto-section {
+        padding-block: 58px;
+    }
+
+    .section-head {
+        margin-bottom: 38px;
+    }
+
+    .lecto-hero-copy h1 {
+        max-width: 100%;
+        font-size: clamp(2.15rem, 11vw, 3rem);
+        line-height: 1.1;
+    }
+
+    .lecto-hero-copy h1 br,
+    .section-head h2 br {
+        display: none;
+    }
+
+    .lecto-hero-ctas {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lecto-hero-ctas .btn-lecto-primary,
+    .lecto-hero-ctas .btn-lecto-ghost {
+        width: 100%;
+    }
+
+    .lecto-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 22px 16px;
+    }
+
+    .lecto-cards-3,
+    .lecto-grid-6 {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .demo-actions {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .btn-demo-play {
+        justify-content: center;
+        width: 100%;
+    }
+
+    .lecto-step {
+        grid-template-columns: 44px minmax(0, 1fr);
+        gap: 15px;
+    }
+
+    .step-num {
+        width: 40px;
+        height: 40px;
+    }
+
+    .lecto-pullquote {
+        padding-left: 18px;
+    }
+
+    .booking-aside,
+    .booking-step {
+        padding: 28px 24px;
+    }
+
+    .booking-step2-head {
+        gap: 14px;
+    }
+
+    .lecto-slots {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .booking-success-actions {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .booking-success-actions .btn-lecto-primary,
+    .booking-success-actions .btn-lecto-ghost {
+        width: 100%;
+    }
+}
+
+@media (max-width: 420px) {
+    main#main-content .container,
+    main#main-content .container-narrow {
+        padding-inline: 16px;
+    }
+
+    .footer-modern .container {
+        width: min(calc(100% - 32px), 1200px);
+    }
+
+    .lecto-demo-card {
+        padding: 20px 16px;
+    }
+
+    .demo-tabs {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .demo-compare {
+        padding-inline: 10px;
+    }
+
+    .booking-aside,
+    .booking-step {
+        padding: 24px 18px;
+    }
+
+    .sticky-copy span {
+        display: none;
+    }
+
+    .sticky-copy strong {
+        font-size: 0.86rem;
+    }
+}
+
+@media (max-width: 360px) {
+    .lecto-stats {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lecto-slots {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .lecto-sticky-cta {
+        gap: 8px;
+        padding-inline: 14px;
+    }
+
+    .lecto-sticky-cta .btn-sm {
+        padding-inline: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto !important;
+    }
+
+    html.lecto-enhanced .reveal,
+    .lecto-sticky-cta,
+    .floating-whatsapp,
+    .demo-progress-bar,
+    .demo-text .chunk {
+        opacity: 1;
+        transform: none;
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+@media (forced-colors: active) {
+    .btn-lecto-primary,
+    .btn-lecto-ghost,
+    .demo-tab,
+    .btn-demo-play,
+    .course-time-slot {
+        border: 1px solid ButtonText;
+    }
+
+    .demo-tab.is-active,
+    .course-time-slot.selected {
+        forced-color-adjust: none;
+        background: Highlight;
+        border-color: Highlight;
+        color: HighlightText;
+    }
+}
+

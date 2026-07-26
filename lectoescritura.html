@@ -72,8 +72,7 @@
 
     <!-- CSS del sitio -->
     <link rel="stylesheet" href="css/styles.min.css">
-    <link rel="stylesheet" href="css/footer-modern.min.css" media="print" onload="this.media='all'">
-    <noscript><link rel="stylesheet" href="css/footer-modern.min.css"></noscript>
+    <link rel="stylesheet" href="css/footer-modern.min.css">
     <link rel="stylesheet" href="css/navbar-unified.min.css">
     <!-- CSS propio de la página -->
     <link rel="stylesheet" href="css/lectoescritura.css">
@@ -288,7 +287,10 @@
 
     <!-- Mobile Menu Panel -->
     <div class="nav-mobile-overlay" id="navMobileOverlay"></div>
-    <div class="nav-mobile-panel" id="navMobilePanel" aria-hidden="true">
+    <div class="nav-mobile-panel"
+         id="navMobilePanel"
+         aria-hidden="true"
+         inert>
         <button class="nav-pill-link mobile-dropdown-toggle" id="mobileDropdownBtn" aria-expanded="false">
             Cursos <i class="fas fa-chevron-down" style="transition: transform 0.2s ease;"></i>
         </button>
@@ -343,60 +345,106 @@
                     </div>
 
                     <!-- B · WIDGET interactivo -->
-                    <div class="lecto-demo-card" id="lecto-demo"
-                         aria-label="Demo interactiva: c&oacute;mo lee tu hijo hoy vs. c&oacute;mo va a leer">
-                        <div class="demo-head">
-                            <span class="demo-kicker">Pru&eacute;balo t&uacute;</span>
-                            <h2 class="demo-title">As&iacute; se siente leer para tu hijo</h2>
-                        </div>
+<div class="lecto-demo-card"
+     id="lecto-demo"
+     role="region"
+     aria-labelledby="demo-title"
+     aria-describedby="demo-help">
 
-                        <div class="demo-tabs" role="tablist" aria-label="Modos de lectura">
-                            <button class="demo-tab is-active" id="tab-silabeo" role="tab"
-                                    aria-selected="true" aria-controls="demo-stage" data-mode="silabeo">
-                                Lectura silabeada
-                            </button>
-                            <button class="demo-tab" id="tab-fluida" role="tab"
-                                    aria-selected="false" aria-controls="demo-stage" data-mode="fluida">
-                                Lectura fluida
-                            </button>
-                        </div>
+    <div class="demo-head">
+        <span class="demo-kicker">Pruébalo tú</span>
+        <h2 class="demo-title" id="demo-title">
+            Así se siente leer para tu hijo
+        </h2>
+    </div>
 
-                        <div class="demo-stage" id="demo-stage" role="tabpanel" aria-labelledby="tab-silabeo">
-                            <p class="demo-text" id="demo-text" aria-hidden="true"></p>
-                            <div class="demo-progress" aria-hidden="true">
-                                <div class="demo-progress-bar" id="demo-progress"></div>
-                            </div>
-                        </div>
+    <div class="demo-tabs"
+         role="tablist"
+         aria-label="Modos de lectura">
 
-                        <p class="demo-status" id="demo-status" aria-live="polite">
-                            Elige un modo y presiona &laquo;Leer&raquo; para ver la diferencia.
-                        </p>
+        <button class="demo-tab is-active"
+                id="tab-silabeo"
+                type="button"
+                role="tab"
+                tabindex="0"
+                aria-selected="true"
+                aria-controls="demo-stage"
+                data-mode="silabeo">
+            Lectura silabeada
+        </button>
 
-                        <div class="demo-actions">
-                            <button class="btn-demo-play" id="demo-play" type="button">
-                                <i class="fas fa-play" aria-hidden="true"></i> Leer
-                            </button>
-                            <div class="demo-compare is-hidden" id="demo-compare" aria-live="polite">
-                                <div class="compare-col">
-                                    <span class="compare-value" id="compare-silabeo">&mdash;</span>
-                                    <span class="compare-label">silabeando</span>
-                                </div>
-                                <div class="compare-vs" aria-hidden="true">vs</div>
-                                <div class="compare-col">
-                                    <span class="compare-value" id="compare-fluida">&mdash;</span>
-                                    <span class="compare-label">con fluidez</span>
-                                </div>
-                            </div>
-                        </div>
+        <button class="demo-tab"
+                id="tab-fluida"
+                type="button"
+                role="tab"
+                tabindex="-1"
+                aria-selected="false"
+                aria-controls="demo-stage"
+                data-mode="fluida">
+            Lectura fluida
+        </button>
+    </div>
 
-                        <p class="demo-footnote">
-                            Esta es la diferencia entre <strong>descifrar</strong> y <strong>leer</strong>. Y se entrena.
-                        </p>
-                        <a class="demo-micro-cta" href="#inscripcion">
-                            En la clase gratis, tu hijo hace este ejercicio con un instructor
-                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
-                        </a>
-                    </div>
+    <div class="demo-stage"
+         id="demo-stage"
+         role="tabpanel"
+         tabindex="0"
+         aria-labelledby="tab-silabeo">
+
+        <p class="demo-text" id="demo-text"></p>
+
+        <div class="demo-progress" aria-hidden="true">
+            <div class="demo-progress-bar" id="demo-progress"></div>
+        </div>
+    </div>
+
+    <p class="demo-status"
+       id="demo-status"
+       role="status"
+       aria-live="polite"
+       aria-atomic="true">
+        Elige un modo y presiona «Leer» para ver la diferencia.
+    </p>
+
+    <div class="demo-actions">
+        <button class="btn-demo-play"
+                id="demo-play"
+                type="button"
+                aria-controls="demo-stage demo-status">
+            <i class="fas fa-play" aria-hidden="true"></i>
+            <span>Leer</span>
+        </button>
+
+        <div class="demo-compare is-hidden"
+             id="demo-compare"
+             role="status"
+             aria-live="polite"
+             aria-atomic="true">
+
+            <div class="compare-col">
+                <span class="compare-value" id="compare-silabeo">—</span>
+                <span class="compare-label">silabeando</span>
+            </div>
+
+            <div class="compare-vs" aria-hidden="true">vs</div>
+
+            <div class="compare-col">
+                <span class="compare-value" id="compare-fluida">—</span>
+                <span class="compare-label">con fluidez</span>
+            </div>
+        </div>
+    </div>
+
+    <p class="demo-footnote" id="demo-help">
+        Esta es la diferencia entre <strong>descifrar</strong> y
+        <strong>leer</strong>. Y se entrena.
+    </p>
+
+    <a class="demo-micro-cta" href="#inscripcion">
+        <span>En la clase gratis, tu hijo hace este ejercicio con un instructor</span>
+        <i class="fas fa-arrow-right" aria-hidden="true"></i>
+    </a>
+</div>
 
                 </div>
 
@@ -721,83 +769,188 @@
                     </aside>
 
                     <!-- Formulario de 2 pasos — usa los mismos IDs que booking.js -->
-                    <div class="booking-widget" id="booking-widget">
+<div class="booking-widget course-booking-card"
+     id="booking-widget"
+     aria-label="Formulario para agendar una clase gratuita">
 
-                        <!-- Paso 1: datos de contacto -->
-                        <div id="booking-step-1" class="booking-step">
-                            <h4>1 &middot; Tus datos</h4>
-                            <form id="contact-form" onsubmit="return false;">
-                                <div class="field">
-                                    <label for="client-name">Nombre del ni&ntilde;o / de la ni&ntilde;a</label>
-                                    <input type="text" id="client-name" required autocomplete="name"
-                                           placeholder="Nombre completo">
-                                </div>
-                                <div class="field">
-                                    <label for="client-phone">WhatsApp de pap&aacute; o mam&aacute;</label>
-                                    <input type="tel" id="client-phone" required autocomplete="tel"
-                                           placeholder="55 1234 5678">
-                                </div>
-                                <div class="field">
-                                    <label for="course-select">Curso de inter&eacute;s</label>
-                                    <select id="course-select">
-                                        <option value="Lectoescritura" selected>Lectoescritura</option>
-                                        <option value="Otro">Otro / No estoy seguro</option>
-                                    </select>
-                                </div>
-                                <label class="field-check">
-                                    <input type="checkbox" class="acepto-terminos-global" required>
-                                    <span>He le&iacute;do y acepto los <a href="terminos.html" target="_blank">T&eacute;rminos y
-                                        Condiciones</a>, la <a href="privacidad.html" target="_blank">Pol&iacute;tica de
-                                        Privacidad</a> y la <a href="reembolsos.html" target="_blank">Pol&iacute;tica de
-                                        Devoluciones y Reembolsos</a>.</span>
-                                </label>
-                                <button type="button" onclick="goToStep2()" class="btn-lecto-primary btn-block">
-                                    Siguiente: elegir horario
-                                </button>
-                                <p class="booking-legal-line">Al agendar aceptas los
-                                    <a href="terminos.html">T&eacute;rminos y Condiciones</a> y el
-                                    <a href="privacidad.html">Aviso de Privacidad</a>.</p>
-                            </form>
-                            <a class="booking-alt"
-                               href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20la%20clase%20muestra%20gratuita%20de%20Lectoescritura%20para%20mi%20hijo">
-                                Prefiero agendar por WhatsApp
-                            </a>
-                        </div>
+    <!-- Paso 1 -->
+    <div id="booking-step-1"
+         class="booking-step"
+         aria-hidden="false">
 
-                        <!-- Paso 2: selector de fecha y horario -->
-                        <div id="booking-step-2" class="booking-step" style="display:none;">
-                            <div class="booking-step2-head">
-                                <h4>2 &middot; Selecciona horario</h4>
-                                <button onclick="goToStep1()" class="booking-back" type="button">&larr; Volver</button>
-                            </div>
-                            <div class="field">
-                                <label for="date-picker">Fecha</label>
-                                <input type="date" id="date-picker" onchange="loadTimeSlots()">
-                            </div>
-                            <div id="slots-container" class="lecto-slots">
-                                <p class="slots-placeholder">Selecciona una fecha para ver horarios disponibles.</p>
-                            </div>
-                        </div>
+        <h3 tabindex="-1">1 · Tus datos</h3>
 
-                        <!-- Paso 3: confirmación -->
-                        <div id="booking-step-3" class="booking-step" style="display:none;">
-                            <div class="booking-success">
-                                <div class="success-check" aria-hidden="true">&#10003;</div>
-                                <h4>&iexcl;Cita confirmada!</h4>
-                                <p class="booking-success-msg">Reservamos su lugar.
-                                    Te contactaremos por WhatsApp para confirmar los detalles.</p>
-                                <div class="booking-success-actions">
-                                    <a id="gcal-btn" href="#" target="_blank" class="btn-lecto-primary btn-block">
-                                        Guardar en Google Calendar
-                                    </a>
-                                    <a href="tel:+525578107837" class="btn-lecto-ghost btn-block">
-                                        Llamar ahora
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+        <form id="contact-form">
+            <div class="field">
+                <label for="client-name">
+                    Nombre del niño o de la niña
+                </label>
 
-                    </div>
+                <input type="text"
+                       id="client-name"
+                       name="child-name"
+                       required
+                       minlength="2"
+                       maxlength="80"
+                       autocomplete="off"
+                       placeholder="Nombre completo">
+            </div>
+
+            <div class="field">
+                <label for="client-phone">
+                    WhatsApp de papá o mamá
+                </label>
+
+                <input type="tel"
+                       id="client-phone"
+                       name="phone"
+                       required
+                       minlength="10"
+                       maxlength="20"
+                       inputmode="tel"
+                       autocomplete="tel"
+                       pattern="[0-9+() .-]{10,20}"
+                       aria-describedby="phone-help"
+                       placeholder="55 1234 5678">
+
+                <small class="field-help" id="phone-help">
+                    Escribe al menos 10 dígitos. Puedes usar espacios, paréntesis o guiones.
+                </small>
+            </div>
+
+            <div class="field">
+                <label for="course-select">
+                    Curso de interés
+                </label>
+
+                <select id="course-select"
+                        name="course"
+                        required>
+                    <option value="Lectoescritura" selected>
+                        Lectoescritura
+                    </option>
+                    <option value="Otro">
+                        Otro / No estoy seguro
+                    </option>
+                </select>
+            </div>
+
+            <div class="field-check">
+                <input type="checkbox"
+                       id="booking-consent"
+                       class="acepto-terminos-global"
+                       required>
+
+                <label for="booking-consent">
+                    He leído y acepto los
+                    <a href="terminos.html"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Términos y Condiciones
+                    </a>,
+                    la
+                    <a href="privacidad.html"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Política de Privacidad
+                    </a>
+                    y la
+                    <a href="reembolsos.html"
+                       target="_blank"
+                       rel="noopener noreferrer">
+                        Política de Devoluciones y Reembolsos
+                    </a>.
+                </label>
+            </div>
+
+            <button type="submit"
+                    id="booking-next"
+                    class="btn-lecto-primary btn-block">
+                Siguiente: elegir horario
+            </button>
+        </form>
+
+        <a class="booking-alt"
+           href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20la%20clase%20muestra%20gratuita%20de%20Lectoescritura%20para%20mi%20hijo">
+            Prefiero agendar por WhatsApp
+        </a>
+    </div>
+
+    <!-- Paso 2 -->
+    <div id="booking-step-2"
+         class="booking-step"
+         style="display:none"
+         aria-hidden="true"
+         inert>
+
+        <div class="booking-step2-head">
+            <h3 tabindex="-1">2 · Selecciona horario</h3>
+
+            <button class="booking-back"
+                    id="booking-back"
+                    type="button">
+                ← Volver
+            </button>
+        </div>
+
+        <div class="field">
+            <label for="date-picker">Fecha</label>
+
+            <input type="date"
+                   id="date-picker"
+                   name="booking-date"
+                   required>
+        </div>
+
+        <div id="slots-container"
+             class="lecto-slots"
+             role="group"
+             aria-label="Horarios disponibles"
+             aria-live="polite">
+
+            <p class="slots-placeholder">
+                Selecciona una fecha para ver horarios disponibles.
+            </p>
+        </div>
+    </div>
+
+    <!-- Paso 3 -->
+    <div id="booking-step-3"
+         class="booking-step"
+         style="display:none"
+         aria-hidden="true"
+         inert>
+
+        <div class="booking-success"
+             role="status"
+             aria-live="polite"
+             aria-atomic="true">
+
+            <div class="success-check" aria-hidden="true">✓</div>
+
+            <h3 tabindex="-1">¡Cita confirmada!</h3>
+
+            <p class="booking-success-msg">
+                Reservamos tu lugar. Te contactaremos por WhatsApp para confirmar los detalles.
+            </p>
+
+            <div class="booking-success-actions">
+                <a id="gcal-btn"
+                   href="#"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="btn-lecto-primary btn-block">
+                    Guardar en Google Calendar
+                </a>
+
+                <a href="tel:+525578107837"
+                   class="btn-lecto-ghost btn-block">
+                    Llamar ahora
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
                 </div>
             </div>
         </section>
@@ -950,13 +1103,22 @@
     </a>
 
     <!-- J · Sticky CTA móvil -->
-    <div class="lecto-sticky-cta" id="lectoMobileBar" aria-hidden="true">
-        <div class="sticky-copy">
-            <strong>Clase gratis + diagn&oacute;stico</strong>
-            <span>Cupos limitados por semana</span>
-        </div>
-        <a href="#inscripcion" class="btn-lecto-primary btn-sm">Agendar</a>
+<div class="lecto-sticky-cta"
+     id="lectoMobileBar"
+     aria-hidden="true"
+     inert
+     hidden>
+
+    <div class="sticky-copy">
+        <strong>Clase gratis + diagnóstico</strong>
+        <span>Cupos limitados por semana</span>
     </div>
+
+    <a href="#inscripcion"
+       class="btn-lecto-primary btn-sm">
+        Agendar
+    </a>
+</div>
 
     <!-- Scripts del sitio — igual que mathekids.html -->
     <script src="js/navbar.min.js" defer></script>
@@ -965,6 +1127,7 @@
     <script src="js/booking.min.js"></script>
     <!-- Script propio de la página -->
     <script src="js/lecto-demo.js" defer></script>
+    <script src="js/lectoescritura-adapter.js" defer></script>
 
     <!-- Clickwrap validation — igual que mathekids.html -->
     <script>

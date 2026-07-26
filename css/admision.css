@@ -241,3 +241,98 @@ main > section.wrap{
       el ritmo lo da el padding de la sección anterior */
 .final{ margin-top: 0; }
 
+/* ================================================================
+   PATCH v1.2 — Escala tipográfica única + defaults defensivos.
+   Regla senior: ningún texto queda sin tamaño ni separación,
+   tenga clase o no. Una sola fuente de verdad (tokens --fs-*).
+   ================================================================ */
+:root{
+  --fs-h1:   clamp(2.6rem, 1.4rem + 5.2vw, 5.4rem);
+  --fs-h2:   clamp(2rem, 1.2rem + 2.8vw, 3.4rem);
+  --fs-h3:   clamp(1.2rem, 1.05rem + .6vw, 1.45rem);
+  --fs-h4:   clamp(1rem, .95rem + .3vw, 1.15rem);
+  --fs-body: clamp(.95rem, .9rem + .25vw, 1.05rem);
+}
+
+/* --- 1. DEFAULTS: cualquier heading/párrafo dentro de main,
+       con o sin clase, recibe tamaño y jerarquía correctos --- */
+main h1{ font:400 var(--fs-h1)/1.05 var(--serif); letter-spacing:-.015em; }
+main h2{ font:600 var(--fs-h2)/1.12 var(--serif); letter-spacing:-.01em; }
+main h3{ font:600 var(--fs-h3)/1.25 var(--serif); }
+main h4{ font:600 var(--fs-h4)/1.3  var(--serif); }
+main p { font-size:var(--fs-body); }
+
+/* --- 2. SEPARACIÓN texto→texto: ningún par pegado ---
+       (margen entre hermanos adyacentes; los grids con gap no se afectan
+        porque gap se suma, y donde hay gap estos márgenes son inocuos) --- */
+main h2 + p{ margin-top:1.1rem; }
+main h3 + p{ margin-top:.5rem; }
+main h4 + p{ margin-top:.35rem; }
+main p + p{ margin-top:.8rem; }
+main .kicker + h1,
+main .kicker + h2{ margin-top:.2rem; }
+
+/* --- 3. Clase .lead (existía en el HTML, faltaba en el CSS) --- */
+.lead{ color:var(--muted); max-width:58ch; font-size:var(--fs-body); margin-top:1.1rem; }
+
+/* --- 4. Re-alinear los tamaños con clase a la MISMA escala
+       (antes cada uno tenía su número mágico) --- */
+.h2{ font-size:var(--fs-h2); }
+.plist h3, .mrow h3{ font-size:var(--fs-h3); }
+.plan h3, .tst .who b{ font-size:var(--fs-h4); }
+.plist p, .mrow p, .plan .mu, .faq .a, .guar p{ font-size:var(--fs-body); }
+
+/* --- 5. Separación interna que faltaba en bloques específicos --- */
+
+/* Hero: subtítulo, CTAs y nota con ritmo escalonado claro */
+.hero .sub{ margin-top:1.8rem; }
+.hero-ctas{ margin-top:2.4rem; }
+.hero-foot{ margin-top:1.5rem; }
+
+/* Diagnóstico y método: aire dentro de cada fila */
+.plist li{ padding-block:2.4rem; }
+.plist h3{ margin-bottom:.4rem; }
+.mrow{ padding-block:2.2rem; }
+
+/* Examen: la tabla no toca las áreas en móvil */
+.exam-grid{ gap:clamp(2rem,3vw,3.5rem); }
+.areas{ margin-top:0; }
+@media(max-width:900px){ .exam-grid > .rv:last-child{ margin-top:.5rem; } }
+
+/* Planes: respiración interna consistente */
+.plan{ gap:1.1rem; }
+.plan .dur{ margin-bottom:.2rem; }
+
+/* Testimonios: cita separada del resultado y del autor */
+.tst{ gap:1.5rem; }
+
+/* Garantía: título → texto → botón con ritmo propio
+   (dentro de .guar hay h2 sin .h2, ya cubierto por defaults del punto 1) */
+.guar h2{ margin-top:.2rem; }
+
+/* FAQ: pregunta con aire y respuesta indentada ópticamente */
+.faq summary{ padding-block:1.5rem; }
+.faq .a{ padding-bottom:1.6rem; }
+
+/* CTA final: escalonado igual que el hero */
+.final h2{ margin-top:.2rem; }
+.final p{ margin-top:1.4rem; }
+.final .btn{ margin-top:2.4rem; }
+.final .tel{ margin-top:1.6rem; }
+
+/* Footer: descripción y columnas con separación propia */
+.ft-g{ gap:clamp(2rem,4vw,3.5rem); row-gap:2.5rem; }
+
+/* --- 6. Móvil: el ritmo se comprime proporcionalmente, no se rompe --- */
+@media(max-width:700px){
+  :root{
+    --sp-section: clamp(3.5rem, 3rem + 3vw, 5rem);
+    --sp-head:    2.25rem;
+    --sp-block:   2rem;
+  }
+  .plist li{ padding-block:1.8rem; }
+  .mrow{ padding-block:1.6rem; }
+  .hero-ctas .btn{ width:100%; justify-content:center; }
+}
+
+

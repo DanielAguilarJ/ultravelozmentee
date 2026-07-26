@@ -206,3 +206,38 @@ img{max-width:100%;display:block}
 .sticky .t{font:500 .7rem/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
 .sticky .btn{padding:.75rem 1.3rem;font-size:.85rem;white-space:nowrap}
 @media(min-width:821px){.sticky{display:none}}
+
+/* ================================================================
+   PATCH v1.1 — Ritmo vertical sistemático
+   Una sola fuente de verdad para el espaciado entre secciones.
+   ================================================================ */
+:root{
+  --sp-section: clamp(5rem, 4rem + 5vw, 8.5rem);   /* entre secciones */
+  --sp-head:    clamp(2.75rem, 2rem + 2.5vw, 4.5rem); /* título → contenido */
+  --sp-block:   clamp(2.25rem, 1.75rem + 1.5vw, 3.5rem); /* entre bloques internos */
+}
+
+/* 1. TODAS las secciones respiran igual (incluida stats, que estaba en cero) */
+.sec,
+main > section.wrap{
+  padding-block: var(--sp-section);
+}
+
+/* 2. Separación título → contenido, consistente */
+.sec-head{ margin-bottom: var(--sp-head); }
+
+/* 3. Bloques internos: separación explícita, no heredada por accidente */
+.bens{ margin-top: var(--sp-block); }
+.inc{ margin-top: var(--sp-block); }
+.mats{ margin-top: 1.6rem; }
+
+/* 4. El hero cierra con aire antes de la línea de stats */
+.hero{ padding-block: clamp(4rem, 3rem + 4vw, 7rem); }
+
+/* 5. Anclas del menú: el header sticky ya no tapa los títulos */
+.sec, .final{ scroll-margin-top: 76px; }
+
+/* 6. La sección final ya no necesita margin-top ad-hoc:
+      el ritmo lo da el padding de la sección anterior */
+.final{ margin-top: 0; }
+

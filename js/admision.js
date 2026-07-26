@@ -118,4 +118,31 @@
       if (typeof fbq === "function") fbq("track", "Lead", payload);
     } catch (_) { /* silencioso a propósito */ }
   });
+
+  /* ---------- 8. Menú móvil accesible (aria-expanded + cierre al navegar) ---------- */
+  const burger = $("#burger");
+  const mmenu = $("#mmenu");
+  if (burger && mmenu) {
+    const setMenu = (open) => {
+      burger.setAttribute("aria-expanded", String(open));
+      mmenu.hidden = !open;
+      document.body.style.overflow = open ? "hidden" : "";
+    };
+    burger.addEventListener("click", () =>
+      setMenu(burger.getAttribute("aria-expanded") !== "true"));
+    mmenu.addEventListener("click", (e) => {
+      if (e.target.closest("a")) setMenu(false); // cierra al elegir destino
+    });
+    addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+  }
+
+  /* ---------- 9. Stagger automático: asigna --d según orden entre hermanos.
+        Cero clases manuales; la cascada emerge del DOM. ---------- */
+  $$(".rv").forEach((el) => {
+    const sibs = el.parentElement
+      ? [...el.parentElement.children].filter((c) => c.classList.contains("rv"))
+      : [el];
+    el.style.setProperty("--d", sibs.indexOf(el));
+  });
 })();
+

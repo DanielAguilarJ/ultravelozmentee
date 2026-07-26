@@ -335,4 +335,42 @@ main .kicker + h2{ margin-top:.2rem; }
   .hero-ctas .btn{ width:100%; justify-content:center; }
 }
 
+/* ================================================================
+   PATCH v1.3 — Nivel clase mundial: menú móvil, skip-link,
+   textura de papel, stagger y pulido óptico.
+   ================================================================ */
+
+/* 1. Skip-link accesible (visible solo con teclado) */
+.skip{position:fixed;top:-100%;left:1rem;z-index:300;background:var(--ink);color:var(--paper);padding:.8rem 1.4rem;font:600 .85rem var(--sans);transition:top .2s}
+.skip:focus{top:1rem}
+
+/* 2. Hamburguesa (solo móvil) */
+.burger{display:none;flex-direction:column;justify-content:center;gap:5px;width:44px;height:44px;cursor:pointer;background:none;border:0;padding:10px}
+.burger span{display:block;height:2px;background:var(--ink);transition:transform .3s var(--ease),opacity .3s}
+.burger[aria-expanded="true"] span:first-child{transform:translateY(3.5px) rotate(45deg)}
+.burger[aria-expanded="true"] span:last-child{transform:translateY(-3.5px) rotate(-45deg)}
+@media(max-width:820px){.burger{display:flex}}
+
+/* 3. Menú móvil desplegable */
+.mmenu{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--line);background:var(--paper);padding:.5rem 4vw 1.5rem}
+.mmenu[hidden]{display:none}
+.mmenu a:not(.btn){font:600 1.15rem/1 var(--serif);padding:1.1rem 0;border-bottom:1px solid var(--line)}
+.mmenu .btn{margin-top:1.2rem;justify-content:center}
+@media(min-width:821px){.mmenu{display:none!important}}
+
+/* 4. Textura de papel sutil (grain SVG inline, cero requests) */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.35;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 .04 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")}
+
+/* 5. Stagger: los hijos revelados entran en cascada (JS pone --d) */
+.rv{transition-delay:calc(var(--d,0)*90ms)}
+
+/* 6. Pulido óptico fino */
+.hero h1{text-wrap:balance}
+.h2,main h2{text-wrap:balance}
+main p,.lead{text-wrap:pretty}
+.spec dd,.stat .n,.spec-cd .n{font-variant-numeric:tabular-nums}
+.doc table{font-variant-numeric:tabular-nums}
+html{-webkit-text-size-adjust:100%}
+
+
 

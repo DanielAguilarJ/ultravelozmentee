@@ -2,585 +2,166 @@
 <html lang="es">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Admisión a la Universidad | Preparación UNAM · IPN · UAM — WorldBrain México</title>
-<meta name="description" content="Preparación seria para el examen de admisión: 120 reactivos, simuladores cronometrados, instructores certificados. Planes de 4, 6 y 8 meses. Cuautitlán Izcalli y en línea.">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Admisión a la Universidad | UNAM · IPN · UAM — WorldBrain México</title>
+<meta name="description" content="Preparación seria para el examen de admisión: 120 reactivos, simuladores cronometrados, instructores certificados. Planes de 4, 6 y 8 meses.">
 <link rel="canonical" href="https://ultravelozmente.com/admision-universitaria">
-<meta property="og:title" content="Admisión a la Universidad — WorldBrain México">
-<meta property="og:description" content="El examen tiene 120 preguntas y 2 h 59 min. Nosotros tenemos 30 años preparando a quienes sí entran.">
-<meta property="og:locale" content="es_MX">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Course","name":"Admisión a la Universidad","description":"Preparación para examen de ingreso universitario: 120 reactivos, simuladores cronometrados, aprendizaje acelerado.","provider":{"@type":"EducationalOrganization","name":"WorldBrain México","url":"https://ultravelozmente.com","telephone":"+52-55-7810-7837","address":{"@type":"PostalAddress","streetAddress":"Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano","addressLocality":"Cuautitlán Izcalli","addressRegion":"Estado de México","postalCode":"54700","addressCountry":"MX"}}}
+{"@context":"https://schema.org","@type":"Course","name":"Admisión a la Universidad","description":"Preparación para examen de ingreso universitario: 120 reactivos, simuladores cronometrados.","provider":{"@type":"EducationalOrganization","name":"WorldBrain México","url":"https://ultravelozmente.com","telephone":"+52-55-7810-7837"}}
 </script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,400;1,9..144,600&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
-<style>
-/* ============ TOKENS ============ */
-:root{
-  --paper:#faf6ee; --ink:#1a1713; --muted:#6e675c; --line:#ddd5c6; --accent:#e8490f;
-  --serif:"Fraunces",Georgia,serif; --sans:"Inter",system-ui,sans-serif; --mono:"IBM Plex Mono",monospace;
-  --w:1200px; --ease:cubic-bezier(.22,1,.36,1);
-}
-/* ============ BASE ============ */
-*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-html{scroll-behavior:smooth}
-body{background:var(--paper);color:var(--ink);font:400 1rem/1.65 var(--sans);-webkit-font-smoothing:antialiased}
-a{color:inherit;text-decoration:none}
-ul{list-style:none}
-img{max-width:100%;display:block}
-button{font:inherit;background:none;border:0;cursor:pointer;color:inherit}
-::selection{background:var(--accent);color:var(--paper)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
-@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;transition-duration:.01ms!important}html{scroll-behavior:auto}}
-.wrap{width:min(var(--w),92vw);margin-inline:auto}
-/* Tipos */
-.kicker{font:500 .72rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--accent);display:block;margin-bottom:1.1rem}
-.h2{font:600 clamp(2rem,1.2rem+2.8vw,3.4rem)/1.08 var(--serif);letter-spacing:-.01em;max-width:20ch}
-.h2 em{font-style:italic;font-weight:400}
-.lead{color:var(--muted);max-width:58ch;margin-top:1rem}
-/* Secciones patrón editorial */
-.sec{border-top:1px solid var(--line);padding-block:clamp(4rem,3rem+4vw,7rem)}
-.sec-head{display:grid;grid-template-columns:auto 1fr;gap:2rem;align-items:start;margin-bottom:3rem}
-.sec-num{font:400 .8rem/2.2 var(--mono);color:var(--muted)}
-@media(max-width:700px){.sec-head{grid-template-columns:1fr}}
-/* Reveal */
-.rv{opacity:0;transform:translateY(18px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
-.rv.on{opacity:1;transform:none}
-/* Botones */
-.btn{display:inline-flex;align-items:center;gap:.6rem;font:600 .95rem/1 var(--sans);padding:1.05rem 1.9rem;border:1px solid var(--ink);transition:background .2s,color .2s}
-.btn-ink{background:var(--ink);color:var(--paper)}
-.btn-ink:hover{background:var(--accent);border-color:var(--accent)}
-.btn-line{background:transparent;color:var(--ink)}
-.btn-line:hover{background:var(--ink);color:var(--paper)}
-.btn .ar{transition:transform .25s var(--ease)}
-.btn:hover .ar{transform:translateX(4px)}
-/* ============ TICKER ============ */
-.ticker{background:var(--ink);color:var(--paper);overflow:hidden;padding:.55rem 0;font:500 .72rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase}
-.ticker-track{display:flex;gap:3.5rem;width:max-content;animation:tk 30s linear infinite;white-space:nowrap}
-.ticker:hover .ticker-track{animation-play-state:paused}
-.ticker b{color:#ffb703;font-weight:500}
-@keyframes tk{to{transform:translateX(-50%)}}
-/* ============ HEADER ============ */
-.hd{position:sticky;top:0;z-index:100;background:color-mix(in srgb,var(--paper) 92%,transparent);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
-.hd-in{display:flex;align-items:center;justify-content:space-between;height:64px}
-.logo{font:600 1.1rem var(--serif)}
-.logo i{font-style:normal;color:var(--accent)}
-.nav{display:flex;gap:1.8rem;align-items:center;font-size:.88rem}
-.nav a:not(.btn){color:var(--muted);border-bottom:1px solid transparent;padding-bottom:2px;transition:color .2s,border-color .2s}
-.nav a:not(.btn):hover{color:var(--ink);border-color:var(--ink)}
-.nav .btn{padding:.65rem 1.2rem;font-size:.82rem}
-@media(max-width:820px){.nav a:not(.btn){display:none}}
-/* ============ HERO ============ */
-.hero{padding-block:clamp(3.5rem,3rem+4vw,6.5rem)}
-.hero-grid{display:grid;grid-template-columns:1.5fr 1fr;gap:clamp(2rem,4vw,5rem);align-items:end}
-@media(max-width:900px){.hero-grid{grid-template-columns:1fr}}
-.hero h1{font:400 clamp(2.6rem,1.4rem+5.2vw,5.4rem)/1.03 var(--serif);letter-spacing:-.015em}
-.hero h1 em{font-style:italic;color:var(--accent)}
-.hero h1 .u{position:relative;white-space:nowrap}
-.hero h1 .u::after{content:"";position:absolute;left:0;right:0;bottom:.08em;height:.09em;background:var(--accent);transform:scaleX(0);transform-origin:left;animation:uline 1s var(--ease) .6s forwards}
-@keyframes uline{to{transform:scaleX(1)}}
-.hero .sub{color:var(--muted);max-width:46ch;margin-top:1.6rem;font-size:1.05rem}
-.hero .sub b{color:var(--ink);font-weight:600}
-.hero-ctas{display:flex;flex-wrap:wrap;gap:.9rem;margin-top:2.2rem}
-.hero-foot{font:400 .78rem/1.5 var(--mono);color:var(--muted);margin-top:1.4rem}
-/* Ficha técnica lateral (parece documento real) */
-.spec{border:1px solid var(--ink);background:#fffdf8}
-.spec-head{display:flex;justify-content:space-between;align-items:center;padding:.8rem 1.2rem;border-bottom:1px solid var(--ink);font:500 .7rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase}
-.spec-head .dot{width:8px;height:8px;border-radius:50%;background:var(--accent);animation:bl 1.6s infinite}
-@keyframes bl{50%{opacity:.2}}
-.spec dl{display:grid;grid-template-columns:1fr auto}
-.spec dt,.spec dd{padding:.75rem 1.2rem;border-bottom:1px solid var(--line);font-size:.85rem}
-.spec dt{color:var(--muted)}
-.spec dd{font:500 .85rem var(--mono);text-align:right}
-.spec dd.hot{color:var(--accent)}
-.spec>dl>div:last-child dt,.spec>dl>div:last-child dd{border-bottom:0}
-.spec-cd{display:flex;justify-content:space-between;padding:1rem 1.2rem;border-top:1px solid var(--ink);background:var(--ink);color:var(--paper)}
-.spec-cd .cell{text-align:center}
-.spec-cd .n{font:500 1.5rem/1 var(--mono);font-variant-numeric:tabular-nums}
-.spec-cd .l{font:400 .58rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;opacity:.55;margin-top:.35rem}
-/* ============ CIFRAS ============ */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--line);border-inline:0}
-.stat{padding:2rem 1.5rem;border-right:1px solid var(--line)}
-.stat:last-child{border-right:0}
-.stat .n{font:600 clamp(2rem,1.4rem+2.4vw,3.2rem)/1 var(--serif);font-variant-numeric:tabular-nums}
-.stat .n small{font-size:.55em;color:var(--accent)}
-.stat .t{font:400 .72rem/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted);margin-top:.6rem}
-@media(max-width:760px){.stats{grid-template-columns:1fr 1fr}.stat:nth-child(2){border-right:0}.stat:nth-child(-n+2){border-bottom:1px solid var(--line)}}
-/* ============ PROBLEMA (lista editorial) ============ */
-.plist{border-top:1px solid var(--line)}
-.plist li{display:grid;grid-template-columns:80px 1fr 1.2fr;gap:2rem;padding:2rem 0;border-bottom:1px solid var(--line);align-items:baseline}
-.plist .i{font:400 .8rem var(--mono);color:var(--accent)}
-.plist h3{font:600 1.35rem var(--serif)}
-.plist p{color:var(--muted);font-size:.95rem}
-@media(max-width:760px){.plist li{grid-template-columns:1fr;gap:.5rem}}
-/* ============ MÉTODO (filas numeradas con hover) ============ */
-.mrow{display:grid;grid-template-columns:80px 1fr 1.3fr auto;gap:2rem;padding:1.8rem 0;border-bottom:1px solid var(--line);align-items:center;transition:background .25s,padding-left .25s}
-.mrow:hover{background:#f3ecdd;padding-left:1rem}
-.mrow .i{font:400 .8rem var(--mono);color:var(--muted)}
-.mrow h3{font:600 1.3rem var(--serif)}
-.mrow p{color:var(--muted);font-size:.92rem}
-.mrow .tagm{font:500 .65rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;border:1px solid var(--line);padding:.45rem .8rem;white-space:nowrap}
-.mrow:hover .tagm{border-color:var(--accent);color:var(--accent)}
-@media(max-width:820px){.mrow{grid-template-columns:1fr;gap:.5rem}.mrow .tagm{justify-self:start}}
-/* ============ EXAMEN (documento) ============ */
-.doc{border:1px solid var(--ink);background:#fffdf8}
-.doc-bar{display:flex;justify-content:space-between;flex-wrap:wrap;gap:.5rem;padding:.9rem 1.4rem;border-bottom:1px solid var(--ink);font:500 .7rem/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase}
-.doc table{width:100%;border-collapse:collapse;font-size:.9rem}
-.doc th{font:500 .68rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;text-align:left;padding:.9rem 1.4rem;border-bottom:1px solid var(--ink);color:var(--muted)}
-.doc td{padding:.85rem 1.4rem;border-bottom:1px solid var(--line)}
-.doc td:last-child,.doc th:last-child{text-align:right;font-family:var(--mono)}
-.doc tr:hover td{background:#f3ecdd}
-.doc .tot td{border-top:1px solid var(--ink);border-bottom:0;font-weight:600}
-.doc .tot td:last-child{color:var(--accent)}
-.exam-grid{display:grid;grid-template-columns:1fr 1fr;gap:2.5rem;align-items:start}
-@media(max-width:900px){.exam-grid{grid-template-columns:1fr}}
-.areas{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--line);border-bottom:0}
-.area{padding:1.2rem 1.4rem;border-bottom:1px solid var(--line);transition:background .2s}
-.area:nth-child(odd){border-right:1px solid var(--line)}
-.area:hover{background:#f3ecdd}
-.area b{font:500 .8rem var(--mono);color:var(--accent);display:block}
-.area span{font-size:.85rem;color:var(--muted)}
-.mats{display:flex;flex-wrap:wrap;gap:.5rem;margin-top:1.6rem}
-.mats span{font:400 .75rem var(--mono);border:1px solid var(--line);padding:.4rem .8rem}
-/* ============ PLANES ============ */
-.plans{display:grid;grid-template-columns:repeat(3,1fr);border:1px solid var(--ink)}
-.plan{padding:2.4rem 2rem;border-right:1px solid var(--ink);display:flex;flex-direction:column;gap:1rem;position:relative;transition:background .25s}
-.plan:last-child{border-right:0}
-.plan:hover{background:#f3ecdd}
-.plan.f{background:var(--ink);color:var(--paper)}
-.plan.f .mu{color:#b3aca0}
-.plan.f:hover{background:#000}
-.plan .tag{position:absolute;top:-1px;right:-1px;background:var(--accent);color:var(--paper);font:500 .62rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;padding:.5rem .9rem}
-.plan .dur{font:400 3.2rem/1 var(--serif)}
-.plan .dur small{font-size:.32em;font-family:var(--mono);color:var(--accent)}
-.plan h3{font:600 1.1rem var(--serif)}
-.plan .mu{color:var(--muted);font-size:.88rem;flex:1}
-.plan .btn{justify-content:center}
-.plan.f .btn{border-color:var(--paper);color:var(--paper)}
-.plan.f .btn:hover{background:var(--accent);border-color:var(--accent)}
-@media(max-width:820px){.plans{grid-template-columns:1fr}.plan{border-right:0;border-bottom:1px solid var(--ink)}.plan:last-child{border-bottom:0}}
-/* Beneficios + incluye */
-.bens{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border:1px solid var(--line);margin-top:3rem}
-.ben{padding:1.6rem 1.3rem;border-right:1px solid var(--line)}
-.ben:last-child{border-right:0}
-.ben b{font:500 .75rem var(--mono);color:var(--accent);display:block;margin-bottom:.5rem}
-.ben h4{font:600 .98rem var(--serif);margin-bottom:.3rem}
-.ben p{font-size:.8rem;color:var(--muted)}
-@media(max-width:900px){.bens{grid-template-columns:1fr 1fr}.ben{border-bottom:1px solid var(--line)}}
-.inc{columns:2;column-gap:3rem;margin-top:2.5rem;max-width:700px}
-.inc li{break-inside:avoid;padding:.5rem 0;border-bottom:1px solid var(--line);font-size:.92rem;color:var(--muted)}
-.inc li::before{content:"— ";color:var(--accent)}
-@media(max-width:560px){.inc{columns:1}}
-/* ============ TESTIMONIOS ============ */
-.testi{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border:1px solid var(--line)}
-.tst{padding:2.2rem;border-right:1px solid var(--line);display:flex;flex-direction:column;gap:1.4rem}
-.tst:last-child{border-right:0}
-.tst blockquote{font:italic 400 1.12rem/1.5 var(--serif)}
-.tst .res{font:500 .7rem var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
-.tst .who{margin-top:auto;font-size:.85rem}
-.tst .who b{display:block}
-.tst .who span{color:var(--muted);font:400 .75rem var(--mono)}
-@media(max-width:820px){.testi{grid-template-columns:1fr}.tst{border-right:0;border-bottom:1px solid var(--line)}.tst:last-child{border-bottom:0}}
-/* ============ GARANTÍA ============ */
-.guar{border:1px solid var(--ink);background:#fffdf8;display:grid;grid-template-columns:1fr auto;gap:2rem;padding:clamp(2rem,4vw,3.5rem);align-items:center}
-.guar h2{font:600 clamp(1.6rem,1.2rem+1.8vw,2.4rem)/1.15 var(--serif);max-width:22ch}
-.guar h2 em{font-style:italic;color:var(--accent)}
-.guar p{color:var(--muted);max-width:52ch;margin-top:.8rem;font-size:.95rem}
-.guar .stamp{font:500 .68rem/1.7 var(--mono);letter-spacing:.12em;text-transform:uppercase;border:1px solid var(--ink);padding:1.2rem;text-align:center;transform:rotate(3deg);transition:transform .3s var(--ease)}
-.guar:hover .stamp{transform:rotate(0)}
-@media(max-width:760px){.guar{grid-template-columns:1fr}.guar .stamp{justify-self:start;transform:none}}
-/* ============ FAQ ============ */
-.faq{max-width:760px}
-.faq details{border-bottom:1px solid var(--line)}
-.faq summary{list-style:none;cursor:pointer;padding:1.4rem 0;font:600 1.05rem var(--serif);display:flex;justify-content:space-between;gap:1rem;align-items:baseline}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary::after{content:"+";font:400 1.3rem var(--mono);color:var(--accent);transition:transform .3s var(--ease)}
-.faq details[open] summary::after{transform:rotate(45deg)}
-.faq .a{padding:0 0 1.4rem;color:var(--muted);font-size:.93rem;max-width:60ch}
-/* ============ CTA FINAL ============ */
-.final{background:var(--ink);color:var(--paper);padding-block:clamp(4.5rem,4rem+4vw,7.5rem)}
-.final .kicker{color:#ffb703}
-.final h2{font:400 clamp(2.2rem,1.4rem+3.6vw,4.2rem)/1.08 var(--serif);max-width:22ch}
-.final h2 em{font-style:italic;color:#ffb703}
-.final p{color:#b3aca0;max-width:52ch;margin-top:1.2rem}
-.final .btn{border-color:var(--paper);color:var(--paper);margin-top:2.2rem}
-.final .btn:hover{background:var(--accent);border-color:var(--accent)}
-.final .tel{font:400 .8rem/1.8 var(--mono);color:#b3aca0;margin-top:1.4rem}
-.final .tel a:hover{color:var(--paper)}
-/* ============ FOOTER ============ */
-.ft{border-top:1px solid var(--line);padding:3rem 0 6rem;font-size:.85rem}
-.ft-g{display:grid;grid-template-columns:2fr 1fr 1fr;gap:2.5rem;margin-bottom:2.5rem}
-.ft h4{font:500 .68rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem}
-.ft li{margin-bottom:.45rem}
-.ft a{color:var(--muted)}
-.ft a:hover{color:var(--ink)}
-.ft .legal{border-top:1px solid var(--line);padding-top:1.4rem;font:400 .72rem/1.7 var(--mono);color:var(--muted)}
-@media(max-width:720px){.ft-g{grid-template-columns:1fr}}
-/* ============ FLOTANTES ============ */
-.wa{position:fixed;right:1.1rem;bottom:5rem;z-index:99;width:52px;height:52px;border-radius:50%;display:grid;place-items:center;background:var(--ink);border:1px solid var(--ink);transition:background .2s,transform .25s var(--ease)}
-.wa:hover{background:var(--accent);border-color:var(--accent);transform:scale(1.08)}
-.wa svg{width:24px;height:24px;fill:var(--paper)}
-@media(min-width:821px){.wa{bottom:1.2rem}}
-.sticky{position:fixed;left:0;right:0;bottom:0;z-index:98;display:flex;gap:1rem;align-items:center;justify-content:space-between;padding:.7rem 1.1rem calc(.7rem + env(safe-area-inset-bottom));background:var(--paper);border-top:1px solid var(--ink);transform:translateY(110%);transition:transform .4s var(--ease)}
-.sticky.on{transform:none}
-.sticky .t{font:500 .7rem/1.3 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
-.sticky .btn{padding:.75rem 1.3rem;font-size:.85rem;white-space:nowrap}
-@media(min-width:821px){.sticky{display:none}}
-/* Barra de progreso */
-.prog{position:fixed;top:0;left:0;height:2px;width:100%;background:var(--accent);transform:scaleX(0);transform-origin:0 50%;z-index:200}
-</style>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,400;0,600;1,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/admision.css">
 </head>
 <body>
 <div class="prog" id="prog" aria-hidden="true"></div>
 
-<!-- TICKER -->
-<div class="ticker" aria-label="Avisos">
-  <div class="ticker-track" id="tk">
-    <span>Convocatoria 2026 abierta</span><span><b>Cupo limitado</b> · grupos reducidos</span><span>Diagnóstico + simulador de cortesía</span><span>UNAM · IPN · UAM · Tec · La Salle · Anáhuac</span><span>Modalidad presencial y en línea</span>
-  </div>
-</div>
+<div class="ticker"><div class="ticker-track" id="tk"><span>Convocatoria 2026 abierta</span><span><b>Cupo limitado</b> · grupos reducidos</span><span>Diagnóstico + simulador de cortesía</span><span>UNAM · IPN · UAM · Tec · La Salle · Anáhuac</span><span>Presencial y en línea</span></div></div>
 
-<!-- HEADER -->
-<header class="hd">
-  <div class="wrap hd-in">
-    <a class="logo" href="index.html">WorldBrain<i>.</i></a>
-    <nav class="nav" aria-label="Principal">
-      <a href="#metodo">Método</a><a href="#examen">El examen</a><a href="#planes">Planes</a><a href="#resultados">Resultados</a><a href="#faq">FAQ</a>
-      <a class="btn btn-ink" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20informes%20de%20Admisi%C3%B3n%20Universitaria%202026" data-track="cta_header">Agendar diagnóstico</a>
-    </nav>
-  </div>
-</header>
+<header class="hd"><div class="wrap hd-in">
+<a class="logo" href="index.html">WorldBrain<i>.</i></a>
+<nav class="nav" aria-label="Principal">
+<a href="#metodo">Método</a><a href="#examen">El examen</a><a href="#planes">Planes</a><a href="#faq">FAQ</a>
+<a class="btn btn-ink" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20informes%20de%20Admisi%C3%B3n%20Universitaria%202026" data-track="cta_header">Agendar diagnóstico</a>
+</nav></div></header>
 
 <main>
-<!-- HERO -->
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div>
-      <span class="kicker rv">Admisión a la universidad — Generación 2026</span>
-      <h1 class="rv">El examen tiene<br>120 preguntas.<br><em>Nosotros, <span class="u">30 años</span><br>de respuestas.</em></h1>
-      <p class="sub rv">Nueve de cada diez aspirantes son rechazados. No por capacidad: por preparación. Resuelve y comprende tu guía <b>en tiempo récord</b> con simuladores cronometrados idénticos al real e instructores certificados.</p>
-      <div class="hero-ctas rv">
-        <a class="btn btn-ink" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20cortes%C3%ADa%20para%20Admisi%C3%B3n%20Universitaria" data-track="cta_hero">Diagnóstico de cortesía <span class="ar">→</span></a>
-        <a class="btn btn-line" href="#metodo">Ver el método</a>
-      </div>
-      <p class="hero-foot rv">Sin costo · Sin compromiso · Incluye simulador en la primera sesión</p>
-    </div>
-    <aside class="spec rv" aria-label="Ficha técnica del examen">
-      <div class="spec-head"><span>Ficha técnica / examen</span><span class="dot" aria-hidden="true"></span></div>
-      <dl>
-        <div style="display:contents"><dt>Reactivos</dt><dd>120</dd></div>
-        <div style="display:contents"><dt>Secciones</dt><dd>5</dd></div>
-        <div style="display:contents"><dt>Tiempo total</dt><dd>2 h 59 min</dd></div>
-        <div style="display:contents"><dt>Por pregunta</dt><dd class="hot">&lt; 90 seg</dd></div>
-        <div style="display:contents"><dt>Tasa de rechazo</dt><dd class="hot">≈ 90%</dd></div>
-      </dl>
-      <div class="spec-cd" role="timer" aria-label="Cierre de inscripciones">
-        <div class="cell"><div class="n" data-cd="d">00</div><div class="l">días</div></div>
-        <div class="cell"><div class="n" data-cd="h">00</div><div class="l">hrs</div></div>
-        <div class="cell"><div class="n" data-cd="m">00</div><div class="l">min</div></div>
-        <div class="cell"><div class="n" data-cd="s">00</div><div class="l">seg</div></div>
-      </div>
-    </aside>
-  </div>
-</section>
+<section class="hero"><div class="wrap hero-grid">
+<div>
+<span class="kicker rv">Admisión a la universidad — Generación 2026</span>
+<h1 class="rv">El examen tiene<br>120 preguntas.<br><em>Nosotros, <span class="u">30 años</span><br>de respuestas.</em></h1>
+<p class="sub rv">Nueve de cada diez aspirantes son rechazados. No por capacidad: por preparación. Resuelve tu guía <b>en tiempo récord</b> con simuladores idénticos al real e instructores certificados.</p>
+<div class="hero-ctas rv">
+<a class="btn btn-ink" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20cortes%C3%ADa" data-track="cta_hero">Diagnóstico de cortesía <span class="ar">→</span></a>
+<a class="btn btn-line" href="#metodo">Ver el método</a>
+</div>
+<p class="hero-foot rv">Sin costo · Sin compromiso · Incluye simulador en la primera sesión</p>
+</div>
+<aside class="spec rv" aria-label="Ficha técnica del examen">
+<div class="spec-head"><span>Ficha técnica / examen</span><span class="dot"></span></div>
+<dl><dt>Reactivos</dt><dd>120</dd><dt>Secciones</dt><dd>5</dd><dt>Tiempo total</dt><dd>2 h 59 min</dd><dt>Por pregunta</dt><dd class="hot">&lt; 90 seg</dd><dt>Tasa de rechazo</dt><dd class="hot">≈ 90%</dd></dl>
+<div class="spec-cd" role="timer"><div class="cell"><div class="n" data-cd="d">00</div><div class="l">días</div></div><div class="cell"><div class="n" data-cd="h">00</div><div class="l">hrs</div></div><div class="cell"><div class="n" data-cd="m">00</div><div class="l">min</div></div><div class="cell"><div class="n" data-cd="s">00</div><div class="l">seg</div></div></div>
+</aside>
+</div></section>
 
-<!-- CIFRAS -->
-<section class="wrap rv" aria-label="Cifras">
-  <div class="stats">
-    <div class="stat"><div class="n"><span data-count="30">0</span><small>+</small></div><div class="t">Años de trayectoria</div></div>
-    <div class="stat"><div class="n"><span data-count="200000">0</span><small>+</small></div><div class="t">Graduados WorldBrain</div></div>
-    <div class="stat"><div class="n"><span data-count="120">0</span></div><div class="t">Reactivos por simulador</div></div>
-    <div class="stat"><div class="n"><span data-count="92">0</span><small>%</small></div><div class="t">Tasa de aprobación</div></div>
-  </div>
-</section>
+<section class="wrap rv"><div class="stats">
+<div class="stat"><div class="n"><span data-count="30">0</span><small>+</small></div><div class="t">Años de trayectoria</div></div>
+<div class="stat"><div class="n"><span data-count="200000">0</span><small>+</small></div><div class="t">Graduados WorldBrain</div></div>
+<div class="stat"><div class="n"><span data-count="120">0</span></div><div class="t">Reactivos por simulador</div></div>
+<div class="stat"><div class="n"><span data-count="92">0</span><small>%</small></div><div class="t">Tasa de aprobación</div></div>
+</div></section>
 
-<!-- PROBLEMA -->
-<section class="sec">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-num">01 —</span>
-      <div><span class="kicker">El diagnóstico</span><h2 class="h2">Por qué el 90% <em>se queda fuera</em></h2></div>
-    </div>
-    <ul class="plist">
-      <li class="rv"><span class="i">a.</span><h3>Competencia feroz</h3><p>Más de 200,000 aspirantes por pocos lugares. En Medicina o Derecho ingresa menos del 2%. Cada acierto decide.</p></li>
-      <li class="rv"><span class="i">b.</span><h3>El reloj no perdona</h3><p>120 reactivos en 2 h 59 min: menos de 90 segundos por pregunta. Quien lee lento, no termina.</p></li>
-      <li class="rv"><span class="i">c.</span><h3>Bloqueo mental</h3><p>La ansiedad borra meses de estudio en minutos. Se necesita control mental entrenado, no solo conocimientos.</p></li>
-    </ul>
-  </div>
-</section>
+<section class="sec"><div class="wrap">
+<div class="sec-head rv"><span class="sec-num">01 —</span><div><span class="kicker">El diagnóstico</span><h2 class="h2">Por qué el 90% <em>se queda fuera</em></h2></div></div>
+<ul class="plist">
+<li class="rv"><span class="i">a.</span><h3>Competencia feroz</h3><p>Más de 200,000 aspirantes por pocos lugares. En Medicina o Derecho ingresa menos del 2%.</p></li>
+<li class="rv"><span class="i">b.</span><h3>El reloj no perdona</h3><p>120 reactivos en 2 h 59 min: menos de 90 segundos por pregunta. Quien lee lento, no termina.</p></li>
+<li class="rv"><span class="i">c.</span><h3>Bloqueo mental</h3><p>La ansiedad borra meses de estudio. Se necesita control mental entrenado, no solo conocimientos.</p></li>
+</ul>
+</div></section>
 
-<!-- MÉTODO -->
-<section class="sec" id="metodo">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-num">02 —</span>
-      <div><span class="kicker">La solución</span><h2 class="h2">Un sistema de alto rendimiento, <em>no un curso más</em></h2>
-      <p class="lead">Objetivo único: tu preparación óptima para el examen de ingreso a la universidad que anhelas.</p></div>
-    </div>
-    <div>
-      <div class="mrow rv"><span class="i">2.1</span><h3>Aprendizaje acelerado</h3><p>Lectura veloz y comprensión profunda: procesas los textos del examen 3× más rápido y ganas minutos para pensar, no para leer.</p><span class="tagm">Velocidad</span></div>
-      <div class="mrow rv"><span class="i">2.2</span><h3>Simulador cronometrado mensual</h3><p>120 reactivos, 5 secciones, reloj en 2 h 59 min. Idéntico al real. Detectas fallas antes del día D — y las corriges.</p><span class="tagm">Sin costo</span></div>
-      <div class="mrow rv"><span class="i">2.3</span><h3>Técnicas de estudio</h3><p>Mnemotecnia aplicada a fórmulas, fechas y datos. Memoria entrenada, no memorización a la fuerza.</p><span class="tagm">Retención</span></div>
-      <div class="mrow rv"><span class="i">2.4</span><h3>Apoyo psicopedagógico</h3><p>Control de ansiedad y enfoque para llegar en calma al examen. Sin bloqueos el día que más importa.</p><span class="tagm">Mente</span></div>
-      <div class="mrow rv"><span class="i">2.5</span><h3>Formación humanista + rendimiento medible</h3><p>Diagnóstico, parciales con monitor, control de calificaciones y revisión de tareas. Tu avance se mide con datos, no con promesas.</p><span class="tagm">Datos</span></div>
-    </div>
-  </div>
-</section>
+<section class="sec" id="metodo"><div class="wrap">
+<div class="sec-head rv"><span class="sec-num">02 —</span><div><span class="kicker">La solución</span><h2 class="h2">Un sistema de alto rendimiento, <em>no un curso más</em></h2></div></div>
+<div class="mrow rv"><span class="i">2.1</span><h3>Aprendizaje acelerado</h3><p>Lectura veloz: procesas los textos del examen 3× más rápido y ganas minutos para pensar.</p><span class="tagm">Velocidad</span></div>
+<div class="mrow rv"><span class="i">2.2</span><h3>Simulador cronometrado mensual</h3><p>120 reactivos, 5 secciones, reloj real. Detectas fallas antes del día D — y las corriges.</p><span class="tagm">Sin costo</span></div>
+<div class="mrow rv"><span class="i">2.3</span><h3>Técnicas de estudio</h3><p>Mnemotecnia aplicada a fórmulas, fechas y datos. Memoria entrenada, no forzada.</p><span class="tagm">Retención</span></div>
+<div class="mrow rv"><span class="i">2.4</span><h3>Apoyo psicopedagógico</h3><p>Control de ansiedad y enfoque para llegar en calma al día que más importa.</p><span class="tagm">Mente</span></div>
+<div class="mrow rv"><span class="i">2.5</span><h3>Rendimiento medible</h3><p>Diagnóstico, parciales con monitor, control de calificaciones y revisión de tareas. Datos, no promesas.</p><span class="tagm">Datos</span></div>
+</div></section>
 
-<!-- EXAMEN -->
-<section class="sec" id="examen">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-num">03 —</span>
-      <div><span class="kicker">Conoce a tu rival</span><h2 class="h2">Así es el examen <em>que vas a dominar</em></h2>
-      <p class="lead">Entrenas con la estructura exacta del examen real. Cero sorpresas.</p></div>
-    </div>
-    <div class="exam-grid">
-      <div class="doc rv" role="table" aria-label="Desglose del examen monitor">
-        <div class="doc-bar"><span>Examen monitor / desglose</span><span>T: 2 h 59 min</span></div>
-        <table>
-          <thead><tr><th>Área</th><th>Sub-área</th><th>Reactivos</th></tr></thead>
-          <tbody>
-            <tr><td rowspan="2">Habilidades intelectuales básicas</td><td>Habilidad verbal — lectura, sinónimos, antónimos, analogías</td><td>16</td></tr>
-            <tr><td>Habilidad matemática — series, imaginación espacial, razonamiento</td><td>16</td></tr>
-            <tr><td rowspan="4">Conocimiento disciplinario</td><td>Español · Historia · Geografía</td><td>36</td></tr>
-            <tr><td>Matemáticas</td><td>12</td></tr>
-            <tr><td>Física · Química</td><td>24</td></tr>
-            <tr><td>Biología + Formación cívica y ética</td><td>16</td></tr>
-            <tr class="tot"><td colspan="2">Total</td><td>120</td></tr>
-          </tbody>
-        </table>
-      </div>
-      <div class="rv">
-        <div class="areas" aria-label="Áreas de conocimiento UAM">
-          <div class="area"><b>CBI</b><span>Ciencias Básicas e Ingeniería</span></div>
-          <div class="area"><b>CBS</b><span>Ciencias Biológicas y de la Salud</span></div>
-          <div class="area"><b>CSH</b><span>Ciencias Sociales y Humanidades</span></div>
-          <div class="area"><b>CAD</b><span>Ciencias y Artes para el Diseño</span></div>
-          <div class="area"><b>CNI</b><span>Ciencias Naturales e Ingeniería</span></div>
-          <div class="area"><b>CCD</b><span>Comunicación y Diseño</span></div>
-        </div>
-        <div class="mats" aria-label="Materias del temario">
-          <span>Matemáticas</span><span>Física</span><span>Química</span><span>Biología</span><span>Historia universal</span><span>Historia de México</span><span>Geografía</span><span>Español</span><span>Literatura</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+<section class="sec" id="examen"><div class="wrap">
+<div class="sec-head rv"><span class="sec-num">03 —</span><div><span class="kicker">Conoce a tu rival</span><h2 class="h2">Así es el examen <em>que vas a dominar</em></h2></div></div>
+<div class="exam-grid">
+<div class="doc rv"><div class="doc-bar"><span>Examen monitor / desglose</span><span>T: 2 h 59 min</span></div>
+<table><thead><tr><th>Área</th><th>Sub-área</th><th>Reactivos</th></tr></thead><tbody>
+<tr><td rowspan="2">Habilidades intelectuales</td><td>Habilidad verbal — lectura, sinónimos, antónimos, analogías</td><td>16</td></tr>
+<tr><td>Habilidad matemática — series, imaginación espacial, razonamiento</td><td>16</td></tr>
+<tr><td rowspan="4">Conocimiento disciplinario</td><td>Español · Historia · Geografía</td><td>36</td></tr>
+<tr><td>Matemáticas</td><td>12</td></tr>
+<tr><td>Física · Química</td><td>24</td></tr>
+<tr><td>Biología + Formación cívica y ética</td><td>16</td></tr>
+<tr class="tot"><td colspan="2">Total</td><td>120</td></tr>
+</tbody></table></div>
+<div class="rv">
+<div class="areas">
+<div class="area"><b>CBI</b><span>Ciencias Básicas e Ingeniería</span></div>
+<div class="area"><b>CBS</b><span>Ciencias Biológicas y de la Salud</span></div>
+<div class="area"><b>CSH</b><span>Ciencias Sociales y Humanidades</span></div>
+<div class="area"><b>CAD</b><span>Ciencias y Artes para el Diseño</span></div>
+<div class="area"><b>CNI</b><span>Ciencias Naturales e Ingeniería</span></div>
+<div class="area"><b>CCD</b><span>Comunicación y Diseño</span></div>
+</div>
+<div class="mats"><span>Matemáticas</span><span>Física</span><span>Química</span><span>Biología</span><span>Historia universal</span><span>Historia de México</span><span>Geografía</span><span>Español</span><span>Literatura</span></div>
+</div>
+</div>
+</div></section>
 
-<!-- PLANES -->
-<section class="sec" id="planes">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-num">04 —</span>
-      <div><span class="kicker">Elige tu ritmo</span><h2 class="h2">Tres caminos, <em>un mismo destino</em></h2>
-      <p class="lead">Todos con libertad de horario, validez oficial y simulador mensual de cortesía.</p></div>
-    </div>
-    <div class="plans rv">
-      <article class="plan">
-        <div class="dur">4 <small>MESES</small></div><h3>Intensivo</h3>
-        <p class="mu">Para quien tiene el examen cerca y necesita resultados ya. Máxima velocidad, máximo enfoque.</p>
-        <a class="btn btn-line" href="https://wa.me/5215578107837?text=Hola%2C%20me%20interesa%20el%20plan%20INTENSIVO%20de%204%20meses" data-track="plan_4m">Solicitar informes</a>
-      </article>
-      <article class="plan f">
-        <span class="tag">El más elegido</span>
-        <div class="dur">6 <small>MESES</small></div><h3>Estratégico</h3>
-        <p class="mu">El equilibrio exacto: temario completo con tiempo suficiente para simulacros y corrección fina.</p>
-        <a class="btn btn-line" href="https://wa.me/5215578107837?text=Hola%2C%20me%20interesa%20el%20plan%20ESTRAT%C3%89GICO%20de%206%20meses" data-track="plan_6m">Solicitar informes</a>
-      </article>
-      <article class="plan">
-        <div class="dur">8 <small>MESES</small></div><h3>Blindado</h3>
-        <p class="mu">Preparación total desde cero. Para carreras de altísima demanda donde cada acierto vale oro.</p>
-        <a class="btn btn-line" href="https://wa.me/5215578107837?text=Hola%2C%20me%20interesa%20el%20plan%20BLINDADO%20de%208%20meses" data-track="plan_8m">Solicitar informes</a>
-      </article>
-    </div>
-    <div class="bens rv">
-      <div class="ben"><b>A.</b><h4>Libertad de horario</h4><p>Tu preparación se adapta a tu vida.</p></div>
-      <div class="ben"><b>B.</b><h4>Validez oficial</h4><p>Respaldo institucional real.</p></div>
-      <div class="ben"><b>C.</b><h4>Simulador mensual</h4><p>Gratis, tipo real, cada mes.</p></div>
-      <div class="ben"><b>D.</b><h4>Instructor certificado</h4><p>Expertos en el examen.</p></div>
-      <div class="ben"><b>E.</b><h4>Trámites administrativos</h4><p>Te acompañamos en el papeleo.</p></div>
-    </div>
-    <ul class="inc rv">
-      <li>Material de estudio</li><li>Grupos reducidos</li><li>Examen diagnóstico</li><li>Exámenes parciales / monitor</li><li>Examen general</li><li>Control de asistencia</li><li>Control de calificaciones</li><li>Revisión de tareas</li><li>Garantía de servicio</li>
-    </ul>
-  </div>
-</section>
+<section class="sec" id="planes"><div class="wrap">
+<div class="sec-head rv"><span class="sec-num">04 —</span><div><span class="kicker">Elige tu ritmo</span><h2 class="h2">Tres caminos, <em>un mismo destino</em></h2></div></div>
+<div class="plans rv">
+<article class="plan"><div class="dur">4 <small>MESES</small></div><h3>Intensivo</h3><p class="mu">Para quien tiene el examen cerca y necesita resultados ya.</p><a class="btn btn-line" href="https://wa.me/5215578107837?text=Hola%2C%20me%20interesa%20el%20plan%20INTENSIVO%20de%204%20meses" data-track="plan_4m">Solicitar informes</a></article>
+<article class="plan f"><span class="tag">El más elegido</span><div class="dur">6 <small>MESES</small></div><h3>Estratégico</h3><p class="mu">Temario completo con tiempo para simulacros y corrección fina.</p><a class="btn btn-line" href="https://wa.me/5215578107837?text=Hola%2C%20me%20interesa%20el%20plan%20ESTRAT%C3%89GICO%20de%206%20meses" data-track="plan_6m">Solicitar informes</a></article>
+<article class="plan"><div class="dur">8 <small>MESES</small></div><h3>Blindado</h3><p class="mu">Desde cero. Para carreras de altísima demanda donde cada acierto vale oro.</p><a class="btn btn-line" href="https://wa.me/5215578107837?text=Hola%2C%20me%20interesa%20el%20plan%20BLINDADO%20de%208%20meses" data-track="plan_8m">Solicitar informes</a></article>
+</div>
+<div class="bens rv">
+<div class="ben"><b>A.</b><h4>Libertad de horario</h4><p>Se adapta a tu vida.</p></div>
+<div class="ben"><b>B.</b><h4>Validez oficial</h4><p>Respaldo institucional.</p></div>
+<div class="ben"><b>C.</b><h4>Simulador mensual</h4><p>Gratis, tipo real.</p></div>
+<div class="ben"><b>D.</b><h4>Instructor certificado</h4><p>Expertos en el examen.</p></div>
+<div class="ben"><b>E.</b><h4>Trámites</h4><p>Te acompañamos en el papeleo.</p></div>
+</div>
+<ul class="inc rv"><li>Material de estudio</li><li>Grupos reducidos</li><li>Examen diagnóstico</li><li>Parciales / monitor</li><li>Examen general</li><li>Control de asistencia</li><li>Control de calificaciones</li><li>Revisión de tareas</li><li>Garantía de servicio</li></ul>
+</div></section>
 
-<!-- TESTIMONIOS -->
-<section class="sec" id="resultados">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-num">05 —</span>
-      <div><span class="kicker">Resultados</span><h2 class="h2">Ellos ya son <em>universitarios</em></h2></div>
-    </div>
-    <div class="testi rv">
-      <article class="tst"><span class="res">118 aciertos · Medicina UNAM</span>
-        <blockquote>"Fui rechazada dos veces. La diferencia no fue estudiar más horas: fue la estrategia."</blockquote>
-        <div class="who"><b>Andrea Martínez</b><span>Facultad de Medicina, UNAM</span></div></article>
-      <article class="tst"><span class="res">Ingreso directo · ESCOM IPN</span>
-        <blockquote>"La mnemotecnia cambió mi forma de estudiar. Fórmulas que me tomaban días, en minutos."</blockquote>
-        <div class="who"><b>Carlos Rodríguez</b><span>ESCOM, IPN</span></div></article>
-      <article class="tst"><span class="res">Terminó con tiempo de sobra · UAM</span>
-        <blockquote>"El examen me parecía imposible. La velocidad de lectura me dio la confianza para terminarlo."</blockquote>
-        <div class="who"><b>Sofía García</b><span>CBS, UAM Iztapalapa</span></div></article>
-    </div>
-  </div>
-</section>
+<section class="sec" id="resultados"><div class="wrap">
+<div class="sec-head rv"><span class="sec-num">05 —</span><div><span class="kicker">Resultados</span><h2 class="h2">Ellos ya son <em>universitarios</em></h2></div></div>
+<div class="testi rv">
+<article class="tst"><span class="res">118 aciertos · Medicina UNAM</span><blockquote>"Fui rechazada dos veces. La diferencia no fue estudiar más horas: fue la estrategia."</blockquote><div class="who"><b>Andrea Martínez</b><span>Facultad de Medicina, UNAM</span></div></article>
+<article class="tst"><span class="res">Ingreso directo · ESCOM IPN</span><blockquote>"La mnemotecnia cambió mi forma de estudiar. Fórmulas que me tomaban días, en minutos."</blockquote><div class="who"><b>Carlos Rodríguez</b><span>ESCOM, IPN</span></div></article>
+<article class="tst"><span class="res">Terminó con tiempo de sobra · UAM</span><blockquote>"El examen me parecía imposible. La velocidad de lectura me dio la confianza para terminarlo."</blockquote><div class="who"><b>Sofía García</b><span>CBS, UAM Iztapalapa</span></div></article>
+</div>
+</div></section>
 
-<!-- GARANTÍA -->
-<section class="sec">
-  <div class="wrap">
-    <div class="guar rv">
-      <div>
-        <span class="kicker">Garantía de servicio</span>
-        <h2>Asumimos el riesgo <em>por escrito</em></h2>
-        <p>Modalidad presencial y en línea, material incluido, simuladores mensuales. Agenda tu cita de cortesía y te explicamos las condiciones completas — sin letras chiquitas.</p>
-        <a class="btn btn-ink" style="margin-top:1.6rem" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20conocer%20la%20garant%C3%ADa%20del%20curso%20de%20Admisi%C3%B3n%20Universitaria" data-track="cta_garantia">Conocer la garantía <span class="ar">→</span></a>
-      </div>
-      <div class="stamp">Garantía<br>WorldBrain<br>·MMXXVI·</div>
-    </div>
-  </div>
-</section>
+<section class="sec"><div class="wrap"><div class="guar rv">
+<div><span class="kicker">Garantía de servicio</span><h2>Asumimos el riesgo <em>por escrito</em></h2><p>Presencial y en línea, material incluido, simuladores mensuales. Agenda tu cita de cortesía y te explicamos las condiciones — sin letras chiquitas.</p>
+<a class="btn btn-ink gbtn" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20conocer%20la%20garant%C3%ADa%20del%20curso" data-track="cta_garantia">Conocer la garantía <span class="ar">→</span></a></div>
+<div class="stamp">Garantía<br>WorldBrain<br>·MMXXVI·</div>
+</div></div></section>
 
-<!-- FAQ -->
-<section class="sec" id="faq">
-  <div class="wrap">
-    <div class="sec-head rv"><span class="sec-num">06 —</span>
-      <div><span class="kicker">Dudas frecuentes</span><h2 class="h2">Preguntas <em>y respuestas</em></h2></div>
-    </div>
-    <div class="faq rv">
-      <details><summary>¿Para qué universidades me preparan?</summary><p class="a">UNAM, IPN, UAM (CBI, CBS, CSH, CAD, CNI y CCD), Tec de Monterrey, La Salle y Anáhuac. El método cubre habilidades intelectuales básicas y las 9 materias de conocimiento disciplinario.</p></details>
-      <details><summary>¿Cuánto dura el curso?</summary><p class="a">Tú eliges: 4 meses (intensivo), 6 meses (estratégico, el más elegido) u 8 meses (blindado, desde cero). Todos con libertad de horario y simulador mensual de cortesía.</p></details>
-      <details><summary>¿Los simuladores son como el examen real?</summary><p class="a">Sí: 120 reactivos de opción múltiple, 5 secciones y cronómetro de 2 h 59 min. Practicas en las mismas condiciones del día del examen.</p></details>
-      <details><summary>¿Y si voy atrasado en alguna materia?</summary><p class="a">El examen diagnóstico detecta tus puntos débiles desde el día uno. Con grupos reducidos, parciales con monitor y revisión de tareas, atacamos primero lo que más sube tu puntaje.</p></details>
-      <details><summary>¿Cómo funciona la garantía de servicio?</summary><p class="a">La ponemos por escrito. Agenda tu cita de cortesía por WhatsApp y te explicamos las condiciones completas, sin compromiso.</p></details>
-      <details><summary>¿Dónde están ubicados?</summary><p class="a">Av. 1 de Mayo, Col. Centro Urbano, Cuautitlán Izcalli, Estado de México — con modalidad presencial y en línea. Horarios: L–J 9:00–18:00, V 9:00–17:00, S 8:00–15:00.</p></details>
-    </div>
-  </div>
-</section>
+<section class="sec" id="faq"><div class="wrap">
+<div class="sec-head rv"><span class="sec-num">06 —</span><div><span class="kicker">Dudas frecuentes</span><h2 class="h2">Preguntas <em>y respuestas</em></h2></div></div>
+<div class="faq rv">
+<details><summary>¿Para qué universidades me preparan?</summary><p class="a">UNAM, IPN, UAM (CBI, CBS, CSH, CAD, CNI y CCD), Tec de Monterrey, La Salle y Anáhuac.</p></details>
+<details><summary>¿Cuánto dura el curso?</summary><p class="a">Tú eliges: 4, 6 u 8 meses. Todos con libertad de horario y simulador mensual de cortesía.</p></details>
+<details><summary>¿Los simuladores son como el examen real?</summary><p class="a">Sí: 120 reactivos, 5 secciones y cronómetro de 2 h 59 min. Mismas condiciones del día del examen.</p></details>
+<details><summary>¿Y si voy atrasado en alguna materia?</summary><p class="a">El diagnóstico detecta tus puntos débiles desde el día uno. Atacamos primero lo que más sube tu puntaje.</p></details>
+<details><summary>¿Dónde están ubicados?</summary><p class="a">Av. 1 de Mayo, Col. Centro Urbano, Cuautitlán Izcalli, Edo. de Méx. — presencial y en línea. L–J 9:00–18:00, V 9:00–17:00, S 8:00–15:00.</p></details>
+</div>
+</div></section>
 
-<!-- CTA FINAL -->
-<section class="final">
-  <div class="wrap rv">
-    <span class="kicker">Último paso</span>
-    <h2>Tu lugar se decide hoy,<br><em>no el día del examen.</em></h2>
-    <p>Cada semana que pasa, tu competencia estudia. Agenda tu diagnóstico de cortesía, conoce tu nivel real y llévate un simulador de regalo. Sin costo, sin compromiso.</p>
-    <a class="btn" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20agendar%20mi%20diagn%C3%B3stico%20de%20cortes%C3%ADa%20de%20Admisi%C3%B3n%20Universitaria%202026" data-track="cta_final">Agendar por WhatsApp <span class="ar">→</span></a>
-    <p class="tel">Tel. <a href="tel:+525558686784">55 5868 6784</a> · WhatsApp <a href="https://wa.me/5215578107837">55 7810 7837</a> · Respuesta en minutos en horario de atención</p>
-  </div>
-</section>
+<section class="final"><div class="wrap rv">
+<span class="kicker">Último paso</span>
+<h2>Tu lugar se decide hoy,<br><em>no el día del examen.</em></h2>
+<p>Cada semana que pasa, tu competencia estudia. Agenda tu diagnóstico de cortesía y llévate un simulador de regalo. Sin costo, sin compromiso.</p>
+<a class="btn" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20agendar%20mi%20diagn%C3%B3stico%20de%20cortes%C3%ADa%202026" data-track="cta_final">Agendar por WhatsApp <span class="ar">→</span></a>
+<p class="tel">Tel. <a href="tel:+525558686784">55 5868 6784</a> · WhatsApp <a href="https://wa.me/5215578107837">55 7810 7837</a></p>
+</div></section>
 </main>
 
-<!-- FOOTER -->
-<footer class="ft">
-  <div class="wrap">
-    <div class="ft-g">
-      <div>
-        <a class="logo" href="index.html">WorldBrain<i>.</i></a>
-        <p style="color:var(--muted);margin-top:.8rem;max-width:38ch">Pioneros en neuroaprendizaje y desarrollo mental acelerado desde 2000. Más de 200,000 graduados en México.</p>
-      </div>
-      <div>
-        <h4>Programas</h4>
-        <ul><li><a href="fotolectura.html">Fotolectura</a></li><li><a href="memoria-prodigiosa.html">Memoria Prodigiosa</a></li><li><a href="comipems.html">COMIPEMS</a></li><li><a href="regularizacion-express.html">Regularización Express</a></li></ul>
-      </div>
-      <div>
-        <h4>Contacto</h4>
-        <ul><li><a href="tel:+525558686784">55 5868 6784</a></li><li><a href="https://wa.me/5215578107837">WhatsApp 55 7810 7837</a></li><li><a href="https://www.instagram.com/worldbrainmx1" target="_blank" rel="noopener">@worldbrainmx1</a></li><li><a href="https://twitter.com/WorldBrainMx" target="_blank" rel="noopener">@WorldBrainMx</a></li></ul>
-      </div>
-    </div>
-    <p class="legal">CWBMX, S.C. · RFC: CWB170626UH4 · Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano, Cuautitlán Izcalli, Edo. de Méx., C.P. 54700 · © 2026 WorldBrain México · <a href="terminos.html">Términos</a> · <a href="privacidad.html">Privacidad</a> · <a href="reembolsos.html">Reembolsos</a></p>
-  </div>
-</footer>
-
-<!-- FLOTANTES -->
-<a class="wa" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20informes%20de%20Admisi%C3%B3n%20Universitaria" aria-label="Escríbenos por WhatsApp" data-track="wa_float">
-  <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm5.9 16.9c-.3.8-1.5 1.5-2.4 1.7-.6.1-1.4.2-4.1-.9-3.4-1.4-5.6-4.9-5.8-5.1-.2-.2-1.4-1.9-1.4-3.6s.9-2.5 1.2-2.9c.3-.3.7-.4.9-.4h.7c.2 0 .5-.1.8.6.3.8 1 2.7 1.1 2.9.1.2.2.4 0 .7-.1.3-.2.4-.4.7l-.6.7c-.2.2-.4.4-.2.8s1 1.7 2.2 2.8c1.5 1.4 2.8 1.8 3.2 2 .4.2.6.2.8-.1s1-1.1 1.2-1.5c.3-.4.5-.3.9-.2s2.4 1.1 2.8 1.3c.4.2.7.3.8.5.1.2.1.9-.2 1.7z"/></svg>
-</a>
-<div class="sticky" id="sticky" role="complementary" aria-label="Acción rápida">
-  <span class="t">Convocatoria 2026<br>Cupo limitado</span>
-  <a class="btn btn-ink" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20cortes%C3%ADa" data-track="cta_sticky">Diagnóstico gratis →</a>
+<footer class="ft"><div class="wrap">
+<div class="ft-g">
+<div><a class="logo" href="index.html">WorldBrain<i>.</i></a><p class="ft-desc">Pioneros en neuroaprendizaje desde 2000. Más de 200,000 graduados en México.</p></div>
+<div><h4>Programas</h4><ul><li><a href="fotolectura.html">Fotolectura</a></li><li><a href="memoria-prodigiosa.html">Memoria Prodigiosa</a></li><li><a href="comipems.html">COMIPEMS</a></li><li><a href="regularizacion-express.html">Regularización Express</a></li></ul></div>
+<div><h4>Contacto</h4><ul><li><a href="tel:+525558686784">55 5868 6784</a></li><li><a href="https://wa.me/5215578107837">WhatsApp 55 7810 7837</a></li><li><a href="https://www.instagram.com/worldbrainmx1" target="_blank" rel="noopener">@worldbrainmx1</a></li></ul></div>
 </div>
+<p class="legal">CWBMX, S.C. · RFC: CWB170626UH4 · Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano, Cuautitlán Izcalli, Edo. de Méx., C.P. 54700 · © 2026 WorldBrain México · <a href="terminos.html">Términos</a> · <a href="privacidad.html">Privacidad</a> · <a href="reembolsos.html">Reembolsos</a></p>
+</div></footer>
 
-<script>
-(() => {
-  "use strict";
-  const $ = (s, c = document) => c.querySelector(s);
-  const $$ = (s, c = document) => [...c.querySelectorAll(s)];
-  const rm = matchMedia("(prefers-reduced-motion: reduce)").matches;
+<a class="wa" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20informes" aria-label="WhatsApp" data-track="wa_float"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 3C9.4 3 4 8.4 4 15c0 2.1.6 4.2 1.6 6L4 29l8.2-1.5c1.7.9 3.7 1.4 5.8 1.4 6.6 0 12-5.4 12-12S22.6 3 16 3zm5.9 16.9c-.3.8-1.5 1.5-2.4 1.7-.6.1-1.4.2-4.1-.9-3.4-1.4-5.6-4.9-5.8-5.1-.2-.2-1.4-1.9-1.4-3.6s.9-2.5 1.2-2.9c.3-.3.7-.4.9-.4h.7c.2 0 .5-.1.8.6.3.8 1 2.7 1.1 2.9.1.2.2.4 0 .7-.1.3-.2.4-.4.7l-.6.7c-.2.2-.4.4-.2.8s1 1.7 2.2 2.8c1.5 1.4 2.8 1.8 3.2 2 .4.2.6.2.8-.1s1-1.1 1.2-1.5c.3-.4.5-.3.9-.2s2.4 1.1 2.8 1.3c.4.2.7.3.8.5.1.2.1.9-.2 1.7z"/></svg></a>
 
-  /* 1. Duplicar ticker para loop infinito sin salto (DRY: no repetir HTML a mano) */
-  const tk = $("#tk");
-  tk.innerHTML += tk.innerHTML.replace(/<span/g, '<span aria-hidden="true"');
+<div class="sticky" id="sticky"><span class="t">Convocatoria 2026<br>Cupo limitado</span><a class="btn btn-ink" href="https://wa.me/5215578107837?text=Hola%2C%20quiero%20mi%20diagn%C3%B3stico%20de%20cortes%C3%ADa" data-track="cta_sticky">Diagnóstico gratis →</a></div>
 
-  /* 2. Scroll: progreso + sticky CTA — un solo listener, rAF-throttled */
-  const prog = $("#prog"), sticky = $("#sticky"), hero = $(".hero");
-  let tick = false;
-  const onScroll = () => {
-    const max = document.documentElement.scrollHeight - innerHeight;
-    prog.style.transform = `scaleX(${max > 0 ? scrollY / max : 0})`;
-    sticky.classList.toggle("on", scrollY > hero.offsetHeight * 0.8);
-    tick = false;
-  };
-  addEventListener("scroll", () => { if (!tick) { requestAnimationFrame(onScroll); tick = true; } }, { passive: true });
-  onScroll();
-
-  /* 3. Reveal on scroll — one-shot, libera memoria */
-  const io = new IntersectionObserver((es) => {
-    for (const e of es) if (e.isIntersecting) { e.target.classList.add("on"); io.unobserve(e.target); }
-  }, { threshold: 0.12, rootMargin: "0px 0px -40px" });
-  $$(".rv").forEach((el) => io.observe(el));
-
-  /* 4. Countdown — deadline renovable: 1º del mes siguiente (urgencia real, sin mentir) */
-  const cd = { d: $('[data-cd="d"]'), h: $('[data-cd="h"]'), m: $('[data-cd="m"]'), s: $('[data-cd="s"]') };
-  const next = () => { const n = new Date(); return new Date(n.getFullYear(), n.getMonth() + 1, 1); };
-  let dl = next();
-  const pad = (n) => String(n).padStart(2, "0");
-  const tickCd = () => {
-    let diff = dl - Date.now();
-    if (diff <= 0) { dl = next(); diff = dl - Date.now(); }
-    cd.d.textContent = pad(diff / 864e5 | 0);
-    cd.h.textContent = pad((diff / 36e5 | 0) % 24);
-    cd.m.textContent = pad((diff / 6e4 | 0) % 60);
-    cd.s.textContent = pad((diff / 1e3 | 0) % 60);
-  };
-  tickCd(); setInterval(tickCd, 1000);
-
-  /* 5. Contadores animados — easeOutExpo + Intl para separador de miles */
-  const fmt = new Intl.NumberFormat("es-MX");
-  const animate = (el) => {
-    const t = +el.dataset.count;
-    if (rm) { el.textContent = fmt.format(t); return; }
-    const t0 = performance.now(), D = 1600;
-    const step = (now) => {
-      const p = Math.min((now - t0) / D, 1);
-      el.textContent = fmt.format(Math.round(t * (p === 1 ? 1 : 1 - 2 ** (-10 * p))));
-      if (p < 1) requestAnimationFrame(step);
-    };
-    requestAnimationFrame(step);
-  };
-  const cio = new IntersectionObserver((es) => {
-    for (const e of es) if (e.isIntersecting) { animate(e.target); cio.unobserve(e.target); }
-  }, { threshold: 0.5 });
-  $$("[data-count]").forEach((el) => cio.observe(el));
-
-  /* 6. FAQ exclusivo — un solo panel abierto */
-  const faqs = $$(".faq details");
-  faqs.forEach((d) => d.addEventListener("toggle", () => {
-    if (d.open) faqs.forEach((o) => { if (o !== d) o.open = false; });
-  }));
-
-  /* 7. Tracking fail-safe — delegación, GA4/Meta-ready, jamás rompe un clic */
-  document.addEventListener("click", (ev) => {
-    const el = ev.target.closest("[data-track]");
-    if (!el) return;
-    const payload = {
-      event_category: "conversion",
-      event_label: el.dataset.track,
-      page: "admision-universitaria",
-    };
-    try {
-      if (typeof gtag === "function") gtag("event", "cta_click", payload);
-      if (typeof fbq === "function") fbq("track", "Lead", payload);
-    } catch (_) { /* analytics nunca debe interrumpir la navegación del usuario */ }
-  });
-})();
-</script>
+<script src="js/admision.js" defer></script>
 </body>
 </html>

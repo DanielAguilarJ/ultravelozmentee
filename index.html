@@ -1144,5 +1144,596 @@ if(!CSS.supports('animation-timeline: view()')){
   if(open)micro.style.color='var(--klein)';
 })();
 </script>
+
+<style id="home-a11y-layout-patch">
+  :root{
+    --a11y-muted:#625f58;
+    --a11y-dark-muted:#C7C4BC;
+    --a11y-border:#77736C;
+  }
+
+  /* Números del hero: mismo tamaño para cifra, + y % */
+  .ledger b > .count{
+    display:inline;
+    font-family:inherit;
+    font-size:1em;
+    font-weight:inherit;
+    font-style:inherit;
+    line-height:inherit;
+    letter-spacing:inherit;
+    text-transform:none;
+    color:inherit;
+  }
+
+  .ledger > div > b + span{
+    display:block;
+    margin-top:.45rem;
+    font-size:.72rem;
+    line-height:1.4;
+  }
+
+  /* Directorio: columnas rectas y sin desplazamiento al pasar el cursor */
+  .row a:hover,
+  .row a:focus-visible{
+    padding-left:.4rem;
+    background:var(--porcelain-2);
+  }
+
+  .row a:focus-visible .word{
+    opacity:1;
+    transform:none;
+  }
+
+  @media (min-width:981px){
+    .row a{
+      grid-template-columns:
+        64px
+        260px
+        minmax(0,1fr)
+        260px;
+      align-items:start;
+      gap:1.6rem;
+    }
+
+    .row .name,
+    .row .desc,
+    .row .meta{
+      min-width:0;
+    }
+
+    .row .desc{
+      width:100%;
+      max-width:none;
+      line-height:1.55;
+    }
+
+    .row .meta{
+      justify-content:flex-end;
+      align-items:center;
+    }
+  }
+
+  /* Contraste WCAG para textos pequeños */
+  .manifesto p{
+    color:var(--a11y-muted);
+  }
+
+  .finder-box::before,
+  .mmenu a small,
+  .row .no,
+  .pact-list li s,
+  .finale .micro,
+  footer h4,
+  .foot-legal,
+  .cmdk li .a,
+  .cmdk .empty,
+  .cmdk .hint,
+  .press span{
+    color:var(--a11y-muted);
+  }
+
+  .method .mono,
+  .method-foot div span,
+  .pact-card .mono{
+    color:var(--a11y-dark-muted);
+  }
+
+  .ops-col p[style*="--ink-30"]{
+    color:var(--a11y-muted)!important;
+  }
+
+  .row .age,
+  .method-foot div span,
+  footer h4,
+  .finale .micro,
+  .press span{
+    font-size:.72rem;
+  }
+
+  .foot-legal{
+    font-size:.8rem;
+  }
+
+  /* Bordes y áreas táctiles visibles */
+  .burger,
+  .cmdk-btn,
+  .fopt,
+  .filter,
+  .stack-nav button{
+    min-height:44px;
+    border-color:var(--a11y-border);
+  }
+
+  .nav-links > li > a:not(.btn){
+    display:inline-flex;
+    align-items:center;
+    min-height:44px;
+  }
+
+  .faq summary{
+    min-height:44px;
+  }
+
+  footer li a{
+    display:inline-flex;
+    align-items:center;
+    min-height:24px;
+  }
+
+  :focus-visible{
+    outline-width:3px;
+    outline-offset:3px;
+  }
+
+  .method :focus-visible,
+  .pact-card :focus-visible{
+    outline-color:#fff;
+  }
+
+  /* Buscador accesible */
+  dialog.cmdk{
+    position:relative;
+  }
+
+  .cmdk input{
+    padding-right:4.5rem;
+  }
+
+  .cmdk input:focus-visible{
+    outline:3px solid var(--klein);
+    outline-offset:-3px;
+  }
+
+  .cmdk-close{
+    position:absolute;
+    top:.45rem;
+    right:.55rem;
+    z-index:2;
+    width:44px;
+    height:44px;
+    display:grid;
+    place-items:center;
+    border:1px solid var(--a11y-border);
+    border-radius:50%;
+    background:var(--porcelain);
+    color:var(--ink);
+    font:600 1.35rem/1 var(--sans);
+    cursor:pointer;
+  }
+
+  .cmdk-close:hover{
+    background:var(--ink);
+    color:var(--porcelain);
+  }
+
+  /* Estrella decorativa sin lectura redundante */
+  .row.star .name::after{
+    content:"★" / "";
+  }
+
+  /* Reflujo y zoom */
+  @media (max-width:600px){
+    .hero h1 .draw{
+      white-space:normal;
+    }
+
+    .hero h1 .draw svg,
+    .finder-box::before{
+      display:none;
+    }
+
+    .ledger > div{
+      flex-basis:100%;
+    }
+
+    .rituals,
+    .foot-grid{
+      grid-template-columns:1fr;
+    }
+
+    .stack{
+      min-height:520px;
+    }
+
+    .letter .who{
+      flex-direction:column;
+      align-items:flex-start;
+    }
+
+    .pact-list li{
+      flex-direction:column;
+      align-items:flex-start;
+      gap:.3rem;
+    }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{
+      scroll-behavior:auto!important;
+    }
+  }
+
+  @media (prefers-contrast:more){
+    :root{
+      --ink-60:#4D4A44;
+      --a11y-muted:#45423D;
+      --a11y-border:#45423D;
+    }
+  }
+
+  @media (forced-colors:active){
+    .btn,
+    .burger,
+    .cmdk-btn,
+    .fopt,
+    .filter,
+    .stack-nav button,
+    .cmdk-close{
+      border:1px solid ButtonText;
+    }
+
+    .fopt.on,
+    .filter.on{
+      forced-color-adjust:none;
+      background:Highlight;
+      color:HighlightText;
+    }
+  }
+</style>
+
+<script>
+(() => {
+  'use strict';
+
+  const q  = (selector, context = document) => context.querySelector(selector);
+  const qa = (selector, context = document) => [...context.querySelectorAll(selector)];
+
+  qa('button:not([type])').forEach(button => button.type = 'button');
+
+  const main = q('#main-content');
+  if (main) main.tabIndex = -1;
+
+  /* Elementos decorativos */
+  qa('.ic, .arr, .go, .word, .sig .line, .faq .tog').forEach(element => {
+    element.setAttribute('aria-hidden', 'true');
+  });
+
+  const heroSvg = q('.hero h1 svg');
+  if (heroSvg) {
+    heroSvg.setAttribute('aria-hidden', 'true');
+    heroSvg.setAttribute('focusable', 'false');
+  }
+
+  qa('.logo').forEach(logo => {
+    logo.setAttribute('aria-label', 'WorldBrain México, inicio');
+  });
+
+  const press = q('.press');
+  if (press) press.setAttribute('role', 'region');
+
+  /* Jerarquía de encabezados */
+  qa('footer h4').forEach(heading => {
+    heading.setAttribute('role', 'heading');
+    heading.setAttribute('aria-level', '2');
+  });
+
+  qa('.ops-col h3').forEach(heading => {
+    heading.setAttribute('role', 'heading');
+    heading.setAttribute('aria-level', '2');
+  });
+
+  /* Menú móvil */
+  const burger = q('#burger');
+  const mobileMenu = q('#mmenu');
+
+  if (burger && mobileMenu) {
+    burger.setAttribute('aria-controls', 'mmenu');
+    mobileMenu.setAttribute('role', 'navigation');
+    mobileMenu.setAttribute('aria-label', 'Menú móvil');
+
+    const inertTargets = [
+      main,
+      q('footer'),
+      q('.wa'),
+      q('.nav > .logo'),
+      q('.nav-links')
+    ].filter(Boolean);
+
+    const setInert = (element, state) => {
+      if (state) element.setAttribute('inert', '');
+      else element.removeAttribute('inert');
+    };
+
+    const syncMenu = () => {
+      const open = mobileMenu.classList.contains('open');
+
+      burger.setAttribute('aria-expanded', String(open));
+      burger.setAttribute('aria-label', open ? 'Cerrar menú' : 'Abrir menú');
+      mobileMenu.setAttribute('aria-hidden', String(!open));
+      inertTargets.forEach(element => setInert(element, open));
+
+      return open;
+    };
+
+    syncMenu();
+
+    burger.addEventListener('click', () => {
+      queueMicrotask(() => {
+        if (syncMenu()) q('a', mobileMenu)?.focus();
+      });
+    });
+
+    qa('a', mobileMenu).forEach(link => {
+      link.addEventListener('click', () => queueMicrotask(syncMenu));
+    });
+
+    document.addEventListener('keydown', event => {
+      if (!mobileMenu.classList.contains('open')) return;
+
+      if (event.key === 'Escape') {
+        event.preventDefault();
+        burger.click();
+        burger.focus();
+        return;
+      }
+
+      if (event.key !== 'Tab') return;
+
+      const focusable = [burger, ...qa('a[href]', mobileMenu)];
+      const first = focusable[0];
+      const last = focusable[focusable.length - 1];
+
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first.focus();
+      }
+    });
+  }
+
+  /* Preguntas del selector asociadas con sus grupos */
+  qa('.fq').forEach((section, index) => {
+    const question = q('p', section);
+    const options = q('.opts', section);
+    if (!question || !options) return;
+
+    question.id ||= `finder-question-${index + 1}`;
+    options.setAttribute('aria-labelledby', question.id);
+  });
+
+  /* Estados accesibles de botones seleccionables */
+  const syncPressed = container => {
+    if (!container) return;
+    qa('button', container).forEach(button => {
+      button.setAttribute(
+        'aria-pressed',
+        String(button.classList.contains('on'))
+      );
+    });
+  };
+
+  qa('.opts').forEach(syncPressed);
+  syncPressed(q('.filters'));
+
+  document.addEventListener('click', event => {
+    const option = event.target.closest('.fopt');
+    const filter = event.target.closest('.filter');
+
+    if (option) {
+      queueMicrotask(() => syncPressed(option.closest('.opts')));
+    }
+
+    if (filter) {
+      queueMicrotask(() => {
+        syncPressed(filter.closest('.filters'));
+
+        const category = filter.dataset.f;
+        const rows = qa('#dirList .row');
+        const count = category === 'all'
+          ? rows.length
+          : rows.filter(row =>
+              row.dataset.cat?.split(/\s+/).includes(category)
+            ).length;
+
+        const status = q('#filterStatus');
+        if (status) {
+          status.textContent =
+            `${count} programas mostrados. Filtro ${filter.textContent.trim()} seleccionado.`;
+        }
+      });
+    }
+  });
+
+  const filters = q('.filters');
+  if (filters && !q('#filterStatus')) {
+    const status = document.createElement('p');
+    status.id = 'filterStatus';
+    status.className = 'sr-only';
+    status.setAttribute('role', 'status');
+    status.setAttribute('aria-live', 'polite');
+    status.setAttribute('aria-atomic', 'true');
+    filters.after(status);
+  }
+
+  const recommendation = q('#freco');
+  if (recommendation) {
+    recommendation.setAttribute('role', 'status');
+    recommendation.setAttribute('aria-atomic', 'true');
+  }
+
+  /* Carrusel: solo el testimonio activo queda expuesto */
+  const stack = q('#stack');
+  const letters = stack ? qa('.letter', stack) : [];
+  const carouselCount = q('.stack-count');
+
+  if (stack && letters.length) {
+    stack.setAttribute('role', 'region');
+
+    const syncCarousel = () => {
+      let activeIndex = 0;
+
+      letters.forEach((letter, index) => {
+        const active = letter.dataset.pos === '0';
+
+        letter.setAttribute('role', 'group');
+        letter.setAttribute('aria-roledescription', 'diapositiva');
+        letter.setAttribute(
+          'aria-label',
+          `Testimonio ${index + 1} de ${letters.length}`
+        );
+        letter.setAttribute('aria-hidden', String(!active));
+
+        if (active) {
+          activeIndex = index;
+          letter.removeAttribute('inert');
+        } else {
+          letter.setAttribute('inert', '');
+        }
+      });
+
+      const current = q('#curL');
+      if (current) current.textContent = String(activeIndex + 1);
+
+      if (carouselCount) {
+        carouselCount.setAttribute(
+          'aria-label',
+          `Testimonio ${activeIndex + 1} de ${letters.length}`
+        );
+      }
+    };
+
+    qa('#prevL, #nextL').forEach(button => {
+      button.setAttribute('aria-controls', 'stack');
+    });
+
+    if (carouselCount) {
+      carouselCount.setAttribute('role', 'status');
+      carouselCount.setAttribute('aria-live', 'polite');
+      carouselCount.setAttribute('aria-atomic', 'true');
+    }
+
+    new MutationObserver(syncCarousel).observe(stack, {
+      subtree:true,
+      attributes:true,
+      attributeFilter:['data-pos']
+    });
+
+    syncCarousel();
+  }
+
+  /* Buscador tipo combobox */
+  const dialog = q('#cmdk');
+  const input = q('#cmdkInput');
+  const list = q('#cmdkList');
+  const opener = q('#cmdkOpen');
+
+  if (dialog && input && list) {
+    if (!q('#cmdkInputLabel')) {
+      const label = document.createElement('label');
+      label.id = 'cmdkInputLabel';
+      label.className = 'sr-only';
+      label.htmlFor = 'cmdkInput';
+      label.textContent = 'Buscar un programa';
+      input.before(label);
+    }
+
+    input.type = 'search';
+    input.setAttribute('role', 'combobox');
+    input.setAttribute('aria-labelledby', 'cmdkInputLabel');
+    input.setAttribute('aria-autocomplete', 'list');
+    input.setAttribute('aria-haspopup', 'listbox');
+    input.setAttribute('aria-controls', 'cmdkList');
+    input.setAttribute('aria-expanded', String(dialog.open));
+
+    list.setAttribute('role', 'listbox');
+    list.setAttribute('aria-label', 'Resultados de programas');
+
+    if (!q('.cmdk-close', dialog)) {
+      const close = document.createElement('button');
+      close.type = 'button';
+      close.className = 'cmdk-close';
+      close.setAttribute('aria-label', 'Cerrar buscador');
+      close.textContent = '×';
+      dialog.append(close);
+
+      close.addEventListener('click', () => dialog.close());
+    }
+
+    const syncOptions = () => {
+      const options = qa('li', list);
+
+      options.forEach((option, index) => {
+        option.id = `cmdk-option-${index}`;
+        option.setAttribute('role', 'option');
+        option.setAttribute(
+          'aria-selected',
+          String(option.classList.contains('sel'))
+        );
+
+        if (option.classList.contains('empty')) {
+          option.setAttribute('aria-disabled', 'true');
+        } else {
+          option.removeAttribute('aria-disabled');
+        }
+
+        const link = q('a', option);
+        if (link) link.tabIndex = -1;
+      });
+
+      const selected = q('li.sel', list);
+
+      if (selected) {
+        input.setAttribute('aria-activedescendant', selected.id);
+      } else {
+        input.removeAttribute('aria-activedescendant');
+      }
+    };
+
+    new MutationObserver(syncOptions).observe(list, {
+      childList:true,
+      subtree:true,
+      attributes:true,
+      attributeFilter:['class']
+    });
+
+    new MutationObserver(() => {
+      input.setAttribute('aria-expanded', String(dialog.open));
+    }).observe(dialog, {
+      attributes:true,
+      attributeFilter:['open']
+    });
+
+    dialog.addEventListener('close', () => {
+      input.setAttribute('aria-expanded', 'false');
+      input.removeAttribute('aria-activedescendant');
+      opener?.focus();
+    });
+
+    syncOptions();
+  }
+})();
+</script>
 </body>
 </html>

@@ -1499,6 +1499,47 @@ h1,h2,h3,h4{ font-family:var(--font-display); line-height:1.12; letter-spacing:-
     });
   }, { passive: true });
 })();
+<!-- ============ Pronunciación Web Speech API para Flashcards ============ -->
+<script>
+(function(){
+  'use strict';
+  var canSpeak = 'speechSynthesis' in window;
+  if (!canSpeak) return;
+
+  var enVoice = null;
+  function pickVoice(){
+    var voices = speechSynthesis.getVoices();
+    enVoice = voices.find(function(v){ return v.lang === 'en-US'; }) ||
+              voices.find(function(v){ return v.lang.indexOf('en') === 0; }) || null;
+  }
+  pickVoice();
+  if (typeof speechSynthesis.onvoiceschanged !== 'undefined') {
+    speechSynthesis.onvoiceschanged = pickVoice;
+  }
+
+  function speak(text){
+    speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(text);
+    u.lang = 'en-US';
+    u.rate = 0.85;               // un poco lento: es para niños
+    if (enVoice) u.voice = enVoice;
+    speechSynthesis.speak(u);
+  }
+
+  // Se engancha a tus flashcards existentes: lee la frase en inglés al tocarlas.
+  document.querySelectorAll('#flashcards button').forEach(function(card){
+    // La frase en inglés = primer texto antes de "Toca aquí"
+    var english = (card.textContent || '').split('Toca aquí')[0]
+                    .replace(/[\u{1F300}-\u{1FAFF}\u{2600}-\u{27BF}]/gu, '').trim();
+    if (!english) return;
+    card.setAttribute('aria-label', 'Flashcard: ' + english + '. Toca para escuchar y ver la traducción');
+    card.addEventListener('click', function(){ speak(english); });
+  });
+
+  // Bonus: el demo del hero (LION) también habla
+  var heroCard = document.getElementById('hero-card') || document.querySelector('[data-hero-flashcard]');
+  if (heroCard) heroCard.addEventListener('click', function(){ speak('Lion'); });
+})();
 </script>
 </body>
 </html>

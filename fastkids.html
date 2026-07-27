@@ -252,6 +252,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); line-height:1.12; letter-spacing:-
   perspective:1000px;
 }
 .hero-card-inner{
+  display:block;               /* mismo FIX si usas spans, y sano aunque sea div */
   position:relative; width:100%; height:100%;
   transform-style:preserve-3d;
   transition:transform .8s var(--ease-bounce);
@@ -378,7 +379,7 @@ h1,h2,h3,h4{ font-family:var(--font-display); line-height:1.12; letter-spacing:-
 .five-min p{ opacity:.9; font-size:.98rem; }
 @media (max-width: 640px){ .five-min{ grid-template-columns:1fr; text-align:center; justify-items:center; } }
 
-/* ---------- 9. Flashcards interactivas ---------- */
+/* ---------- 9. Flashcards interactivas (FIX 3D) ---------- */
 .flashcards{ background:var(--night); color:var(--white); overflow:hidden; }
 .flashcards .kicker{ background:transparent; color:var(--sun); }
 .flashcards .section-lead{ color:rgba(255,255,255,.75); }
@@ -390,20 +391,26 @@ h1,h2,h3,h4{ font-family:var(--font-display); line-height:1.12; letter-spacing:-
 .flashcard{
   aspect-ratio:3/4; perspective:900px; cursor:pointer; border-radius:var(--radius-md);
   background:transparent; padding:0; text-align:center;
+  -webkit-tap-highlight-color:transparent;
 }
 .flashcard-inner{
+  display:block;               /* FIX: los <span> son inline; sin esto el 3D colapsa */
   position:relative; width:100%; height:100%;
-  transform-style:preserve-3d; transition:transform .7s var(--ease-bounce);
+  transform-style:preserve-3d;
+  transition:transform .7s var(--ease-bounce);
+  will-change:transform;
 }
 .flashcard.is-flipped .flashcard-inner{ transform:rotateY(180deg); }
 .flashcard .face{
-  position:absolute; inset:0; backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  position:absolute; inset:0;
+  backface-visibility:hidden; -webkit-backface-visibility:hidden;
+  transform:translateZ(0);     /* FIX: fuerza composición propia en Safari/iOS */
   border:var(--border-fun); border-radius:var(--radius-md);
   display:flex; flex-direction:column; align-items:center; justify-content:center; gap:.35rem;
   padding:1rem; box-shadow:5px 5px 0 rgba(0,0,0,.35);
 }
 .flashcard .front{ background:var(--white); color:var(--ink); }
-.flashcard .back{ transform:rotateY(180deg); color:var(--white); }
+.flashcard .back{ transform:rotateY(180deg) translateZ(1px); color:var(--white); }
 .flashcard:nth-child(4n+1) .back{ background:var(--coral); }
 .flashcard:nth-child(4n+2) .back{ background:var(--teal); }
 .flashcard:nth-child(4n+3) .back{ background:var(--grape); }
@@ -548,22 +555,94 @@ h1,h2,h3,h4{ font-family:var(--font-display); line-height:1.12; letter-spacing:-
 .faq-item[open] summary::after{ transform:rotate(45deg); }
 .faq-item .faq-body{ padding:0 1.4rem 1.3rem; color:var(--ink-soft); font-size:.97rem; }
 
-/* ---------- 15. Footer ---------- */
-.site-footer{ background:var(--night-deep); color:rgba(255,255,255,.8); padding-block:3.5rem 2rem; }
-.footer-grid{
-  display:grid; grid-template-columns:1.3fr 1fr 1fr; gap:2.5rem; align-items:start;
+/* ---------- 15. Footer (v2) ---------- */
+.site-footer{
+  background:var(--night-deep); color:rgba(255,255,255,.78);
+  position:relative; overflow:hidden;
 }
-@media (max-width: 760px){ .footer-grid{ grid-template-columns:1fr; } }
-.site-footer h4{ color:var(--sun); font-size:1rem; margin-bottom:.9rem; letter-spacing:.05em; }
+/* Textura sutil de estrellas — decorativa, en CSS puro */
+.site-footer::before{
+  content:""; position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background-image:
+    radial-gradient(circle 1.5px at 12% 30%, rgba(255,197,49,.6) 100%, transparent),
+    radial-gradient(circle 1px   at 45% 70%, rgba(255,255,255,.35) 100%, transparent),
+    radial-gradient(circle 2px   at 78% 20%, rgba(88,183,255,.5) 100%, transparent),
+    radial-gradient(circle 1px   at 90% 60%, rgba(255,255,255,.3) 100%, transparent),
+    radial-gradient(circle 1.5px at 28% 85%, rgba(255,94,108,.45) 100%, transparent);
+}
+.site-footer > .container{ position:relative; }
+
+/* Franja CTA de cierre */
+.footer-cta{
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between;
+  gap:1.25rem; padding:clamp(1.5rem, 4vw, 2.25rem);
+  margin-top:calc(var(--space-section) * -0.5); margin-bottom:3.5rem;
+  background:linear-gradient(135deg, var(--grape), var(--night));
+  border:var(--border-fun); border-radius:var(--radius-lg);
+  box-shadow:8px 8px 0 var(--teal);
+}
+.footer-cta h3{ color:var(--white); font-size:clamp(1.2rem, 2.5vw, 1.6rem); }
+.footer-cta p{ font-size:.95rem; margin-top:.25rem; }
+.site-footer{ padding-block:calc(var(--space-section) * 0.5) 2rem; }
+
+.footer-grid{
+  display:grid; grid-template-columns:1.4fr 1fr 1fr 1.1fr;
+  gap:2.5rem; align-items:start;
+}
+@media (max-width: 900px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+@media (max-width: 560px){ .footer-grid{ grid-template-columns:1fr 1fr; } }
+
+.site-footer h4{
+  color:var(--sun); font-size:.85rem; letter-spacing:.12em; text-transform:uppercase;
+  margin-bottom:1rem;
+}
 .site-footer p, .site-footer li{ font-size:.92rem; }
-.site-footer li{ margin-bottom:.5rem; }
+.site-footer ul li{ margin-bottom:.6rem; }
 .site-footer a{ text-decoration:none; transition:color .2s; }
 .site-footer a:hover{ color:var(--sun); }
+.footer-links a{ position:relative; padding-left:1.1rem; display:inline-block; }
+.footer-links a::before{
+  content:"→"; position:absolute; left:0; color:var(--coral);
+  transition:transform .25s var(--ease-bounce);
+}
+.footer-links a:hover::before{ transform:translateX(4px); }
+
+/* Horarios como mini-tabla semántica */
+.footer-hours{ display:grid; grid-template-columns:auto 1fr; gap:.35rem 1rem; font-size:.9rem; }
+.footer-hours dt{ font-weight:800; color:var(--white); }
+.footer-hours dd{ margin:0; }
+
+/* Redes sociales */
+.footer-social{ display:flex; gap:.75rem; margin-top:1.25rem; }
+.footer-social a{
+  width:42px; height:42px; display:grid; place-items:center;
+  background:rgba(255,255,255,.08); border:2px solid rgba(255,255,255,.25);
+  border-radius:12px; transition:transform .25s var(--ease-bounce), background .25s, border-color .25s;
+}
+.footer-social a:hover{ transform:translateY(-4px) rotate(-4deg); background:var(--sun); border-color:var(--ink); }
+.footer-social a:hover svg{ fill:var(--ink); }
+.footer-social svg{ width:20px; height:20px; fill:rgba(255,255,255,.85); transition:fill .25s; }
+
+/* Badges de confianza */
+.footer-badges{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top:1.25rem; }
+.footer-badges span{
+  font-size:.75rem; font-weight:800; letter-spacing:.04em;
+  background:rgba(255,255,255,.08); border:1.5px solid rgba(255,255,255,.2);
+  border-radius:var(--radius-pill); padding:.3rem .8rem;
+}
+
 .footer-bottom{
-  margin-top:2.5rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.12);
-  display:flex; flex-wrap:wrap; justify-content:space-between; gap:1rem;
+  margin-top:3rem; padding-top:1.5rem; border-top:1px solid rgba(255,255,255,.12);
+  display:flex; flex-wrap:wrap; align-items:center; justify-content:space-between; gap:1rem;
   font-size:.8rem; color:rgba(255,255,255,.5);
 }
+.back-to-top{
+  display:inline-grid; place-items:center; width:44px; height:44px;
+  background:var(--sun); color:var(--ink); border:var(--border-fun); border-radius:12px;
+  font-size:1.2rem; text-decoration:none; box-shadow:3px 3px 0 rgba(0,0,0,.4);
+  transition:transform .25s var(--ease-bounce);
+}
+.back-to-top:hover{ transform:translateY(-4px); color:var(--ink); }
 
 /* ---------- 16. Botón flotante de WhatsApp ---------- */
 .wa-float{
@@ -1017,40 +1096,86 @@ h1,h2,h3,h4{ font-family:var(--font-display); line-height:1.12; letter-spacing:-
 </section>
 </main>
 
-<!-- ============ FOOTER ============ -->
+<!-- ============ FOOTER v2 ============ -->
 <footer class="site-footer">
   <div class="container">
+
+    <div class="footer-cta">
+      <div>
+        <h3>🚀 ¿Listo para que hable inglés jugando?</h3>
+        <p>Clase muestra gratis + diagnóstico de nivel. Sin compromiso.</p>
+      </div>
+      <a class="btn btn-sun" href="https://wa.me/525578107837?text=%C2%A1Hola!%20Quiero%20mi%20clase%20muestra%20de%20FastKids%20%F0%9F%9A%80" target="_blank" rel="noopener">Reservar por WhatsApp</a>
+    </div>
+
     <div class="footer-grid">
       <div>
         <a class="brand" href="#top" style="color:#fff">
           <span class="brand-mark" aria-hidden="true">FK</span>
           <span class="brand-name">Fast<em>Kids</em></span>
         </a>
-        <p style="margin-top:1rem">Programa de inglés con neuroaprendizaje de <strong>WorldBrain México (UltraVelozmente)</strong>. 30+ años de experiencia, 200,000+ graduados.</p>
+        <p style="margin-top:1rem">Inglés con neuroaprendizaje de <strong style="color:#fff">WorldBrain México (UltraVelozmente)</strong>. Aprende y comprende por frases, con juegos, 60 flashcards y grupos de máximo 7 alumnos.</p>
+        <div class="footer-social">
+          <a href="https://www.facebook.com/ultravelozmente" target="_blank" rel="noopener" aria-label="Facebook de WorldBrain México">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13.5 21v-8.2h2.8l.4-3.2h-3.2V7.5c0-.9.3-1.6 1.6-1.6H17V3.1c-.3 0-1.3-.1-2.5-.1-2.5 0-4.2 1.5-4.2 4.3v2.3H7.5v3.2h2.8V21h3.2z"/></svg>
+          </a>
+          <a href="https://www.instagram.com/ultravelozmente" target="_blank" rel="noopener" aria-label="Instagram de WorldBrain México">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 2.2c3.2 0 3.6 0 4.8.1 1.2.1 1.8.2 2.2.4.6.2 1 .5 1.4.9.4.4.7.8.9 1.4.2.4.4 1 .4 2.2.1 1.2.1 1.6.1 4.8s0 3.6-.1 4.8c-.1 1.2-.2 1.8-.4 2.2-.2.6-.5 1-.9 1.4-.4.4-.8.7-1.4.9-.4.2-1 .4-2.2.4-1.2.1-1.6.1-4.8.1s-3.6 0-4.8-.1c-1.2-.1-1.8-.2-2.2-.4-.6-.2-1-.5-1.4-.9-.4-.4-.7-.8-.9-1.4-.2-.4-.4-1-.4-2.2-.1-1.2-.1-1.6-.1-4.8s0-3.6.1-4.8c.1-1.2.2-1.8.4-2.2.2-.6.5-1 .9-1.4.4-.4.8-.7 1.4-.9.4-.2 1-.4 2.2-.4 1.2-.1 1.6-.1 4.8-.1zm0 1.8c-3.1 0-3.5 0-4.7.1-1.1.1-1.7.2-2.1.4-.5.2-.9.4-1.2.8-.4.4-.6.7-.8 1.2-.2.4-.3 1-.4 2.1-.1 1.2-.1 1.6-.1 4.7s0 3.5.1 4.7c.1 1.1.2 1.7.4 2.1.2.5.4.9.8 1.2.4.4.7.6 1.2.8.4.2 1 .3 2.1.4 1.2.1 1.6.1 4.7.1s3.5 0 4.7-.1c1.1-.1 1.7-.2 2.1-.4.5-.2.9-.4 1.2-.8.4-.4.6-.7.8-1.2.2-.4.3-1 .4-2.1.1-1.2.1-1.6.1-4.7s0-3.5-.1-4.7c-.1-1.1-.2-1.7-.4-2.1-.2-.5-.4-.9-.8-1.2-.4-.4-.7-.6-1.2-.8-.4-.2-1-.3-2.1-.4-1.2-.1-1.6-.1-4.7-.1zm0 3.1a4.9 4.9 0 1 1 0 9.8 4.9 4.9 0 0 1 0-9.8zm0 8.1a3.2 3.2 0 1 0 0-6.4 3.2 3.2 0 0 0 0 6.4zm6.2-8.3a1.1 1.1 0 1 1-2.3 0 1.1 1.1 0 0 1 2.3 0z"/></svg>
+          </a>
+          <a href="https://wa.me/525578107837" target="_blank" rel="noopener" aria-label="WhatsApp de FastKids">
+            <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16 2.7C8.7 2.7 2.8 8.6 2.8 15.9c0 2.3.6 4.6 1.8 6.6L2.7 29.3l7-1.8c1.9 1 4.1 1.6 6.3 1.6 7.3 0 13.2-5.9 13.2-13.2S23.3 2.7 16 2.7zm0 24.2c-2 0-3.9-.5-5.6-1.5l-.4-.2-4.2 1.1 1.1-4.1-.3-.4c-1.1-1.8-1.7-3.8-1.7-5.9 0-6.1 5-11 11.1-11s11 4.9 11 11-5 11-11 11zm6.1-8.2c-.3-.2-2-1-2.3-1.1-.3-.1-.5-.2-.7.2-.2.3-.8 1.1-1 1.3-.2.2-.4.2-.7.1-.3-.2-1.4-.5-2.7-1.7-1-.9-1.7-2-1.9-2.3-.2-.3 0-.5.1-.7l.5-.6c.2-.2.2-.3.3-.6.1-.2 0-.4 0-.6-.1-.2-.7-1.8-1-2.4-.3-.6-.5-.5-.7-.6h-.6c-.2 0-.6.1-.9.4-.3.3-1.2 1.1-1.2 2.8s1.2 3.2 1.4 3.5c.2.2 2.4 3.7 5.9 5.2.8.4 1.5.6 2 .7.8.3 1.6.2 2.2.1.7-.1 2-.8 2.3-1.6.3-.8.3-1.5.2-1.6-.1-.2-.3-.3-.6-.4z"/></svg>
+          </a>
+        </div>
+        <div class="footer-badges">
+          <span>🏅 30+ años</span>
+          <span>🎓 200,000+ graduados</span>
+          <span>👥 Grupos de 7</span>
+        </div>
       </div>
-      <div>
+
+      <nav aria-label="Más programas de WorldBrain">
         <h4>Más programas</h4>
-        <ul>
+        <ul class="footer-links">
           <li><a href="https://ultravelozmente.com/mathekids" target="_blank" rel="noopener">MatheKids · Ábaco Soroban</a></li>
           <li><a href="https://ultravelozmente.com/juniormath_v2" target="_blank" rel="noopener">JuniorMath · Cálculo mental</a></li>
           <li><a href="https://ultravelozmente.com/lectoescritura" target="_blank" rel="noopener">Lectoescritura</a></li>
           <li><a href="https://ultravelozmente.com/robotics" target="_blank" rel="noopener">Robotics Code</a></li>
           <li><a href="https://ultravelozmente.com/homeschool" target="_blank" rel="noopener">Homeschool Veloz · SEP</a></li>
+          <li><a href="https://ultravelozmente.com/fotolectura" target="_blank" rel="noopener">Fotolectura</a></li>
         </ul>
-      </div>
+      </nav>
+
+      <nav aria-label="Explora FastKids">
+        <h4>Explora</h4>
+        <ul class="footer-links">
+          <li><a href="#metodo">El método</a></li>
+          <li><a href="#flashcards">Flashcards</a></li>
+          <li><a href="#contenidos">Contenidos</a></li>
+          <li><a href="#progreso">Niveles A1–C2</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#faq">Preguntas frecuentes</a></li>
+        </ul>
+      </nav>
+
       <div>
-        <h4>Contacto</h4>
+        <h4>Contacto y horarios</h4>
         <ul>
-          <li>📱 <a href="https://wa.me/525578107837" target="_blank" rel="noopener">WhatsApp: +52 55 7810 7837</a></li>
-          <li>📍 CDMX y Cuautitlán Izcalli, Edo. Méx.</li>
-          <li>🕘 L–J 9:00–18:00 · V 9:00–17:00 · S 8:00–15:00</li>
+          <li>📱 <a href="https://wa.me/525578107837" target="_blank" rel="noopener">+52 55 7810 7837</a></li>
+          <li>📍 CDMX · Cuautitlán Izcalli, Edo. Méx.</li>
           <li>🌐 <a href="https://ultravelozmente.com/fastkids" target="_blank" rel="noopener">ultravelozmente.com/fastkids</a></li>
         </ul>
+        <dl class="footer-hours">
+          <dt>Lun–Jue</dt><dd>9:00 – 18:00</dd>
+          <dt>Viernes</dt><dd>9:00 – 17:00</dd>
+          <dt>Sábado</dt><dd>8:00 – 15:00</dd>
+        </dl>
       </div>
     </div>
+
     <div class="footer-bottom">
       <span>© <span id="year">2026</span> WorldBrain México · FastKids. Todos los derechos reservados.</span>
       <span>Hecho con 💛 para mentes veloces.</span>
+      <a class="back-to-top" href="#top" aria-label="Volver arriba">↑</a>
     </div>
   </div>
 </footer>

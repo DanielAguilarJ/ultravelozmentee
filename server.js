@@ -43,9 +43,12 @@ app.use((req, res, next) => {
   if (req.path.length > 1 && req.path.endsWith('/')) {
     return res.redirect(301, req.path.slice(0, -1));
   }
-  // Backups y archivos internos: nunca servibles, ni por URL directa
-  if (/backup|-old/.test(req.path) || req.path.startsWith('/_archive')) {
-    return res.redirect(301, '/');
+  if (
+    /backup|-old/i.test(req.path) ||
+    req.path.startsWith('/_archive')
+  ) {
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    return res.status(410).type('text/plain').send('Contenido eliminado');
   }
   next();
 });
@@ -276,28 +279,83 @@ app.post('/api/posts', authenticateBlogAPI, (req, res) => {
   }
 });
 
-// Plantilla de post — AUDITADA: canónica limpia, JSON-LD Article,
-// sin enlaces externos raros (antes enlazaba reclusive.app y "psicoterapia")
+function escapeHtml(value = '') {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+
+function jsonLd(value) {
+  return JSON.stringify(value).replace(/</g, '\\u003c');
+}
+
 function buildBlogHtml(m, content) {
+  const url = `${BASE}/blog-${m.slug}`;
+  const image = `${BASE}/images/fl-hero-brain.webp`;
+
+  const articleSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BlogPosting',
+    '@id': `${url}#article`,
+    headline: m.title,
+    description: m.excerpt,
+    url,
+    image,
+    datePublished: m.createdAt,
+    dateModified: m.updatedAt || m.createdAt,
+    inLanguage: 'es-MX',
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': url
+    },
+    author: {
+      '@type': 'Organization',
+      name: m.author || 'Equipo Editorial WorldBrain',
+      url: BASE
+    },
+    publisher: {
+      '@type': 'Organization',
+      '@id': `${BASE}/#organization`,
+      name: 'WorldBrain México',
+      logo: {
+        '@type': 'ImageObject',
+        url: `${BASE}/images/logo.svg`
+      }
+    }
+  };
+
   return `<!DOCTYPE html>
-<html lang="es">
+<html lang="es-MX">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>${m.title} | Blog WorldBrain México</title>
-<meta name="description" content="${m.excerpt}">
-<link rel="canonical" href="${BASE}/blog-${m.slug}">
-<meta property="og:title" content="${m.title}">
-<meta property="og:description" content="${m.excerpt}">
+<title>${escapeHtml(m.title)} | Blog WorldBrain México</title>
+<meta name="description" content="${escapeHtml(m.excerpt)}">
+<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
+
+<link rel="canonical" href="${url}">
+
+<meta property="og:locale" content="es_MX">
 <meta property="og:type" content="article">
+<meta property="og:site_name" content="WorldBrain México">
+<meta property="og:title" content="${escapeHtml(m.title)}">
+<meta property="og:description" content="${escapeHtml(m.excerpt)}">
+<meta property="og:url" content="${url}">
+<meta property="og:image" content="${image}">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="${escapeHtml(m.title)}">
+<meta name="twitter:description" content="${escapeHtml(m.excerpt)}">
+<meta name="twitter:image" content="${image}">
+
+<meta property="article:published_time" content="${m.createdAt}">
+<meta property="article:modified_time" content="${m.updatedAt || m.createdAt}">
+
 <script type="application/ld+json">
-${JSON.stringify({
-  '@context': 'https://schema.org', '@type': 'Article',
-  headline: m.title, description: m.excerpt,
-  author: { '@type': 'Organization', name: 'WorldBrain México' },
-  publisher: { '@type': 'Organization', name: 'WorldBrain México' },
-  datePublished: m.createdAt, mainEntityOfPage: `${BASE}/blog-${m.slug}`
-})}
+${jsonLd(articleSchema)}
 </script>
 <link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -316,13 +374,13 @@ nav a{color:var(--ink);text-decoration:none;font-weight:500}
 <body>
 <div class="wrap">
 <nav><a href="/">← WorldBrain</a> · <a href="/blog-index">Blog</a></nav>
-<h1>${m.title}</h1>
-<p class="meta">${m.category} · ${m.date} · ${m.readTime} · ${m.author}</p>
+<h1>${escapeHtml(m.title)}</h1>
+<p class="meta">${escapeHtml(m.category)} · ${escapeHtml(m.date)} · ${escapeHtml(m.readTime)} · ${escapeHtml(m.author)}</p>
 <article>${content}</article>
 <div class="cta">
 <h3 style="font-family:'Instrument Serif',serif;font-weight:400;margin:0">Aprende a la velocidad de tu potencial</h3>
 <p style="color:rgba(246,244,238,.7)">Agenda una clase muestra gratuita y descubre de lo que eres capaz.</p>
-<a href="https://wa.me/5215578107837?text=Hola,%20quiero%20agendar%20una%20clase%20muestra">Agendar clase muestra</a>
+<a href="https://wa.me/525578107837?text=Hola,%20quiero%20agendar%20una%20clase%20muestra">Agendar clase muestra</a>
 </div>
 </div>
 </body>
@@ -386,18 +444,65 @@ app.get('/sitemap.xml', (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// 8) HEADERS COMPARTIDOS — una sola fuente de verdad
-//    (los usan express.static Y las rutas limpias; antes las
-//    rutas limpias con sendFile se saltaban todos los headers)
+// 8) HEADERS COMPARTIDOS Y PROTECCIÓN DE RUTAS PRIVADAS
 // ─────────────────────────────────────────────────────────────
+const PRIVATE_ROUTES = [
+  '/src/',
+  '/data/',
+  '/node_modules/',
+  '/graphify-out/',
+  '/_archive/',
+  '/redaccion-ejecutiva/src/',
+  '/redaccion-ejecutiva/node_modules/'
+];
+
+const PRIVATE_FILES = new Set([
+  '/server.js',
+  '/package.json',
+  '/package-lock.json',
+  '/README.md',
+  '/deploy.sh',
+  '/check.sh',
+  '/.eleventy.js'
+]);
+
+app.use((req, res, next) => {
+  const isPrivateDirectory = PRIVATE_ROUTES.some(prefix =>
+    req.path.startsWith(prefix)
+  );
+
+  if (isPrivateDirectory || PRIVATE_FILES.has(req.path)) {
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    return res.status(404).type('text/plain').send('Not found');
+  }
+
+  next();
+});
+
 function applyFileHeaders(res, filePath) {
   if (filePath.endsWith('.html')) {
-    // HTML siempre fresco: cambios visibles al instante para Googlebot y usuarios
     res.setHeader('Cache-Control', 'no-cache, must-revalidate');
-    res.setHeader('X-Robots-Tag', 'index, follow, max-image-preview:large');
-  } else if (/\.(js|css|webp|jpg|jpeg|png|svg|woff2|woff|mp4)$/.test(filePath)) {
-    res.setHeader('Cache-Control', 'public, max-age=31536000, immutable');
+
+    if (path.basename(filePath) === '404.html') {
+      res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    } else {
+      res.setHeader(
+        'X-Robots-Tag',
+        'index, follow, max-image-preview:large'
+      );
+    }
+  } else if (/\.(webp|jpg|jpeg|png|svg|woff2|woff|mp4)$/.test(filePath)) {
+    res.setHeader(
+      'Cache-Control',
+      'public, max-age=31536000, immutable'
+    );
+  } else if (/\.(js|css)$/.test(filePath)) {
+    res.setHeader(
+      'Cache-Control',
+      'public, max-age=86400, stale-while-revalidate=604800'
+    );
   }
+
   if (filePath.endsWith('robots.txt')) {
     res.setHeader('Cache-Control', 'public, max-age=86400');
     res.setHeader('Content-Type', 'text/plain; charset=utf-8');
@@ -412,9 +517,15 @@ app.use(express.static(staticPath, {
 
 // ─────────────────────────────────────────────────────────────
 // 9) RUTAS LIMPIAS — /fotolectura sirve fotolectura.html
-//    con status 200 y los MISMOS headers que el estático.
-//    AUDITADO: nunca sirve backups ni archivos ocultos.
 // ─────────────────────────────────────────────────────────────
+app.get('/404', (req, res) => {
+  res.status(404);
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+
+  const filePath = path.join(staticPath, '404.html');
+  return res.sendFile(filePath);
+});
+
 app.get('/:page', (req, res, next) => {
   const page = req.params.page;
   if (page.includes('.') || page.includes('backup') || page.includes('-old')) return next();

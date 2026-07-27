@@ -1,166 +1,309 @@
 <!DOCTYPE html>
 <html lang="es-MX">
 <head><meta charset="UTF-8">
-  <meta
-    name="viewport"
-    content="width=device-width, initial-scale=1"
-  >
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  
 
-  
 
-  <style>
-    :root {
-      --bg: #f8f5ed;
-      --ink: #151412;
-      --muted: #68635a;
-      --blue: #2438da;
-      --surface: #ffffff;
-      --border: rgba(21, 20, 18, .12);
-    }
 
-    * {
-      box-sizing: border-box;
-    }
 
-    body {
-      margin: 0;
-      background: var(--bg);
-      color: var(--ink);
-      font-family: system-ui, -apple-system, BlinkMacSystemFont,
-        "Segoe UI", sans-serif;
-      line-height: 1.65;
-    }
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Lexend:wght@300;400;500;600;700&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
 
-    a {
-      color: inherit;
-    }
+<style>
+/* ================================================================
+   COMIPEMS — HOJA DE RESPUESTAS · SCANTRON EDITION · WB 2026
+   ================================================================ */
+:root{
+  --paper:#FAFAF6;
+  --sheet:#FFFFFF;
+  --graphite:#1B1B1F;
+  --pencil:#55555E;
+  --red:#E3342F;          /* lápiz rojo de calificar */
+  --red-soft:rgba(227,52,47,.08);
+  --green:#1F9D63;
+  --line:#E3E1D8;
+  --rule:#D8D5C9;
+  --display:'Anton',sans-serif;
+  --body:'Lexend',system-ui,sans-serif;
+  --mono:'DM Mono',monospace;
+  --sh:0 18px 44px -18px rgba(27,27,31,.22);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--body);background:var(--paper);color:var(--graphite);
+  line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased;
+}
+/* Renglones de hoja de examen */
+body::before{
+  content:"";position:fixed;inset:0;pointer-events:none;z-index:0;
+  background:repeating-linear-gradient(180deg,transparent 0 31px,rgba(27,27,31,.035) 31px 32px);
+}
+/* Margen rojo de cuaderno */
+body::after{
+  content:"";position:fixed;top:0;bottom:0;left:clamp(14px,4vw,58px);width:2px;
+  background:rgba(227,52,47,.18);pointer-events:none;z-index:0;
+}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3{font-family:var(--display);font-weight:400;line-height:1.02;letter-spacing:.01em;text-transform:uppercase;text-wrap:balance}
+::selection{background:var(--red);color:#fff}
 
-    .wrap {
-      width: min(1100px, calc(100% - 40px));
-      margin: 0 auto;
-    }
+.wrap{max-width:1160px;margin:0 auto;padding:0 26px;position:relative;z-index:2}
+.mono{font-family:var(--mono);font-size:.72rem;letter-spacing:.22em;text-transform:uppercase;color:var(--red)}
 
-    nav {
-      min-height: 72px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-bottom: 1px solid var(--border);
-    }
+/* Óvalos OMR decorativos */
+.omr{display:inline-flex;gap:.45rem;align-items:center}
+.omr i{
+  width:20px;height:13px;border:1.6px solid var(--pencil);border-radius:50%;
+  font-style:normal;font-family:var(--mono);font-size:.5rem;display:grid;place-items:center;color:var(--pencil);
+}
+.omr i.fill{background:var(--graphite);border-color:var(--graphite);color:transparent}
 
-    nav a {
-      text-decoration: none;
-      font-weight: 700;
-    }
+/* ---------- Botones ---------- */
+.btn{
+  display:inline-flex;align-items:center;gap:.6rem;text-decoration:none;cursor:pointer;
+  font-family:var(--body);font-weight:700;font-size:.93rem;
+  padding:1rem 1.9rem;border-radius:6px;border:2px solid var(--graphite);
+  transition:transform .16s,box-shadow .16s,background .16s;box-shadow:4px 4px 0 var(--graphite);
+  background:var(--sheet);
+}
+.btn:hover{transform:translate(2px,2px);box-shadow:2px 2px 0 var(--graphite)}
+.btn:active{transform:translate(4px,4px);box-shadow:0 0 0 var(--graphite)}
+.btn-red{background:var(--red);border-color:var(--graphite);color:#fff}
+.btn-dark{background:var(--graphite);color:#fff}
 
-    .hero {
-      padding: 100px 0 80px;
-    }
+/* ---------- Header ---------- */
+header{
+  position:sticky;top:0;z-index:100;background:rgba(250,250,246,.92);
+  backdrop-filter:blur(10px);border-bottom:2px solid var(--graphite);
+}
+.nav{display:flex;align-items:center;justify-content:space-between;max-width:1160px;margin:0 auto;padding:.9rem 26px}
+.logo{font-family:var(--display);font-size:1.15rem;text-decoration:none;text-transform:uppercase;letter-spacing:.02em}
+.logo span{color:var(--red)}
+.nav-links{display:flex;gap:1.9rem;list-style:none;align-items:center}
+.nav-links a{text-decoration:none;font-size:.88rem;font-weight:500;color:var(--pencil)}
+.nav-links a:hover{color:var(--red)}
+.nav-cta{font-size:.78rem;padding:.6rem 1.2rem}
+.burger{display:none;background:var(--sheet);border:2px solid var(--graphite);border-radius:6px;padding:.45rem .8rem;cursor:pointer;box-shadow:3px 3px 0 var(--graphite)}
+.mmenu{display:none;flex-direction:column;gap:1rem;padding:1.3rem 26px 1.6rem;border-bottom:2px solid var(--graphite);background:var(--paper)}
+.mmenu a{text-decoration:none;font-weight:700}
+.mmenu.open{display:flex}
 
-    .eyebrow {
-      color: var(--blue);
-      font-size: .76rem;
-      font-weight: 800;
-      letter-spacing: .15em;
-      text-transform: uppercase;
-    }
+/* ---------- Barra countdown ---------- */
+.countbar{
+  background:var(--graphite);color:#fff;padding:.7rem 0;overflow:hidden;
+  font-family:var(--mono);font-size:.78rem;letter-spacing:.14em;text-align:center;
+}
+.countbar b{color:#FFD23F}
+.countbar .red{color:#FF6B66}
 
-    h1 {
-      max-width: 900px;
-      margin: 16px 0 24px;
-      font-family: Georgia, serif;
-      font-size: clamp(2.6rem, 7vw, 5.5rem);
-      font-weight: 400;
-      line-height: 1;
-    }
+/* ---------- Hero ---------- */
+.hero{padding:5rem 0 4rem;position:relative}
+.hero-grid{display:grid;grid-template-columns:1.15fr .85fr;gap:3.5rem;align-items:center}
+.hero .stamp{
+  display:inline-block;font-family:var(--mono);font-size:.7rem;letter-spacing:.2em;color:var(--red);
+  border:2px solid var(--red);border-radius:6px;padding:.5rem 1rem;transform:rotate(-2deg);
+  margin-bottom:1.6rem;background:var(--red-soft);
+}
+.hero h1{font-size:clamp(3rem,8.5vw,6.2rem);margin-bottom:1.4rem}
+.hero h1 .scribble{position:relative;color:var(--red)}
+.hero h1 .scribble svg{position:absolute;left:-2%;bottom:-.12em;width:104%;height:.3em;overflow:visible}
+.hero h1 .scribble path{stroke:var(--red);stroke-width:5;fill:none;stroke-linecap:round;stroke-dasharray:600;stroke-dashoffset:600;animation:scrib 1.1s .6s ease forwards}
+@keyframes scrib{to{stroke-dashoffset:0}}
+.hero .lead{font-size:1.12rem;color:var(--pencil);max-width:32rem;margin-bottom:2.2rem}
+.hero .lead b{color:var(--graphite)}
+.hero-ctas{display:flex;gap:1rem;flex-wrap:wrap;margin-bottom:2rem}
+.hero-tags{display:flex;gap:1.6rem;flex-wrap:wrap;font-family:var(--mono);font-size:.72rem;letter-spacing:.1em;color:var(--pencil)}
 
-    .lead {
-      max-width: 720px;
-      color: var(--muted);
-      font-size: 1.12rem;
-    }
+/* Tarjeta scantron del hero */
+.scantron{
+  background:var(--sheet);border:2px solid var(--graphite);border-radius:10px;box-shadow:var(--sh);
+  padding:1.8rem;transform:rotate(1.6deg);position:relative;
+}
+.scantron::before{
+  content:"HOJA DE RESPUESTAS · COMIPEMS";position:absolute;top:-12px;left:1.4rem;
+  font-family:var(--mono);font-size:.6rem;letter-spacing:.2em;background:var(--graphite);color:#fff;
+  padding:.3rem .8rem;border-radius:4px;
+}
+.sc-row{display:flex;align-items:center;gap:1rem;padding:.55rem 0;border-bottom:1px dashed var(--line);font-family:var(--mono);font-size:.78rem}
+.sc-row:last-child{border:none}
+.sc-row .no{width:26px;color:var(--pencil)}
+.sc-row .lbl{flex:1;font-family:var(--body);font-weight:500;font-size:.85rem}
+.sc-check{color:var(--green);font-weight:700}
 
-    .buttons {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 12px;
-      margin-top: 32px;
-    }
+/* ---------- Reveal ---------- */
+@supports (animation-timeline: view()){
+  .rv{animation:rvup both;animation-timeline:view();animation-range:entry 0% entry 38%}
+  @keyframes rvup{from{opacity:0;transform:translateY(38px)}to{opacity:1;transform:none}}
+}
 
-    .button {
-      display: inline-block;
-      padding: 14px 22px;
-      border: 1px solid var(--ink);
-      border-radius: 999px;
-      text-decoration: none;
-      font-weight: 700;
-    }
+/* ---------- Ficha técnica del examen ---------- */
+.exam-band{background:var(--graphite);color:#fff;border-block:2px solid var(--graphite)}
+.exam-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,.14)}
+.exam-cell{background:var(--graphite);padding:2.6rem 1.6rem;text-align:center}
+.exam-cell b{font-family:var(--display);font-size:clamp(2.4rem,5vw,3.8rem);display:block;color:#FFD23F;line-height:1}
+.exam-cell span{font-family:var(--mono);font-size:.68rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.65)}
 
-    .button.primary {
-      border-color: var(--blue);
-      background: var(--blue);
-      color: white;
-    }
+/* ---------- Secciones ---------- */
+section{padding:6rem 0;position:relative;z-index:2}
+h2.title{font-size:clamp(2rem,4.6vw,3.4rem);margin:.8rem 0 1rem;max-width:24ch}
+h2.title em{font-style:normal;color:var(--red)}
+.sub{color:var(--pencil);max-width:38rem;font-size:1.03rem}
 
-    .notice {
-      margin-top: 48px;
-      padding: 20px;
-      border: 1px solid var(--border);
-      border-radius: 14px;
-      background: var(--surface);
-      color: var(--muted);
-    }
+/* ---------- Método A-B-C ---------- */
+.abc{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem}
+.abc-card{
+  background:var(--sheet);border:2px solid var(--graphite);border-radius:10px;padding:2.1rem;
+  box-shadow:6px 6px 0 var(--line);transition:transform .2s,box-shadow .2s;position:relative;
+}
+.abc-card:hover{transform:translate(-3px,-3px);box-shadow:9px 9px 0 var(--red)}
+.abc-card .bubble{
+  width:54px;height:36px;border:2.5px solid var(--graphite);border-radius:50%;
+  display:grid;place-items:center;font-family:var(--display);font-size:1.25rem;margin-bottom:1.3rem;
+  background:var(--graphite);color:#fff;
+}
+.abc-card h3{font-size:1.4rem;margin-bottom:.6rem}
+.abc-card .mono{display:block;margin-bottom:.9rem;color:var(--pencil)}
+.abc-card p{color:var(--pencil);font-size:.95rem}
+.abc-card .foot{margin-top:1.4rem;padding-top:1.1rem;border-top:1px dashed var(--line);font-family:var(--mono);font-size:.7rem;letter-spacing:.12em;color:var(--red)}
 
-    .section {
-      padding: 72px 0;
-      border-top: 1px solid var(--border);
-    }
+/* ---------- Bloques + Áreas ---------- */
+.blocks{display:grid;grid-template-columns:1fr 1fr;gap:1.6rem;margin:3rem 0}
+.block{
+  background:var(--sheet);border:2px solid var(--graphite);border-radius:10px;padding:2.2rem;box-shadow:var(--sh);
+}
+.block .mono{display:block;margin-bottom:1rem}
+.block h3{font-size:1.5rem;margin-bottom:.8rem}
+.block p{color:var(--pencil);font-size:.96rem}
+.areas{display:grid;grid-template-columns:repeat(2,1fr);gap:1.3rem}
+.area{
+  background:var(--sheet);border:1.5px solid var(--line);border-left:5px solid var(--red);
+  border-radius:8px;padding:1.5rem 1.7rem;transition:all .2s;
+}
+.area:hover{border-left-width:12px;box-shadow:var(--sh)}
+.area h3{font-family:var(--body);font-weight:700;font-size:1.05rem;text-transform:none;margin-bottom:.4rem}
+.area p{color:var(--pencil);font-size:.92rem}
 
-    .section h2 {
-      max-width: 700px;
-      font-family: Georgia, serif;
-      font-size: clamp(2rem, 5vw, 3.4rem);
-      font-weight: 400;
-      line-height: 1.1;
-    }
+/* ---------- Tipos de reactivos ---------- */
+.reactivos{display:grid;grid-template-columns:repeat(4,1fr);gap:1.4rem;margin-top:3rem}
+.reactivo{
+  background:var(--sheet);border:2px dashed var(--rule);border-radius:10px;padding:1.9rem;transition:all .25s;
+}
+.reactivo:hover{border-style:solid;border-color:var(--graphite);box-shadow:var(--sh)}
+.reactivo .mono{display:block;margin-bottom:.8rem;color:var(--pencil)}
+.reactivo h3{font-family:var(--body);font-weight:700;font-size:1.08rem;text-transform:none;margin-bottom:.5rem}
+.reactivo p{color:var(--pencil);font-size:.92rem}
 
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 20px;
-      margin-top: 34px;
-    }
+/* ---------- SIMULACRO ---------- */
+.simu{background:var(--graphite);color:#fff;border-block:2px solid var(--graphite)}
+.simu .title{color:#fff}
+.simu .title em{color:#FFD23F}
+.simu .sub{color:rgba(255,255,255,.65)}
+.simu-box{
+  max-width:680px;margin:3rem auto 0;background:var(--sheet);color:var(--graphite);
+  border-radius:12px;padding:2.4rem;box-shadow:0 30px 70px -25px rgba(0,0,0,.5);position:relative;
+}
+.simu-box::before{
+  content:"";position:absolute;top:0;left:0;right:0;height:10px;border-radius:12px 12px 0 0;
+  background:repeating-linear-gradient(90deg,var(--red) 0 26px,var(--graphite) 26px 52px);
+}
+.simu-head{display:flex;justify-content:space-between;align-items:center;font-family:var(--mono);font-size:.75rem;letter-spacing:.14em;margin-bottom:1.4rem;color:var(--pencil)}
+.simu-head b{color:var(--red)}
+.simu-q{font-size:1.22rem;font-weight:600;margin-bottom:1.6rem;line-height:1.5}
+.simu-opts{display:flex;flex-direction:column;gap:.8rem}
+.opt{
+  display:flex;align-items:center;gap:1rem;padding:1rem 1.2rem;cursor:pointer;
+  border:2px solid var(--line);border-radius:8px;transition:all .15s;background:var(--paper);
+  font-size:.98rem;text-align:left;font-family:var(--body);width:100%;
+}
+.opt:hover{border-color:var(--graphite)}
+.opt .ov{
+  flex:0 0 auto;width:34px;height:23px;border:2px solid var(--graphite);border-radius:50%;
+  display:grid;place-items:center;font-family:var(--mono);font-size:.7rem;font-weight:500;transition:all .15s;
+}
+.opt.sel .ov{background:var(--graphite);color:transparent}
+.opt.sel{border-color:var(--graphite);background:#F1F0EA}
+.opt.right{border-color:var(--green);background:rgba(31,157,99,.07)}
+.opt.right .ov{background:var(--green);border-color:var(--green);color:transparent}
+.opt.wrong{border-color:var(--red);background:var(--red-soft);position:relative}
+.opt.wrong .ov{background:var(--red);border-color:var(--red);color:transparent}
+.opt.wrong::after{content:"✗";position:absolute;right:1.1rem;color:var(--red);font-weight:700;font-size:1.2rem}
+.opt.right::after{content:"✓";position:absolute;right:1.1rem;color:var(--green);font-weight:700;font-size:1.2rem}
+.opt:disabled{cursor:default}
+.simu-progress{display:flex;gap:.5rem;margin-top:1.8rem;justify-content:center}
+.simu-progress i{width:34px;height:22px;border:2px solid var(--line);border-radius:50%;font-style:normal;display:grid;place-items:center;font-family:var(--mono);font-size:.62rem;color:var(--pencil)}
+.simu-progress i.done-ok{background:var(--green);border-color:var(--green);color:#fff}
+.simu-progress i.done-bad{background:var(--red);border-color:var(--red);color:#fff}
+.simu-progress i.cur{border-color:var(--graphite);color:var(--graphite);font-weight:700}
+.simu-timer{font-family:var(--mono);font-size:.78rem;color:var(--pencil)}
+.simu-timer b{color:var(--red)}
+.simu-result{text-align:center;display:none}
+.simu-result.show{display:block}
+.grade{
+  font-family:var(--display);font-size:clamp(3.4rem,9vw,5.5rem);color:var(--red);line-height:1;
+  display:inline-block;transform:rotate(-4deg);position:relative;margin:1rem 0;
+}
+.grade::after{content:"";position:absolute;inset:-14px -22px;border:3px solid var(--red);border-radius:50%;transform:rotate(3deg)}
+.simu-verdict{font-size:1.05rem;color:var(--pencil);max-width:30rem;margin:1.4rem auto 1.8rem}
+.simu-verdict b{color:var(--graphite)}
 
-    .card {
-      padding: 28px;
-      border: 1px solid var(--border);
-      border-radius: 18px;
-      background: var(--surface);
-    }
+/* ---------- Calculadora de aciertos ---------- */
+.calc-zone{background:var(--sheet);border-block:2px solid var(--graphite)}
+.calc{max-width:760px;margin:3rem auto 0;text-align:center}
+.calc-score{font-family:var(--display);font-size:clamp(4rem,11vw,7rem);line-height:1}
+.calc-score small{font-size:.35em;color:var(--pencil);font-family:var(--mono)}
+.calc input[type=range]{width:100%;margin:1.8rem 0;accent-color:var(--red);cursor:pointer;height:8px}
+.calc-verdict{
+  border:2px solid var(--graphite);border-radius:10px;padding:1.5rem 1.8rem;background:var(--paper);
+  box-shadow:5px 5px 0 var(--line);font-size:1rem;transition:all .3s;min-height:96px;
+  display:flex;align-items:center;justify-content:center;gap:1rem;
+}
+.calc-verdict .em{font-size:1.8rem}
+.calc-note{font-family:var(--mono);font-size:.68rem;letter-spacing:.1em;color:var(--pencil);margin-top:1rem}
 
-    .card h3 {
-      margin-top: 0;
-    }
+/* ---------- CTA final ---------- */
+.final{background:var(--red);color:#fff;text-align:center;border-block:2px solid var(--graphite)}
+.final h2{color:#fff;font-size:clamp(2.2rem,6vw,4.2rem);max-width:20ch;margin:0 auto 1.2rem}
+.final p{color:rgba(255,255,255,.88);max-width:33rem;margin:0 auto 2.2rem}
+.final .btn{background:#fff;color:var(--graphite);box-shadow:4px 4px 0 var(--graphite)}
+.contact-row{display:flex;gap:1.8rem;justify-content:center;flex-wrap:wrap;margin-top:2.4rem;font-family:var(--mono);font-size:.78rem}
+.contact-row a{color:#fff;text-decoration:none}
+.contact-row a:hover{text-decoration:underline}
 
-    .card p {
-      color: var(--muted);
-    }
+/* ---------- Footer ---------- */
+footer{background:var(--graphite);color:rgba(255,255,255,.75);padding:4rem 0 2rem;font-size:.88rem;position:relative;z-index:2}
+.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2.5rem;margin-bottom:3rem}
+footer h4{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;text-transform:uppercase;color:#FFD23F;margin-bottom:1.1rem}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+footer a{text-decoration:none;color:rgba(255,255,255,.7)}
+footer a:hover{color:#fff}
+.foot-legal{border-top:1px solid rgba(255,255,255,.12);padding-top:1.5rem;font-size:.74rem;opacity:.65;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
 
-    footer {
-      padding: 36px 0;
-      border-top: 1px solid var(--border);
-      color: var(--muted);
-      font-size: .86rem;
-    }
+/* ---------- WhatsApp ---------- */
+.wa{
+  position:fixed;bottom:24px;right:24px;z-index:200;width:58px;height:58px;border-radius:50%;
+  background:#25D366;border:2.5px solid var(--graphite);display:grid;place-items:center;
+  font-size:1.6rem;text-decoration:none;box-shadow:4px 4px 0 rgba(27,27,31,.3);transition:transform .2s;
+}
+.wa:hover{transform:scale(1.1)}
 
-    @media (max-width: 760px) {
-      .grid {
-        grid-template-columns: 1fr;
-      }
-    }
-  </style>
+/* ---------- Responsive ---------- */
+@media (max-width:940px){
+  .nav-links{display:none}.burger{display:block}
+  .hero-grid,.blocks{grid-template-columns:1fr}
+  .abc,.reactivos{grid-template-columns:1fr}
+  .areas{grid-template-columns:1fr}
+  .exam-grid{grid-template-columns:1fr 1fr}
+  section{padding:4.2rem 0}
+  .scantron{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  *,*::before,*::after{animation:none!important;transition:none!important}
+}
+</style>
 
 <!-- SEO:GENERATED -->
 <title>Preparación para ingreso a bachillerato UNAM e IPN</title>
@@ -306,134 +449,396 @@
 <!-- /SEO:GENERATED -->
 
 </head>
-
 <body>
-  <nav class="wrap" aria-label="Principal">
-    <a href="/">WorldBrain México</a>
-    <a href="/#programas">Ver programas</a>
+
+<!-- ================= COUNTDOWN BAR ================= -->
+<div class="countbar" id="countbar">📝 Examen COMIPEMS 2026: faltan <b id="cdDays">—</b> días · <span class="red">Cada día cuenta</span></div>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <nav class="nav">
+    <a class="logo" href="/">World<span>Brain</span></a>
+    <ul class="nav-links">
+      <li><a href="#metodo">Método</a></li>
+      <li><a href="#examen">El Examen</a></li>
+      <li><a href="#simulacro">Simulacro</a></li>
+      <li><a href="#calculadora">Calculadora</a></li>
+      <li><a class="btn btn-red nav-cta" href="https://wa.me/525578107837?text=Hola,%20quiero%20informes%20del%20curso%20COMIPEMS">Quiero mi lugar</a></li>
+    </ul>
+    <button class="burger" id="burger" aria-label="Menú">☰</button>
   </nav>
+  <div class="mmenu" id="mmenu">
+    <a href="#metodo">Método</a><a href="#examen">El Examen</a>
+    <a href="#simulacro">Simulacro</a><a href="#calculadora">Calculadora</a>
+    <a href="https://wa.me/525578107837?text=Hola,%20quiero%20informes%20del%20curso%20COMIPEMS" style="color:var(--red)">Quiero mi lugar →</a>
+  </div>
+</header>
 
-  <main>
-    <section class="hero">
-      <div class="wrap">
-        <span class="eyebrow">
-          Preparación académica para bachillerato
-        </span>
-
-        <h1>
-          Prepárate para los procesos de ingreso de UNAM e IPN.
-        </h1>
-
-        <p class="lead">
-          Fortalece comprensión lectora, razonamiento matemático,
-          ciencias, habilidades de estudio y práctica de reactivos
-          con un plan basado en tu diagnóstico inicial.
-        </p>
-
-        <div class="buttons">
-          <a
-            class="button primary"
-            href="https://wa.me/525578107837?text=Hola,%20quiero%20información%20sobre%20preparación%20para%20ingreso%20a%20bachillerato"
-          >
-            Solicitar información
-          </a>
-
-          <a
-            class="button"
-            href="/admision-universitaria"
-          >
-            Admisión universitaria
-          </a>
-        </div>
-
-        <div class="notice">
-          <strong>Información importante:</strong>
-          las instituciones pueden modificar convocatorias,
-          requisitos, modalidades y evaluaciones. Consulta siempre
-          la convocatoria oficial vigente de la institución a la
-          que deseas ingresar.
-        </div>
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="stamp">EXAMEN ÚNICO · 128 REACTIVOS · UNA OPORTUNIDAD AL AÑO</span>
+      <h1>Aprueba tu <span class="scribble">COMIPEMS<svg viewBox="0 0 300 20" preserveAspectRatio="none"><path d="M2 14 Q 75 4, 150 12 T 298 8"/></svg></span> y entra a la prepa que quieres.</h1>
+      <p class="lead">Un solo examen decide tu futuro académico. Nosotros te damos el <b>método completo</b>: diagnóstico, teoría, práctica y 3 ejercicios diarios hasta que los 128 reactivos no tengan secretos para ti.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-red" href="https://wa.me/525578107837?text=Hola,%20quiero%20informes%20del%20curso%20COMIPEMS">Apartar mi lugar →</a>
+        <a class="btn" href="#simulacro">✏️ Hacer el mini-simulacro</a>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <h2>
-          Un plan de estudio basado en tu punto de partida.
-        </h2>
-
-        <div class="grid">
-          <article class="card">
-            <h3>Diagnóstico</h3>
-            <p>
-              Identificamos conocimientos y habilidades que
-              necesitan mayor refuerzo.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Plan de estudio</h3>
-            <p>
-              Organizamos los temas y la práctica de acuerdo con
-              las necesidades del estudiante.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Seguimiento</h3>
-            <p>
-              Revisamos avances, dudas y áreas que requieren
-              práctica adicional.
-            </p>
-          </article>
-        </div>
+      <div class="hero-tags">
+        <span>DIAGNÓSTICO GRATUITO</span><span>EN LÍNEA O PRESENCIAL</span><span>30+ AÑOS WORLDBRAIN</span>
       </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <h2>Áreas de preparación</h2>
-
-        <div class="grid">
-          <article class="card">
-            <h3>Comprensión lectora</h3>
-            <p>
-              Análisis de textos, vocabulario, inferencias y
-              localización de información.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Matemáticas</h3>
-            <p>
-              Aritmética, álgebra, geometría y resolución de
-              problemas.
-            </p>
-          </article>
-
-          <article class="card">
-            <h3>Ciencias y estudio</h3>
-            <p>
-              Repaso académico, organización del tiempo,
-              concentración y estrategias de estudio.
-            </p>
-          </article>
-        </div>
-      </div>
-    </section>
-  </main>
-
-  <footer>
-    <div class="wrap">
-      <p>
-        WorldBrain México ·
-        <a href="tel:+525578107837">
-          +52 (55) 7810-7837
-        </a> ·
-        <a href="/privacidad">Privacidad</a> ·
-        <a href="/terminos">Términos</a>
-      </p>
     </div>
-  </footer>
+    <aside class="scantron" aria-label="Lo que dominarás">
+      <div class="sc-row"><span class="no">01</span><span class="lbl">Comprensión lectora</span><span class="omr"><i>A</i><i class="fill">B</i><i>C</i></span><span class="sc-check">✓</span></div>
+      <div class="sc-row"><span class="no">02</span><span class="lbl">Razonamiento matemático</span><span class="omr"><i class="fill">A</i><i>B</i><i>C</i></span><span class="sc-check">✓</span></div>
+      <div class="sc-row"><span class="no">03</span><span class="lbl">Física, química y biología</span><span class="omr"><i>A</i><i>B</i><i class="fill">C</i></span><span class="sc-check">✓</span></div>
+      <div class="sc-row"><span class="no">04</span><span class="lbl">Historia, geografía y civismo</span><span class="omr"><i>A</i><i class="fill">B</i><i>C</i></span><span class="sc-check">✓</span></div>
+      <div class="sc-row"><span class="no">05</span><span class="lbl">Gramática y ortografía</span><span class="omr"><i class="fill">A</i><i>B</i><i>C</i></span><span class="sc-check">✓</span></div>
+      <div class="sc-row"><span class="no">→</span><span class="lbl" style="font-weight:700">Tu lugar en la prepa que elegiste</span><span class="sc-check" style="font-size:1.2rem">✓</span></div>
+    </aside>
+  </div>
+</section>
+
+<!-- ================= FICHA TÉCNICA DEL EXAMEN ================= -->
+<div class="exam-band" id="examen">
+  <div class="exam-grid">
+    <div class="exam-cell rv"><b>128</b><span>Reactivos opción múltiple</span></div>
+    <div class="exam-cell rv"><b>3 hrs</b><span>Duración del examen</span></div>
+    <div class="exam-cell rv"><b>2</b><span>Bloques de evaluación</span></div>
+    <div class="exam-cell rv"><b>4</b><span>Áreas de conocimiento</span></div>
+  </div>
+</div>
+
+<!-- ================= MÉTODO A-B-C ================= -->
+<section id="metodo">
+  <div class="wrap">
+    <span class="mono rv">Nuestro método</span>
+    <h2 class="title rv">Tres pasos. <em>Cero improvisación.</em></h2>
+    <p class="sub rv">Brindamos apoyo y recursos para aprobar el examen de ingreso a la preparatoria: mejoramos tus habilidades y conocimientos para alcanzar tus metas educativas.</p>
+    <div class="abc">
+      <article class="abc-card rv">
+        <span class="bubble">A</span>
+        <span class="mono">FASE 01 · DIAGNÓSTICO</span>
+        <h3>Examen</h3>
+        <p>Empezamos con un examen diagnóstico con <b>método práctico</b>: detectamos exactamente en qué reactivos pierdes puntos y por qué. Sin adivinar: con datos.</p>
+        <span class="foot">→ SABRÁS TU PUNTO DE PARTIDA REAL</span>
+      </article>
+      <article class="abc-card rv">
+        <span class="bubble">B</span>
+        <span class="mono">FASE 02 · TEORÍA</span>
+        <h3>Método tradicional</h3>
+        <p>Cubrimos la teoría de las 4 áreas con <b>método tradicional</b> reforzado: los conceptos que el examen exige, explicados hasta que de verdad se entienden.</p>
+        <span class="foot">→ CONOCIMIENTO DISCIPLINARIO COMPLETO</span>
+      </article>
+      <article class="abc-card rv">
+        <span class="bubble">C</span>
+        <span class="mono">FASE 03 · PRÁCTICA</span>
+        <h3>3 ejercicios diarios</h3>
+        <p>La clave del método: <b>3 ejercicios diarios</b> tipo COMIPEMS. La constancia convierte los reactivos en rutina y elimina el pánico el día del examen.</p>
+        <span class="foot">→ VELOCIDAD Y PRECISIÓN AUTOMÁTICAS</span>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BLOQUES Y ÁREAS ================= -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <span class="mono rv">Conoce a tu adversario</span>
+    <h2 class="title rv">Así está construido <em>el examen</em></h2>
+    <div class="blocks">
+      <div class="block rv">
+        <span class="mono">BLOQUE 1</span>
+        <h3>Habilidades cognitivas</h3>
+        <p>Las preguntas se centran en la capacidad de los estudiantes para <b>resolver problemas, razonar lógicamente y aplicar conocimientos adquiridos</b>. No basta saber: hay que saber pensar.</p>
+      </div>
+      <div class="block rv">
+        <span class="mono">BLOQUE 2</span>
+        <h3>Conocimiento disciplinario</h3>
+        <p>Temas específicos en las áreas de <b>Español, Matemáticas, Ciencias naturales y Ciencias sociales</b>. El contenido de toda la secundaria, condensado en un solo examen.</p>
+      </div>
+    </div>
+    <div class="areas">
+      <div class="area rv"><h3>📐 Matemáticas</h3><p>Aritmética, álgebra, geometría y problemas matemáticos.</p></div>
+      <div class="area rv"><h3>📖 Español</h3><p>Comprensión lectora, gramática y ortografía.</p></div>
+      <div class="area rv"><h3>🧪 Ciencias naturales</h3><p>Física, química y biología.</p></div>
+      <div class="area rv"><h3>🌎 Ciencias sociales</h3><p>Historia, geografía, civismo y cultura general.</p></div>
+    </div>
+
+    <div style="margin-top:4rem">
+      <span class="mono rv">Tipos de reactivos que entrenarás</span>
+      <div class="reactivos">
+        <div class="reactivo rv">
+          <span class="mono">TIPO 01</span>
+          <h3>Comprensión lectora</h3>
+          <p>Presentación de textos o fragmentos literarios seguidos de preguntas que evalúan la capacidad del estudiante.</p>
+        </div>
+        <div class="reactivo rv">
+          <span class="mono">TIPO 02</span>
+          <h3>Razonamiento matemático</h3>
+          <p>Evalúa la capacidad del aspirante por medio de problemas matemáticos.</p>
+        </div>
+        <div class="reactivo rv">
+          <span class="mono">TIPO 03</span>
+          <h3>Reactivos de ciencias</h3>
+          <p>Problemas relacionados con conceptos de física, química o biología; es necesario conocimiento teórico.</p>
+        </div>
+        <div class="reactivo rv">
+          <span class="mono">TIPO 04</span>
+          <h3>Habilidades prácticas</h3>
+          <p>Aplicación de conocimientos a situaciones reales: el puente entre la teoría y el acierto el día del examen.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SIMULACRO ================= -->
+<section class="simu" id="simulacro">
+  <div class="wrap">
+    <div style="text-align:center;max-width:46rem;margin:0 auto">
+      <span class="mono rv" style="color:#FFD23F">Ponte a prueba ahora</span>
+      <h2 class="title rv" style="margin-left:auto;margin-right:auto">Mini-simulacro: <em>5 reactivos, 90 segundos</em></h2>
+      <p class="sub rv" style="margin:0 auto">Cinco preguntas tipo COMIPEMS, una por área. En el examen real tendrás ~84 segundos por reactivo. ¿Aguantas el ritmo?</p>
+    </div>
+    <div class="simu-box rv">
+      <div id="sStart" style="text-align:center;padding:1.5rem 0">
+        <p style="font-size:1.1rem;margin-bottom:1.8rem">Rellena el óvalo correcto, como en la hoja real. El cronómetro no perdona. ✏️</p>
+        <button class="btn btn-red" id="sBegin">▶ Comenzar simulacro</button>
+      </div>
+      <div id="sPlay" style="display:none">
+        <div class="simu-head">
+          <span>REACTIVO <b id="sNum">1</b>/5 · <span id="sArea">MATEMÁTICAS</span></span>
+          <span class="simu-timer">⏱ <b id="sTime">90</b>s</span>
+        </div>
+        <p class="simu-q" id="sQ"></p>
+        <div class="simu-opts" id="sOpts"></div>
+        <div class="simu-progress" id="sProg"></div>
+      </div>
+      <div class="simu-result" id="sEnd">
+        <p class="mono" style="color:var(--pencil)">CALIFICACIÓN</p>
+        <span class="grade" id="sGrade">3/5</span>
+        <p class="simu-verdict" id="sVerdict"></p>
+        <a class="btn btn-red" id="sWa" href="#">📲 Quiero mi diagnóstico completo gratis</a>
+        <div style="margin-top:1rem"><button class="btn" id="sAgain">↻ Reintentar</button></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CALCULADORA DE ACIERTOS ================= -->
+<section class="calc-zone" id="calculadora">
+  <div class="wrap">
+    <div style="text-align:center;max-width:44rem;margin:0 auto">
+      <span class="mono rv">La pregunta que todos se hacen</span>
+      <h2 class="title rv" style="margin-left:auto;margin-right:auto">¿Cuántos aciertos <em>necesitas?</em></h2>
+      <p class="sub rv" style="margin:0 auto">Mueve la barra y descubre qué tan lejos —o cerca— estás de la escuela que quieres.</p>
+    </div>
+    <div class="calc rv">
+      <div class="calc-score"><span id="cNum">64</span><small>/128 ACIERTOS</small></div>
+      <input type="range" id="cRange" min="0" max="128" value="64" aria-label="Número de aciertos estimados" aria-describedby="cVerdict">
+      <div class="calc-verdict" id="cVerdict"><span class="em">🤔</span><span>Con <b>64 aciertos</b> alcanzas algunas opciones, pero las escuelas más demandadas quedan fuera. Es momento de subir el nivel.</span></div>
+      <p class="calc-note">* Estimación orientativa basada en puntajes de corte históricos. Los mínimos cambian cada año según la demanda.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CTA FINAL ================= -->
+<section class="final">
+  <div class="wrap rv">
+    <h2>Un examen. Una oportunidad. Un método probado.</h2>
+    <p>No dejes tu futuro a la suerte. Agenda tu diagnóstico gratuito y empieza a sumar aciertos desde hoy. Clases en línea o presenciales.</p>
+    <a class="btn" href="https://wa.me/525578107837?text=Hola,%20quiero%20mi%20diagn%C3%B3stico%20gratuito%20para%20el%20curso%20COMIPEMS">Agendar diagnóstico gratuito →</a>
+    <div class="contact-row">
+      <a href="tel:+525558686784">📞 55 5868 6784</a>
+      <a href="tel:+525578107837">📱 55 7810 7837</a>
+      <a href="https://www.facebook.com/worldbrainmx1" target="_blank" rel="noopener">Worldbrain México</a>
+      <a href="https://www.instagram.com/worldbrainmx1" target="_blank" rel="noopener">@worldbrainmx1</a>
+      <a href="https://twitter.com/WorldBrainMx" target="_blank" rel="noopener">@WorldBrainMx</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <a class="logo" href="/" style="color:#fff">World<span style="color:#FFD23F">Brain</span></a>
+        <p style="margin-top:1rem">Pioneros en Neuroaprendizaje y Desarrollo Mental Acelerado desde 2000. Transformamos la manera en que Latinoamérica aprende.</p>
+      </div>
+      <div>
+        <h4>Niños</h4>
+        <ul>
+          <li><a href="/fastkids">FastKids</a></li>
+          <li><a href="/mathekids">MatheKids</a></li>
+          <li><a href="/juniormath_v2">JuniorMath</a></li>
+          <li><a href="/lectoescritura">Lectoescritura</a></li>
+          <li><a href="/ciencia-astronomia">Ciencia y Astronomía</a></li>
+          <li><a href="/robotics">Robotics Code</a></li>
+          <li><a href="/homeschool">Homeschool</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Jóvenes y Adultos</h4>
+        <ul>
+          <li><a href="/fotolectura">Fotolectura</a></li>
+          <li><a href="/memoria-prodigiosa">Memoria Prodigiosa</a></li>
+          <li><a href="/admision-universitaria">Admisión Universitaria</a></li>
+          <li><a href="/regularizacion-express">Regularización Express</a></li>
+          <li><a href="/neurocomunicacion">Neurocomunicación</a></li>
+          <li><a href="/grandes-lideres">Grandes Líderes</a></li>
+          <li><a href="/redaccion-ejecutiva">Redacción Ejecutiva</a></li>
+          <li><a href="/universidad-dominical">Universidad Dominical</a></li>
+          <li><a href="/alfa-cash">ALFA-CASH</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Contacto</h4>
+        <ul>
+          <li><a href="tel:+525558686784">55 5868 6784</a></li>
+          <li><a href="tel:+525578107837">55 7810 7837</a></li>
+          <li><a href="https://wa.me/525578107837">WhatsApp</a></li>
+          <li><a href="mailto:contacto@ultravelozmente.com">contacto@ultravelozmente.com</a></li>
+          <li>Cuautitlán Izcalli, Edo. de Méx.</li>
+          <li><a href="/blog-index">Blog Educativo</a></li>
+          <li><a href="/testimonios">Testimonios</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="foot-legal">
+      <span>CWBMX, S.C. | RFC: CWB170626UH4 | Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano, Cuautitlán Izcalli, Edo. de Méx., C.P. 54700. © 2026 WorldBrain México.</span>
+      <span><a href="/terminos">Términos</a> · <a href="/privacidad">Privacidad</a> · <a href="/reembolsos">Devoluciones</a></span>
+    </div>
+  </div>
+</footer>
+
+<a class="wa" href="https://wa.me/525578107837?text=Hola,%20quiero%20informes%20del%20curso%20COMIPEMS" aria-label="WhatsApp">💬</a>
+
+<script>
+'use strict';
+
+/* ============ Menú móvil ============ */
+document.getElementById('burger').addEventListener('click',()=>{
+  document.getElementById('mmenu').classList.toggle('open');
+});
+
+/* ============ Countdown al examen ============ */
+(function(){
+  /* Examen COMIPEMS: típicamente tercer fin de semana de junio */
+  const exam=new Date('2026-06-20T08:00:00-06:00');
+  const days=Math.max(0,Math.ceil((exam-Date.now())/864e5));
+  document.getElementById('cdDays').textContent=days;
+})();
+
+/* ============ SIMULACRO: máquina de estados ============ */
+(function(){
+  const $=id=>document.getElementById(id);
+  const QUESTIONS=[
+    {area:'MATEMÁTICAS',q:'Si 3x − 7 = 11, ¿cuál es el valor de x?',
+     opts:['4','6','5','18'],ok:1},
+    {area:'ESPAÑOL',q:'Elige la oración escrita correctamente:',
+     opts:['Haber si vienes mañana.','A ver si vienes mañana.','Aver si vienes mañana.','Ha ver si vienes mañana.'],ok:1},
+    {area:'CIENCIAS NATURALES',q:'Un cuerpo se mueve a velocidad constante. ¿Cuál es la fuerza neta que actúa sobre él?',
+     opts:['Igual a su peso','Proporcional a su velocidad','Cero','Igual a su masa'],ok:2},
+    {area:'CIENCIAS SOCIALES',q:'¿En qué año inició la Independencia de México?',
+     opts:['1821','1910','1810','1857'],ok:2},
+    {area:'HABILIDAD COGNITIVA',q:'Completa la serie: 2, 6, 18, 54, …',
+     opts:['108','162','216','148'],ok:1}
+  ];
+  const LETTERS=['A','B','C','D'];
+  let idx=0,score=0,answers=[],locked=false,endAt=0,tick=null;
+
+  const state={
+    start(){ $('sStart').style.display='block';$('sPlay').style.display='none';$('sEnd').classList.remove('show'); },
+    play(){
+      idx=0;score=0;answers=[];
+      $('sStart').style.display='none';$('sEnd').classList.remove('show');$('sPlay').style.display='block';
+      endAt=Date.now()+90000;
+      clearInterval(tick);
+      tick=setInterval(()=>{
+        const left=Math.max(0,Math.ceil((endAt-Date.now())/1000));
+        $('sTime').textContent=left;
+        if(left<=0){clearInterval(tick);state.end();}
+      },250);
+      render();
+    },
+    end(){
+      clearInterval(tick);
+      $('sPlay').style.display='none';$('sEnd').classList.add('show');
+      $('sGrade').textContent=score+'/5';
+      const v=score===5
+        ?'<b>Impecable.</b> Tienes base sólida — con nuestro método la conviertes en 110+ aciertos reales y aseguras tu primera opción.'
+        :score>=3
+        ?'<b>Vas bien, pero el COMIPEMS real tiene 128 de estas.</b> Los huecos que hoy te costaron puntos son exactamente lo que corregimos con el diagnóstico y los 3 ejercicios diarios.'
+        :'<b>Tranquilo: para esto existe el curso.</b> Detectamos tus áreas débiles con el diagnóstico gratuito y las convertimos en aciertos, un día a la vez.';
+      $('sVerdict').innerHTML=v;
+      $('sWa').href='https://wa.me/525578107837?text='+encodeURIComponent(
+        `Hola, hice el mini-simulacro COMIPEMS de la página y saqué ${score}/5. Quiero mi diagnóstico completo gratuito.`);
+    }
+  };
+
+  function render(){
+    const Q=QUESTIONS[idx];locked=false;
+    $('sNum').textContent=idx+1;
+    $('sArea').textContent=Q.area;
+    $('sQ').textContent=Q.q;
+    $('sOpts').innerHTML=Q.opts.map((o,i)=>
+      `<button class="opt" data-i="${i}"><span class="ov">${LETTERS[i]}</span>${o}</button>`).join('');
+    $('sProg').innerHTML=QUESTIONS.map((_,i)=>{
+      const c=i<answers.length?(answers[i]?'done-ok':'done-bad'):(i===idx?'cur':'');
+      return `<i class="${c}">${i+1}</i>`;}).join('');
+    $('sOpts').querySelectorAll('.opt').forEach(b=>b.addEventListener('click',()=>answer(+b.dataset.i,b)));
+  }
+
+  function answer(i,btn){
+    if(locked)return;locked=true;
+    const Q=QUESTIONS[idx],hit=i===Q.ok;
+    if(hit)score++;
+    answers.push(hit);
+    btn.classList.add('sel',hit?'right':'wrong');
+    if(!hit)$('sOpts').children[Q.ok].classList.add('right');
+    [...$('sOpts').children].forEach(b=>b.disabled=true);
+    setTimeout(()=>{ idx++; (idx<QUESTIONS.length&&Date.now()<endAt)?render():state.end(); },900);
+  }
+
+  $('sBegin').addEventListener('click',state.play);
+  $('sAgain').addEventListener('click',state.play);
+  state.start();
+})();
+
+/* ============ Calculadora de aciertos ============ */
+(function(){
+  const range=document.getElementById('cRange'),num=document.getElementById('cNum'),out=document.getElementById('cVerdict');
+  const TIERS=[
+    {min:110,em:'🏆',txt:n=>`Con <b>${n} aciertos</b> compites por las prepas más demandadas: Prepas UNAM y las mejores vocacionales del IPN. Este es el nivel al que te llevamos.`},
+    {min:90, em:'🎯',txt:n=>`Con <b>${n} aciertos</b> alcanzas vocacionales del IPN y prepas UNAM de alta demanda. Estás en zona competitiva — asegurémosla.`},
+    {min:70, em:'🤔',txt:n=>`Con <b>${n} aciertos</b> alcanzas algunas opciones, pero las escuelas más demandadas quedan fuera. Es momento de subir el nivel.`},
+    {min:31, em:'⚠️',txt:n=>`Con <b>${n} aciertos</b> el abanico se reduce muchísimo y podrías quedar lejos de tus primeras opciones. La buena noticia: hay tiempo para cambiarlo.`},
+    {min:0,  em:'🚨',txt:n=>`Con <b>${n} aciertos</b> no se asigna lugar (el mínimo histórico ronda 31). Empecemos hoy: el diagnóstico gratuito es el primer paso.`}
+  ];
+  function update(){
+    const n=+range.value;
+    num.textContent=n;
+    const t=TIERS.find(t=>n>=t.min);
+    out.innerHTML=`<span class="em">${t.em}</span><span>${t.txt(n)}</span>`;
+  }
+  range.addEventListener('input',update);
+  update();
+})();
+
+/* ============ Fallback reveal (sin animation-timeline) ============ */
+if(!CSS.supports('animation-timeline: view()')){
+  const ro=new IntersectionObserver(es=>es.forEach(e=>{
+    if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';ro.unobserve(e.target);}
+  }),{threshold:.12});
+  document.querySelectorAll('.rv').forEach(el=>{
+    el.style.opacity='0';el.style.transform='translateY(36px)';
+    el.style.transition='opacity .6s ease, transform .6s ease';
+    ro.observe(el);
+  });
+}
+</script>
 </body>
 </html>

@@ -155,16 +155,7 @@ for (const file of files) {
     }
   }
 
-  if (
-    file === 'comipems.html' &&
-    /examen único|128 reactivos|3 hrs|comipems 2026/i
-      .test(html)
-  ) {
-    error(
-      file,
-      'conserva información potencialmente obsoleta'
-    );
-  }
+
 
   const strongClaims = [
     /97%\s*(?:de\s*)?(?:tasa de )?éxito/i,

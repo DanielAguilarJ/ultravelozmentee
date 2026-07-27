@@ -60,7 +60,7 @@ if [ "$year_count" -gt 1 ]; then
 fi
 
 # ── Gate 7: solo teléfonos autorizados ───────────────────────
-ALLOWED_PHONES="5578107837|55 7810 7837|55\) 7810-7837|\+52 55 7810-7837|55-7810-7837|5558686784|55 5868 6784|5512345678|55 1234 5678|5578107833"
+ALLOWED_PHONES="5578107837|55 7810 7837|55\) 7810-7837|\+52 55 7810-7837|55-7810-7837|5558686784|55 5868 6784|55\) 5868-6784|55-5868-6784"
 found_phones=$(grep -roE $GREP_EXCLUDES "(\+52\s?)?\(?55\)?[ -]?[0-9]{4}[ -]?[0-9]{4}" --include="*.html" . 2>/dev/null \
   | cut -d: -f2- | grep -vE "$ALLOWED_PHONES" | sort -u || true)
 if [ -n "$found_phones" ]; then
@@ -88,6 +88,14 @@ if [ -f server.js ] && [ -f package.json ]; then
   done
 fi
 
+# ── Gate 9: auditoría SEO estructural ────────────────────────
+if [ -f scripts/seo-audit.js ]; then
+  if ! node scripts/seo-audit.js; then
+    say "❌ Gate 9: auditoría SEO fallida."
+    fail=1
+  fi
+fi
+
 # ── Veredicto ────────────────────────────────────────────────
 if [ "$fail" -eq 1 ]; then
   say ""
@@ -96,4 +104,4 @@ if [ "$fail" -eq 1 ]; then
   exit 1
 fi
 
-say "✅ Todos los gates pasan (8/8)."
+say "✅ Todos los gates pasan (9/9)."

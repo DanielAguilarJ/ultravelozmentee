@@ -16,6 +16,88 @@ const BASE = 'https://ultravelozmente.com';
 app.use(express.json());
 app.use(cookieParser());
 app.use(compression());
+app.set('trust proxy', 1);
+
+/* ─────────────────────────────────────────────────────────────
+   PROTECCIÓN TEMPRANA DE ARCHIVOS INTERNOS
+   Debe ejecutarse antes de redirects, tracking y express.static.
+───────────────────────────────────────────────────────────── */
+
+const REMOVED_PATH = /backup|-old/i;
+
+const PRIVATE_PREFIXES = [
+  '/src/',
+  '/data/',
+  '/scripts/',
+  '/node_modules/',
+  '/graphify-out/',
+  '/redaccion-ejecutiva/src/',
+  '/redaccion-ejecutiva/node_modules/',
+  '/redaccion-ejecutiva/.next/'
+];
+
+const PRIVATE_FILES = new Set([
+  '/server.js',
+  '/package.json',
+  '/package-lock.json',
+  '/README.md',
+  '/deploy.sh',
+  '/check.sh',
+  '/.eleventy.js',
+  '/js/capi.js',
+  '/fix_founding_year.py',
+  '/fix_fake_testimonials.py',
+  '/update_global_testimonials.py',
+  '/redaccion-ejecutiva/package.json',
+  '/redaccion-ejecutiva/package-lock.json'
+]);
+
+const PRIVATE_EXTENSION =
+  /\.(?:py|sh|md|njk|tsx?|jsx?|map|lock|ya?ml|toml)$/i;
+
+function startsWithPrivatePrefix(requestPath) {
+  return PRIVATE_PREFIXES.some(prefix => {
+    const withoutSlash = prefix.slice(0, -1);
+
+    return (
+      requestPath === withoutSlash ||
+      requestPath.startsWith(prefix)
+    );
+  });
+}
+
+app.use((req, res, next) => {
+  /*
+   * Los backups eliminados responden 410 directamente.
+   * No deben redirigir al home ni pasar primero por .html → URL limpia.
+   */
+  if (
+    REMOVED_PATH.test(req.path) ||
+    req.path === '/_archive' ||
+    req.path.startsWith('/_archive/')
+  ) {
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    res.setHeader('Cache-Control', 'public, max-age=86400');
+    return res.status(410).type('text/plain').send('Contenido eliminado');
+  }
+
+  const hiddenFile =
+    req.path.startsWith('/.') &&
+    !req.path.startsWith('/.well-known/');
+
+  if (
+    hiddenFile ||
+    PRIVATE_FILES.has(req.path) ||
+    startsWithPrivatePrefix(req.path) ||
+    PRIVATE_EXTENSION.test(req.path)
+  ) {
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+    res.setHeader('Cache-Control', 'no-store');
+    return res.status(404).type('text/plain').send('Not found');
+  }
+
+  next();
+});
 
 // ─────────────────────────────────────────────────────────────
 // 1) CANONICALIZACIÓN — SIEMPRE PRIMERO (antes de analytics,
@@ -23,12 +105,30 @@ app.use(compression());
 //    Una sola URL por página: https, sin www, sin .html, sin /
 // ─────────────────────────────────────────────────────────────
 app.use((req, res, next) => {
-  const host = req.headers.host || '';
-  const proto = req.headers['x-forwarded-proto'] || req.protocol;
+  const CANONICAL_HOST = 'ultravelozmente.com';
 
-  // https + non-www en UN solo 301 (sin cadenas de redirects)
-  if ((proto !== 'https' && process.env.NODE_ENV === 'production') || host.startsWith('www.')) {
-    return res.redirect(301, `https://${host.replace(/^www\./, '')}${req.originalUrl}`);
+  const forwardedProto =
+    req.headers['x-forwarded-proto'] || req.protocol || '';
+
+  const proto = String(forwardedProto)
+    .split(',')[0]
+    .trim()
+    .toLowerCase();
+
+  const hostname = String(req.headers.host || '')
+    .split(':')[0]
+    .trim()
+    .toLowerCase();
+
+  /*
+   * No construimos el redirect usando el Host enviado por el cliente.
+   * Todas las variantes convergen directamente en BASE.
+   */
+  if (
+    process.env.NODE_ENV === 'production' &&
+    (proto !== 'https' || hostname !== CANONICAL_HOST)
+  ) {
+    return res.redirect(301, `${BASE}${req.originalUrl}`);
   }
   // /index.html y /index → /
   if (req.path === '/index.html' || req.path === '/index') {
@@ -42,13 +142,6 @@ app.use((req, res, next) => {
   // trailing slash (excepto raíz)
   if (req.path.length > 1 && req.path.endsWith('/')) {
     return res.redirect(301, req.path.slice(0, -1));
-  }
-  if (
-    /backup|-old/i.test(req.path) ||
-    req.path.startsWith('/_archive')
-  ) {
-    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
-    return res.status(410).type('text/plain').send('Contenido eliminado');
   }
   next();
 });
@@ -111,8 +204,32 @@ app.use((req, res, next) => {
 //    FIX: excluye /api/ y /.well-known/ (antes disparaba
 //    PageView en llamadas de API → analytics contaminado)
 // ─────────────────────────────────────────────────────────────
-const isPageRequest = p =>
-  !p.startsWith('/api/') && !p.startsWith('/.well-known/') && !p.includes('.');
+function isPageRequest(requestPath) {
+  if (requestPath === '/') {
+    return true;
+  }
+
+  /*
+   * Las páginas públicas limpias solo tienen un segmento.
+   * Evita tracking de API, 404, archivos y rutas internas.
+   */
+  if (!/^\/[a-z0-9_-]+$/i.test(requestPath)) {
+    return false;
+  }
+
+  const page = requestPath.slice(1);
+
+  if (
+    page === '404' ||
+    page.includes('backup') ||
+    page.includes('-old')
+  ) {
+    return false;
+  }
+
+  const filePath = path.join(staticPath, `${page}.html`);
+  return fs.existsSync(filePath);
+}
 
 app.use((req, res, next) => {
   if (req.method === 'GET' && (req.path === '/' || isPageRequest(req.path))) {
@@ -444,41 +561,8 @@ app.get('/sitemap.xml', (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
-// 8) HEADERS COMPARTIDOS Y PROTECCIÓN DE RUTAS PRIVADAS
+// 8) HEADERS COMPARTIDOS
 // ─────────────────────────────────────────────────────────────
-const PRIVATE_ROUTES = [
-  '/src/',
-  '/data/',
-  '/node_modules/',
-  '/graphify-out/',
-  '/_archive/',
-  '/redaccion-ejecutiva/src/',
-  '/redaccion-ejecutiva/node_modules/'
-];
-
-const PRIVATE_FILES = new Set([
-  '/server.js',
-  '/package.json',
-  '/package-lock.json',
-  '/README.md',
-  '/deploy.sh',
-  '/check.sh',
-  '/.eleventy.js'
-]);
-
-app.use((req, res, next) => {
-  const isPrivateDirectory = PRIVATE_ROUTES.some(prefix =>
-    req.path.startsWith(prefix)
-  );
-
-  if (isPrivateDirectory || PRIVATE_FILES.has(req.path)) {
-    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
-    return res.status(404).type('text/plain').send('Not found');
-  }
-
-  next();
-});
-
 function applyFileHeaders(res, filePath) {
   if (filePath.endsWith('.html')) {
     res.setHeader('Cache-Control', 'no-cache, must-revalidate');
@@ -504,8 +588,19 @@ function applyFileHeaders(res, filePath) {
   }
 
   if (filePath.endsWith('robots.txt')) {
-    res.setHeader('Cache-Control', 'public, max-age=86400');
-    res.setHeader('Content-Type', 'text/plain; charset=utf-8');
+    /*
+     * Cinco minutos durante la estabilización SEO.
+     * Después puedes volver a 86400.
+     */
+    res.setHeader(
+      'Cache-Control',
+      'public, max-age=300, must-revalidate'
+    );
+
+    res.setHeader(
+      'Content-Type',
+      'text/plain; charset=utf-8'
+    );
   }
 }
 
@@ -543,10 +638,11 @@ app.get('/:page', (req, res, next) => {
 // ─────────────────────────────────────────────────────────────
 app.use((req, res) => {
   res.status(404);
-  res.setHeader('X-Robots-Tag', 'noindex');
+  res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+  res.setHeader('Cache-Control', 'no-store');
   const nf = path.join(staticPath, '404.html');
   if (fs.existsSync(nf)) return res.sendFile(nf);
-  res.type('html').send('<!DOCTYPE html><html lang="es"><head><meta charset="UTF-8"><title>404</title></head><body style="font-family:sans-serif;text-align:center;padding:4rem"><h1>404</h1><p>Esta página no existe.</p><a href="/">← Volver al inicio</a></body></html>');
+  res.type('html').send('<!DOCTYPE html><html lang="es-MX"><head><meta charset="UTF-8"><title>404</title></head><body style="font-family:sans-serif;text-align:center;padding:4rem"><h1>404</h1><p>Esta página no existe.</p><a href="/">← Volver al inicio</a></body></html>');
 });
 
 // ─────────────────────────────────────────────────────────────

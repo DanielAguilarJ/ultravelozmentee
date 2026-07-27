@@ -1,14 +1,27 @@
-<!DOCTYPE html>
+'use strict';
+
+const fs = require('fs');
+const path = require('path');
+
+const ROOT = process.cwd();
+
+const html = `<!DOCTYPE html>
 <html lang="es-MX">
-<head><meta charset="UTF-8">
+<head>
+  <meta charset="UTF-8">
   <meta
     name="viewport"
     content="width=device-width, initial-scale=1"
   >
 
-  
+  <title>
+    Preparación para ingreso a bachillerato UNAM e IPN
+  </title>
 
-  
+  <meta
+    name="description"
+    content="Preparación académica para procesos de ingreso a bachillerato de UNAM, IPN y otras instituciones."
+  >
 
   <style>
     :root {
@@ -161,150 +174,6 @@
       }
     }
   </style>
-
-<!-- SEO:GENERATED -->
-<title>Preparación para ingreso a bachillerato UNAM e IPN</title>
-<meta name="description" content="Curso de preparación para procesos de ingreso a bachillerato y exámenes de UNAM e IPN. Consulta convocatoria, temario y modalidad vigente.">
-<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-<meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
-
-<link rel="canonical" href="https://ultravelozmente.com/comipems">
-
-<meta property="og:locale" content="es_MX">
-<meta property="og:type" content="website">
-<meta property="og:site_name" content="WorldBrain México">
-<meta property="og:title" content="Preparación para ingreso a bachillerato UNAM e IPN">
-<meta property="og:description" content="Curso de preparación para procesos de ingreso a bachillerato y exámenes de UNAM e IPN. Consulta convocatoria, temario y modalidad vigente.">
-<meta property="og:url" content="https://ultravelozmente.com/comipems">
-<meta property="og:image" content="https://ultravelozmente.com/images/fl-hero-brain.webp">
-<meta property="og:image:alt" content="Preparación para ingreso a bachillerato">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Preparación para ingreso a bachillerato UNAM e IPN">
-<meta name="twitter:description" content="Curso de preparación para procesos de ingreso a bachillerato y exámenes de UNAM e IPN. Consulta convocatoria, temario y modalidad vigente.">
-<meta name="twitter:image" content="https://ultravelozmente.com/images/fl-hero-brain.webp">
-<meta name="twitter:image:alt" content="Preparación para ingreso a bachillerato">
-
-
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@graph": [
-    {
-      "@type": [
-        "EducationalOrganization",
-        "LocalBusiness"
-      ],
-      "@id": "https://ultravelozmente.com/#organization",
-      "name": "WorldBrain México",
-      "alternateName": "UltraVelozmente",
-      "url": "https://ultravelozmente.com/",
-      "sameAs": [
-        "https://www.facebook.com/WorldBrainMx/",
-        "https://www.instagram.com/worldbrainmx1/",
-        "https://x.com/WorldBrainMx",
-        "https://youtube.com/@worldbrainmexico",
-        "https://tiktok.com/@worldbrainmexico"
-      ],
-      "logo": {
-        "@type": "ImageObject",
-        "url": "https://ultravelozmente.com/images/logo.svg"
-      },
-      "telephone": "+52-55-7810-7837",
-      "email": "contacto@ultravelozmente.com",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano",
-        "addressLocality": "Cuautitlán Izcalli",
-        "addressRegion": "Estado de México",
-        "postalCode": "54700",
-        "addressCountry": "MX"
-      },
-      "areaServed": {
-        "@type": "Country",
-        "name": "México"
-      },
-      "openingHours": [
-        "Mo-Th 09:00-18:00",
-        "Fr 09:00-17:00",
-        "Sa 08:00-15:00"
-      ],
-      "contactPoint": {
-        "@type": "ContactPoint",
-        "telephone": "+52-55-7810-7837",
-        "contactType": "customer service",
-        "availableLanguage": [
-          "es",
-          "Spanish"
-        ],
-        "areaServed": "MX"
-      }
-    },
-    {
-      "@type": "WebSite",
-      "@id": "https://ultravelozmente.com/#website",
-      "url": "https://ultravelozmente.com/",
-      "name": "WorldBrain México",
-      "inLanguage": "es-MX",
-      "publisher": {
-        "@id": "https://ultravelozmente.com/#organization"
-      }
-    },
-    {
-      "@type": "WebPage",
-      "@id": "https://ultravelozmente.com/comipems#webpage",
-      "url": "https://ultravelozmente.com/comipems",
-      "name": "Preparación para ingreso a bachillerato",
-      "description": "Curso de preparación para procesos de ingreso a bachillerato y exámenes de UNAM e IPN. Consulta convocatoria, temario y modalidad vigente.",
-      "inLanguage": "es-MX",
-      "isPartOf": {
-        "@id": "https://ultravelozmente.com/#website"
-      },
-      "primaryImageOfPage": {
-        "@type": "ImageObject",
-        "url": "https://ultravelozmente.com/images/fl-hero-brain.webp"
-      },
-      "mainEntity": {
-        "@id": "https://ultravelozmente.com/comipems#course"
-      },
-      "breadcrumb": {
-        "@id": "https://ultravelozmente.com/comipems#breadcrumb"
-      }
-    },
-    {
-      "@type": "BreadcrumbList",
-      "@id": "https://ultravelozmente.com/comipems#breadcrumb",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Inicio",
-          "item": "https://ultravelozmente.com/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Preparación para ingreso a bachillerato",
-          "item": "https://ultravelozmente.com/comipems"
-        }
-      ]
-    },
-    {
-      "@type": "Course",
-      "@id": "https://ultravelozmente.com/comipems#course",
-      "name": "Preparación para ingreso a bachillerato",
-      "description": "Curso de preparación para procesos de ingreso a bachillerato y exámenes de UNAM e IPN. Consulta convocatoria, temario y modalidad vigente.",
-      "url": "https://ultravelozmente.com/comipems",
-      "inLanguage": "es-MX",
-      "provider": {
-        "@id": "https://ultravelozmente.com/#organization"
-      }
-    }
-  ]
-}
-</script>
-<!-- /SEO:GENERATED -->
-
 </head>
 
 <body>
@@ -436,4 +305,14 @@
     </div>
   </footer>
 </body>
-</html>
+</html>`;
+
+fs.writeFileSync(
+  path.join(ROOT, 'comipems.html'),
+  html,
+  'utf8'
+);
+
+console.log(
+  '✅ comipems.html sustituido por una landing vigente y prudente'
+);

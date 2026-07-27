@@ -27,8 +27,8 @@ function add(file, kind, title, description, name, datePublished = null) {
 add(
   'index.html',
   'page',
-  'Cursos de aprendizaje acelerado en CDMX | WorldBrain',
-  'Cursos de lectura rápida, cálculo mental, robótica, inglés, memoria y liderazgo para niños, jóvenes y adultos en CDMX y Cuautitlán Izcalli.',
+  'Cursos de aprendizaje acelerado en Cuautitlán Izcalli y Cuernavaca | WorldBrain',
+  'Cursos de lectura rápida, cálculo mental, robótica, inglés, memoria y liderazgo para niños, jóvenes y adultos en Cuautitlán Izcalli y Cuernavaca.',
   'WorldBrain México'
 );
 
@@ -341,6 +341,13 @@ const ORGANIZATION = {
   name: 'WorldBrain México',
   alternateName: 'UltraVelozmente',
   url: `${BASE}/`,
+  sameAs: [
+    'https://www.facebook.com/WorldBrainMx/',
+    'https://www.instagram.com/worldbrainmx1/',
+    'https://x.com/WorldBrainMx',
+    'https://youtube.com/@worldbrainmexico',
+    'https://tiktok.com/@worldbrainmexico'
+  ],
   logo: {
     '@type': 'ImageObject',
     url: `${BASE}/images/logo.svg`
@@ -421,6 +428,10 @@ function schemaFor(page) {
   graph.push(webpage);
 
   if (page.file !== 'index.html') {
+    webpage.breadcrumb = {
+      '@id': `${url}#breadcrumb`
+    };
+
     graph.push({
       '@type': 'BreadcrumbList',
       '@id': `${url}#breadcrumb`,
@@ -471,8 +482,11 @@ function schemaFor(page) {
       },
       author: {
         '@type': 'Organization',
-        '@id': `${BASE}/#organization`,
-        name: 'Equipo Editorial WorldBrain'
+        '@id': `${BASE}/#editorial-team`,
+        name: 'Equipo Editorial WorldBrain',
+        parentOrganization: {
+          '@id': `${BASE}/#organization`
+        }
       },
       publisher: {
         '@id': `${BASE}/#organization`
@@ -514,7 +528,19 @@ const REMOVED_META = new Set([
 ]);
 
 function stripOldSeo(head) {
-  head = head.replace(/<title\b[^>]*>[\s\S]*?<\/title>/gi, '');
+  /*
+   * Elimina primero el bloque generado anteriormente.
+   * Ejecutar el script varias veces ya no acumulará comentarios.
+   */
+  head = head.replace(
+    /<!-- SEO:GENERATED -->[\s\S]*?<!-- \/SEO:GENERATED -->/gi,
+    ''
+  );
+
+  head = head.replace(
+    /<title\b[^>]*>[\s\S]*?<\/title>/gi,
+    ''
+  );
 
   head = head.replace(/<link\b[^>]*>/gi, tag => {
     return /\brel\s*=\s*["'][^"']*\bcanonical\b[^"']*["']/i.test(tag)
@@ -527,19 +553,21 @@ function stripOldSeo(head) {
       /\b(?:name|property)\s*=\s*["']([^"']+)["']/i
     );
 
-    if (!match) return tag;
+    if (!match) {
+      return tag;
+    }
 
-    return REMOVED_META.has(match[1].toLowerCase()) ? '' : tag;
+    return REMOVED_META.has(match[1].toLowerCase())
+      ? ''
+      : tag;
   });
 
-  /* Elimina JSON-LD anterior para evitar URLs .html, ratings
-     no verificados, Product y Offers incompletas. */
-  head = head.replace(
-    /<script\b[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>[\s\S]*?<\/script>/gi,
-    ''
-  );
+  /*
+   * No eliminamos todos los JSON-LD manuales.
+   * El JSON-LD generado ya se elimina junto con SEO:GENERATED.
+   */
 
-  return head;
+  return head.trim();
 }
 
 function escapeAttribute(value) {
@@ -677,7 +705,7 @@ function audit(file, html, page) {
 
 /* Primero normaliza enlaces en todos los HTML de la raíz */
 for (const file of fs.readdirSync(ROOT)) {
-  if (!file.endsWith('.html')) continue;
+  if (!file.endsWith('.html') || file.startsWith('google')) continue;
 
   const filePath = path.join(ROOT, file);
   let html = fs.readFileSync(filePath, 'utf8');

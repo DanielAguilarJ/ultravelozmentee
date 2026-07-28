@@ -18,14 +18,36 @@ if (!fs.existsSync(DATA_FILE)) {
   );
 }
 
-const testimonials = JSON.parse(
+const allTestimonials = JSON.parse(
   fs.readFileSync(DATA_FILE, 'utf8')
-).filter(item => item.verified === true);
+).filter(item =>
+  item.verified === true &&
+  item.published === true &&
+  item.consentRecorded === true &&
+  Boolean(item.course)
+);
 
-if (!testimonials.length) {
+if (!allTestimonials.length) {
   throw new Error(
-    'No hay testimonios con verified: true'
+    'No hay testimonios publicables (verified, published y consentRecorded en true)'
   );
+}
+
+/*
+ * Mapa de qué curso(s) puede mostrar cada archivo.
+ * 'all' muestra todos los testimonios publicables (p.ej. testimonios.html).
+ * Si un archivo no aparece aquí, no recibe testimonios.
+ */
+const COURSE_BY_FILE = {
+  'robotics.html': 'robotics',
+  'testimonios.html': 'all'
+};
+
+function testimonialsFor(file) {
+  const rule = COURSE_BY_FILE[file];
+  if (!rule) return [];
+  if (rule === 'all') return allTestimonials;
+  return allTestimonials.filter(item => item.course === rule);
 }
 
 function esc(value = '') {
@@ -35,6 +57,33 @@ function esc(value = '') {
     .replace(/>/g, '&gt;')
     .replace(/"/g, '&quot;')
     .replace(/'/g, '&#039;');
+}
+
+function buildFooterProof(testimonials) {
+  return `
+<div class="footer-social-proof">
+  <div class="proof-header">
+    <p class="proof-label">Experiencias verificadas</p>
+    <h3 class="proof-title">
+      Lo que comparten nuestras familias.
+    </h3>
+    <p class="proof-note">Testimonios publicados con autorización y registro interno.</p>
+  </div>
+
+  <div class="proof-grid">
+    ${testimonials.map(proofCard).join('\n')}
+  </div>
+
+  <div class="proof-cta">
+    <a href="/testimonios">
+      Ver testimonios verificados
+      <i class="fas fa-arrow-right"></i>
+    </a>
+  </div>
+</div>
+
+<!-- Footer Grid -->
+`.trim();
 }
 
 function proofCard(item) {
@@ -64,30 +113,6 @@ function proofCard(item) {
   `;
 }
 
-const footerProof = `
-<div class="footer-social-proof">
-  <div class="proof-header">
-    <p class="proof-label">Experiencias verificadas</p>
-    <h3 class="proof-title">
-      Lo que comparten nuestras familias.
-    </h3>
-  </div>
-
-  <div class="proof-grid">
-    ${testimonials.map(proofCard).join('\n')}
-  </div>
-
-  <div class="proof-cta">
-    <a href="/testimonios">
-      Ver testimonios verificados
-      <i class="fas fa-arrow-right"></i>
-    </a>
-  </div>
-</div>
-
-<!-- Footer Grid -->
-`;
-
 function homeLetter(item, index) {
   const position =
     index === 0 ? '0' :
@@ -114,7 +139,8 @@ function homeLetter(item, index) {
   `;
 }
 
-const homeLetters = `
+function buildHomeLetters(testimonials) {
+  return `
 <section class="letters" id="cartas">
   <div class="wrap">
     <div class="letters-head rv">
@@ -156,6 +182,7 @@ const homeLetters = `
   </div>
 </section>
 `;
+}
 
 for (const file of fs.readdirSync(ROOT)) {
   if (!file.endsWith('.html')) continue;
@@ -163,16 +190,26 @@ for (const file of fs.readdirSync(ROOT)) {
   const filePath = path.join(ROOT, file);
   let html = fs.readFileSync(filePath, 'utf8');
   const original = html;
+  const testimonials = testimonialsFor(file);
 
   /*
    * Reemplaza el bloque compartido de testimonios del footer.
+   * Si la página no tiene testimonios de su curso, se elimina el bloque
+   * en lugar de mostrar testimonios de otro programa.
    */
-  html = html.replace(
-    /<div class="footer-social-proof">[\s\S]*?<!-- Footer Grid -->/i,
-    footerProof.trim()
-  );
+  if (/<div class="footer-social-proof">[\s\S]*?<!-- Footer Grid -->/i.test(html)) {
+    html = html.replace(
+      /<div class="footer-social-proof">[\s\S]*?<!-- Footer Grid -->/i,
+      testimonials.length ? buildFooterProof(testimonials) : '<!-- Footer Grid -->'
+    );
+  }
 
-
+  if (/<section class="letters" id="cartas">[\s\S]*?<\/section>/i.test(html) && testimonials.length) {
+    html = html.replace(
+      /<section class="letters" id="cartas">[\s\S]*?<\/section>/i,
+      buildHomeLetters(testimonials).trim()
+    );
+  }
 
   if (html !== original) {
     fs.writeFileSync(filePath, html, 'utf8');

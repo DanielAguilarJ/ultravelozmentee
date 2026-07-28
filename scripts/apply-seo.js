@@ -27,8 +27,8 @@ function add(file, kind, title, description, name, datePublished = null) {
 add(
   'index.html',
   'page',
-  'Cursos de aprendizaje acelerado en Cuautitlán Izcalli y Cuernavaca | WorldBrain',
-  'Cursos de lectura rápida, cálculo mental, robótica, inglés, memoria y liderazgo para niños, jóvenes y adultos en Cuautitlán Izcalli y Cuernavaca.',
+  'Cursos de aprendizaje acelerado | WorldBrain México',
+  'Cursos de lectura rápida, cálculo mental, robótica, inglés, memoria y liderazgo para niños, jóvenes y adultos en Cuautitlán Izcalli y en línea.',
   'WorldBrain México'
 );
 
@@ -51,9 +51,9 @@ add(
 add(
   'juniormath_v2.html',
   'course',
-  'Curso de cálculo mental para niños | JuniorMath',
-  'Curso de cálculo mental avanzado para niños de 6 a 12 años. Actividades prácticas para fortalecer razonamiento, precisión y confianza.',
-  'JuniorMath: cálculo mental avanzado'
+  'Cálculo mental y razonamiento para niños | JuniorMath',
+  'Programa de cálculo mental y razonamiento matemático para niños de primaria con ejercicios por niveles, resolución de problemas y práctica gamificada.',
+  'JuniorMath: cálculo mental y razonamiento matemático'
 );
 
 add(
@@ -91,9 +91,9 @@ add(
 add(
   'homeschool.html',
   'course',
-  'Educación en casa y Homeschool en México | WorldBrain',
-  'Conoce el programa de educación en casa de WorldBrain para primaria, secundaria y preparatoria. Consulta modalidad, acompañamiento y requisitos.',
-  'Homeschool Veloz'
+  'Homeschool en México: acompañamiento escolar | WorldBrain',
+  'Acompañamiento académico para familias homeschool en México. Conoce modalidades, niveles, tutorías, costos y requisitos de acreditación externa.',
+  'Acompañamiento académico Homeschool'
 );
 
 add(
@@ -107,17 +107,17 @@ add(
 add(
   'admision-universitaria.html',
   'course',
-  'Curso para examen UNAM e IPN | WorldBrain México',
-  'Preparación para exámenes de admisión a UNAM, IPN y otras universidades. Incluye práctica, estrategias de estudio y seguimiento académico.',
-  'Preparación para admisión universitaria'
+  'Curso para examen UNAM, IPN y UAM 2026 | WorldBrain',
+  'Preparación para admisión universitaria UNAM, IPN y UAM 2026 con diagnóstico, temarios diferenciados, ejercicios y simulacros internos.',
+  'Preparación para admisión universitaria UNAM, IPN y UAM'
 );
 
 add(
   'comipems.html',
   'course',
-  'Preparación para ingreso a bachillerato UNAM e IPN',
-  'Curso de preparación para procesos de ingreso a bachillerato y exámenes de UNAM e IPN. Consulta convocatoria, temario y modalidad vigente.',
-  'Preparación para ingreso a bachillerato'
+  'Ingreso a bachillerato UNAM e IPN 2026 | WorldBrain',
+  'Preparación académica para el ingreso a bachillerato UNAM e IPN en 2026. Diagnóstico, temario, ejercicios y simulacros internos en línea o presenciales.',
+  'Preparación para ingreso a bachillerato UNAM e IPN'
 );
 
 add(
@@ -155,25 +155,25 @@ add(
 add(
   'redaccion-ejecutiva.html',
   'course',
-  'Curso de redacción ejecutiva y profesional | WorldBrain',
-  'Curso de redacción ejecutiva para escribir correos, informes y documentos profesionales con claridad, estructura, precisión y buena ortografía.',
-  'Curso de redacción ejecutiva'
+  'Curso de redacción ejecutiva y ortografía | WorldBrain',
+  'Curso de redacción ejecutiva para escribir correos, informes, minutas y propuestas profesionales con claridad, estructura y buena ortografía.',
+  'Curso de redacción ejecutiva y ortografía'
 );
 
 add(
   'universidad-dominical.html',
   'course',
-  'Universidad y estudios en modalidad dominical | WorldBrain',
-  'Conoce las opciones de estudios en modalidad dominical para personas que trabajan. Consulta requisitos, programas, horarios y reconocimiento.',
-  'Universidad Dominical'
+  'Preparación académica flexible para adultos | WorldBrain',
+  'Acompañamiento académico flexible para adultos que trabajan. Consulta modalidad, proceso de evaluación, institución responsable y requisitos aplicables.',
+  'Preparación académica flexible para adultos'
 );
 
 add(
   'alfa-cash.html',
   'course',
-  'Curso de finanzas y presupuestos | ALFA-CASH',
-  'Curso de finanzas, presupuestos y toma de decisiones para profesionales y emprendedores. Consulta contenidos, modalidad y clase informativa.',
-  'ALFA-CASH'
+  'Curso de presupuestos y finanzas profesionales | ALFA-CASH',
+  'Programa de planeación presupuestaria y toma de decisiones financieras para profesionales y responsables de proyectos. Consulta contenidos y modalidad.',
+  'ALFA-CASH: planeación presupuestaria para profesionales'
 );
 
 add(
@@ -332,8 +332,17 @@ add(
 );
 
 /* ─────────────────────────────────────────────────────────────
-   SCHEMA
+   OPCIONES ADICIONALES POR PÁGINA (imagen, FAQs, modalidades)
 ───────────────────────────────────────────────────────────── */
+
+const WB_ADDRESS = {
+  '@type': 'PostalAddress',
+  streetAddress: 'Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano',
+  addressLocality: 'Cuautitlán Izcalli',
+  addressRegion: 'Estado de México',
+  postalCode: '54700',
+  addressCountry: 'MX'
+};
 
 const ORGANIZATION = {
   '@type': ['EducationalOrganization', 'LocalBusiness'],
@@ -396,6 +405,136 @@ function canonicalFor(file) {
   return `${BASE}/${file.replace(/\.html$/i, '')}`;
 }
 
+const PAGE_OPTIONS = {
+  'comipems.html': {
+    image: `${BASE}/images/fl-hero-brain.webp`,
+    modes: ['Online', 'Presencial'],
+    faqs: [
+      {
+        q: '¿COMIPEMS sigue siendo un examen único en 2026?',
+        a: 'No se debe presentar el ingreso metropolitano a bachillerato como un único examen aplicable a todas las instituciones. Las modalidades, evaluaciones, fechas y requisitos dependen de la convocatoria y de cada institución. Esta página conserva la URL histórica /comipems para orientar a quienes todavía buscan ese nombre, pero la preparación debe enfocarse en el proceso vigente de ingreso a bachillerato.'
+      },
+      {
+        q: '¿El curso prepara para UNAM e IPN?',
+        a: 'El programa ofrece preparación académica para las evaluaciones y áreas de conocimiento que correspondan a las opciones de UNAM e IPN. El aspirante debe consultar la convocatoria oficial de cada institución, porque WorldBrain no organiza el proceso, no asigna lugares y no determina los requisitos de admisión.'
+      },
+      {
+        q: '¿Incluye temario y simulacros?',
+        a: 'Sí. La preparación puede incluir diagnóstico, repaso de áreas académicas, ejercicios, administración del tiempo y simulacros internos. Los simulacros son materiales de práctica de WorldBrain y no deben presentarse como copias oficiales del examen.'
+      },
+      {
+        q: '¿Cuántos aciertos necesito?',
+        a: 'No existe un número universal que garantice el ingreso. La selección depende de la institución, el plantel, la demanda, la convocatoria y los resultados de cada proceso. Cualquier referencia histórica debe identificarse como orientativa y nunca como promesa de admisión.'
+      },
+      {
+        q: '¿WorldBrain garantiza un lugar?',
+        a: 'No. WorldBrain ofrece preparación y acompañamiento académico. El ingreso depende exclusivamente del desempeño del aspirante y de las reglas publicadas por las instituciones responsables.'
+      }
+    ]
+  },
+  'admision-universitaria.html': {
+    modes: ['Online', 'Presencial'],
+    faqs: [
+      {
+        q: '¿UNAM, IPN y UAM aplican el mismo examen?',
+        a: 'No deben presentarse como un solo examen. Cada institución publica su propia convocatoria, temario, modalidad, calendario y criterios de selección. El plan de estudio debe ajustarse a la universidad y carrera elegidas.'
+      },
+      {
+        q: '¿El curso incluye preparación para Medicina UNAM?',
+        a: 'El programa puede reforzar las áreas académicas requeridas para la convocatoria correspondiente. La alta demanda de una carrera no permite garantizar ingreso ni establecer anticipadamente un número exacto de aciertos. El aspirante debe revisar la convocatoria oficial vigente.'
+      },
+      {
+        q: '¿Cuántos aciertos pide Medicina UNAM en 2026?',
+        a: 'No se debe publicar una cifra como garantía. Los resultados de referencia cambian según la demanda, la oferta de lugares y el desempeño de los aspirantes. WorldBrain puede ayudar a establecer una meta de práctica, pero la información oficial debe consultarse directamente con la UNAM.'
+      },
+      {
+        q: '¿Los simulacros son oficiales?',
+        a: 'No. Son ejercicios internos de preparación diseñados para practicar conocimientos, tiempo y estrategia. No son materiales emitidos ni avalados por UNAM, IPN o UAM.'
+      },
+      {
+        q: '¿Hay clases en línea y presenciales?',
+        a: 'La página ofrece información sobre modalidades en línea y presenciales en Cuautitlán Izcalli. La disponibilidad de grupos y horarios debe confirmarse por escrito antes de realizar cualquier pago.'
+      },
+      {
+        q: '¿El curso garantiza la admisión?',
+        a: 'No. El curso proporciona preparación académica. La admisión depende del desempeño del aspirante, la convocatoria, la demanda y las decisiones de cada universidad.'
+      }
+    ]
+  },
+  'homeschool.html': {
+    modes: ['Online', 'Presencial'],
+    faqs: [
+      {
+        q: '¿WorldBrain expide directamente certificados SEP?',
+        a: 'WorldBrain ofrece acompañamiento y preparación académica. Antes de contratar, la familia debe solicitar por escrito el nombre legal de la institución que emitirá cualquier certificado, el tipo de autorización aplicable, el nivel educativo, los requisitos y el procedimiento de acreditación. No debe asumirse que WorldBrain expide directamente un certificado SEP.'
+      },
+      {
+        q: '¿El programa utiliza INEA?',
+        a: 'No debe afirmarse una relación con INEA sin identificar la ruta, el convenio o el trámite aplicable. Si una propuesta utiliza una opción de acreditación externa, esta debe detallarse por escrito antes de la inscripción.'
+      },
+      {
+        q: '¿El homeschool tiene validez legal en México?',
+        a: 'El acompañamiento académico en casa y la acreditación oficial son asuntos distintos. Para obtener documentos con reconocimiento oficial se necesita seguir una ruta válida y cumplir los requisitos de la autoridad o institución emisora. La familia debe recibir por escrito la explicación del proceso antes de contratar.'
+      },
+      {
+        q: '¿Cuánto cuesta hacer homeschool en México?',
+        a: 'El costo depende del nivel, modalidad, materiales, tutorías y trámites externos. WorldBrain debe entregar una cotización desglosada que indique qué servicios están incluidos y cuáles deben pagarse directamente a terceros. No se deben anunciar costos incompletos como si incluyeran certificación o trámites no confirmados.'
+      },
+      {
+        q: '¿Está disponible para primaria, secundaria y bachillerato?',
+        a: 'La disponibilidad académica puede contemplar distintos niveles, pero la ruta de acreditación y la institución emisora deben confirmarse por separado para cada nivel. No debe asumirse que un mismo acuerdo o procedimiento cubre primaria, secundaria y bachillerato.'
+      },
+      {
+        q: '¿WorldBrain garantiza terminar en menos tiempo?',
+        a: 'No. El ritmo depende del nivel del estudiante, la ruta de acreditación, los requisitos oficiales y el cumplimiento académico. No se debe prometer que una persona recuperará años escolares en meses ni que terminará un nivel en una fecha garantizada.'
+      }
+    ]
+  },
+  'mathekids.html': {
+    modes: ['Online', 'Presencial']
+  },
+  'lectoescritura.html': {
+    modes: ['Online', 'Presencial']
+  },
+  'blog-4-despertar-inteligencia-infantil.html': {
+    image: `${BASE}/images/blog_4_cover.png`
+  },
+  'blog-5-eliminar-miedo-matematicas.html': {
+    image: `${BASE}/images/blog_5_cover.png`
+  },
+  'blog-6-robotica-ciencia-futuro.html': {
+    image: `${BASE}/images/blog_6_cover.png`
+  },
+  'blog-7-ingles-sin-gramatica.html': {
+    image: `${BASE}/images/blog_7_cover.png`
+  },
+  'blog-8-educacion-alternativa.html': {
+    image: `${BASE}/images/blog_8_cover.png`
+  },
+  'blog-9-vencer-examenes-admision.html': {
+    image: `${BASE}/images/blog_9_cover.png`
+  },
+  'blog-11-jovenes-lideres-finanzas.html': {
+    image: `${BASE}/images/blog_11_cover.png`
+  }
+};
+
+for (const [file, options] of Object.entries(PAGE_OPTIONS)) {
+  if (!PAGES[file]) {
+    throw new Error(`PAGE_OPTIONS referencia una página desconocida: ${file}`);
+  }
+
+  if (options.image) {
+    const imgPath = path.join(ROOT, options.image.replace(BASE, ''));
+    if (!fs.existsSync(imgPath)) {
+      console.warn(`⚠️ Imagen configurada no existe físicamente, se usará DEFAULT_IMAGE: ${options.image}`);
+      delete options.image;
+    }
+  }
+
+  Object.assign(PAGES[file], options);
+}
+
 function schemaFor(page) {
   const url = canonicalFor(page.file);
   const graph = [ORGANIZATION, WEBSITE];
@@ -415,7 +554,7 @@ function schemaFor(page) {
     },
     primaryImageOfPage: {
       '@type': 'ImageObject',
-      url: DEFAULT_IMAGE
+      url: page.image || DEFAULT_IMAGE
     }
   };
 
@@ -453,7 +592,7 @@ function schemaFor(page) {
   }
 
   if (page.kind === 'course') {
-    graph.push({
+    const course = {
       '@type': 'Course',
       '@id': `${url}#course`,
       name: page.name,
@@ -463,6 +602,37 @@ function schemaFor(page) {
       provider: {
         '@id': `${BASE}/#organization`
       }
+    };
+
+    if (Array.isArray(page.modes) && page.modes.length) {
+      course.hasCourseInstance = {
+        '@type': 'CourseInstance',
+        courseMode: page.modes,
+        location: {
+          '@type': 'Place',
+          name: 'WorldBrain Cuautitlán Izcalli',
+          address: WB_ADDRESS
+        }
+      };
+    }
+
+    graph.push(course);
+  }
+
+  if (Array.isArray(page.faqs) && page.faqs.length) {
+    graph.push({
+      '@type': 'FAQPage',
+      '@id': `${url}#faq`,
+      url: `${url}#faq`,
+      inLanguage: 'es-MX',
+      mainEntity: page.faqs.map(item => ({
+        '@type': 'Question',
+        name: item.q,
+        acceptedAnswer: {
+          '@type': 'Answer',
+          text: item.a
+        }
+      }))
     });
   }
 
@@ -473,7 +643,7 @@ function schemaFor(page) {
       headline: page.name,
       description: page.description,
       url,
-      image: DEFAULT_IMAGE,
+      image: page.image || DEFAULT_IMAGE,
       datePublished: page.datePublished,
       dateModified: page.datePublished,
       inLanguage: 'es-MX',
@@ -592,6 +762,7 @@ function buildSeoBlock(page) {
 
   const url = canonicalFor(page.file);
   const ogType = page.kind === 'article' ? 'article' : 'website';
+  const pageImage = page.image || DEFAULT_IMAGE;
   const schema = JSON.stringify(schemaFor(page), null, 2)
     .replace(/</g, '\\u003c');
 
@@ -609,6 +780,7 @@ function buildSeoBlock(page) {
 <meta name="googlebot" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 
 <link rel="canonical" href="${url}">
+<link rel="stylesheet" href="/css/seo-components.css">
 
 <meta property="og:locale" content="es_MX">
 <meta property="og:type" content="${ogType}">
@@ -616,13 +788,13 @@ function buildSeoBlock(page) {
 <meta property="og:title" content="${escapeAttribute(page.title)}">
 <meta property="og:description" content="${escapeAttribute(page.description)}">
 <meta property="og:url" content="${url}">
-<meta property="og:image" content="${DEFAULT_IMAGE}">
+<meta property="og:image" content="${pageImage}">
 <meta property="og:image:alt" content="${escapeAttribute(page.name)}">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="${escapeAttribute(page.title)}">
 <meta name="twitter:description" content="${escapeAttribute(page.description)}">
-<meta name="twitter:image" content="${DEFAULT_IMAGE}">
+<meta name="twitter:image" content="${pageImage}">
 <meta name="twitter:image:alt" content="${escapeAttribute(page.name)}">
 ${articleMeta}
 
@@ -631,6 +803,59 @@ ${schema}
 </script>
 <!-- /SEO:GENERATED -->
 `;
+}
+
+function escapeHtmlText(value) {
+  return String(value)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;');
+}
+
+function buildFaqBlock(page) {
+  if (!Array.isArray(page.faqs) || !page.faqs.length) {
+    return null;
+  }
+
+  const items = page.faqs.map(item => `
+  <details class="seo-faq-item">
+    <summary>${escapeHtmlText(item.q)}</summary>
+    <div class="seo-faq-answer">
+      <p>${escapeHtmlText(item.a)}</p>
+    </div>
+  </details>`).join('');
+
+  return `<!-- SEO:FAQ:START -->
+<section class="seo-section seo-faq" id="faq" aria-labelledby="faq-title">
+  <div class="seo-section-header">
+    <h2 id="faq-title">Preguntas frecuentes</h2>
+  </div>${items}
+</section>
+<!-- SEO:FAQ:END -->`;
+}
+
+function injectFaq(html, page) {
+  const block = buildFaqBlock(page);
+
+  /* Elimina cualquier bloque FAQ previo generado en una ejecución anterior */
+  html = html.replace(
+    /<!-- SEO:FAQ:START -->[\s\S]*?<!-- SEO:FAQ:END -->\s*/gi,
+    ''
+  );
+
+  if (!block) {
+    return html;
+  }
+
+  if (html.includes('<!-- SEO:FAQ:SLOT -->')) {
+    return html.replace(
+      '<!-- SEO:FAQ:SLOT -->',
+      `${block}\n<!-- SEO:FAQ:SLOT -->`
+    );
+  }
+
+  console.warn(`⚠️ ${page.file}: define faqs pero no tiene <!-- SEO:FAQ:SLOT --> en el HTML`);
+  return html;
 }
 
 function normalizeLang(html) {
@@ -715,6 +940,7 @@ for (const file of fs.readdirSync(ROOT)) {
 
   if (PAGES[file]) {
     html = injectSeo(html, PAGES[file]);
+    html = injectFaq(html, PAGES[file]);
     audit(file, html, PAGES[file]);
   } else {
     console.warn(`⚠️ Sin configuración SEO: ${file}`);

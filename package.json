@@ -18,7 +18,8 @@
     "seo:rebuild-testimonials": "node scripts/rebuild-testimonials.js",
     "seo:apply": "node scripts/apply-seo.js",
     "seo:audit": "node scripts/seo-audit.js",
-    "seo:fix": "npm run seo:rebuild-testimonials && npm run seo:testimonials && npm run seo:whatsapp && npm run seo:apply && npm run seo:audit"
+    "seo:fix": "npm run seo:rebuild-testimonials && npm run seo:testimonials && npm run seo:whatsapp && npm run seo:apply && npm run seo:audit",
+    "seo:verify-generated": "node scripts/apply-seo.js && git diff --exit-code"
   },
   "dependencies": {
     "express": "^4.21.2",

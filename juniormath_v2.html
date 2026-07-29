@@ -329,6 +329,8 @@ footer a:hover{opacity:1;text-decoration:underline}
   .jm-step:nth-child(-n+3),.jm-step:nth-child(n+4){grid-column:span 1}
   .jm-step:last-child{grid-column:span 2}
   .jm-flow::before{display:none}
+  /* Objetivo táctil: 44px es el mínimo con el que un dedo acierta */
+  .btn,.nav-pill-link,.demo-tab{min-height:44px;display:inline-flex;align-items:center;justify-content:center}
   .bento{grid-template-columns:repeat(2,1fr)}
   .b1,.b2,.b3,.b4{grid-column:span 2}
   .stats{grid-template-columns:repeat(2,1fr)}
@@ -336,6 +338,23 @@ footer a:hover{opacity:1;text-decoration:underline}
   .price-card{position:static}
   .nav-links{display:none}
   .burger{display:block}
+}
+/* Teléfono: a 2 columnas cada paso quedaba en ~150px con una
+   insignia de 52px encima. Una columna respira. */
+@media (max-width:560px){
+  .jm-steps{grid-template-columns:1fr}
+  .jm-step:nth-child(-n+3),.jm-step:nth-child(n+4),.jm-step:last-child{grid-column:span 1}
+  .bento{grid-template-columns:1fr}
+  .b1,.b2,.b3,.b4{grid-column:span 1}
+  .stats{grid-template-columns:1fr}
+}
+/* Área segura y sin destello azul al tocar */
+.wa-float{bottom:max(22px,env(safe-area-inset-bottom));right:max(22px,env(safe-area-inset-right))}
+.btn,.demo-tab,.bead{touch-action:manipulation;-webkit-tap-highlight-color:transparent}
+html{scroll-padding-top:90px;-webkit-text-size-adjust:100%;text-size-adjust:100%}
+/* En iOS el :hover se queda pegado tras tocar */
+@media (hover:none){
+  .btn:hover,.bento-card:hover,.jm-step:hover{transform:none;box-shadow:var(--shadow)}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -889,7 +908,15 @@ document.getElementById('burger').addEventListener('click',()=>{
 const mq=document.getElementById('marquee');
 mq.innerHTML+=mq.innerHTML;
 
-/* ========== Contadores animados ========== */
+/* ========== Contadores animados ==========
+   Guardado: sin IntersectionObserver esta línea lanzaba y abortaba
+   TODO el resto del script, incluido el mini-juego. Si no existe, los
+   números se pintan directos. */
+if(!('IntersectionObserver' in window)){
+  document.querySelectorAll('.count').forEach(el=>{
+    el.textContent=(+el.dataset.n).toLocaleString('es-MX')+(el.dataset.suf||'');
+  });
+}else{
 const io=new IntersectionObserver(entries=>{
   entries.forEach(e=>{
     if(!e.isIntersecting)return;
@@ -904,6 +931,7 @@ const io=new IntersectionObserver(entries=>{
   });
 },{threshold:.5});
 document.querySelectorAll('.count').forEach(el=>io.observe(el));
+}
 
 /* ========== Mini-juego: Reto de 30 segundos ========== */
 (function(){
@@ -964,7 +992,10 @@ document.querySelectorAll('.count').forEach(el=>io.observe(el));
 })();
 
 /* ========== Fallback reveal para navegadores sin animation-timeline ========== */
-if(!CSS.supports('animation-timeline: view()')){
+/* Guardado: window.CSS no existe en todos los entornos y una
+   referencia suelta lanzaba ReferenceError. */
+const soportaScroll = typeof CSS!=='undefined' && CSS.supports && CSS.supports('animation-timeline: view()');
+if(!soportaScroll && ('IntersectionObserver' in window)){
   const ro=new IntersectionObserver(es=>es.forEach(e=>{
     if(e.isIntersecting){e.target.style.opacity='1';e.target.style.transform='none';ro.unobserve(e.target);}
   }),{threshold:.15});

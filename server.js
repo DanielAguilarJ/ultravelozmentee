@@ -6,7 +6,18 @@ const cookieParser = require('cookie-parser');
 const path = require('path');
 const fs = require('fs');
 const { ParamBuilder } = require('capi-param-builder-nodejs');
+
+/*
+ * Carga .env ANTES de cualquier lectura de process.env (API_TOKEN,
+ * credenciales de aviso de leads, etc.). Las variables definidas en
+ * el panel de hosting tienen prioridad: el archivo solo rellena
+ * huecos. Si no hay .env, no pasa nada.
+ */
+const { loadEnvFile } = require('./js/env-file');
+const loadedEnvKeys = loadEnvFile(path.join(__dirname, '.env'));
+
 const { sendCapiEvent } = require('./js/capi');
+const leads = require('./js/leads');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -28,6 +39,11 @@ const REMOVED_PATH = /backup|-old/i;
 const PRIVATE_PREFIXES = [
   '/src/',
   '/data/',
+  /*
+   * /var/ guarda los leads agendados (bookings.jsonl). Contiene datos
+   * personales: nombre y WhatsApp. Nunca debe servirse por HTTP.
+   */
+  '/var/',
   '/scripts/',
   '/node_modules/',
   '/graphify-out/',
@@ -45,6 +61,8 @@ const PRIVATE_FILES = new Set([
   '/check.sh',
   '/.eleventy.js',
   '/js/capi.js',
+  '/js/leads.js',
+  '/js/env-file.js',
   '/fix_founding_year.py',
   '/fix_fake_testimonials.py',
   '/update_global_testimonials.py',
@@ -334,6 +352,86 @@ app.post('/api/event', rateLimit, async (req, res) => {
 });
 
 // ─────────────────────────────────────────────────────────────
+// 5.5) API DE LEADS — /api/bookings
+//
+// Antes de esto, agendar una cita no avisaba a nadie: booking.js
+// armaba un enlace de Google Calendar para el calendario DEL
+// VISITANTE y guardaba la reserva en memoria. El lead se perdía.
+//
+// Orden deliberado: se persiste PRIMERO en disco y se notifica
+// DESPUÉS. Si Telegram o el webhook fallan, el lead ya está a salvo
+// y se puede recuperar del archivo.
+//
+// La respuesta al visitante nunca depende de la notificación: si el
+// aviso falla, él ve su cita confirmada igual.
+// ─────────────────────────────────────────────────────────────
+const BOOKINGS_FILE = leads.resolveFile(process.env, __dirname);
+
+/* Se registran los NOMBRES, nunca los valores: el log no debe
+   filtrar tokens. */
+if (loadedEnvKeys.length) {
+  console.log('🔑 .env cargado: ' + loadedEnvKeys.join(', '));
+}
+
+const NOTIFY_CHANNELS = [
+  process.env.TELEGRAM_BOT_TOKEN && process.env.TELEGRAM_CHAT_ID && 'Telegram',
+  process.env.BOOKING_WEBHOOK_URL && 'webhook',
+  process.env.RESEND_API_KEY && process.env.BOOKING_EMAIL_TO && 'email'
+].filter(Boolean);
+
+if (!NOTIFY_CHANNELS.length) {
+  console.warn(
+    '⚠️  Sin canales de aviso de leads. Las citas se guardan en ' +
+    BOOKINGS_FILE + ' pero nadie recibe notificación. ' +
+    'Configura TELEGRAM_BOT_TOKEN + TELEGRAM_CHAT_ID, ' +
+    'BOOKING_WEBHOOK_URL o RESEND_API_KEY + BOOKING_EMAIL_TO.'
+  );
+} else {
+  console.log('📣 Avisos de leads por: ' + NOTIFY_CHANNELS.join(', '));
+}
+
+app.post('/api/bookings', rateLimit, async (req, res) => {
+  const result = leads.validateLead(req.body);
+
+  if (!result.ok) {
+    return res.status(400).json({
+      error: 'Datos incompletos',
+      fields: result.errors
+    });
+  }
+
+  const record = result.value;
+
+  /* 1 · Persistir. Si esto falla, sí es un error del servidor: el
+     lead se estaría perdiendo y hay que enterarse. */
+  try {
+    leads.appendLead(record, BOOKINGS_FILE);
+  } catch (err) {
+    console.error('⛔ LEAD NO GUARDADO:', err.message, JSON.stringify(record));
+    return res.status(500).json({ error: 'No se pudo registrar la cita' });
+  }
+
+  /* 2 · Responder ya: el visitante no espera a Telegram. */
+  res.json({ success: true, stage: record.stage });
+
+  /* 3 · Notificar en segundo plano. */
+  try {
+    const outcome = await leads.notifyLead(record, process.env);
+    const failed = outcome.filter(item => !item.ok);
+
+    if (failed.length) {
+      console.error(
+        '⚠️ Aviso de lead falló (' +
+        failed.map(f => f.channel + ': ' + f.error).join('; ') +
+        ') — el lead sí quedó en ' + BOOKINGS_FILE
+      );
+    }
+  } catch (err) {
+    console.error('⚠️ Error notificando lead:', err.message);
+  }
+});
+
+// ─────────────────────────────────────────────────────────────
 // 6) BLOG API (Make.com) — FIX: token SOLO por env, sin fallback
 //    ⚠️ ROTA el token viejo hoy: quedó público en GitHub
 // ─────────────────────────────────────────────────────────────
@@ -348,6 +446,32 @@ const authenticateBlogAPI = (req, res, next) => {
   }
   next();
 };
+
+/*
+ * Consulta de leads. Protegida con API_TOKEN porque devuelve datos
+ * personales (nombre y WhatsApp de menores de edad en muchos casos).
+ * Uso:
+ *   curl -H "Authorization: Bearer $API_TOKEN" \
+ *        https://ultravelozmente.com/api/bookings?limit=20
+ */
+app.get('/api/bookings', authenticateBlogAPI, (req, res) => {
+  const limit = Math.min(
+    Math.max(parseInt(req.query.limit, 10) || 50, 1),
+    500
+  );
+
+  try {
+    const items = leads.readLeads(BOOKINGS_FILE, limit);
+
+    res.setHeader('Cache-Control', 'no-store');
+    res.setHeader('X-Robots-Tag', 'noindex, nofollow');
+
+    res.json({ count: items.length, items });
+  } catch (err) {
+    console.error('Error leyendo leads:', err.message);
+    res.status(500).json({ error: 'No se pudo leer el registro' });
+  }
+});
 
 app.get('/api/posts', (req, res) => {
   const p = path.join(staticPath, 'data', 'posts.json');

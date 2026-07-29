@@ -18,6 +18,53 @@
         time: ''
     };
 
+    /**
+     * Avisa al servidor que hay un lead. Sin esto, agendar una cita no
+     * notificaba a nadie: el enlace de Google Calendar agrega el evento
+     * al calendario DEL VISITANTE y `bookedSlots` vive solo en memoria.
+     *
+     * Se llama dos veces a propósito:
+     *   'contacto'   al pasar al paso 2 — ya hay nombre y WhatsApp, así
+     *                que si abandona antes de elegir horario el lead no
+     *                se pierde.
+     *   'confirmado' al cerrar la cita, ya con fecha y hora.
+     *
+     * Nunca interrumpe el flujo: cualquier fallo se ignora en silencio
+     * porque el servidor ya persiste el lead y el visitante no tiene
+     * por qué ver un error de red.
+     */
+    function notifyLead(stage) {
+        try {
+            const body = JSON.stringify({
+                stage: stage,
+                name: bookingData.name,
+                phone: bookingData.phone,
+                course: bookingData.course,
+                date: bookingData.date || '',
+                time: bookingData.time || '',
+                page: window.location.pathname
+            });
+
+            /* keepalive: la petición sobrevive si la pestaña navega
+               justo después de confirmar. */
+            if (typeof window.fetch === 'function') {
+                window.fetch('/api/bookings', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: body,
+                    keepalive: true
+                }).catch(function () { /* el lead ya está del lado del servidor o se reintenta al confirmar */ });
+            } else if (navigator.sendBeacon) {
+                navigator.sendBeacon(
+                    '/api/bookings',
+                    new Blob([body], { type: 'application/json' })
+                );
+            }
+        } catch (e) {
+            /* jamás romper el agendado por un problema de aviso */
+        }
+    }
+
     // Inicialización
     function initBookingSystem() {
         const datePicker = document.getElementById('date-picker');
@@ -57,6 +104,10 @@
         bookingData.name = name;
         bookingData.phone = phone;
         bookingData.course = course;
+
+        // Lead parcial: si abandona antes de elegir horario, el
+        // contacto ya quedó registrado del lado del servidor.
+        notifyLead('contacto');
 
         // Evento IniciateCheckout al pasar al paso 2
         if (window.trackMetaEvent) {
@@ -208,6 +259,10 @@
                 bookedSlots[bookingData.date] = [];
             }
             bookedSlots[bookingData.date].push(bookingData.time);
+
+            // Cita cerrada: ahora sí con fecha y hora. Este es el
+            // aviso que el equipo necesita para llamar al alumno.
+            notifyLead('confirmado');
 
             // Generar enlace de Google Calendar
             const title = encodeURIComponent('Asesoría ' + bookingData.course + ' - WorldBrain');

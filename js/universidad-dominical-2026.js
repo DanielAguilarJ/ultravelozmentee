@@ -421,20 +421,25 @@
             lista.className = 'ud-verdict-list';
 
             var intro = document.createElement('li');
-            intro.innerHTML = '<i class="fas fa-file-signature" aria-hidden="true"></i>' +
-                '<strong>Pida esto por escrito, siempre:</strong>';
+            intro.className = 'ud-verdict-lead';
+            intro.textContent = 'Pida esto por escrito, siempre:';
             lista.appendChild(intro);
 
-            COMUNES.forEach(function (linea) {
+            /* Marca tipográfica en lugar de icono de librería: los
+               iconos de catálogo son justo lo que hace que una página
+               parezca salida de una plantilla. */
+            COMUNES.forEach(function (linea, i) {
                 var li = document.createElement('li');
-                var icon = document.createElement('i');
-                icon.className = 'fas fa-check';
-                icon.setAttribute('aria-hidden', 'true');
+
+                var marca = document.createElement('span');
+                marca.className = 'ud-verdict-mark';
+                marca.setAttribute('aria-hidden', 'true');
+                marca.textContent = String(i + 1).padStart(2, '0');
 
                 var span = document.createElement('span');
                 span.textContent = linea;
 
-                li.appendChild(icon);
+                li.appendChild(marca);
                 li.appendChild(span);
                 lista.appendChild(li);
             });
@@ -610,7 +615,176 @@
     }
 
     /* ══════════════════════════════════════════════
-       9 · Enlaces externos sin reverse tabnabbing
+       9 · Los domingos del año
+
+       La premisa del programa es que solo dispone del domingo. Aquí
+       el año se dibuja como 52 marcas y se calcula cuántos domingos
+       quedan de verdad. Es un dato comprobable con un calendario, no
+       un contador de urgencia inventado.
+       ══════════════════════════════════════════════ */
+    var yearGrid = document.getElementById('ud-year');
+
+    if (yearGrid) {
+        var hoy = new Date();
+        var anio = hoy.getFullYear();
+
+        /* Primer domingo del año */
+        var cursor = new Date(anio, 0, 1);
+        cursor.setDate(cursor.getDate() + ((7 - cursor.getDay()) % 7));
+
+        var domingos = [];
+
+        while (cursor.getFullYear() === anio) {
+            domingos.push(new Date(cursor));
+            cursor.setDate(cursor.getDate() + 7);
+        }
+
+        var pasados = domingos.filter(function (d) {
+            return d < hoy;
+        }).length;
+
+        var restantes = domingos.length - pasados;
+
+        var MESES = [
+            'enero', 'febrero', 'marzo', 'abril', 'mayo', 'junio',
+            'julio', 'agosto', 'septiembre', 'octubre',
+            'noviembre', 'diciembre'
+        ];
+
+        yearGrid.innerHTML = '';
+
+        domingos.forEach(function (fecha, i) {
+            var cell = document.createElement('div');
+            var esPasado = i < pasados;
+            var esProximo = i === pasados;
+
+            cell.className = 'ud-sunday ' +
+                (esPasado ? 'is-spent' : (esProximo ? 'is-next' : 'is-left'));
+
+            cell.style.setProperty('--k', String(i));
+
+            var etiqueta = fecha.getDate() + ' de ' + MESES[fecha.getMonth()];
+
+            cell.title = esProximo
+                ? 'Próximo domingo: ' + etiqueta
+                : (esPasado ? 'Domingo transcurrido: ' + etiqueta : 'Domingo disponible: ' + etiqueta);
+
+            yearGrid.appendChild(cell);
+        });
+
+        /* La rejilla es decorativa: el dato va en texto, que es lo que
+           lee un lector de pantalla. */
+        yearGrid.setAttribute('aria-hidden', 'true');
+
+        var elRest = document.getElementById('ud-year-left');
+        var elTotal = document.getElementById('ud-year-total');
+        var elSpent = document.getElementById('ud-year-spent');
+        var elYear = document.getElementById('ud-year-num');
+        var elNext = document.getElementById('ud-year-next');
+
+        /* Este número NO se anima desde cero.
+           Es un dato verificable con un calendario, y una cuenta
+           ascendente mostraría cifras falsas durante segundo y medio:
+           quien mire de reojo, o un lector de pantalla que anuncie el
+           cambio, leería un número que no es. El interés visual lo
+           aporta la entrada escalonada de las 52 marcas, que sí son
+           decorativas. */
+        if (elRest) elRest.textContent = String(restantes);
+
+        if (elTotal) elTotal.textContent = String(domingos.length);
+        if (elSpent) elSpent.textContent = String(pasados);
+        if (elYear) elYear.textContent = String(anio);
+
+        if (elNext && domingos[pasados]) {
+            var p = domingos[pasados];
+            elNext.textContent = p.getDate() + ' de ' + MESES[p.getMonth()];
+        } else if (elNext) {
+            elNext.textContent = 'el primero de ' + (anio + 1);
+        }
+    }
+
+    /* ══════════════════════════════════════════════
+       10 · Diagrama de rutas
+       Cada trazo se mide para que stroke-dasharray coincida con su
+       longitud real; si no, el dibujado se ve entrecortado.
+       ══════════════════════════════════════════════ */
+    var paths = Array.prototype.slice.call(
+        document.querySelectorAll('.ud-diagram .ud-path')
+    );
+
+    if (paths.length) {
+        paths.forEach(function (path) {
+            var len = 600;
+
+            try {
+                len = Math.ceil(path.getTotalLength());
+            } catch (e) {
+                /* jsdom no implementa getTotalLength: se deja el valor
+                   por defecto y el trazo simplemente no se anima. */
+            }
+
+            path.style.setProperty('--len', String(len));
+        });
+
+        /* Respaldo para navegadores sin animation-timeline: view() */
+        if (!supportsViewTimeline) {
+            if (reduced || !('IntersectionObserver' in window)) {
+                paths.forEach(function (p) {
+                    p.classList.add('is-drawn');
+                });
+            } else {
+                var drawObs = new IntersectionObserver(
+                    function (entries) {
+                        entries.forEach(function (entry) {
+                            if (!entry.isIntersecting) return;
+                            entry.target.classList.add('is-drawn');
+                            drawObs.unobserve(entry.target);
+                        });
+                    },
+                    { threshold: 0.25 }
+                );
+
+                paths.forEach(function (p) {
+                    drawObs.observe(p);
+                });
+            }
+        }
+    }
+
+    /* ══════════════════════════════════════════════
+       11 · Folio y titulillo
+       Muestra en el canto la sección que se está leyendo, como el
+       encabezado de página de un libro.
+       ══════════════════════════════════════════════ */
+    var folioTitle = document.getElementById('ud-folio-title');
+    var folioNum = document.getElementById('ud-folio-num');
+
+    if (folioTitle && folioNum && 'IntersectionObserver' in window) {
+        var marked = Array.prototype.slice.call(
+            document.querySelectorAll('[data-folio]')
+        );
+
+        if (marked.length) {
+            var folioObs = new IntersectionObserver(
+                function (entries) {
+                    entries.forEach(function (entry) {
+                        if (!entry.isIntersecting) return;
+
+                        folioTitle.textContent = entry.target.dataset.folio;
+                        folioNum.textContent = entry.target.dataset.folioNum || '';
+                    });
+                },
+                { rootMargin: '-45% 0px -45% 0px' }
+            );
+
+            marked.forEach(function (s) {
+                folioObs.observe(s);
+            });
+        }
+    }
+
+    /* ══════════════════════════════════════════════
+       12 · Enlaces externos sin reverse tabnabbing
        ══════════════════════════════════════════════ */
     document
         .querySelectorAll('a[target="_blank"]')

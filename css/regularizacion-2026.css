@@ -2083,3 +2083,330 @@ body.rg-body::after {
         font-size: 4.4rem;
     }
 }
+
+/* ══════════════════════════════════════════════════════════════════
+   ADAPTACIÓN A DISPOSITIVOS
+
+   Correcciones de una auditoría de móvil, tablet y escritorio. Cada
+   bloque anota el síntoma que evita: sin eso parecen redundantes y
+   alguien los borra.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Anclas y navbar fija ──────────────────────────────────────
+   Los enlaces #ancla aterrizaban con el encabezado escondido tras la
+   barra de navegación fija. Afectaba a todos los dispositivos. */
+html:has(body.rg-body) {
+    scroll-padding-top: clamp(84px, 12vh, 116px);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+@supports not selector(:has(*)) {
+    html {
+        scroll-padding-top: 100px;
+    }
+}
+
+.rg-body [id]:not(body) {
+    scroll-margin-top: clamp(84px, 12vh, 116px);
+}
+
+/* ── overflow-x: clip en lugar de hidden ───────────────────────
+   `hidden` hace del body un contenedor de scroll y rompe el
+   position: sticky del panel del método. `clip` recorta sin eso. */
+body.rg-body {
+    overflow-x: clip;
+}
+
+@supports not (overflow-x: clip) {
+    body.rg-body {
+        overflow-x: hidden;
+    }
+}
+
+/* ── Estados táctiles ──────────────────────────────────────────
+   En iOS el :hover se queda pegado tras tocar. */
+@media (hover: none) {
+
+    .rg-quote:hover,
+    .rg-benefit:hover,
+    .rg-tema-group:hover {
+        transform: none;
+        border-color: var(--rg-line-mid);
+        background: var(--rg-void);
+    }
+
+    .rg-btn-primary:hover,
+    .rg-btn-ghost:hover,
+    .rg-socials a:hover,
+    .rg-footer-col ul a:hover {
+        transform: none;
+        padding-left: 0;
+    }
+
+    .rg-q-opt:hover:not(:disabled) {
+        transform: none;
+        background: transparent;
+        border-color: var(--rg-line-mid);
+    }
+}
+
+/* ── Objetivos táctiles ────────────────────────────────────────
+   Los chips de filtro del temario son el control principal en
+   teléfono y medían 29 px de alto. */
+@media (pointer: coarse) {
+
+    .rg-chip,
+    .rg-back,
+    .rg-btn,
+    .rg-q-opt,
+    .rg-socials a,
+    .rg-footer-legal-links a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .rg-q-opt {
+        justify-content: flex-start;
+    }
+
+    /* Los horarios que inyecta booking.min.js también se toca con el
+       dedo: son la última acción antes de convertir. */
+    .rg-slots .course-time-slot {
+        min-height: 44px;
+        min-width: 76px;
+    }
+
+    .rg-faq summary,
+    .rg-tema-group > summary {
+        min-height: 48px;
+    }
+
+    .rg-footer-col ul {
+        gap: 0.95rem;
+    }
+}
+
+.rg-btn,
+.rg-chip,
+.rg-q-opt,
+.rg-back,
+.rg-faq summary,
+.rg-socials a,
+.rg-slots .course-time-slot,
+.rg-sticky a {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Área segura en dispositivos con notch ───────────────────── */
+.rg-sticky {
+    padding-bottom: max(0.85rem, env(safe-area-inset-bottom));
+    padding-left: max(1.1rem, env(safe-area-inset-left));
+    padding-right: max(1.1rem, env(safe-area-inset-right));
+}
+
+.floating-whatsapp {
+    bottom: max(20px, env(safe-area-inset-bottom));
+    right: max(20px, env(safe-area-inset-right));
+}
+
+@media (max-width: 900px) {
+    .floating-whatsapp {
+        bottom: calc(84px + env(safe-area-inset-bottom));
+    }
+
+    /* La barra fija tapaba el final del pie */
+    body.rg-body {
+        padding-bottom: calc(72px + env(safe-area-inset-bottom));
+    }
+}
+
+/* ── Filtros del temario en teléfono ───────────────────────────
+   Con siete chips de semestre en una fila, el ajuste de línea dejaba
+   filas huérfanas. Se convierte en una tira deslizable con anclaje,
+   que es el patrón que la gente ya conoce de las apps. */
+@media (max-width: 640px) {
+
+    .rg-filter-row {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity;
+        padding-bottom: 0.5rem;
+        /* Sangra hasta los cantos para que se vea que hay más */
+        margin-inline: calc(var(--rg-gutter) * -1);
+        padding-inline: var(--rg-gutter);
+        scrollbar-width: none;
+    }
+
+    .rg-filter-row::-webkit-scrollbar {
+        display: none;
+    }
+
+    .rg-filter-row > .rg-eyebrow {
+        width: auto;
+        flex-shrink: 0;
+        align-self: center;
+        margin-bottom: 0;
+    }
+
+    .rg-chip {
+        scroll-snap-align: start;
+        flex-shrink: 0;
+    }
+
+    .rg-count {
+        margin-left: 0;
+        flex-shrink: 0;
+    }
+}
+
+/* ── Tablet: el hueco entre 720 y 1024 ─────────────────────────
+   El método se colapsaba a una columna a 900 px, dejando el panel
+   lateral y los pasos apilados con mucho aire muerto. */
+@media (min-width: 721px) and (max-width: 1024px) {
+
+    .rg-temario {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .rg-benefits {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .rg-quotes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* La tercera cita se centra en lugar de quedar sola a la izquierda */
+    .rg-quotes > :last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        max-width: 34rem;
+        margin-inline: auto;
+    }
+
+    .rg-rhythm {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .rg-enroll {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.4rem;
+    }
+}
+
+/* ── Teléfono estrecho ───────────────────────────────────────── */
+@media (max-width: 400px) {
+
+    .rg-hero h1 {
+        font-size: clamp(1.95rem, 10vw, 2.4rem);
+    }
+
+    .rg-quiz-q {
+        font-size: 1.16rem;
+    }
+
+    .rg-rhythm-cell b {
+        font-size: 2.2rem;
+    }
+
+    /* Los pasos del examen y del formulario ganan aire lateral */
+    .rg-quiz-stage,
+    .rg-form-card {
+        padding-inline: 1.15rem;
+    }
+}
+
+/* ── Horizontal en teléfono ──────────────────────────────────── */
+@media (max-height: 460px) and (orientation: landscape) {
+
+    .rg-hero {
+        padding-top: 76px;
+        padding-bottom: 40px;
+    }
+
+    .rg-section {
+        padding-block: 48px;
+    }
+
+    .rg-sticky {
+        display: none;
+    }
+}
+
+/* ── Impresión ─────────────────────────────────────────────────
+   El temario completo es lo que la gente imprime o guarda en PDF. */
+@media print {
+
+    body.rg-body {
+        background: #fff;
+        color: #000;
+        padding-bottom: 0;
+    }
+
+    .nav-pill,
+    .nav-mobile-panel,
+    .nav-mobile-overlay,
+    .rg-sticky,
+    .floating-whatsapp,
+    .rg-marquee,
+    .rg-quiz,
+    .rg-hero::before,
+    .rg-hero::after {
+        display: none !important;
+    }
+
+    /* En papel el temario va completo: los filtros no aplican */
+    .rg-filters {
+        display: none;
+    }
+
+    .rg-tema-group {
+        break-inside: avoid;
+    }
+
+    .rg-tema-group .rg-tema-list {
+        display: grid !important;
+    }
+
+    .rg-tema-list li.is-out,
+    .rg-tema-group.is-out {
+        display: grid !important;
+    }
+
+    .rg-section {
+        padding-block: 18pt;
+        break-inside: avoid;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #555;
+    }
+}
+
+/* ── Contraste forzado ───────────────────────────────────────── */
+@media (forced-colors: active) {
+
+    .rg-quiz,
+    .rg-benefit,
+    .rg-tema-group,
+    .rg-form-card,
+    .rg-quote {
+        border: 1px solid CanvasText;
+    }
+
+    .rg-chip[aria-pressed="true"] {
+        background: Highlight;
+        color: HighlightText;
+    }
+
+    .rg-btn-primary {
+        border: 1px solid CanvasText;
+    }
+}

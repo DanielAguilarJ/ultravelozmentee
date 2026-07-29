@@ -1041,10 +1041,17 @@ summary:focus-visible {
     counter-reset: ud-check;
 }
 
+/* Tres columnas: número colgado, término y glosa.
+   IMPORTANTE: cada hijo lleva su grid-column explícita. El <li> tiene
+   tres elementos de rejilla (el ::before del contador, el <strong> y
+   el <span>) y con una plantilla de dos columnas la colocación
+   automática mandaba la glosa a la segunda fila DENTRO de la columna
+   del número, aplastándola a 42 px. Sin asignación explícita, añadir
+   un hijo vuelve a romperlo. */
 .ud-checklist li {
     display: grid;
-    grid-template-columns: 2.6rem 1fr;
-    gap: 1rem;
+    grid-template-columns: 2.6rem minmax(0, 15rem) minmax(0, 1fr);
+    gap: 0.3rem 1.5rem;
     align-items: baseline;
     padding: 1.15rem 1.7rem;
     border-bottom: 1px solid var(--ud-rule);
@@ -1057,22 +1064,41 @@ summary:focus-visible {
 
 .ud-checklist li::before {
     content: counter(ud-check, decimal-leading-zero);
+    grid-column: 1;
     font-family: var(--ud-mono);
     font-size: 0.74rem;
     color: var(--ud-brass);
+    /* Cifras tabulares: la columna de números queda alineada */
+    font-variant-numeric: tabular-nums;
 }
 
 .ud-checklist strong {
-    display: block;
+    grid-column: 2;
     font-family: var(--ud-display);
     font-size: 1.08rem;
     font-weight: 500;
-    margin-bottom: 0.22rem;
+    /* Equilibra el corte de línea en títulos de dos palabras largas */
+    text-wrap: balance;
 }
 
 .ud-checklist span {
+    grid-column: 3;
     font-size: 0.92rem;
     color: var(--ud-txt-soft);
+}
+
+/* Tablet y móvil: el número sigue colgado y el texto se apila en una
+   sola columna, con la glosa sangrada bajo su término. */
+@media (max-width: 880px) {
+    .ud-checklist li {
+        grid-template-columns: 2.4rem minmax(0, 1fr);
+        gap: 0.28rem 1rem;
+    }
+
+    .ud-checklist strong,
+    .ud-checklist span {
+        grid-column: 2;
+    }
 }
 
 .ud-doc-foot {
@@ -2069,5 +2095,1177 @@ summary:focus-visible {
 
     .ud-card {
         transform: none !important;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   CAPA EDITORIAL
+
+   Por qué existe esta capa: la primera versión caía en el patrón que
+   delata una página de plantilla — cada sección era encabezado
+   centrado + rejilla de tarjetas idénticas, todo simétrico, con
+   iconos de librería en círculos.
+
+   Aquí se rompe eso a propósito:
+
+   · retícula asimétrica con columna de márgenes (marginalia)
+   · notas al margen numeradas, como en un texto académico
+   · tabla de verdad donde el contenido es una comparación
+   · tipografía con cifras antiguas, versalitas y capitular
+   · folio y titulillo fijos, como en una página impresa
+   · piezas dibujadas para este contenido y solo para este
+   · colofón final: la firma de quien compone, no de quien programa
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Rasgos tipográficos reales ─────────────────────────────── */
+.ud-body {
+    /* Ligaduras y kerning contextual activos en todo el documento */
+    font-feature-settings: "kern" 1, "liga" 1, "calt" 1;
+    hanging-punctuation: first last;
+}
+
+/* Cifras antiguas en el cuerpo: se integran con la minúscula en vez
+   de sobresalir como en una hoja de cálculo. */
+.ud-oldstyle {
+    font-variant-numeric: oldstyle-nums proportional-nums;
+}
+
+/* Versalitas verdaderas si la fuente las trae; si no, degrada a
+   mayúsculas con tracking, no a un `text-transform` a secas. */
+.ud-sc {
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.06em;
+}
+
+@supports not (font-variant-caps: all-small-caps) {
+    .ud-sc {
+        text-transform: uppercase;
+        font-size: 0.86em;
+        letter-spacing: 0.1em;
+    }
+}
+
+/* Capitular: solo en el primer párrafo de un cuerpo de texto. */
+.ud-dropcap::first-letter {
+    float: left;
+    font-family: var(--ud-display);
+    font-weight: 400;
+    font-size: 4.1em;
+    line-height: 0.82;
+    padding: 0.06em 0.09em 0 0;
+    color: var(--ud-brass);
+}
+
+/* La primera línea en versalitas: recurso de libro, no de web. */
+.ud-dropcap::first-line {
+    font-variant-caps: all-small-caps;
+    letter-spacing: 0.045em;
+}
+
+/* ══════════════ FOLIO Y TITULILLO ══════════════ */
+/* Titulillo vertical fijo en el canto, como el encabezado de página
+   de un libro. Se oculta en pantallas estrechas: ahí estorba. */
+.ud-folio {
+    position: fixed;
+    left: 14px;
+    top: 50%;
+    translate: 0 -50%;
+    z-index: 60;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    writing-mode: vertical-rl;
+    font-family: var(--ud-mono);
+    font-size: 0.63rem;
+    text-transform: uppercase;
+    letter-spacing: 0.22em;
+    color: var(--ud-txt-dim);
+    pointer-events: none;
+    mix-blend-mode: difference;
+}
+
+.ud-folio b {
+    font-weight: 500;
+    color: var(--ud-brass);
+    font-variant-numeric: tabular-nums;
+}
+
+.ud-folio::after {
+    content: "";
+    width: 1px;
+    height: 74px;
+    background: var(--ud-rule-mid);
+}
+
+@media (max-width: 1340px) {
+    .ud-folio {
+        display: none;
+    }
+}
+
+/* ══════════════ RETÍCULA ASIMÉTRICA CON MARGEN ══════════════ */
+/* Dos columnas desiguales: texto y margen para notas. Es la
+   estructura de un texto académico, no de una landing. */
+.ud-spread {
+    display: grid;
+    grid-template-columns: minmax(0, 34rem) minmax(0, 15rem);
+    gap: clamp(28px, 5vw, 72px);
+    align-items: start;
+}
+
+/* Variante volcada a la derecha: rompe la simetría entre secciones
+   consecutivas para que el ritmo no sea previsible. */
+.ud-spread-flip {
+    grid-template-columns: minmax(0, 15rem) minmax(0, 34rem);
+}
+
+.ud-spread-flip > .ud-margin {
+    order: -1;
+}
+
+.ud-margin {
+    position: relative;
+    padding-top: 0.45rem;
+}
+
+/* ── Notas al margen ── */
+.ud-note {
+    font-size: 0.83rem;
+    line-height: 1.5;
+    color: var(--ud-txt-soft);
+    padding-left: 1rem;
+    border-left: 1px solid var(--ud-rule-mid);
+    margin-bottom: 1.6rem;
+}
+
+.ud-note b {
+    display: block;
+    font-family: var(--ud-mono);
+    font-size: 0.63rem;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ud-brass);
+    margin-bottom: 0.4rem;
+}
+
+/* Llamada de nota en el cuerpo: superíndice, no un icono */
+.ud-ref {
+    font-family: var(--ud-mono);
+    font-size: 0.62em;
+    vertical-align: super;
+    line-height: 0;
+    color: var(--ud-brass);
+    text-decoration: none;
+    padding: 0 0.1em;
+}
+
+.ud-ref:hover,
+.ud-ref:focus-visible {
+    text-decoration: underline;
+}
+
+/* En estrecho el margen deja de ser columna y las notas pasan a
+   quedar bajo el texto, con su sangría intacta. */
+@media (max-width: 940px) {
+    .ud-spread,
+    .ud-spread-flip {
+        grid-template-columns: 1fr;
+    }
+
+    .ud-spread-flip > .ud-margin {
+        order: 0;
+    }
+
+    .ud-margin {
+        padding-top: 0;
+    }
+}
+
+/* Medida de lectura larga */
+.ud-prose {
+    max-width: 34rem;
+}
+
+.ud-prose p {
+    font-size: 1.04rem;
+    margin-bottom: 1.15rem;
+    color: var(--ud-txt-soft);
+}
+
+.ud-prose p:first-of-type {
+    color: var(--ud-txt);
+}
+
+.ud-prose strong {
+    color: var(--ud-txt);
+    font-weight: 600;
+}
+
+/* ══════════════ HERO ROTO ══════════════ */
+/* El titular desborda su columna y pasa por delante del retrato.
+   La imagen sangra hasta el canto derecho de la pantalla. */
+.ud-hero-broken {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 0.62fr);
+    gap: 0;
+    align-items: end;
+}
+
+.ud-mega {
+    position: relative;
+    z-index: 2;
+    font-size: clamp(2.9rem, 10.6vw, 8.8rem);
+    line-height: 0.92;
+    letter-spacing: -0.038em;
+    margin: 1rem 0 0;
+    /* Base segura. El desborde intencionado hacia la columna del
+       retrato se aplica más abajo con una consulta de contenedor: con
+       100vw la barra de scroll de escritorio provocaba scroll
+       horizontal. */
+    width: 100%;
+}
+
+.ud-mega em {
+    font-style: italic;
+    color: var(--ud-brass);
+}
+
+/* Sangrado óptico: la comilla y la mayúscula inicial se alinean con
+   el resto del texto, no con su caja. */
+.ud-optical {
+    margin-left: -0.055em;
+}
+
+.ud-hero-figure {
+    position: relative;
+    z-index: 1;
+    margin: 0;
+    /* Sangra al canto derecho rompiendo el contenedor */
+    margin-right: calc(var(--ud-gutter) * -1);
+    align-self: start;
+    padding-top: 2.4rem;
+}
+
+.ud-hero-figure img {
+    display: block;
+    width: 100%;
+    height: auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    /* Duotono cálido: no es una foto de stock a color plano */
+    filter: grayscale(1) contrast(1.14) brightness(0.82) sepia(0.42) saturate(1.5);
+    mix-blend-mode: luminosity;
+}
+
+.light-mode .ud-hero-figure img {
+    filter: grayscale(1) contrast(1.05) brightness(1.06) sepia(0.3);
+    mix-blend-mode: multiply;
+}
+
+.ud-hero-figure figcaption {
+    margin-top: 0.8rem;
+    font-family: var(--ud-mono);
+    font-size: 0.62rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ud-txt-dim);
+    max-width: 22ch;
+}
+
+@media (max-width: 940px) {
+    .ud-hero-broken {
+        grid-template-columns: 1fr;
+    }
+
+    .ud-mega {
+        width: 100%;
+    }
+
+    .ud-hero-figure {
+        margin-right: 0;
+        padding-top: 2rem;
+        max-width: 22rem;
+    }
+}
+
+/* ══════════════ ÍNDICE ══════════════ */
+/* Sumario de prospecto: filas con puntos de guía y folio, como el
+   índice de un documento impreso. */
+.ud-toc {
+    border-top: 1px solid var(--ud-rule-mid);
+}
+
+.ud-toc a {
+    display: grid;
+    grid-template-columns: 2.6rem 1fr auto;
+    align-items: baseline;
+    gap: 0.9rem;
+    padding: 0.92rem 0;
+    border-bottom: 1px solid var(--ud-rule);
+    text-decoration: none;
+    color: var(--ud-txt-soft);
+    transition: color 0.25s, padding-left 0.25s;
+}
+
+.ud-toc a:hover {
+    color: var(--ud-brass);
+    padding-left: 0.4rem;
+}
+
+.ud-toc-n {
+    font-family: var(--ud-mono);
+    font-size: 0.68rem;
+    color: var(--ud-txt-dim);
+}
+
+.ud-toc-t {
+    font-family: var(--ud-display);
+    font-size: 1.06rem;
+    position: relative;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+/* Puntos de guía dibujados con un degradado repetido, no con
+   caracteres: así no los lee el lector de pantalla. */
+.ud-toc-t::after {
+    content: "";
+    position: absolute;
+    bottom: 0.34em;
+    left: calc(100% + 0.5rem);
+    width: 60vw;
+    height: 1px;
+    background-image: radial-gradient(circle, var(--ud-rule-strong) 0.5px, transparent 0.5px);
+    background-size: 5px 1px;
+    background-repeat: repeat-x;
+}
+
+.ud-toc-f {
+    font-family: var(--ud-mono);
+    font-size: 0.7rem;
+    color: var(--ud-txt-dim);
+    font-variant-numeric: tabular-nums;
+}
+
+/* ══════════════ 52 DOMINGOS ══════════════ */
+/* La premisa entera del programa es que solo dispone del domingo.
+   Aquí el año se dibuja como 52 marcas: las gastadas y las que
+   quedan. Es un dato verificable, no un disparador de urgencia. */
+.ud-year-zone {
+    border-block: 1px solid var(--ud-rule);
+    background: var(--ud-ink);
+    padding: clamp(60px, 9vw, 110px) 0;
+}
+
+.ud-year {
+    display: grid;
+    grid-template-columns: repeat(26, 1fr);
+    gap: clamp(4px, 0.8vw, 9px);
+    margin: 2.4rem 0 1.6rem;
+}
+
+.ud-sunday {
+    aspect-ratio: 1;
+    border: 1px solid var(--ud-rule-mid);
+    border-radius: 1px;
+    position: relative;
+    transition: background 0.5s ease, border-color 0.5s ease, transform 0.35s ease;
+    transition-delay: calc(var(--k, 0) * 6ms);
+}
+
+/* Domingo ya transcurrido: tachado con una diagonal, como en un
+   calendario de pared. */
+.ud-sunday.is-spent {
+    border-color: var(--ud-rule);
+    background:
+        linear-gradient(to top right,
+            transparent calc(50% - 0.5px),
+            var(--ud-rule-strong) 50%,
+            transparent calc(50% + 0.5px));
+}
+
+.ud-sunday.is-left {
+    background: var(--ud-brass);
+    border-color: var(--ud-brass);
+}
+
+.ud-sunday.is-next {
+    background: var(--ud-claret);
+    border-color: var(--ud-claret);
+    transform: scale(1.5);
+    z-index: 1;
+}
+
+.ud-year-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+    font-family: var(--ud-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--ud-txt-dim);
+}
+
+.ud-year-legend span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.ud-key {
+    width: 10px;
+    height: 10px;
+    border: 1px solid var(--ud-rule-mid);
+    border-radius: 1px;
+    flex-shrink: 0;
+}
+
+.ud-key-left {
+    background: var(--ud-brass);
+    border-color: var(--ud-brass);
+}
+
+.ud-key-next {
+    background: var(--ud-claret);
+    border-color: var(--ud-claret);
+}
+
+.ud-count-big {
+    font-family: var(--ud-display);
+    font-size: clamp(3.4rem, 12vw, 9rem);
+    line-height: 0.86;
+    letter-spacing: -0.045em;
+    color: var(--ud-brass);
+    font-variant-numeric: lining-nums tabular-nums;
+    display: block;
+}
+
+@media (max-width: 720px) {
+    .ud-year {
+        grid-template-columns: repeat(13, 1fr);
+    }
+}
+
+/* ══════════════ TABLA COMPARATIVA ══════════════ */
+/* El contenido es una comparación de dos rutas: eso es una tabla.
+   Dos tarjetas lado a lado serían la solución de plantilla. */
+.ud-table-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--ud-rule-mid);
+    border-radius: var(--ud-r-lg);
+}
+
+.ud-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.95rem;
+    min-width: 620px;
+}
+
+.ud-table caption {
+    caption-side: top;
+    text-align: left;
+    padding: 1.25rem 1.6rem;
+    background: var(--ud-surface);
+    border-bottom: 1px solid var(--ud-rule-mid);
+    font-family: var(--ud-mono);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ud-txt-soft);
+}
+
+.ud-table th,
+.ud-table td {
+    padding: 1.05rem 1.6rem;
+    text-align: left;
+    vertical-align: top;
+    border-bottom: 1px solid var(--ud-rule);
+}
+
+.ud-table thead th {
+    font-family: var(--ud-display);
+    font-size: 1.14rem;
+    font-weight: 500;
+    color: var(--ud-txt);
+    border-bottom: 1px solid var(--ud-rule-strong);
+    background: var(--ud-ink);
+}
+
+.ud-table thead th:first-child {
+    font-family: var(--ud-mono);
+    font-size: 0.66rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.14em;
+    color: var(--ud-txt-dim);
+}
+
+/* La primera columna es cabecera de fila: se marca como tal en el
+   HTML con scope="row" y aquí se distingue tipográficamente. */
+.ud-table tbody th {
+    font-family: var(--ud-mono);
+    font-size: 0.68rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.11em;
+    color: var(--ud-txt-dim);
+    width: 12rem;
+    background: var(--ud-ink);
+}
+
+.ud-table td {
+    color: var(--ud-txt-soft);
+}
+
+.ud-table tbody tr:last-child th,
+.ud-table tbody tr:last-child td {
+    border-bottom: 0;
+}
+
+.ud-table .ud-yes {
+    color: var(--ud-brass);
+}
+
+.ud-table .ud-no {
+    color: var(--ud-txt-dim);
+}
+
+/* ══════════════ DIAGRAMA DE RUTAS ══════════════ */
+/* Dibujado para esta página. Los trazos se van pintando conforme se
+   hace scroll usando stroke-dashoffset. */
+.ud-diagram {
+    width: 100%;
+    height: auto;
+    display: block;
+    overflow: visible;
+}
+
+.ud-diagram .ud-path {
+    fill: none;
+    stroke-width: 1.4;
+    stroke-linecap: round;
+    stroke-dasharray: var(--len, 600);
+    stroke-dashoffset: var(--len, 600);
+}
+
+@supports (animation-timeline: view()) {
+    .ud-diagram .ud-path {
+        animation: ud-draw linear both;
+        animation-timeline: view();
+        animation-range: entry 18% cover 48%;
+    }
+
+    @keyframes ud-draw {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+}
+
+.ud-diagram .ud-path.is-drawn {
+    stroke-dashoffset: 0;
+    transition: stroke-dashoffset 1.8s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.ud-diagram text {
+    font-family: var(--ud-mono);
+    font-size: 8px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    fill: var(--ud-txt-dim);
+}
+
+.ud-diagram .ud-label-strong {
+    font-family: var(--ud-display);
+    font-size: 13px;
+    letter-spacing: 0;
+    text-transform: none;
+    fill: var(--ud-txt);
+}
+
+/* ══════════════ CITA A SANGRE ══════════════ */
+/* Una sección que es solo una frase, sin tarjeta ni rejilla. Rompe
+   el ritmo entre dos bloques densos. */
+.ud-statement {
+    padding: clamp(80px, 13vw, 170px) 0;
+    border-block: 1px solid var(--ud-rule);
+}
+
+.ud-statement blockquote {
+    margin: 0;
+    font-family: var(--ud-display);
+    font-weight: 300;
+    font-size: clamp(1.75rem, 5.2vw, 4rem);
+    line-height: 1.06;
+    letter-spacing: -0.03em;
+    max-width: 30ch;
+}
+
+.ud-statement blockquote em {
+    font-style: italic;
+    color: var(--ud-brass);
+}
+
+.ud-statement footer {
+    margin-top: 2.2rem;
+    font-family: var(--ud-mono);
+    font-size: 0.68rem;
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ud-txt-dim);
+}
+
+/* ══════════════ LISTA EDITORIAL ══════════════ */
+/* Sustituye a la rejilla de tarjetas: filas con numeración colgada
+   en el margen y regla fina, como un articulado. */
+.ud-articles {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    border-top: 1px solid var(--ud-rule-mid);
+}
+
+.ud-articles > li {
+    display: grid;
+    grid-template-columns: 3.4rem minmax(0, 1fr) minmax(0, 0.85fr);
+    gap: clamp(16px, 3vw, 44px);
+    padding: clamp(22px, 3vw, 34px) 0;
+    border-bottom: 1px solid var(--ud-rule);
+    align-items: baseline;
+    transition: background 0.4s ease;
+}
+
+.ud-articles > li:hover {
+    background: linear-gradient(90deg, var(--ud-brass-soft), transparent 72%);
+}
+
+.ud-art-n {
+    font-family: var(--ud-mono);
+    font-size: 0.72rem;
+    color: var(--ud-brass);
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.3rem;
+}
+
+.ud-articles h3 {
+    font-size: clamp(1.16rem, 2.3vw, 1.5rem);
+    margin: 0;
+}
+
+.ud-articles p {
+    font-size: 0.95rem;
+    color: var(--ud-txt-soft);
+    margin: 0;
+}
+
+@media (max-width: 780px) {
+    .ud-articles > li {
+        grid-template-columns: 2.4rem minmax(0, 1fr);
+    }
+
+    /* Todos los hijos que no son el número van a la columna 2.
+       .ud-ticks se quedaba fuera y caía en la columna de 2.4rem de la
+       segunda fila: las viñetas de cada carrera aparecían aplastadas. */
+    .ud-articles > li > *:not(.ud-art-n) {
+        grid-column: 2;
+    }
+
+    .ud-articles p,
+    .ud-articles .ud-ticks {
+        margin-top: 0.5rem;
+    }
+}
+
+/* ══════════════ COLOFÓN ══════════════ */
+/* La ficha de composición: tipografías, retícula y fecha de
+   revisión. Es la firma de quien compone un impreso. */
+.ud-colophon {
+    border-top: 1px solid var(--ud-rule);
+    padding: 2.2rem 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+    gap: 1.6rem;
+    font-family: var(--ud-mono);
+    font-size: 0.68rem;
+    line-height: 1.65;
+    color: var(--ud-txt-dim);
+}
+
+.ud-colophon dt {
+    text-transform: uppercase;
+    letter-spacing: 0.16em;
+    color: var(--ud-brass);
+    margin-bottom: 0.35rem;
+}
+
+.ud-colophon dd {
+    margin: 0;
+    color: var(--ud-txt-soft);
+}
+
+/* ══════════════ AJUSTES DE MOVIMIENTO ══════════════ */
+@media (prefers-reduced-motion: reduce) {
+
+    .ud-diagram .ud-path {
+        stroke-dashoffset: 0 !important;
+        animation: none !important;
+    }
+
+    .ud-sunday {
+        transition-delay: 0s !important;
+    }
+
+    .ud-sunday.is-next {
+        transform: none;
+    }
+}
+
+/* ══════════════ MARCAS EN LUGAR DE ICONOS ══════════════
+   Los iconos de catálogo dentro del contenido son el rasgo que más
+   delata una plantilla. En el cuerpo del documento se usan marcas
+   tipográficas y numeración; FontAwesome se reserva para la barra de
+   navegación y las redes del pie, donde es convención. */
+
+.ud-verdict-list .ud-verdict-lead {
+    grid-template-columns: 1fr;
+    font-family: var(--ud-display);
+    font-size: 1.02rem;
+    color: var(--ud-txt);
+}
+
+.ud-verdict-mark {
+    font-family: var(--ud-mono);
+    font-size: 0.66rem;
+    color: var(--ud-brass);
+    font-variant-numeric: tabular-nums;
+    padding-top: 0.22rem;
+}
+
+/* Guion largo colgado, como en una lista de un impreso */
+.ud-includes li::before,
+.ud-ticks li::before {
+    content: "—";
+    color: var(--ud-brass);
+    font-variant-numeric: tabular-nums;
+}
+
+.ud-ticks {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: 0.55rem;
+}
+
+.ud-ticks li {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.7rem;
+    font-size: 0.94rem;
+    color: var(--ud-txt-soft);
+}
+
+/* Calderón como marca de sección en los encabezados de documento */
+.ud-pilcrow {
+    color: var(--ud-brass);
+    font-family: var(--ud-display);
+    padding-right: 0.35rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ADAPTACIÓN A DISPOSITIVOS
+
+   Correcciones concretas de una auditoría. Cada bloque documenta el
+   síntoma que evita, porque sin eso el siguiente que lea el archivo
+   los borra por parecer redundantes.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Anclas y navbar fija ──────────────────────────────────────
+   Todos los enlaces #ancla de la página aterrizaban con el encabezado
+   escondido detrás de la barra de navegación fija. scroll-padding-top
+   reserva ese espacio en el propio contenedor de scroll, así que
+   funciona igual al pulsar un enlace, al recargar con hash y al
+   navegar con el teclado. */
+html:has(body.ud-body) {
+    scroll-padding-top: clamp(84px, 12vh, 116px);
+    /* iOS infla el texto al girar a horizontal si no se fija */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Respaldo para navegadores sin :has() */
+@supports not selector(:has(*)) {
+    html {
+        scroll-padding-top: 100px;
+    }
+}
+
+/* Cada destino de ancla reserva su propio margen: cubre el caso de
+   navegadores que ignoran scroll-padding en anclas internas. */
+.ud-body [id]:not(body) {
+    scroll-margin-top: clamp(84px, 12vh, 116px);
+}
+
+/* ── overflow-x: clip en lugar de hidden ───────────────────────
+   `hidden` convierte al body en contenedor de scroll y rompe
+   position: sticky de los descendientes. `clip` recorta igual sin
+   crear scrollport. */
+body.ud-body {
+    overflow-x: clip;
+}
+
+@supports not (overflow-x: clip) {
+    body.ud-body {
+        overflow-x: hidden;
+    }
+}
+
+/* ── Desbordamiento lateral del titular ────────────────────────
+   El titular desborda su columna a propósito, pero 100vw incluye el
+   ancho de la barra de scroll en escritorio, así que la resta se
+   quedaba corta y aparecía scroll horizontal. Se acota al ancho real
+   del contenedor con una consulta de contenedor. */
+.ud-hero-broken {
+    container-type: inline-size;
+}
+
+@container (min-width: 0px) {
+    .ud-mega {
+        width: min(126%, 100cqw);
+    }
+}
+
+/* Sin container queries el titular se queda en su columna: se
+   renuncia al desborde antes que arriesgar scroll lateral. */
+
+/* ── Estados táctiles ──────────────────────────────────────────
+   En iOS el :hover se queda pegado después de tocar: la tarjeta
+   mantiene el relieve y el foco hasta que se toca otra cosa. Los
+   efectos de hover se limitan a punteros que de verdad pueden
+   apuntar. */
+@media (hover: none) {
+
+    .ud-card:hover,
+    .ud-quote:hover,
+    .ud-portrait:hover img,
+    .ud-articles > li:hover {
+        transform: none;
+        border-color: var(--ud-rule-mid);
+        box-shadow: none;
+        background: none;
+        filter: none;
+    }
+
+    .ud-card:hover::before {
+        opacity: 0;
+    }
+
+    .ud-btn-primary:hover,
+    .ud-btn-ghost:hover {
+        transform: none;
+    }
+
+    .ud-socials a:hover,
+    .ud-footer-col ul a:hover,
+    .ud-toc a:hover {
+        transform: none;
+        padding-left: 0;
+    }
+}
+
+/* ── Objetivos táctiles ────────────────────────────────────────
+   44 px es el mínimo con el que un dedo acierta sin ampliar. Se
+   consigue con min-height y centrado, sin engordar el texto. */
+@media (pointer: coarse) {
+
+    .ud-back,
+    .ud-btn,
+    .ud-opt,
+    .ud-socials a,
+    .ud-footer-legal-links a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ud-opt {
+        justify-content: flex-start;
+    }
+
+    /* Los enlaces del índice y del pie se separan para que no se
+       toquen entre ellos al pulsar. */
+    .ud-toc a {
+        padding-block: 1.05rem;
+    }
+
+    .ud-footer-col ul {
+        gap: 0.95rem;
+    }
+
+    .ud-faq summary,
+    .ud-tema-group > summary {
+        min-height: 48px;
+    }
+}
+
+/* Quita el retardo de 300 ms y el destello azul al tocar */
+.ud-btn,
+.ud-opt,
+.ud-back,
+.ud-toc a,
+.ud-faq summary,
+.ud-socials a,
+.ud-sticky a {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Área segura en dispositivos con notch ─────────────────────
+   Sin esto la barra de conversión y el botón de WhatsApp quedan por
+   debajo del indicador de inicio del iPhone. */
+.ud-sticky {
+    padding-bottom: max(0.85rem, env(safe-area-inset-bottom));
+    padding-left: max(1.1rem, env(safe-area-inset-left));
+    padding-right: max(1.1rem, env(safe-area-inset-right));
+}
+
+.floating-whatsapp {
+    bottom: max(20px, env(safe-area-inset-bottom));
+    right: max(20px, env(safe-area-inset-right));
+}
+
+@media (max-width: 900px) {
+    .floating-whatsapp {
+        bottom: calc(84px + env(safe-area-inset-bottom));
+    }
+
+    /* La barra fija tapaba el final del pie. Se reserva su altura. */
+    body.ud-body {
+        padding-bottom: calc(72px + env(safe-area-inset-bottom));
+    }
+}
+
+/* ── Tabla desplazable ─────────────────────────────────────────
+   El contenedor recibe tabindex y role en el HTML para que se pueda
+   desplazar con el teclado; aquí se le da el indicio visual de que
+   hay más contenido a la derecha y se evita que al llegar al final
+   arrastre el scroll de la página. */
+.ud-table-wrap {
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    /* Sombra de borde que aparece solo si hay desplazamiento */
+    background:
+        linear-gradient(to right, var(--ud-surface) 30%, transparent),
+        linear-gradient(to left, var(--ud-surface) 30%, transparent) 100% 0,
+        radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, 0.35), transparent),
+        radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.35), transparent) 100% 0;
+    background-repeat: no-repeat;
+    background-size: 44px 100%, 44px 100%, 16px 100%, 16px 100%;
+    background-attachment: local, local, scroll, scroll;
+}
+
+.ud-table-wrap:focus-visible {
+    outline: 2px solid var(--ud-brass);
+    outline-offset: 2px;
+}
+
+/* ── Tablet: el hueco entre 720 y 1080 ─────────────────────────
+   Antes las composiciones a dos columnas se colapsaban a 940 y las
+   rejillas a 1080, así que entre esas medidas quedaban columnas de
+   texto demasiado estrechas para leer con comodidad. */
+@media (min-width: 721px) and (max-width: 1024px) {
+
+    /* La medida de lectura manda sobre la retícula */
+    .ud-spread,
+    .ud-spread-flip {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .ud-spread-flip > .ud-margin {
+        order: 0;
+    }
+
+    /* Las notas al margen pasan a fila de dos columnas: aprovechan el
+       ancho disponible sin estrechar el texto.
+       Solo cuando el margen contiene ÚNICAMENTE notas. Varios márgenes
+       llevan el antetítulo y el h2 de la sección, y ahí dos columnas
+       mandaban el título al lado del antetítulo. Si :has() no está
+       soportado no se aplica la rejilla y las notas se apilan, que es
+       la degradación correcta. */
+    .ud-margin:not(:has(h2)) {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.4rem;
+    }
+
+    .ud-margin:not(:has(h2)) .ud-note {
+        margin-bottom: 0;
+    }
+
+    .ud-articles > li {
+        grid-template-columns: 3rem minmax(0, 1fr);
+    }
+
+    .ud-articles > li > *:not(.ud-art-n) {
+        grid-column: 2;
+    }
+
+    .ud-articles p,
+    .ud-articles .ud-ticks {
+        margin-top: 0.6rem;
+    }
+
+    .ud-hero-figure {
+        max-width: 26rem;
+    }
+}
+
+/* ── Teléfono estrecho ─────────────────────────────────────────
+   Por debajo de 400 px el titular y la capitular dejan de caber con
+   holgura. */
+@media (max-width: 400px) {
+    .ud-mega {
+        font-size: clamp(2.35rem, 12vw, 3rem);
+        letter-spacing: -0.03em;
+    }
+
+    .ud-dropcap::first-letter {
+        font-size: 3.2em;
+    }
+
+    .ud-count-big {
+        font-size: 3rem;
+    }
+
+    .ud-statement blockquote {
+        font-size: 1.6rem;
+    }
+
+    /* La rejilla del año en cuatro filas de 13 */
+    .ud-year {
+        gap: 3px;
+    }
+
+    .ud-seal {
+        width: 62px;
+        height: 62px;
+    }
+
+    .ud-seal b {
+        font-size: 1.15rem;
+    }
+}
+
+/* ── Horizontal en teléfono ────────────────────────────────────
+   Con 400 px de alto, el relleno vertical del hero deja el titular
+   fuera de pantalla. */
+@media (max-height: 460px) and (orientation: landscape) {
+    .ud-hero {
+        padding-top: 76px;
+        padding-bottom: 40px;
+    }
+
+    .ud-section {
+        padding-block: 48px;
+    }
+
+    .ud-sticky {
+        display: none;
+    }
+}
+
+/* ── Impresión ─────────────────────────────────────────────────
+   Un prospecto se imprime. Se quitan fondos, barras y decoración, y
+   se revelan las URL de los enlaces. */
+@media print {
+
+    body.ud-body {
+        background: #fff;
+        color: #000;
+        padding-bottom: 0;
+    }
+
+    .nav-pill,
+    .nav-mobile-panel,
+    .nav-mobile-overlay,
+    .ud-sticky,
+    .floating-whatsapp,
+    .ud-folio,
+    .ud-hero-glow,
+    .ud-hero-grid-bg,
+    .ud-footer-mark,
+    .ud-tool,
+    .ud-marquee {
+        display: none !important;
+    }
+
+    .ud-section,
+    .ud-statement,
+    .ud-year-zone {
+        padding-block: 18pt;
+        break-inside: avoid;
+    }
+
+    .ud-doc,
+    .ud-table-wrap,
+    figure {
+        break-inside: avoid;
+    }
+
+    .ud-faq details {
+        /* En papel no hay clic: todo abierto */
+        display: block;
+    }
+
+    .ud-faq details p {
+        display: block !important;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #555;
+    }
+}
+
+/* ── Contraste forzado (modo alto contraste de Windows) ────────── */
+@media (forced-colors: active) {
+
+    .ud-card,
+    .ud-doc,
+    .ud-tool,
+    .ud-form-card,
+    .ud-table-wrap {
+        border: 1px solid CanvasText;
+    }
+
+    .ud-sunday.is-left,
+    .ud-sunday.is-next {
+        background: Highlight;
+    }
+
+    .ud-btn-primary {
+        border: 1px solid CanvasText;
+    }
+}
+
+/* Indicio de deslizamiento en la tabla: solo se anuncia cuando la
+   tabla de verdad no cabe. */
+.ud-scroll-hint {
+    display: none;
+    font-family: var(--ud-body);
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ud-txt-dim);
+}
+
+@media (max-width: 780px) {
+    .ud-scroll-hint {
+        display: inline;
     }
 }

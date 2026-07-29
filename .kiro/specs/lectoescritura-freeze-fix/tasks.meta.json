@@ -1,0 +1,219 @@
+{
+  "pbtResults": {
+    "1. Escribir el test exploratorio de la condición del bug (ANTES de corregir)": {
+      "status": "passed",
+      "failingExample": "El test exploratorio FALLA sobre el código sin corregir (3/3 casos), lo que confirma el bug.\nComando: node --test test/lecto-freeze.bug.test.js  → exit 1, # fail 3, duración 2,1 s (sin cuelgue).\n\nContraejemplo Bug A · #navMobilePanel (se dispara solo con cargar el adapter):\n  callback: syncMobileMenu()\n  attributeFilter: [class, aria-hidden]\n  escribe: aria-hidden=\"true\" [valor idéntico al anterior], inert=\"\" [valor idéntico al anterior]\n  intersección writes ∩ attributeFilter: {aria-hidden}\n  invocaciones: 51 (presupuesto de aborto 50; MAX_SETTLE_INVOCATIONS = 5)\n\nContraejemplo Bug B · #slots-container (al inyectar 3 horarios: libre / .selected / disabled.booked):\n  callback: syncSlots()\n  attributeFilter: [class, disabled, aria-pressed]\n  escribe: aria-pressed=\"false\", aria-label=\"Seleccionar horario 9:00\", aria-pressed=\"true\", aria-label=\"Seleccionar horario 10:00\", aria-label=\"Horario 11:00, no disponible\"\n  intersección writes ∩ attributeFilter: {aria-pressed}\n  invocaciones: 51 (presupuesto de aborto 50; MAX_SETTLE_INVOCATIONS = 5)\n\nInvariante sobre el dominio enumerado (panel abierto/cerrado × 0..10 horarios × 4 combinaciones = 82 estados):\n  82 de 82 estados violan la invariante, en 162 fases observadas (carga del adapter + inyección de horarios).\n  Los únicos observers que violan son syncMobileMenu y syncSlots; syncTabs, syncBookingSteps y syncThemeButton se mantienen dentro de MAX_SETTLE_INVOCATIONS (intersección ∅), igual que predice la tabla del diseño.",
+      "lastRunTimestamp": 1785285134321
+    },
+    "2. Escribir los tests de preservación sobre el código SIN corregir": {
+      "status": "passed",
+      "lastRunTimestamp": 1785285737769
+    },
+    "3.7 Verificar que el test exploratorio ahora pasa": {
+      "status": "passed",
+      "lastRunTimestamp": 1785287389237
+    },
+    "3.8 Verificar que los tests de preservación siguen pasando": {
+      "status": "passed",
+      "lastRunTimestamp": 1785287874551
+    }
+  },
+  "executionHistory": {
+    "1. Escribir el test exploratorio de la condición del bug (ANTES de corregir)": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675501
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283683256
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785285176651
+      }
+    ],
+    "2. Escribir los tests de preservación sobre el código SIN corregir": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675533
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785285180203
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785285772777
+      }
+    ],
+    "3.1 Añadir los helpers idempotentes en `js/lectoescritura-adapter.js`": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675558
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785285780381
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785285941719
+      }
+    ],
+    "3.2 Corregir el Bug A: panel móvil, en `js/lectoescritura-adapter.js`": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675583
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785285945725
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785286174299
+      }
+    ],
+    "3.3 Corregir el Bug B: contenedor de horarios, en `js/lectoescritura-adapter.js`": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675607
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785286178069
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785286320769
+      }
+    ],
+    "3.4 Endurecer `syncTabs()` y `syncBookingSteps()` en `js/lectoescritura-adapter.js`": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675626
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785286324699
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785286570935
+      }
+    ],
+    "3.5 Dejar `updateStickyBar()` como único dueño de `#lectoMobileBar`, en `js/lectoescritura-adapter.js`": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675645
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785286574700
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785286685319
+      }
+    ],
+    "3.6 Recortar `js/lecto-demo.js` a lo que le corresponde": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675675
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785286689117
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785287097552
+      }
+    ],
+    "3.7 Verificar que el test exploratorio ahora pasa": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675697
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785287101359
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785287429757
+      }
+    ],
+    "3.8 Verificar que los tests de preservación siguen pasando": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675714
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785287433716
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785287929605
+      }
+    ],
+    "4. Checkpoint - la suite completa y los gates del repositorio pasan": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675731
+      },
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785287933755
+      }
+    ],
+    "5. Verificación manual en navegador (NO automatizable por un agente)": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785283675750
+      }
+    ],
+    "3. Corregir el bucle de `MutationObserver` y el doble dueño entre scripts": [
+      {
+        "executionId": "ce3f653d-f199-4c0c-bd0a-e7c7249c2cb9",
+        "chatSessionId": "sess_4ff578c9-5717-45f8-aff6-c895cb14fa95",
+        "timestamp": 1785287929629
+      }
+    ]
+  }
+}

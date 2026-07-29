@@ -10,15 +10,67 @@
         root.classList.add('lecto-enhanced');
     }
 
+    /* ─────────────────────────────────────────────
+       Escrituras idempotentes
+
+       `setAttribute` encola un registro de mutación
+       siempre, incluso cuando el valor nuevo es igual
+       al actual. Si el callback de un MutationObserver
+       reescribe un atributo de su propio
+       `attributeFilter`, se re-dispara a sí mismo en
+       microtareas y el hilo principal nunca cede el
+       control al navegador. Leer antes de escribir
+       apaga ese motor: sin cambio real no hay mutación
+       que encolar.
+       ───────────────────────────────────────────── */
+
+    function setAttr(element, name, value) {
+        if (!element) return;
+
+        if (element.getAttribute(name) === value) return;
+
+        element.setAttribute(name, value);
+    }
+
     function setInert(element, state) {
         if (!element) return;
 
-        element.inert = state;
+        /* La propiedad IDL `inert` no existe en todos los entornos
+           (en jsdom vale `undefined` hasta la primera escritura), así
+           que la comparación estricta deja pasar esa primera vez y
+           bloquea las repeticiones. Donde sí está implementada, el
+           propio setter refleja el atributo. */
+        if (element.inert !== state) {
+            element.inert = state;
+        }
+
+        /* El atributo es la fuente de verdad para decidir si hay que
+           escribirlo: funciona igual en navegador y en jsdom. */
+        if (element.hasAttribute('inert') === state) return;
 
         if (state) {
             element.setAttribute('inert', '');
         } else {
             element.removeAttribute('inert');
+        }
+    }
+
+    /* Misma guarda para atributos booleanos reflejados (`hidden` y
+       similares): primero la propiedad, después la presencia del
+       atributo. */
+    function setBool(element, name, on) {
+        if (!element) return;
+
+        if (element[name] !== on) {
+            element[name] = on;
+        }
+
+        if (element.hasAttribute(name) === on) return;
+
+        if (on) {
+            element.setAttribute(name, '');
+        } else {
+            element.removeAttribute(name);
         }
     }
 
@@ -61,7 +113,7 @@
 
         var open = mobilePanel.classList.contains('active');
 
-        mobilePanel.setAttribute('aria-hidden', String(!open));
+        setAttr(mobilePanel, 'aria-hidden', String(!open));
         setInert(mobilePanel, !open);
 
         if (open && !mobileWasOpen) {
@@ -82,9 +134,12 @@
     }
 
     if (mobilePanel && mobileButton) {
+        /* `class` es la única señal que hace falta: navbar.min.js
+           marca el estado del panel con `.active`. `aria-hidden` sale
+           del filtro porque lo escribe este mismo callback. */
         new MutationObserver(syncMobileMenu).observe(mobilePanel, {
             attributes: true,
-            attributeFilter: ['class', 'aria-hidden']
+            attributeFilter: ['class']
         });
 
         document.addEventListener('keydown', function (event) {
@@ -180,12 +235,15 @@
             demoText.removeAttribute('aria-hidden');
         }
 
+        /* Escrituras guardadas aunque el filtro de este observer
+           (`class`, `aria-selected`) no incluya hoy `tabindex` ni
+           `aria-labelledby`: si mañana los incluye, no habrá bucle. */
         function syncTabs() {
             tabs.forEach(function (tab) {
                 var selected =
                     tab.getAttribute('aria-selected') === 'true';
 
-                tab.tabIndex = selected ? 0 : -1;
+                setAttr(tab, 'tabindex', selected ? '0' : '-1');
             });
 
             var active = tabs.find(function (tab) {
@@ -193,10 +251,7 @@
             });
 
             if (active && demoStage) {
-                demoStage.setAttribute(
-                    'aria-labelledby',
-                    active.id
-                );
+                setAttr(demoStage, 'aria-labelledby', active.id);
             }
         }
 
@@ -272,16 +327,17 @@
         );
     }
 
+    /* Igual que syncTabs(): el filtro de este observer es `style`,
+       `class` y `hidden`, así que hoy no hay intersección con lo que
+       escribe (`aria-hidden`, `inert`, `tabindex`). Las guardas la
+       mantienen inofensiva si alguien amplía el filtro. */
     function syncBookingSteps(moveFocus) {
         var currentStep = null;
 
         bookingSteps.forEach(function (step) {
             var visible = isVisible(step);
 
-            step.setAttribute(
-                'aria-hidden',
-                String(!visible)
-            );
+            setAttr(step, 'aria-hidden', String(!visible));
 
             setInert(step, !visible);
 
@@ -298,7 +354,7 @@
             );
 
             if (heading) {
-                heading.setAttribute('tabindex', '-1');
+                setAttr(heading, 'tabindex', '-1');
                 heading.focus({
                     preventScroll: true
                 });
@@ -375,12 +431,10 @@
                 slot.disabled ||
                 slot.classList.contains('booked');
 
-            slot.setAttribute(
-                'aria-pressed',
-                String(selected)
-            );
+            setAttr(slot, 'aria-pressed', String(selected));
 
-            slot.setAttribute(
+            setAttr(
+                slot,
                 'aria-label',
                 booked
                     ? 'Horario ' + slot.textContent.trim() +
@@ -392,14 +446,18 @@
     }
 
     if (slotsContainer) {
+        /* `childList` y `subtree` son los que detectan la inyección de
+           botones que hace loadTimeSlots() de booking.min.js: sin ellos
+           los horarios se quedan sin etiquetar. `aria-pressed` sale del
+           filtro porque lo escribe este mismo callback; `class` y
+           `disabled` son las señales que sí llegan de fuera. */
         new MutationObserver(syncSlots).observe(slotsContainer, {
             childList: true,
             subtree: true,
             attributes: true,
             attributeFilter: [
                 'class',
-                'disabled',
-                'aria-pressed'
+                'disabled'
             ]
         });
 
@@ -437,12 +495,18 @@
             window.scrollY > 600 &&
             !formIsNear;
 
-        mobileBar.classList.toggle('show', visible);
-        mobileBar.hidden = !visible;
-        mobileBar.setAttribute(
-            'aria-hidden',
-            String(!visible)
-        );
+        /* Único dueño de #lectoMobileBar: `class`, `hidden`,
+           `aria-hidden` e `inert` salen solo de aquí, y las cuatro
+           escrituras van guardadas para no encolar mutaciones
+           inútiles. Los umbrales (viewport, 600 px y proximidad del
+           formulario) no cambian. */
+        if (mobileBar.classList.contains('show') !== visible) {
+            mobileBar.classList.toggle('show', visible);
+        }
+
+        setBool(mobileBar, 'hidden', !visible);
+
+        setAttr(mobileBar, 'aria-hidden', String(!visible));
 
         setInert(mobileBar, !visible);
     }

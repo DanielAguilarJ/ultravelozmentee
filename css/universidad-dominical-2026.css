@@ -1041,10 +1041,17 @@ summary:focus-visible {
     counter-reset: ud-check;
 }
 
+/* Tres columnas: número colgado, término y glosa.
+   IMPORTANTE: cada hijo lleva su grid-column explícita. El <li> tiene
+   tres elementos de rejilla (el ::before del contador, el <strong> y
+   el <span>) y con una plantilla de dos columnas la colocación
+   automática mandaba la glosa a la segunda fila DENTRO de la columna
+   del número, aplastándola a 42 px. Sin asignación explícita, añadir
+   un hijo vuelve a romperlo. */
 .ud-checklist li {
     display: grid;
-    grid-template-columns: 2.6rem 1fr;
-    gap: 1rem;
+    grid-template-columns: 2.6rem minmax(0, 15rem) minmax(0, 1fr);
+    gap: 0.3rem 1.5rem;
     align-items: baseline;
     padding: 1.15rem 1.7rem;
     border-bottom: 1px solid var(--ud-rule);
@@ -1057,22 +1064,41 @@ summary:focus-visible {
 
 .ud-checklist li::before {
     content: counter(ud-check, decimal-leading-zero);
+    grid-column: 1;
     font-family: var(--ud-mono);
     font-size: 0.74rem;
     color: var(--ud-brass);
+    /* Cifras tabulares: la columna de números queda alineada */
+    font-variant-numeric: tabular-nums;
 }
 
 .ud-checklist strong {
-    display: block;
+    grid-column: 2;
     font-family: var(--ud-display);
     font-size: 1.08rem;
     font-weight: 500;
-    margin-bottom: 0.22rem;
+    /* Equilibra el corte de línea en títulos de dos palabras largas */
+    text-wrap: balance;
 }
 
 .ud-checklist span {
+    grid-column: 3;
     font-size: 0.92rem;
     color: var(--ud-txt-soft);
+}
+
+/* Tablet y móvil: el número sigue colgado y el texto se apila en una
+   sola columna, con la glosa sangrada bajo su término. */
+@media (max-width: 880px) {
+    .ud-checklist li {
+        grid-template-columns: 2.4rem minmax(0, 1fr);
+        gap: 0.28rem 1rem;
+    }
+
+    .ud-checklist strong,
+    .ud-checklist span {
+        grid-column: 2;
+    }
 }
 
 .ud-doc-foot {
@@ -2737,11 +2763,18 @@ summary:focus-visible {
 
 @media (max-width: 780px) {
     .ud-articles > li {
-        grid-template-columns: 2.4rem 1fr;
+        grid-template-columns: 2.4rem minmax(0, 1fr);
     }
 
-    .ud-articles p {
+    /* Todos los hijos que no son el número van a la columna 2.
+       .ud-ticks se quedaba fuera y caía en la columna de 2.4rem de la
+       segunda fila: las viñetas de cada carrera aparecían aplastadas. */
+    .ud-articles > li > *:not(.ud-art-n) {
         grid-column: 2;
+    }
+
+    .ud-articles p,
+    .ud-articles .ud-ticks {
         margin-top: 0.5rem;
     }
 }
@@ -3058,14 +3091,19 @@ body.ud-body {
     }
 
     /* Las notas al margen pasan a fila de dos columnas: aprovechan el
-       ancho disponible sin estrechar el texto. */
-    .ud-margin {
+       ancho disponible sin estrechar el texto.
+       Solo cuando el margen contiene ÚNICAMENTE notas. Varios márgenes
+       llevan el antetítulo y el h2 de la sección, y ahí dos columnas
+       mandaban el título al lado del antetítulo. Si :has() no está
+       soportado no se aplica la rejilla y las notas se apilan, que es
+       la degradación correcta. */
+    .ud-margin:not(:has(h2)) {
         display: grid;
         grid-template-columns: repeat(2, minmax(0, 1fr));
         gap: 1.4rem;
     }
 
-    .ud-note {
+    .ud-margin:not(:has(h2)) .ud-note {
         margin-bottom: 0;
     }
 
@@ -3073,9 +3111,12 @@ body.ud-body {
         grid-template-columns: 3rem minmax(0, 1fr);
     }
 
+    .ud-articles > li > *:not(.ud-art-n) {
+        grid-column: 2;
+    }
+
     .ud-articles p,
     .ud-articles .ud-ticks {
-        grid-column: 2;
         margin-top: 0.6rem;
     }
 

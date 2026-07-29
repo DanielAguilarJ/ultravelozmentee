@@ -337,3 +337,160 @@ test('todo el movimiento se apaga si el sistema lo pide', () => {
         'juniormath debe respetar prefers-reduced-motion'
     );
 });
+
+/* ══════════════════════════════════════════════════════════════════
+   Colocación en rejilla
+
+   Bug que originó este bloque: `.ud-checklist li` declaraba dos
+   columnas (2.6rem 1fr) pero contenía TRES elementos de rejilla — el
+   ::before del contador, el <strong> y el <span>. La colocación
+   automática ponía número y término en la primera fila y mandaba la
+   glosa a la segunda fila DENTRO de la columna del número: el texto
+   explicativo quedaba aplastado a 42 px de ancho, en escritorio y en
+   móvil.
+
+   El mismo patrón afectaba a `.ud-articles` por debajo de 721 px,
+   donde `.ud-ticks` caía en la columna del número.
+
+   La defensa es asignar grid-column explícita a cada hijo. Estas
+   pruebas la exigen, porque el síntoma no salta al leer el CSS: hay
+   que contar elementos de rejilla, y el ::before es invisible en el
+   HTML.
+   ══════════════════════════════════════════════════════════════════ */
+
+/** Cuenta las pistas de una plantilla de columnas. */
+function contarColumnas(plantilla) {
+    const rep = plantilla.match(/repeat\((\d+)\s*,/);
+    if (rep) return parseInt(rep[1], 10);
+
+    return (plantilla.match(/minmax\([^)]*\)|clamp\([^)]*\)|calc\([^)]*\)|\S+/g) || []).length;
+}
+
+/** Extrae el valor de una propiedad dentro de la primera regla que
+ *  coincide con el selector dado. */
+function declaracion(css, selector, prop) {
+    const rx = new RegExp(
+        '(^|[};])\\s*' + selector.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') +
+        '\\s*\\{([^}]*)\\}',
+        'm'
+    );
+
+    const m = css.match(rx);
+    if (!m) return null;
+
+    const p = m[2].match(new RegExp(prop + ':\\s*([^;]+)'));
+    return p ? p[1].trim() : null;
+}
+
+test('la checklist reserva una columna por cada elemento de rejilla', () => {
+    const css = leer('css/universidad-dominical-2026.css');
+
+    const plantilla = declaracion(css, '.ud-checklist li', 'grid-template-columns');
+    assert.ok(plantilla, 'no se encontró la plantilla de .ud-checklist li');
+
+    const cols = contarColumnas(plantilla);
+
+    /* El <li> tiene 3 elementos de rejilla: ::before, strong y span. */
+    assert.ok(
+        cols >= 3,
+        '.ud-checklist li declara ' + cols + ' columnas para 3 elementos de ' +
+        'rejilla (::before, strong, span): la glosa se iría a la columna ' +
+        'del número'
+    );
+});
+
+test('cada hijo de la checklist tiene su columna asignada', () => {
+    const css = leer('css/universidad-dominical-2026.css');
+
+    [
+        ['.ud-checklist li::before', '1'],
+        ['.ud-checklist strong', '2'],
+        ['.ud-checklist span', '3']
+    ].forEach(([sel, esperada]) => {
+        const col = declaracion(css, sel, 'grid-column');
+
+        assert.equal(
+            col,
+            esperada,
+            sel + ' debe declarar grid-column: ' + esperada +
+            '; sin asignación explícita, añadir un hijo vuelve a romper el bloque'
+        );
+    });
+});
+
+test('en pantalla estrecha la glosa se apila bajo su término', () => {
+    /* No debe quedarse en una tercera columna inexistente ni caer en la
+       columna del número. */
+    const css = leer('css/universidad-dominical-2026.css');
+    const estrecho = bloque(css, '@media (max-width: 880px)');
+
+    assert.ok(estrecho.length > 40, 'falta el tramo estrecho de la checklist');
+
+    assert.match(
+        estrecho,
+        /\.ud-checklist strong,\s*\n?\s*\.ud-checklist span\s*\{[^}]*grid-column:\s*2/,
+        'término y glosa deben compartir la columna 2 al apilarse'
+    );
+});
+
+test('las viñetas de carrera no caen en la columna del número', () => {
+    /* .ud-ticks no tenía grid-column en el tramo de 780px y aterrizaba
+       en la columna de 2.4rem de la segunda fila. */
+    const css = leer('css/universidad-dominical-2026.css');
+
+    [
+        '@media (max-width: 780px)',
+        '@media (min-width: 721px) and (max-width: 1024px)'
+    ].forEach(cab => {
+        const b = bloque(css, cab);
+
+        assert.match(
+            b,
+            /\.ud-articles > li > \*:not\(\.ud-art-n\)\s*\{[^}]*grid-column:\s*2/,
+            cab + ': todo hijo que no sea el número debe ir a la columna 2'
+        );
+    });
+});
+
+test('el margen no se parte en dos columnas cuando lleva encabezado', () => {
+    /* En tablet .ud-margin pasaba a dos columnas y, en las secciones
+       cuyo margen contiene el antetítulo y el h2, el título se iba al
+       lado del antetítulo. */
+    const tablet = bloque(
+        leer('css/universidad-dominical-2026.css'),
+        '@media (min-width: 721px) and (max-width: 1024px)'
+    );
+
+    assert.match(
+        tablet,
+        /\.ud-margin:not\(:has\(h2\)\)\s*\{[^}]*grid-template-columns/,
+        'la rejilla de dos columnas del margen debe excluir los que llevan h2'
+    );
+
+    assert.ok(
+        !/\n\s*\.ud-margin\s*\{[^}]*grid-template-columns/.test(tablet),
+        'no debe quedar una regla .ud-margin sin filtrar que aplique a todos'
+    );
+});
+
+test('el bloque de verificación mantiene sus seis puntos y el aviso', () => {
+    /* Guarda de contenido: es la pieza de cumplimiento de la página. */
+    const html = leer('universidad-dominical.html');
+
+    const items = html.match(/<ol class="ud-checklist">([\s\S]*?)<\/ol>/);
+    assert.ok(items, 'no se encontró la checklist');
+
+    const cuenta = (items[1].match(/<li>/g) || []).length;
+    assert.equal(cuenta, 6, 'la checklist debe tener 6 puntos');
+
+    /* Cada punto es término + glosa: si falta uno, el diseño de tres
+       columnas deja un hueco. */
+    assert.equal((items[1].match(/<strong>/g) || []).length, 6);
+    assert.equal((items[1].match(/<span>/g) || []).length, 6);
+
+    assert.match(
+        html,
+        /class="ud-doc-foot"[\s\S]{0,200}WorldBrain ofrece preparación/,
+        'el aviso de alcance debe cerrar el bloque'
+    );
+});

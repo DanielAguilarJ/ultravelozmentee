@@ -663,9 +663,16 @@
                     <text x="552" y="166" text-anchor="end">institucional</text>
                 </svg>
 
-                <div class="ud-table-wrap ud-rise">
+                <!-- tabindex y role: la tabla se desplaza en horizontal en
+                     pantallas estrechas y quien usa teclado debe poder
+                     recorrerla con las flechas. -->
+                <div class="ud-table-wrap ud-rise" tabindex="0" role="region"
+                    aria-labelledby="tabla-rutas-cap">
                     <table class="ud-table">
-                        <caption>Comparaci&oacute;n de las dos rutas</caption>
+                        <caption id="tabla-rutas-cap">
+                            Comparaci&oacute;n de las dos rutas
+                            <span class="ud-scroll-hint" aria-hidden="true">&mdash; desl&iacute;cela para ver ambas columnas</span>
+                        </caption>
                         <thead>
                             <tr>
                                 <th scope="col">Criterio</th>

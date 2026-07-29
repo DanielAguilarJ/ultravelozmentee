@@ -2293,8 +2293,11 @@ summary:focus-visible {
     line-height: 0.92;
     letter-spacing: -0.038em;
     margin: 1rem 0 0;
-    /* Desborda hacia la columna del retrato a propósito */
-    width: min(126%, 100vw - var(--ud-gutter) * 2);
+    /* Base segura. El desborde intencionado hacia la columna del
+       retrato se aplica más abajo con una consulta de contenedor: con
+       100vw la barra de scroll de escritorio provocaba scroll
+       horizontal. */
+    width: 100%;
 }
 
 .ud-mega em {
@@ -2837,4 +2840,391 @@ summary:focus-visible {
     color: var(--ud-brass);
     font-family: var(--ud-display);
     padding-right: 0.35rem;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   ADAPTACIÓN A DISPOSITIVOS
+
+   Correcciones concretas de una auditoría. Cada bloque documenta el
+   síntoma que evita, porque sin eso el siguiente que lea el archivo
+   los borra por parecer redundantes.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Anclas y navbar fija ──────────────────────────────────────
+   Todos los enlaces #ancla de la página aterrizaban con el encabezado
+   escondido detrás de la barra de navegación fija. scroll-padding-top
+   reserva ese espacio en el propio contenedor de scroll, así que
+   funciona igual al pulsar un enlace, al recargar con hash y al
+   navegar con el teclado. */
+html:has(body.ud-body) {
+    scroll-padding-top: clamp(84px, 12vh, 116px);
+    /* iOS infla el texto al girar a horizontal si no se fija */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Respaldo para navegadores sin :has() */
+@supports not selector(:has(*)) {
+    html {
+        scroll-padding-top: 100px;
+    }
+}
+
+/* Cada destino de ancla reserva su propio margen: cubre el caso de
+   navegadores que ignoran scroll-padding en anclas internas. */
+.ud-body [id]:not(body) {
+    scroll-margin-top: clamp(84px, 12vh, 116px);
+}
+
+/* ── overflow-x: clip en lugar de hidden ───────────────────────
+   `hidden` convierte al body en contenedor de scroll y rompe
+   position: sticky de los descendientes. `clip` recorta igual sin
+   crear scrollport. */
+body.ud-body {
+    overflow-x: clip;
+}
+
+@supports not (overflow-x: clip) {
+    body.ud-body {
+        overflow-x: hidden;
+    }
+}
+
+/* ── Desbordamiento lateral del titular ────────────────────────
+   El titular desborda su columna a propósito, pero 100vw incluye el
+   ancho de la barra de scroll en escritorio, así que la resta se
+   quedaba corta y aparecía scroll horizontal. Se acota al ancho real
+   del contenedor con una consulta de contenedor. */
+.ud-hero-broken {
+    container-type: inline-size;
+}
+
+@container (min-width: 0px) {
+    .ud-mega {
+        width: min(126%, 100cqw);
+    }
+}
+
+/* Sin container queries el titular se queda en su columna: se
+   renuncia al desborde antes que arriesgar scroll lateral. */
+
+/* ── Estados táctiles ──────────────────────────────────────────
+   En iOS el :hover se queda pegado después de tocar: la tarjeta
+   mantiene el relieve y el foco hasta que se toca otra cosa. Los
+   efectos de hover se limitan a punteros que de verdad pueden
+   apuntar. */
+@media (hover: none) {
+
+    .ud-card:hover,
+    .ud-quote:hover,
+    .ud-portrait:hover img,
+    .ud-articles > li:hover {
+        transform: none;
+        border-color: var(--ud-rule-mid);
+        box-shadow: none;
+        background: none;
+        filter: none;
+    }
+
+    .ud-card:hover::before {
+        opacity: 0;
+    }
+
+    .ud-btn-primary:hover,
+    .ud-btn-ghost:hover {
+        transform: none;
+    }
+
+    .ud-socials a:hover,
+    .ud-footer-col ul a:hover,
+    .ud-toc a:hover {
+        transform: none;
+        padding-left: 0;
+    }
+}
+
+/* ── Objetivos táctiles ────────────────────────────────────────
+   44 px es el mínimo con el que un dedo acierta sin ampliar. Se
+   consigue con min-height y centrado, sin engordar el texto. */
+@media (pointer: coarse) {
+
+    .ud-back,
+    .ud-btn,
+    .ud-opt,
+    .ud-socials a,
+    .ud-footer-legal-links a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .ud-opt {
+        justify-content: flex-start;
+    }
+
+    /* Los enlaces del índice y del pie se separan para que no se
+       toquen entre ellos al pulsar. */
+    .ud-toc a {
+        padding-block: 1.05rem;
+    }
+
+    .ud-footer-col ul {
+        gap: 0.95rem;
+    }
+
+    .ud-faq summary,
+    .ud-tema-group > summary {
+        min-height: 48px;
+    }
+}
+
+/* Quita el retardo de 300 ms y el destello azul al tocar */
+.ud-btn,
+.ud-opt,
+.ud-back,
+.ud-toc a,
+.ud-faq summary,
+.ud-socials a,
+.ud-sticky a {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Área segura en dispositivos con notch ─────────────────────
+   Sin esto la barra de conversión y el botón de WhatsApp quedan por
+   debajo del indicador de inicio del iPhone. */
+.ud-sticky {
+    padding-bottom: max(0.85rem, env(safe-area-inset-bottom));
+    padding-left: max(1.1rem, env(safe-area-inset-left));
+    padding-right: max(1.1rem, env(safe-area-inset-right));
+}
+
+.floating-whatsapp {
+    bottom: max(20px, env(safe-area-inset-bottom));
+    right: max(20px, env(safe-area-inset-right));
+}
+
+@media (max-width: 900px) {
+    .floating-whatsapp {
+        bottom: calc(84px + env(safe-area-inset-bottom));
+    }
+
+    /* La barra fija tapaba el final del pie. Se reserva su altura. */
+    body.ud-body {
+        padding-bottom: calc(72px + env(safe-area-inset-bottom));
+    }
+}
+
+/* ── Tabla desplazable ─────────────────────────────────────────
+   El contenedor recibe tabindex y role en el HTML para que se pueda
+   desplazar con el teclado; aquí se le da el indicio visual de que
+   hay más contenido a la derecha y se evita que al llegar al final
+   arrastre el scroll de la página. */
+.ud-table-wrap {
+    overscroll-behavior-x: contain;
+    -webkit-overflow-scrolling: touch;
+    /* Sombra de borde que aparece solo si hay desplazamiento */
+    background:
+        linear-gradient(to right, var(--ud-surface) 30%, transparent),
+        linear-gradient(to left, var(--ud-surface) 30%, transparent) 100% 0,
+        radial-gradient(farthest-side at 0 50%, rgba(0, 0, 0, 0.35), transparent),
+        radial-gradient(farthest-side at 100% 50%, rgba(0, 0, 0, 0.35), transparent) 100% 0;
+    background-repeat: no-repeat;
+    background-size: 44px 100%, 44px 100%, 16px 100%, 16px 100%;
+    background-attachment: local, local, scroll, scroll;
+}
+
+.ud-table-wrap:focus-visible {
+    outline: 2px solid var(--ud-brass);
+    outline-offset: 2px;
+}
+
+/* ── Tablet: el hueco entre 720 y 1080 ─────────────────────────
+   Antes las composiciones a dos columnas se colapsaban a 940 y las
+   rejillas a 1080, así que entre esas medidas quedaban columnas de
+   texto demasiado estrechas para leer con comodidad. */
+@media (min-width: 721px) and (max-width: 1024px) {
+
+    /* La medida de lectura manda sobre la retícula */
+    .ud-spread,
+    .ud-spread-flip {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .ud-spread-flip > .ud-margin {
+        order: 0;
+    }
+
+    /* Las notas al margen pasan a fila de dos columnas: aprovechan el
+       ancho disponible sin estrechar el texto. */
+    .ud-margin {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 1.4rem;
+    }
+
+    .ud-note {
+        margin-bottom: 0;
+    }
+
+    .ud-articles > li {
+        grid-template-columns: 3rem minmax(0, 1fr);
+    }
+
+    .ud-articles p,
+    .ud-articles .ud-ticks {
+        grid-column: 2;
+        margin-top: 0.6rem;
+    }
+
+    .ud-hero-figure {
+        max-width: 26rem;
+    }
+}
+
+/* ── Teléfono estrecho ─────────────────────────────────────────
+   Por debajo de 400 px el titular y la capitular dejan de caber con
+   holgura. */
+@media (max-width: 400px) {
+    .ud-mega {
+        font-size: clamp(2.35rem, 12vw, 3rem);
+        letter-spacing: -0.03em;
+    }
+
+    .ud-dropcap::first-letter {
+        font-size: 3.2em;
+    }
+
+    .ud-count-big {
+        font-size: 3rem;
+    }
+
+    .ud-statement blockquote {
+        font-size: 1.6rem;
+    }
+
+    /* La rejilla del año en cuatro filas de 13 */
+    .ud-year {
+        gap: 3px;
+    }
+
+    .ud-seal {
+        width: 62px;
+        height: 62px;
+    }
+
+    .ud-seal b {
+        font-size: 1.15rem;
+    }
+}
+
+/* ── Horizontal en teléfono ────────────────────────────────────
+   Con 400 px de alto, el relleno vertical del hero deja el titular
+   fuera de pantalla. */
+@media (max-height: 460px) and (orientation: landscape) {
+    .ud-hero {
+        padding-top: 76px;
+        padding-bottom: 40px;
+    }
+
+    .ud-section {
+        padding-block: 48px;
+    }
+
+    .ud-sticky {
+        display: none;
+    }
+}
+
+/* ── Impresión ─────────────────────────────────────────────────
+   Un prospecto se imprime. Se quitan fondos, barras y decoración, y
+   se revelan las URL de los enlaces. */
+@media print {
+
+    body.ud-body {
+        background: #fff;
+        color: #000;
+        padding-bottom: 0;
+    }
+
+    .nav-pill,
+    .nav-mobile-panel,
+    .nav-mobile-overlay,
+    .ud-sticky,
+    .floating-whatsapp,
+    .ud-folio,
+    .ud-hero-glow,
+    .ud-hero-grid-bg,
+    .ud-footer-mark,
+    .ud-tool,
+    .ud-marquee {
+        display: none !important;
+    }
+
+    .ud-section,
+    .ud-statement,
+    .ud-year-zone {
+        padding-block: 18pt;
+        break-inside: avoid;
+    }
+
+    .ud-doc,
+    .ud-table-wrap,
+    figure {
+        break-inside: avoid;
+    }
+
+    .ud-faq details {
+        /* En papel no hay clic: todo abierto */
+        display: block;
+    }
+
+    .ud-faq details p {
+        display: block !important;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #555;
+    }
+}
+
+/* ── Contraste forzado (modo alto contraste de Windows) ────────── */
+@media (forced-colors: active) {
+
+    .ud-card,
+    .ud-doc,
+    .ud-tool,
+    .ud-form-card,
+    .ud-table-wrap {
+        border: 1px solid CanvasText;
+    }
+
+    .ud-sunday.is-left,
+    .ud-sunday.is-next {
+        background: Highlight;
+    }
+
+    .ud-btn-primary {
+        border: 1px solid CanvasText;
+    }
+}
+
+/* Indicio de deslizamiento en la tabla: solo se anuncia cuando la
+   tabla de verdad no cabe. */
+.ud-scroll-hint {
+    display: none;
+    font-family: var(--ud-body);
+    text-transform: none;
+    letter-spacing: 0;
+    color: var(--ud-txt-dim);
+}
+
+@media (max-width: 780px) {
+    .ud-scroll-hint {
+        display: inline;
+    }
 }

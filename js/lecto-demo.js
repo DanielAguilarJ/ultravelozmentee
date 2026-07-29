@@ -161,18 +161,15 @@
         step();
     }
 
-    /* ── Eventos de tabs ── */
+    /* ── Eventos de tabs ──
+       Solo el `click`, que es donde vive la lógica de modo.
+       La navegación por teclado (ArrowLeft/Right/Up/Down, Home, End)
+       la implementa js/lectoescritura-adapter.js con el patrón
+       WAI-ARIA completo, y llega aquí como un `click()` sintético:
+       un único dueño y una sola ejecución de selectMode por
+       pulsación. */
     tabs.forEach(function (tab) {
         tab.addEventListener('click', function () { selectMode(tab.dataset.mode); });
-        tab.addEventListener('keydown', function (e) {
-            if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
-                e.preventDefault();
-                var other = tab.dataset.mode === 'silabeo' ? 'fluida' : 'silabeo';
-                selectMode(other);
-                var otherTab = card.querySelector('[data-mode="' + other + '"]');
-                if (otherTab) otherTab.focus();
-            }
-        });
     });
 
     playBtn.addEventListener('click', play);
@@ -201,39 +198,19 @@
     }
 
     /* ══════════════════════════════════════════════════
-       Sticky CTA móvil — aparece tras 600px de scroll,
-       se oculta al llegar al formulario
+       Elementos que este script YA NO gestiona
+       ══════════════════════════════════════════════════
+       · #lectoMobileBar — la barra sticky móvil la gestiona
+         updateStickyBar() de js/lectoescritura-adapter.js, que sí
+         comprueba el viewport y mantiene `class`, `hidden`,
+         `aria-hidden` e `inert` coherentes entre sí. El listener de
+         scroll que había aquí no miraba el viewport y dejaba la barra
+         con `show`/`aria-hidden="false"` sobre un elemento que el
+         adapter mantenía `hidden` e `inert`.
+       · #date-picker — el `min` lo fija initBookingSystem() de
+         js/booking.min.js con «mañana», que es lo que exige su propia
+         validación en loadTimeSlots(). Este script escribía «hoy», y
+         el valor final solo era correcto por el orden de ejecución.
        ══════════════════════════════════════════════════ */
-    var mobileBar       = document.getElementById('lectoMobileBar');
-    var inscripcionSec  = document.getElementById('inscripcion');
-
-    if (mobileBar) {
-        var ticking = false;
-        window.addEventListener('scroll', function () {
-            if (ticking) return;
-            ticking = true;
-            requestAnimationFrame(function () {
-                var y        = window.scrollY;
-                var nearForm = inscripcionSec &&
-                    inscripcionSec.getBoundingClientRect().top < window.innerHeight;
-                mobileBar.classList.toggle('show', y > 600 && !nearForm);
-                mobileBar.setAttribute('aria-hidden', String(!(y > 600 && !nearForm)));
-                ticking = false;
-            });
-        }, { passive: true });
-    }
-
-    /* ══════════════════════════════════════════════════
-       Fecha mínima del date-picker (booking.js la lee
-       pero también la fijamos aquí como refuerzo)
-       ══════════════════════════════════════════════════ */
-    var datePicker = document.getElementById('date-picker');
-    if (datePicker) {
-        var today = new Date();
-        var iso = today.getFullYear() + '-' +
-            String(today.getMonth() + 1).padStart(2, '0') + '-' +
-            String(today.getDate()).padStart(2, '0');
-        datePicker.min = iso;
-    }
 
 })();

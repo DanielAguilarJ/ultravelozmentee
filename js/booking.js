@@ -33,6 +33,19 @@
      * porque el servidor ya persiste el lead y el visitante no tiene
      * por qué ver un error de red.
      */
+    /**
+     * Ejecuta trabajo de analítica sin que pueda tumbar el flujo de
+     * agendado. Si el pixel está bloqueado o la red falla, se registra
+     * y se sigue: perder una métrica es barato, perder una cita no.
+     */
+    function safeTrack(fn) {
+        try {
+            if (typeof window.trackMetaEvent === 'function') fn();
+        } catch (e) {
+            console.warn('Analytics no disponible, el agendado continúa:', e && e.message);
+        }
+    }
+
     function notifyLead(stage) {
         try {
             const body = JSON.stringify({
@@ -109,13 +122,20 @@
         // contacto ya quedó registrado del lado del servidor.
         notifyLead('contacto');
 
-        // Evento IniciateCheckout al pasar al paso 2
-        if (window.trackMetaEvent) {
+        // Evento InitiateCheckout al pasar al paso 2.
+        //
+        // Aislado en try/catch a propósito: trackMetaEvent llama a fetch
+        // y a fbq/gtag, que dependen de scripts externos. Si un bloqueador
+        // de anuncios o un fallo de red los rompe, la excepción abortaba
+        // goToStep2 ANTES de mostrar el paso 2: el usuario pulsaba
+        // "Siguiente" y no pasaba nada. El analytics nunca debe impedir
+        // una conversión.
+        safeTrack(function () {
             window.trackMetaEvent('InitiateCheckout', {
                 content_name: course,
                 content_category: 'Booking'
             });
-        }
+        });
 
         const step1 = document.getElementById('booking-step-1');
         const step2 = document.getElementById('booking-step-2');
@@ -242,8 +262,11 @@
     // Finalizar reserva
     function finalizeBooking() {
         try {
-            // Evento Lead al completar la reserva
-            if (window.trackMetaEvent) {
+            // Igual que en goToStep2: si el pixel falla, la cita debe
+            // completarse de todas formas. Antes esta excepción caía en
+            // el catch de abajo y el usuario veía "Hubo un error al
+            // procesar tu reserva" pese a estar todo bien.
+            safeTrack(function () {
                 window.trackMetaEvent('Lead', {
                     content_name: bookingData.course,
                     content_category: 'Booking',
@@ -252,7 +275,7 @@
                         ph: bookingData.phone
                     }
                 });
-            }
+            });
 
             // Guardar en "base de datos" local
             if (!bookedSlots[bookingData.date]) {

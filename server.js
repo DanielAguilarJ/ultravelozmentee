@@ -70,8 +70,23 @@ const PRIVATE_FILES = new Set([
   '/redaccion-ejecutiva/package-lock.json'
 ]);
 
+/*
+ * Extensiones de código fuente y configuración que nunca se sirven.
+ *
+ * ⚠️ CUIDADO CON `jsx`: escrito como `jsx?` el "?" hace opcional la
+ * "x", así que el patrón también casaba con ".js" y el servidor
+ * devolvía 404 a TODOS los scripts del sitio (navbar, booking,
+ * tracking...). Efecto observable: el formulario de agendado se
+ * enviaba de forma nativa y la página recargaba al inicio, porque el
+ * script que llama a preventDefault nunca cargaba.
+ *
+ * Los archivos .js que sí deben quedar privados se enumeran uno por
+ * uno en PRIVATE_FILES (capi.js, leads.js, env-file.js, server.js);
+ * esa lista es la prueba de que bloquear todo .js nunca fue la
+ * intención.
+ */
 const PRIVATE_EXTENSION =
-  /\.(?:py|sh|md|njk|tsx?|jsx?|map|lock|ya?ml|toml)$/i;
+  /\.(?:py|sh|md|njk|tsx?|jsx|map|lock|ya?ml|toml)$/i;
 
 function startsWithPrivatePrefix(requestPath) {
   return PRIVATE_PREFIXES.some(prefix => {

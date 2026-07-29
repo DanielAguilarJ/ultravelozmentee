@@ -148,6 +148,53 @@ section{padding:5rem 0}
   padding:1rem 2rem;display:inline-block;transform:rotate(1deg);min-width:220px;text-align:center;
 }
 
+/* ---------- Cómo funciona · ruta de 5 pasos ---------- */
+.jm-flow{position:relative}
+/* Riel punteado detrás de la fila superior: da sensación de recorrido */
+.jm-flow::before{
+  content:"";position:absolute;left:6%;right:6%;top:76px;height:0;
+  border-top:4px dashed rgba(15,14,23,.28);z-index:0;
+}
+.jm-steps{
+  list-style:none;display:grid;grid-template-columns:repeat(6,1fr);
+  gap:1.4rem;position:relative;z-index:1;
+}
+.jm-step{
+  position:relative;background:#fff;border:var(--border);border-radius:var(--r);
+  box-shadow:var(--shadow);padding:2.6rem 1.5rem 1.6rem;
+  transition:transform .18s,box-shadow .18s;
+}
+.jm-step:hover{transform:translate(-3px,-3px);box-shadow:10px 10px 0 var(--ink)}
+.jm-step:nth-child(-n+3){grid-column:span 2}
+.jm-step:nth-child(n+4){grid-column:span 3}
+/* Número como sticker que rompe el borde de la tarjeta */
+.jm-step-num{
+  position:absolute;top:-22px;left:20px;width:52px;height:52px;
+  display:grid;place-items:center;font-family:var(--font-display);
+  font-weight:900;font-size:1.35rem;border:var(--border);border-radius:50%;
+  box-shadow:var(--shadow-sm);background:var(--yellow);
+}
+.jm-step:nth-child(2) .jm-step-num{background:var(--coral);color:#fff}
+.jm-step:nth-child(3) .jm-step-num{background:var(--sky)}
+.jm-step:nth-child(4) .jm-step-num{background:var(--violet);color:#fff}
+.jm-step:nth-child(5) .jm-step-num{background:#fff}
+.jm-step h3{font-size:1.08rem;margin:.2rem 0 .5rem}
+.jm-step p{font-size:.95rem;line-height:1.55}
+.jm-step-tag{
+  display:inline-block;font-family:var(--font-display);font-size:.66rem;font-weight:700;
+  text-transform:uppercase;letter-spacing:.08em;padding:.28rem .6rem;margin-top:.9rem;
+  border:2px solid var(--ink);border-radius:999px;background:var(--paper);
+}
+/* Nota de cierre: ancla la sección con el mismo lenguaje del hero */
+.jm-flow-note{
+  margin-top:2.2rem;background:var(--ink);color:var(--paper);
+  border:var(--border);border-radius:var(--r);box-shadow:var(--shadow);
+  padding:1.7rem 1.9rem;display:flex;gap:1.2rem;align-items:flex-start;
+}
+.jm-flow-note .emoji{font-size:1.9rem;line-height:1;flex-shrink:0}
+.jm-flow-note p{font-size:1rem;line-height:1.6}
+.jm-flow-note b{background:var(--yellow);color:var(--ink);padding:0 .28rem;border-radius:6px}
+
 /* ---------- Bento metodología ---------- */
 .bento{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:minmax(190px,auto);gap:1.4rem}
 .bento-card{
@@ -278,6 +325,10 @@ footer a:hover{opacity:1;text-decoration:underline}
 /* ---------- Responsive ---------- */
 @media (max-width:920px){
   .hero-grid,.jm-visual-wrap,.offer-grid{grid-template-columns:1fr}
+  .jm-steps{grid-template-columns:repeat(2,1fr)}
+  .jm-step:nth-child(-n+3),.jm-step:nth-child(n+4){grid-column:span 1}
+  .jm-step:last-child{grid-column:span 2}
+  .jm-flow::before{display:none}
   .bento{grid-template-columns:repeat(2,1fr)}
   .b1,.b2,.b3,.b4{grid-column:span 2}
   .stats{grid-template-columns:repeat(2,1fr)}
@@ -503,16 +554,50 @@ footer a:hover{opacity:1;text-decoration:underline}
 <!-- ================= CÓMO FUNCIONA JUNIORMATH ================= -->
 <section class="jm-visual-zone" id="como-funciona">
   <div class="wrap">
-    <div class="reveal">
-      <h2 style="font-size:clamp(1.7rem,3.5vw,2.6rem);font-weight:900;margin:1rem 0 .8rem">Cómo funciona JuniorMath</h2>
-      <ol style="margin-bottom:1.2rem;line-height:1.8">
-        <li>Diagnóstico inicial.</li>
-        <li>Práctica de operaciones y patrones.</li>
-        <li>Resolución de problemas.</li>
-        <li>Retos gamificados.</li>
-        <li>Seguimiento de avance.</li>
+    <div class="sec-head reveal">
+      <span class="tag">Cómo funciona</span>
+      <h2>Cinco pasos, sin saltarse ninguno</h2>
+      <p>Cada etapa se apoya en la anterior. Nadie avanza al paso siguiente hasta dominar el actual.</p>
+    </div>
+
+    <div class="jm-flow">
+      <ol class="jm-steps">
+        <li class="jm-step reveal">
+          <span class="jm-step-num" aria-hidden="true">1</span>
+          <h3>Diagnóstico inicial</h3>
+          <p>Medimos en qué nivel real está tu hijo, no en qué grado va. De ahí sale su punto de partida.</p>
+          <span class="jm-step-tag">Primera clase</span>
+        </li>
+        <li class="jm-step reveal">
+          <span class="jm-step-num" aria-hidden="true">2</span>
+          <h3>Práctica de operaciones y patrones</h3>
+          <p>Ejercicios cortos y diarios al nivel exacto que le toca, con dificultad que sube poco a poco.</p>
+          <span class="jm-step-tag">Base numérica</span>
+        </li>
+        <li class="jm-step reveal">
+          <span class="jm-step-num" aria-hidden="true">3</span>
+          <h3>Resolución de problemas</h3>
+          <p>Pasa del cálculo suelto a entender qué le están preguntando y cómo llegar al resultado.</p>
+          <span class="jm-step-tag">Razonamiento</span>
+        </li>
+        <li class="jm-step reveal">
+          <span class="jm-step-num" aria-hidden="true">4</span>
+          <h3>Retos gamificados</h3>
+          <p>Compite contra su propio récord. La motivación deja de depender de que un adulto lo empuje.</p>
+          <span class="jm-step-tag">Constancia</span>
+        </li>
+        <li class="jm-step reveal">
+          <span class="jm-step-num" aria-hidden="true">5</span>
+          <h3>Seguimiento de avance</h3>
+          <p>Reporte de precisión y velocidad para que veas el progreso en datos y no en sensaciones.</p>
+          <span class="jm-step-tag">Cada semana</span>
+        </li>
       </ol>
-      <p>El programa comienza con operaciones adecuadas al nivel del alumno y aumenta gradualmente la dificultad. Se trabaja precisión antes que velocidad para evitar que el niño adivine o memorice procedimientos sin comprenderlos.</p>
+
+      <div class="jm-flow-note reveal">
+        <span class="emoji" aria-hidden="true">🎯</span>
+        <p>El programa arranca con operaciones adecuadas al nivel del alumno y sube la dificultad de forma gradual. Se trabaja <b>precisión antes que velocidad</b>: así el niño no adivina ni memoriza procedimientos que no entiende.</p>
+      </div>
     </div>
   </div>
 </section>

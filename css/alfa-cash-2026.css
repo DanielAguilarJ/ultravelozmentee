@@ -1,0 +1,3120 @@
+/* ══════════════════════════════════════════════════════════════════
+   ALFA-CASH · WorldBrain México
+   Dirección de arte: "EL TABLERO" — papel milimétrico, hoja de
+   cálculo y expediente.
+
+   Por qué esta dirección, y por qué la anterior estaba mal:
+
+   La página previa era negro con neón verde y cian, cifras flotando
+   ("$4.2M", "10x ROI", "50M+") y una marquesina de logotipos con
+   nombres de instituciones reales. Ese es el lenguaje visual de un
+   embudo de enriquecimiento rápido. El público de este programa es
+   exactamente el contrario: alguien que administra recursos públicos,
+   que rinde cuentas y que le teme a una auditoría. A esa persona el
+   neón no le vende: la espanta, porque le dice "esto no lo puedo
+   presentar en mi oficina".
+
+   Así que el argumento visual es la sobriedad instrumental: retícula
+   de papel milimétrico, cifras monoespaciadas y tabulares, filas que
+   se seleccionan como celdas de una hoja de cálculo, azul cobalto
+   institucional y ámbar solo para el riesgo. Se ve como una
+   herramienta de trabajo, no como una promesa.
+
+   Grafito por defecto (pantalla de tablero); html.light-mode pasa a
+   papel, con el mismo interruptor que el resto del sitio.
+
+   ORDEN DE CAPAS: todo el CSS propio vive en capas, así que cualquier
+   regla sin capa de navbar-unified.css —la única hoja ajena que se
+   carga— gana sin !important. Al final hay un bloque SIN capa a
+   propósito: las correcciones de dispositivo, que deben ganar a todo.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ══════════════ PROPIEDADES REGISTRADAS ══════════════
+   Sin @property un custom property no se interpola: el barrido del
+   cursor daría saltos y la serie de datos no se podría dibujar. */
+
+@property --ac-mx {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+}
+
+@property --ac-my {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 30%;
+}
+
+/* inherits: true a propósito: la animación del trazado va en el
+   contenedor del gráfico y tanto la línea como los puntos leen el
+   mismo valor heredado. Con inherits: false cada uno tendría que
+   animarse por separado y se desincronizaban. */
+@property --ac-draw {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+}
+
+@layer ac.tokens, ac.base, ac.type, ac.layout, ac.components, ac.motion;
+
+/* ══════════════════════════════════════════════════════════════════
+   1 · TOKENS
+   ══════════════════════════════════════════════════════════════════ */
+@layer ac.tokens {
+    :root {
+        /* Superficies: grafito azulado, como una pantalla de tablero */
+        --ac-ink: #090C12;
+        --ac-pit: #0D1219;
+        --ac-surface: #131A24;
+        --ac-raised: #1A2331;
+        --ac-cell: #202B3B;
+
+        /* Trazos: son reglas de una tabla, no bordes decorativos */
+        --ac-rule: rgba(226, 232, 240, 0.10);
+        --ac-rule-mid: rgba(226, 232, 240, 0.19);
+        --ac-rule-hi: rgba(226, 232, 240, 0.34);
+
+        /* Texto */
+        --ac-txt: #E8EDF5;
+        --ac-txt-soft: #A2AEC0;
+        --ac-txt-dim: #6C7889;
+
+        /* Acentos. Cobalto para lo institucional, ámbar para el
+           riesgo, rojo solo para lo que de verdad se pierde, verde
+           únicamente para lo verificado. */
+        --ac-cobalt: #4D7CFE;
+        --ac-cobalt-deep: #2F5FE0;
+        --ac-amber: #F0A93B;
+        --ac-red: #E0524F;
+        --ac-teal: #2FB39B;
+
+        --ac-cobalt-wash: rgba(77, 124, 254, 0.13);
+        --ac-amber-wash: rgba(240, 169, 59, 0.13);
+        --ac-red-wash: rgba(224, 82, 79, 0.12);
+        --ac-teal-wash: rgba(47, 179, 155, 0.12);
+
+        /* Tipografía */
+        --ac-display: 'Space Grotesk', 'Inter', system-ui, sans-serif;
+        --ac-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        --ac-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+        /* Métrica de documento */
+        --ac-max: 1240px;
+        --ac-read: 66ch;
+        --ac-gutter: clamp(18px, 5vw, 56px);
+        --ac-band: clamp(68px, 9vw, 132px);
+        --ac-r: 3px;
+        --ac-r-md: 10px;
+        --ac-r-lg: 18px;
+
+        /* Paso de la retícula milimétrica */
+        --ac-grid: 26px;
+
+        /* Movimiento: una sola curva en toda la página */
+        --ac-ease: cubic-bezier(0.2, 0.6, 0.3, 1);
+        --ac-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        --ac-fast: 160ms;
+        --ac-mid: 300ms;
+        --ac-slow: 560ms;
+
+        --ac-drop: 0 34px 74px -32px rgba(0, 0, 0, 0.82);
+        --ac-drop-sm: 0 14px 32px -18px rgba(0, 0, 0, 0.7);
+        --ac-glow: 0 0 0 1px rgba(77, 124, 254, 0.3), 0 22px 60px -26px rgba(77, 124, 254, 0.42);
+    }
+
+    /* Papel. Los acentos bajan de luminosidad para que el texto siga
+       pasando contraste AA sobre blanco. */
+    html.light-mode {
+        --ac-ink: #EEF1F6;
+        --ac-pit: #F7F9FC;
+        --ac-surface: #FFFFFF;
+        --ac-raised: #FFFFFF;
+        --ac-cell: #EDF1F7;
+
+        --ac-rule: rgba(9, 12, 18, 0.11);
+        --ac-rule-mid: rgba(9, 12, 18, 0.19);
+        --ac-rule-hi: rgba(9, 12, 18, 0.38);
+
+        --ac-txt: #0B1119;
+        --ac-txt-soft: #48566B;
+        --ac-txt-dim: #6F7C8D;
+
+        --ac-cobalt: #2352C9;
+        --ac-cobalt-deep: #1A3E9C;
+        --ac-amber: #8A5A06;
+        --ac-red: #B32B28;
+        --ac-teal: #0C6E5D;
+
+        --ac-cobalt-wash: rgba(35, 82, 201, 0.08);
+        --ac-amber-wash: rgba(138, 90, 6, 0.09);
+        --ac-red-wash: rgba(179, 43, 40, 0.07);
+        --ac-teal-wash: rgba(12, 110, 93, 0.08);
+
+        --ac-drop: 0 30px 64px -34px rgba(11, 17, 25, 0.22);
+        --ac-drop-sm: 0 12px 26px -16px rgba(11, 17, 25, 0.16);
+        --ac-glow: 0 0 0 1px rgba(35, 82, 201, 0.24), 0 20px 52px -28px rgba(35, 82, 201, 0.22);
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2 · BASE
+   ══════════════════════════════════════════════════════════════════ */
+@layer ac.base {
+
+    /* Reset de caja global: navbar-unified.css se escribió para
+       páginas que ya lo traían, y sin él el menú móvil se descoloca. */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body.ac-body {
+        margin: 0;
+        background: var(--ac-ink);
+        color: var(--ac-txt);
+        font-family: var(--ac-body);
+        font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-synthesis-weight: none;
+    }
+
+    /* Papel milimétrico. Es la firma de la página: una retícula fina
+       con una marca cada cinco cuadros, como el papel de trabajo de
+       un analista. Va fija para que el contenido "corra" sobre ella. */
+    .ac-paper {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+        background-color: var(--ac-ink);
+        background-image:
+            linear-gradient(var(--ac-rule) 1px, transparent 1px),
+            linear-gradient(90deg, var(--ac-rule) 1px, transparent 1px),
+            linear-gradient(rgba(77, 124, 254, 0.07) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(77, 124, 254, 0.07) 1px, transparent 1px);
+        background-size:
+            var(--ac-grid) var(--ac-grid),
+            var(--ac-grid) var(--ac-grid),
+            calc(var(--ac-grid) * 5) calc(var(--ac-grid) * 5),
+            calc(var(--ac-grid) * 5) calc(var(--ac-grid) * 5);
+        /* Se apaga hacia los bordes: una retícula a sangre compite con
+           el texto. */
+        mask-image: radial-gradient(120% 90% at 50% 0%, #000 20%, transparent 78%);
+        -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, #000 20%, transparent 78%);
+        opacity: 0.9;
+    }
+
+    .ac-body :where(main, footer.ac-foot) :where(p, ul, ol, dl, figure, blockquote, table) {
+        margin: 0;
+    }
+
+    .ac-body img,
+    .ac-body svg {
+        max-width: 100%;
+    }
+
+    /* Un solo estilo de foco, visible sobre grafito y sobre papel */
+    .ac-body :where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+        outline: 2px solid var(--ac-cobalt);
+        outline-offset: 3px;
+        border-radius: var(--ac-r);
+    }
+
+    .ac-body ::selection {
+        background: var(--ac-cobalt);
+        color: #F4F7FF;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   3 · TIPOGRAFÍA
+   Tres funciones separadas: cartel (Space Grotesk), lectura (Inter) y
+   CIFRA (IBM Plex Mono). La tercera es la que hace el trabajo: en una
+   página de presupuestos, los números tienen que verse contables.
+   ══════════════════════════════════════════════════════════════════ */
+@layer ac.type {
+
+    .ac-mega,
+    .ac-h2,
+    .ac-h3 {
+        font-family: var(--ac-display);
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        line-height: 1.02;
+        text-wrap: balance;
+        margin: 0;
+    }
+
+    .ac-mega {
+        font-size: clamp(2.3rem, 1.3rem + 4.6vw, 4.4rem);
+        line-height: 0.98;
+        letter-spacing: -0.038em;
+    }
+
+    .ac-h2 {
+        font-size: clamp(1.7rem, 1.2rem + 2.3vw, 2.9rem);
+    }
+
+    .ac-h3 {
+        font-size: clamp(1.08rem, 1rem + 0.7vw, 1.4rem);
+        line-height: 1.18;
+        letter-spacing: -0.02em;
+    }
+
+    /* Antetítulo con folio: se lee como el encabezado de una sección
+       de un documento oficial. */
+    .ac-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin: 0 0 1.05rem;
+        font-family: var(--ac-mono);
+        font-size: 0.72rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--ac-cobalt);
+    }
+
+    .ac-eyebrow::before {
+        content: "";
+        inline-size: clamp(18px, 4vw, 38px);
+        block-size: 1px;
+        background: currentColor;
+        opacity: 0.6;
+    }
+
+    .ac-lead {
+        max-inline-size: var(--ac-read);
+        font-size: clamp(1.04rem, 1rem + 0.5vw, 1.24rem);
+        line-height: 1.6;
+        color: var(--ac-txt-soft);
+        text-wrap: pretty;
+    }
+
+    .ac-body main strong {
+        color: var(--ac-txt);
+        font-weight: 600;
+    }
+
+    /* CIFRA. Monoespaciada, tabular y con cero rebanado: es la
+       diferencia entre un número y un dato. */
+    .ac-fig {
+        font-family: var(--ac-mono);
+        font-variant-numeric: tabular-nums slashed-zero;
+        font-feature-settings: 'tnum' 1, 'zero' 1;
+        letter-spacing: -0.01em;
+    }
+
+    /* El contador arranca en 0 y sube. Sin reservar su ancho final, el
+       texto que va detrás se desplaza en cada fotograma: «0 semanas»
+       ocupa menos que «12 semanas». Se reserva con ch, que en cifras
+       tabulares es exactamente el ancho de un dígito. El JS escribe
+       --digits al montar. */
+    .ac-count {
+        display: inline-block;
+        min-inline-size: calc(var(--digits, 2) * 1ch);
+        text-align: end;
+    }
+
+    /* Etiqueta técnica */
+    .ac-tag {
+        font-family: var(--ac-mono);
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ac-txt-dim);
+    }
+
+    /* Término marcado con resaltador, no con color: el color solo se
+       usa para estado. */
+    .ac-mark {
+        background:
+            linear-gradient(to top, var(--ac-cobalt-wash) 0.62em, transparent 0.62em);
+        box-shadow: inset 0 -0.06em 0 0 var(--ac-cobalt);
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   4 · RETÍCULA
+   ══════════════════════════════════════════════════════════════════ */
+@layer ac.layout {
+    .ac-wrap {
+        max-inline-size: var(--ac-max);
+        margin-inline: auto;
+        padding-inline: var(--ac-gutter);
+    }
+
+    .ac-band {
+        position: relative;
+        padding-block: var(--ac-band);
+    }
+
+    .ac-band + .ac-band {
+        border-top: 1px solid var(--ac-rule);
+    }
+
+    .ac-head {
+        display: grid;
+        gap: 1rem;
+        margin-block-end: clamp(2.2rem, 4.5vw, 3.8rem);
+        max-inline-size: 62ch;
+    }
+
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5 · COMPONENTES
+   ══════════════════════════════════════════════════════════════════ */
+@layer ac.components {
+
+    /* ────────────────────────────────────────────────────────────
+       5.1 · Ruta de navegación
+       El JSON-LD declara un BreadcrumbList; sin miga visible eso es
+       una incongruencia. Va dentro del hero, alineada con el titular:
+       la navbar del sitio es una píldora centrada y no da un borde
+       con el que alinearse.
+       ──────────────────────────────────────────────────────────── */
+    .ac-crumbs ol {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: var(--ac-mono);
+        font-size: 0.74rem;
+        color: var(--ac-txt-dim);
+    }
+
+    .ac-crumbs li + li::before {
+        content: "/";
+        margin-inline-end: 0.5rem;
+        color: var(--ac-rule-hi);
+    }
+
+    .ac-crumbs a {
+        color: var(--ac-txt-soft);
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: color var(--ac-fast) var(--ac-ease), border-color var(--ac-fast) var(--ac-ease);
+    }
+
+    .ac-crumbs a:hover {
+        color: var(--ac-cobalt);
+        border-block-end-color: currentColor;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.2 · Barra de avance de lectura
+       Con scroll-driven animations la mueve el compositor; si no, el
+       JS escribe --ac-progress. Misma propiedad, dos motores.
+       ──────────────────────────────────────────────────────────── */
+    .ac-folio {
+        position: fixed;
+        inset-block-start: 0;
+        inset-inline: 0;
+        z-index: 1200;
+        block-size: 2px;
+        pointer-events: none;
+        background: var(--ac-rule);
+    }
+
+    .ac-folio-bar {
+        display: block;
+        block-size: 100%;
+        transform-origin: left center;
+        scale: var(--ac-progress, 0) 1;
+        background: linear-gradient(90deg, var(--ac-cobalt), var(--ac-teal));
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.3 · Botones
+       ──────────────────────────────────────────────────────────── */
+    .ac-btn {
+        --ac-mx: 50%;
+        --ac-my: 50%;
+        position: relative;
+        isolation: isolate;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 0.98rem 1.6rem;
+        border: 1px solid transparent;
+        border-radius: var(--ac-r-md);
+        font-family: var(--ac-body);
+        font-size: 0.97rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        overflow: hidden;
+        transition:
+            transform var(--ac-fast) var(--ac-ease),
+            box-shadow var(--ac-mid) var(--ac-ease),
+            border-color var(--ac-fast) var(--ac-ease),
+            background-color var(--ac-fast) var(--ac-ease),
+            --ac-mx var(--ac-fast) linear,
+            --ac-my var(--ac-fast) linear;
+    }
+
+    .ac-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        opacity: 0;
+        background: radial-gradient(12rem 8rem at var(--ac-mx) var(--ac-my),
+                rgba(255, 255, 255, 0.42), transparent 70%);
+        transition: opacity var(--ac-mid) var(--ac-ease);
+    }
+
+    .ac-btn:hover::before,
+    .ac-btn:focus-visible::before {
+        opacity: 1;
+    }
+
+    .ac-btn-solid {
+        background: linear-gradient(140deg, var(--ac-cobalt), var(--ac-cobalt-deep));
+        color: #F5F8FF;
+        box-shadow: var(--ac-glow);
+    }
+
+    .ac-btn-solid:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 0 1px rgba(77, 124, 254, 0.46), 0 28px 66px -24px rgba(77, 124, 254, 0.5);
+    }
+
+    .ac-btn-line {
+        background: transparent;
+        border-color: var(--ac-rule-mid);
+        color: var(--ac-txt);
+    }
+
+    .ac-btn-line:hover {
+        transform: translateY(-2px);
+        border-color: var(--ac-rule-hi);
+        background-color: var(--ac-surface);
+    }
+
+    .ac-btn-block {
+        inline-size: 100%;
+    }
+
+    /* Una regla de clase con display gana al `display: none` que el
+       atributo `hidden` aplica desde la hoja del navegador. Sin esta
+       línea el botón del veredicto se ve antes de que haya veredicto. */
+    .ac-btn[hidden] {
+        display: none;
+    }
+
+    /* Separación cuando la fila de botones sigue a una lista o a un
+       bloque de datos, sin recurrir a estilos en línea. */
+    .ac-cta-row-gap {
+        margin-block-start: 1.6rem;
+    }
+
+    .ac-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.85rem 1rem;
+    }
+
+    .ac-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        color: var(--ac-txt-dim);
+    }
+
+    .ac-note i {
+        margin-block-start: 0.22rem;
+        color: var(--ac-teal);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.4 · HERO
+       ──────────────────────────────────────────────────────────── */
+    .ac-hero {
+        position: relative;
+        isolation: isolate;
+        /* Reserva la altura de la navbar fija: mide 48 px y flota a 16 */
+        padding-block: clamp(104px, 14vh, 168px) clamp(48px, 7vw, 84px);
+        overflow: hidden;
+    }
+
+    .ac-hero-wash {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+            radial-gradient(40rem 30rem at var(--ac-mx) var(--ac-my),
+                var(--ac-cobalt-wash), transparent 66%),
+            radial-gradient(28rem 22rem at 92% 88%, var(--ac-amber-wash), transparent 70%);
+        transition: --ac-mx 260ms linear, --ac-my 260ms linear;
+    }
+
+    .ac-hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.06fr) minmax(0, 0.94fr);
+        gap: clamp(2.2rem, 4.5vw, 4rem);
+        align-items: center;
+    }
+
+    .ac-hero-copy > * + * {
+        margin-block-start: clamp(1.05rem, 2.2vw, 1.6rem);
+    }
+
+    .ac-hero-copy > .ac-crumbs {
+        margin-block-end: 1.05rem;
+    }
+
+    .ac-hero-copy > .ac-crumbs + .ac-eyebrow {
+        margin-block-start: 0;
+    }
+
+    /* Ficha del programa: los seis datos que se buscan antes de leer
+       una línea de venta. Es una tabla, no unas tarjetas. */
+    .ac-spec {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
+        gap: 1px;
+        margin-block-start: clamp(1.8rem, 3.5vw, 2.6rem);
+        border: 1px solid var(--ac-rule);
+        border-radius: var(--ac-r-md);
+        background: var(--ac-rule);
+        overflow: hidden;
+    }
+
+    .ac-spec > div {
+        padding: 0.9rem 1.05rem;
+        background: var(--ac-surface);
+    }
+
+    .ac-spec dt {
+        margin: 0 0 0.28rem;
+        font-family: var(--ac-mono);
+        font-size: 0.64rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ac-txt-dim);
+    }
+
+    .ac-spec dd {
+        margin: 0;
+        font-family: var(--ac-display);
+        font-size: 1.06rem;
+        font-weight: 600;
+        letter-spacing: -0.02em;
+        line-height: 1.15;
+    }
+
+    /* ── Serie de datos del hero ──
+       Un esquema, no un resultado. Va rotulado como ilustrativo en el
+       propio HTML porque no hay dato real que respalde una curva. */
+    .ac-plot {
+        position: relative;
+        padding: clamp(1.2rem, 2.6vw, 1.8rem);
+        border: 1px solid var(--ac-rule);
+        border-radius: var(--ac-r-lg);
+        background:
+            linear-gradient(180deg, var(--ac-surface), var(--ac-pit));
+        box-shadow: var(--ac-drop-sm);
+    }
+
+    .ac-plot-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.4rem 1rem;
+        margin-block-end: 1rem;
+    }
+
+    .ac-plot-head strong {
+        font-family: var(--ac-display);
+        font-size: 0.98rem;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+    }
+
+    .ac-plot svg {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+    }
+
+    /* Una sola serie, y factual: son los entregables que se acumulan
+       semana a semana, o sea la estructura del propio programa. Se
+       descartó la versión de dos series ("sin control" contra "con
+       control") porque esa segunda curva no la respalda ningún dato:
+       es una proyección de resultados disfrazada de gráfico.
+
+       El trazo se dibuja con dasharray. pathLength="1" en el SVG
+       convierte la longitud en fracción, así que --ac-draw de 0 a 1
+       hace avanzar la línea sin conocer su longitud real. */
+    .ac-serie {
+        fill: none;
+        stroke: var(--ac-cobalt);
+        stroke-width: 2.4;
+        stroke-linecap: round;
+        stroke-linejoin: round;
+        stroke-dasharray: 1;
+        stroke-dashoffset: calc(1 - var(--ac-draw, 1));
+    }
+
+    /* Los puntos aparecen con la línea */
+    .ac-serie-dot {
+        fill: var(--ac-ink);
+        stroke: var(--ac-cobalt);
+        stroke-width: 2;
+        opacity: var(--ac-draw, 1);
+        transition: opacity var(--ac-fast) linear;
+    }
+
+    .ac-serie-axis {
+        stroke: var(--ac-rule-mid);
+        stroke-width: 1;
+    }
+
+    .ac-serie-label {
+        fill: var(--ac-txt-dim);
+        font-family: var(--ac-mono);
+        font-size: 9px;
+    }
+
+    .ac-plot-legend {
+        display: grid;
+        gap: 0.5rem;
+        margin-block-start: 1rem;
+        padding-block-start: 0.9rem;
+        border-block-start: 1px solid var(--ac-rule);
+        font-size: 0.84rem;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-plot-legend div {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.6rem;
+    }
+
+    .ac-swatch {
+        flex: 0 0 auto;
+        inline-size: 18px;
+        block-size: 3px;
+        margin-block-start: 0.62em;
+        border-radius: 999px;
+        background: var(--ac-cobalt);
+    }
+
+    .ac-plot-legend i {
+        flex: 0 0 auto;
+        margin-block-start: 0.22em;
+        color: var(--ac-txt-dim);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.5 · Cinta de conceptos
+       NO es una lista de clientes. La versión anterior desfilaba
+       nombres de instituciones reales como si fueran referencias, sin
+       una sola carta de respaldo. Aquí desfila el temario, que es
+       verificable porque está en la propia página.
+       ──────────────────────────────────────────────────────────── */
+    .ac-ticker {
+        overflow: hidden;
+        border-block: 1px solid var(--ac-rule);
+        padding-block: 0.95rem;
+        background: var(--ac-pit);
+        mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 10%, #000 90%, transparent);
+    }
+
+    .ac-ticker-track {
+        display: flex;
+        align-items: center;
+        gap: 2.2rem;
+        inline-size: max-content;
+        font-family: var(--ac-mono);
+        font-size: clamp(0.78rem, 0.7rem + 0.4vw, 0.94rem);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--ac-txt-dim);
+    }
+
+    .ac-ticker-track i {
+        font-size: 0.42em;
+        color: var(--ac-cobalt);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.6 · Riesgos
+       Renglones de expediente. Cada uno nombra un riesgo real de la
+       gestión presupuestaria, sin cifras inventadas.
+       ──────────────────────────────────────────────────────────── */
+    .ac-risks {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-block-start: 1px solid var(--ac-rule);
+        counter-reset: ac-risk;
+    }
+
+    .ac-risks > li {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        grid-template-columns: 3.4rem minmax(0, 21ch) minmax(0, 1fr);
+        gap: 0.5rem 1.6rem;
+        align-items: start;
+        padding-block: clamp(1.4rem, 2.8vw, 2.2rem);
+        border-block-end: 1px solid var(--ac-rule);
+        counter-increment: ac-risk;
+        transition: background-color var(--ac-mid) var(--ac-ease);
+    }
+
+    /* Selección de fila, como en una hoja de cálculo: tinte tenue y
+       una regla de color a la izquierda. */
+    .ac-risks > li::before {
+        content: "";
+        position: absolute;
+        inset-block: 0;
+        inset-inline-start: -1.1rem;
+        inline-size: 2px;
+        background: var(--ac-amber);
+        scale: 1 0;
+        transform-origin: top;
+        transition: scale var(--ac-mid) var(--ac-ease);
+    }
+
+    .ac-risks > li:hover {
+        background: var(--ac-amber-wash);
+    }
+
+    .ac-risks > li:hover::before {
+        scale: 1 1;
+    }
+
+    .ac-risk-n {
+        grid-column: 1;
+        font-family: var(--ac-mono);
+        font-size: 0.82rem;
+        letter-spacing: 0.06em;
+        color: var(--ac-txt-dim);
+        padding-block-start: 0.28rem;
+    }
+
+    .ac-risks h3 {
+        grid-column: 2;
+    }
+
+    .ac-risks p {
+        grid-column: 3;
+        color: var(--ac-txt-soft);
+        text-wrap: pretty;
+    }
+
+    /* Aviso de alcance. Existe por honestidad, no por diseño. */
+    .ac-caveat {
+        display: flex;
+        gap: 0.85rem;
+        margin-block-start: clamp(1.8rem, 3.5vw, 2.6rem);
+        padding: 1.05rem 1.25rem;
+        border: 1px solid var(--ac-rule);
+        border-inline-start: 3px solid var(--ac-amber);
+        border-radius: 0 var(--ac-r-md) var(--ac-r-md) 0;
+        background: var(--ac-surface);
+        font-size: 0.9rem;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-caveat i {
+        flex: 0 0 auto;
+        margin-block-start: 0.22rem;
+        color: var(--ac-amber);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.7 · Diagnóstico "¿es para ti?"
+       Sustituye a la "calculadora de fuga presupuestal" de la versión
+       anterior, que inventaba un dinero en riesgo y lo dividía entre
+       el precio para fabricar un retorno. Este cuestionario califica
+       de verdad: con pocas señales dice que NO es para ti, y lo dice
+       en pantalla.
+       ──────────────────────────────────────────────────────────── */
+    .ac-diag {
+        display: grid;
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+        gap: clamp(1.4rem, 3vw, 2.4rem);
+        align-items: start;
+    }
+
+    .ac-quiz {
+        border: 1px solid var(--ac-rule-mid);
+        border-radius: var(--ac-r-lg);
+        background: var(--ac-surface);
+        overflow: hidden;
+    }
+
+    .ac-quiz-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem 1rem;
+        padding: 1rem clamp(1.1rem, 2.4vw, 1.7rem);
+        border-block-end: 1px solid var(--ac-rule);
+        background: var(--ac-raised);
+    }
+
+    .ac-quiz-head strong {
+        font-family: var(--ac-display);
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .ac-quiz-list {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        min-inline-size: 0;
+    }
+
+    .ac-quiz-list legend {
+        position: absolute;
+        inline-size: 1px;
+        block-size: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+
+    .ac-q {
+        display: grid;
+        grid-template-columns: 2.4rem minmax(0, 1fr);
+        gap: 0.2rem 0.6rem;
+        padding: 1.05rem clamp(1.1rem, 2.4vw, 1.7rem);
+        border-block-end: 1px solid var(--ac-rule);
+        transition: background-color var(--ac-fast) var(--ac-ease);
+    }
+
+    .ac-q:last-of-type {
+        border-block-end: 0;
+    }
+
+    .ac-q:has(input:checked) {
+        background: var(--ac-cobalt-wash);
+    }
+
+    .ac-q-n {
+        grid-row: 1 / 3;
+        font-family: var(--ac-mono);
+        font-size: 0.78rem;
+        color: var(--ac-txt-dim);
+        padding-block-start: 0.2rem;
+    }
+
+    .ac-q p {
+        grid-column: 2;
+        font-size: 0.98rem;
+        font-weight: 500;
+    }
+
+    .ac-q-opts {
+        grid-column: 2;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.45rem;
+        margin-block-start: 0.6rem;
+    }
+
+    .ac-opt {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.4rem;
+        padding: 0.5rem 0.9rem;
+        border: 1px solid var(--ac-rule-mid);
+        border-radius: 999px;
+        background: var(--ac-pit);
+        font-size: 0.88rem;
+        cursor: pointer;
+        transition:
+            border-color var(--ac-fast) var(--ac-ease),
+            background-color var(--ac-fast) var(--ac-ease),
+            color var(--ac-fast) var(--ac-ease);
+    }
+
+    .ac-opt input {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .ac-opt:hover {
+        border-color: var(--ac-cobalt);
+    }
+
+    .ac-opt:has(input:checked) {
+        border-color: var(--ac-cobalt);
+        background: var(--ac-cobalt);
+        color: #F5F8FF;
+        font-weight: 600;
+    }
+
+    /* Respaldo donde :has() no existe: el JS marca la clase. */
+    .ac-opt.is-on {
+        border-color: var(--ac-cobalt);
+        background: var(--ac-cobalt);
+        color: #F5F8FF;
+        font-weight: 600;
+    }
+
+    .ac-opt:has(input:focus-visible) {
+        outline: 2px solid var(--ac-cobalt);
+        outline-offset: 3px;
+    }
+
+    /* ── Panel de resultado ── */
+    .ac-verdict {
+        position: sticky;
+        inset-block-start: clamp(96px, 13vh, 128px);
+        display: grid;
+        gap: 1rem;
+        padding: clamp(1.4rem, 3vw, 2rem);
+        border: 1px solid var(--ac-rule-mid);
+        border-radius: var(--ac-r-lg);
+        background: var(--ac-raised);
+        box-shadow: var(--ac-drop-sm);
+    }
+
+    .ac-meter {
+        block-size: 6px;
+        border-radius: 999px;
+        background: var(--ac-cell);
+        overflow: hidden;
+    }
+
+    .ac-meter span {
+        display: block;
+        block-size: 100%;
+        inline-size: calc(var(--ac-score, 0) * 1%);
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--ac-amber), var(--ac-cobalt));
+        transition: inline-size var(--ac-slow) var(--ac-ease-out);
+    }
+
+    .ac-verdict-score {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+    }
+
+    .ac-verdict-score b {
+        font-family: var(--ac-mono);
+        font-variant-numeric: tabular-nums;
+        font-size: clamp(1.9rem, 1.4rem + 1.6vw, 2.6rem);
+        font-weight: 600;
+        line-height: 1;
+    }
+
+    .ac-verdict p {
+        font-size: 0.94rem;
+        color: var(--ac-txt-soft);
+    }
+
+    /* Tres veredictos con su propio color de borde. El "no es para ti"
+       es el que da credibilidad a los otros dos. */
+    .ac-verdict[data-verdict="alto"] {
+        border-color: var(--ac-cobalt);
+    }
+
+    .ac-verdict[data-verdict="medio"] {
+        border-color: var(--ac-amber);
+    }
+
+    .ac-verdict[data-verdict="bajo"] {
+        border-color: var(--ac-red);
+    }
+
+    .ac-verdict-label {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.45rem;
+        padding: 0.3rem 0.7rem;
+        border-radius: 999px;
+        font-family: var(--ac-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        background: var(--ac-cell);
+        color: var(--ac-txt-soft);
+        justify-self: start;
+    }
+
+    .ac-verdict[data-verdict="alto"] .ac-verdict-label {
+        background: var(--ac-cobalt-wash);
+        color: var(--ac-cobalt);
+    }
+
+    .ac-verdict[data-verdict="medio"] .ac-verdict-label {
+        background: var(--ac-amber-wash);
+        color: var(--ac-amber);
+    }
+
+    .ac-verdict[data-verdict="bajo"] .ac-verdict-label {
+        background: var(--ac-red-wash);
+        color: var(--ac-red);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.8 · Temario como pliego de partidas
+       Cada módulo es una fila con folio, lo que resuelve y lo que
+       entrega. La especificidad es el argumento de venta: un temario
+       vago no lo aprueba nadie que tenga que justificar el gasto.
+       ──────────────────────────────────────────────────────────── */
+    .ac-ledger {
+        border: 1px solid var(--ac-rule);
+        border-radius: var(--ac-r-lg);
+        background: var(--ac-surface);
+        overflow: hidden;
+    }
+
+    .ac-ledger-head {
+        display: grid;
+        grid-template-columns: 4.5rem minmax(0, 1fr) minmax(0, 1fr) 6.5rem;
+        gap: 1.4rem;
+        padding: 0.8rem clamp(1.1rem, 2.4vw, 1.6rem);
+        border-block-end: 1px solid var(--ac-rule-mid);
+        background: var(--ac-raised);
+    }
+
+    .ac-ledger-head span {
+        font-family: var(--ac-mono);
+        font-size: 0.64rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ac-txt-dim);
+    }
+
+    .ac-ledger ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .ac-row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 4.5rem minmax(0, 1fr) minmax(0, 1fr) 6.5rem;
+        gap: 0.5rem 1.4rem;
+        align-items: start;
+        padding: clamp(1.1rem, 2.2vw, 1.5rem) clamp(1.1rem, 2.4vw, 1.6rem);
+        transition: background-color var(--ac-fast) var(--ac-ease);
+    }
+
+    .ac-row + .ac-row {
+        border-block-start: 1px solid var(--ac-rule);
+    }
+
+    /* Fila seleccionada, como una celda activa */
+    .ac-row:hover {
+        background: var(--ac-cobalt-wash);
+    }
+
+    .ac-row::before {
+        content: "";
+        position: absolute;
+        inset-block: 0;
+        inset-inline-start: 0;
+        inline-size: 2px;
+        background: var(--ac-cobalt);
+        scale: 1 0;
+        transform-origin: top;
+        transition: scale var(--ac-mid) var(--ac-ease);
+    }
+
+    .ac-row:hover::before {
+        scale: 1 1;
+    }
+
+    .ac-row-n {
+        font-family: var(--ac-mono);
+        font-size: 0.8rem;
+        color: var(--ac-cobalt);
+        letter-spacing: 0.04em;
+    }
+
+    .ac-row h3 {
+        font-size: 1.02rem;
+    }
+
+    .ac-row-do {
+        color: var(--ac-txt-soft);
+        font-size: 0.93rem;
+    }
+
+    /* El reset de márgenes deja los dos párrafos de la celda pegados */
+    .ac-row-do p + p {
+        margin-block-start: 0.55rem;
+    }
+
+    .ac-row-out {
+        display: grid;
+        gap: 0.3rem;
+        font-size: 0.86rem;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-row-week {
+        font-family: var(--ac-mono);
+        font-size: 0.78rem;
+        color: var(--ac-txt-dim);
+        text-align: end;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.9 · Calendario de ocho semanas
+       ──────────────────────────────────────────────────────────── */
+    .ac-weeks-wrap {
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity;
+        padding-block-end: 0.8rem;
+    }
+
+    .ac-weeks-wrap:focus-visible {
+        outline: 2px solid var(--ac-cobalt);
+        outline-offset: 4px;
+    }
+
+    .ac-weeks {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 1px;
+        margin: 0;
+        padding: 0;
+        min-inline-size: 100%;
+        border: 1px solid var(--ac-rule);
+        border-radius: var(--ac-r-md);
+        background: var(--ac-rule);
+        overflow: hidden;
+        list-style: none;
+    }
+
+    .ac-weeks > li {
+        display: grid;
+        gap: 0.4rem;
+        align-content: start;
+        padding: 1.1rem 1.15rem 1.3rem;
+        background: var(--ac-surface);
+        scroll-snap-align: start;
+        transition: background-color var(--ac-mid) var(--ac-ease);
+    }
+
+    .ac-weeks > li:hover {
+        background: var(--ac-cell);
+    }
+
+    .ac-week-n {
+        font-family: var(--ac-mono);
+        font-size: 0.7rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ac-cobalt);
+    }
+
+    .ac-weeks strong {
+        font-family: var(--ac-display);
+        font-size: 0.98rem;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+    }
+
+    .ac-weeks p {
+        font-size: 0.87rem;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-hint {
+        display: none;
+        margin-block-start: 0.75rem;
+        font-size: 0.82rem;
+        color: var(--ac-txt-dim);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.10 · Entregables
+       Inventario de lo que se queda en el escritorio del alumno. Sin
+       precios inventados al lado: la versión anterior tachaba un
+       "valor total" de $50,000 que no correspondía a nada.
+       ──────────────────────────────────────────────────────────── */
+    .ac-kit {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr));
+        gap: clamp(1rem, 2.2vw, 1.4rem);
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .ac-kit > li {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        gap: 0.6rem;
+        align-content: start;
+        padding: clamp(1.3rem, 2.6vw, 1.8rem);
+        border: 1px solid var(--ac-rule);
+        border-radius: var(--ac-r-lg);
+        background: var(--ac-surface);
+        transition:
+            transform var(--ac-mid) var(--ac-ease),
+            border-color var(--ac-mid) var(--ac-ease),
+            box-shadow var(--ac-mid) var(--ac-ease);
+    }
+
+    .ac-kit > li::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: inherit;
+        opacity: 0;
+        background: radial-gradient(16rem 12rem at var(--ac-mx) var(--ac-my),
+                var(--ac-cobalt-wash), transparent 66%);
+        transition: opacity var(--ac-mid) var(--ac-ease);
+    }
+
+    .ac-kit > li:hover {
+        transform: translateY(-4px);
+        border-color: var(--ac-rule-mid);
+        box-shadow: var(--ac-drop-sm);
+    }
+
+    .ac-kit > li:hover::before {
+        opacity: 1;
+    }
+
+    .ac-kit-icon {
+        display: grid;
+        place-items: center;
+        inline-size: 2.7rem;
+        block-size: 2.7rem;
+        border: 1px solid var(--ac-rule-mid);
+        border-radius: var(--ac-r-md);
+        background: var(--ac-cell);
+        color: var(--ac-cobalt);
+        font-size: 1.05rem;
+    }
+
+    .ac-kit strong {
+        font-family: var(--ac-display);
+        font-size: 1.04rem;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+    }
+
+    .ac-kit p {
+        font-size: 0.92rem;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-kit .ac-tag {
+        color: var(--ac-teal);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.11 · Comparativa
+       Tabla de verdad, con semántica de tabla: encabezados de fila y
+       de columna, y una leyenda. Es el formato que este público lee
+       todos los días.
+       ──────────────────────────────────────────────────────────── */
+    .ac-table-wrap {
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        border: 1px solid var(--ac-rule);
+        border-radius: var(--ac-r-lg);
+        background: var(--ac-surface);
+    }
+
+    .ac-table-wrap:focus-visible {
+        outline: 2px solid var(--ac-cobalt);
+        outline-offset: 3px;
+    }
+
+    .ac-table {
+        inline-size: 100%;
+        border-collapse: collapse;
+        font-size: 0.92rem;
+    }
+
+    .ac-table caption {
+        padding: 1rem clamp(1.1rem, 2.4vw, 1.6rem);
+        border-block-end: 1px solid var(--ac-rule-mid);
+        background: var(--ac-raised);
+        font-family: var(--ac-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ac-txt-dim);
+        text-align: start;
+    }
+
+    .ac-table th,
+    .ac-table td {
+        padding: 0.85rem clamp(0.8rem, 1.8vw, 1.2rem);
+        text-align: start;
+        vertical-align: top;
+        border-block-start: 1px solid var(--ac-rule);
+    }
+
+    .ac-table thead th {
+        border-block-start: 0;
+        font-family: var(--ac-mono);
+        font-size: 0.66rem;
+        font-weight: 500;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--ac-txt-dim);
+        white-space: nowrap;
+    }
+
+    .ac-table thead th:first-child {
+        inline-size: 30%;
+    }
+
+    /* La columna propia se destaca con fondo, no con negritas: las
+       negritas en toda una columna dejan de leerse como énfasis. */
+    .ac-table :where(th, td).ac-mine {
+        background: var(--ac-cobalt-wash);
+    }
+
+    .ac-table tbody th {
+        font-weight: 600;
+        color: var(--ac-txt);
+    }
+
+    .ac-table tbody tr:hover :where(th, td) {
+        background: var(--ac-cell);
+    }
+
+    .ac-table tbody tr:hover :where(th, td).ac-mine {
+        background: var(--ac-cobalt-wash);
+    }
+
+    .ac-table td {
+        color: var(--ac-txt-soft);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.12 · Alcance: lo que sí y lo que no
+       La pieza de cumplimiento. En esta categoría es también la pieza
+       de venta: quien teme una auditoría compra certeza, no promesas.
+       ──────────────────────────────────────────────────────────── */
+    .ac-scope {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+        gap: clamp(1rem, 2.2vw, 1.5rem);
+    }
+
+    .ac-scope-col {
+        padding: clamp(1.4rem, 2.8vw, 2rem);
+        border: 1px solid var(--ac-rule);
+        border-radius: var(--ac-r-lg);
+        background: var(--ac-surface);
+    }
+
+    .ac-scope-col h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin-block-end: 1.05rem;
+    }
+
+    .ac-scope-col ul {
+        display: grid;
+        gap: 0.8rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .ac-scope-col li {
+        display: grid;
+        grid-template-columns: 1.3rem minmax(0, 1fr);
+        gap: 0.7rem;
+        font-size: 0.95rem;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-scope-col li i {
+        margin-block-start: 0.26rem;
+    }
+
+    .ac-yes {
+        border-color: rgba(47, 179, 155, 0.26);
+    }
+
+    .ac-yes h3 i,
+    .ac-yes li i {
+        color: var(--ac-teal);
+    }
+
+    .ac-no h3 i,
+    .ac-no li i {
+        color: var(--ac-red);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.13 · Inversión
+       Precio a la vista, formas de pago y la política de devolución
+       REAL, citada y enlazada. La versión anterior prometía "30 días
+       sin preguntas + $1,000 por tu tiempo", que contradice de frente
+       la política publicada en /reembolsos y es justo el tipo de
+       oferta que la PROFECO sanciona.
+       ──────────────────────────────────────────────────────────── */
+    .ac-price {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.9fr);
+        gap: 1px;
+        border: 1px solid var(--ac-rule-mid);
+        border-radius: var(--ac-r-lg);
+        background: var(--ac-rule-mid);
+        overflow: hidden;
+        box-shadow: var(--ac-drop);
+    }
+
+    .ac-price-main,
+    .ac-price-side {
+        padding: clamp(1.6rem, 3.2vw, 2.4rem);
+        background: var(--ac-raised);
+    }
+
+    .ac-price-side {
+        background: var(--ac-surface);
+    }
+
+    .ac-amount {
+        display: flex;
+        align-items: baseline;
+        gap: 0.35rem;
+        margin-block: 0.6rem 0.3rem;
+        font-family: var(--ac-mono);
+        font-variant-numeric: tabular-nums slashed-zero;
+        line-height: 1;
+    }
+
+    .ac-amount .ac-cur {
+        font-size: clamp(1.2rem, 1rem + 0.8vw, 1.6rem);
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-amount b {
+        font-size: clamp(2.6rem, 1.8rem + 3.4vw, 4.2rem);
+        font-weight: 600;
+        letter-spacing: -0.03em;
+    }
+
+    .ac-amount .ac-cur-code {
+        font-size: clamp(0.9rem, 0.8rem + 0.4vw, 1.1rem);
+        color: var(--ac-txt-dim);
+        letter-spacing: 0.06em;
+    }
+
+    .ac-pay {
+        display: grid;
+        gap: 0.7rem;
+        margin: 1.4rem 0 0;
+        padding-block-start: 1.2rem;
+        border-block-start: 1px solid var(--ac-rule);
+        list-style: none;
+        padding-inline: 0;
+    }
+
+    .ac-pay li {
+        display: grid;
+        grid-template-columns: 1.3rem minmax(0, 1fr);
+        gap: 0.7rem;
+        font-size: 0.93rem;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-pay i {
+        margin-block-start: 0.26rem;
+        color: var(--ac-cobalt);
+    }
+
+    /* Política de devolución: se cita, no se adorna. */
+    .ac-policy {
+        display: grid;
+        gap: 0.8rem;
+        padding: 1.1rem 1.25rem;
+        border: 1px solid var(--ac-teal);
+        border-radius: var(--ac-r-md);
+        background: var(--ac-teal-wash);
+        font-size: 0.9rem;
+    }
+
+    .ac-policy strong {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-family: var(--ac-display);
+        font-size: 1rem;
+    }
+
+    .ac-policy strong i {
+        color: var(--ac-teal);
+    }
+
+    .ac-policy p {
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-policy a {
+        color: var(--ac-txt);
+        font-weight: 600;
+        text-decoration: none;
+        border-block-end: 1px solid var(--ac-teal);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.14 · FAQ
+       Acordeón nativo: <details name> ya se excluye entre sí. Cero JS.
+       ──────────────────────────────────────────────────────────── */
+    .ac-faq {
+        display: grid;
+        gap: 0.7rem;
+        max-inline-size: 80ch;
+    }
+
+    .ac-faq details {
+        border: 1px solid var(--ac-rule);
+        border-radius: var(--ac-r-md);
+        background: var(--ac-surface);
+        transition: border-color var(--ac-mid) var(--ac-ease), background-color var(--ac-mid) var(--ac-ease);
+    }
+
+    .ac-faq details[open] {
+        border-color: var(--ac-rule-mid);
+        background: var(--ac-raised);
+    }
+
+    .ac-faq summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.1rem 1.25rem;
+        font-family: var(--ac-display);
+        font-size: 1.02rem;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .ac-faq summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .ac-faq summary::marker {
+        content: "";
+    }
+
+    /* Signo de más que gira a menos: en un documento se entiende mejor
+       que una flecha. */
+    .ac-faq summary::after {
+        content: "";
+        flex: 0 0 auto;
+        inline-size: 13px;
+        block-size: 13px;
+        background:
+            linear-gradient(var(--ac-cobalt), var(--ac-cobalt)) center / 100% 2px no-repeat,
+            linear-gradient(var(--ac-cobalt), var(--ac-cobalt)) center / 2px 100% no-repeat;
+        transition: rotate var(--ac-mid) var(--ac-ease);
+    }
+
+    .ac-faq details[open] summary::after {
+        rotate: 45deg;
+        background:
+            linear-gradient(var(--ac-cobalt), var(--ac-cobalt)) center / 100% 2px no-repeat;
+    }
+
+    .ac-faq-body {
+        padding: 0 1.25rem 1.25rem;
+        color: var(--ac-txt-soft);
+        max-inline-size: 64ch;
+    }
+
+    .ac-faq-more {
+        display: flex;
+        gap: 0.8rem;
+        margin-block-start: 0.5rem;
+        padding: 1.05rem 1.25rem;
+        border: 1px dashed var(--ac-rule-mid);
+        border-radius: var(--ac-r-md);
+        font-size: 0.91rem;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-faq-more i {
+        flex: 0 0 auto;
+        margin-block-start: 0.22rem;
+        color: var(--ac-cobalt);
+    }
+
+    .ac-faq-more a {
+        color: var(--ac-cobalt);
+        font-weight: 600;
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: border-color var(--ac-fast) var(--ac-ease);
+    }
+
+    .ac-faq-more a:hover {
+        border-block-end-color: currentColor;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.15 · Formulario de inscripción / informes
+       ──────────────────────────────────────────────────────────── */
+    .ac-enroll {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: clamp(1.4rem, 3vw, 2.4rem);
+        align-items: start;
+    }
+
+    .ac-enroll-aside {
+        padding: clamp(1.5rem, 3vw, 2.1rem);
+        border: 1px solid var(--ac-rule);
+        border-radius: var(--ac-r-lg);
+        background:
+            radial-gradient(26rem 18rem at 10% -10%, var(--ac-cobalt-wash), transparent 62%),
+            var(--ac-surface);
+    }
+
+    .ac-enroll-aside ol {
+        display: grid;
+        gap: 0.9rem;
+        margin: 1.2rem 0 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: ac-step;
+    }
+
+    .ac-enroll-aside li {
+        display: grid;
+        grid-template-columns: 1.7rem minmax(0, 1fr);
+        gap: 0.7rem;
+        font-size: 0.94rem;
+        color: var(--ac-txt-soft);
+        counter-increment: ac-step;
+    }
+
+    .ac-enroll-aside li::before {
+        content: counter(ac-step);
+        font-family: var(--ac-mono);
+        font-size: 0.78rem;
+        color: var(--ac-cobalt);
+        padding-block-start: 0.14rem;
+    }
+
+    .ac-contact {
+        display: grid;
+        gap: 0.55rem;
+        margin-block-start: 1.5rem;
+        padding-block-start: 1.3rem;
+        border-block-start: 1px solid var(--ac-rule);
+        font-size: 0.92rem;
+    }
+
+    .ac-contact a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        color: var(--ac-txt);
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: color var(--ac-fast) var(--ac-ease), border-color var(--ac-fast) var(--ac-ease);
+    }
+
+    .ac-contact a:hover {
+        color: var(--ac-cobalt);
+        border-block-end-color: currentColor;
+    }
+
+    .ac-contact i {
+        color: var(--ac-cobalt);
+    }
+
+    .ac-form {
+        position: relative;
+        padding: clamp(1.5rem, 3vw, 2.3rem);
+        border: 1px solid var(--ac-rule-mid);
+        border-radius: var(--ac-r-lg);
+        background: var(--ac-raised);
+        box-shadow: var(--ac-drop);
+    }
+
+    .ac-field-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(215px, 100%), 1fr));
+        gap: 1rem;
+    }
+
+    .ac-field {
+        display: grid;
+        gap: 0.38rem;
+    }
+
+    .ac-field label {
+        font-size: 0.81rem;
+        font-weight: 600;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-field :where(input, select) {
+        inline-size: 100%;
+        padding: 0.82rem 0.95rem;
+        border: 1px solid var(--ac-rule-mid);
+        border-radius: var(--ac-r-md);
+        background: var(--ac-surface);
+        color: var(--ac-txt);
+        font-family: inherit;
+        font-size: 1rem;
+        transition:
+            border-color var(--ac-fast) var(--ac-ease),
+            box-shadow var(--ac-fast) var(--ac-ease);
+    }
+
+    /* La flecha del select es propia: la del sistema no hereda el
+       color del tema y en grafito se pierde. */
+    .ac-field select {
+        appearance: none;
+        padding-inline-end: 2.5rem;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%234D7CFE' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.95rem center;
+        background-size: 13px 8px;
+    }
+
+    html.light-mode .ac-field select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%232352C9' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    }
+
+    .ac-field :where(input, select):focus-visible {
+        border-color: var(--ac-cobalt);
+        box-shadow: 0 0 0 3px var(--ac-cobalt-wash);
+        outline: none;
+    }
+
+    .ac-field :where(input, select)[aria-invalid="true"] {
+        border-color: var(--ac-red);
+        background: var(--ac-red-wash);
+    }
+
+    .ac-field input::placeholder {
+        color: var(--ac-txt-dim);
+    }
+
+    /* El mensaje ocupa espacio solo cuando existe: así el formulario
+       no salta al validarse. */
+    .ac-err {
+        font-size: 0.79rem;
+        color: var(--ac-red);
+    }
+
+    .ac-err:empty {
+        display: none;
+    }
+
+    /* Región de anuncio. NO usa .ac-err porque esa clase se oculta con
+       :empty, y una región aria-live que desaparece del árbol de
+       accesibilidad deja de anunciar. */
+    .ac-status {
+        min-block-size: 1.25em;
+        margin-block-end: 0.9rem;
+        font-size: 0.86rem;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-consent {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 0.7rem;
+        margin-block-start: 1.3rem;
+        padding-block-start: 1.1rem;
+        border-block-start: 1px solid var(--ac-rule);
+        font-size: 0.82rem;
+        color: var(--ac-txt-dim);
+    }
+
+    .ac-consent input {
+        inline-size: 1.15rem;
+        block-size: 1.15rem;
+        margin: 0.16rem 0 0;
+        accent-color: var(--ac-cobalt);
+    }
+
+    .ac-consent a {
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-form-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-block-start: 1.4rem;
+    }
+
+    .ac-done {
+        display: none;
+        text-align: center;
+    }
+
+    .ac-form[data-sent] .ac-done {
+        display: block;
+        animation: acFadeIn var(--ac-mid) var(--ac-ease-out) both;
+    }
+
+    .ac-form[data-sent] .ac-form-body {
+        display: none;
+    }
+
+    .ac-done-seal {
+        display: grid;
+        place-items: center;
+        inline-size: 3.8rem;
+        block-size: 3.8rem;
+        margin: 0 auto 1.1rem;
+        border: 1px solid var(--ac-teal);
+        border-radius: 50%;
+        background: var(--ac-teal-wash);
+        color: var(--ac-teal);
+        font-size: 1.4rem;
+    }
+
+    .ac-done p {
+        margin-block-start: 0.65rem;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-done-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-block-start: 1.4rem;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.16 · Barra fija de precio
+       En un producto con precio publicado es el elemento de
+       conversión con más impacto: el precio y el botón siempre a la
+       vista, sin cuentas regresivas ni cupos inventados.
+       ──────────────────────────────────────────────────────────── */
+    .ac-rail {
+        position: fixed;
+        inset-inline: 0;
+        inset-block-end: 0;
+        z-index: 1100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.8rem 1.1rem;
+        border-block-start: 1px solid var(--ac-rule-mid);
+        background: color-mix(in srgb, var(--ac-ink) 92%, transparent);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        translate: 0 110%;
+        transition: translate var(--ac-mid) var(--ac-ease-out);
+    }
+
+    @supports not (background: color-mix(in srgb, red 50%, transparent)) {
+        .ac-rail {
+            background: var(--ac-ink);
+        }
+    }
+
+    /* Una regla de clase con display gana al `display: none` que el
+       atributo `hidden` aplica desde la hoja del navegador. Sin esta
+       línea la barra aparece pese a estar marcada como oculta. */
+    .ac-rail[hidden] {
+        display: none;
+    }
+
+    .ac-rail[data-shown] {
+        translate: 0 0;
+    }
+
+    .ac-rail-info strong {
+        display: block;
+        font-family: var(--ac-mono);
+        font-variant-numeric: tabular-nums slashed-zero;
+        font-size: 1.02rem;
+        font-weight: 600;
+    }
+
+    .ac-rail-info span {
+        display: block;
+        font-size: 0.76rem;
+        color: var(--ac-txt-dim);
+    }
+
+    .ac-rail .ac-btn {
+        padding: 0.72rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    .floating-whatsapp {
+        position: fixed;
+        z-index: 1090;
+        inset-block-end: max(22px, env(safe-area-inset-bottom));
+        inset-inline-end: max(22px, env(safe-area-inset-right));
+        display: grid;
+        place-items: center;
+        inline-size: 56px;
+        block-size: 56px;
+        border-radius: 50%;
+        background: #25D366;
+        color: #062A14;
+        font-size: 1.6rem;
+        text-decoration: none;
+        box-shadow: 0 16px 40px -14px rgba(37, 211, 102, 0.6);
+        transition: transform var(--ac-fast) var(--ac-ease), box-shadow var(--ac-mid) var(--ac-ease);
+    }
+
+    .floating-whatsapp:hover {
+        transform: translateY(-3px) scale(1.04);
+        box-shadow: 0 22px 52px -14px rgba(37, 211, 102, 0.7);
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       5.17 · Pie propio — "Cierre de ejercicio"
+
+       Esta página NO usa el pie compartido: footer-modern.css trae
+       otra paleta, otra tipografía y otros radios, y al final de una
+       página que argumenta con sobriedad aparecía un bloque con
+       degradados y formas flotantes. Aquí el pie remata el documento
+       y lleva lo que de verdad se busca al final: la ficha, los datos
+       de contacto y la letra pequeña.
+       ══════════════════════════════════════════════════════════════ */
+    .ac-foot {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        padding-block: clamp(52px, 7vw, 88px) clamp(26px, 4vw, 42px);
+        background: var(--ac-pit);
+        border-block-start: 1px solid var(--ac-rule-mid);
+    }
+
+    /* Línea de cierre: una sola regla de color, como el corte de una
+       hoja de balance. */
+    .ac-foot::before {
+        content: "";
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline: 0;
+        z-index: -1;
+        block-size: 1px;
+        background: linear-gradient(90deg, transparent, var(--ac-cobalt), transparent);
+        opacity: 0.7;
+    }
+
+    .ac-foot-mark {
+        position: absolute;
+        inset-block-end: -0.3em;
+        inset-inline-start: 50%;
+        translate: -50% 0;
+        z-index: -1;
+        font-family: var(--ac-display);
+        font-size: clamp(4rem, 15vw, 13rem);
+        font-weight: 700;
+        letter-spacing: -0.05em;
+        line-height: 1;
+        white-space: nowrap;
+        color: transparent;
+        -webkit-text-stroke: 1px var(--ac-rule);
+        text-stroke: 1px var(--ac-rule);
+        user-select: none;
+        pointer-events: none;
+    }
+
+    .ac-sheet {
+        margin-block-end: clamp(2.2rem, 4.5vw, 3.4rem);
+        border: 1px solid var(--ac-rule);
+        border-radius: var(--ac-r-lg);
+        background: var(--ac-surface);
+        overflow: hidden;
+    }
+
+    .ac-sheet-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.7rem 1.3rem;
+        padding: 1rem clamp(1.1rem, 2.4vw, 1.7rem);
+        border-block-end: 1px solid var(--ac-rule);
+        background: var(--ac-raised);
+    }
+
+    .ac-sheet-head strong {
+        font-family: var(--ac-display);
+        font-size: 1.02rem;
+        font-weight: 600;
+    }
+
+    .ac-sheet-head a {
+        color: var(--ac-cobalt);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: border-color var(--ac-fast) var(--ac-ease);
+    }
+
+    .ac-sheet-head a:hover {
+        border-block-end-color: currentColor;
+    }
+
+    .ac-sheet dl {
+        display: grid;
+        gap: 1px;
+        margin: 0;
+        background: var(--ac-rule);
+    }
+
+    .ac-sheet-row {
+        display: grid;
+        grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+        gap: 0.3rem 1.3rem;
+        padding: 0.9rem clamp(1.1rem, 2.4vw, 1.7rem);
+        background: var(--ac-surface);
+    }
+
+    .ac-sheet-row dt {
+        font-family: var(--ac-mono);
+        font-size: 0.66rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--ac-txt-dim);
+    }
+
+    .ac-sheet-row dd {
+        margin: 0;
+        font-size: 0.94rem;
+    }
+
+    .ac-sheet-row dd b {
+        color: var(--ac-cobalt);
+        font-weight: 600;
+    }
+
+    .ac-foot-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(0, 1fr));
+        gap: clamp(1.7rem, 3.5vw, 2.8rem);
+        padding-block-end: clamp(1.8rem, 3.5vw, 2.6rem);
+        border-block-end: 1px solid var(--ac-rule);
+    }
+
+    .ac-foot-brand p {
+        margin-block: 0.85rem 1.2rem;
+        max-inline-size: 34ch;
+        font-size: 0.9rem;
+        color: var(--ac-txt-soft);
+    }
+
+    .ac-foot-logo {
+        display: inline-block;
+        font-family: var(--ac-display);
+        font-size: 1.42rem;
+        font-weight: 700;
+        letter-spacing: -0.03em;
+        color: var(--ac-txt);
+        text-decoration: none;
+    }
+
+    .ac-foot-logo span {
+        color: var(--ac-cobalt);
+    }
+
+    .ac-socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .ac-socials a {
+        display: grid;
+        place-items: center;
+        inline-size: 40px;
+        block-size: 40px;
+        border: 1px solid var(--ac-rule-mid);
+        border-radius: var(--ac-r-md);
+        color: var(--ac-txt-soft);
+        text-decoration: none;
+        transition:
+            transform var(--ac-fast) var(--ac-ease),
+            border-color var(--ac-fast) var(--ac-ease),
+            background-color var(--ac-fast) var(--ac-ease),
+            color var(--ac-fast) var(--ac-ease);
+    }
+
+    .ac-socials a:hover {
+        transform: translateY(-3px);
+        border-color: var(--ac-cobalt);
+        background: var(--ac-cobalt);
+        color: #F5F8FF;
+    }
+
+    .ac-foot-col h3 {
+        margin-block-end: 0.95rem;
+        font-family: var(--ac-mono);
+        font-size: 0.68rem;
+        font-weight: 500;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--ac-txt-dim);
+    }
+
+    .ac-foot-col ul {
+        display: grid;
+        gap: 0.6rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .ac-foot-col a {
+        display: inline-block;
+        color: var(--ac-txt-soft);
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: color var(--ac-fast) var(--ac-ease), translate var(--ac-fast) var(--ac-ease);
+    }
+
+    .ac-foot-col a:hover {
+        color: var(--ac-cobalt);
+        translate: 4px 0;
+    }
+
+    .ac-foot-col a[aria-current="page"] {
+        color: var(--ac-txt);
+        font-weight: 600;
+    }
+
+    .ac-hours {
+        margin-block-start: 1.2rem;
+        padding-block-start: 1.1rem;
+        border-block-start: 1px solid var(--ac-rule);
+    }
+
+    .ac-hours dl {
+        display: grid;
+        gap: 0.42rem;
+        margin: 0;
+    }
+
+    .ac-hours div {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    /* Guía de puntos entre día y horario: se lee sin esfuerzo aunque
+       las etiquetas tengan largos distintos. */
+    .ac-hours dt {
+        position: relative;
+        flex: 1 1 auto;
+        color: var(--ac-txt-dim);
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .ac-hours dt::after {
+        content: " ......................................................";
+        color: var(--ac-rule-hi);
+    }
+
+    .ac-hours dd {
+        margin: 0;
+        font-family: var(--ac-mono);
+        font-variant-numeric: tabular-nums;
+        color: var(--ac-txt);
+    }
+
+    .ac-colophon {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+        gap: 1.3rem clamp(1.4rem, 3vw, 2.4rem);
+        margin: 0;
+        padding-block: clamp(1.7rem, 3.5vw, 2.4rem);
+        border-block-end: 1px solid var(--ac-rule);
+    }
+
+    .ac-colophon dt {
+        margin-block-end: 0.32rem;
+        font-family: var(--ac-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--ac-cobalt);
+    }
+
+    .ac-colophon dd {
+        margin: 0;
+        font-size: 0.84rem;
+        line-height: 1.55;
+        color: var(--ac-txt-dim);
+    }
+
+    .ac-legal {
+        display: grid;
+        gap: 0.85rem;
+        padding-block-start: clamp(1.5rem, 3vw, 2.1rem);
+        font-size: 0.81rem;
+        line-height: 1.6;
+        color: var(--ac-txt-dim);
+        max-inline-size: 94ch;
+    }
+
+    .ac-legal-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 1.2rem;
+    }
+
+    .ac-legal-links a {
+        color: var(--ac-txt-soft);
+        text-decoration: none;
+        border-block-end: 1px solid var(--ac-rule-mid);
+        transition: color var(--ac-fast) var(--ac-ease), border-color var(--ac-fast) var(--ac-ease);
+    }
+
+    .ac-legal-links a:hover {
+        color: var(--ac-cobalt);
+        border-block-end-color: currentColor;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   6 · MOVIMIENTO
+
+   Regla de la casa: cada animación tiene que tener un motivo que se
+   pueda explicar en una frase. Si no lo tiene, sobra. En una página
+   que vende sobriedad, además, todo el movimiento es corto y sin
+   rebote: nada de resortes ni de zooms.
+   ══════════════════════════════════════════════════════════════════ */
+@layer ac.motion {
+
+    /* ── Revelado al entrar en pantalla ──
+       El estado inicial solo se aplica si el marcador .ac-js existe:
+       si el script falla, la página no se queda en blanco. */
+    .ac-js .ac-rise {
+        opacity: 0;
+        translate: 0 18px;
+        transition:
+            opacity var(--ac-slow) var(--ac-ease),
+            translate var(--ac-slow) var(--ac-ease-out);
+        transition-delay: calc(var(--d, 0) * 60ms);
+    }
+
+    .ac-js .ac-rise.is-in {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    @keyframes acFadeIn {
+        from {
+            opacity: 0;
+            translate: 0 8px;
+        }
+
+        to {
+            opacity: 1;
+            translate: 0 0;
+        }
+    }
+
+    /* ── Cinta de conceptos ──
+       El contenido va duplicado en el HTML y se desplaza exactamente
+       el 50%: bucle perfecto sin medir nada en JS. */
+    @keyframes acTicker {
+        from {
+            translate: 0 0;
+        }
+
+        to {
+            translate: -50% 0;
+        }
+    }
+
+    .ac-ticker-track {
+        animation: acTicker 40s linear infinite;
+    }
+
+    .ac-ticker:hover .ac-ticker-track {
+        animation-play-state: paused;
+    }
+
+    /* ══════════ MOTORES NATIVOS DE SCROLL ══════════
+       Donde el navegador trae scroll-driven animations, el avance de
+       lectura y el trazado de la serie los calcula el compositor y el
+       JS ni se entera. */
+
+    @supports (animation-timeline: scroll()) {
+        .ac-folio-bar {
+            scale: 0 1;
+            animation: acFolio linear both;
+            animation-timeline: scroll(root block);
+        }
+
+        @keyframes acFolio {
+            from {
+                scale: 0 1;
+            }
+
+            to {
+                scale: 1 1;
+            }
+        }
+    }
+
+    @supports (animation-timeline: view()) {
+
+        /* La serie se dibuja mientras el gráfico cruza la pantalla. La
+           animación va en el CONTENEDOR, no en el trazo: así los
+           puntos, que leen la misma propiedad heredada, aparecen a la
+           par que la línea. */
+        .ac-plot {
+            animation: acDraw linear both;
+            animation-timeline: view();
+            animation-range: entry 25% cover 55%;
+        }
+
+        @keyframes acDraw {
+            from {
+                --ac-draw: 0;
+            }
+
+            to {
+                --ac-draw: 1;
+            }
+        }
+
+        /* Revelado sin IntersectionObserver */
+        .ac-js .ac-rise {
+            opacity: 1;
+            translate: 0 0;
+            transition: none;
+            animation: acRise linear both;
+            animation-timeline: view();
+            animation-range: entry 8% cover 24%;
+        }
+
+        @keyframes acRise {
+            from {
+                opacity: 0;
+                translate: 0 22px;
+            }
+
+            to {
+                opacity: 1;
+                translate: 0 0;
+            }
+        }
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   7 · ADAPTACIÓN A DISPOSITIVOS  ·  SIN CAPA A PROPÓSITO
+
+   Este bloque queda fuera de @layer para que gane a cualquier regla
+   de navbar-unified.css y de las capas de arriba sin recurrir a
+   !important.
+
+   Cada apartado documenta el síntoma que evita. Sin esa nota, la
+   siguiente persona que lea el archivo los borra por parecer
+   redundantes: ya pasó una vez.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Anclas bajo la navbar fija ────────────────────────────────
+   Toda la navegación interna son enlaces #ancla. Sin reservar la
+   altura de la barra, el encabezado de destino aterriza detrás de
+   ella. scroll-padding-top lo resuelve en el contenedor de scroll,
+   así que funciona al pulsar un enlace, al recargar con hash y al
+   navegar con el teclado. */
+html:has(body.ac-body) {
+    scroll-behavior: smooth;
+    scroll-padding-top: clamp(84px, 12vh, 116px);
+    /* iOS infla el texto al girar a horizontal si no se fija */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Respaldo para navegadores sin :has() */
+@supports not selector(:has(*)) {
+    html {
+        scroll-padding-top: 100px;
+    }
+}
+
+/* Refuerzo por destino: hay navegadores que ignoran scroll-padding en
+   anclas internas y sí respetan scroll-margin. */
+.ac-body [id]:not(body) {
+    scroll-margin-top: clamp(84px, 12vh, 116px);
+}
+
+/* ── Recorte lateral sin romper sticky ─────────────────────────
+   overflow-x: hidden convierte al body en contenedor de scroll y los
+   descendientes con position: sticky dejan de pegarse. El panel de
+   veredicto del diagnóstico ES sticky, así que aquí no es un detalle.
+   clip recorta igual sin crear scrollport. */
+body.ac-body {
+    overflow-x: clip;
+}
+
+@supports not (overflow-x: clip) {
+    body.ac-body {
+        overflow-x: hidden;
+    }
+}
+
+/* Nota de anchos: en esta hoja no se usa 100vw en ninguna medida de
+   ancho. 100vw incluye la barra de scroll en escritorio, así que
+   cualquier resta se queda corta y aparece scroll horizontal. Se usa
+   100%, 100cqi o max-inline-size. */
+
+/* ── Estados táctiles ──────────────────────────────────────────
+   En iOS el :hover se queda pegado después de tocar: la fila
+   mantiene el tinte de selección hasta que se toca otra cosa, lo que
+   en una tabla es especialmente confuso. */
+@media (hover: none) {
+
+    .ac-kit > li:hover,
+    .ac-btn:hover,
+    .ac-socials a:hover,
+    .ac-opt:hover,
+    .floating-whatsapp:hover {
+        transform: none;
+        translate: none;
+        box-shadow: none;
+        border-color: var(--ac-rule-mid);
+    }
+
+    .ac-kit > li:hover::before,
+    .ac-btn:hover::before {
+        opacity: 0;
+    }
+
+    .ac-risks > li:hover,
+    .ac-row:hover,
+    .ac-weeks > li:hover {
+        background: var(--ac-surface);
+    }
+
+    .ac-risks > li:hover::before,
+    .ac-row:hover::before {
+        scale: 1 0;
+    }
+
+    .ac-table tbody tr:hover :where(th, td) {
+        background: none;
+    }
+
+    .ac-table tbody tr:hover :where(th, td).ac-mine {
+        background: var(--ac-cobalt-wash);
+    }
+
+    .ac-foot-col a:hover {
+        translate: none;
+    }
+
+    .ac-ticker:hover .ac-ticker-track {
+        animation-play-state: running;
+    }
+
+    /* Sin puntero no hay barrido que seguir: se mueve solo, muy
+       despacio, para que el tablero no quede muerto. */
+    .ac-hero-wash {
+        animation: acDrift 24s ease-in-out infinite alternate;
+    }
+
+    @keyframes acDrift {
+        from {
+            --ac-mx: 26%;
+            --ac-my: 24%;
+        }
+
+        to {
+            --ac-mx: 74%;
+            --ac-my: 38%;
+        }
+    }
+}
+
+/* ── Objetivos táctiles ────────────────────────────────────────
+   44 px es el mínimo con el que un dedo acierta sin ampliar. Se
+   consigue con min-height y centrado, sin engordar la tipografía. */
+@media (pointer: coarse) {
+
+    .ac-btn,
+    .ac-contact a,
+    .ac-foot-col a,
+    .ac-legal-links a,
+    .ac-crumbs a,
+    .ac-consent label {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Las opciones del diagnóstico son la interacción principal de la
+       página: si falla el toque, se abandona el cuestionario. */
+    .ac-opt {
+        min-height: 46px;
+        padding-inline: 1.05rem;
+    }
+
+    .ac-socials a {
+        min-height: 48px;
+        inline-size: 48px;
+        block-size: 48px;
+    }
+
+    .ac-faq summary {
+        min-height: 52px;
+    }
+
+    .ac-field :where(input, select) {
+        min-height: 48px;
+        /* Menos de 16px provoca zoom automático en iOS al enfocar */
+        font-size: 16px;
+    }
+
+    .ac-consent input {
+        inline-size: 1.4rem;
+        block-size: 1.4rem;
+    }
+
+    .ac-contact {
+        gap: 0.85rem;
+    }
+}
+
+/* Quita el retardo de 300 ms y el destello azul al tocar */
+.ac-btn,
+.ac-opt,
+.ac-faq summary,
+.ac-socials a,
+.ac-foot-col a,
+.ac-legal-links a,
+.floating-whatsapp,
+.ac-rail a,
+.ac-weeks-wrap,
+.ac-table-wrap {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Área segura en dispositivos con muesca ────────────────────
+   Sin esto la barra de precio y el botón de WhatsApp quedan por
+   debajo del indicador de inicio del iPhone y no se pueden pulsar. */
+.ac-rail {
+    padding-bottom: max(0.8rem, env(safe-area-inset-bottom));
+    padding-left: max(1.1rem, env(safe-area-inset-left));
+    padding-right: max(1.1rem, env(safe-area-inset-right));
+}
+
+/* La barra de precio vive en TODOS los tamaños, no solo en teléfono:
+   es un producto con precio publicado y tenerlo siempre a la vista es
+   el elemento de conversión con más peso de la página. Por eso el
+   botón flotante se coloca por encima de ella y el body reserva su
+   altura desde el principio, en lugar de hacerlo dentro de una
+   consulta de medios. */
+.floating-whatsapp {
+    inset-block-end: calc(86px + env(safe-area-inset-bottom));
+}
+
+/* Sin esta reserva la barra tapaba el aviso legal del pie, que es
+   justo lo que este público lee con más cuidado. */
+body.ac-body {
+    padding-bottom: calc(74px + env(safe-area-inset-bottom));
+}
+
+/* ── Tablet: el hueco entre 721 y 1024 ─────────────────────────
+   Antes las composiciones a dos columnas se colapsaban en 900 y las
+   rejillas en 1080, así que entre esas medidas quedaban columnas de
+   texto demasiado estrechas para leer con comodidad. */
+@media (min-width: 721px) and (max-width: 1024px) {
+
+    .ac-hero-grid,
+    .ac-diag,
+    .ac-enroll,
+    .ac-price {
+        grid-template-columns: minmax(0, 1fr);
+        gap: clamp(1.6rem, 4vw, 2.6rem);
+    }
+
+    /* El veredicto deja de ser sticky al pasar a una columna: pegado
+       arriba y con el cuestionario debajo, tapaba las preguntas. */
+    .ac-verdict {
+        position: static;
+    }
+
+    .ac-price {
+        gap: 1px;
+    }
+
+    /* Ocho semanas en dos filas de cuatro cabían justas; a esta
+       medida quedan 130 px por celda y el título se parte. */
+    .ac-weeks {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* El pliego pasa a dos columnas: la de entregable se apila bajo
+       la descripción para no dejar 90 px de ancho. */
+    .ac-ledger-head {
+        display: none;
+    }
+
+    .ac-row {
+        grid-template-columns: 4rem minmax(0, 1fr);
+    }
+
+    .ac-row h3,
+    .ac-row-do,
+    .ac-row-out {
+        grid-column: 2;
+    }
+
+    .ac-row-week {
+        grid-column: 2;
+        text-align: start;
+    }
+
+    .ac-scope {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* El pie a dos columnas: a cuatro, cada lista de cursos quedaba
+       en 90 px y los nombres se partían en tres renglones. */
+    .ac-foot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .ac-foot-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ── Teléfono ─────────────────────────────────────────────────── */
+@media (max-width: 720px) {
+
+    .ac-hero-grid,
+    .ac-diag,
+    .ac-enroll,
+    .ac-price {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* El gráfico va después del texto: primero el argumento. */
+    .ac-plot {
+        order: 2;
+    }
+
+    .ac-verdict {
+        position: static;
+    }
+
+    /* Los tres elementos de rejilla del renglón (folio, término y
+       glosa) se apilan: folio arriba, término y glosa en la columna 2.
+       Sin asignación explícita la colocación automática manda la
+       glosa a la columna del folio, de 3.4 rem. */
+    .ac-risks > li {
+        grid-template-columns: 2.8rem minmax(0, 1fr);
+        gap: 0.35rem 0.9rem;
+    }
+
+    .ac-risks h3,
+    .ac-risks p {
+        grid-column: 2;
+    }
+
+    .ac-ledger-head {
+        display: none;
+    }
+
+    .ac-row {
+        grid-template-columns: 3.4rem minmax(0, 1fr);
+    }
+
+    .ac-row h3,
+    .ac-row-do,
+    .ac-row-out {
+        grid-column: 2;
+    }
+
+    .ac-row-week {
+        grid-column: 2;
+        text-align: start;
+    }
+
+    /* En teléfono las semanas se deslizan: apilar ocho tarjetas
+       obliga a recorrer dos pantallas para entender un calendario que
+       se lee de un vistazo en horizontal. Y aquí el aviso sí sale. */
+    .ac-weeks {
+        grid-auto-flow: column;
+        grid-template-columns: none;
+        grid-auto-columns: minmax(198px, 78%);
+    }
+
+    .ac-hint {
+        display: block;
+    }
+
+    .ac-foot-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .ac-sheet-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* La marca de agua no cabe: se recorta para no desbordar. */
+    .ac-foot-mark {
+        font-size: 22vw;
+    }
+
+    .ac-form-actions .ac-btn,
+    .ac-done-actions .ac-btn {
+        inline-size: 100%;
+    }
+}
+
+/* ── Teléfono estrecho ─────────────────────────────────────────
+   Por debajo de 400 px el cartel, la ficha y el precio dejan de
+   caber con holgura. */
+@media (max-width: 400px) {
+    .ac-mega {
+        font-size: clamp(1.95rem, 10vw, 2.6rem);
+        letter-spacing: -0.03em;
+    }
+
+    .ac-spec {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ac-amount b {
+        font-size: 2.4rem;
+    }
+
+    .ac-risks > li {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ac-risk-n,
+    .ac-risks h3,
+    .ac-risks p {
+        grid-column: 1;
+    }
+
+    .ac-q {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .ac-q-n {
+        grid-row: auto;
+    }
+
+    .ac-q p,
+    .ac-q-opts {
+        grid-column: 1;
+    }
+
+    /* La guía de puntos de los horarios no cabe: se retira y el dato
+       queda bajo su etiqueta. */
+    .ac-hours dt::after {
+        content: "";
+    }
+
+    .ac-hours div {
+        display: grid;
+        gap: 0.1rem;
+    }
+}
+
+/* ── Teléfono en horizontal ────────────────────────────────────
+   Con 420 px de alto, el relleno vertical del hero deja el titular
+   fuera de pantalla y la barra fija se come un tercio del alto. */
+@media (max-height: 460px) and (orientation: landscape) {
+    .ac-hero {
+        padding-block: 78px 34px;
+    }
+
+    .ac-band {
+        padding-block: 44px;
+    }
+
+    .ac-crumbs {
+        display: none;
+    }
+
+    .ac-plot {
+        display: none;
+    }
+
+    /* Sin barra no hay altura que reservar */
+    .ac-rail {
+        display: none;
+    }
+
+    body.ac-body {
+        padding-bottom: 0;
+    }
+
+    .floating-whatsapp {
+        inset-block-end: max(14px, env(safe-area-inset-bottom));
+    }
+}
+
+/* ── Movimiento reducido ───────────────────────────────────────
+   Si el sistema lo pide se apaga TODO el movimiento no esencial. Las
+   animaciones se apagan UNA A UNA con su estado final escrito al
+   lado: acortar la duración en bloque no sirve, porque con
+   animation-timeline la duración se ignora y con fill: both el último
+   fotograma sigue pisando la declaración base. */
+@media (prefers-reduced-motion: reduce) {
+
+    html:has(body.ac-body) {
+        scroll-behavior: auto;
+    }
+
+    .ac-body *,
+    .ac-body *::before,
+    .ac-body *::after {
+        transition-duration: 0.001ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .ac-ticker-track {
+        animation-name: none;
+    }
+
+    .ac-hero-wash {
+        animation-name: none;
+    }
+
+    /* La serie se muestra ya trazada: si no, el gráfico se queda en
+       blanco y la sección pierde su único apoyo visual. */
+    .ac-plot {
+        animation-name: none;
+        --ac-draw: 1;
+    }
+
+    /* El avance de lectura sí informa, así que no se apaga: pasa al
+       respaldo en JS, que lo mueve sin animación. */
+    .ac-folio-bar {
+        animation-name: none;
+        scale: var(--ac-progress, 0) 1;
+    }
+
+    .ac-js .ac-rise,
+    .ac-form[data-sent] .ac-done {
+        animation-name: none;
+        opacity: 1;
+        translate: none;
+        transform: none;
+    }
+}
+
+/* ── Impresión ─────────────────────────────────────────────────
+   Esta página se imprime para llevarla a una junta o adjuntarla a una
+   solicitud de capacitación. Se quitan barras, decoración y fondos;
+   el temario, la comparativa y el FAQ salen completos; y se revelan
+   las URL de los enlaces. */
+@media print {
+
+    body.ac-body {
+        background: #fff;
+        color: #000;
+        padding-bottom: 0;
+        font-size: 10.5pt;
+    }
+
+    .ac-paper,
+    .nav-pill,
+    .nav-mobile-panel,
+    .nav-mobile-overlay,
+    .nav-skip-link,
+    .ac-folio,
+    .ac-rail,
+    .floating-whatsapp,
+    .ac-hero-wash,
+    .ac-ticker,
+    .ac-foot-mark,
+    .ac-crumbs,
+    .ac-faq-more,
+    .ac-form,
+    .ac-socials,
+    .ac-colophon {
+        display: none !important;
+    }
+
+    .ac-band,
+    .ac-foot {
+        padding-block: 14pt;
+        break-inside: avoid;
+        border-color: #bbb;
+    }
+
+    .ac-kit > li,
+    .ac-scope-col,
+    .ac-row,
+    .ac-weeks > li,
+    .ac-sheet,
+    .ac-price,
+    .ac-quiz,
+    .ac-verdict {
+        break-inside: avoid;
+        border-color: #bbb;
+        background: #fff;
+    }
+
+    /* El calendario y la comparativa salen completos, no recortados */
+    .ac-weeks-wrap,
+    .ac-table-wrap {
+        overflow: visible;
+    }
+
+    .ac-weeks {
+        grid-auto-flow: row;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* En papel no hay clic: el FAQ va abierto */
+    .ac-faq details {
+        background: #fff;
+    }
+
+    .ac-faq-body {
+        display: block !important;
+    }
+
+    /* El veredicto del diagnóstico no se imprime pegado */
+    .ac-verdict {
+        position: static;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #555;
+    }
+}
+
+/* ── Alto contraste del sistema (Windows) ──────────────────────
+   En forced-colors los fondos y sombras se descartan: sin bordes
+   explícitos las tarjetas desaparecen, y todo lo que comunicaba con
+   un tinte de fondo (fila seleccionada, opción marcada, columna
+   propia) deja de distinguirse. */
+@media (forced-colors: active) {
+
+    .ac-kit > li,
+    .ac-scope-col,
+    .ac-quiz,
+    .ac-verdict,
+    .ac-form,
+    .ac-enroll-aside,
+    .ac-spec,
+    .ac-weeks,
+    .ac-ledger,
+    .ac-table-wrap,
+    .ac-faq details,
+    .ac-plot,
+    .ac-policy,
+    .ac-socials a,
+    .ac-opt {
+        border: 1px solid CanvasText;
+    }
+
+    .ac-btn-solid,
+    .ac-opt:has(input:checked),
+    .ac-opt.is-on {
+        background: Highlight;
+        color: HighlightText;
+        border: 1px solid CanvasText;
+    }
+
+    .ac-folio-bar,
+    .ac-meter span {
+        background: Highlight;
+        forced-color-adjust: none;
+    }
+
+    /* La columna propia se marcaba solo con fondo */
+    .ac-table :where(th, td).ac-mine {
+        border-inline: 2px solid Highlight;
+    }
+
+    /* La fila seleccionada también */
+    .ac-row:hover,
+    .ac-risks > li:hover {
+        outline: 1px solid Highlight;
+    }
+
+    .ac-foot-mark {
+        -webkit-text-stroke: 1px CanvasText;
+        text-stroke: 1px CanvasText;
+    }
+}
+
+/* ── Apertura animada del FAQ ──────────────────────────────────
+   Progresivo de verdad: donde existe ::details-content la apertura se
+   interpola; donde no, abre de golpe, que es el comportamiento nativo
+   y sigue siendo correcto. Nada de medir alturas en JS. */
+@supports (interpolate-size: allow-keywords) {
+    body.ac-body {
+        interpolate-size: allow-keywords;
+    }
+}
+
+@supports selector(::details-content) {
+    .ac-faq details::details-content {
+        block-size: 0;
+        overflow: hidden;
+        transition:
+            block-size var(--ac-mid) var(--ac-ease),
+            content-visibility var(--ac-mid) allow-discrete;
+    }
+
+    .ac-faq details[open]::details-content {
+        block-size: auto;
+    }
+}

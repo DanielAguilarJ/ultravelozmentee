@@ -28,7 +28,10 @@ const ROOT = path.join(__dirname, '..');
 /** Hojas propias de las páginas rediseñadas. */
 const HOJAS = [
     'css/universidad-dominical-2026.css',
-    'css/regularizacion-2026.css'
+    'css/regularizacion-2026.css',
+    'css/grandes-lideres-2026.css',
+    'css/alfa-cash-2026.css',
+    'css/ciencia-astronomia-2026.css'
 ];
 
 function leer(rel) {

@@ -1,0 +1,3768 @@
+/* ══════════════════════════════════════════════════════════════════
+   CIENCIA Y ASTRONOMÍA · WorldBrain México
+   Dirección de arte: "CARTA ESTELAR" — atlas celeste y cuaderno de
+   observación.
+
+   Por qué esta dirección, y por qué la anterior estaba mal:
+
+   La versión previa era negro con degradado cian-morado, tarjetas de
+   cristal, emojis y un titular gigante en degradado. Ese conjunto es
+   hoy la plantilla por defecto de cualquier generador: se reconoce a
+   un metro de distancia y no dice nada de astronomía.
+
+   Aquí el lenguaje visual es el de un atlas celeste real y el de una
+   bitácora de observación: retícula de coordenadas con marcas de
+   ascensión recta, paneles reglados a un hilo con marcas de esquina,
+   líneas de constelación dibujadas a mano y datos reales al margen
+   (magnitudes, gravedades, distancias).
+
+   El acento NO es cian ni morado: es el ROJO DE OBSERVATORIO. En un
+   observatorio se trabaja con luz roja porque es la que menos afecta
+   la visión nocturna. Es una decisión con motivo, no una paleta de
+   moda, y basta ella sola para que la página no se parezca a las
+   demás. El segundo acento es el oro de las estrellas cálidas.
+
+   Índigo de noche por defecto; html.light-mode pasa a "carta
+   impresa" sobre papel crema, con el mismo interruptor que el resto
+   del sitio.
+
+   ORDEN DE CAPAS: todo el CSS propio vive en capas, así que cualquier
+   regla sin capa de navbar-unified.css —la única hoja ajena que se
+   carga— gana sin !important. Al final hay un bloque SIN capa a
+   propósito: las correcciones de dispositivo, que deben ganar a todo.
+
+   PRESUPUESTO DE EFECTOS: cada animación que orquesta GSAP tiene aquí
+   su equivalente en CSS o su estado final escrito. Si la biblioteca
+   no llega —CDN caído, conexión lenta, ahorro de datos— la página se
+   ve completa y convierte igual. Eso está marcado caso por caso con
+   la nota "sin GSAP".
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ══════════════ PROPIEDADES REGISTRADAS ══════════════
+   Sin @property un custom property no se interpola: el seguimiento
+   del puntero daría saltos y GSAP no podría animar el avance de las
+   líneas de la constelación. */
+
+@property --as-mx {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+}
+
+@property --as-my {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 30%;
+}
+
+/* Avance del trazado de constelación, 0 a 1 */
+@property --as-draw {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+}
+
+/* Posición del recorrido de escala, 0 a 1. La escribe ScrollTrigger
+   con scrub; el CSS la traduce a escala y opacidad. */
+@property --as-zoom {
+    syntax: '<number>';
+    inherits: true;
+    initial-value: 0;
+}
+
+@layer as.tokens, as.base, as.type, as.layout, as.components, as.motion;
+
+/* ══════════════════════════════════════════════════════════════════
+   1 · TOKENS
+   ══════════════════════════════════════════════════════════════════ */
+@layer as.tokens {
+    :root {
+        /* Cielo: índigo profundo, nunca negro puro. El negro puro
+           aplana las estrellas y delata el degradado. */
+        --as-night: #070A14;
+        --as-deep: #0B1020;
+        --as-surface: #121A2E;
+        --as-raised: #18223A;
+        --as-cell: #1F2B47;
+
+        /* Trazos: son reglas de una carta, a un hilo */
+        --as-rule: rgba(226, 232, 245, 0.10);
+        --as-rule-mid: rgba(226, 232, 245, 0.19);
+        --as-rule-hi: rgba(226, 232, 245, 0.34);
+
+        /* Texto */
+        --as-ink: #E9ECF6;
+        --as-ink-soft: #A7B0C6;
+        --as-ink-dim: #6E7893;
+
+        /* Acentos. Rojo de observatorio como primario, oro de
+           magnitud como secundario, verde de verificado. */
+        --as-red: #E4573D;
+        --as-red-deep: #B93A24;
+        --as-gold: #E8C36B;
+        --as-sage: #62A98A;
+
+        --as-red-wash: rgba(228, 87, 61, 0.13);
+        --as-gold-wash: rgba(232, 195, 107, 0.12);
+        --as-sage-wash: rgba(98, 169, 138, 0.12);
+
+        /* Tipografía. Fraunces con el eje WONK activo para el cartel:
+           es una serif de alto contraste con carácter, del linaje de
+           las cartas celestes grabadas. */
+        --as-display: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+        --as-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        --as-mono: 'IBM Plex Mono', ui-monospace, 'SF Mono', Menlo, monospace;
+
+        /* Métrica */
+        --as-max: 1220px;
+        --as-read: 66ch;
+        --as-gutter: clamp(18px, 5vw, 54px);
+        --as-band: clamp(68px, 9vw, 130px);
+        --as-r: 3px;
+        --as-r-md: 10px;
+        --as-r-lg: 18px;
+
+        /* Paso de la retícula de coordenadas */
+        --as-grid: 30px;
+
+        /* Movimiento: una sola curva en toda la página. Se comparte
+           con GSAP, que usa su equivalente 'power2.out'. */
+        --as-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+        --as-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        --as-fast: 160ms;
+        --as-mid: 300ms;
+        --as-slow: 620ms;
+
+        --as-drop: 0 32px 70px -30px rgba(0, 0, 0, 0.85);
+        --as-drop-sm: 0 14px 30px -16px rgba(0, 0, 0, 0.72);
+        --as-glow: 0 0 0 1px rgba(228, 87, 61, 0.3), 0 20px 54px -24px rgba(228, 87, 61, 0.42);
+    }
+
+    /* Carta impresa. Los acentos bajan de luminosidad para que el
+       texto siga pasando contraste AA sobre papel. */
+    html.light-mode {
+        --as-night: #F1EDE2;
+        --as-deep: #F7F4EC;
+        --as-surface: #FFFDF8;
+        --as-raised: #FFFFFF;
+        --as-cell: #EDE7D9;
+
+        --as-rule: rgba(11, 16, 32, 0.12);
+        --as-rule-mid: rgba(11, 16, 32, 0.2);
+        --as-rule-hi: rgba(11, 16, 32, 0.4);
+
+        --as-ink: #0B1020;
+        --as-ink-soft: #4A5468;
+        --as-ink-dim: #71798C;
+
+        --as-red: #B4341C;
+        --as-red-deep: #8C2513;
+        --as-gold: #8A6A12;
+        --as-sage: #2F6B52;
+
+        --as-red-wash: rgba(180, 52, 28, 0.08);
+        --as-gold-wash: rgba(138, 106, 18, 0.09);
+        --as-sage-wash: rgba(47, 107, 82, 0.08);
+
+        --as-drop: 0 28px 60px -32px rgba(11, 16, 32, 0.22);
+        --as-drop-sm: 0 12px 26px -16px rgba(11, 16, 32, 0.16);
+        --as-glow: 0 0 0 1px rgba(180, 52, 28, 0.24), 0 18px 46px -26px rgba(180, 52, 28, 0.22);
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2 · BASE
+   ══════════════════════════════════════════════════════════════════ */
+@layer as.base {
+
+    /* Reset de caja global: navbar-unified.css se escribió para
+       páginas que ya lo traían, y sin él el menú móvil se descoloca. */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body.as-body {
+        margin: 0;
+        background: var(--as-night);
+        color: var(--as-ink);
+        font-family: var(--as-body);
+        font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-synthesis-weight: none;
+    }
+
+    /* ── Cielo de fondo ──
+       Dos capas: esta, que es CSS puro y siempre está, y encima el
+       lienzo WebGL, que solo aparece si el dispositivo puede con él.
+
+       Es decir: el degradado y las estrellas de abajo NO son un
+       respaldo pobre. Son el fondo real de la página. El sombreador
+       añade nebulosa y centelleo cuando hay margen para ello. */
+    .as-sky {
+        position: fixed;
+        inset: 0;
+        z-index: -2;
+        pointer-events: none;
+        background:
+            radial-gradient(120% 80% at 50% -10%, rgba(228, 87, 61, 0.10), transparent 55%),
+            radial-gradient(90% 70% at 85% 15%, rgba(232, 195, 107, 0.06), transparent 60%),
+            linear-gradient(180deg, var(--as-deep), var(--as-night) 70%);
+    }
+
+    /* Campo de estrellas en CSS: tres capas de puntos con
+       radial-gradient repetido. Cuesta cero peticiones y cero JS. */
+    .as-sky::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+            radial-gradient(1.4px 1.4px at 20% 30%, rgba(255, 255, 255, 0.85), transparent 100%),
+            radial-gradient(1.1px 1.1px at 68% 12%, rgba(255, 255, 255, 0.7), transparent 100%),
+            radial-gradient(1.6px 1.6px at 84% 62%, rgba(232, 195, 107, 0.8), transparent 100%),
+            radial-gradient(1px 1px at 12% 74%, rgba(255, 255, 255, 0.6), transparent 100%),
+            radial-gradient(1.3px 1.3px at 46% 86%, rgba(255, 255, 255, 0.75), transparent 100%),
+            radial-gradient(1px 1px at 92% 34%, rgba(255, 255, 255, 0.55), transparent 100%);
+        background-size: 340px 340px, 460px 460px, 520px 520px, 300px 300px, 620px 620px, 380px 380px;
+        opacity: 0.9;
+    }
+
+    /* Retícula de coordenadas: la firma del atlas. Se apaga hacia los
+       bordes para no competir con el texto. */
+    .as-sky::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background-image:
+            linear-gradient(var(--as-rule) 1px, transparent 1px),
+            linear-gradient(90deg, var(--as-rule) 1px, transparent 1px);
+        background-size: var(--as-grid) var(--as-grid);
+        mask-image: radial-gradient(130% 95% at 50% 0%, #000 15%, transparent 72%);
+        -webkit-mask-image: radial-gradient(130% 95% at 50% 0%, #000 15%, transparent 72%);
+        opacity: 0.85;
+    }
+
+    /* En carta impresa el cielo no tiene sentido: se convierte en
+       papel con textura y la retícula se vuelve la del cuaderno. */
+    html.light-mode .as-sky {
+        background:
+            radial-gradient(120% 80% at 50% -10%, rgba(180, 52, 28, 0.06), transparent 55%),
+            linear-gradient(180deg, var(--as-deep), var(--as-night) 70%);
+    }
+
+    html.light-mode .as-sky::before {
+        opacity: 0.16;
+        filter: invert(1);
+    }
+
+    /* El lienzo del sombreador. Nace oculto: el script lo revela solo
+       si consiguió un contexto WebGL y si el dispositivo pasa la
+       puerta de capacidades. */
+    .as-shader {
+        position: fixed;
+        inset: 0;
+        z-index: -1;
+        display: block;
+        inline-size: 100%;
+        block-size: 100%;
+        pointer-events: none;
+        opacity: 0;
+        transition: opacity 900ms var(--as-ease);
+    }
+
+    .as-shader[data-on] {
+        opacity: 1;
+    }
+
+    .as-body :where(main, footer.as-foot) :where(p, ul, ol, dl, figure, blockquote, table) {
+        margin: 0;
+    }
+
+    .as-body img,
+    .as-body svg {
+        max-width: 100%;
+    }
+
+    /* Un solo estilo de foco, visible sobre índigo y sobre papel */
+    .as-body :where(a, button, summary, input, select, [tabindex]):focus-visible {
+        outline: 2px solid var(--as-red);
+        outline-offset: 3px;
+        border-radius: var(--as-r);
+    }
+
+    /* En SVG el outline se recorta: se usa un anillo dibujado */
+    .as-body svg :where(g, circle, a)[tabindex]:focus-visible {
+        outline: none;
+    }
+
+    .as-body ::selection {
+        background: var(--as-red);
+        color: #FFF6F2;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   3 · TIPOGRAFÍA
+   Tres funciones separadas: cartel (Fraunces, con WONK), lectura
+   (Inter) y DATO (IBM Plex Mono). La tercera es la que da autoridad:
+   en astronomía las cifras son coordenadas y magnitudes, no adornos.
+   ══════════════════════════════════════════════════════════════════ */
+@layer as.type {
+
+    .as-mega,
+    .as-h2,
+    .as-h3 {
+        font-family: var(--as-display);
+        font-weight: 600;
+        letter-spacing: -0.022em;
+        line-height: 1.04;
+        text-wrap: balance;
+        margin: 0;
+    }
+
+    /* El eje WONK inclina la terminación de algunas letras. Es lo que
+       le quita el aire de plantilla al titular. */
+    .as-mega {
+        font-size: clamp(2.25rem, 1.2rem + 4.7vw, 4.5rem);
+        font-weight: 600;
+        line-height: 0.99;
+        letter-spacing: -0.03em;
+        font-variation-settings: 'SOFT' 30, 'WONK' 1, 'opsz' 120;
+    }
+
+    .as-h2 {
+        font-size: clamp(1.65rem, 1.2rem + 2.2vw, 2.8rem);
+        font-variation-settings: 'SOFT' 24, 'WONK' 1, 'opsz' 72;
+    }
+
+    .as-h3 {
+        font-size: clamp(1.06rem, 1rem + 0.7vw, 1.38rem);
+        font-weight: 600;
+        line-height: 1.2;
+        font-variation-settings: 'SOFT' 18, 'WONK' 0, 'opsz' 24;
+    }
+
+    /* Antetítulo con folio de carta: mayúsculas espaciadas en mono,
+       precedidas de una marca de ascensión recta. */
+    .as-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.65rem;
+        margin: 0 0 1rem;
+        font-family: var(--as-mono);
+        font-size: 0.71rem;
+        font-weight: 500;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--as-red);
+    }
+
+    .as-eyebrow::before {
+        content: "";
+        inline-size: clamp(16px, 4vw, 36px);
+        block-size: 1px;
+        background: currentColor;
+        opacity: 0.6;
+    }
+
+    .as-lead {
+        max-inline-size: var(--as-read);
+        font-size: clamp(1.04rem, 1rem + 0.5vw, 1.22rem);
+        line-height: 1.62;
+        color: var(--as-ink-soft);
+        text-wrap: pretty;
+    }
+
+    .as-body main strong {
+        color: var(--as-ink);
+        font-weight: 600;
+    }
+
+    /* DATO: monoespaciado, tabular y con cero rebanado. */
+    .as-fig {
+        font-family: var(--as-mono);
+        font-variant-numeric: tabular-nums slashed-zero;
+        font-feature-settings: 'tnum' 1, 'zero' 1;
+        letter-spacing: -0.01em;
+    }
+
+    /* El contador arranca en 0 y sube. Sin reservar su ancho final el
+       texto de al lado se desplaza en cada fotograma. El JS escribe
+       --digits al montar. */
+    .as-count {
+        display: inline-block;
+        min-inline-size: calc(var(--digits, 2) * 1ch);
+        text-align: end;
+    }
+
+    .as-tag {
+        font-family: var(--as-mono);
+        font-size: 0.67rem;
+        font-weight: 500;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--as-ink-dim);
+    }
+
+    /* Término subrayado a mano, como una anotación al margen del
+       atlas. El trazo es un SVG para que siga al texto cuando parte
+       en dos renglones. */
+    .as-mark {
+        color: var(--as-gold);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 10' preserveAspectRatio='none'%3E%3Cpath d='M1 7 C 30 3, 60 8, 90 5 S 128 7, 139 4' fill='none' stroke='%23E8C36B' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: 0 100%;
+        background-size: 100% 0.3em;
+        padding-bottom: 0.1em;
+    }
+
+    html.light-mode .as-mark {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 140 10' preserveAspectRatio='none'%3E%3Cpath d='M1 7 C 30 3, 60 8, 90 5 S 128 7, 139 4' fill='none' stroke='%238A6A12' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   4 · RETÍCULA
+   Composición de cuaderno de campo: columna de lectura estrecha y un
+   margen ancho para las anotaciones con datos.
+   ══════════════════════════════════════════════════════════════════ */
+@layer as.layout {
+    .as-wrap {
+        max-inline-size: var(--as-max);
+        margin-inline: auto;
+        padding-inline: var(--as-gutter);
+    }
+
+    .as-band {
+        position: relative;
+        padding-block: var(--as-band);
+    }
+
+    .as-band + .as-band {
+        border-top: 1px solid var(--as-rule);
+    }
+
+    .as-head {
+        display: grid;
+        gap: 1rem;
+        margin-block-end: clamp(2.2rem, 4.5vw, 3.6rem);
+        max-inline-size: 60ch;
+    }
+
+    /* Dos columnas desiguales: texto y margen de anotaciones */
+    .as-spread {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 20rem);
+        gap: clamp(1.8rem, 4vw, 3.4rem);
+        align-items: start;
+    }
+
+    /* Anotación al margen: hoja de papel sobre el cielo */
+    .as-note-card {
+        padding: 1.1rem 1.25rem;
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-md);
+        background: var(--as-surface);
+        font-size: 0.9rem;
+        color: var(--as-ink-soft);
+    }
+
+    .as-note-card + .as-note-card {
+        margin-block-start: 1rem;
+    }
+
+    .as-note-card strong {
+        display: block;
+        margin-block-end: 0.4rem;
+        font-family: var(--as-display);
+        font-size: 1rem;
+        color: var(--as-ink);
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5 · COMPONENTES
+   ══════════════════════════════════════════════════════════════════ */
+@layer as.components {
+
+    /* ────────────────────────────────────────────────────────────
+       5.1 · Ruta de navegación
+       El JSON-LD declara un BreadcrumbList; sin miga visible eso es
+       una incongruencia. Va dentro del hero, alineada con el titular:
+       la navbar del sitio es una píldora centrada y no ofrece un
+       borde con el que alinearse.
+       ──────────────────────────────────────────────────────────── */
+    .as-crumbs ol {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-family: var(--as-mono);
+        font-size: 0.73rem;
+        color: var(--as-ink-dim);
+    }
+
+    .as-crumbs li + li::before {
+        content: "/";
+        margin-inline-end: 0.5rem;
+        color: var(--as-rule-hi);
+    }
+
+    .as-crumbs a {
+        color: var(--as-ink-soft);
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: color var(--as-fast) var(--as-ease), border-color var(--as-fast) var(--as-ease);
+    }
+
+    .as-crumbs a:hover {
+        color: var(--as-red);
+        border-block-end-color: currentColor;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.2 · Avance de lectura
+       Con scroll-driven animations lo mueve el compositor; si no, el
+       JS escribe --as-progress. GSAP no interviene aquí a propósito:
+       sería usar 46 KB para algo que el navegador ya hace gratis.
+       ──────────────────────────────────────────────────────────── */
+    .as-folio {
+        position: fixed;
+        inset-block-start: 0;
+        inset-inline: 0;
+        z-index: 1200;
+        block-size: 2px;
+        pointer-events: none;
+        background: var(--as-rule);
+    }
+
+    .as-folio-bar {
+        display: block;
+        block-size: 100%;
+        transform-origin: left center;
+        scale: var(--as-progress, 0) 1;
+        background: linear-gradient(90deg, var(--as-red), var(--as-gold));
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.3 · Botones
+       ──────────────────────────────────────────────────────────── */
+    .as-btn {
+        --as-mx: 50%;
+        --as-my: 50%;
+        position: relative;
+        isolation: isolate;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.6rem;
+        padding: 0.98rem 1.6rem;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        font-family: var(--as-body);
+        font-size: 0.97rem;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+        overflow: hidden;
+        transition:
+            transform var(--as-fast) var(--as-ease),
+            box-shadow var(--as-mid) var(--as-ease),
+            border-color var(--as-fast) var(--as-ease),
+            background-color var(--as-fast) var(--as-ease),
+            --as-mx var(--as-fast) linear,
+            --as-my var(--as-fast) linear;
+    }
+
+    .as-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        opacity: 0;
+        background: radial-gradient(12rem 8rem at var(--as-mx) var(--as-my),
+                rgba(255, 255, 255, 0.4), transparent 70%);
+        transition: opacity var(--as-mid) var(--as-ease);
+    }
+
+    .as-btn:hover::before,
+    .as-btn:focus-visible::before {
+        opacity: 1;
+    }
+
+    .as-btn-solid {
+        background: linear-gradient(140deg, var(--as-red), var(--as-red-deep));
+        color: #FFF6F2;
+        box-shadow: var(--as-glow);
+    }
+
+    .as-btn-solid:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 0 1px rgba(228, 87, 61, 0.46), 0 26px 62px -22px rgba(228, 87, 61, 0.5);
+    }
+
+    .as-btn-line {
+        background: transparent;
+        border-color: var(--as-rule-mid);
+        color: var(--as-ink);
+    }
+
+    .as-btn-line:hover {
+        transform: translateY(-2px);
+        border-color: var(--as-rule-hi);
+        background-color: var(--as-surface);
+    }
+
+    .as-btn-block {
+        inline-size: 100%;
+    }
+
+    /* Una regla de clase con display gana al `display: none` que el
+       atributo `hidden` aplica desde la hoja del navegador. */
+    .as-btn[hidden] {
+        display: none;
+    }
+
+    .as-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.85rem 1rem;
+    }
+
+    .as-note {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.5rem;
+        font-size: 0.85rem;
+        color: var(--as-ink-dim);
+    }
+
+    .as-note i {
+        margin-block-start: 0.22rem;
+        color: var(--as-sage);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.4 · HERO
+       ──────────────────────────────────────────────────────────── */
+    .as-hero {
+        position: relative;
+        isolation: isolate;
+        /* Reserva la altura de la navbar fija: mide 48 px y flota a 16 */
+        padding-block: clamp(104px, 14vh, 168px) clamp(48px, 7vw, 88px);
+        overflow: hidden;
+    }
+
+    .as-hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.04fr) minmax(0, 0.96fr);
+        gap: clamp(2.2rem, 4.5vw, 4rem);
+        align-items: center;
+    }
+
+    .as-hero-copy > * + * {
+        margin-block-start: clamp(1.05rem, 2.2vw, 1.6rem);
+    }
+
+    .as-hero-copy > .as-crumbs {
+        margin-block-end: 1rem;
+    }
+
+    .as-hero-copy > .as-crumbs + .as-eyebrow {
+        margin-block-start: 0;
+    }
+
+    /* El titular se parte en renglones EN EL HTML, no por carácter.
+       GSAP los escalona; sin GSAP se ven todos, sin más. Partir por
+       carácter es el recurso que delata una plantilla generada. */
+    .as-line {
+        display: block;
+    }
+
+    /* Ficha del programa: los seis datos que un padre busca antes de
+       leer una línea de venta. La versión anterior no decía ni la
+       edad, que es la primera pregunta de todas. */
+    .as-spec {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(140px, 100%), 1fr));
+        gap: 1px;
+        margin-block-start: clamp(1.8rem, 3.5vw, 2.6rem);
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-md);
+        background: var(--as-rule);
+        overflow: hidden;
+    }
+
+    .as-spec > div {
+        padding: 0.9rem 1.05rem;
+        background: var(--as-surface);
+    }
+
+    .as-spec dt {
+        margin: 0 0 0.28rem;
+        font-family: var(--as-mono);
+        font-size: 0.63rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--as-ink-dim);
+    }
+
+    .as-spec dd {
+        margin: 0;
+        font-family: var(--as-display);
+        font-size: 1.05rem;
+        font-weight: 600;
+        line-height: 1.16;
+    }
+
+    /* ══════════════════════════════════════════════════════════
+       ORRERY · sistema solar en CSS 3D
+
+       Sin three.js: son unos divs con transform-style: preserve-3d.
+       Lo compone la GPU, pesa cero bytes de JavaScript y se apaga con
+       una consulta de medios. three.js son ~600 KB para esto.
+
+       ── LO QUE ESTABA MAL ──
+
+       La primera versión inclinaba el escenario con rotateX(64deg) y
+       dejaba que TODOS los descendientes heredaran esa rotación,
+       porque así funciona preserve-3d. Consecuencias:
+
+       1 · El Sol y los planetas salían aplastados. cos(64°) = 0.44,
+           así que un disco de 43 px se dibujaba como una elipse de
+           43 × 19 px. Las órbitas SÍ deben aplastarse —son
+           circunferencias vistas en ángulo—, pero una esfera se
+           proyecta siempre como un círculo, desde cualquier ángulo.
+
+       2 · El anillo era una raya. Llevaba rotate: x 74deg, que se
+           sumaba a los 64 del escenario: 138°, casi de canto.
+
+       3 · El contra-giro no servía de nada. Giraba el planeta en Z, y
+           un círculo girado en Z se ve idéntico. Lo que hacía falta
+           era deshacer la INCLINACIÓN, no el giro.
+
+       4 · Los bordes de 1 px desaparecían a trozos: aplastados al 44%
+           quedan en 0.44 px arriba y abajo de la elipse, por debajo de
+           lo que el navegador puede pintar. El punteado lo empeoraba.
+
+       5 · La leyenda se montaba encima del diagrama: era absolute con
+           inset-block-end: 0 dentro del mismo cuadrado que el
+           escenario.
+
+       ── CÓMO SE ARREGLA ──
+
+       Cada cuerpo esférico deshace la orientación del escenario, que
+       es la técnica de "billboard": el disco siempre encara a quien
+       mira, y entonces se lee como esfera. La inclinación vive en dos
+       custom properties, así que la inversa se calcula sola y no hay
+       dos números que mantener a mano.
+
+       Componer transformaciones es multiplicar matrices, y el orden
+       importa: la inversa de (Rx·Rz) es (Rz⁻¹·Rx⁻¹), en ese orden.
+       ══════════════════════════════════════════════════════════ */
+    .as-orrery {
+        /* La inclinación de la eclíptica, en un solo sitio. Todo lo que
+           necesita deshacerla lee estas dos. */
+        --as-tilt: 62deg;
+        --as-swing: -14deg;
+        max-inline-size: 34rem;
+        margin-inline: auto;
+        container-type: inline-size;
+    }
+
+    /* La perspectiva vive aquí y no en la figura: así el contenedor de
+       consulta (container-type aplica contain: layout) no interfiere
+       con la cadena 3D, y la leyenda queda fuera del cuadrado. */
+    .as-orrery-view {
+        position: relative;
+        aspect-ratio: 1;
+        perspective: 1100px;
+    }
+
+    .as-orrery-stage {
+        position: absolute;
+        inset: 0;
+        transform-style: preserve-3d;
+        transform: rotateX(var(--as-tilt)) rotateZ(var(--as-swing));
+    }
+
+    /* Órbitas: circunferencias que la inclinación convierte en
+       elipses. Estas SÍ heredan la rotación, es su razón de ser.
+
+       El borde va a 2 px porque la inclinación lo reduce a menos de
+       uno en la parte alta y baja del recorrido. */
+    .as-orbit {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        border: 2px solid var(--as-rule-mid);
+        border-radius: 50%;
+        transform-style: preserve-3d;
+    }
+
+    .as-orbit-1 {
+        inline-size: 38%;
+        block-size: 38%;
+    }
+
+    .as-orbit-2 {
+        inline-size: 64%;
+        block-size: 64%;
+        border-color: var(--as-rule);
+    }
+
+    /* Sólida y con menos opacidad en lugar de punteada: el punteado
+       aplastado se dibuja a tramos desiguales y parece un error.
+
+       El grosor se queda en los 2 px de .as-orbit y NO se afina: la
+       jerarquía entre las tres órbitas la marca el tono, no el ancho.
+       Afinarla a 1.5 px la dejaba en 0.70 px reales en lo alto de la
+       elipse, y por debajo de un pixel el navegador la difumina hasta
+       hacerla dudosa. */
+    .as-orbit-3 {
+        inline-size: 90%;
+        block-size: 90%;
+        border-color: var(--as-rule);
+        opacity: 0.75;
+    }
+
+    /* ── Cuerpos esféricos ──
+       translate coloca; transform deshace la orientación. Se pueden
+       usar los dos porque las propiedades individuales se aplican en
+       un orden fijo: translate, rotate, scale y al final transform.
+
+       El translate va en el espacio ya girado del padre, pero eso da
+       igual: deja el centro del planeta exactamente sobre el punto
+       local de la circunferencia, y ese punto lo proyecta la MISMA
+       matriz que dibuja el borde de la órbita. El planeta cae sobre la
+       elipse al pixel.
+
+       Este transform es el estado en reposo, con la órbita a 0deg. En
+       movimiento lo releva asFace, que además descuenta el giro.  */
+    .as-planet {
+        position: absolute;
+        inset-block-start: 50%;
+        inset-inline-start: 0;
+        translate: -50% -50%;
+        border-radius: 50%;
+        /* Billboard: la inversa de la orientación del escenario. */
+        transform:
+            rotateZ(calc(-1 * var(--as-swing)))
+            rotateX(calc(-1 * var(--as-tilt)));
+    }
+
+    .as-planet::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        /* Terminador: el lado iluminado y el lado en sombra */
+        background: radial-gradient(circle at 32% 30%, rgba(255, 255, 255, 0.55), transparent 58%);
+    }
+
+    /* ── Fase de cada planeta ──
+       Cada uno arranca en un punto distinto de su órbita. NO se hace
+       girando la órbita (eso lo tendría que descontar el billboard),
+       sino colocando el planeta en otro punto de la circunferencia:
+       la posición no afecta a la orientación, así que la matemática
+       del billboard no se entera.
+
+       Punto a phi grados contando desde las 12 y en el sentido del
+       reloj:  arriba = 50% - 50%·cos(phi)
+               izq.   = 50% + 50%·sin(phi)
+
+       Sin esto los tres planetas se alinean a las 9 en el primer
+       fotograma y con movimiento reducido, y parece un fallo. */
+    .as-planet-1 {
+        /* phi 270deg */
+        inline-size: clamp(11px, 3.2cqi, 19px);
+        aspect-ratio: 1;
+        background: var(--as-red);
+        box-shadow: 0 0 14px -2px var(--as-red);
+    }
+
+    .as-planet-2 {
+        /* phi 40deg */
+        inset-block-start: 11.7%;
+        inset-inline-start: 82.14%;
+        inline-size: clamp(16px, 4.8cqi, 28px);
+        aspect-ratio: 1;
+        background: var(--as-gold);
+        box-shadow: 0 0 18px -3px var(--as-gold);
+    }
+
+    .as-planet-3 {
+        /* phi 155deg */
+        inset-block-start: 95.32%;
+        inset-inline-start: 71.13%;
+        inline-size: clamp(9px, 2.8cqi, 16px);
+        aspect-ratio: 1;
+        background: var(--as-sage);
+        box-shadow: 0 0 12px -2px var(--as-sage);
+    }
+
+    /* ── Anillo ──
+       Ya NO es un plano en 3D. Vive dentro del planeta, que encara al
+       observador, y se aplana en 2D con scale. Es exactamente lo que
+       se ve de Saturno desde la Tierra: una elipse muy cerrada, y no
+       depende de ninguna rotación heredada. */
+    .as-ring {
+        position: absolute;
+        inset-block-start: 50%;
+        inset-inline-start: 50%;
+        inline-size: 250%;
+        aspect-ratio: 1;
+        translate: -50% -50%;
+        scale: 1 0.3;
+        border: 1.5px solid var(--as-gold);
+        border-radius: 50%;
+        opacity: 0.6;
+    }
+
+    /* La estrella central. Mismo billboard: sin él era un óvalo. */
+    .as-sun {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        inline-size: clamp(28px, 8.4cqi, 56px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        transform:
+            rotateZ(calc(-1 * var(--as-swing)))
+            rotateX(calc(-1 * var(--as-tilt)));
+        background: radial-gradient(circle at 40% 36%, #FFF3D6, var(--as-gold) 45%, var(--as-red) 100%);
+        box-shadow:
+            0 0 30px -4px var(--as-gold),
+            0 0 80px -10px var(--as-red);
+    }
+
+    /* Halo que respira. Es hijo del Sol, así que ya viene encarado. */
+    .as-sun::after {
+        content: "";
+        position: absolute;
+        inset: -70%;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--as-gold-wash), transparent 62%);
+    }
+
+    /* Etiqueta de escala. En flujo normal, debajo de la figura: antes
+       era absolute dentro del mismo cuadrado y se montaba encima de la
+       órbita exterior. */
+    .as-orrery-cap {
+        margin-block-start: 0.9rem;
+        text-align: center;
+        font-family: var(--as-mono);
+        font-size: 0.66rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--as-ink-dim);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.5 · Cinta de datos
+       NO es una lista de clientes ni de cifras de venta: son hechos
+       astronómicos que el curso cubre, comprobables en cualquier
+       efeméride.
+       ──────────────────────────────────────────────────────────── */
+    .as-ticker {
+        overflow: hidden;
+        border-block: 1px solid var(--as-rule);
+        padding-block: 0.9rem;
+        background: color-mix(in srgb, var(--as-deep) 70%, transparent);
+        mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 9%, #000 91%, transparent);
+    }
+
+    @supports not (background: color-mix(in srgb, red 50%, transparent)) {
+        .as-ticker {
+            background: var(--as-deep);
+        }
+    }
+
+    .as-ticker-track {
+        display: flex;
+        align-items: center;
+        gap: 2rem;
+        inline-size: max-content;
+        font-family: var(--as-mono);
+        font-size: clamp(0.74rem, 0.68rem + 0.3vw, 0.88rem);
+        letter-spacing: 0.05em;
+        color: var(--as-ink-dim);
+    }
+
+    .as-ticker-track b {
+        color: var(--as-gold);
+        font-weight: 500;
+    }
+
+    .as-ticker-track i {
+        font-size: 0.4em;
+        color: var(--as-red);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.6 · Observaciones (el problema, sin miedo)
+       La versión anterior decía "La Escuela Mata la Curiosidad" y
+       "Horas perdidas en TikTok". Eso no describe a un niño: acusa a
+       su madre. Aquí se describen conductas observables, sin culpa.
+       ──────────────────────────────────────────────────────────── */
+    .as-obs {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-block-start: 1px solid var(--as-rule);
+    }
+
+    .as-obs > li {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        grid-template-columns: 3.6rem minmax(0, 22ch) minmax(0, 1fr);
+        gap: 0.5rem 1.6rem;
+        align-items: start;
+        padding-block: clamp(1.4rem, 2.8vw, 2.2rem);
+        border-block-end: 1px solid var(--as-rule);
+        transition: background-color var(--as-mid) var(--as-ease);
+    }
+
+    /* Marca de observación a la izquierda, como en una bitácora */
+    .as-obs > li::before {
+        content: "";
+        position: absolute;
+        inset-block: 0;
+        inset-inline-start: -1.1rem;
+        inline-size: 2px;
+        background: var(--as-red);
+        scale: 1 0;
+        transform-origin: top;
+        transition: scale var(--as-mid) var(--as-ease);
+    }
+
+    .as-obs > li:hover {
+        background: var(--as-red-wash);
+    }
+
+    .as-obs > li:hover::before {
+        scale: 1 1;
+    }
+
+    .as-obs-n {
+        grid-column: 1;
+        font-family: var(--as-mono);
+        font-size: 0.8rem;
+        color: var(--as-ink-dim);
+        padding-block-start: 0.28rem;
+    }
+
+    .as-obs h3 {
+        grid-column: 2;
+    }
+
+    .as-obs p {
+        grid-column: 3;
+        color: var(--as-ink-soft);
+        text-wrap: pretty;
+    }
+
+    .as-caveat {
+        display: flex;
+        gap: 0.85rem;
+        margin-block-start: clamp(1.8rem, 3.5vw, 2.6rem);
+        padding: 1.05rem 1.25rem;
+        border: 1px solid var(--as-rule);
+        border-inline-start: 3px solid var(--as-gold);
+        border-radius: 0 var(--as-r-md) var(--as-r-md) 0;
+        background: var(--as-surface);
+        font-size: 0.9rem;
+        color: var(--as-ink-soft);
+    }
+
+    .as-caveat i {
+        flex: 0 0 auto;
+        margin-block-start: 0.22rem;
+        color: var(--as-gold);
+    }
+}
+
+/* La capa se vuelve a abrir: CSS permite declarar @layer varias veces
+   y el orden ya quedó fijado arriba. Se parte así para que cada
+   apartado quepa en una lectura. */
+@layer as.components {
+
+    /* ════════════════════════════════════════════════════════════
+       5.7 · CONSTELACIÓN INTERACTIVA  ·  pieza central
+       Orión con sus ocho estrellas principales y sus magnitudes
+       reales. Es el elemento interactivo de más valor de la página:
+       enseña algo de verdad, pesa unos 2 KB de marcado y funciona con
+       teclado.
+
+       Las líneas se trazan con stroke-dasharray gobernado por
+       --as-draw. GSAP lo anima al entrar en pantalla; sin GSAP, una
+       casilla del propio usuario lo hace, y en reduced-motion aparece
+       ya trazado. Tres caminos al mismo resultado.
+       ════════════════════════════════════════════════════════════ */
+    .as-chart {
+        display: grid;
+        grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+        gap: clamp(1.4rem, 3vw, 2.4rem);
+        align-items: start;
+    }
+
+    .as-chart-box {
+        position: relative;
+        border: 1px solid var(--as-rule-mid);
+        border-radius: var(--as-r-lg);
+        background:
+            radial-gradient(80% 60% at 50% 30%, rgba(228, 87, 61, 0.06), transparent 70%),
+            var(--as-deep);
+        overflow: hidden;
+    }
+
+    /* Marcas de esquina: el detalle que convierte un rectángulo en
+       una lámina de atlas. */
+    .as-chart-box::before,
+    .as-chart-box::after {
+        content: "";
+        position: absolute;
+        inline-size: 14px;
+        block-size: 14px;
+        border: 1px solid var(--as-rule-hi);
+        pointer-events: none;
+    }
+
+    .as-chart-box::before {
+        inset-block-start: 10px;
+        inset-inline-start: 10px;
+        border-inline-end: 0;
+        border-block-end: 0;
+    }
+
+    .as-chart-box::after {
+        inset-block-end: 10px;
+        inset-inline-end: 10px;
+        border-inline-start: 0;
+        border-block-start: 0;
+    }
+
+    .as-chart-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.5rem 1rem;
+        padding: 0.9rem clamp(1.1rem, 2.4vw, 1.6rem);
+        border-block-end: 1px solid var(--as-rule);
+    }
+
+    .as-chart-head strong {
+        font-family: var(--as-display);
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .as-chart svg {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+    }
+
+    /* Retícula interna de la lámina, con paso de 10 grados */
+    .as-chart-grid line {
+        stroke: var(--as-rule);
+        stroke-width: 0.5;
+    }
+
+    .as-chart-tick {
+        fill: var(--as-ink-dim);
+        font-family: var(--as-mono);
+        font-size: 7px;
+    }
+
+    /* Las líneas de la constelación. pathLength="1" convierte la
+       longitud en fracción, así --as-draw de 0 a 1 hace avanzar el
+       trazo sin conocer su longitud real. */
+    .as-link {
+        fill: none;
+        stroke: var(--as-gold);
+        stroke-width: 1.2;
+        stroke-linecap: round;
+        opacity: 0.75;
+        stroke-dasharray: 1;
+        stroke-dashoffset: calc(1 - var(--as-draw, 0));
+    }
+
+    /* Estrella: el radio lo marca la magnitud real, escrita en el
+       HTML como una custom property. Cuanto menor la magnitud, más
+       brillante, así que el radio es inverso. */
+    .as-star {
+        cursor: pointer;
+    }
+
+    .as-star circle.as-star-body {
+        fill: #FFFFFF;
+        transition: r var(--as-fast) var(--as-ease);
+    }
+
+    /* Halo que reacciona al foco y al puntero */
+    .as-star circle.as-star-halo {
+        fill: var(--as-gold);
+        opacity: 0.14;
+        transition: opacity var(--as-fast) var(--as-ease), r var(--as-mid) var(--as-ease);
+    }
+
+    .as-star:hover circle.as-star-halo,
+    .as-star:focus-visible circle.as-star-halo,
+    .as-star[data-on] circle.as-star-halo {
+        opacity: 0.5;
+    }
+
+    /* El anillo de foco se dibuja, porque en SVG el outline se
+       recorta contra el viewBox. */
+    .as-star circle.as-star-focus {
+        fill: none;
+        stroke: var(--as-red);
+        stroke-width: 1.4;
+        opacity: 0;
+    }
+
+    .as-star:focus-visible circle.as-star-focus,
+    .as-star[data-on] circle.as-star-focus {
+        opacity: 1;
+    }
+
+    /* Nombre junto a la estrella. Solo el de la seleccionada, para no
+       llenar la lámina de texto. */
+    .as-star text {
+        fill: var(--as-ink-soft);
+        font-family: var(--as-mono);
+        font-size: 7.5px;
+        opacity: 0;
+        transition: opacity var(--as-fast) var(--as-ease);
+        pointer-events: none;
+    }
+
+    .as-star:hover text,
+    .as-star:focus-visible text,
+    .as-star[data-on] text {
+        opacity: 1;
+    }
+
+    /* Interruptor de trazado: es una casilla real, así que funciona
+       sin JavaScript. */
+    .as-switch {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        font-family: var(--as-mono);
+        font-size: 0.72rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--as-ink-soft);
+        cursor: pointer;
+    }
+
+    .as-switch input {
+        inline-size: 1.05rem;
+        block-size: 1.05rem;
+        margin: 0;
+        accent-color: var(--as-red);
+    }
+
+    /* Sin JavaScript y sin GSAP: la casilla traza las líneas. El
+       selector va sobre el contenedor porque :has() permite subir. */
+    .as-chart-box:has(.as-switch input:checked) {
+        --as-draw: 1;
+    }
+
+    .as-chart-box:has(.as-switch input:checked) .as-link {
+        transition: stroke-dashoffset 1.4s var(--as-ease);
+    }
+
+    /* Respaldo sin :has(): la clase la pone el JS al cambiar. */
+    .as-chart-box.is-drawn {
+        --as-draw: 1;
+    }
+
+    /* ── Panel de datos de la estrella ── */
+    .as-star-panel {
+        position: sticky;
+        inset-block-start: clamp(96px, 13vh, 128px);
+        display: grid;
+        gap: 0.9rem;
+        padding: clamp(1.3rem, 2.8vw, 1.9rem);
+        border: 1px solid var(--as-rule-mid);
+        border-radius: var(--as-r-lg);
+        background: var(--as-raised);
+        box-shadow: var(--as-drop-sm);
+    }
+
+    .as-star-panel dl {
+        display: grid;
+        gap: 1px;
+        margin: 0;
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-md);
+        background: var(--as-rule);
+        overflow: hidden;
+    }
+
+    .as-star-panel dl > div {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.8rem;
+        padding: 0.62rem 0.85rem;
+        background: var(--as-surface);
+    }
+
+    .as-star-panel dt {
+        font-family: var(--as-mono);
+        font-size: 0.64rem;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--as-ink-dim);
+    }
+
+    .as-star-panel dd {
+        margin: 0;
+        font-family: var(--as-mono);
+        font-variant-numeric: tabular-nums slashed-zero;
+        font-size: 0.86rem;
+        color: var(--as-ink);
+        text-align: end;
+    }
+
+    .as-star-panel p {
+        font-size: 0.9rem;
+        color: var(--as-ink-soft);
+    }
+
+    .as-star-hint {
+        font-family: var(--as-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--as-ink-dim);
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       5.8 · RECORRIDO DE ESCALA
+       Un visual pegado con position: sticky y cuatro pasos de texto
+       que pasan por delante. ScrollTrigger interpola --as-zoom con
+       scrub; el CSS traduce ese número a escala y opacidad.
+
+       Se usa sticky en lugar del `pin` de ScrollTrigger a propósito:
+       `pin` reestructura el DOM e inyecta altura, y eso pelea con
+       scroll-padding-top y con la navegación por anclas. Sticky lo
+       resuelve el navegador y GSAP solo aporta el número.
+       ════════════════════════════════════════════════════════════ */
+    .as-scale {
+        display: grid;
+        grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+        gap: clamp(1.6rem, 4vw, 3.2rem);
+        align-items: start;
+    }
+
+    .as-scale-stage {
+        position: sticky;
+        inset-block-start: clamp(96px, 14vh, 150px);
+        display: grid;
+        place-items: center;
+        aspect-ratio: 1;
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-lg);
+        background:
+            radial-gradient(70% 70% at 50% 50%, rgba(232, 195, 107, 0.06), transparent 70%),
+            var(--as-deep);
+        overflow: hidden;
+    }
+
+    /* Cuatro anillos de escala, uno por paso. Cada uno se agranda y se
+       desvanece según --as-zoom pase por su tramo. */
+    .as-shell {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        display: grid;
+        place-items: center;
+        border: 1px solid var(--as-rule-mid);
+        border-radius: 50%;
+        font-family: var(--as-mono);
+        font-size: 0.64rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--as-ink-dim);
+    }
+
+    .as-shell span {
+        position: absolute;
+        inset-block-start: -0.75em;
+        padding-inline: 0.4rem;
+        background: var(--as-deep);
+    }
+
+    /* El tamaño de cada anillo se calcula con --as-zoom: al avanzar,
+       la vista "se aleja" y los anillos exteriores entran en cuadro. */
+    .as-shell-1 {
+        inline-size: calc(84% - var(--as-zoom, 0) * 66%);
+        aspect-ratio: 1;
+        border-color: var(--as-red);
+        opacity: calc(1 - var(--as-zoom, 0) * 0.55);
+    }
+
+    .as-shell-2 {
+        inline-size: calc(150% - var(--as-zoom, 0) * 96%);
+        aspect-ratio: 1;
+        border-color: var(--as-gold);
+        opacity: calc(0.25 + var(--as-zoom, 0) * 0.6);
+    }
+
+    .as-shell-3 {
+        inline-size: calc(260% - var(--as-zoom, 0) * 176%);
+        aspect-ratio: 1;
+        opacity: calc(var(--as-zoom, 0) * 0.85);
+    }
+
+    .as-shell-4 {
+        inline-size: calc(420% - var(--as-zoom, 0) * 300%);
+        aspect-ratio: 1;
+        border-style: dashed;
+        opacity: calc(max(0, var(--as-zoom, 0) - 0.45) * 1.6);
+    }
+
+    /* Punto de referencia en el centro: la Tierra */
+    .as-scale-home {
+        position: relative;
+        inline-size: clamp(12px, 3.4vw, 20px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle at 34% 32%, #BFD8E8, #2E6D8F 60%, #123A52);
+        box-shadow: 0 0 22px -4px rgba(120, 190, 230, 0.7);
+    }
+
+    /* Los pasos del recorrido */
+    .as-steps {
+        display: grid;
+        gap: clamp(3rem, 12vh, 9rem);
+        margin: 0;
+        padding: clamp(1rem, 6vh, 4rem) 0;
+        list-style: none;
+    }
+
+    .as-step {
+        padding: clamp(1.3rem, 2.6vw, 1.9rem);
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-lg);
+        background: var(--as-surface);
+        transition: border-color var(--as-mid) var(--as-ease), background-color var(--as-mid) var(--as-ease);
+    }
+
+    /* El paso en foco lo marca ScrollTrigger con toggleClass; sin
+       GSAP todos se quedan en su estado base, que ya es legible. */
+    .as-step.is-near {
+        border-color: var(--as-red);
+        background: var(--as-red-wash);
+    }
+
+    .as-step-n {
+        display: block;
+        margin-block-end: 0.45rem;
+        font-family: var(--as-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--as-red);
+    }
+
+    .as-step p {
+        margin-block-start: 0.5rem;
+        color: var(--as-ink-soft);
+        font-size: 0.95rem;
+    }
+
+    .as-step-data {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 1.2rem;
+        margin-block-start: 0.9rem;
+        padding-block-start: 0.8rem;
+        border-block-start: 1px dashed var(--as-rule-mid);
+        font-family: var(--as-mono);
+        font-size: 0.78rem;
+        color: var(--as-gold);
+    }
+}
+
+@layer as.components {
+
+    /* ────────────────────────────────────────────────────────────
+       5.9 · Temario como bitácora de observación
+       Cuatro módulos en filas con folio, qué se hace y qué se
+       entrega. Se seleccionan como renglones de una bitácora.
+       ──────────────────────────────────────────────────────────── */
+    .as-log {
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-lg);
+        background: var(--as-surface);
+        overflow: hidden;
+    }
+
+    .as-log-head {
+        display: grid;
+        grid-template-columns: 4.2rem minmax(0, 1fr) minmax(0, 1fr) 6rem;
+        gap: 1.3rem;
+        padding: 0.78rem clamp(1.1rem, 2.4vw, 1.6rem);
+        border-block-end: 1px solid var(--as-rule-mid);
+        background: var(--as-raised);
+    }
+
+    .as-log-head span {
+        font-family: var(--as-mono);
+        font-size: 0.63rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--as-ink-dim);
+    }
+
+    .as-log ol {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .as-row {
+        position: relative;
+        display: grid;
+        grid-template-columns: 4.2rem minmax(0, 1fr) minmax(0, 1fr) 6rem;
+        gap: 0.5rem 1.3rem;
+        align-items: start;
+        padding: clamp(1.1rem, 2.2vw, 1.5rem) clamp(1.1rem, 2.4vw, 1.6rem);
+        transition: background-color var(--as-fast) var(--as-ease);
+    }
+
+    .as-row + .as-row {
+        border-block-start: 1px solid var(--as-rule);
+    }
+
+    .as-row:hover {
+        background: var(--as-red-wash);
+    }
+
+    .as-row::before {
+        content: "";
+        position: absolute;
+        inset-block: 0;
+        inset-inline-start: 0;
+        inline-size: 2px;
+        background: var(--as-red);
+        scale: 1 0;
+        transform-origin: top;
+        transition: scale var(--as-mid) var(--as-ease);
+    }
+
+    .as-row:hover::before {
+        scale: 1 1;
+    }
+
+    .as-row-n {
+        font-family: var(--as-mono);
+        font-size: 0.8rem;
+        color: var(--as-red);
+        letter-spacing: 0.04em;
+    }
+
+    .as-row h3 {
+        font-size: 1.02rem;
+    }
+
+    .as-row-do {
+        color: var(--as-ink-soft);
+        font-size: 0.93rem;
+    }
+
+    /* El reset de márgenes deja los dos párrafos de la celda pegados */
+    .as-row-do p + p {
+        margin-block-start: 0.55rem;
+    }
+
+    .as-row-out .as-tag {
+        color: var(--as-sage);
+    }
+
+    .as-row-week {
+        font-family: var(--as-mono);
+        font-size: 0.78rem;
+        color: var(--as-ink-dim);
+        text-align: end;
+    }
+
+    /* ════════════════════════════════════════════════════════════
+       5.10 · TU PESO EN OTROS MUNDOS
+       El segundo elemento interactivo. Gravedades superficiales
+       reales, así que el resultado es verificable en cualquier tabla
+       planetaria. Es el gancho que hace que un niño de diez años
+       quiera el curso, y pesa unas veinte líneas de JavaScript.
+       ════════════════════════════════════════════════════════════ */
+    .as-gravity {
+        display: grid;
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+        gap: clamp(1.4rem, 3vw, 2.4rem);
+        align-items: start;
+    }
+
+    .as-gravity-input {
+        padding: clamp(1.3rem, 2.8vw, 1.9rem);
+        border: 1px solid var(--as-rule-mid);
+        border-radius: var(--as-r-lg);
+        background: var(--as-raised);
+    }
+
+    .as-gravity-input label {
+        display: block;
+        margin-block-end: 0.5rem;
+        font-family: var(--as-mono);
+        font-size: 0.68rem;
+        letter-spacing: 0.11em;
+        text-transform: uppercase;
+        color: var(--as-ink-dim);
+    }
+
+    .as-weight-field {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+    }
+
+    .as-weight-field input {
+        inline-size: 100%;
+        min-inline-size: 0;
+        padding: 0.8rem 0.95rem;
+        border: 1px solid var(--as-rule-mid);
+        border-radius: var(--as-r-md);
+        background: var(--as-surface);
+        color: var(--as-ink);
+        font-family: var(--as-mono);
+        font-variant-numeric: tabular-nums slashed-zero;
+        font-size: 1.15rem;
+        font-weight: 500;
+    }
+
+    .as-weight-field input:focus-visible {
+        border-color: var(--as-red);
+        box-shadow: 0 0 0 3px var(--as-red-wash);
+        outline: none;
+    }
+
+    .as-weight-field span {
+        font-family: var(--as-mono);
+        font-size: 0.95rem;
+        color: var(--as-ink-dim);
+    }
+
+    /* Deslizador para que un niño juegue sin teclear */
+    .as-gravity-input input[type="range"] {
+        inline-size: 100%;
+        margin-block-start: 1rem;
+        accent-color: var(--as-red);
+    }
+
+    .as-worlds {
+        display: grid;
+        gap: 1px;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-lg);
+        background: var(--as-rule);
+        overflow: hidden;
+    }
+
+    .as-world {
+        display: grid;
+        grid-template-columns: 2.6rem minmax(0, 1fr) auto;
+        gap: 0.2rem 1rem;
+        align-items: center;
+        padding: 0.85rem clamp(1rem, 2.2vw, 1.4rem);
+        background: var(--as-surface);
+        transition: background-color var(--as-fast) var(--as-ease);
+    }
+
+    .as-world:hover {
+        background: var(--as-cell);
+    }
+
+    /* Disco del mundo, dibujado con gradientes: cada uno con su color
+       real aproximado. Cero imágenes. */
+    .as-world-disc {
+        grid-row: 1 / 3;
+        inline-size: 2.1rem;
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: var(--as-cell);
+        box-shadow: inset -3px -3px 8px rgba(0, 0, 0, 0.45);
+    }
+
+    .as-disc-luna {
+        background: radial-gradient(circle at 34% 30%, #E8E6DF, #9A968C 62%, #5E5B54);
+    }
+
+    .as-disc-marte {
+        background: radial-gradient(circle at 34% 30%, #E8A177, #B4552F 62%, #6E2F1A);
+    }
+
+    .as-disc-venus {
+        background: radial-gradient(circle at 34% 30%, #F6E6BE, #D6AE6A 62%, #8C6E36);
+    }
+
+    .as-disc-jupiter {
+        background:
+            repeating-linear-gradient(0deg,
+                rgba(0, 0, 0, 0.16) 0 3px,
+                transparent 3px 7px),
+            radial-gradient(circle at 34% 30%, #F0DCC0, #C79A6C 60%, #7C5738);
+    }
+
+    .as-disc-pluton {
+        background: radial-gradient(circle at 34% 30%, #DED3C6, #A2907F 60%, #5F5348);
+    }
+
+    .as-world-name {
+        font-family: var(--as-display);
+        font-size: 1rem;
+        font-weight: 600;
+    }
+
+    .as-world-g {
+        grid-column: 2;
+        font-family: var(--as-mono);
+        font-size: 0.72rem;
+        color: var(--as-ink-dim);
+    }
+
+    .as-world-out {
+        grid-column: 3;
+        grid-row: 1 / 3;
+        font-family: var(--as-mono);
+        font-variant-numeric: tabular-nums slashed-zero;
+        font-size: clamp(1.05rem, 1rem + 0.5vw, 1.35rem);
+        font-weight: 500;
+        color: var(--as-gold);
+        text-align: end;
+        white-space: nowrap;
+    }
+
+    /* Barra proporcional al peso, acotada para que Júpiter no rompa
+       la fila. */
+    .as-world-bar {
+        grid-column: 1 / -1;
+        grid-row: 3;
+        block-size: 3px;
+        margin-block-start: 0.5rem;
+        border-radius: 999px;
+        background: var(--as-rule-mid);
+        overflow: hidden;
+    }
+
+    .as-world-bar span {
+        display: block;
+        block-size: 100%;
+        inline-size: calc(var(--as-pct, 0) * 1%);
+        border-radius: 999px;
+        background: linear-gradient(90deg, var(--as-red), var(--as-gold));
+        transition: inline-size var(--as-mid) var(--as-ease-out);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.11 · Niveles por edad
+       Pestañas sin una línea de JavaScript: son radios y el panel se
+       elige con :has(). El navegador aporta el recorrido con flechas y
+       el anuncio "2 de 3". Sin :has() se muestran los tres apilados,
+       que es la degradación correcta.
+       ──────────────────────────────────────────────────────────── */
+    .as-levels {
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-lg);
+        background: var(--as-surface);
+        overflow: hidden;
+    }
+
+    .as-levels-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        min-inline-size: 0;
+        background: var(--as-rule);
+    }
+
+    .as-levels-tabs legend {
+        position: absolute;
+        inline-size: 1px;
+        block-size: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+
+    .as-level-tab {
+        position: relative;
+        display: grid;
+        gap: 0.18rem;
+        padding: 1rem 0.95rem;
+        background: var(--as-deep);
+        cursor: pointer;
+        text-align: center;
+        transition: background-color var(--as-fast) var(--as-ease);
+    }
+
+    .as-level-tab input {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .as-level-tab b {
+        font-family: var(--as-display);
+        font-size: 1.14rem;
+        font-weight: 600;
+    }
+
+    .as-level-tab em {
+        font-family: var(--as-mono);
+        font-size: 0.66rem;
+        font-style: normal;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--as-ink-dim);
+    }
+
+    .as-level-tab:hover {
+        background: var(--as-raised);
+    }
+
+    .as-level-tab:has(input:checked) {
+        background: var(--as-surface);
+        box-shadow: inset 0 3px 0 0 var(--as-red);
+    }
+
+    .as-level-tab:has(input:checked) b {
+        color: var(--as-red);
+    }
+
+    .as-level-tab:has(input:focus-visible) {
+        outline: 2px solid var(--as-red);
+        outline-offset: -3px;
+    }
+
+    .as-level-panel {
+        display: grid;
+        gap: 1rem;
+        padding: clamp(1.3rem, 2.8vw, 2rem);
+    }
+
+    .as-level-panel dl {
+        display: grid;
+        gap: 1rem;
+        margin: 0;
+        grid-template-columns: repeat(auto-fit, minmax(min(215px, 100%), 1fr));
+    }
+
+    .as-level-panel dt {
+        margin-block-end: 0.3rem;
+        font-family: var(--as-mono);
+        font-size: 0.66rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--as-red);
+    }
+
+    .as-level-panel dd {
+        margin: 0;
+        font-size: 0.94rem;
+        color: var(--as-ink-soft);
+    }
+
+    @supports selector(:has(*)) {
+        .as-level-panel {
+            display: none;
+        }
+
+        .as-levels:has(#as-lv-1:checked) [data-level="1"],
+        .as-levels:has(#as-lv-2:checked) [data-level="2"],
+        .as-levels:has(#as-lv-3:checked) [data-level="3"] {
+            display: grid;
+        }
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.12 · Alcance
+       Reemplaza a las cifras inventadas y a los tres testimonios sin
+       consentimiento de la versión anterior. En una página dirigida a
+       padres, la transparencia convierte más que una estrella de más.
+       ──────────────────────────────────────────────────────────── */
+    .as-scope {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+        gap: clamp(1rem, 2.2vw, 1.5rem);
+    }
+
+    .as-scope-col {
+        padding: clamp(1.4rem, 2.8vw, 2rem);
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-lg);
+        background: var(--as-surface);
+    }
+
+    .as-scope-col h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.55rem;
+        margin-block-end: 1rem;
+    }
+
+    .as-scope-col ul {
+        display: grid;
+        gap: 0.8rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .as-scope-col li {
+        display: grid;
+        grid-template-columns: 1.3rem minmax(0, 1fr);
+        gap: 0.7rem;
+        font-size: 0.95rem;
+        color: var(--as-ink-soft);
+    }
+
+    .as-scope-col li i {
+        margin-block-start: 0.26rem;
+    }
+
+    .as-yes {
+        border-color: rgba(98, 169, 138, 0.28);
+    }
+
+    .as-yes h3 i,
+    .as-yes li i {
+        color: var(--as-sage);
+    }
+
+    .as-no h3 i,
+    .as-no li i {
+        color: var(--as-red);
+    }
+}
+
+@layer as.components {
+
+    /* ────────────────────────────────────────────────────────────
+       5.13 · FAQ
+       Acordeón nativo: <details name> ya se excluye entre sí. Cero JS.
+       ──────────────────────────────────────────────────────────── */
+    .as-faq {
+        display: grid;
+        gap: 0.7rem;
+        max-inline-size: 80ch;
+    }
+
+    .as-faq details {
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-md);
+        background: var(--as-surface);
+        transition: border-color var(--as-mid) var(--as-ease), background-color var(--as-mid) var(--as-ease);
+    }
+
+    .as-faq details[open] {
+        border-color: var(--as-rule-mid);
+        background: var(--as-raised);
+    }
+
+    .as-faq summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.1rem 1.25rem;
+        font-family: var(--as-display);
+        font-size: 1.02rem;
+        font-weight: 600;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    .as-faq summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .as-faq summary::marker {
+        content: "";
+    }
+
+    /* Cruz que gira: en una lámina técnica se lee mejor que una
+       flecha. */
+    .as-faq summary::after {
+        content: "";
+        flex: 0 0 auto;
+        inline-size: 13px;
+        block-size: 13px;
+        background:
+            linear-gradient(var(--as-red), var(--as-red)) center / 100% 1.6px no-repeat,
+            linear-gradient(var(--as-red), var(--as-red)) center / 1.6px 100% no-repeat;
+        transition: rotate var(--as-mid) var(--as-ease);
+    }
+
+    .as-faq details[open] summary::after {
+        rotate: 45deg;
+        background:
+            linear-gradient(var(--as-red), var(--as-red)) center / 100% 1.6px no-repeat;
+    }
+
+    .as-faq-body {
+        padding: 0 1.25rem 1.25rem;
+        color: var(--as-ink-soft);
+        max-inline-size: 64ch;
+    }
+
+    .as-faq-more {
+        display: flex;
+        gap: 0.8rem;
+        margin-block-start: 0.5rem;
+        padding: 1.05rem 1.25rem;
+        border: 1px dashed var(--as-rule-mid);
+        border-radius: var(--as-r-md);
+        font-size: 0.91rem;
+        color: var(--as-ink-soft);
+    }
+
+    .as-faq-more i {
+        flex: 0 0 auto;
+        margin-block-start: 0.22rem;
+        color: var(--as-red);
+    }
+
+    .as-faq-more a {
+        color: var(--as-red);
+        font-weight: 600;
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: border-color var(--as-fast) var(--as-ease);
+    }
+
+    .as-faq-more a:hover {
+        border-block-end-color: currentColor;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.14 · Agendar
+       ──────────────────────────────────────────────────────────── */
+    .as-book {
+        display: grid;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        gap: clamp(1.4rem, 3vw, 2.4rem);
+        align-items: start;
+    }
+
+    .as-book-aside {
+        padding: clamp(1.5rem, 3vw, 2.1rem);
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-lg);
+        background:
+            radial-gradient(26rem 18rem at 10% -10%, var(--as-red-wash), transparent 62%),
+            var(--as-surface);
+    }
+
+    .as-book-aside ol {
+        display: grid;
+        gap: 0.9rem;
+        margin: 1.2rem 0 0;
+        padding: 0;
+        list-style: none;
+        counter-reset: as-step;
+    }
+
+    .as-book-aside li {
+        display: grid;
+        grid-template-columns: 1.7rem minmax(0, 1fr);
+        gap: 0.7rem;
+        font-size: 0.94rem;
+        color: var(--as-ink-soft);
+        counter-increment: as-step;
+    }
+
+    .as-book-aside li::before {
+        content: counter(as-step);
+        font-family: var(--as-mono);
+        font-size: 0.78rem;
+        color: var(--as-red);
+        padding-block-start: 0.14rem;
+    }
+
+    .as-contact {
+        display: grid;
+        gap: 0.55rem;
+        margin-block-start: 1.5rem;
+        padding-block-start: 1.3rem;
+        border-block-start: 1px solid var(--as-rule);
+        font-size: 0.92rem;
+    }
+
+    .as-contact a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        color: var(--as-ink);
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: color var(--as-fast) var(--as-ease), border-color var(--as-fast) var(--as-ease);
+    }
+
+    .as-contact a:hover {
+        color: var(--as-red);
+        border-block-end-color: currentColor;
+    }
+
+    .as-contact i {
+        color: var(--as-red);
+    }
+
+    .as-form {
+        position: relative;
+        padding: clamp(1.5rem, 3vw, 2.3rem);
+        border: 1px solid var(--as-rule-mid);
+        border-radius: var(--as-r-lg);
+        background: var(--as-raised);
+        box-shadow: var(--as-drop);
+    }
+
+    .as-field-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(215px, 100%), 1fr));
+        gap: 1rem;
+    }
+
+    .as-field {
+        display: grid;
+        gap: 0.38rem;
+    }
+
+    .as-field label {
+        font-size: 0.81rem;
+        font-weight: 600;
+        color: var(--as-ink-soft);
+    }
+
+    .as-field :where(input, select) {
+        inline-size: 100%;
+        padding: 0.82rem 0.95rem;
+        border: 1px solid var(--as-rule-mid);
+        border-radius: var(--as-r-md);
+        background: var(--as-surface);
+        color: var(--as-ink);
+        font-family: inherit;
+        font-size: 1rem;
+        transition:
+            border-color var(--as-fast) var(--as-ease),
+            box-shadow var(--as-fast) var(--as-ease);
+    }
+
+    /* La flecha del select es propia: la del sistema no hereda el
+       color del tema y sobre índigo se pierde. */
+    .as-field select {
+        appearance: none;
+        padding-inline-end: 2.5rem;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23E4573D' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 0.95rem center;
+        background-size: 13px 8px;
+    }
+
+    html.light-mode .as-field select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23B4341C' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    }
+
+    .as-field :where(input, select):focus-visible {
+        border-color: var(--as-red);
+        box-shadow: 0 0 0 3px var(--as-red-wash);
+        outline: none;
+    }
+
+    .as-field :where(input, select)[aria-invalid="true"] {
+        border-color: var(--as-red);
+        background: var(--as-red-wash);
+    }
+
+    .as-field input::placeholder {
+        color: var(--as-ink-dim);
+    }
+
+    /* El mensaje ocupa espacio solo cuando existe: así el formulario
+       no salta al validarse. */
+    .as-err {
+        font-size: 0.79rem;
+        color: var(--as-red);
+    }
+
+    .as-err:empty {
+        display: none;
+    }
+
+    /* Región de anuncio. NO usa .as-err porque esa clase se oculta con
+       :empty, y una región aria-live que desaparece del árbol de
+       accesibilidad deja de anunciar. */
+    .as-status {
+        min-block-size: 1.25em;
+        margin-block-end: 0.9rem;
+        font-size: 0.86rem;
+        color: var(--as-ink-soft);
+    }
+
+    .as-consent {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 0.7rem;
+        margin-block-start: 1.3rem;
+        padding-block-start: 1.1rem;
+        border-block-start: 1px solid var(--as-rule);
+        font-size: 0.82rem;
+        color: var(--as-ink-dim);
+    }
+
+    .as-consent input {
+        inline-size: 1.15rem;
+        block-size: 1.15rem;
+        margin: 0.16rem 0 0;
+        accent-color: var(--as-red);
+    }
+
+    .as-consent a {
+        color: var(--as-ink-soft);
+    }
+
+    .as-form-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-block-start: 1.4rem;
+    }
+
+    .as-done {
+        display: none;
+        text-align: center;
+    }
+
+    .as-form[data-sent] .as-done {
+        display: block;
+    }
+
+    .as-form[data-sent] .as-form-body {
+        display: none;
+    }
+
+    .as-done-seal {
+        display: grid;
+        place-items: center;
+        inline-size: 3.8rem;
+        block-size: 3.8rem;
+        margin: 0 auto 1.1rem;
+        border: 1px solid var(--as-sage);
+        border-radius: 50%;
+        background: var(--as-sage-wash);
+        color: var(--as-sage);
+        font-size: 1.4rem;
+    }
+
+    .as-done p {
+        margin-block-start: 0.65rem;
+        color: var(--as-ink-soft);
+    }
+
+    .as-done-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-block-start: 1.4rem;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.15 · Programas relacionados
+       ──────────────────────────────────────────────────────────── */
+    .as-related {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+        gap: clamp(1rem, 2.2vw, 1.5rem);
+    }
+
+    .as-rel {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        gap: 0.5rem;
+        align-content: start;
+        padding: clamp(1.3rem, 2.6vw, 1.8rem);
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-lg);
+        background: var(--as-surface);
+        color: inherit;
+        text-decoration: none;
+        transition:
+            transform var(--as-mid) var(--as-ease),
+            border-color var(--as-mid) var(--as-ease),
+            box-shadow var(--as-mid) var(--as-ease);
+    }
+
+    .as-rel:hover {
+        transform: translateY(-4px);
+        border-color: var(--as-red);
+        box-shadow: var(--as-drop-sm);
+    }
+
+    .as-rel .as-tag {
+        color: var(--as-sage);
+    }
+
+    .as-rel b {
+        font-family: var(--as-display);
+        font-size: 1.1rem;
+        font-weight: 600;
+    }
+
+    .as-rel p {
+        font-size: 0.93rem;
+        color: var(--as-ink-soft);
+    }
+
+    .as-rel i {
+        justify-self: start;
+        margin-block-start: 0.3rem;
+        color: var(--as-red);
+        transition: translate var(--as-mid) var(--as-ease-out);
+    }
+
+    .as-rel:hover i {
+        translate: 6px 0;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.16 · Barra fija de conversión y WhatsApp
+       ──────────────────────────────────────────────────────────── */
+    .as-rail {
+        position: fixed;
+        inset-inline: 0;
+        inset-block-end: 0;
+        z-index: 1100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.8rem 1.1rem;
+        border-block-start: 1px solid var(--as-rule-mid);
+        background: color-mix(in srgb, var(--as-night) 92%, transparent);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        translate: 0 110%;
+        transition: translate var(--as-mid) var(--as-ease-out);
+    }
+
+    @supports not (background: color-mix(in srgb, red 50%, transparent)) {
+        .as-rail {
+            background: var(--as-night);
+        }
+    }
+
+    .as-rail[hidden] {
+        display: none;
+    }
+
+    .as-rail[data-shown] {
+        translate: 0 0;
+    }
+
+    .as-rail-info strong {
+        display: block;
+        font-family: var(--as-display);
+        font-size: 0.98rem;
+        font-weight: 600;
+    }
+
+    .as-rail-info span {
+        display: block;
+        font-size: 0.76rem;
+        color: var(--as-ink-dim);
+    }
+
+    .as-rail .as-btn {
+        padding: 0.72rem 1.25rem;
+        font-size: 0.9rem;
+    }
+
+    .floating-whatsapp {
+        position: fixed;
+        z-index: 1090;
+        inset-block-end: calc(86px + env(safe-area-inset-bottom));
+        inset-inline-end: max(20px, env(safe-area-inset-right));
+        display: grid;
+        place-items: center;
+        inline-size: 56px;
+        block-size: 56px;
+        border-radius: 50%;
+        background: #25D366;
+        color: #062A14;
+        font-size: 1.6rem;
+        text-decoration: none;
+        box-shadow: 0 16px 40px -14px rgba(37, 211, 102, 0.6);
+        transition: transform var(--as-fast) var(--as-ease), box-shadow var(--as-mid) var(--as-ease);
+    }
+
+    .floating-whatsapp:hover {
+        transform: translateY(-3px) scale(1.04);
+        box-shadow: 0 22px 52px -14px rgba(37, 211, 102, 0.7);
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5.17 · PIE PROPIO — "Colofón del observatorio"
+
+   Esta página NO usa el pie compartido: footer-modern.css trae otra
+   paleta y otra tipografía, y al final de una carta estelar aparecía
+   un bloque con degradados y formas flotantes. Además la anterior
+   cargaba footer-modern.css Y navbar-unified.css mientras usaba una
+   navbar propia: tres hojas peleando por los mismos elementos.
+   ══════════════════════════════════════════════════════════════════ */
+@layer as.components {
+    .as-foot {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        padding-block: clamp(52px, 7vw, 88px) clamp(26px, 4vw, 42px);
+        background: color-mix(in srgb, var(--as-deep) 88%, transparent);
+        border-block-start: 1px solid var(--as-rule-mid);
+    }
+
+    @supports not (background: color-mix(in srgb, red 50%, transparent)) {
+        .as-foot {
+            background: var(--as-deep);
+        }
+    }
+
+    /* Línea de horizonte */
+    .as-foot::before {
+        content: "";
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline: 0;
+        z-index: -1;
+        block-size: 1px;
+        background: linear-gradient(90deg, transparent, var(--as-red), transparent);
+        opacity: 0.7;
+    }
+
+    .as-foot-mark {
+        position: absolute;
+        inset-block-end: -0.3em;
+        inset-inline-start: 50%;
+        translate: -50% 0;
+        z-index: -1;
+        font-family: var(--as-display);
+        font-size: clamp(4rem, 15vw, 13rem);
+        font-weight: 600;
+        letter-spacing: -0.04em;
+        line-height: 1;
+        white-space: nowrap;
+        color: transparent;
+        -webkit-text-stroke: 1px var(--as-rule);
+        text-stroke: 1px var(--as-rule);
+        user-select: none;
+        pointer-events: none;
+        font-variation-settings: 'WONK' 1, 'opsz' 144;
+    }
+
+    .as-sheet {
+        margin-block-end: clamp(2.2rem, 4.5vw, 3.4rem);
+        border: 1px solid var(--as-rule);
+        border-radius: var(--as-r-lg);
+        background: var(--as-surface);
+        overflow: hidden;
+    }
+
+    .as-sheet-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.7rem 1.3rem;
+        padding: 1rem clamp(1.1rem, 2.4vw, 1.7rem);
+        border-block-end: 1px solid var(--as-rule);
+        background: var(--as-raised);
+    }
+
+    .as-sheet-head strong {
+        font-family: var(--as-display);
+        font-size: 1.02rem;
+        font-weight: 600;
+    }
+
+    .as-sheet-head a {
+        color: var(--as-red);
+        font-size: 0.85rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: border-color var(--as-fast) var(--as-ease);
+    }
+
+    .as-sheet-head a:hover {
+        border-block-end-color: currentColor;
+    }
+
+    .as-sheet dl {
+        display: grid;
+        gap: 1px;
+        margin: 0;
+        background: var(--as-rule);
+    }
+
+    .as-sheet-row {
+        display: grid;
+        grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+        gap: 0.3rem 1.3rem;
+        padding: 0.9rem clamp(1.1rem, 2.4vw, 1.7rem);
+        background: var(--as-surface);
+    }
+
+    .as-sheet-row dt {
+        font-family: var(--as-mono);
+        font-size: 0.65rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--as-ink-dim);
+    }
+
+    .as-sheet-row dd {
+        margin: 0;
+        font-size: 0.94rem;
+    }
+
+    .as-sheet-row dd b {
+        color: var(--as-red);
+        font-weight: 600;
+    }
+
+    .as-foot-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(0, 1fr));
+        gap: clamp(1.7rem, 3.5vw, 2.8rem);
+        padding-block-end: clamp(1.8rem, 3.5vw, 2.6rem);
+        border-block-end: 1px solid var(--as-rule);
+    }
+
+    .as-foot-brand p {
+        margin-block: 0.85rem 1.2rem;
+        max-inline-size: 34ch;
+        font-size: 0.9rem;
+        color: var(--as-ink-soft);
+    }
+
+    .as-foot-logo {
+        display: inline-block;
+        font-family: var(--as-display);
+        font-size: 1.4rem;
+        font-weight: 600;
+        letter-spacing: -0.025em;
+        color: var(--as-ink);
+        text-decoration: none;
+    }
+
+    .as-foot-logo span {
+        color: var(--as-red);
+    }
+
+    .as-socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+    }
+
+    .as-socials a {
+        display: grid;
+        place-items: center;
+        inline-size: 40px;
+        block-size: 40px;
+        border: 1px solid var(--as-rule-mid);
+        border-radius: 50%;
+        color: var(--as-ink-soft);
+        text-decoration: none;
+        transition:
+            transform var(--as-fast) var(--as-ease),
+            border-color var(--as-fast) var(--as-ease),
+            background-color var(--as-fast) var(--as-ease),
+            color var(--as-fast) var(--as-ease);
+    }
+
+    .as-socials a:hover {
+        transform: translateY(-3px);
+        border-color: var(--as-red);
+        background: var(--as-red);
+        color: #FFF6F2;
+    }
+
+    .as-foot-col h3 {
+        margin-block-end: 0.95rem;
+        font-family: var(--as-mono);
+        font-size: 0.67rem;
+        font-weight: 500;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--as-ink-dim);
+    }
+
+    .as-foot-col ul {
+        display: grid;
+        gap: 0.6rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .as-foot-col a {
+        display: inline-block;
+        color: var(--as-ink-soft);
+        font-size: 0.9rem;
+        text-decoration: none;
+        transition: color var(--as-fast) var(--as-ease), translate var(--as-fast) var(--as-ease);
+    }
+
+    .as-foot-col a:hover {
+        color: var(--as-red);
+        translate: 4px 0;
+    }
+
+    .as-foot-col a[aria-current="page"] {
+        color: var(--as-ink);
+        font-weight: 600;
+    }
+
+    .as-hours {
+        margin-block-start: 1.2rem;
+        padding-block-start: 1.1rem;
+        border-block-start: 1px solid var(--as-rule);
+    }
+
+    .as-hours dl {
+        display: grid;
+        gap: 0.42rem;
+        margin: 0;
+    }
+
+    .as-hours div {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.8rem;
+        font-size: 0.85rem;
+    }
+
+    /* Guía de puntos entre día y horario: se lee sin esfuerzo aunque
+       las etiquetas tengan largos distintos. */
+    .as-hours dt {
+        position: relative;
+        flex: 1 1 auto;
+        color: var(--as-ink-dim);
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .as-hours dt::after {
+        content: " ......................................................";
+        color: var(--as-rule-hi);
+    }
+
+    .as-hours dd {
+        margin: 0;
+        font-family: var(--as-mono);
+        font-variant-numeric: tabular-nums;
+        color: var(--as-ink);
+    }
+
+    .as-colophon {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+        gap: 1.3rem clamp(1.4rem, 3vw, 2.4rem);
+        margin: 0;
+        padding-block: clamp(1.7rem, 3.5vw, 2.4rem);
+        border-block-end: 1px solid var(--as-rule);
+    }
+
+    .as-colophon dt {
+        margin-block-end: 0.32rem;
+        font-family: var(--as-mono);
+        font-size: 0.64rem;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--as-red);
+    }
+
+    .as-colophon dd {
+        margin: 0;
+        font-size: 0.84rem;
+        line-height: 1.55;
+        color: var(--as-ink-dim);
+    }
+
+    .as-legal {
+        display: grid;
+        gap: 0.85rem;
+        padding-block-start: clamp(1.5rem, 3vw, 2.1rem);
+        font-size: 0.81rem;
+        line-height: 1.6;
+        color: var(--as-ink-dim);
+        max-inline-size: 94ch;
+    }
+
+    .as-legal-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 1.2rem;
+    }
+
+    .as-legal-links a {
+        color: var(--as-ink-soft);
+        text-decoration: none;
+        border-block-end: 1px solid var(--as-rule-mid);
+        transition: color var(--as-fast) var(--as-ease), border-color var(--as-fast) var(--as-ease);
+    }
+
+    .as-legal-links a:hover {
+        color: var(--as-red);
+        border-block-end-color: currentColor;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   6 · MOVIMIENTO
+
+   Reparto explícito del trabajo, que es lo que evita que los efectos
+   se coman la carga:
+
+   · CSS puro          → todo lo que dependa de :hover, :focus y de un
+                         estado local. Nunca necesita JavaScript.
+   · scroll-driven CSS → avance de lectura y revelado, donde el
+                         navegador lo soporta. Lo mueve el compositor.
+   · GSAP+ScrollTrigger→ SOLO lo que el CSS no puede: interpolar un
+                         número compartido por varios elementos con
+                         scrub (el recorrido de escala), escalonar el
+                         titular y trazar la constelación con easing
+                         real. Se carga tarde y bajo condiciones.
+
+   Cada bloque de GSAP tiene aquí su estado final escrito, así que si
+   la biblioteca nunca llega la página se ve terminada.
+   ══════════════════════════════════════════════════════════════════ */
+@layer as.motion {
+
+    /* ── Revelado ──
+       El estado inicial solo se aplica si .as-js existe. Si el script
+       falla, nada queda invisible. Es la trampa en la que caía la
+       versión anterior: usaba AOS, cuyo CSS pone opacity: 0, así que
+       un fallo del CDN de unpkg dejaba la página en blanco. */
+    .as-js .as-rise {
+        opacity: 0;
+        translate: 0 18px;
+        transition:
+            opacity var(--as-slow) var(--as-ease),
+            translate var(--as-slow) var(--as-ease-out);
+        transition-delay: calc(var(--d, 0) * 60ms);
+    }
+
+    .as-js .as-rise.is-in {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    /* ── Titular ──
+       Los renglones ya están en el HTML. GSAP los escalona con un
+       stagger; sin GSAP el CSS hace lo mismo con un retardo por
+       posición. Idéntico resultado, distinto motor. */
+    .as-js .as-hero-copy .as-line {
+        opacity: 0;
+        translate: 0 0.35em;
+        animation: asLineIn 700ms var(--as-ease-out) forwards;
+        animation-delay: calc(var(--i, 0) * 90ms + 120ms);
+    }
+
+    @keyframes asLineIn {
+        to {
+            opacity: 1;
+            translate: 0 0;
+        }
+    }
+
+    /* Cuando GSAP toma el control marca el contenedor y el CSS se
+       aparta, para que no compitan dos animaciones por lo mismo. */
+    .as-gsap .as-hero-copy .as-line {
+        animation: none;
+    }
+
+    /* ── Cinta de datos ──
+       Contenido duplicado en el HTML y desplazamiento del 50%: bucle
+       perfecto sin medir nada. */
+    @keyframes asTicker {
+        from {
+            translate: 0 0;
+        }
+
+        to {
+            translate: -50% 0;
+        }
+    }
+
+    .as-ticker-track {
+        animation: asTicker 46s linear infinite;
+    }
+
+    .as-ticker:hover .as-ticker-track {
+        animation-play-state: paused;
+    }
+
+    /* ── Orrery ──
+       Las órbitas giran con CSS, no con JavaScript: son transforms
+       compuestos por la GPU. Los periodos guardan la proporción real
+       aproximada entre las órbitas, así que el diagrama es correcto y
+       no solo bonito. */
+    @keyframes asOrbit {
+        to {
+            rotate: 360deg;
+        }
+    }
+
+    .as-orbit-1 {
+        animation: asOrbit 18s linear infinite;
+    }
+
+    .as-orbit-2 {
+        animation: asOrbit 38s linear infinite;
+    }
+
+    .as-orbit-3 {
+        animation: asOrbit 72s linear infinite;
+    }
+
+    /* ── Contra-giro del planeta (billboard en movimiento) ──
+       El planeta hereda del escenario Rx(T)·Rz(S) y ADEMÁS el giro
+       Rz(θ) de su órbita. Para encarar al observador tiene que
+       deshacer la cadena entera, y la inversa de un producto invierte
+       el orden:
+
+           (Rx(T)·Rz(S)·Rz(θ))⁻¹ = Rz(−θ)·Rz(−S)·Rx(−T)
+
+       El transform en reposo de .as-planet solo cubre el caso θ = 0.
+       Con la órbita girando hace falta el término Rz(−θ), porque
+       Rz(S)·Rz(θ)·Rz(−S) = Rz(θ) (los giros en Z conmutan) y queda
+       Rx(T)·Rz(θ)·Rx(−T), que es un giro alrededor de un eje
+       inclinado: aplasta el disco hasta el 0.5% en el peor punto del
+       recorrido. Comprobado numéricamente, no a ojo.
+
+       El contra-giro va DENTRO de este mismo transform y en primera
+       posición. En la propiedad rotate no serviría: el orden fijo
+       (translate, rotate, scale, transform) lo dejaría del lado
+       equivocado de la inclinación, que es justo el error que tenía
+       el asCounter anterior.
+
+       Las dos listas tienen las mismas funciones en el mismo orden,
+       así que el navegador interpola argumento por argumento y el giro
+       es lineal de verdad. Si no coincidieran, interpolaría matrices y
+       una vuelta completa se quedaría inmóvil. */
+    @keyframes asFace {
+        from {
+            transform:
+                rotateZ(0deg)
+                rotateZ(calc(-1 * var(--as-swing)))
+                rotateX(calc(-1 * var(--as-tilt)));
+        }
+
+        to {
+            transform:
+                rotateZ(-360deg)
+                rotateZ(calc(-1 * var(--as-swing)))
+                rotateX(calc(-1 * var(--as-tilt)));
+        }
+    }
+
+    /* Las duraciones tienen que ser IDÉNTICAS a las de asOrbit o el
+       contra-giro se desfasa y el planeta se ovala de forma cíclica. */
+    .as-orbit-1 .as-planet {
+        animation: asFace 18s linear infinite;
+    }
+
+    .as-orbit-2 .as-planet {
+        animation: asFace 38s linear infinite;
+    }
+
+    .as-orbit-3 .as-planet {
+        animation: asFace 72s linear infinite;
+    }
+
+    /* La estrella respira */
+    @keyframes asBreathe {
+
+        0%,
+        100% {
+            scale: 1;
+            opacity: 0.85;
+        }
+
+        50% {
+            scale: 1.06;
+            opacity: 1;
+        }
+    }
+
+    .as-sun::after {
+        animation: asBreathe 7s var(--as-ease) infinite;
+    }
+
+    /* ── Constelación ──
+       Sin GSAP y sin la casilla, el trazo aparece al entrar en
+       pantalla con IntersectionObserver, que pone .is-drawn. */
+    .as-chart-box.is-drawn .as-link {
+        transition: stroke-dashoffset 1.6s var(--as-ease);
+    }
+
+    /* ══════════ MOTORES NATIVOS DE SCROLL ══════════ */
+
+    @supports (animation-timeline: scroll()) {
+        .as-folio-bar {
+            scale: 0 1;
+            animation: asFolio linear both;
+            animation-timeline: scroll(root block);
+        }
+
+        @keyframes asFolio {
+            from {
+                scale: 0 1;
+            }
+
+            to {
+                scale: 1 1;
+            }
+        }
+    }
+
+    @supports (animation-timeline: view()) {
+        .as-js .as-rise {
+            opacity: 1;
+            translate: 0 0;
+            transition: none;
+            animation: asRise linear both;
+            animation-timeline: view();
+            animation-range: entry 8% cover 24%;
+        }
+
+        @keyframes asRise {
+            from {
+                opacity: 0;
+                translate: 0 22px;
+            }
+
+            to {
+                opacity: 1;
+                translate: 0 0;
+            }
+        }
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   7 · ADAPTACIÓN A DISPOSITIVOS  ·  SIN CAPA A PROPÓSITO
+
+   Este bloque queda fuera de @layer para que gane a cualquier regla
+   de navbar-unified.css y de las capas de arriba sin !important.
+
+   Cada apartado documenta el síntoma que evita. Sin esa nota, la
+   siguiente persona que lea el archivo los borra por parecer
+   redundantes: ya pasó una vez.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Anclas bajo la navbar fija ────────────────────────────────
+   Toda la navegación interna son enlaces #ancla. Sin reservar la
+   altura de la barra, el encabezado de destino aterriza detrás de
+   ella. scroll-padding-top lo resuelve en el contenedor de scroll,
+   así que funciona al pulsar un enlace, al recargar con hash y al
+   navegar con el teclado.
+
+   Nota sobre GSAP: por esto NO se usa ScrollTrigger.pin en ninguna
+   sección. `pin` inyecta altura y reestructura el DOM, y eso rompe el
+   cálculo de destino de las anclas. El recorrido de escala usa
+   position: sticky, que lo resuelve el navegador. */
+html:has(body.as-body) {
+    scroll-behavior: smooth;
+    scroll-padding-top: clamp(84px, 12vh, 116px);
+    /* iOS infla el texto al girar a horizontal si no se fija */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Respaldo para navegadores sin :has() */
+@supports not selector(:has(*)) {
+    html {
+        scroll-padding-top: 100px;
+    }
+}
+
+/* Refuerzo por destino: hay navegadores que ignoran scroll-padding en
+   anclas internas y sí respetan scroll-margin. */
+.as-body [id]:not(body) {
+    scroll-margin-top: clamp(84px, 12vh, 116px);
+}
+
+/* ── Recorte lateral sin romper sticky ─────────────────────────
+   overflow-x: hidden convierte al body en contenedor de scroll y los
+   descendientes con position: sticky dejan de pegarse. Aquí eso
+   apagaría el recorrido de escala y el panel de la constelación, que
+   son sticky los dos. clip recorta igual sin crear scrollport. */
+body.as-body {
+    overflow-x: clip;
+}
+
+@supports not (overflow-x: clip) {
+    body.as-body {
+        overflow-x: hidden;
+    }
+}
+
+/* Nota de anchos: en esta hoja no se usa 100vw en ninguna medida de
+   ancho. 100vw incluye la barra de scroll en escritorio, así que
+   cualquier resta se queda corta y aparece scroll horizontal. Se usa
+   100%, 100cqi o max-inline-size. */
+
+/* ── Estados táctiles ──────────────────────────────────────────
+   En iOS el :hover se queda pegado después de tocar: la fila mantiene
+   el tinte de selección y la estrella su halo hasta que se toca otra
+   cosa. En una lámina de constelación eso es especialmente confuso,
+   porque parece que quedaron dos estrellas seleccionadas. */
+@media (hover: none) {
+
+    .as-rel:hover,
+    .as-btn:hover,
+    .as-socials a:hover,
+    .floating-whatsapp:hover {
+        transform: none;
+        translate: none;
+        box-shadow: none;
+        border-color: var(--as-rule-mid);
+    }
+
+    .as-rel:hover i,
+    .as-foot-col a:hover {
+        translate: none;
+    }
+
+    .as-btn:hover::before {
+        opacity: 0;
+    }
+
+    .as-obs > li:hover,
+    .as-row:hover,
+    .as-world:hover {
+        background: var(--as-surface);
+    }
+
+    .as-obs > li:hover::before,
+    .as-row:hover::before {
+        scale: 1 0;
+    }
+
+    .as-level-tab:hover {
+        background: var(--as-deep);
+    }
+
+    /* La estrella solo se marca al seleccionarla, no al rozarla */
+    .as-star:hover circle.as-star-halo {
+        opacity: 0.14;
+    }
+
+    .as-star:hover text {
+        opacity: 0;
+    }
+
+    .as-ticker:hover .as-ticker-track {
+        animation-play-state: running;
+    }
+}
+
+/* ── Objetivos táctiles ────────────────────────────────────────
+   44 px es el mínimo con el que un dedo acierta sin ampliar. */
+@media (pointer: coarse) {
+
+    .as-btn,
+    .as-contact a,
+    .as-foot-col a,
+    .as-legal-links a,
+    .as-crumbs a,
+    .as-switch,
+    .as-consent label {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .as-level-tab {
+        min-height: 58px;
+        align-content: center;
+    }
+
+    .as-socials a {
+        min-height: 48px;
+        inline-size: 48px;
+        block-size: 48px;
+    }
+
+    .as-faq summary {
+        min-height: 52px;
+    }
+
+    .as-field :where(input, select),
+    .as-weight-field input {
+        min-height: 48px;
+        /* Menos de 16px provoca zoom automático en iOS al enfocar */
+        font-size: 16px;
+    }
+
+    .as-consent input {
+        inline-size: 1.4rem;
+        block-size: 1.4rem;
+    }
+
+    /* El deslizador de peso necesita un carril que se pueda arrastrar
+       sin precisión de ratón. */
+    .as-gravity-input input[type="range"] {
+        min-height: 44px;
+    }
+
+    .as-contact {
+        gap: 0.85rem;
+    }
+}
+
+/* Quita el retardo de 300 ms y el destello azul al tocar */
+.as-btn,
+.as-switch,
+.as-level-tab,
+.as-faq summary,
+.as-socials a,
+.as-foot-col a,
+.as-legal-links a,
+.as-rel,
+.floating-whatsapp,
+.as-rail a {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* Las estrellas del SVG se pulsan; sin esto iOS mete su retardo */
+.as-star {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Área segura en dispositivos con muesca ────────────────────
+   Sin esto la barra de conversión y el botón de WhatsApp quedan por
+   debajo del indicador de inicio del iPhone y no se pueden pulsar. */
+.as-rail {
+    padding-bottom: max(0.8rem, env(safe-area-inset-bottom));
+    padding-left: max(1.1rem, env(safe-area-inset-left));
+    padding-right: max(1.1rem, env(safe-area-inset-right));
+}
+
+/* La barra fija tapaba el aviso legal del pie: se reserva su altura */
+body.as-body {
+    padding-bottom: calc(74px + env(safe-area-inset-bottom));
+}
+
+/* ── Contenedores desplazables ─────────────────────────────────
+   overscroll-behavior evita que, al llegar al final de la lámina, el
+   gesto arrastre el scroll de la página. */
+.as-chart-box,
+.as-worlds {
+    overscroll-behavior-x: contain;
+}
+
+/* ── Tablet: el hueco entre 721 y 1024 ─────────────────────────
+   Antes las composiciones a dos columnas se colapsaban en 900 y las
+   rejillas en 1080, así que entre esas medidas quedaban columnas de
+   texto demasiado estrechas para leer con comodidad. */
+@media (min-width: 721px) and (max-width: 1024px) {
+
+    .as-hero-grid,
+    .as-spread,
+    .as-chart,
+    .as-scale,
+    .as-gravity,
+    .as-book {
+        grid-template-columns: minmax(0, 1fr);
+        gap: clamp(1.6rem, 4vw, 2.6rem);
+    }
+
+    /* Los paneles sticky dejan de estarlo al pasar a una columna:
+       pegados arriba y con su contenido debajo, tapaban justo lo que
+       tenían que explicar. */
+    .as-star-panel,
+    .as-scale-stage {
+        position: static;
+    }
+
+    /* El recorrido de escala pierde el sentido sin la figura pegada:
+       los pasos se juntan y se leen como una lista. */
+    .as-steps {
+        gap: 1.2rem;
+        padding-block: 0;
+    }
+
+    .as-orrery {
+        max-inline-size: 26rem;
+    }
+
+    /* El pliego pasa a dos columnas: la de entregable se apila bajo la
+       descripción para no dejar 90 px de ancho. */
+    .as-log-head {
+        display: none;
+    }
+
+    .as-row {
+        grid-template-columns: 3.6rem minmax(0, 1fr);
+    }
+
+    .as-row h3,
+    .as-row-do,
+    .as-row-out {
+        grid-column: 2;
+    }
+
+    .as-row-week {
+        grid-column: 2;
+        text-align: start;
+    }
+
+    .as-obs > li {
+        grid-template-columns: 3.2rem minmax(0, 1fr);
+    }
+
+    .as-obs h3,
+    .as-obs p {
+        grid-column: 2;
+    }
+
+    .as-scope {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .as-foot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .as-foot-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ── Teléfono ─────────────────────────────────────────────────── */
+@media (max-width: 720px) {
+
+    .as-hero-grid,
+    .as-spread,
+    .as-chart,
+    .as-scale,
+    .as-gravity,
+    .as-book {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* La figura va después del texto: primero el argumento. */
+    .as-orrery {
+        order: 2;
+        max-inline-size: 22rem;
+    }
+
+    .as-star-panel,
+    .as-scale-stage {
+        position: static;
+    }
+
+    .as-steps {
+        gap: 1.1rem;
+        padding-block: 0;
+    }
+
+    /* Los tres elementos de rejilla del renglón (folio, término y
+       glosa) se apilan: folio arriba, término y glosa en la columna 2.
+       Sin asignación explícita la colocación automática manda la
+       glosa a la columna del folio, de 3.6 rem. */
+    .as-obs > li {
+        grid-template-columns: 2.8rem minmax(0, 1fr);
+        gap: 0.35rem 0.9rem;
+    }
+
+    .as-obs h3,
+    .as-obs p {
+        grid-column: 2;
+    }
+
+    .as-log-head {
+        display: none;
+    }
+
+    .as-row {
+        grid-template-columns: 3.4rem minmax(0, 1fr);
+    }
+
+    .as-row h3,
+    .as-row-do,
+    .as-row-out {
+        grid-column: 2;
+    }
+
+    .as-row-week {
+        grid-column: 2;
+        text-align: start;
+    }
+
+    .as-spread {
+        gap: 1.4rem;
+    }
+
+    .as-foot-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2rem;
+    }
+
+    .as-sheet-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .as-foot-mark {
+        font-size: 22vw;
+    }
+
+    .as-form-actions .as-btn,
+    .as-done-actions .as-btn {
+        inline-size: 100%;
+    }
+}
+
+/* ── Teléfono estrecho ─────────────────────────────────────────
+   Por debajo de 400 px el cartel, la ficha y la fila de mundos dejan
+   de caber con holgura. */
+@media (max-width: 400px) {
+    .as-mega {
+        font-size: clamp(1.9rem, 9.6vw, 2.5rem);
+    }
+
+    .as-spec {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .as-obs > li {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .as-obs-n,
+    .as-obs h3,
+    .as-obs p {
+        grid-column: 1;
+    }
+
+    .as-levels-tabs {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* El disco del mundo se recorta y el resultado pasa abajo */
+    .as-world {
+        grid-template-columns: 1.8rem minmax(0, 1fr);
+    }
+
+    .as-world-out {
+        grid-column: 2;
+        grid-row: 3;
+        text-align: start;
+    }
+
+    .as-world-bar {
+        grid-row: 4;
+    }
+
+    /* La guía de puntos de los horarios no cabe */
+    .as-hours dt::after {
+        content: "";
+    }
+
+    .as-hours div {
+        display: grid;
+        gap: 0.1rem;
+    }
+}
+
+/* ── Teléfono en horizontal ────────────────────────────────────
+   Con 420 px de alto, el relleno vertical del hero deja el titular
+   fuera de pantalla y la barra fija se come un tercio del alto. */
+@media (max-height: 460px) and (orientation: landscape) {
+    .as-hero {
+        padding-block: 76px 32px;
+    }
+
+    .as-band {
+        padding-block: 42px;
+    }
+
+    .as-crumbs,
+    .as-orrery {
+        display: none;
+    }
+
+    .as-rail {
+        display: none;
+    }
+
+    body.as-body {
+        padding-bottom: 0;
+    }
+
+    .floating-whatsapp {
+        inset-block-end: max(14px, env(safe-area-inset-bottom));
+    }
+}
+
+/* ── Movimiento reducido ───────────────────────────────────────
+   Si el sistema lo pide se apaga TODO el movimiento no esencial. Las
+   animaciones se apagan UNA A UNA con su estado final escrito al
+   lado: acortar la duración en bloque no sirve, porque con
+   animation-timeline la duración se ignora y con fill: both el último
+   fotograma sigue pisando la declaración base.
+
+   Además, el script NO carga GSAP ni arranca el sombreador WebGL
+   cuando esta preferencia está activa. Se comprueba antes de pedir la
+   biblioteca, no después. */
+@media (prefers-reduced-motion: reduce) {
+
+    html:has(body.as-body) {
+        scroll-behavior: auto;
+    }
+
+    .as-body *,
+    .as-body *::before,
+    .as-body *::after {
+        transition-duration: 0.001ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Cinta, orrery y halo: quietos. Se apagan la órbita y su
+       contra-giro EN PAREJA: si se apagara solo uno, el planeta
+       quedaría con la orientación de un instante que ya no
+       corresponde y se vería como un óvalo fijo. Apagados los dos, el
+       transform base de .as-planet (el caso θ = 0) vuelve a mandar y
+       cada planeta se queda en su fase, encarado y redondo. */
+    .as-ticker-track,
+    .as-orbit-1,
+    .as-orbit-2,
+    .as-orbit-3,
+    .as-orbit-1 .as-planet,
+    .as-orbit-2 .as-planet,
+    .as-orbit-3 .as-planet,
+    .as-sun::after {
+        animation-name: none;
+    }
+
+    /* El titular aparece sin desplazarse */
+    .as-js .as-hero-copy .as-line {
+        animation-name: none;
+        opacity: 1;
+        translate: none;
+    }
+
+    /* La constelación se muestra ya trazada: si no, la lámina queda
+       vacía y la sección pierde su única pieza visual. */
+    .as-link {
+        stroke-dashoffset: 0;
+        transition: none;
+    }
+
+    /* El recorrido de escala se queda en su punto medio, que es el que
+       se entiende sin movimiento. */
+    .as-scale-stage {
+        --as-zoom: 0.5;
+    }
+
+    /* El avance de lectura sí informa: pasa al respaldo en JS, que lo
+       mueve sin animación. */
+    .as-folio-bar {
+        animation-name: none;
+        scale: var(--as-progress, 0) 1;
+    }
+
+    .as-js .as-rise {
+        animation-name: none;
+        opacity: 1;
+        translate: none;
+        transform: none;
+    }
+
+    /* El lienzo del sombreador nunca se enciende, pero por si acaso */
+    .as-shader {
+        display: none;
+    }
+}
+
+/* ── Ahorro de datos ──────────────────────────────────────────
+   prefers-reduced-data es reciente y aún desigual, así que la
+   decisión de verdad la toma el script leyendo navigator.connection.
+   Esto es el refuerzo del lado del CSS. */
+@media (prefers-reduced-data: reduce) {
+    .as-shader {
+        display: none;
+    }
+
+    .as-ticker-track {
+        animation-name: none;
+    }
+}
+
+/* ── Impresión ─────────────────────────────────────────────────
+   Un padre imprime el temario para llevarlo a una junta escolar o
+   para pedir el apoyo. Se quitan barras, cielo y decoración; el
+   temario, los niveles y el FAQ salen completos; y se revelan las URL.
+   ══════════════════════════════════════════════════════════════ */
+@media print {
+
+    body.as-body {
+        background: #fff;
+        color: #000;
+        padding-bottom: 0;
+        font-size: 10.5pt;
+    }
+
+    .as-sky,
+    .as-shader,
+    .nav-pill,
+    .nav-mobile-panel,
+    .nav-mobile-overlay,
+    .nav-skip-link,
+    .as-folio,
+    .as-rail,
+    .floating-whatsapp,
+    .as-ticker,
+    .as-orrery,
+    .as-scale-stage,
+    .as-foot-mark,
+    .as-crumbs,
+    .as-faq-more,
+    .as-form,
+    .as-socials,
+    .as-colophon,
+    .as-switch {
+        display: none !important;
+    }
+
+    .as-band,
+    .as-foot {
+        padding-block: 14pt;
+        break-inside: avoid;
+        border-color: #bbb;
+    }
+
+    .as-rel,
+    .as-scope-col,
+    .as-row,
+    .as-step,
+    .as-sheet,
+    .as-world,
+    .as-level-panel,
+    .as-chart-box,
+    .as-star-panel {
+        break-inside: avoid;
+        border-color: #bbb;
+        background: #fff;
+    }
+
+    /* La lámina de la constelación sí se imprime, y con las líneas
+       trazadas: es material de estudio. */
+    .as-link {
+        stroke: #333;
+        stroke-dashoffset: 0;
+    }
+
+    .as-star circle.as-star-body {
+        fill: #111;
+    }
+
+    .as-star text {
+        fill: #333;
+        opacity: 1;
+    }
+
+    /* Los tres niveles se imprimen, no solo el elegido: en papel no
+       hay pestañas que pulsar. */
+    .as-levels-tabs {
+        display: none !important;
+    }
+
+    .as-level-panel {
+        display: grid !important;
+    }
+
+    .as-level-panel::before {
+        content: attr(data-print-title);
+        font-weight: 700;
+    }
+
+    /* El recorrido de escala se lee como lista */
+    .as-scale {
+        grid-template-columns: 1fr;
+    }
+
+    .as-steps {
+        gap: 8pt;
+        padding-block: 0;
+    }
+
+    .as-faq details {
+        background: #fff;
+    }
+
+    .as-faq-body {
+        display: block !important;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #555;
+    }
+}
+
+/* ── Alto contraste del sistema (Windows) ──────────────────────
+   En forced-colors los fondos y sombras se descartan: sin bordes
+   explícitos las tarjetas desaparecen, y todo lo que comunicaba con
+   un tinte de fondo (fila seleccionada, pestaña activa, estrella
+   marcada) deja de distinguirse. */
+@media (forced-colors: active) {
+
+    .as-rel,
+    .as-scope-col,
+    .as-levels,
+    .as-log,
+    .as-form,
+    .as-book-aside,
+    .as-spec,
+    .as-faq details,
+    .as-chart-box,
+    .as-star-panel,
+    .as-worlds,
+    .as-sheet,
+    .as-note-card,
+    .as-socials a,
+    .as-step {
+        border: 1px solid CanvasText;
+    }
+
+    .as-btn-solid {
+        background: Highlight;
+        color: HighlightText;
+        border: 1px solid CanvasText;
+    }
+
+    .as-folio-bar,
+    .as-world-bar span {
+        background: Highlight;
+        forced-color-adjust: none;
+    }
+
+    /* La pestaña activa se marcaba solo con box-shadow, que
+       forced-colors descarta: quedaban las tres iguales. */
+    .as-level-tab:has(input:checked) {
+        background: Highlight;
+        color: HighlightText;
+    }
+
+    .as-level-tab:has(input:checked) b,
+    .as-level-tab:has(input:checked) em {
+        color: HighlightText;
+    }
+
+    /* La fila seleccionada se marcaba con un tinte */
+    .as-row:hover,
+    .as-obs > li:hover {
+        outline: 1px solid Highlight;
+    }
+
+    /* En la lámina, el cielo desaparece: las estrellas y las líneas
+       tienen que dibujarse con los colores del sistema. */
+    .as-star circle.as-star-body {
+        fill: CanvasText;
+        forced-color-adjust: none;
+    }
+
+    .as-star[data-on] circle.as-star-body {
+        fill: Highlight;
+    }
+
+    .as-link {
+        stroke: CanvasText;
+        forced-color-adjust: none;
+    }
+
+    /* Los discos de los mundos son gradientes: sin ellos, la fila se
+       queda sin su única pista visual. */
+    .as-world-disc {
+        border: 1px solid CanvasText;
+        forced-color-adjust: none;
+    }
+
+    .as-foot-mark {
+        -webkit-text-stroke: 1px CanvasText;
+        text-stroke: 1px CanvasText;
+    }
+
+    /* El sombreador no aporta nada en alto contraste y molesta */
+    .as-shader {
+        display: none;
+    }
+}
+
+/* ── Apertura animada del FAQ ──────────────────────────────────
+   Progresivo de verdad: donde existe ::details-content la apertura se
+   interpola; donde no, abre de golpe, que es el comportamiento nativo
+   y sigue siendo correcto. Nada de medir alturas en JS. */
+@supports (interpolate-size: allow-keywords) {
+    body.as-body {
+        interpolate-size: allow-keywords;
+    }
+}
+
+@supports selector(::details-content) {
+    .as-faq details::details-content {
+        block-size: 0;
+        overflow: hidden;
+        transition:
+            block-size var(--as-mid) var(--as-ease),
+            content-visibility var(--as-mid) allow-discrete;
+    }
+
+    .as-faq details[open]::details-content {
+        block-size: auto;
+    }
+}

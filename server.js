@@ -67,7 +67,25 @@ const PRIVATE_FILES = new Set([
   '/fix_fake_testimonials.py',
   '/update_global_testimonials.py',
   '/redaccion-ejecutiva/package.json',
-  '/redaccion-ejecutiva/package-lock.json'
+  '/redaccion-ejecutiva/package-lock.json',
+  /*
+   * Resto de la configuración del andamio de Next.js que vive en
+   * /redaccion-ejecutiva/. Se servían con 200: tsconfig.json,
+   * postcss.config.mjs y eslint.config.mjs. No contienen secretos,
+   * pero exponen la estructura de un proyecto ajeno al sitio.
+   *
+   * OJO: este directorio NO puede bloquearse por prefijo. isPrivate()
+   * también da por privada la ruta sin barra final, así que añadir
+   * '/redaccion-ejecutiva/' devolvería 404 en la página del curso.
+   *
+   * Arreglo duradero, que aquí no se hace porque mueve archivos de
+   * otro proyecto: sacar el andamio de la raíz servible
+   * (git mv redaccion-ejecutiva _archive/), como manda la regla de
+   * "cero código no servible en la raíz".
+   */
+  '/redaccion-ejecutiva/tsconfig.json',
+  '/redaccion-ejecutiva/postcss.config.mjs',
+  '/redaccion-ejecutiva/eslint.config.mjs'
 ]);
 
 /*
@@ -746,7 +764,24 @@ function applyFileHeaders(res, filePath) {
 // Archivos estáticos (css, js, imágenes; el sitemap ya fue interceptado arriba)
 app.use(express.static(staticPath, {
   setHeaders: applyFileHeaders,
-  index: 'index.html'
+  index: 'index.html',
+  /*
+   * BUCLE DE REDIRECCIÓN. redirect: true (el valor por omisión) hace
+   * que una petición a un directorio SIN barra final responda
+   * 301 → /ruta/. Nuestra canonicalización quita la barra final y
+   * devuelve 301 → /ruta. Resultado: bucle infinito.
+   *
+   * Lo padecía /redaccion-ejecutiva, porque en la raíz hay un
+   * directorio con ese nombre (un andamio de Next.js ajeno al sitio)
+   * que tapa a redaccion-ejecutiva.html. La página estaba enlazada
+   * desde la navegación y el pie de las 26 páginas y era inalcanzable.
+   *
+   * Con redirect: false el directorio no intercepta nada, la petición
+   * llega a la ruta limpia de la sección 9 y se sirve el .html. Para
+   * cualquier otro directorio (/css, /js) el resultado pasa de bucle
+   * infinito a 404, que es lo correcto.
+   */
+  redirect: false
 }));
 
 // ─────────────────────────────────────────────────────────────

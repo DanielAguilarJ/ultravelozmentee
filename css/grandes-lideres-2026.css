@@ -1,0 +1,3657 @@
+/* ══════════════════════════════════════════════════════════════════
+   GRANDES LÍDERES · WorldBrain México
+   Dirección de arte: "TRIBUNA" — el escenario, el reflector, la voz.
+
+   Por qué esta dirección: la página anterior era el mismo cristal
+   oscuro con neón cian y morado que trae cualquier plantilla. No
+   decía nada del curso y competía visualmente con el resto del sitio.
+
+   Aquí la metáfora ES el producto. El curso enseña a un niño a pasar
+   del silencio a la palabra, así que la página se construye como un
+   foro: piso de escenario en perspectiva, un reflector que sigue al
+   puntero, y una onda de voz que nace plana y crece. Cada efecto
+   argumenta algo; ninguno está por decorar.
+
+   Paleta: negro de sala (azulado, no gris), ámbar de reflector,
+   granate de telón y verde menta para "voz clara". Tipografía de
+   cartel (Bricolage Grotesque, variable) contra Inter para el cuerpo.
+
+   Oscuro por defecto — es una sala a oscuras. html.light-mode pasa a
+   "sala con luces encendidas", usando el mismo interruptor que el
+   resto del sitio.
+
+   La página trae también su propio colofón: no carga el pie
+   compartido del sitio, que está escrito con otra paleta y otra
+   tipografía y rompía el cierre de la puesta en escena.
+
+   ORDEN DE CAPAS: todo el CSS propio vive en capas, así que cualquier
+   regla sin capa de navbar-unified.css —la única hoja ajena que se
+   carga— gana sin necesidad de !important. Al final del archivo hay
+   un bloque SIN capa a propósito: son las correcciones de
+   dispositivo, que deben ganar a todo. Está documentado ahí mismo.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ══════════════ PROPIEDADES REGISTRADAS ══════════════
+   Sin @property un custom property es un token de texto y no se
+   puede interpolar: el reflector daría saltos y los degradados
+   girarían de golpe. Registradas, el navegador las anima. */
+
+@property --gl-mx {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 50%;
+}
+
+@property --gl-my {
+    syntax: '<percentage>';
+    inherits: true;
+    initial-value: 26%;
+}
+
+@property --gl-angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 180deg;
+}
+
+@property --gl-sheen {
+    syntax: '<percentage>';
+    inherits: false;
+    initial-value: 0%;
+}
+
+@layer gl.tokens, gl.base, gl.type, gl.layout, gl.components, gl.motion;
+
+/* ══════════════════════════════════════════════════════════════════
+   1 · TOKENS
+   ══════════════════════════════════════════════════════════════════ */
+@layer gl.tokens {
+    :root {
+        /* Sala: negro con azul, nunca gris neutro */
+        --gl-house: #080A11;
+        --gl-pit: #0C0F18;
+        --gl-surface: #12161F;
+        --gl-raised: #191E29;
+        --gl-riser: #212836;
+
+        /* Trazos */
+        --gl-line: rgba(233, 236, 244, 0.10);
+        --gl-line-mid: rgba(233, 236, 244, 0.19);
+        --gl-line-hi: rgba(233, 236, 244, 0.34);
+
+        /* Texto */
+        --gl-ink: #EEF1F7;
+        --gl-ink-soft: #A8B0C0;
+        --gl-ink-dim: #6F7889;
+
+        /* Acentos */
+        --gl-spot: #FFC24A;
+        /* reflector: ámbar cálido */
+        --gl-spot-deep: #D99A16;
+        --gl-curtain: #C6394C;
+        /* telón: granate */
+        --gl-voice: #46D6BB;
+        /* voz clara: menta */
+
+        /* Tintes translúcidos: se calculan una vez y se reusan */
+        --gl-spot-wash: rgba(255, 194, 74, 0.12);
+        --gl-voice-wash: rgba(70, 214, 187, 0.12);
+        --gl-curtain-wash: rgba(198, 57, 76, 0.13);
+
+        /* Tipografía */
+        --gl-poster: 'Bricolage Grotesque', 'Archivo', Impact, sans-serif;
+        --gl-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+
+        /* Métrica */
+        --gl-max: 1200px;
+        --gl-read: 68ch;
+        --gl-gutter: clamp(18px, 5vw, 52px);
+        --gl-band: clamp(72px, 10vw, 148px);
+        --gl-r: 4px;
+        --gl-r-md: 14px;
+        --gl-r-lg: 26px;
+
+        /* Movimiento. Una sola curva para todo el sitio de esta página:
+           mezclar curvas es lo que hace que una interfaz se sienta
+           improvisada. */
+        --gl-ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+        --gl-ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+        --gl-fast: 180ms;
+        --gl-mid: 340ms;
+        --gl-slow: 620ms;
+
+        --gl-drop: 0 38px 80px -34px rgba(0, 0, 0, 0.82);
+        --gl-drop-sm: 0 16px 36px -20px rgba(0, 0, 0, 0.7);
+        --gl-glow: 0 0 0 1px rgba(255, 194, 74, 0.22), 0 24px 70px -28px rgba(255, 194, 74, 0.34);
+    }
+
+    /* Luces encendidas. Los acentos bajan de luminosidad para que el
+       texto sobre papel siga pasando contraste AA. */
+    html.light-mode {
+        --gl-house: #F4F2ED;
+        --gl-pit: #FAF8F4;
+        --gl-surface: #FFFFFF;
+        --gl-raised: #FFFFFF;
+        --gl-riser: #F0EDE6;
+
+        --gl-line: rgba(12, 15, 24, 0.11);
+        --gl-line-mid: rgba(12, 15, 24, 0.2);
+        --gl-line-hi: rgba(12, 15, 24, 0.4);
+
+        --gl-ink: #0C0F18;
+        --gl-ink-soft: #4B5364;
+        --gl-ink-dim: #767E8E;
+
+        --gl-spot: #96650A;
+        --gl-spot-deep: #7A5208;
+        --gl-curtain: #9E2233;
+        --gl-voice: #0B7A67;
+
+        --gl-spot-wash: rgba(150, 101, 10, 0.09);
+        --gl-voice-wash: rgba(11, 122, 103, 0.09);
+        --gl-curtain-wash: rgba(158, 34, 51, 0.08);
+
+        --gl-drop: 0 34px 70px -38px rgba(12, 15, 24, 0.24);
+        --gl-drop-sm: 0 14px 30px -18px rgba(12, 15, 24, 0.18);
+        --gl-glow: 0 0 0 1px rgba(150, 101, 10, 0.24), 0 22px 60px -30px rgba(150, 101, 10, 0.22);
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   2 · BASE
+   ══════════════════════════════════════════════════════════════════ */
+@layer gl.base {
+
+    /* Reset de caja global: navbar-unified.css se escribió para
+       páginas que ya lo traían, y sin él el menú móvil se descoloca. */
+    *,
+    *::before,
+    *::after {
+        box-sizing: border-box;
+    }
+
+    body.gl-body {
+        margin: 0;
+        background: var(--gl-house);
+        color: var(--gl-ink);
+        font-family: var(--gl-body);
+        font-size: clamp(1rem, 0.96rem + 0.2vw, 1.06rem);
+        line-height: 1.65;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        font-synthesis-weight: none;
+    }
+
+    /* Grano de proyección. Sin esto los degradados de la sala se ven
+       como bandas planas en pantallas de 8 bits. */
+    body.gl-body::after {
+        content: "";
+        position: fixed;
+        inset: 0;
+        z-index: 9997;
+        pointer-events: none;
+        opacity: 0.05;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.82' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='140' height='140' filter='url(%23g)'/%3E%3C/svg%3E");
+    }
+
+    html.light-mode body.gl-body::after {
+        opacity: 0.035;
+    }
+
+    .gl-body :where(main) :where(p, ul, ol, figure, blockquote) {
+        margin: 0;
+    }
+
+    .gl-body img,
+    .gl-body svg {
+        max-width: 100%;
+    }
+
+    /* Un solo estilo de foco en toda la página, visible sobre
+       cualquier fondo: doble anillo. */
+    .gl-body :where(a, button, summary, input, select, textarea, [tabindex]):focus-visible {
+        outline: 2px solid var(--gl-spot);
+        outline-offset: 3px;
+        border-radius: var(--gl-r);
+    }
+
+    /* Selección con el ámbar del reflector */
+    .gl-body ::selection {
+        background: var(--gl-spot);
+        color: #0A0C12;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   3 · TIPOGRAFÍA
+   La escala es fluida con clamp() y el eje opsz de la variable se
+   ajusta al tamaño: un cartel a 5rem necesita menos contraste óptico
+   que una etiqueta a 12px, y la fuente lo resuelve sola.
+   ══════════════════════════════════════════════════════════════════ */
+@layer gl.type {
+
+    .gl-mega,
+    .gl-h2,
+    .gl-h3,
+    .gl-num {
+        font-family: var(--gl-poster);
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        line-height: 0.94;
+        text-wrap: balance;
+        margin: 0;
+    }
+
+    .gl-mega {
+        font-size: clamp(2.6rem, 1.4rem + 7.4vw, 6.6rem);
+        font-variation-settings: 'opsz' 96;
+        text-transform: uppercase;
+    }
+
+    .gl-h2 {
+        font-size: clamp(1.9rem, 1.2rem + 3.1vw, 3.5rem);
+        font-variation-settings: 'opsz' 72;
+    }
+
+    .gl-h3 {
+        font-size: clamp(1.15rem, 1rem + 0.8vw, 1.5rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.16;
+        font-variation-settings: 'opsz' 24;
+    }
+
+    /* Antetítulo: mayúsculas espaciadas con un guion de escenario */
+    .gl-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.7rem;
+        margin: 0 0 1.15rem;
+        font-size: 0.735rem;
+        font-weight: 600;
+        letter-spacing: 0.19em;
+        text-transform: uppercase;
+        color: var(--gl-spot);
+    }
+
+    .gl-eyebrow::before {
+        content: "";
+        inline-size: clamp(20px, 4vw, 42px);
+        block-size: 1px;
+        background: currentColor;
+        opacity: 0.65;
+    }
+
+    .gl-lead {
+        max-inline-size: var(--gl-read);
+        font-size: clamp(1.05rem, 1rem + 0.5vw, 1.28rem);
+        line-height: 1.6;
+        color: var(--gl-ink-soft);
+        text-wrap: pretty;
+    }
+
+    .gl-lead strong,
+    .gl-body main strong {
+        color: var(--gl-ink);
+        font-weight: 600;
+    }
+
+    /* Palabra dicha en voz alta: subrayada con una onda, no con una
+       línea recta. El SVG va en el fondo para que el subrayado siga
+       al texto cuando parte en dos renglones. */
+    .gl-said {
+        color: var(--gl-spot);
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M0 8 Q 15 1 30 8 T 60 8 T 90 8 T 120 8' fill='none' stroke='%23FFC24A' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: repeat-x;
+        background-position: 0 100%;
+        background-size: 0.7em 0.28em;
+        padding-bottom: 0.12em;
+    }
+
+    html.light-mode .gl-said {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 120 12' preserveAspectRatio='none'%3E%3Cpath d='M0 8 Q 15 1 30 8 T 60 8 T 90 8 T 120 8' fill='none' stroke='%2396650A' stroke-width='2.4' stroke-linecap='round'/%3E%3C/svg%3E");
+    }
+
+    /* Contadores y datos: cifras de ancho fijo, si no "bailan" al
+       animarse. */
+    .gl-num {
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: 'tnum' 1;
+    }
+
+    /* El contador arranca en 0 y sube. Sin reservar su ancho final, el
+       texto que va detrás se desplaza en cada fotograma: «0 semanales»
+       ocupa menos que «12 semanales». Se reserva con ch, que en cifras
+       tabulares es exactamente el ancho de un dígito. */
+    .gl-count {
+        display: inline-block;
+        min-inline-size: calc(var(--digits, 2) * 1ch);
+        font-variant-numeric: tabular-nums;
+        font-feature-settings: 'tnum' 1;
+        text-align: end;
+    }
+
+    /* Etiqueta técnica en versalitas simuladas */
+    .gl-tag {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gl-ink-dim);
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   4 · RETÍCULA
+   ══════════════════════════════════════════════════════════════════ */
+@layer gl.layout {
+    .gl-wrap {
+        max-inline-size: var(--gl-max);
+        margin-inline: auto;
+        padding-inline: var(--gl-gutter);
+    }
+
+    .gl-band {
+        position: relative;
+        padding-block: var(--gl-band);
+    }
+
+    .gl-band + .gl-band {
+        border-top: 1px solid var(--gl-line);
+    }
+
+    /* NO usar content-visibility: auto en las secciones de esta
+       página. Se probó y se retiró.
+
+       Motivo: toda la navegación interna son enlaces #ancla y el
+       índice lateral salta a ocho de estas secciones. Con
+       content-visibility el navegador estima el alto de lo que aún no
+       ha pintado (contain-intrinsic-size), así que al pulsar
+       «Preguntas» desde arriba el destino se calcula sobre alturas
+       inventadas y la página aterriza a cientos de píxeles del sitio
+       correcto; luego corrige de golpe cuando el contenido real se
+       compone. La ganancia era mínima —la página no tiene imágenes ni
+       iframes— y el coste era que la navegación no funcionaba. */
+
+    /* Encabezado de sección: antetítulo + título + entradilla */
+    .gl-head {
+        display: grid;
+        gap: 1.1rem;
+        margin-block-end: clamp(2.4rem, 5vw, 4.2rem);
+        max-inline-size: 60ch;
+    }
+
+    .gl-cols {
+        display: grid;
+        gap: clamp(1rem, 2.4vw, 1.6rem);
+        /* auto-fit + minmax: la rejilla decide cuántas columnas caben
+           sin una sola media query. */
+        grid-template-columns: repeat(auto-fit, minmax(min(268px, 100%), 1fr));
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   5 · COMPONENTES
+   ══════════════════════════════════════════════════════════════════ */
+@layer gl.components {
+
+    /* ────────────────────────────────────────────────────────────
+       5.1 · Folio: barra de avance de lectura
+       En navegadores con scroll-driven animations la mueve el
+       compositor y el JS no interviene. Donde no, el JS escribe
+       --gl-progress. Misma propiedad, dos motores.
+       ──────────────────────────────────────────────────────────── */
+    .gl-folio {
+        position: fixed;
+        inset-block-start: 0;
+        inset-inline: 0;
+        z-index: 1200;
+        block-size: 2px;
+        pointer-events: none;
+        background: var(--gl-line);
+    }
+
+    .gl-folio-bar {
+        display: block;
+        block-size: 100%;
+        transform-origin: left center;
+        scale: var(--gl-progress, 0) 1;
+        background: linear-gradient(90deg, var(--gl-curtain), var(--gl-spot) 62%, var(--gl-voice));
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.2 · Botones
+       El brillo sigue al puntero con --gl-mx/--gl-my heredadas del
+       propio botón, no del documento: así cada botón tiene su foco.
+       ──────────────────────────────────────────────────────────── */
+    .gl-btn {
+        --gl-mx: 50%;
+        --gl-my: 50%;
+        position: relative;
+        isolation: isolate;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 0.66rem;
+        padding: 1.02rem 1.7rem;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        font-family: var(--gl-body);
+        font-size: 0.985rem;
+        font-weight: 600;
+        letter-spacing: -0.005em;
+        text-decoration: none;
+        cursor: pointer;
+        overflow: hidden;
+        transition:
+            transform var(--gl-fast) var(--gl-ease),
+            box-shadow var(--gl-mid) var(--gl-ease),
+            border-color var(--gl-fast) var(--gl-ease),
+            background-color var(--gl-fast) var(--gl-ease),
+            --gl-mx var(--gl-fast) linear,
+            --gl-my var(--gl-fast) linear;
+    }
+
+    .gl-btn::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        opacity: 0;
+        background: radial-gradient(14rem 9rem at var(--gl-mx) var(--gl-my),
+                rgba(255, 255, 255, 0.55), transparent 68%);
+        transition: opacity var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-btn:hover::before,
+    .gl-btn:focus-visible::before {
+        opacity: 1;
+    }
+
+    .gl-btn-spot {
+        background: linear-gradient(140deg, var(--gl-spot), var(--gl-spot-deep));
+        color: #0A0C12;
+        box-shadow: var(--gl-glow);
+    }
+
+    html.light-mode .gl-btn-spot {
+        color: #FFF8E7;
+    }
+
+    .gl-btn-spot:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 0 0 1px rgba(255, 194, 74, 0.4), 0 30px 74px -26px rgba(255, 194, 74, 0.46);
+    }
+
+    .gl-btn-ghost {
+        background: transparent;
+        border-color: var(--gl-line-mid);
+        color: var(--gl-ink);
+    }
+
+    .gl-btn-ghost:hover {
+        transform: translateY(-2px);
+        border-color: var(--gl-line-hi);
+        background-color: var(--gl-surface);
+    }
+
+    .gl-btn-block {
+        inline-size: 100%;
+    }
+
+    .gl-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.9rem 1.1rem;
+    }
+
+    /* Micro-copia bajo los botones: quita el miedo a hacer clic */
+    .gl-reassure {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        font-size: 0.86rem;
+        color: var(--gl-ink-dim);
+    }
+
+    .gl-reassure i {
+        color: var(--gl-voice);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.3 · HERO — la sala
+       Cuatro capas: reflector (sigue al puntero), rejilla de piso en
+       perspectiva, telón lateral y contenido.
+       ──────────────────────────────────────────────────────────── */
+    .gl-hero {
+        position: relative;
+        isolation: isolate;
+        /* El relleno superior reserva la altura de la navbar fija, que
+           mide 48 px y flota a 16 px del borde. */
+        padding-block: clamp(108px, 15vh, 178px) clamp(56px, 8vw, 96px);
+        overflow: hidden;
+    }
+
+    .gl-hero-spot,
+    .gl-hero-floor,
+    .gl-hero-curtain {
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+    }
+
+    /* Reflector. La transición de --gl-mx/--gl-my suaviza el
+       seguimiento sin necesidad de interpolar en JS. */
+    .gl-hero-spot {
+        background:
+            radial-gradient(46rem 34rem at var(--gl-mx) var(--gl-my),
+                var(--gl-spot-wash), transparent 64%),
+            radial-gradient(30rem 26rem at calc(100% - var(--gl-mx)) 86%,
+                var(--gl-voice-wash), transparent 68%);
+        transition: --gl-mx 240ms linear, --gl-my 240ms linear;
+    }
+
+    /* Piso del escenario: la rejilla se inclina y se desvanece hacia
+       el horizonte. Se recorta con mask para que no choque con el
+       borde de la sección. */
+    .gl-hero-floor {
+        inset-block-start: auto;
+        block-size: 58%;
+        background-image:
+            linear-gradient(var(--gl-line) 1px, transparent 1px),
+            linear-gradient(90deg, var(--gl-line) 1px, transparent 1px);
+        background-size: 76px 76px;
+        transform: perspective(52rem) rotateX(64deg) scale(1.9);
+        transform-origin: bottom center;
+        mask-image: linear-gradient(to top, #000 6%, transparent 78%);
+        -webkit-mask-image: linear-gradient(to top, #000 6%, transparent 78%);
+        opacity: 0.85;
+    }
+
+    /* Telón: dos franjas verticales en granate, muy tenues */
+    .gl-hero-curtain {
+        background:
+            linear-gradient(90deg, var(--gl-curtain-wash), transparent 22%),
+            linear-gradient(270deg, var(--gl-curtain-wash), transparent 22%);
+    }
+
+    .gl-hero-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 0.78fr);
+        gap: clamp(2.4rem, 5vw, 4.4rem);
+        align-items: center;
+    }
+
+    .gl-hero-copy > * + * {
+        margin-block-start: clamp(1.15rem, 2.4vw, 1.8rem);
+    }
+
+    /* La ruta y el antetítulo forman un solo bloque de etiquetas: el
+       ritmo general de la columna los separaría casi 2 rem y
+       parecerían dos cosas distintas. */
+    .gl-hero-copy > .gl-crumbs {
+        margin-block-end: 1.1rem;
+    }
+
+    .gl-hero-copy > .gl-crumbs + .gl-eyebrow {
+        margin-block-start: 0;
+    }
+
+    .gl-mega-line {
+        display: block;
+    }
+
+    /* Ficha técnica: los cuatro datos que un padre busca antes de
+       leer una sola línea de venta. */
+    .gl-spec {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(132px, 100%), 1fr));
+        gap: 1px;
+        margin-block-start: clamp(2rem, 4vw, 3rem);
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-md);
+        background: var(--gl-line);
+        overflow: hidden;
+    }
+
+    .gl-spec div {
+        padding: 1rem 1.15rem;
+        background: var(--gl-surface);
+    }
+
+    .gl-spec dt {
+        margin: 0 0 0.3rem;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--gl-ink-dim);
+    }
+
+    .gl-spec dd {
+        margin: 0;
+        font-family: var(--gl-poster);
+        font-size: 1.22rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        line-height: 1.1;
+    }
+
+    /* ── Figura del hero: micrófono + anillos + onda ── */
+    .gl-mic-stage {
+        position: relative;
+        display: grid;
+        place-items: center;
+        aspect-ratio: 1;
+        container-type: inline-size;
+    }
+
+    .gl-mic-ring {
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        inline-size: min(92%, 30rem);
+        aspect-ratio: 1;
+        border: 1px solid var(--gl-line-mid);
+        border-radius: 50%;
+    }
+
+    .gl-mic-ring:nth-of-type(2) {
+        inline-size: min(70%, 23rem);
+        border-color: var(--gl-line);
+    }
+
+    .gl-mic-ring:nth-of-type(3) {
+        inline-size: min(48%, 16rem);
+        border-style: dashed;
+        border-color: var(--gl-line-mid);
+    }
+
+    .gl-mic {
+        position: relative;
+        inline-size: min(42%, 14rem);
+        color: var(--gl-spot);
+        filter: drop-shadow(0 18px 44px rgba(255, 194, 74, 0.28));
+    }
+
+    /* Halo del reflector detrás del micrófono. inset + margin auto
+       centra sin depender de la posición estática de un hijo
+       absoluto dentro de una rejilla, que varía entre motores. */
+    .gl-mic-stage::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        margin: auto;
+        inline-size: min(64%, 22rem);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--gl-spot-wash), transparent 70%);
+    }
+
+    /* ── Onda de voz ──
+       Barras en HTML, no en SVG: cada una lleva su altura y su índice
+       en custom properties, así el CSS puede escalonar la animación
+       sin un solo bucle en JS. */
+    .gl-wave {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: clamp(2px, 0.5cqi, 5px);
+        block-size: clamp(56px, 12cqi, 104px);
+        inline-size: 100%;
+        margin-block-start: clamp(1.4rem, 3cqi, 2.4rem);
+    }
+
+    .gl-wave span {
+        flex: 1 1 0;
+        min-inline-size: 2px;
+        max-inline-size: 9px;
+        block-size: calc(var(--h, 30) * 1%);
+        border-radius: 999px;
+        background: linear-gradient(to top, var(--gl-spot-deep), var(--gl-spot));
+        transform-origin: center;
+        /* Reposo: la voz está plana. La animación la levanta. */
+        scale: 1 0.16;
+        opacity: 0.5;
+    }
+
+    /* La mitad menta: "voz clara" al final de la onda */
+    .gl-wave span:nth-child(3n) {
+        background: linear-gradient(to top, var(--gl-voice), var(--gl-spot));
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.4 · El costo del silencio
+       Renglones numerados, no tarjetas: se lee como un acta.
+       ──────────────────────────────────────────────────────────── */
+    .gl-symptoms {
+        display: grid;
+        gap: 0;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        border-block-start: 1px solid var(--gl-line);
+        counter-reset: gl-sym;
+    }
+
+    .gl-symptoms > li {
+        --gl-sheen: 0%;
+        position: relative;
+        /* isolation crea contexto de apilamiento propio: así el
+           ::after con z-index negativo se queda detrás del texto del
+           renglón y no se escapa detrás del fondo de la página. */
+        isolation: isolate;
+        display: grid;
+        grid-template-columns: 4.6rem minmax(0, 22ch) minmax(0, 1fr);
+        gap: 0.6rem 1.8rem;
+        align-items: start;
+        padding-block: clamp(1.5rem, 3vw, 2.4rem);
+        border-block-end: 1px solid var(--gl-line);
+        counter-increment: gl-sym;
+        transition: --gl-sheen var(--gl-slow) var(--gl-ease);
+    }
+
+    /* Barrido de luz al pasar por encima: el renglón "se ilumina"
+       de izquierda a derecha, como cuando el reflector encuentra a
+       alguien en el escenario. */
+    .gl-symptoms > li::after {
+        content: "";
+        position: absolute;
+        inset-inline: -1.2rem;
+        inset-block: 0;
+        z-index: -1;
+        border-radius: var(--gl-r-md);
+        background: linear-gradient(90deg,
+                var(--gl-spot-wash),
+                transparent var(--gl-sheen));
+        opacity: 0;
+        transition: opacity var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-symptoms > li:hover::after {
+        opacity: 1;
+    }
+
+    .gl-symptoms > li:hover {
+        --gl-sheen: 100%;
+    }
+
+    .gl-sym-n {
+        grid-column: 1;
+        font-family: var(--gl-poster);
+        font-size: clamp(2rem, 1.4rem + 1.8vw, 3.2rem);
+        font-weight: 800;
+        line-height: 0.85;
+        letter-spacing: -0.05em;
+        color: transparent;
+        -webkit-text-stroke: 1px var(--gl-line-hi);
+        text-stroke: 1px var(--gl-line-hi);
+    }
+
+    .gl-symptoms > li:hover .gl-sym-n {
+        -webkit-text-stroke-color: var(--gl-spot);
+        text-stroke-color: var(--gl-spot);
+    }
+
+    .gl-symptoms h3 {
+        grid-column: 2;
+    }
+
+    .gl-symptoms p {
+        grid-column: 3;
+        color: var(--gl-ink-soft);
+        text-wrap: pretty;
+    }
+
+    /* Nota al pie de la sección: separa observación de diagnóstico.
+       Existe por honestidad, no por diseño. */
+    .gl-caveat {
+        display: flex;
+        gap: 0.85rem;
+        margin-block-start: clamp(2rem, 4vw, 3rem);
+        padding: 1.1rem 1.3rem;
+        border: 1px solid var(--gl-line);
+        border-inline-start: 3px solid var(--gl-curtain);
+        border-radius: 0 var(--gl-r-md) var(--gl-r-md) 0;
+        background: var(--gl-surface);
+        font-size: 0.92rem;
+        color: var(--gl-ink-soft);
+    }
+
+    .gl-caveat i {
+        flex: 0 0 auto;
+        margin-block-start: 0.22rem;
+        color: var(--gl-curtain);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.5 · Pilares del método
+       Tarjeta con foco de puntero. El foco es un radial posicionado
+       por --gl-mx/--gl-my que escribe el JS una sola vez por frame
+       para TODAS las tarjetas.
+       ──────────────────────────────────────────────────────────── */
+    .gl-card {
+        position: relative;
+        isolation: isolate;
+        display: flex;
+        flex-direction: column;
+        gap: 0.85rem;
+        padding: clamp(1.5rem, 3vw, 2.1rem);
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-lg);
+        background: var(--gl-surface);
+        transition:
+            transform var(--gl-mid) var(--gl-ease),
+            border-color var(--gl-mid) var(--gl-ease),
+            box-shadow var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-card::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        border-radius: inherit;
+        opacity: 0;
+        background: radial-gradient(20rem 16rem at var(--gl-mx) var(--gl-my),
+                var(--gl-spot-wash), transparent 62%);
+        transition: opacity var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--gl-line-mid);
+        box-shadow: var(--gl-drop-sm);
+    }
+
+    .gl-card:hover::before {
+        opacity: 1;
+    }
+
+    .gl-card-icon {
+        display: grid;
+        place-items: center;
+        inline-size: 3rem;
+        block-size: 3rem;
+        border: 1px solid var(--gl-line-mid);
+        border-radius: 14px;
+        background: var(--gl-riser);
+        color: var(--gl-spot);
+        font-size: 1.15rem;
+    }
+
+    .gl-card p {
+        color: var(--gl-ink-soft);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.6 · El guion — módulos como escenas
+       Riel vertical que se llena con el scroll. Donde existe
+       animation-timeline lo hace el CSS; si no, el JS escribe
+       --gl-fill. La propiedad animada es `scale`, no `transform`,
+       para no pisar otros transforms del mismo elemento.
+       ──────────────────────────────────────────────────────────── */
+    /* La geometría del riel vive en tres custom properties y NADA más
+       la repite. Antes el nodo de cada escena llevaba su propio
+       cálculo y en cuanto cambiaba el relleno los puntos quedaban
+       flotando al lado de la línea.
+
+       El riel va FUERA del <ol>: un <ol> solo admite <li>, así que
+       meterle un <span> rompe la validez del documento. */
+    .gl-script-wrap {
+        --gl-rail-x: clamp(0.95rem, 2.4vw, 1.75rem);
+        --gl-rail-pad: clamp(2.6rem, 6vw, 4.4rem);
+        --gl-node: 15px;
+        position: relative;
+    }
+
+    .gl-script {
+        display: grid;
+        gap: clamp(1.4rem, 3vw, 2.2rem);
+        margin: 0;
+        padding: 0 0 0 var(--gl-rail-pad);
+        list-style: none;
+    }
+
+    .gl-rail {
+        position: absolute;
+        inset-block: 0.6rem;
+        inset-inline-start: var(--gl-rail-x);
+        inline-size: 2px;
+        background: var(--gl-line);
+        overflow: hidden;
+    }
+
+    .gl-rail::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        transform-origin: top center;
+        scale: 1 var(--gl-fill, 0);
+        background: linear-gradient(to bottom, var(--gl-spot), var(--gl-voice));
+    }
+
+    .gl-scene {
+        position: relative;
+        padding: clamp(1.3rem, 2.6vw, 1.9rem) clamp(1.3rem, 2.6vw, 2rem);
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-lg);
+        background: var(--gl-surface);
+        transition:
+            border-color var(--gl-mid) var(--gl-ease),
+            background-color var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-scene:hover {
+        border-color: var(--gl-line-mid);
+    }
+
+    /* Nodo sobre el riel: se centra en el eje del riel restando el
+       relleno de la lista y la mitad del propio nodo. */
+    .gl-scene::before {
+        content: "";
+        position: absolute;
+        inset-block-start: clamp(1.6rem, 3vw, 2.2rem);
+        inset-inline-start: calc(var(--gl-rail-x) - var(--gl-rail-pad) - (var(--gl-node) - 2px) / 2);
+        inline-size: 11px;
+        block-size: 11px;
+        border: 2px solid var(--gl-spot);
+        border-radius: 50%;
+        background: var(--gl-house);
+        transition: box-shadow var(--gl-mid) var(--gl-ease), background-color var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-scene.is-in::before {
+        background: var(--gl-spot);
+        box-shadow: 0 0 0 6px var(--gl-spot-wash);
+    }
+
+    .gl-scene-top {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        gap: 0.5rem 1rem;
+        margin-block-end: 0.7rem;
+    }
+
+    .gl-scene-n {
+        font-family: var(--gl-poster);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        color: var(--gl-spot);
+    }
+
+    /* :not(.gl-deliver) es obligatorio: `.gl-scene p` tiene más
+       especificidad que `.gl-deliver` y le pisaba el margen y el
+       color al entregable. */
+    .gl-scene > p:not(.gl-deliver) {
+        margin-block-start: 0.6rem;
+        color: var(--gl-ink-soft);
+    }
+
+    /* "Se lleva a casa": el entregable concreto de cada módulo. Es lo
+       que convierte una lista de temas en una promesa verificable. */
+    .gl-deliver {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.55rem;
+        margin-block-start: 1rem;
+        padding-block-start: 0.9rem;
+        border-block-start: 1px dashed var(--gl-line-mid);
+        font-size: 0.88rem;
+        color: var(--gl-ink);
+    }
+
+    .gl-deliver .gl-tag {
+        color: var(--gl-voice);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.7 · Antes → Después
+       El "antes" se tacha con una línea que crece cuando la tarjeta
+       entra en pantalla. No es decoración: es la promesa del curso
+       ocurriendo delante del lector.
+       ──────────────────────────────────────────────────────────── */
+    .gl-shifts {
+        display: grid;
+        gap: clamp(1rem, 2.4vw, 1.6rem);
+        grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr));
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .gl-shift {
+        display: grid;
+        gap: 0.9rem;
+        padding: clamp(1.5rem, 3vw, 2.1rem);
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-lg);
+        background:
+            linear-gradient(180deg, var(--gl-surface), var(--gl-pit));
+        transition: border-color var(--gl-mid) var(--gl-ease), transform var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-shift:hover {
+        transform: translateY(-4px);
+        border-color: var(--gl-line-mid);
+    }
+
+    .gl-shift-from,
+    .gl-shift-to {
+        display: flex;
+        align-items: flex-start;
+        gap: 0.7rem;
+        font-size: 1.02rem;
+        line-height: 1.4;
+    }
+
+    .gl-shift-from {
+        color: var(--gl-ink-dim);
+        /* El tachado es un fondo, no text-decoration: así se puede
+           animar su ancho. */
+        background-image: linear-gradient(currentColor, currentColor);
+        background-repeat: no-repeat;
+        background-position: 0 58%;
+        background-size: 0% 1.5px;
+        transition: background-size var(--gl-slow) var(--gl-ease) 120ms;
+    }
+
+    .gl-shift.is-in .gl-shift-from {
+        background-size: 100% 1.5px;
+    }
+
+    .gl-shift-to {
+        color: var(--gl-ink);
+        font-weight: 600;
+        opacity: 0.35;
+        transform: translateY(6px);
+        transition:
+            opacity var(--gl-slow) var(--gl-ease) 320ms,
+            transform var(--gl-slow) var(--gl-ease-out) 320ms;
+    }
+
+    .gl-shift.is-in .gl-shift-to {
+        opacity: 1;
+        transform: none;
+    }
+
+    .gl-shift-to i {
+        color: var(--gl-voice);
+    }
+
+    .gl-shift-from i {
+        color: var(--gl-curtain);
+    }
+
+    /* Clase propia en lugar de `.gl-shift p`: ese selector tenía más
+       especificidad que .gl-shift-from / .gl-shift-to y les colgaba
+       un borde superior a las dos. */
+    .gl-shift-why {
+        color: var(--gl-ink-soft);
+        font-size: 0.95rem;
+        padding-block-start: 0.8rem;
+        border-block-start: 1px solid var(--gl-line);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.8 · Anatomía de una sesión
+       Franja desplazable en horizontal. El contenedor recibe
+       tabindex y role en el HTML: sin tabindex el teclado no puede
+       desplazarlo y su contenido queda inalcanzable.
+       ──────────────────────────────────────────────────────────── */
+    .gl-clock-wrap {
+        overflow-x: auto;
+        overscroll-behavior-x: contain;
+        -webkit-overflow-scrolling: touch;
+        scroll-snap-type: x proximity;
+        padding-block-end: 0.9rem;
+    }
+
+    .gl-clock-wrap:focus-visible {
+        outline: 2px solid var(--gl-spot);
+        outline-offset: 4px;
+    }
+
+    /* Rejilla que ENVUELVE por defecto, no que se desplaza.
+
+       Antes eran seis columnas en una sola fila con un mínimo de
+       216 px: 1296 px dentro de un contenedor de 1200, así que en
+       escritorio aparecía una barra de desplazamiento horizontal y el
+       aviso de «desliza» solo se mostraba por debajo de 720 px. Quien
+       lo veía en un portátil se quedaba sin ver los dos últimos
+       tramos y sin nada que se lo indicara.
+
+       Ahora: 3 + 3 en escritorio, 2 + 2 + 2 en tablet y deslizamiento
+       solo en teléfono, donde de verdad es la mejor opción. El hueco
+       de 1 px dibuja los separadores en los dos ejes. */
+    .gl-clock {
+        display: grid;
+        grid-auto-flow: row;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        margin: 0;
+        padding: 0;
+        min-inline-size: 100%;
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-md);
+        background: var(--gl-line);
+        overflow: hidden;
+        list-style: none;
+    }
+
+    .gl-clock > li {
+        display: grid;
+        gap: 0.5rem;
+        align-content: start;
+        padding: 1.25rem 1.3rem 1.5rem;
+        background: var(--gl-surface);
+        scroll-snap-align: start;
+        transition: background-color var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-clock > li:hover {
+        background: var(--gl-raised);
+    }
+
+    .gl-clock-time {
+        font-family: var(--gl-poster);
+        font-size: 0.92rem;
+        font-weight: 700;
+        letter-spacing: 0.04em;
+        color: var(--gl-spot);
+        font-variant-numeric: tabular-nums;
+    }
+
+    .gl-clock h3 {
+        font-size: 1.02rem;
+    }
+
+    .gl-clock p {
+        font-size: 0.9rem;
+        color: var(--gl-ink-soft);
+    }
+
+    /* Medidor de minutos: barra proporcional a la duración.
+       display: block es imprescindible — es un <span>, y un elemento
+       en línea ignora block-size. */
+    .gl-clock-bar {
+        display: block;
+        block-size: 3px;
+        border-radius: 999px;
+        background: var(--gl-line-mid);
+        overflow: hidden;
+    }
+
+    .gl-clock-bar span {
+        display: block;
+        block-size: 100%;
+        inline-size: calc(var(--min, 10) / 120 * 100%);
+        background: linear-gradient(90deg, var(--gl-spot), var(--gl-voice));
+    }
+
+    .gl-scroll-hint {
+        display: none;
+        margin-block-start: 0.8rem;
+        font-size: 0.82rem;
+        color: var(--gl-ink-dim);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.9 · Transparencia: lo que sí y lo que no
+       Es la pieza de cumplimiento. Va en grande a propósito: en esta
+       categoría la letra pequeña es el argumento de venta.
+       ──────────────────────────────────────────────────────────── */
+    .gl-ledger {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+        gap: clamp(1rem, 2.4vw, 1.6rem);
+    }
+
+    .gl-ledger-col {
+        padding: clamp(1.5rem, 3vw, 2.1rem);
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-lg);
+        background: var(--gl-surface);
+    }
+
+    .gl-ledger-col h3 {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-block-end: 1.1rem;
+    }
+
+    .gl-ledger-col ul {
+        display: grid;
+        gap: 0.85rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .gl-ledger-col li {
+        display: grid;
+        grid-template-columns: 1.4rem minmax(0, 1fr);
+        gap: 0.75rem;
+        font-size: 0.97rem;
+        color: var(--gl-ink-soft);
+    }
+
+    .gl-ledger-col li i {
+        margin-block-start: 0.28rem;
+    }
+
+    .gl-yes {
+        border-color: rgba(70, 214, 187, 0.26);
+    }
+
+    .gl-yes h3 i,
+    .gl-yes li i {
+        color: var(--gl-voice);
+    }
+
+    .gl-no h3 i,
+    .gl-no li i {
+        color: var(--gl-curtain);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.10 · FAQ — tarjetas de apunte
+       Acordeón nativo: <details name="..."> ya se excluye entre sí en
+       navegadores modernos, así que no hay una línea de JS aquí. En
+       navegadores sin soporte simplemente se pueden abrir varias, que
+       es una degradación aceptable.
+       ──────────────────────────────────────────────────────────── */
+    .gl-faq {
+        display: grid;
+        gap: 0.8rem;
+        max-inline-size: 78ch;
+    }
+
+    .gl-faq details {
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-md);
+        background: var(--gl-surface);
+        transition: border-color var(--gl-mid) var(--gl-ease), background-color var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-faq details[open] {
+        border-color: var(--gl-line-mid);
+        background: var(--gl-raised);
+    }
+
+    .gl-faq summary {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 1.15rem 1.3rem;
+        font-family: var(--gl-poster);
+        font-size: 1.04rem;
+        font-weight: 600;
+        letter-spacing: -0.015em;
+        cursor: pointer;
+        list-style: none;
+    }
+
+    /* El triángulo por defecto no se puede posicionar; se retira en
+       los dos motores y se dibuja uno propio. */
+    .gl-faq summary::-webkit-details-marker {
+        display: none;
+    }
+
+    .gl-faq summary::marker {
+        content: "";
+    }
+
+    .gl-faq summary::after {
+        content: "";
+        flex: 0 0 auto;
+        inline-size: 11px;
+        block-size: 11px;
+        border-inline-end: 2px solid var(--gl-spot);
+        border-block-end: 2px solid var(--gl-spot);
+        rotate: 45deg;
+        translate: 0 -2px;
+        transition: rotate var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-faq details[open] summary::after {
+        rotate: 225deg;
+        translate: 0 2px;
+    }
+
+    .gl-faq-body {
+        padding: 0 1.3rem 1.3rem;
+        color: var(--gl-ink-soft);
+        max-inline-size: 62ch;
+    }
+
+    /* Salida para la duda que no está en la lista. */
+    .gl-faq-more {
+        display: flex;
+        gap: 0.85rem;
+        margin-block-start: 0.6rem;
+        padding: 1.1rem 1.3rem;
+        border: 1px dashed var(--gl-line-mid);
+        border-radius: var(--gl-r-md);
+        font-size: 0.92rem;
+        color: var(--gl-ink-soft);
+    }
+
+    .gl-faq-more i {
+        flex: 0 0 auto;
+        margin-block-start: 0.22rem;
+        color: var(--gl-spot);
+    }
+
+    .gl-faq-more a {
+        color: var(--gl-spot);
+        font-weight: 600;
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: border-color var(--gl-fast) var(--gl-ease);
+    }
+
+    .gl-faq-more a:hover {
+        border-block-end-color: currentColor;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.11 · Agendar
+       ──────────────────────────────────────────────────────────── */
+    .gl-book {
+        display: grid;
+        grid-template-columns: minmax(0, 0.86fr) minmax(0, 1.14fr);
+        gap: clamp(1.4rem, 3vw, 2.4rem);
+        align-items: start;
+    }
+
+    .gl-book-aside {
+        padding: clamp(1.6rem, 3vw, 2.2rem);
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-lg);
+        background:
+            radial-gradient(28rem 20rem at 12% -10%, var(--gl-spot-wash), transparent 62%),
+            var(--gl-surface);
+    }
+
+    .gl-book-aside ul {
+        display: grid;
+        gap: 0.8rem;
+        margin: 1.2rem 0 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .gl-book-aside li {
+        display: grid;
+        grid-template-columns: 1.3rem minmax(0, 1fr);
+        gap: 0.7rem;
+        color: var(--gl-ink-soft);
+        font-size: 0.97rem;
+    }
+
+    .gl-book-aside li i {
+        margin-block-start: 0.3rem;
+        color: var(--gl-voice);
+    }
+
+    .gl-book-contact {
+        display: grid;
+        gap: 0.55rem;
+        margin-block-start: 1.6rem;
+        padding-block-start: 1.4rem;
+        border-block-start: 1px solid var(--gl-line);
+        font-size: 0.93rem;
+    }
+
+    .gl-book-contact a {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        color: var(--gl-ink);
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: border-color var(--gl-fast) var(--gl-ease), color var(--gl-fast) var(--gl-ease);
+    }
+
+    .gl-book-contact a:hover {
+        color: var(--gl-spot);
+        border-block-end-color: currentColor;
+    }
+
+    .gl-book-contact i {
+        color: var(--gl-spot);
+    }
+
+    /* ── Formulario ── */
+    .gl-form-card {
+        position: relative;
+        padding: clamp(1.6rem, 3vw, 2.4rem);
+        border: 1px solid var(--gl-line-mid);
+        border-radius: var(--gl-r-lg);
+        background: var(--gl-raised);
+        box-shadow: var(--gl-drop);
+    }
+
+    /* Indicador de paso: tres marcas, no una barra de porcentaje.
+       El visitante necesita saber cuántas pantallas faltan. */
+    .gl-steps {
+        display: flex;
+        align-items: center;
+        gap: 0.6rem;
+        margin-block-end: 1.6rem;
+    }
+
+    .gl-steps span {
+        flex: 1 1 0;
+        block-size: 3px;
+        border-radius: 999px;
+        background: var(--gl-line-mid);
+        transition: background-color var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-steps span[data-done] {
+        background: linear-gradient(90deg, var(--gl-spot), var(--gl-voice));
+    }
+
+    .gl-step {
+        display: none;
+    }
+
+    .gl-step[data-active] {
+        display: block;
+        animation: glStepIn var(--gl-mid) var(--gl-ease-out) both;
+    }
+
+    .gl-step-head {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 1rem;
+        margin-block-end: 1.3rem;
+    }
+
+    .gl-field-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+        gap: 1.05rem;
+    }
+
+    .gl-field {
+        display: grid;
+        gap: 0.4rem;
+    }
+
+    .gl-field label {
+        font-size: 0.82rem;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: var(--gl-ink-soft);
+    }
+
+    .gl-field :where(input, select) {
+        inline-size: 100%;
+        padding: 0.85rem 1rem;
+        border: 1px solid var(--gl-line-mid);
+        border-radius: 12px;
+        background: var(--gl-surface);
+        color: var(--gl-ink);
+        font-family: inherit;
+        font-size: 1rem;
+        transition:
+            border-color var(--gl-fast) var(--gl-ease),
+            box-shadow var(--gl-fast) var(--gl-ease),
+            background-color var(--gl-fast) var(--gl-ease);
+    }
+
+    /* La flecha del select es propia: la del sistema no hereda el
+       color del tema y en oscuro se pierde. */
+    .gl-field select {
+        appearance: none;
+        padding-inline-end: 2.6rem;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%23FFC24A' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+        background-repeat: no-repeat;
+        background-position: right 1rem center;
+        background-size: 13px 8px;
+    }
+
+    html.light-mode .gl-field select {
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 14 8'%3E%3Cpath d='M1 1l6 6 6-6' fill='none' stroke='%2396650A' stroke-width='2' stroke-linecap='round'/%3E%3C/svg%3E");
+    }
+
+    .gl-field :where(input, select):focus-visible {
+        border-color: var(--gl-spot);
+        box-shadow: 0 0 0 3px var(--gl-spot-wash);
+        outline: none;
+    }
+
+    .gl-field :where(input, select)[aria-invalid="true"] {
+        border-color: var(--gl-curtain);
+        background: var(--gl-curtain-wash);
+    }
+
+    .gl-field input::placeholder {
+        color: var(--gl-ink-dim);
+    }
+
+    /* Mensaje de error por campo. Ocupa espacio solo cuando existe,
+       así el formulario no salta al validarse. */
+    .gl-error {
+        min-block-size: 0;
+        font-size: 0.8rem;
+        color: var(--gl-curtain);
+    }
+
+    .gl-error:empty {
+        display: none;
+    }
+
+    .gl-form-actions {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.8rem;
+        margin-block-start: 1.6rem;
+    }
+
+    .gl-back {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        padding: 0.5rem 0.2rem;
+        border: 0;
+        background: none;
+        color: var(--gl-ink-dim);
+        font: inherit;
+        font-size: 0.9rem;
+        cursor: pointer;
+        transition: color var(--gl-fast) var(--gl-ease);
+    }
+
+    .gl-back:hover {
+        color: var(--gl-ink);
+    }
+
+    /* ── Horarios como radios ──
+       Son <input type="radio"> de verdad, escondidos visualmente: el
+       navegador regala navegación con flechas, agrupación y
+       anuncio "1 de 7" en lectores de pantalla. Con <button> habría
+       que reimplementar las tres cosas.
+       El nombre course-time-slot se mantiene por compatibilidad con
+       la convención del sitio.
+
+       La rejilla vive en un <div> interior, no en el <fieldset>: el
+       <legend> de un fieldset con display: grid se coloca de forma
+       distinta en cada motor. */
+    .gl-slots-fs {
+        margin: 0;
+        padding: 0;
+        border: 0;
+        min-inline-size: 0;
+    }
+
+    .gl-slots-fs legend {
+        padding: 0;
+        margin-block-end: 0.8rem;
+        font-size: 0.82rem;
+        font-weight: 600;
+        color: var(--gl-ink-soft);
+    }
+
+    .gl-slots {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(88px, 1fr));
+        gap: 0.65rem;
+    }
+
+    .course-time-slot {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0.8rem 0.5rem;
+        border: 1px solid var(--gl-line-mid);
+        border-radius: 12px;
+        background: var(--gl-surface);
+        font-variant-numeric: tabular-nums;
+        font-size: 0.98rem;
+        cursor: pointer;
+        transition:
+            border-color var(--gl-fast) var(--gl-ease),
+            background-color var(--gl-fast) var(--gl-ease),
+            transform var(--gl-fast) var(--gl-ease),
+            color var(--gl-fast) var(--gl-ease);
+    }
+
+    .course-time-slot input {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .course-time-slot:hover {
+        transform: translateY(-2px);
+        border-color: var(--gl-spot);
+    }
+
+    .course-time-slot:has(input:checked) {
+        border-color: var(--gl-spot);
+        background: var(--gl-spot);
+        color: #0A0C12;
+        font-weight: 600;
+    }
+
+    html.light-mode .course-time-slot:has(input:checked) {
+        color: #FFF8E7;
+    }
+
+    /* Respaldo donde :has() no existe: se marca con una clase desde
+       el JS al cambiar la selección. */
+    .course-time-slot.is-picked {
+        border-color: var(--gl-spot);
+        background: var(--gl-spot);
+        color: #0A0C12;
+        font-weight: 600;
+    }
+
+    .course-time-slot:has(input:focus-visible) {
+        outline: 2px solid var(--gl-spot);
+        outline-offset: 3px;
+    }
+
+    .gl-slots-empty {
+        grid-column: 1 / -1;
+        font-size: 0.92rem;
+        color: var(--gl-ink-dim);
+    }
+
+    /* ── Confirmación ── */
+    .gl-done {
+        text-align: center;
+    }
+
+    .gl-done-seal {
+        display: grid;
+        place-items: center;
+        inline-size: 4.2rem;
+        block-size: 4.2rem;
+        margin: 0 auto 1.2rem;
+        border-radius: 50%;
+        background: var(--gl-voice-wash);
+        border: 1px solid var(--gl-voice);
+        color: var(--gl-voice);
+        font-size: 1.5rem;
+    }
+
+    .gl-done p {
+        margin-block-start: 0.7rem;
+        color: var(--gl-ink-soft);
+    }
+
+    .gl-done-actions {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.8rem;
+        margin-block-start: 1.6rem;
+    }
+
+    /* Aviso legal del formulario */
+    .gl-consent {
+        display: grid;
+        grid-template-columns: auto minmax(0, 1fr);
+        gap: 0.75rem;
+        margin-block-start: 1.4rem;
+        padding-block-start: 1.2rem;
+        border-block-start: 1px solid var(--gl-line);
+        font-size: 0.83rem;
+        color: var(--gl-ink-dim);
+    }
+
+    .gl-consent input {
+        inline-size: 1.15rem;
+        block-size: 1.15rem;
+        margin: 0.18rem 0 0;
+        accent-color: var(--gl-spot);
+    }
+
+    .gl-consent a {
+        color: var(--gl-ink-soft);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.12 · Cierre + marquesina
+       ──────────────────────────────────────────────────────────── */
+    .gl-outro {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        border-block-start: 1px solid var(--gl-line);
+        padding-block: clamp(72px, 10vw, 132px);
+        text-align: center;
+        background:
+            radial-gradient(40rem 26rem at 50% 0%, var(--gl-spot-wash), transparent 66%),
+            var(--gl-pit);
+    }
+
+    .gl-outro .gl-eyebrow {
+        justify-content: center;
+    }
+
+    .gl-outro .gl-cta-row {
+        justify-content: center;
+        margin-block-start: 2rem;
+    }
+
+    /* Punto de anuncio del formulario. NO usa .gl-error porque esa
+       clase se oculta con :empty, y una región aria-live que
+       desaparece del árbol de accesibilidad deja de anunciar. */
+    .gl-status {
+        min-block-size: 1.25em;
+        margin-block-end: 0.9rem;
+        font-size: 0.86rem;
+        color: var(--gl-ink-soft);
+    }
+
+    .gl-marquee {
+        overflow: hidden;
+        margin-block-start: clamp(2.6rem, 6vw, 4.4rem);
+        border-block: 1px solid var(--gl-line);
+        padding-block: 1.1rem;
+        /* Se desvanece en los extremos para que no parezca cortado */
+        mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+        -webkit-mask-image: linear-gradient(90deg, transparent, #000 12%, #000 88%, transparent);
+    }
+
+    .gl-marquee-track {
+        display: flex;
+        align-items: center;
+        gap: 2.6rem;
+        inline-size: max-content;
+        font-family: var(--gl-poster);
+        font-size: clamp(1.1rem, 0.9rem + 1.1vw, 1.8rem);
+        font-weight: 700;
+        letter-spacing: -0.02em;
+        text-transform: uppercase;
+        color: var(--gl-ink-dim);
+    }
+
+    .gl-marquee-track i {
+        font-size: 0.5em;
+        color: var(--gl-spot);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.13 · Barra fija de conversión y WhatsApp
+       ──────────────────────────────────────────────────────────── */
+    .gl-sticky {
+        position: fixed;
+        inset-inline: 0;
+        inset-block-end: 0;
+        z-index: 1100;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 1rem;
+        padding: 0.85rem 1.1rem;
+        border-block-start: 1px solid var(--gl-line-mid);
+        background: color-mix(in srgb, var(--gl-house) 92%, transparent);
+        backdrop-filter: blur(14px);
+        -webkit-backdrop-filter: blur(14px);
+        translate: 0 110%;
+        transition: translate var(--gl-mid) var(--gl-ease-out);
+    }
+
+    /* Respaldo para navegadores sin color-mix() */
+    @supports not (background: color-mix(in srgb, red 50%, transparent)) {
+        .gl-sticky {
+            background: var(--gl-house);
+        }
+    }
+
+    /* Una regla de clase con display gana al `display: none` que el
+       atributo `hidden` aplica desde la hoja del navegador. Sin esta
+       línea la barra aparece en escritorio pese a estar marcada como
+       oculta. */
+    .gl-sticky[hidden] {
+        display: none;
+    }
+
+    .gl-sticky[data-shown] {
+        translate: 0 0;
+    }
+
+    .gl-sticky strong {
+        display: block;
+        font-family: var(--gl-poster);
+        font-size: 0.98rem;
+        letter-spacing: -0.01em;
+    }
+
+    .gl-sticky span {
+        display: block;
+        font-size: 0.78rem;
+        color: var(--gl-ink-dim);
+    }
+
+    .gl-sticky .gl-btn {
+        padding: 0.75rem 1.3rem;
+        font-size: 0.92rem;
+    }
+
+    .floating-whatsapp {
+        position: fixed;
+        z-index: 1090;
+        inset-block-end: max(22px, env(safe-area-inset-bottom));
+        inset-inline-end: max(22px, env(safe-area-inset-right));
+        display: grid;
+        place-items: center;
+        inline-size: 56px;
+        block-size: 56px;
+        border-radius: 50%;
+        background: #25D366;
+        color: #062A14;
+        font-size: 1.6rem;
+        text-decoration: none;
+        box-shadow: 0 16px 40px -14px rgba(37, 211, 102, 0.6);
+        transition: transform var(--gl-fast) var(--gl-ease), box-shadow var(--gl-mid) var(--gl-ease);
+    }
+
+    .floating-whatsapp:hover {
+        transform: translateY(-3px) scale(1.04);
+        box-shadow: 0 22px 52px -14px rgba(37, 211, 102, 0.7);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.14 · Ruta de navegación
+       El JSON-LD ya declaraba un BreadcrumbList y en la página no
+       había ninguna migaja visible. Google lo marca como
+       incongruencia y, sobre todo, quien llega desde una búsqueda no
+       sabía dónde estaba.
+       ──────────────────────────────────────────────────────────── */
+    /* Vive dentro de la columna de texto del hero, alineada con el
+       titular. En una banda propia por encima quedaba flotando sola:
+       la navbar del sitio es una píldora centrada y no ofrece ningún
+       borde con el que alinear una miga pegada a la izquierda. */
+    .gl-crumbs ol {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.5rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        font-size: 0.78rem;
+        letter-spacing: 0.02em;
+        color: var(--gl-ink-dim);
+    }
+
+    /* Chevron, no barra: la barra se confunde con el separador de una
+       URL cuando el texto ya está en gris. */
+    .gl-crumbs li + li::before {
+        content: "\203A";
+        margin-inline-end: 0.5rem;
+        color: var(--gl-line-hi);
+    }
+
+    .gl-crumbs a {
+        color: var(--gl-ink-soft);
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: color var(--gl-fast) var(--gl-ease), border-color var(--gl-fast) var(--gl-ease);
+    }
+
+    .gl-crumbs a:hover {
+        color: var(--gl-spot);
+        border-block-end-color: currentColor;
+    }
+
+    .gl-crumbs [aria-current="page"] {
+        color: var(--gl-ink-soft);
+        font-weight: 600;
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.15 · Índice lateral de secciones
+       Nueve secciones son demasiadas para recorrerlas a scroll. El
+       riel de puntos da orientación permanente sin robar ancho: el
+       rótulo solo aparece al apuntar o al enfocar con teclado.
+
+       Se oculta en táctil y por debajo de 1100 px, donde no cabe y
+       donde ya está la barra de conversión.
+       ──────────────────────────────────────────────────────────── */
+    .gl-secnav {
+        position: fixed;
+        z-index: 1080;
+        inset-inline-end: clamp(10px, 1.6vw, 22px);
+        inset-block-start: 50%;
+        translate: 0 -50%;
+        display: none;
+    }
+
+    .gl-secnav ol {
+        display: grid;
+        gap: 0.15rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .gl-secnav a {
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+        gap: 0.6rem;
+        padding: 0.32rem 0.7rem 0.32rem 0.9rem;
+        color: var(--gl-ink-dim);
+        font-size: 0.72rem;
+        font-weight: 600;
+        letter-spacing: 0.04em;
+        text-decoration: none;
+        border: 1px solid transparent;
+        border-radius: 999px;
+        transition:
+            color var(--gl-fast) var(--gl-ease),
+            background-color var(--gl-mid) var(--gl-ease),
+            border-color var(--gl-mid) var(--gl-ease);
+    }
+
+    /* El rótulo se recorta con una escala de ancho, no con display:
+       none, para que siga estando en el árbol de accesibilidad. */
+    .gl-secnav span {
+        max-inline-size: 0;
+        overflow: hidden;
+        white-space: nowrap;
+        opacity: 0;
+        transition:
+            max-inline-size var(--gl-mid) var(--gl-ease),
+            opacity var(--gl-fast) var(--gl-ease);
+    }
+
+    .gl-secnav a::after {
+        content: "";
+        flex: 0 0 auto;
+        inline-size: 22px;
+        block-size: 2px;
+        border-radius: 999px;
+        background: var(--gl-line-hi);
+        transition:
+            inline-size var(--gl-mid) var(--gl-ease),
+            background-color var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-secnav a:hover span,
+    .gl-secnav a:focus-visible span {
+        max-inline-size: 14rem;
+        opacity: 1;
+    }
+
+    /* El rótulo desplegado mide hasta 14 rem y en pantallas de 1100 a
+       1400 px eso invade la columna de texto. Al abrirse se convierte
+       en una etiqueta con fondo propio, que es la única forma de que
+       siga siendo legible por encima del contenido. */
+    .gl-secnav a:hover,
+    .gl-secnav a:focus-visible {
+        color: var(--gl-ink);
+        background: color-mix(in srgb, var(--gl-raised) 92%, transparent);
+        border-color: var(--gl-line-mid);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        box-shadow: var(--gl-drop-sm);
+    }
+
+    @supports not (background: color-mix(in srgb, red 50%, transparent)) {
+
+        .gl-secnav a:hover,
+        .gl-secnav a:focus-visible {
+            background: var(--gl-raised);
+        }
+    }
+
+    .gl-secnav a:hover::after,
+    .gl-secnav a:focus-visible::after {
+        inline-size: 34px;
+        background: var(--gl-spot);
+    }
+
+    /* Sección en pantalla: la marca la escribe el JS. */
+    .gl-secnav a[aria-current="true"] {
+        color: var(--gl-spot);
+    }
+
+    .gl-secnav a[aria-current="true"]::after {
+        inline-size: 34px;
+        background: var(--gl-spot);
+    }
+
+    /* 1240 px es el mínimo con el que el riel colapsado (≈40 px) cabe
+       en el margen sin pisar la columna de 1200 px de la retícula:
+       (1240 − 1200) / 2 = 20 px de margen + 52 px de relleno del
+       contenedor = 72 px libres. Por debajo de eso se oculta. */
+    @media (min-width: 1240px) and (hover: hover) and (pointer: fine) {
+        .gl-secnav {
+            display: block;
+        }
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.16 · Niveles por edad
+       Pestañas sin una línea de JavaScript: son <input type="radio">
+       y el panel se muestra con :has() sobre el grupo. El navegador
+       aporta el recorrido con flechas y el anuncio "2 de 3".
+
+       Respaldo sin :has(): se muestran los tres paneles, uno debajo
+       de otro. Se lee peor, pero no se pierde nada.
+       ──────────────────────────────────────────────────────────── */
+    .gl-levels {
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-lg);
+        background: var(--gl-surface);
+        overflow: hidden;
+    }
+
+    .gl-levels-tabs {
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 1px;
+        margin: 0;
+        padding: 0;
+        border: 0;
+        /* Un <fieldset> tiene min-width: min-content de fábrica y eso
+           desborda la rejilla en pantallas estrechas. */
+        min-inline-size: 0;
+        background: var(--gl-line);
+    }
+
+    .gl-levels-tabs legend {
+        position: absolute;
+        inline-size: 1px;
+        block-size: 1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+    }
+
+    .gl-level-tab {
+        position: relative;
+        display: grid;
+        gap: 0.2rem;
+        padding: 1.05rem 1rem;
+        background: var(--gl-pit);
+        cursor: pointer;
+        text-align: center;
+        transition: background-color var(--gl-fast) var(--gl-ease), color var(--gl-fast) var(--gl-ease);
+    }
+
+    .gl-level-tab input {
+        position: absolute;
+        inset: 0;
+        margin: 0;
+        opacity: 0;
+        cursor: pointer;
+    }
+
+    .gl-level-tab b {
+        font-family: var(--gl-poster);
+        font-size: 1.16rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+
+    .gl-level-tab em {
+        font-size: 0.72rem;
+        font-style: normal;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        color: var(--gl-ink-dim);
+    }
+
+    .gl-level-tab:hover {
+        background: var(--gl-raised);
+    }
+
+    .gl-level-tab:has(input:checked) {
+        background: var(--gl-surface);
+        box-shadow: inset 0 3px 0 0 var(--gl-spot);
+    }
+
+    .gl-level-tab:has(input:checked) b {
+        color: var(--gl-spot);
+    }
+
+    .gl-level-tab:has(input:focus-visible) {
+        outline: 2px solid var(--gl-spot);
+        outline-offset: -3px;
+    }
+
+    .gl-level-panel {
+        display: grid;
+        gap: 1.1rem;
+        padding: clamp(1.4rem, 3vw, 2.1rem);
+    }
+
+    .gl-level-panel dl {
+        display: grid;
+        gap: 1rem;
+        margin: 0;
+        grid-template-columns: repeat(auto-fit, minmax(min(220px, 100%), 1fr));
+    }
+
+    .gl-level-panel dt {
+        margin-block-end: 0.3rem;
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--gl-spot);
+    }
+
+    .gl-level-panel dd {
+        margin: 0;
+        font-size: 0.95rem;
+        color: var(--gl-ink-soft);
+    }
+
+    /* Con :has() solo se muestra el panel del nivel elegido. */
+    @supports selector(:has(*)) {
+        .gl-level-panel {
+            display: none;
+        }
+
+        .gl-levels:has(#gl-lv-1:checked) [data-level="1"],
+        .gl-levels:has(#gl-lv-2:checked) [data-level="2"],
+        .gl-levels:has(#gl-lv-3:checked) [data-level="3"] {
+            display: grid;
+        }
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.17 · Cómo empezamos
+       Tres pasos antes del formulario. Existe porque la objeción
+       real no es el precio: es no saber qué pasa después de dar el
+       teléfono.
+       ──────────────────────────────────────────────────────────── */
+    .gl-how {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+        gap: 1px;
+        margin-block-end: clamp(1.6rem, 4vw, 2.6rem);
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-md);
+        background: var(--gl-line);
+        overflow: hidden;
+        counter-reset: gl-how;
+        list-style: none;
+        padding: 0;
+    }
+
+    .gl-how > li {
+        display: grid;
+        gap: 0.4rem;
+        padding: 1.2rem 1.3rem 1.4rem;
+        background: var(--gl-surface);
+        counter-increment: gl-how;
+    }
+
+    .gl-how > li::before {
+        content: counter(gl-how);
+        font-family: var(--gl-poster);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        color: var(--gl-spot);
+    }
+
+    .gl-how b {
+        font-family: var(--gl-poster);
+        font-size: 1.04rem;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+    }
+
+    .gl-how p {
+        font-size: 0.92rem;
+        color: var(--gl-ink-soft);
+    }
+
+    /* ────────────────────────────────────────────────────────────
+       5.18 · Programas relacionados
+       Enlace interno con criterio: solo cursos que de verdad
+       continúan o complementan a este, con la razón escrita.
+       ──────────────────────────────────────────────────────────── */
+    .gl-related {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+        gap: clamp(1rem, 2.4vw, 1.5rem);
+    }
+
+    .gl-rel {
+        position: relative;
+        isolation: isolate;
+        display: grid;
+        gap: 0.5rem;
+        align-content: start;
+        padding: clamp(1.3rem, 2.6vw, 1.8rem);
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-lg);
+        background: var(--gl-surface);
+        color: inherit;
+        text-decoration: none;
+        transition:
+            transform var(--gl-mid) var(--gl-ease),
+            border-color var(--gl-mid) var(--gl-ease),
+            box-shadow var(--gl-mid) var(--gl-ease);
+    }
+
+    .gl-rel:hover {
+        transform: translateY(-4px);
+        border-color: var(--gl-spot);
+        box-shadow: var(--gl-drop-sm);
+    }
+
+    .gl-rel .gl-tag {
+        color: var(--gl-voice);
+    }
+
+    .gl-rel b {
+        font-family: var(--gl-poster);
+        font-size: 1.12rem;
+        font-weight: 700;
+        letter-spacing: -0.02em;
+    }
+
+    .gl-rel p {
+        font-size: 0.93rem;
+        color: var(--gl-ink-soft);
+    }
+
+    /* Flecha que avanza al apuntar */
+    .gl-rel i {
+        justify-self: start;
+        margin-block-start: 0.3rem;
+        color: var(--gl-spot);
+        transition: translate var(--gl-mid) var(--gl-ease-out);
+    }
+
+    .gl-rel:hover i {
+        translate: 6px 0;
+    }
+
+    /* ══════════════════════════════════════════════════════════════
+       5.19 · TELÓN — el pie de página
+
+       Esta página NO usa el pie compartido. footer-modern.css está
+       escrito con otra paleta, otra tipografía y otros radios: al
+       terminar la función el visitante caía en una página distinta.
+       El colofón propio cierra la puesta en escena y, además, aquí es
+       donde vive la información que de verdad se busca al final:
+       ficha del programa, horarios, sede y la letra pequeña.
+       ══════════════════════════════════════════════════════════════ */
+    .gl-foot {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+        padding-block: clamp(56px, 8vw, 96px) clamp(28px, 4vw, 44px);
+        background: var(--gl-pit);
+        border-block-start: 1px solid var(--gl-line);
+    }
+
+    /* Telón: pliegues verticales de tela. Un repeating-gradient con
+       tres paradas basta para leer como terciopelo. */
+    .gl-foot-curtain {
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline: 0;
+        z-index: -1;
+        block-size: clamp(90px, 12vw, 150px);
+        pointer-events: none;
+        background:
+            repeating-linear-gradient(90deg,
+                rgba(198, 57, 76, 0.16) 0,
+                rgba(198, 57, 76, 0.05) 14px,
+                rgba(198, 57, 76, 0.16) 30px),
+            linear-gradient(180deg, var(--gl-curtain-wash), transparent);
+        mask-image: linear-gradient(180deg, #000, transparent);
+        -webkit-mask-image: linear-gradient(180deg, #000, transparent);
+    }
+
+    /* Luces de sala encendiéndose sobre el telón */
+    .gl-foot::before {
+        content: "";
+        position: absolute;
+        inset-block-start: 0;
+        inset-inline: 0;
+        z-index: -1;
+        block-size: 1px;
+        background: linear-gradient(90deg, transparent, var(--gl-spot), transparent);
+        opacity: 0.6;
+    }
+
+    /* Marca de agua: el nombre del programa a sangre, en contorno. */
+    .gl-foot-mark {
+        position: absolute;
+        inset-block-end: -0.28em;
+        inset-inline-start: 50%;
+        translate: -50% 0;
+        z-index: -1;
+        font-family: var(--gl-poster);
+        font-size: clamp(4.5rem, 17vw, 15rem);
+        font-weight: 800;
+        letter-spacing: -0.05em;
+        line-height: 1;
+        text-transform: uppercase;
+        white-space: nowrap;
+        color: transparent;
+        -webkit-text-stroke: 1px var(--gl-line);
+        text-stroke: 1px var(--gl-line);
+        user-select: none;
+        pointer-events: none;
+    }
+
+    /* ── Ficha técnica del programa ── */
+    .gl-sheet {
+        margin-block-end: clamp(2.4rem, 5vw, 3.6rem);
+        border: 1px solid var(--gl-line);
+        border-radius: var(--gl-r-lg);
+        background: var(--gl-surface);
+        overflow: hidden;
+    }
+
+    .gl-sheet-head {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.8rem 1.4rem;
+        padding: 1.1rem clamp(1.2rem, 2.6vw, 1.8rem);
+        border-block-end: 1px solid var(--gl-line);
+        background: var(--gl-raised);
+    }
+
+    .gl-sheet-head strong {
+        font-family: var(--gl-poster);
+        font-size: 1.06rem;
+        font-weight: 700;
+        letter-spacing: -0.015em;
+    }
+
+    .gl-sheet-head a {
+        color: var(--gl-spot);
+        font-size: 0.86rem;
+        font-weight: 600;
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: border-color var(--gl-fast) var(--gl-ease);
+    }
+
+    .gl-sheet-head a:hover {
+        border-block-end-color: currentColor;
+    }
+
+    .gl-sheet dl {
+        display: grid;
+        gap: 1px;
+        margin: 0;
+        background: var(--gl-line);
+    }
+
+    .gl-sheet-row {
+        display: grid;
+        grid-template-columns: minmax(0, 11rem) minmax(0, 1fr);
+        gap: 0.3rem 1.4rem;
+        padding: 0.95rem clamp(1.2rem, 2.6vw, 1.8rem);
+        background: var(--gl-surface);
+    }
+
+    .gl-sheet-row dt {
+        font-size: 0.7rem;
+        font-weight: 600;
+        letter-spacing: 0.13em;
+        text-transform: uppercase;
+        color: var(--gl-ink-dim);
+    }
+
+    .gl-sheet-row dd {
+        margin: 0;
+        font-size: 0.96rem;
+    }
+
+    .gl-sheet-row dd b {
+        color: var(--gl-spot);
+        font-weight: 600;
+    }
+
+    /* ── Mapa del sitio ── */
+    .gl-foot-grid {
+        display: grid;
+        grid-template-columns: minmax(0, 1.35fr) repeat(3, minmax(0, 1fr));
+        gap: clamp(1.8rem, 4vw, 3rem);
+        padding-block-end: clamp(2rem, 4vw, 3rem);
+        border-block-end: 1px solid var(--gl-line);
+    }
+
+    .gl-foot-brand p {
+        margin-block: 0.9rem 1.3rem;
+        max-inline-size: 34ch;
+        font-size: 0.92rem;
+        color: var(--gl-ink-soft);
+    }
+
+    .gl-foot-logo {
+        display: inline-block;
+        font-family: var(--gl-poster);
+        font-size: 1.5rem;
+        font-weight: 800;
+        letter-spacing: -0.035em;
+        color: var(--gl-ink);
+        text-decoration: none;
+    }
+
+    .gl-foot-logo span {
+        color: var(--gl-spot);
+    }
+
+    .gl-socials {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem;
+    }
+
+    .gl-socials a {
+        display: grid;
+        place-items: center;
+        inline-size: 40px;
+        block-size: 40px;
+        border: 1px solid var(--gl-line-mid);
+        border-radius: 50%;
+        color: var(--gl-ink-soft);
+        text-decoration: none;
+        transition:
+            transform var(--gl-fast) var(--gl-ease),
+            border-color var(--gl-fast) var(--gl-ease),
+            background-color var(--gl-fast) var(--gl-ease),
+            color var(--gl-fast) var(--gl-ease);
+    }
+
+    .gl-socials a:hover {
+        transform: translateY(-3px);
+        border-color: var(--gl-spot);
+        background: var(--gl-spot);
+        color: #0A0C12;
+    }
+
+    html.light-mode .gl-socials a:hover {
+        color: #FFF8E7;
+    }
+
+    .gl-foot-col h3 {
+        margin-block-end: 1rem;
+        font-family: var(--gl-poster);
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gl-ink-dim);
+    }
+
+    .gl-foot-col ul {
+        display: grid;
+        gap: 0.62rem;
+        margin: 0;
+        padding: 0;
+        list-style: none;
+    }
+
+    .gl-foot-col a {
+        display: inline-block;
+        color: var(--gl-ink-soft);
+        font-size: 0.92rem;
+        text-decoration: none;
+        transition: color var(--gl-fast) var(--gl-ease), translate var(--gl-fast) var(--gl-ease);
+    }
+
+    .gl-foot-col a:hover {
+        color: var(--gl-spot);
+        translate: 4px 0;
+    }
+
+    .gl-foot-col a[aria-current="page"] {
+        color: var(--gl-ink);
+        font-weight: 600;
+    }
+
+    /* ── Contacto y horarios ── */
+    .gl-contact {
+        display: grid;
+        gap: 0.85rem;
+    }
+
+    .gl-contact div {
+        display: grid;
+        grid-template-columns: 1.2rem minmax(0, 1fr);
+        gap: 0.7rem;
+        font-size: 0.92rem;
+        color: var(--gl-ink-soft);
+    }
+
+    .gl-contact i {
+        margin-block-start: 0.24rem;
+        color: var(--gl-spot);
+    }
+
+    .gl-contact a {
+        color: var(--gl-ink-soft);
+        text-decoration: none;
+        border-block-end: 1px solid transparent;
+        transition: color var(--gl-fast) var(--gl-ease), border-color var(--gl-fast) var(--gl-ease);
+    }
+
+    .gl-contact a:hover {
+        color: var(--gl-spot);
+        border-block-end-color: currentColor;
+    }
+
+    .gl-hours {
+        margin-block-start: 1.3rem;
+        padding-block-start: 1.2rem;
+        border-block-start: 1px solid var(--gl-line);
+    }
+
+    .gl-hours dl {
+        display: grid;
+        gap: 0.45rem;
+        margin: 0;
+    }
+
+    .gl-hours div {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 0.8rem;
+        font-size: 0.86rem;
+    }
+
+    /* Guía de puntos entre día y horario: se lee sin esfuerzo aunque
+       las etiquetas tengan largos distintos. */
+    .gl-hours dt {
+        position: relative;
+        flex: 1 1 auto;
+        color: var(--gl-ink-dim);
+        overflow: hidden;
+        white-space: nowrap;
+    }
+
+    .gl-hours dt::after {
+        content: " ......................................................";
+        color: var(--gl-line-hi);
+    }
+
+    .gl-hours dd {
+        margin: 0;
+        font-variant-numeric: tabular-nums;
+        color: var(--gl-ink);
+    }
+
+    /* ── Colofón: cómo está hecha la página ── */
+    .gl-colophon {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(min(230px, 100%), 1fr));
+        gap: 1.4rem clamp(1.4rem, 3vw, 2.6rem);
+        margin: 0;
+        padding-block: clamp(1.8rem, 4vw, 2.6rem);
+        border-block-end: 1px solid var(--gl-line);
+    }
+
+    .gl-colophon dt {
+        margin-block-end: 0.35rem;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gl-spot);
+    }
+
+    .gl-colophon dd {
+        margin: 0;
+        font-size: 0.85rem;
+        line-height: 1.55;
+        color: var(--gl-ink-dim);
+    }
+
+    /* ── Letra pequeña ── */
+    .gl-legal {
+        display: grid;
+        gap: 0.9rem;
+        padding-block-start: clamp(1.6rem, 3vw, 2.2rem);
+        font-size: 0.82rem;
+        line-height: 1.6;
+        color: var(--gl-ink-dim);
+        max-inline-size: 92ch;
+    }
+
+    .gl-legal-links {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.4rem 1.3rem;
+    }
+
+    .gl-legal-links a {
+        color: var(--gl-ink-soft);
+        text-decoration: none;
+        border-block-end: 1px solid var(--gl-line-mid);
+        transition: color var(--gl-fast) var(--gl-ease), border-color var(--gl-fast) var(--gl-ease);
+    }
+
+    .gl-legal-links a:hover {
+        color: var(--gl-spot);
+        border-block-end-color: currentColor;
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   6 · MOVIMIENTO
+
+   Regla de la casa: cada animación declarada aquí tiene que tener un
+   motivo que se pueda explicar en una frase. Si no lo tiene, sobra.
+   ══════════════════════════════════════════════════════════════════ */
+@layer gl.motion {
+
+    /* ── Revelado al entrar en pantalla ──
+       Estado inicial solo si el JS confirma que va a poder revelar.
+       Sin .gl-js el contenido se ve siempre: si el script falla, la
+       página no se queda en blanco. */
+    .gl-js .gl-rise {
+        opacity: 0;
+        translate: 0 22px;
+        transition:
+            opacity var(--gl-slow) var(--gl-ease),
+            translate var(--gl-slow) var(--gl-ease-out);
+    }
+
+    .gl-js .gl-rise.is-in {
+        opacity: 1;
+        translate: 0 0;
+    }
+
+    /* Escalonado por posición: el retraso lo lleva el elemento en una
+       custom property, así el JS no programa temporizadores. */
+    .gl-js .gl-rise.is-in {
+        transition-delay: calc(var(--d, 0) * 70ms);
+    }
+
+    /* ── Onda de voz ──
+       Nace plana y crece: es la promesa del curso en dos segundos.
+       Cada barra usa su índice como retraso negativo para que la ola
+       ya esté "en marcha" cuando aparece. */
+    @keyframes glWave {
+
+        0%,
+        100% {
+            scale: 1 0.18;
+            opacity: 0.45;
+        }
+
+        45% {
+            scale: 1 1;
+            opacity: 1;
+        }
+    }
+
+    .gl-wave span {
+        animation: glWave 1.9s var(--gl-ease) infinite;
+        animation-delay: calc(var(--i, 0) * -95ms);
+    }
+
+    /* ── Anillos del micrófono: respiran ── */
+    @keyframes glBreathe {
+
+        0%,
+        100% {
+            scale: 1;
+            opacity: 0.5;
+        }
+
+        50% {
+            scale: 1.045;
+            opacity: 1;
+        }
+    }
+
+    .gl-mic-ring {
+        animation: glBreathe 6.5s var(--gl-ease) infinite;
+    }
+
+    .gl-mic-ring:nth-of-type(2) {
+        animation-delay: -2.2s;
+    }
+
+    .gl-mic-ring:nth-of-type(3) {
+        animation-delay: -4.4s;
+    }
+
+    /* ── Marquesina ──
+       El track lleva el contenido duplicado en el HTML y se desplaza
+       exactamente el 50%: el bucle es perfecto sin medir nada en JS. */
+    @keyframes glMarquee {
+        from {
+            translate: 0 0;
+        }
+
+        to {
+            translate: -50% 0;
+        }
+    }
+
+    .gl-marquee-track {
+        animation: glMarquee 34s linear infinite;
+    }
+
+    .gl-marquee:hover .gl-marquee-track {
+        animation-play-state: paused;
+    }
+
+    /* ── Entrada de paso del formulario ── */
+    @keyframes glStepIn {
+        from {
+            opacity: 0;
+            translate: 0 10px;
+        }
+
+        to {
+            opacity: 1;
+            translate: 0 0;
+        }
+    }
+
+    /* ── Cifras del hero: barrido del reflector sobre el titular ──
+       Un degradado que cruza el texto una vez al cargar. Llama la
+       atención sin mover nada de sitio (cero layout shift). */
+    @keyframes glSweep {
+        from {
+            background-position: -140% 0;
+        }
+
+        to {
+            background-position: 240% 0;
+        }
+    }
+
+    .gl-mega .gl-sweep {
+        background-image: linear-gradient(100deg,
+                var(--gl-ink) 34%,
+                var(--gl-spot) 50%,
+                var(--gl-ink) 66%);
+        background-size: 240% 100%;
+        background-position: -140% 0;
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        animation: glSweep 2.6s var(--gl-ease) 600ms 2 both;
+    }
+
+    /* ══════════ MOTORES NATIVOS DE SCROLL ══════════
+       Donde el navegador trae scroll-driven animations, el parallax,
+       el riel y la barra de avance los calcula el compositor y el JS
+       ni se entera. Es la diferencia entre 60 fps garantizados y un
+       listener de scroll compitiendo con el hilo principal. */
+
+    @supports (animation-timeline: scroll()) {
+        .gl-folio-bar {
+            scale: 0 1;
+            animation: glFolio linear both;
+            animation-timeline: scroll(root block);
+        }
+
+        @keyframes glFolio {
+            from {
+                scale: 0 1;
+            }
+
+            to {
+                scale: 1 1;
+            }
+        }
+
+        /* El piso del escenario se aleja al hacer scroll */
+        .gl-hero-floor {
+            animation: glFloor linear both;
+            animation-timeline: scroll(root block);
+            animation-range: 0 90vh;
+        }
+
+        @keyframes glFloor {
+            to {
+                translate: 0 -14%;
+                opacity: 0.25;
+            }
+        }
+    }
+
+    @supports (animation-timeline: view()) {
+
+        /* Riel del guion: se llena mientras la lista cruza la
+           pantalla. Sustituye por completo al respaldo en JS. */
+        .gl-rail::after {
+            scale: 1 0;
+            animation: glRail linear both;
+            animation-timeline: view(block);
+            animation-range: entry 72% exit 12%;
+        }
+
+        @keyframes glRail {
+            to {
+                scale: 1 1;
+            }
+        }
+
+        /* Revelado sin IntersectionObserver */
+        .gl-js .gl-rise {
+            opacity: 1;
+            translate: 0 0;
+            animation: glRiseIn linear both;
+            animation-timeline: view();
+            animation-range: entry 8% cover 26%;
+            transition: none;
+        }
+
+        @keyframes glRiseIn {
+            from {
+                opacity: 0;
+                translate: 0 26px;
+            }
+
+            to {
+                opacity: 1;
+                translate: 0 0;
+            }
+        }
+    }
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   7 · ADAPTACIÓN A DISPOSITIVOS  ·  SIN CAPA A PROPÓSITO
+
+   Este bloque queda fuera de @layer para que gane a cualquier regla
+   de navbar-unified.css y de las capas de arriba sin recurrir a
+   !important.
+
+   Cada apartado documenta el síntoma que evita. Sin esa nota, la
+   siguiente persona que lea el archivo los borra por parecer
+   redundantes: ya pasó una vez.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Anclas bajo la navbar fija ────────────────────────────────
+   Toda la navegación interna de la página son enlaces #ancla. Sin
+   reservar la altura de la barra, el encabezado de destino aterriza
+   detrás de ella. scroll-padding-top lo resuelve en el contenedor de
+   scroll, así que funciona al pulsar un enlace, al recargar con hash
+   y al navegar con el teclado. */
+html:has(body.gl-body) {
+    scroll-behavior: smooth;
+    scroll-padding-top: clamp(84px, 12vh, 116px);
+    /* iOS infla el texto al girar a horizontal si no se fija */
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+}
+
+/* Respaldo para navegadores sin :has() */
+@supports not selector(:has(*)) {
+    html {
+        scroll-padding-top: 100px;
+    }
+}
+
+/* Refuerzo por destino: hay navegadores que ignoran scroll-padding
+   en anclas internas y sí respetan scroll-margin. */
+.gl-body [id]:not(body) {
+    scroll-margin-top: clamp(84px, 12vh, 116px);
+}
+
+/* ── Recorte lateral sin romper sticky ─────────────────────────
+   overflow-x: hidden convierte al body en contenedor de scroll y los
+   descendientes con position: sticky dejan de pegarse. clip recorta
+   igual sin crear scrollport. */
+body.gl-body {
+    overflow-x: clip;
+}
+
+@supports not (overflow-x: clip) {
+    body.gl-body {
+        overflow-x: hidden;
+    }
+}
+
+/* Nota de anchos: en esta hoja no se usa 100vw en ninguna medida de
+   ancho. 100vw incluye la barra de scroll en escritorio, así que
+   cualquier resta se queda corta y aparece scroll horizontal. Se usa
+   100%, 100cqi o max-inline-size. */
+
+/* ── Estados táctiles ──────────────────────────────────────────
+   En iOS el :hover se queda pegado después de tocar: la tarjeta
+   mantiene el relieve y el foco hasta que se toca otra cosa. Los
+   efectos de puntero se limitan a punteros que de verdad apuntan. */
+@media (hover: none) {
+
+    .gl-card:hover,
+    .gl-scene:hover,
+    .gl-shift:hover,
+    .gl-btn:hover,
+    .course-time-slot:hover,
+    .floating-whatsapp:hover {
+        transform: none;
+        translate: none;
+        box-shadow: none;
+        border-color: var(--gl-line);
+    }
+
+    .gl-card:hover::before,
+    .gl-btn:hover::before,
+    .gl-symptoms > li:hover::after {
+        opacity: 0;
+    }
+
+    .gl-symptoms > li:hover .gl-sym-n {
+        -webkit-text-stroke-color: var(--gl-line-hi);
+        text-stroke-color: var(--gl-line-hi);
+    }
+
+    .gl-clock > li:hover {
+        background: var(--gl-surface);
+    }
+
+    .gl-rel:hover {
+        transform: none;
+        border-color: var(--gl-line);
+        box-shadow: none;
+    }
+
+    .gl-rel:hover i,
+    .gl-foot-col a:hover {
+        translate: none;
+    }
+
+    .gl-socials a:hover {
+        transform: none;
+        border-color: var(--gl-line-mid);
+        background: none;
+        color: var(--gl-ink-soft);
+    }
+
+    .gl-level-tab:hover {
+        background: var(--gl-pit);
+    }
+
+    /* El índice lateral ya está oculto en táctil por su propia
+       consulta; aquí se refuerza porque su rótulo se despliega con
+       :hover y en un móvil quedaría abierto tras el primer toque. */
+    .gl-secnav {
+        display: none;
+    }
+
+    /* Sin puntero no hay reflector que seguir: se anima solo, muy
+       despacio, para que la sala no quede muerta. */
+    .gl-hero-spot {
+        animation: glDrift 22s ease-in-out infinite alternate;
+    }
+
+    @keyframes glDrift {
+        from {
+            --gl-mx: 24%;
+            --gl-my: 20%;
+        }
+
+        to {
+            --gl-mx: 76%;
+            --gl-my: 34%;
+        }
+    }
+}
+
+/* ── Objetivos táctiles ────────────────────────────────────────
+   44 px es el mínimo con el que un dedo acierta sin ampliar. Se
+   consigue con min-height y centrado, sin engordar la tipografía. */
+@media (pointer: coarse) {
+
+    .gl-btn,
+    .gl-back,
+    .gl-book-contact a,
+    .gl-consent label {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    /* Los horarios son la última acción antes de convertir: si falla
+       el toque, se pierde la cita. */
+    .course-time-slot {
+        min-height: 48px;
+    }
+
+    /* Las pestañas de nivel y los enlaces del pie también son
+       objetivos de dedo. */
+    .gl-level-tab {
+        min-height: 60px;
+        align-content: center;
+    }
+
+    .gl-foot-col a,
+    .gl-legal-links a,
+    .gl-crumbs a {
+        min-height: 44px;
+        display: inline-flex;
+        align-items: center;
+    }
+
+    .gl-socials a {
+        min-height: 48px;
+        inline-size: 48px;
+        block-size: 48px;
+    }
+
+    .gl-faq summary {
+        min-height: 52px;
+    }
+
+    .gl-field :where(input, select) {
+        min-height: 48px;
+        /* Menos de 16px provoca zoom automático en iOS al enfocar */
+        font-size: 16px;
+    }
+
+    .gl-consent input {
+        inline-size: 1.4rem;
+        block-size: 1.4rem;
+    }
+
+    /* Los enlaces del pie se separan para no tocarse entre ellos */
+    .gl-book-contact {
+        gap: 0.9rem;
+    }
+}
+
+/* Quita el retardo de 300 ms y el destello azul al tocar */
+.gl-btn,
+.gl-back,
+.gl-faq summary,
+.course-time-slot,
+.gl-level-tab,
+.gl-rel,
+.gl-socials a,
+.gl-foot-col a,
+.gl-legal-links a,
+.floating-whatsapp,
+.gl-sticky a,
+.gl-clock-wrap {
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* ── Área segura en dispositivos con muesca ────────────────────
+   Sin esto la barra de conversión y el botón de WhatsApp quedan por
+   debajo del indicador de inicio del iPhone y no se pueden pulsar. */
+.gl-sticky {
+    padding-bottom: max(0.85rem, env(safe-area-inset-bottom));
+    padding-left: max(1.1rem, env(safe-area-inset-left));
+    padding-right: max(1.1rem, env(safe-area-inset-right));
+}
+
+@media (max-width: 900px) {
+
+    /* El botón flotante sube por encima de la barra fija */
+    .floating-whatsapp {
+        inset-block-end: calc(86px + env(safe-area-inset-bottom));
+    }
+
+    /* La barra fija tapaba el final del pie: se reserva su altura */
+    body.gl-body {
+        padding-bottom: calc(76px + env(safe-area-inset-bottom));
+    }
+}
+
+/* ── Escritorio grande ────────────────────────────────────────── */
+@media (min-width: 1025px) {
+    .gl-sticky {
+        display: none;
+    }
+}
+
+/* ── Tablet: el hueco entre 721 y 1024 ─────────────────────────
+   Antes las composiciones a dos columnas se colapsaban en 900 y las
+   rejillas en 1080, así que entre esas medidas quedaban columnas de
+   texto demasiado estrechas para leer con comodidad. */
+@media (min-width: 721px) and (max-width: 1024px) {
+
+    .gl-hero-grid,
+    .gl-book {
+        grid-template-columns: minmax(0, 1fr);
+        gap: clamp(2rem, 5vw, 3rem);
+    }
+
+    /* La figura del micrófono pasa a una banda ancha y baja: en una
+       columna a pantalla completa quedaba de 700 px de alto. */
+    .gl-mic-stage {
+        aspect-ratio: 21 / 9;
+        max-inline-size: 34rem;
+        margin-inline: auto;
+    }
+
+    .gl-mic {
+        inline-size: min(22%, 8rem);
+    }
+
+    .gl-mic-ring {
+        inline-size: min(34%, 15rem);
+    }
+
+    .gl-mic-ring:nth-of-type(2) {
+        inline-size: min(26%, 12rem);
+    }
+
+    .gl-mic-ring:nth-of-type(3) {
+        inline-size: min(18%, 8.5rem);
+    }
+
+    /* Los renglones del silencio pasan a dos filas: a tres columnas
+       la glosa quedaba en 18 caracteres. */
+    .gl-symptoms > li {
+        grid-template-columns: 4rem minmax(0, 1fr);
+    }
+
+    .gl-symptoms h3,
+    .gl-symptoms p {
+        grid-column: 2;
+    }
+
+    .gl-ledger {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* Los seis tramos de la sesión en 2 + 2 + 2 */
+    .gl-clock {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    /* El pie pasa a dos columnas: a cuatro, cada lista de cursos
+       quedaba en 90 px y los nombres se partían en tres renglones. */
+    .gl-foot-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .gl-foot-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+/* ── Teléfono ─────────────────────────────────────────────────── */
+@media (max-width: 720px) {
+
+    .gl-hero-grid,
+    .gl-book {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* La figura va después del texto en pantalla estrecha: primero
+       el argumento, luego la imagen. */
+    .gl-mic-stage {
+        order: 2;
+        aspect-ratio: 16 / 10;
+        max-inline-size: 26rem;
+        margin-inline: auto;
+    }
+
+    .gl-mic {
+        inline-size: min(26%, 7.5rem);
+    }
+
+    .gl-mic-ring {
+        inline-size: min(46%, 14rem);
+    }
+
+    .gl-mic-ring:nth-of-type(2) {
+        inline-size: min(34%, 11rem);
+    }
+
+    .gl-mic-ring:nth-of-type(3) {
+        inline-size: min(23%, 7.5rem);
+    }
+
+    /* Los tres elementos de rejilla del renglón (número, término y
+       glosa) se apilan: número arriba, término y glosa en la
+       columna 2. Sin asignación explícita la colocación automática
+       manda la glosa a la columna del número, de 4 rem. */
+    .gl-symptoms > li {
+        grid-template-columns: 3.2rem minmax(0, 1fr);
+        gap: 0.4rem 1rem;
+    }
+
+    .gl-symptoms h3,
+    .gl-symptoms p {
+        grid-column: 2;
+    }
+
+    /* El riel se estrecha cambiando solo sus dos variables: el nodo
+       de cada escena se recoloca solo. */
+    .gl-script-wrap {
+        --gl-rail-x: 0.7rem;
+        --gl-rail-pad: 2.2rem;
+    }
+
+    .gl-form-actions .gl-btn,
+    .gl-done-actions .gl-btn {
+        inline-size: 100%;
+    }
+
+    .gl-scroll-hint {
+        display: block;
+    }
+
+    /* En teléfono sí se desliza: apilar seis tarjetas en vertical
+       obliga a recorrer dos pantallas para entender un reparto que se
+       lee de un vistazo en horizontal. Y aquí el aviso de «desliza»
+       sí aparece. */
+    .gl-clock {
+        grid-auto-flow: column;
+        grid-template-columns: none;
+        grid-auto-columns: minmax(206px, 82%);
+    }
+
+    /* El pie a una columna, con la ficha en filas apiladas: a dos
+       columnas la etiqueta se quedaba en 5 rem y el dato se partía. */
+    .gl-foot-grid {
+        grid-template-columns: minmax(0, 1fr);
+        gap: 2.2rem;
+    }
+
+    .gl-sheet-row {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    /* La marca de agua no cabe: se recorta a la mitad para que no
+       genere desbordamiento lateral. */
+    .gl-foot-mark {
+        font-size: 22vw;
+    }
+
+    /* Tres pestañas de nivel a 110 px cortaban "11 a 13 años". */
+    .gl-levels-tabs {
+        grid-template-columns: minmax(0, 1fr);
+    }
+}
+
+/* ── Teléfono estrecho ─────────────────────────────────────────
+   Por debajo de 400 px el cartel y la ficha técnica dejan de caber
+   con holgura. */
+@media (max-width: 400px) {
+    .gl-mega {
+        font-size: clamp(2.15rem, 11.5vw, 2.9rem);
+        letter-spacing: -0.028em;
+    }
+
+    .gl-spec {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .gl-spec dd {
+        font-size: 1.1rem;
+    }
+
+    .gl-symptoms > li {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .gl-sym-n {
+        grid-column: 1;
+    }
+
+    .gl-symptoms h3,
+    .gl-symptoms p {
+        grid-column: 1;
+    }
+
+    .gl-slots {
+        grid-template-columns: repeat(auto-fill, minmax(76px, 1fr));
+    }
+
+    .gl-wave {
+        block-size: 44px;
+    }
+
+    /* La guía de puntos de los horarios no cabe: se retira y el dato
+       queda pegado a su etiqueta. */
+    .gl-hours dt::after {
+        content: "";
+    }
+
+    .gl-hours div {
+        display: grid;
+        gap: 0.1rem;
+    }
+}
+
+/* ── Teléfono en horizontal ────────────────────────────────────
+   Con 420 px de alto, el relleno vertical del hero deja el titular
+   fuera de pantalla y la barra fija se come un tercio del alto. */
+@media (max-height: 460px) and (orientation: landscape) {
+    .gl-hero {
+        padding-block: 80px 36px;
+    }
+
+    /* Con 420 px de alto la ruta es lo primero que sobra. */
+    .gl-crumbs {
+        display: none;
+    }
+
+    .gl-band {
+        padding-block: 48px;
+    }
+
+    .gl-mic-stage {
+        display: none;
+    }
+
+    .gl-sticky {
+        display: none;
+    }
+}
+
+/* ── Movimiento reducido ───────────────────────────────────────
+   Si el sistema lo pide, se apaga TODO el movimiento no esencial:
+   onda, anillos, marquesina, barridos y parallax. Lo que quedaba
+   animado en la versión anterior provocaba mareo en el hero. */
+@media (prefers-reduced-motion: reduce) {
+
+    html:has(body.gl-body) {
+        scroll-behavior: auto;
+    }
+
+    /* Las transiciones se acortan en bloque: son de estado y ninguna
+       comunica información por sí misma. */
+    .gl-body *,
+    .gl-body *::before,
+    .gl-body *::after {
+        transition-duration: 0.001ms !important;
+        transition-delay: 0ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    /* Las animaciones se apagan UNA A UNA, con su estado final
+       escrito al lado. Acortar la duración en bloque no sirve: con
+       animation-timeline la duración se ignora, y con fill: both el
+       fotograma final sigue pisando la declaración base. */
+    .gl-wave span {
+        animation-name: none;
+        scale: 1 1;
+        opacity: 1;
+    }
+
+    .gl-mic-ring {
+        animation-name: none;
+        opacity: 1;
+    }
+
+    .gl-marquee-track {
+        animation-name: none;
+    }
+
+    .gl-hero-floor,
+    .gl-hero-spot {
+        animation-name: none;
+    }
+
+    .gl-rail::after {
+        animation-name: none;
+        scale: 1 1;
+    }
+
+    /* La barra de avance sí informa, así que no se apaga: se pasa al
+       respaldo en JS, que la mueve sin animación. */
+    .gl-folio-bar {
+        animation-name: none;
+        scale: var(--gl-progress, 0) 1;
+    }
+
+    .gl-mega .gl-sweep {
+        animation-name: none;
+        background: none;
+        -webkit-background-clip: border-box;
+        background-clip: border-box;
+        color: var(--gl-ink);
+    }
+
+    .gl-js .gl-rise,
+    .gl-shift-to,
+    .gl-step[data-active] {
+        animation-name: none;
+        opacity: 1;
+        translate: none;
+        transform: none;
+    }
+
+    .gl-shift-from {
+        background-size: 100% 1.5px;
+    }
+
+    /* El rótulo del índice lateral deja de desplegarse con retardo:
+       aparece y desaparece de golpe. */
+    .gl-secnav span {
+        transition: none;
+    }
+}
+
+/* ── Impresión ─────────────────────────────────────────────────
+   Un prospecto se imprime y se guarda en PDF. Se quitan barras,
+   decoración y fondos; el temario y el FAQ se imprimen completos,
+   aunque estén cerrados en pantalla; y se revelan las URL. */
+@media print {
+
+    body.gl-body {
+        background: #fff;
+        color: #000;
+        padding-bottom: 0;
+        font-size: 11pt;
+    }
+
+    body.gl-body::after,
+    .nav-pill,
+    .nav-mobile-panel,
+    .nav-mobile-overlay,
+    .nav-skip-link,
+    .gl-folio,
+    .gl-secnav,
+    .gl-crumbs,
+    .gl-faq-more,
+    .gl-sticky,
+    .floating-whatsapp,
+    .gl-hero-spot,
+    .gl-hero-floor,
+    .gl-hero-curtain,
+    .gl-foot-curtain,
+    .gl-foot-mark,
+    .gl-mic-stage,
+    .gl-marquee,
+    .gl-form-card,
+    .gl-socials,
+    .gl-colophon {
+        display: none !important;
+    }
+
+    .gl-band,
+    .gl-outro,
+    .gl-foot {
+        padding-block: 16pt;
+        break-inside: avoid;
+        border-color: #bbb;
+    }
+
+    .gl-scene,
+    .gl-card,
+    .gl-shift,
+    .gl-ledger-col,
+    .gl-clock > li,
+    .gl-sheet,
+    .gl-how > li,
+    .gl-level-panel {
+        break-inside: avoid;
+        border-color: #bbb;
+        background: #fff;
+    }
+
+    /* La ficha del programa es lo que se guarda: se saca de la
+       maquetación a dos columnas y se imprime como tabla. */
+    .gl-sheet-row {
+        grid-template-columns: 10rem minmax(0, 1fr);
+        background: #fff;
+    }
+
+    /* Los tres niveles se imprimen, no solo el que estaba elegido:
+       en papel no hay pestañas que pulsar. */
+    .gl-levels-tabs {
+        display: none !important;
+    }
+
+    .gl-level-panel {
+        display: grid !important;
+    }
+
+    .gl-level-panel::before {
+        content: attr(data-print-title);
+        font-weight: 700;
+    }
+
+    /* En papel no hay clic: el FAQ va abierto */
+    .gl-faq details {
+        background: #fff;
+    }
+
+    .gl-faq-body {
+        display: block !important;
+    }
+
+    /* La franja de la sesión se imprime completa, no recortada */
+    .gl-clock-wrap {
+        overflow: visible;
+    }
+
+    .gl-clock {
+        grid-auto-flow: row;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        grid-auto-columns: auto;
+    }
+
+    a[href^="http"]::after {
+        content: " (" attr(href) ")";
+        font-size: 8pt;
+        color: #555;
+    }
+}
+
+/* ── Alto contraste del sistema (Windows) ──────────────────────
+   En forced-colors los fondos y sombras se descartan: sin bordes
+   explícitos, las tarjetas desaparecen y la página se lee como un
+   muro de texto. */
+@media (forced-colors: active) {
+
+    .gl-card,
+    .gl-scene,
+    .gl-shift,
+    .gl-ledger-col,
+    .gl-form-card,
+    .gl-book-aside,
+    .gl-spec,
+    .gl-clock,
+    .gl-faq details,
+    .course-time-slot,
+    .gl-sheet,
+    .gl-levels,
+    .gl-how,
+    .gl-rel,
+    .gl-socials a {
+        border: 1px solid CanvasText;
+    }
+
+    .gl-btn-spot,
+    .course-time-slot:has(input:checked),
+    .course-time-slot.is-picked {
+        background: Highlight;
+        color: HighlightText;
+        border: 1px solid CanvasText;
+    }
+
+    .gl-folio-bar,
+    .gl-rail::after,
+    .gl-clock-bar span,
+    .gl-steps span[data-done] {
+        background: Highlight;
+        forced-color-adjust: none;
+    }
+
+    /* La pestaña activa se marcaba solo con box-shadow, que
+       forced-colors descarta: quedaban las tres iguales. */
+    .gl-level-tab:has(input:checked) {
+        background: Highlight;
+        color: HighlightText;
+    }
+
+    .gl-level-tab:has(input:checked) b,
+    .gl-level-tab:has(input:checked) em {
+        color: HighlightText;
+    }
+
+    /* Igual con el índice lateral: su estado se comunicaba por color
+       y por el ancho de un trazo con fondo. */
+    .gl-secnav a::after {
+        background: CanvasText;
+    }
+
+    .gl-secnav a[aria-current="true"]::after {
+        background: Highlight;
+        forced-color-adjust: none;
+    }
+
+    .gl-sym-n {
+        -webkit-text-stroke: 1px CanvasText;
+        text-stroke: 1px CanvasText;
+    }
+
+    .gl-foot-mark {
+        -webkit-text-stroke: 1px CanvasText;
+        text-stroke: 1px CanvasText;
+    }
+
+    .gl-wave span {
+        background: CanvasText;
+    }
+}
+
+/* ── Apertura animada del FAQ ──────────────────────────────────
+   Progresivo de verdad: donde existe ::details-content la apertura
+   se interpola; donde no, abre de golpe, que es el comportamiento
+   nativo y sigue siendo correcto. Nada de medir alturas en JS. */
+@supports (interpolate-size: allow-keywords) {
+    body.gl-body {
+        interpolate-size: allow-keywords;
+    }
+}
+
+@supports selector(::details-content) {
+    .gl-faq details::details-content {
+        block-size: 0;
+        overflow: hidden;
+        transition:
+            block-size var(--gl-mid) var(--gl-ease),
+            content-visibility var(--gl-mid) allow-discrete;
+    }
+
+    .gl-faq details[open]::details-content {
+        block-size: auto;
+    }
+}

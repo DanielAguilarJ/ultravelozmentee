@@ -1040,6 +1040,10 @@ footer a:hover{color:var(--green)}
 <a class="wa" data-cta="flotante_wa" href="https://wa.me/525578107837?text=Hola,%20quiero%20info%20de%20Robotics%20Code" aria-label="Escribir por WhatsApp">💬</a>
 
 <script src="data/site-data.js"></script>
+<!-- Aviso de agendado. Esta página tiene flujo propio y no carga
+     booking.min.js, donde vive el reporte a /api/bookings: sin esto,
+     reservar la clase de prueba no avisaba a nadie. -->
+<script src="js/lead-report.js" defer></script>
 <script>
 'use strict';
 const $=(s,c=document)=>c.querySelector(s);
@@ -1141,8 +1145,25 @@ function activateCalendarButton(selectedDateTime) {
     return [...fields].every((f) => f.reportValidity());
   };
 
+  /* Datos del paso 1, para avisar del contacto antes del horario. */
+  const contactData = () => {
+    const d = Object.fromEntries(new FormData(form));
+    return {
+      name: String(d.parentName || '').trim() +
+        (d.childAge ? ' · hijo/a de ' + d.childAge + ' años' : ''),
+      phone: String(d.parentPhone || '').trim(),
+      course: 'Robotics Code'
+    };
+  };
+
   form.addEventListener('click', (e) => {
-    if (e.target.matches('[data-next]') && stepIsValid(1)) show(2);
+    if (e.target.matches('[data-next]') && stepIsValid(1)) {
+      /* Si abandona antes de elegir horario, el lead ya llegó. */
+      if (typeof window.reportLead === 'function') {
+        window.reportLead({ ...contactData(), stage: 'contacto' });
+      }
+      show(2);
+    }
     if (e.target.matches('[data-back]')) show(1);
   });
 
@@ -1154,6 +1175,18 @@ function activateCalendarButton(selectedDateTime) {
     const [h, m] = slot.split(':').map(Number);
     const [yy, mm, dd] = data.visitDate.split('-').map(Number);
     const startDate = new Date(yy, mm - 1, dd, h, m);
+
+    /* Cita cerrada. Antes de abrir WhatsApp: esa pestaña puede
+       descargar esta página en móvil, y el aviso usa keepalive para
+       terminar aunque el documento se esté yendo. */
+    if (typeof window.reportLead === 'function') {
+      window.reportLead({
+        ...contactData(),
+        stage: 'confirmado',
+        date: data.visitDate,
+        time: slot
+      });
+    }
 
     const waText = encodeURIComponent(
       `Hola, soy ${data.parentName}. Reservé clase de prueba de Robotics Code para mi hijo/a de ${data.childAge} años el ${data.visitDate} a las ${slot}.`

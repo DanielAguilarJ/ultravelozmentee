@@ -18,6 +18,54 @@
         '(prefers-reduced-motion: reduce)'
     ).matches;
 
+    /* ── Vídeo decorativo de fondo ──
+       Sin `autoplay` a propósito: se pide la carga y se reproduce
+       cuando su banda entra en pantalla, y se pausa al salir o si la
+       pestaña se oculta. Con prefers-reduced-motion no se descarga
+       nada y queda el póster. */
+    (function backgroundVideo() {
+        if (reducedMotion || !('IntersectionObserver' in window)) return;
+
+        var vids = Array.prototype.slice.call(
+            document.querySelectorAll('video[data-bg-video]')
+        );
+        if (!vids.length) return;
+
+        function play(video) {
+            var attempt = video.play();
+            /* La política de autoplay puede rechazarlo: se ignora y
+               queda el póster, que ya es un fallback correcto. */
+            if (attempt && attempt.catch) attempt.catch(function () { });
+        }
+
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                var video = entry.target;
+                if (entry.isIntersecting) {
+                    if (!video.dataset.rgLoaded) {
+                        video.dataset.rgLoaded = '1';
+                        video.load();
+                    }
+                    play(video);
+                } else if (!video.paused) {
+                    video.pause();
+                }
+            });
+        }, { rootMargin: '200px 0px' });
+
+        vids.forEach(function (video) { obs.observe(video); });
+
+        document.addEventListener('visibilitychange', function () {
+            vids.forEach(function (video) {
+                if (document.hidden) {
+                    if (!video.paused) video.pause();
+                } else if (video.dataset.rgLoaded) {
+                    play(video);
+                }
+            });
+        });
+    })();
+
     /* Escritura idempotente: evita mutaciones inútiles del DOM. */
     function setAttr(el, name, value) {
         if (!el) return;

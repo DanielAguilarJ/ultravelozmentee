@@ -1708,7 +1708,8 @@
             position: relative;
             background: linear-gradient(180deg, #0B0A07 0%, #060606 100%);
             overflow: hidden;
-        }
+                    view-timeline-name: --gl-hall-view;
+}
 
         .gl-hall::before {
             content: '';
@@ -1724,8 +1725,7 @@
             content: '';
             position: absolute;
             inset: 0;
-            background: radial-gradient(72% 58% at 50% 42%, transparent 22%, var(--gl-ink) 92%);
-            pointer-events: none;
+            background: radial-gradient(72% 58% at 50% 42%, transparent 22%, var(--gl-ink) 92%);            pointer-events: none;
         }
 
         .gl-hall>.gl-wrap {
@@ -1754,6 +1754,82 @@
         .gl-fall.is-in .gl-ltr {
             opacity: 1;
             transform: none;
+        }
+
+        /* Vídeo de fondo del Hall of Fame. Va con z-index 0 y el
+           contenido con 1: así el hex de ::before queda debajo y la
+           viñeta de ::after cae encima del vídeo, que es justo lo que
+           mantiene el texto legible. Las tarjetas son translúcidas, así
+           que el vídeo se percibe también a través de ellas. */
+        .gl-hall-media {
+            position: absolute;
+            inset: -14% 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .gl-hall-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(.5) contrast(1.08) brightness(.3);
+        }
+
+        .gl-hall-media::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    var(--gl-ink) 0%,
+                    rgba(11, 10, 7, .55) 42%,
+                    var(--gl-ink) 100%);
+        }
+
+        /* ── La misma banda sobre papel ──
+           En claro --gl-ink pasa a #FBF8F1 y el texto a tinta cálida,
+           así que el tratamiento de escenario deja texto oscuro sobre
+           vídeo oscuro. Medido en móvil: 4,03:1, por debajo del 4,5:1
+           de WCAG AA (y el texto va al 68 % de opacidad, que ya resta).
+
+           El vídeo no se oculta, se invierte: el brillo sube por encima
+           de 1 y el tramo intermedio del velo pasa de tinta translúcida
+           a papel translúcido. */
+        html.light-mode .gl-hall-media video {
+            filter: grayscale(.6) contrast(.9) brightness(1.55) opacity(.42);
+        }
+
+        html.light-mode .gl-hall-media::after {
+            background: linear-gradient(180deg,
+                    var(--gl-ink) 0%,
+                    rgba(251, 248, 241, .78) 42%,
+                    var(--gl-ink) 100%);
+        }
+
+        .gl-hall > .gl-wrap {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Parallax nativo ligado al scroll, sin JS. */
+        @supports (animation-timeline: view()) {
+            .gl-hall-media {
+                animation: gl-hall-drift linear both;
+                animation-timeline: --gl-hall-view;
+                animation-range: cover;
+            }
+
+            @keyframes gl-hall-drift {
+                from { transform: translate3d(0, -4%, 0); }
+                to { transform: translate3d(0, 4%, 0); }
+            }
+
+            /* Guard propio: el bloque general de reduced-motion de esta página solo
+               deja las animaciones en 0.01ms, y una animación ligada a una view
+               timeline IGNORA la duración (la gobierna el scroll). Sin esto el
+               parallax seguiría moviéndose para quien pide menos movimiento. */
+            @media (prefers-reduced-motion: reduce) {
+                .gl-hall-media { animation: none; transform: none; }
+            }
         }
 
         /* Rejilla tipo masonry con columnas CSS: sin JS y sin huecos. */
@@ -3408,7 +3484,7 @@
                     <div class="gl-split-pane gl-split-pane--after">
                         <img class="gl-split-img" alt="Adolescente presentando con seguridad frente a su equipo"
                             loading="lazy" decoding="async" width="640" height="640"
-                            src="images/math_confident_stock.png">
+                            src="images/gl-after-confident.webp">
                         <p class="gl-split-label gl-gold-text">DESPU&Eacute;S</p>
                         <ul class="gl-split-list">
                             <li><span>Se ofrece de voluntario antes que le pregunten</span><i
@@ -3425,7 +3501,7 @@
                     <div class="gl-split-pane gl-split-pane--before">
                         <img class="gl-split-img" alt="Ni&ntilde;o retra&iacute;do observando desde su lugar en clase"
                             loading="lazy" decoding="async" width="640" height="640"
-                            src="images/math_frustrated_stock.png">
+                            src="images/gl-before-shy.webp">
                         <p class="gl-split-label">ANTES</p>
                         <ul class="gl-split-list">
                             <li><i class="fas fa-minus" aria-hidden="true"></i><span>Espera a que lo nombren</span></li>
@@ -3714,7 +3790,7 @@
                     <figure class="gl-voice gl-reveal" data-reveal>
                         <div class="gl-voice-frame">
                             <img alt="Madre de familia del programa Grandes L&iacute;deres" loading="lazy"
-                                decoding="async" width="1024" height="1024" src="images/mk-hero-kid.webp">
+                                decoding="async" width="1024" height="1024" src="images/gl-voice-adriana.webp">
                         </div>
                         <blockquote>
                             &laquo;Lleg&oacute; a casa y nos pidi&oacute; la mesa para exponernos por qu&eacute;
@@ -3730,7 +3806,7 @@
                     <figure class="gl-voice gl-reveal" data-reveal>
                         <div class="gl-voice-frame">
                             <img alt="Padre de familia del programa Grandes L&iacute;deres" loading="lazy"
-                                decoding="async" width="640" height="640" src="images/career-growth.png">
+                                decoding="async" width="640" height="640" src="images/gl-voice-jorge.webp">
                         </div>
                         <blockquote>
                             &laquo;La maestra nos habl&oacute; para preguntar qu&eacute; hab&iacute;amos hecho. En dos
@@ -3745,7 +3821,7 @@
                     <figure class="gl-voice gl-reveal" data-reveal>
                         <div class="gl-voice-frame">
                             <img alt="Alumna del programa Grandes L&iacute;deres" loading="lazy" decoding="async"
-                                width="640" height="640" src="images/study-model.png">
+                                width="640" height="640" src="images/gl-voice-valeria.webp">
                         </div>
                         <blockquote>
                             &laquo;Antes me temblaba la voz nom&aacute;s de pensar en pasar al frente. Ahora es
@@ -3770,6 +3846,16 @@
              ACTO VI · HALL OF FAME
              ══════════════════════════════════════════════════════════ -->
         <section class="gl-section gl-hall" id="hall-of-fame" aria-labelledby="gl-hall-t">
+            <!-- Capa decorativa: escenario vacío antes de que alguien
+                 suba a hablar. aria-hidden porque no aporta información
+                 que no esté ya en el texto. -->
+            <div class="gl-hall-media" aria-hidden="true">
+                <video data-bg-video src="images/gl-hall-stage.mp4"
+                    poster="images/gl-hall-stage.webp"
+                    muted loop playsinline preload="none"
+                    disablepictureinpicture disableremoteplayback
+                    width="1280" height="720"></video>
+            </div>
             <div class="gl-wrap">
                 <div class="gl-reveal" data-reveal>
                     <p class="gl-eyebrow">Hall of Fame</p>
@@ -4127,8 +4213,8 @@
 
                         <figure class="gl-book-figure">
                             <img alt="Grupo de alumnos trabajando en equipo durante una sesi&oacute;n de Grandes L&iacute;deres"
-                                loading="lazy" decoding="async" width="1000" height="668"
-                                src="images/fk-community.png">
+                                loading="lazy" decoding="async" width="1000" height="747"
+                                src="images/gl-community.webp">
                             <figcaption>
                                 Grupos de ocho alumnos. Presencial en Cuautitl&aacute;n Izcalli o en vivo por
                                 videollamada.
@@ -4697,6 +4783,58 @@
 
                     img.addEventListener('error', degrade);
                     if (img.complete && img.naturalWidth === 0) degrade();
+                });
+            });
+
+            /* ── 5b · Vídeo decorativo de fondo ─────────────────────
+               Sin atributo autoplay: se descarga y arranca solo cuando
+               su sección entra en pantalla, y se pausa al salir o si la
+               pestaña se oculta. Con prefers-reduced-motion no se toca
+               y queda el póster fijo, que es el resultado buscado. */
+            mod('bg-video', function () {
+                if (REDUCED) return;
+                if (!('IntersectionObserver' in window)) return;
+
+                var vids = Array.prototype.slice.call(
+                    doc.querySelectorAll('video[data-bg-video]')
+                );
+                if (!vids.length) return;
+
+                function tryPlay(video) {
+                    var attempt = video.play();
+                    /* La política de autoplay puede rechazarlo: se ignora
+                       y se queda el póster, que ya es un fallback válido. */
+                    if (attempt && attempt.catch) attempt.catch(function () { });
+                }
+
+                var obs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        var video = entry.target;
+
+                        if (entry.isIntersecting) {
+                            if (!video.dataset.glLoaded) {
+                                video.dataset.glLoaded = '1';
+                                video.load();
+                            }
+                            tryPlay(video);
+                        } else if (!video.paused) {
+                            video.pause();
+                        }
+                    });
+                }, { rootMargin: '200px 0px' });
+
+                vids.forEach(function (video) {
+                    obs.observe(video);
+                });
+
+                doc.addEventListener('visibilitychange', function () {
+                    vids.forEach(function (video) {
+                        if (doc.hidden) {
+                            if (!video.paused) video.pause();
+                        } else if (video.dataset.glLoaded) {
+                            tryPlay(video);
+                        }
+                    });
                 });
             });
 

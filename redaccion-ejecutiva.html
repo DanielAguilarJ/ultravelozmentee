@@ -203,6 +203,71 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             padding: 0 24px;
             width: 100%;
         }
+
+        /* ── Vídeo decorativo de fondo ──
+           Capa detrás del contenido. La sección anfitriona ya trae
+           `relative overflow-hidden` y su contenedor ya trae `z-10`,
+           así que esto no cambia el layout: solo añade profundidad.
+
+           El gradiente cierra en #16161b, que es el color real de la
+           sección (bg-white/5 sobre --re-bg-primary #0a0a0f), para que
+           no aparezca ninguna costura en los bordes. */
+        /* El contenedor pone `relative overflow-hidden` por su cuenta y
+           no vía Tailwind: esta página carga Tailwind desde
+           cdn.tailwindcss.com y la CSP del sitio no lo permite, así que
+           esas utilidades pueden no existir. La capa tiene que quedar
+           contenida igual. */
+        .re-has-media {
+            position: relative;
+            overflow: hidden;
+                    view-timeline-name: --re-band-view;
+}
+
+        .re-has-media > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        .re-band-media {
+            position: absolute;
+            inset: -14% 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .re-band-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(.4) contrast(1.08) brightness(.3);
+        }
+
+        .re-band-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    #16161b 0%,
+                    rgba(22, 22, 27, .58) 45%,
+                    #16161b 100%);
+        }
+
+        @supports (animation-timeline: view()) {
+            .re-band-media {
+                animation: re-band-drift linear both;
+                animation-timeline: --re-band-view;
+                animation-range: cover;
+            }
+
+            @keyframes re-band-drift {
+                from { transform: translate3d(0, -4%, 0); }
+                to { transform: translate3d(0, 4%, 0); }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .re-band-media { animation: none; transform: none; }
+            }
+        }
     </style>
 
 <!-- Meta Pixel Code -->
@@ -645,7 +710,18 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- ============================================
          THE SOLUTION (UNIQUE MECHANISM)
          ============================================ -->
-    <section class="py-24 bg-white/5 relative overflow-hidden">
+    <section class="py-24 bg-white/5 relative overflow-hidden re-has-media">
+        <!-- Capa decorativa: máquina de escribir con hoja en blanco.
+             aria-hidden porque el protocolo ya está descrito paso a
+             paso en el texto de la sección. -->
+        <div class="re-band-media" aria-hidden="true">
+            <video data-bg-video
+                src="images/redaccion-ejecutiva-curso-escritura-profesional.mp4"
+                poster="images/redaccion-ejecutiva-curso-escritura-profesional.webp"
+                muted loop playsinline preload="none"
+                disablepictureinpicture disableremoteplayback
+                width="1280" height="720"></video>
+        </div>
         <div class="container mx-auto px-6 relative z-10">
             <div class="text-center mb-20 fade-up">
                 <span class="text-cyan-400 font-bold tracking-wider uppercase text-sm">El Mecanismo Único</span>
@@ -1223,6 +1299,54 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             startTimer(fiveHours, display);
         };
     </script>
+<script>
+    /* ── Vídeo decorativo de fondo ──
+       Sin `autoplay`: se pide la carga y se reproduce cuando su sección
+       entra en pantalla, y se pausa al salir o si la pestaña se oculta.
+       Con prefers-reduced-motion no se descarga nada y queda el póster. */
+    (function () {
+        var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (REDUCED || !('IntersectionObserver' in window)) return;
+
+        var vids = Array.prototype.slice.call(
+            document.querySelectorAll('video[data-bg-video]')
+        );
+        if (!vids.length) return;
+
+        function play(video) {
+            var attempt = video.play();
+            if (attempt && attempt.catch) attempt.catch(function () { });
+        }
+
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                var video = entry.target;
+                if (entry.isIntersecting) {
+                    if (!video.dataset.reLoaded) {
+                        video.dataset.reLoaded = '1';
+                        video.load();
+                    }
+                    play(video);
+                } else if (!video.paused) {
+                    video.pause();
+                }
+            });
+        }, { rootMargin: '200px 0px' });
+
+        vids.forEach(function (video) { obs.observe(video); });
+
+        document.addEventListener('visibilitychange', function () {
+            vids.forEach(function (video) {
+                if (document.hidden) {
+                    if (!video.paused) video.pause();
+                } else if (video.dataset.reLoaded) {
+                    play(video);
+                }
+            });
+        });
+    })();
+</script>
+
 <script src="js/tracking.min.js"></script>
     <script src="js/param-builder-client.min.js" defer></script>
     <script src="js/navbar.min.js" defer></script>

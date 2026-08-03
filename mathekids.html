@@ -203,6 +203,9 @@
 
         @media (prefers-reduced-motion: reduce) {
             .fx .rv { opacity: 1; transform: none; transition: none; }
+            /* El vídeo del método tampoco se reproduce: el JS no lo carga
+               y manda el póster. La deriva del parallax se apaga en el
+               bloque @supports de más abajo, por orden de cascada. */
         }
 
         /* ---------- Botones ---------- */
@@ -554,6 +557,14 @@
             grid-template-columns: 0.9fr 1.1fr;
             gap: 48px;
             align-items: start;
+            /* Fuente de la línea temporal del parallax del vídeo.
+               Se declara AQUÍ y no en .fx-method-media porque ese marco
+               vive dentro de .fx-method-img, que es position:sticky y
+               overflow:hidden — o sea, un contenedor de scroll propio.
+               Una view timeline resuelta ahí no avanza nunca: se queda
+               clavada al 50%. Esta rejilla sí está en el flujo del
+               documento, así que el recorrido se mide contra la página. */
+            view-timeline-name: --mk-method-view;
         }
 
         .fx-method-img {
@@ -567,6 +578,51 @@
         .fx-method-img img {
             width: 100%;
             display: block;
+        }
+
+        /* Vídeo del método. Ocupa el mismo hueco cuadrado que tenía la
+           foto, así el layout no se mueve ni un píxel. El marco sigue
+           siendo sticky; lo que se desplaza con el scroll es el vídeo
+           DENTRO del marco, de modo que el parallax no pelea con
+           position:sticky. El 112% de alto y el inset negativo son el
+           recorrido que necesita ese desplazamiento. */
+        .fx-method-media {
+            position: relative;
+            aspect-ratio: 1 / 1;
+            overflow: hidden;
+        }
+
+        .fx-method-media video {
+            position: absolute;
+            inset: -6% 0;
+            width: 100%;
+            height: 112%;
+            object-fit: cover;
+            display: block;
+        }
+
+        @supports (animation-timeline: view()) {
+            .fx-method-media video {
+                animation: fx-method-drift linear both;
+                animation-timeline: --mk-method-view;
+                animation-range: cover;
+            }
+
+            @keyframes fx-method-drift {
+                from { transform: translate3d(0, -3%, 0); }
+                to { transform: translate3d(0, 3%, 0); }
+            }
+
+            /* El guard va DENTRO de @supports y después de la regla que
+               activa la animación: si se pusiera en el bloque de
+               prefers-reduced-motion de más arriba, este @supports lo
+               sobrescribiría por orden de aparición. */
+            @media (prefers-reduced-motion: reduce) {
+                .fx-method-media video {
+                    animation: none;
+                    transform: none;
+                }
+            }
         }
 
         .fx-msteps { display: grid; gap: 0; }
@@ -1518,8 +1574,18 @@
                 </div>
                 <div class="fx-method-grid">
                     <div class="fx-method-img rv">
-                        <img src="images/mk-method-abacus.webp"
-                            alt="Ábaco Soroban - Método de cálculo mental para niños" loading="lazy">
+                        <!-- El ábaco en movimiento: es lo que describen los
+                             pasos de al lado. El vídeo es decorativo, así que
+                             va sin sonido y con póster; el texto de los pasos
+                             lleva toda la información. -->
+                        <div class="fx-method-media">
+                            <video data-bg-video src="images/mk-method-abacus.mp4"
+                                poster="images/mk-method-abacus.webp"
+                                muted loop playsinline preload="none"
+                                disablepictureinpicture disableremoteplayback
+                                width="720" height="720"
+                                aria-label="Ábaco Soroban: un dedo mueve las cuentas de una columna"></video>
+                        </div>
                     </div>
                     <div class="fx-msteps">
                         <article class="fx-mstep rv">
@@ -1961,6 +2027,47 @@
                 rvEls.forEach(function (el) { rvObs.observe(el); });
             } else {
                 rvEls.forEach(function (el) { el.classList.add('in'); });
+            }
+
+            /* ---------- Vídeo de fondo del método ----------
+               Sin atributo autoplay: se descarga y arranca cuando entra
+               en pantalla, y se pausa al salir o si la pestaña se oculta.
+               Con prefers-reduced-motion no se toca y manda el póster. */
+            var bgVideos = $$('video[data-bg-video]');
+            if (bgVideos.length && !reduceMotion && 'IntersectionObserver' in window) {
+                var playSafe = function (video) {
+                    var attempt = video.play();
+                    /* Si la política de autoplay lo rechaza, se ignora:
+                       el póster ya es un fallback correcto. */
+                    if (attempt && attempt.catch) attempt.catch(function () { });
+                };
+
+                var vidObs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        var video = entry.target;
+                        if (entry.isIntersecting) {
+                            if (!video.dataset.loaded) {
+                                video.dataset.loaded = '1';
+                                video.load();
+                            }
+                            playSafe(video);
+                        } else if (!video.paused) {
+                            video.pause();
+                        }
+                    });
+                }, { rootMargin: '200px 0px' });
+
+                bgVideos.forEach(function (v) { vidObs.observe(v); });
+
+                document.addEventListener('visibilitychange', function () {
+                    bgVideos.forEach(function (v) {
+                        if (document.hidden) {
+                            if (!v.paused) v.pause();
+                        } else if (v.dataset.loaded) {
+                            playSafe(v);
+                        }
+                    });
+                });
             }
 
             /* ---------- Soroban interactivo ---------- */

@@ -132,6 +132,62 @@
     }
 
     /* ══════════════════════════════════════════════
+       2b · Vídeo decorativo de la banda
+       El <video> viene sin `autoplay` a propósito: se descarga y se
+       reproduce solo cuando la banda entra en pantalla, y se pausa al
+       salir. Así no gasta datos ni batería en una capa que nadie está
+       viendo, y el `poster` cubre el hueco mientras tanto.
+
+       Con prefers-reduced-motion no se toca: se queda el póster fijo,
+       que es exactamente el comportamiento deseado.
+       ══════════════════════════════════════════════ */
+    var bgVideos = Array.prototype.slice.call(
+        document.querySelectorAll('video[data-bg-video]')
+    );
+
+    if (bgVideos.length && !reduced && 'IntersectionObserver' in window) {
+        var videoObs = new IntersectionObserver(
+            function (entries) {
+                entries.forEach(function (entry) {
+                    var video = entry.target;
+
+                    if (entry.isIntersecting) {
+                        /* preload="none" obliga a pedir la carga a mano. */
+                        if (!video.dataset.udLoaded) {
+                            video.dataset.udLoaded = '1';
+                            video.load();
+                        }
+                        /* play() devuelve una promesa que se rechaza si la
+                           política de autoplay lo impide: se ignora en
+                           silencio y queda el póster, que ya es válido. */
+                        var attempt = video.play();
+                        if (attempt && attempt.catch) attempt.catch(function () { });
+                    } else if (!video.paused) {
+                        video.pause();
+                    }
+                });
+            },
+            { rootMargin: '200px 0px' }
+        );
+
+        bgVideos.forEach(function (video) {
+            videoObs.observe(video);
+        });
+
+        /* En una pestaña oculta no tiene sentido seguir decodificando. */
+        document.addEventListener('visibilitychange', function () {
+            bgVideos.forEach(function (video) {
+                if (document.hidden) {
+                    if (!video.paused) video.pause();
+                } else if (video.dataset.udLoaded) {
+                    var attempt = video.play();
+                    if (attempt && attempt.catch) attempt.catch(function () { });
+                }
+            });
+        });
+    }
+
+    /* ══════════════════════════════════════════════
        3 · Foco de puntero y relieve 3D en tarjetas
        Un único listener para todas: se busca la tarjeta bajo el
        cursor en lugar de suscribir cada una.

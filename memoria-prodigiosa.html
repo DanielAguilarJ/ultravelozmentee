@@ -131,7 +131,20 @@ h2.sec-title .strong{font-weight:700;color:var(--amber)}
 .sec-sub{color:var(--bone-dim);max-width:36rem;font-size:1.05rem}
 
 /* ---------- Checklist diagnóstico ---------- */
-.diag{background:var(--void-2);border-block:1px solid var(--line)}
+.diag{background:var(--void-2);border-block:1px solid var(--line);position:relative;overflow:hidden;view-timeline-name:--mp-band-view}
+/* Vídeo de fondo del diagnóstico: un catálogo de fichas, la metáfora de
+   guardar y recuperar. La sección ya era oscura, así que el vídeo solo
+   añade profundidad sin tocar el contraste del texto. */
+.mp-band-media{position:absolute;inset:-14% 0;z-index:0;pointer-events:none}
+.mp-band-media video{width:100%;height:100%;object-fit:cover;
+  filter:grayscale(.4) contrast(1.08) brightness(.3) sepia(.12)}
+.mp-band-media::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,var(--void-2) 0%,rgba(17,16,23,.6) 45%,var(--void-2) 100%)}
+.diag > .wrap{position:relative;z-index:1}
+@supports (animation-timeline: view()){
+  .mp-band-media{animation:mp-drift linear both;animation-timeline: --mp-band-view;animation-range:cover}
+  @keyframes mp-drift{from{transform:translate3d(0,-4%,0)}to{transform:translate3d(0,4%,0)}}
+}
 .diag-grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:4rem;align-items:start}
 .check-list{display:flex;flex-direction:column;gap:.9rem;margin-top:.6rem}
 .check{
@@ -528,6 +541,16 @@ footer a:hover{color:var(--amber)}
 
 <!-- ================= DIAGNÓSTICO + CURVA ================= -->
 <section class="diag" id="diagnostico">
+  <!-- Capa decorativa: catálogo de fichas. aria-hidden porque no aporta
+       información que no esté ya en el texto de la sección. -->
+  <div class="mp-band-media" aria-hidden="true">
+    <video data-bg-video
+      src="images/memoria-prodigiosa-curso-memorizar-mnemotecnia.mp4"
+      poster="images/memoria-prodigiosa-curso-memorizar-mnemotecnia.webp"
+      muted loop playsinline preload="none"
+      disablepictureinpicture disableremoteplayback
+      width="1280" height="720"></video>
+  </div>
   <div class="wrap diag-grid">
     <div class="rv">
       <div class="rule"><span class="mono">⚠ Test de alerta</span></div>
@@ -883,6 +906,30 @@ footer a:hover{color:var(--amber)}
 <a class="wa" href="https://wa.me/525578107837?text=Hola,%20quiero%20info%20de%20Memoria%20Prodigiosa" aria-label="WhatsApp">💬</a>
 
 <script>
+/* ========== Vídeo decorativo de fondo ==========
+   Sin autoplay: se descarga y arranca cuando su sección entra en
+   pantalla y se pausa al salir o si la pestaña se oculta. Con
+   prefers-reduced-motion no se descarga y manda el póster. */
+(()=>{
+  const REDUCED=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if(REDUCED||!('IntersectionObserver' in window))return;
+  const vids=[...document.querySelectorAll('video[data-bg-video]')];
+  if(!vids.length)return;
+  const play=v=>{const p=v.play();if(p&&p.catch)p.catch(()=>{});};
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    const v=e.target;
+    if(e.isIntersecting){
+      if(!v.dataset.loaded){v.dataset.loaded='1';v.load();}
+      play(v);
+    }else if(!v.paused){v.pause();}
+  }),{rootMargin:'200px 0px'});
+  vids.forEach(v=>io.observe(v));
+  document.addEventListener('visibilitychange',()=>vids.forEach(v=>{
+    if(document.hidden){if(!v.paused)v.pause();}
+    else if(v.dataset.loaded)play(v);
+  }));
+})();
+
 /* ========== Spotlight que sigue el cursor ========== */
 document.addEventListener('pointermove',e=>{
   document.body.style.setProperty('--mx',e.clientX+'px');

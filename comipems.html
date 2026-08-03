@@ -198,7 +198,24 @@ h2.title em{font-style:normal;color:var(--red)}
 .reactivo p{color:var(--pencil);font-size:.92rem}
 
 /* ---------- SIMULACRO ---------- */
-.simu{background:var(--graphite);color:#fff;border-block:2px solid var(--graphite)}
+.simu{background:var(--graphite);color:#fff;border-block:2px solid var(--graphite);position:relative;overflow:hidden;view-timeline-name:--cp-band-view}
+
+/* ---------- Vídeo decorativo del simulacro ----------
+   La sección ya era grafito plano, así que el vídeo solo le añade
+   textura. .wrap ya trae position:relative y z-index:2, así que el
+   contenido queda por encima sin tocarlo.
+   El bloque global de prefers-reduced-motion de más abajo ya apaga
+   toda animación con !important: aquí no hace falta guard. */
+.cp-band-media{position:absolute;inset:-14% 0;z-index:0;pointer-events:none}
+.cp-band-media video{width:100%;height:100%;object-fit:cover;filter:grayscale(.34) contrast(1.1) brightness(.3)}
+.cp-band-media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,var(--graphite) 0%,rgba(27,27,31,.58) 45%,var(--graphite) 100%);
+}
+@supports (animation-timeline: view()){
+  .cp-band-media{animation:cp-band-drift linear both;animation-timeline: --cp-band-view;animation-range:cover}
+  @keyframes cp-band-drift{from{transform:translate3d(0,-4%,0)}to{transform:translate3d(0,4%,0)}}
+}
 .simu .title{color:#fff}
 .simu .title em{color:#FFD23F}
 .simu .sub{color:rgba(255,255,255,.65)}
@@ -676,6 +693,16 @@ footer a:hover{color:#fff}
 
 <!-- ================= EJERCICIO DIAGNÓSTICO ================= -->
 <section class="simu" id="simulacro">
+  <!-- Capa decorativa: hoja de respuestas y lápiz. aria-hidden porque
+       el simulacro ya está descrito e es interactivo en el texto. -->
+  <div class="cp-band-media" aria-hidden="true">
+    <video data-bg-video
+      src="images/comipems-simulador-examen-admision-preparatoria.mp4"
+      poster="images/comipems-simulador-examen-admision-preparatoria.webp"
+      muted loop playsinline preload="none"
+      disablepictureinpicture disableremoteplayback
+      width="1280" height="720"></video>
+  </div>
   <div class="wrap">
     <div style="text-align:center;max-width:46rem;margin:0 auto">
       <span class="mono rv" style="color:#FFD23F">Ponte a prueba ahora</span>
@@ -859,6 +886,35 @@ footer a:hover{color:#fff}
 
 <script>
 'use strict';
+
+/* ============ Vídeo decorativo de fondo ============
+   Sin `autoplay`: se pide la carga y se reproduce cuando su sección
+   entra en pantalla, y se pausa al salir o si la pestaña se oculta.
+   Con prefers-reduced-motion no se descarga nada y queda el póster. */
+(function(){
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (REDUCED || !('IntersectionObserver' in window)) return;
+
+  const vids = [...document.querySelectorAll('video[data-bg-video]')];
+  if (!vids.length) return;
+
+  const play = v => { const p = v.play(); if (p && p.catch) p.catch(()=>{}); };
+
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting){
+      if (!v.dataset.loaded){ v.dataset.loaded = '1'; v.load(); }
+      play(v);
+    } else if (!v.paused){ v.pause(); }
+  }), { rootMargin:'200px 0px' });
+
+  vids.forEach(v => io.observe(v));
+
+  document.addEventListener('visibilitychange', () => vids.forEach(v => {
+    if (document.hidden){ if (!v.paused) v.pause(); }
+    else if (v.dataset.loaded) play(v);
+  }));
+})();
 
 /* ============ Menú móvil ============ */
 document.getElementById('burger').addEventListener('click',()=>{

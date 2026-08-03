@@ -463,6 +463,70 @@
         /* ---------- Callout causa/efecto ---------- */
         .hs-callout-section {
             background: var(--fx-bg-panel);
+            /* Contiene la capa de vídeo decorativa de abajo. */
+            position: relative;
+            overflow: hidden;
+                    view-timeline-name: --hs-band-view;
+}
+
+        /* Vídeo de fondo: rincón de estudio en casa, detrás del texto.
+           La sección ya tenía fondo de panel, así que el vídeo solo suma
+           profundidad sin tocar el layout ni el contraste. */
+        .hs-band-media {
+            position: absolute;
+            inset: -14% 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        .hs-band-media video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            filter: grayscale(.32) contrast(1.06) brightness(.36);
+        }
+
+        .hs-band-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(180deg,
+                    var(--fx-bg-panel) 0%,
+                    rgba(26, 23, 49, .55) 45%,
+                    var(--fx-bg-panel) 100%);
+        }
+
+        .light-mode .fx .hs-band-media video {
+            filter: grayscale(.2) contrast(1.04) brightness(.98) sepia(.06);
+        }
+
+        .light-mode .fx .hs-band-media::after {
+            background: linear-gradient(180deg,
+                    var(--fx-bg-panel) 0%,
+                    rgba(243, 239, 230, .45) 45%,
+                    var(--fx-bg-panel) 100%);
+        }
+
+        .hs-callout-section > .fx-wrap {
+            position: relative;
+            z-index: 1;
+        }
+
+        @supports (animation-timeline: view()) {
+            .hs-band-media {
+                animation: hs-band-drift linear both;
+                animation-timeline: --hs-band-view;
+                animation-range: cover;
+            }
+
+            @keyframes hs-band-drift {
+                from { transform: translate3d(0, -4%, 0); }
+                to { transform: translate3d(0, 4%, 0); }
+            }
+
+            @media (prefers-reduced-motion: reduce) {
+                .hs-band-media { animation: none; transform: none; }
+            }
         }
 
         .hs-callout {
@@ -1751,6 +1815,16 @@
 
         <!-- ====== CALLOUT CAUSA / EFECTO ====== -->
         <section class="fx-section hs-callout-section">
+            <!-- Capa decorativa: rincón de estudio en casa. aria-hidden
+                 porque el texto del callout ya lo explica todo. -->
+            <div class="hs-band-media" aria-hidden="true">
+                <video data-bg-video
+                    src="images/homeschool-educacion-en-casa-certificada-sep.mp4"
+                    poster="images/homeschool-educacion-en-casa-certificada-sep.webp"
+                    muted loop playsinline preload="none"
+                    disablepictureinpicture disableremoteplayback
+                    width="1280" height="720"></video>
+            </div>
             <div class="fx-wrap">
                 <div class="hs-callout rv">
                     <div class="hs-callout-inner">
@@ -2389,6 +2463,34 @@
                 rvEls.forEach(function (el) { rvObs.observe(el); });
             } else {
                 rvEls.forEach(function (el) { el.classList.add('in'); });
+            }
+
+            /* ---------- Vídeo decorativo de fondo ----------
+               Sin autoplay: se descarga y arranca cuando su sección entra
+               en pantalla y se pausa al salir o si la pestaña se oculta.
+               Con prefers-reduced-motion no se descarga y manda el póster. */
+            var bgVideos = $$('video[data-bg-video]');
+            if (bgVideos.length && !reduceMotion && 'IntersectionObserver' in window) {
+                var playSafe = function (video) {
+                    var attempt = video.play();
+                    if (attempt && attempt.catch) attempt.catch(function () { });
+                };
+                var vidObs = new IntersectionObserver(function (entries) {
+                    entries.forEach(function (entry) {
+                        var video = entry.target;
+                        if (entry.isIntersecting) {
+                            if (!video.dataset.loaded) { video.dataset.loaded = '1'; video.load(); }
+                            playSafe(video);
+                        } else if (!video.paused) { video.pause(); }
+                    });
+                }, { rootMargin: '200px 0px' });
+                bgVideos.forEach(function (v) { vidObs.observe(v); });
+                document.addEventListener('visibilitychange', function () {
+                    bgVideos.forEach(function (v) {
+                        if (document.hidden) { if (!v.paused) v.pause(); }
+                        else if (v.dataset.loaded) playSafe(v);
+                    });
+                });
             }
 
             /* ---------- Animacion del horario en el hero ---------- */

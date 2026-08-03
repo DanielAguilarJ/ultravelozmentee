@@ -202,7 +202,24 @@ h2.title{font-size:clamp(1.9rem,4.2vw,3rem);margin-bottom:1rem;max-width:24ch}
 .mod p{font-size:.88rem;color:var(--ink-soft)}
 
 /* ---------- LABORATORIO ---------- */
-.lab{background:var(--ink);color:#fff;border-block:2px solid var(--ink)}
+.lab{background:var(--ink);color:#fff;border-block:2px solid var(--ink);position:relative;overflow:hidden;view-timeline-name:--dm-band-view}
+
+/* ---------- Vídeo decorativo del laboratorio ----------
+   La sección ya era tinta plana, así que el vídeo solo le añade
+   textura. .wrap ya trae position:relative y z-index:2, así que el
+   contenido queda por encima sin tocarlo.
+   El bloque global de prefers-reduced-motion de más abajo ya apaga
+   toda animación con !important: aquí no hace falta guard. */
+.dm-band-media{position:absolute;inset:-14% 0;z-index:0;pointer-events:none}
+.dm-band-media video{width:100%;height:100%;object-fit:cover;filter:grayscale(.32) contrast(1.1) brightness(.3)}
+.dm-band-media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,var(--ink) 0%,rgba(14,18,48,.58) 45%,var(--ink) 100%);
+}
+@supports (animation-timeline: view()){
+  .dm-band-media{animation:dm-band-drift linear both;animation-timeline: --dm-band-view;animation-range:cover}
+  @keyframes dm-band-drift{from{transform:translate3d(0,-4%,0)}to{transform:translate3d(0,4%,0)}}
+}
 .lab .title,.lab h3{color:#fff}
 .lab .sub{color:rgba(255,255,255,.65)}
 .lab-grid{display:grid;grid-template-columns:340px 1fr;gap:2.5rem;margin-top:3rem;align-items:start}
@@ -626,6 +643,17 @@ footer a:hover{color:#fff}
 
 <!-- ================= LABORATORIO INTERACTIVO ================= -->
 <section class="lab" id="lab">
+  <!-- Capa decorativa: péndulo de Newton en un banco de laboratorio.
+       aria-hidden porque el laboratorio ya se explica y se demuestra
+       en el contenido de la sección. -->
+  <div class="dm-band-media" aria-hidden="true">
+    <video data-bg-video
+      src="images/diplomado-matematicas-fisica-curso-bachillerato.mp4"
+      poster="images/diplomado-matematicas-fisica-curso-bachillerato.webp"
+      muted loop playsinline preload="none"
+      disablepictureinpicture disableremoteplayback
+      width="1280" height="720"></video>
+  </div>
   <div class="wrap">
     <span class="kicker mono rv" style="color:var(--orange)">Laboratorio en vivo</span>
     <h2 class="title rv">Así se siente entender la física</h2>
@@ -789,6 +817,35 @@ footer a:hover{color:#fff}
 <a class="wa" href="https://wa.me/525578107837?text=Hola,%20quiero%20informes%20del%20Diplomado%20en%20Matem%C3%A1ticas%20y%20F%C3%ADsica" aria-label="WhatsApp">💬</a>
 
 <script>
+/* ============ Vídeo decorativo de fondo ============
+   Sin `autoplay`: se pide la carga y se reproduce cuando su sección
+   entra en pantalla, y se pausa al salir o si la pestaña se oculta.
+   Con prefers-reduced-motion no se descarga nada y queda el póster. */
+(function(){
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (REDUCED || !('IntersectionObserver' in window)) return;
+
+  const vids = [...document.querySelectorAll('video[data-bg-video]')];
+  if (!vids.length) return;
+
+  const play = v => { const p = v.play(); if (p && p.catch) p.catch(()=>{}); };
+
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting){
+      if (!v.dataset.loaded){ v.dataset.loaded = '1'; v.load(); }
+      play(v);
+    } else if (!v.paused){ v.pause(); }
+  }), { rootMargin:'200px 0px' });
+
+  vids.forEach(v => io.observe(v));
+
+  document.addEventListener('visibilitychange', () => vids.forEach(v => {
+    if (document.hidden){ if (!v.paused) v.pause(); }
+    else if (v.dataset.loaded) play(v);
+  }));
+})();
+
 /* ============ Menú móvil ============ */
 document.getElementById('burger').addEventListener('click',()=>{
   document.getElementById('mmenu').classList.toggle('open');

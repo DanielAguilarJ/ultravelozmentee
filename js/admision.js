@@ -11,6 +11,32 @@
   const $$ = (s, c = document) => [...c.querySelectorAll(s)];
   const reducedMotion = matchMedia("(prefers-reduced-motion: reduce)").matches;
 
+  /* ---------- 0. Vídeo decorativo de fondo ----------
+     Sin `autoplay`: se pide la carga y se reproduce cuando su sección
+     entra en pantalla, y se pausa al salir o si la pestaña se oculta.
+     Con prefers-reduced-motion no se descarga nada y queda el póster. */
+  const bgVideos = $$("video[data-bg-video]");
+  if (bgVideos.length && !reducedMotion && "IntersectionObserver" in window) {
+    const play = v => { const p = v.play(); if (p && p.catch) p.catch(() => {}); };
+
+    const vidObs = new IntersectionObserver(entries => entries.forEach(e => {
+      const v = e.target;
+      if (e.isIntersecting) {
+        if (!v.dataset.loaded) { v.dataset.loaded = "1"; v.load(); }
+        play(v);
+      } else if (!v.paused) {
+        v.pause();
+      }
+    }), { rootMargin: "200px 0px" });
+
+    bgVideos.forEach(v => vidObs.observe(v));
+
+    document.addEventListener("visibilitychange", () => bgVideos.forEach(v => {
+      if (document.hidden) { if (!v.paused) v.pause(); }
+      else if (v.dataset.loaded) play(v);
+    }));
+  }
+
   /* ---------- 1. Ticker: duplicar contenido por JS para loop infinito (DRY) ---------- */
   const tk = $("#tk");
   if (tk) {

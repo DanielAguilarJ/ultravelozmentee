@@ -69,7 +69,7 @@
     <!-- CSS. Esta página NO carga styles.min.css ni footer-modern.css:
          su hoja propia es autosuficiente y trae su propio colofón. -->
     <link rel="stylesheet" href="css/navbar-unified.min.css">
-    <link rel="stylesheet" href="css/alfa-cash-2026.css">
+    <link rel="stylesheet" href="css/alfa-cash-2026.css?v=20260803">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -529,7 +529,18 @@
         <!-- ══════════════════════════════════════════════════════
              RIESGO
              ══════════════════════════════════════════════════════ -->
-        <section class="ac-band" id="riesgo" aria-labelledby="ac-riesgo-t">
+        <section class="ac-band ac-has-media" id="riesgo" aria-labelledby="ac-riesgo-t">
+            <!-- Capa decorativa: hoja de cálculo impresa bajo luz
+                 cobalto y ámbar. aria-hidden porque el riesgo ya está
+                 explicado en el texto de la banda. -->
+            <div class="ac-band-media" aria-hidden="true">
+                <video data-bg-video
+                    src="images/alfa-cash-curso-finanzas-flujo-efectivo.mp4"
+                    poster="images/alfa-cash-curso-finanzas-flujo-efectivo.webp"
+                    muted loop playsinline preload="none"
+                    disablepictureinpicture disableremoteplayback
+                    width="1280" height="720"></video>
+            </div>
             <div class="ac-wrap">
                 <div class="ac-head ac-rise">
                     <p class="ac-eyebrow">Lo que se rompe</p>
@@ -1690,7 +1701,7 @@
          la página porque este llama a window.reportLead. -->
     <script src="js/lead-report.js" defer></script>
     <!-- Script propio de la página -->
-    <script src="js/alfa-cash-2026.js" defer></script>
+    <script src="js/alfa-cash-2026.js?v=20260803" defer></script>
 
     <!-- Clickwrap PROFECO.
 

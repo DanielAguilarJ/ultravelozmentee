@@ -210,7 +210,25 @@ section{padding:5rem 0}
 .b4{grid-column:span 2;background:#fff}
 
 /* ---------- Stats ---------- */
-.stats-band{background:var(--ink);color:var(--paper);border-block:var(--border)}
+.stats-band{background:var(--ink);color:var(--paper);border-block:var(--border);position:relative;overflow:hidden;view-timeline-name:--jm-band-view}
+
+/* ---------- Vídeo decorativo de la banda de cifras ----------
+   La banda ya era tinta plana, así que el vídeo solo le añade
+   textura. El gradiente cierra en var(--ink) para que los bordes
+   de 3px del diseño sigan leyéndose limpios.
+   El bloque global de prefers-reduced-motion de más abajo ya apaga
+   toda animación con !important, así que aquí no hace falta guard. */
+.jm-band-media{position:absolute;inset:-14% 0;z-index:0;pointer-events:none}
+.jm-band-media video{width:100%;height:100%;object-fit:cover;filter:grayscale(.3) contrast(1.08) brightness(.3)}
+.jm-band-media::after{
+  content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,var(--ink) 0%,rgba(15,14,23,.58) 45%,var(--ink) 100%);
+}
+.stats-band>.wrap{position:relative;z-index:1}
+@supports (animation-timeline: view()){
+  .jm-band-media{animation:jm-band-drift linear both;animation-timeline: --jm-band-view;animation-range:cover}
+  @keyframes jm-band-drift{from{transform:translate3d(0,-4%,0)}to{transform:translate3d(0,4%,0)}}
+}
 .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1.5rem;text-align:center}
 .stat b{font-family:var(--font-display);font-size:clamp(2rem,4vw,3.2rem);font-weight:900;color:var(--yellow);display:block}
 .stat span{font-weight:500}
@@ -678,6 +696,16 @@ html{scroll-padding-top:90px;-webkit-text-size-adjust:100%;text-size-adjust:100%
 
 <!-- ================= STATS ================= -->
 <section class="stats-band">
+  <!-- Capa decorativa: bloques geométricos de madera. aria-hidden
+       porque las cifras ya se leen en el texto. -->
+  <div class="jm-band-media" aria-hidden="true">
+    <video data-bg-video
+      src="images/juniormath-curso-calculo-mental-ninos.mp4"
+      poster="images/juniormath-curso-calculo-mental-ninos.webp"
+      muted loop playsinline preload="none"
+      disablepictureinpicture disableremoteplayback
+      width="1280" height="720"></video>
+  </div>
   <div class="wrap stats">
     <div class="stat reveal"><b class="count" data-n="90">0</b><span>Operaciones / 6 min</span></div>
     <div class="stat reveal"><b class="count" data-n="10000" data-suf="+">0</b><span>Niños entrenados</span></div>
@@ -899,6 +927,35 @@ html{scroll-padding-top:90px;-webkit-text-size-adjust:100%;text-size-adjust:100%
 <a class="wa-float" href="https://wa.me/525578107837?text=Hola,%20quiero%20info%20de%20JuniorMath" aria-label="WhatsApp">💬</a>
 
 <script>
+/* ========== Vídeo decorativo de fondo ==========
+   Sin `autoplay`: se pide la carga y se reproduce cuando su banda
+   entra en pantalla, y se pausa al salir o si la pestaña se oculta.
+   Con prefers-reduced-motion no se descarga nada y queda el póster. */
+(function(){
+  const REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  if (REDUCED || !('IntersectionObserver' in window)) return;
+
+  const vids = [...document.querySelectorAll('video[data-bg-video]')];
+  if (!vids.length) return;
+
+  const play = v => { const p = v.play(); if (p && p.catch) p.catch(()=>{}); };
+
+  const io = new IntersectionObserver(entries => entries.forEach(e => {
+    const v = e.target;
+    if (e.isIntersecting){
+      if (!v.dataset.loaded){ v.dataset.loaded = '1'; v.load(); }
+      play(v);
+    } else if (!v.paused){ v.pause(); }
+  }), { rootMargin:'200px 0px' });
+
+  vids.forEach(v => io.observe(v));
+
+  document.addEventListener('visibilitychange', () => vids.forEach(v => {
+    if (document.hidden){ if (!v.paused) v.pause(); }
+    else if (v.dataset.loaded) play(v);
+  }));
+})();
+
 /* ========== Menú móvil ========== */
 document.getElementById('burger').addEventListener('click',()=>{
   document.getElementById('mobileMenu').classList.toggle('open');

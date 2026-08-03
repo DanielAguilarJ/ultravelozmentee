@@ -59,6 +59,55 @@
         );
     }
 
+    /* ══════════════════════════════════════════════
+       Vídeo decorativo de fondo
+       Sin `autoplay` a propósito: se pide la carga y se reproduce
+       cuando su banda entra en pantalla, y se pausa al salir o si la
+       pestaña se oculta. Con prefers-reduced-motion no se descarga
+       nada y queda el póster.
+       ══════════════════════════════════════════════ */
+
+    (function backgroundVideo() {
+        if (!hasObserver || reduced()) return;
+
+        var vids = list('video[data-bg-video]');
+        if (!vids.length) return;
+
+        function play(video) {
+            var attempt = video.play();
+            /* La política de autoplay puede rechazarlo: se ignora y
+               queda el póster, que ya es un fallback correcto. */
+            if (attempt && attempt.catch) attempt.catch(function () { });
+        }
+
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                var video = entry.target;
+                if (entry.isIntersecting) {
+                    if (!video.dataset.acLoaded) {
+                        video.dataset.acLoaded = '1';
+                        video.load();
+                    }
+                    play(video);
+                } else if (!video.paused) {
+                    video.pause();
+                }
+            });
+        }, { rootMargin: '200px 0px' });
+
+        vids.forEach(function (video) { obs.observe(video); });
+
+        document.addEventListener('visibilitychange', function () {
+            vids.forEach(function (video) {
+                if (document.hidden) {
+                    if (!video.paused) video.pause();
+                } else if (video.dataset.acLoaded) {
+                    play(video);
+                }
+            });
+        });
+    })();
+
     function clamp01(value) {
         return value < 0 ? 0 : value > 1 ? 1 : value;
     }

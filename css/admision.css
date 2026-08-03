@@ -177,7 +177,27 @@ img{max-width:100%;display:block}
 .faq details[open] summary::after{transform:rotate(45deg)}
 .faq .a{padding:0 0 1.4rem;color:var(--muted);font-size:.93rem;max-width:60ch}
 
-.final{background:var(--ink);color:var(--paper);padding-block:clamp(4.5rem,4rem+4vw,7.5rem);margin-top:clamp(4rem,3rem+4vw,7rem)}
+.final{background:var(--ink);color:var(--paper);padding-block:clamp(4.5rem,4rem+4vw,7.5rem);margin-top:clamp(4rem,3rem+4vw,7rem);position:relative;overflow:hidden;view-timeline-name:--au-band-view}
+
+/* ── Vídeo decorativo del cierre ──
+   Va deliberadamente más apagado que en el resto del sitio
+   (brightness .26 y overlay al .64): aquí manda el CTA, y el vídeo
+   solo tiene que dar materia a un bloque que antes era tinta plana.
+   El bloque de prefers-reduced-motion de arriba deja las animaciones
+   en .01ms con !important, así que el parallax ya queda apagado. */
+.au-band-media{position:absolute;inset:-14% 0;z-index:0;pointer-events:none}
+.au-band-media video{width:100%;height:100%;object-fit:cover;filter:grayscale(.36) contrast(1.06) brightness(.26)}
+.au-band-media::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,var(--ink) 0%,rgba(26,23,19,.64) 45%,var(--ink) 100%)}
+.final>.wrap{position:relative;z-index:1}
+@supports (animation-timeline: view()){
+  .au-band-media{animation:au-band-drift linear both;animation-timeline: --au-band-view;animation-range:cover}
+  @keyframes au-band-drift{from{transform:translate3d(0,-4%,0)}to{transform:translate3d(0,4%,0)}}
+  /* Guard propio: el bloque general de reduced-motion de esta página solo
+     deja las animaciones en 0.01ms, y una animación ligada a una view
+     timeline IGNORA la duración (la gobierna el scroll). Sin esto el
+     parallax seguiría moviéndose para quien pide menos movimiento. */
+  @media (prefers-reduced-motion:reduce){.au-band-media{animation:none;transform:none}}
+}
 .final .kicker{color:#ffb703}
 .final h2{font:400 clamp(2.2rem,1.4rem+3.6vw,4.2rem)/1.08 var(--serif);max-width:22ch}
 .final h2 em{font-style:italic;color:#ffb703}

@@ -56,7 +56,7 @@
     <link rel="stylesheet" href="css/navbar-unified.min.css">
     <!-- CSS propio de la página. No se carga footer-modern:
          esta página trae su propio colofón. -->
-    <link rel="stylesheet" href="css/universidad-dominical-2026.css">
+    <link rel="stylesheet" href="css/universidad-dominical-2026.css?v=20260803">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -345,7 +345,7 @@
                     </div>
 
                     <figure class="ud-hero-figure ud-parallax" data-depth="24" style="--ud-depth:24">
-                        <img src="images/hero-dominical.png" width="640" height="640" loading="eager"
+                        <img src="images/hero-dominical.webp" width="640" height="640" loading="eager"
                             decoding="async"
                             alt="Persona adulta estudiando con libros y computadora portátil sobre una mesa">
                         <figcaption>
@@ -508,6 +508,24 @@
                 </footer>
             </div>
         </section>
+
+        <!-- ══════════════ BANDA ATMOSFÉRICA ══════════════
+             Respiro visual entre el planteamiento y la cuenta de domingos.
+             El vídeo es decorativo (aria-hidden, sin audio) y va detrás del
+             filtro y el degradado que ya define .ud-band-media en el CSS.
+             `poster` cubre el hueco mientras carga; quien pide menos
+             movimiento ve solo ese póster (regla en el bloque
+             prefers-reduced-motion).
+        -->
+        <aside class="ud-band" aria-hidden="true">
+            <div class="ud-band-media ud-parallax" data-depth="30" style="--ud-depth:30">
+                <video data-bg-video src="images/ud-band-study.mp4"
+                    poster="images/ud-band-study.webp"
+                    muted loop playsinline preload="none"
+                    disablepictureinpicture disableremoteplayback
+                    width="1280" height="720"></video>
+            </div>
+        </aside>
 
         <!-- ══════════════ 05 · LOS DOMINGOS ══════════════ -->
         <section class="ud-year-zone ud-defer" id="domingos" data-folio="Los domingos"
@@ -1361,7 +1379,7 @@
     <script src="js/param-builder-client.min.js" defer></script>
     <script src="js/booking.min.js"></script>
     <!-- Script propio de la página -->
-    <script src="js/universidad-dominical-2026.js" defer></script>
+    <script src="js/universidad-dominical-2026.js?v=20260803" defer></script>
 
     <!-- Clickwrap PROFECO -->
     <script>

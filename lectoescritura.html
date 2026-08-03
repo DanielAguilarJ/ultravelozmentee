@@ -74,7 +74,7 @@
     <link rel="stylesheet" href="css/footer-modern.min.css">
     <link rel="stylesheet" href="css/navbar-unified.min.css">
     <!-- CSS propio de la página -->
-    <link rel="stylesheet" href="css/lectoescritura.css">
+    <link rel="stylesheet" href="css/lectoescritura.css?v=20260803">
 
     <!-- Schema.org: Course + FAQPage + LocalBusiness -->
     
@@ -537,7 +537,17 @@
         </section>
 
         <!-- ══════════════ D · EL MÉTODO ══════════════ -->
-        <section class="lecto-section lecto-section-alt" id="metodo" aria-labelledby="metodo-title">
+        <section class="lecto-section lecto-section-alt lecto-has-media" id="metodo" aria-labelledby="metodo-title">
+            <!-- Capa decorativa: cuaderno rayado y lápiz. aria-hidden
+                 porque el método ya está descrito en el texto. -->
+            <div class="lecto-band-media" aria-hidden="true">
+                <video data-bg-video
+                    src="images/lectoescritura-curso-leer-escribir-ninos.mp4"
+                    poster="images/lectoescritura-curso-leer-escribir-ninos.webp"
+                    muted loop playsinline preload="none"
+                    disablepictureinpicture disableremoteplayback
+                    width="1280" height="720"></video>
+            </div>
             <div class="container">
                 <header class="section-head reveal">
                     <p class="lecto-eyebrow">El m&eacute;todo</p>
@@ -1170,6 +1180,36 @@
     <script src="js/lectoescritura-adapter.js" defer></script>
 
     <!-- Clickwrap validation — igual que mathekids.html -->
+    <script>
+    /* ── Vídeo decorativo de fondo ──
+       Sin autoplay: se descarga y arranca cuando su sección entra en
+       pantalla y se pausa al salir o si la pestaña se oculta. Con
+       prefers-reduced-motion no se descarga y manda el póster. */
+    (function () {
+        var REDUCED = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        if (REDUCED || !('IntersectionObserver' in window)) return;
+        var vids = Array.prototype.slice.call(document.querySelectorAll('video[data-bg-video]'));
+        if (!vids.length) return;
+        function play(v) { var p = v.play(); if (p && p.catch) p.catch(function () { }); }
+        var io = new IntersectionObserver(function (es) {
+            es.forEach(function (e) {
+                var v = e.target;
+                if (e.isIntersecting) {
+                    if (!v.dataset.loaded) { v.dataset.loaded = '1'; v.load(); }
+                    play(v);
+                } else if (!v.paused) { v.pause(); }
+            });
+        }, { rootMargin: '200px 0px' });
+        vids.forEach(function (v) { io.observe(v); });
+        document.addEventListener('visibilitychange', function () {
+            vids.forEach(function (v) {
+                if (document.hidden) { if (!v.paused) v.pause(); }
+                else if (v.dataset.loaded) play(v);
+            });
+        });
+    })();
+    </script>
+
     <script>
     document.addEventListener("DOMContentLoaded", function() {
         var ctas = document.querySelectorAll('a[href*="wa.me"]:not(.floating-whatsapp)');

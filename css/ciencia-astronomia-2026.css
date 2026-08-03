@@ -441,6 +441,90 @@
         padding-block: var(--as-band);
     }
 
+    /* ── Vídeo decorativo de banda ──
+       Capa detrás del contenido en las bandas que la pidan con
+       .as-has-media. La banda ya es noche cerrada, así que el vídeo
+       solo añade profundidad y no toca el contraste del texto. */
+    .as-has-media {
+        overflow: hidden;
+        /* Línea temporal con nombre en lugar de view() a secas: el
+           overflow: hidden de arriba convierte esta sección en
+           contenedor de scroll, y entonces view() se resolvería contra
+           ella misma y el progreso quedaría clavado en el 50 %. */
+        view-timeline-name: --as-band-view;
+    }
+
+    .as-band-media {
+        position: absolute;
+        inset: -14% 0;
+        z-index: 0;
+        pointer-events: none;
+    }
+
+    .as-band-media video {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        filter: grayscale(.35) contrast(1.1) brightness(.3);
+    }
+
+    .as-band-media::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(180deg,
+                var(--as-night) 0%,
+                rgba(7, 10, 20, .58) 45%,
+                var(--as-night) 100%);
+    }
+
+    /* ── La misma banda sobre papel ──
+       En claro, --as-night pasa a #F1EDE2 y el texto a tinta #0B1020,
+       así que el tratamiento de noche deja texto oscuro sobre vídeo
+       oscuro: ilegible. Comprobado en móvil, el epígrafe 02 se perdía
+       del todo.
+
+       No se oculta el vídeo: se invierte su tratamiento. El brillo
+       sube por encima de 1 y la saturación baja, de modo que la imagen
+       queda como una aguada clara, y el tramo intermedio del velo pasa
+       de tinta translúcida a papel translúcido. El fondo bajo el texto
+       se mantiene entonces del lado claro y la tinta sigue legible. */
+    html.light-mode .as-band-media video {
+        filter: grayscale(.55) contrast(.92) brightness(1.5) opacity(.5);
+    }
+
+    html.light-mode .as-band-media::after {
+        background: linear-gradient(180deg,
+                var(--as-night) 0%,
+                rgba(241, 237, 226, .72) 45%,
+                var(--as-night) 100%);
+    }
+
+    .as-has-media > .as-wrap {
+        position: relative;
+        z-index: 1;
+    }
+
+    @supports (animation-timeline: view()) {
+        .as-band-media {
+            animation: as-band-drift linear both;
+            animation-timeline: --as-band-view;
+            animation-range: cover;
+        }
+
+        @keyframes as-band-drift {
+            from { transform: translate3d(0, -4%, 0); }
+            to { transform: translate3d(0, 4%, 0); }
+        }
+
+        /* El guard va dentro de @supports y después de la regla que
+           enciende la animación: el bloque general de reduced-motion
+           está más abajo pero solo neutraliza transiciones. */
+        @media (prefers-reduced-motion: reduce) {
+            .as-band-media { animation: none; transform: none; }
+        }
+    }
+
     .as-band + .as-band {
         border-top: 1px solid var(--as-rule);
     }
@@ -774,7 +858,16 @@
         --as-swing: -14deg;
         max-inline-size: 34rem;
         margin-inline: auto;
-        container-type: inline-size;
+        /* Antes había aquí un container-type: inline-size. Se ha quitado
+           porque no había NINGUNA @container en la hoja que lo
+           aprovechara y, siendo esta figura un elemento de rejilla con
+           márgenes automáticos, la contención en el eje inline dejaba su
+           anchura en 0: el diagrama desaparecía y la leyenda se partía
+           en una palabra por línea. Ocurría en todos los tamaños, no
+           solo en móvil.
+           El inline-size explícito hace que ocupe su pista hasta el
+           máximo, en lugar de encogerse al contenido. */
+        inline-size: 100%;
     }
 
     /* La perspectiva vive aquí y no en la figura: así el contenedor de
@@ -1205,6 +1298,17 @@
        brillante, así que el radio es inverso. */
     .as-star {
         cursor: pointer;
+        /* Sin esto, Safari en iOS espera 300 ms por si es un doble toque
+           para hacer zoom, y la estrella parece que no responde. */
+        touch-action: manipulation;
+    }
+
+    /* Zona de toque invisible. `transparent` y no `none`: con fill:none
+       el círculo no recibe eventos de puntero y no serviría de nada.
+       Va como primer hijo del grupo, así que se pinta por debajo de la
+       estrella y del halo. */
+    .as-star circle.as-star-hit {
+        fill: transparent;
     }
 
     .as-star circle.as-star-body {
@@ -3036,6 +3140,17 @@ html:has(body.as-body) {
    apagaría el recorrido de escala y el panel de la constelación, que
    son sticky los dos. clip recorta igual sin crear scrollport. */
 body.as-body {
+    overflow-x: clip;
+}
+
+/* El clip del body NO llega al viewport: la propagación de overflow de
+   body a viewport solo contempla visible/hidden/scroll/auto, así que
+   con `clip` el documento seguía desplazándose ~400 px de lado en
+   móvil. Se repite en el elemento raíz, que es quien manda en el
+   viewport. Sigue siendo `clip` y no `hidden` para no crear un
+   scrollport y no romper los sticky del recorrido de escala ni del
+   panel de la constelación. */
+html:has(body.as-body) {
     overflow-x: clip;
 }
 

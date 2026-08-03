@@ -165,6 +165,61 @@
     }
 
     /* ══════════════════════════════════════════════
+       0b · Vídeo decorativo de fondo
+       Pasa por la misma puerta de coste que el resto: con
+       prefers-reduced-motion, ahorro de datos, 2G o equipo de gama
+       baja no se descarga nada y queda el póster, que ya da la
+       textura por unos pocos KB.
+
+       El <video> viene sin `autoplay` a propósito: se pide la carga y
+       se reproduce cuando su banda entra en pantalla, y se pausa al
+       salir o si la pestaña se oculta.
+       ══════════════════════════════════════════════ */
+
+    (function backgroundVideo() {
+        if (!hasObserver || !canAfford()) return;
+
+        var vids = Array.prototype.slice.call(
+            document.querySelectorAll('video[data-bg-video]')
+        );
+        if (!vids.length) return;
+
+        function play(video) {
+            var attempt = video.play();
+            /* La política de autoplay puede rechazarlo: se ignora y
+               queda el póster, que ya es un fallback correcto. */
+            if (attempt && attempt.catch) attempt.catch(function () { });
+        }
+
+        var obs = new IntersectionObserver(function (entries) {
+            entries.forEach(function (entry) {
+                var video = entry.target;
+                if (entry.isIntersecting) {
+                    if (!video.dataset.asLoaded) {
+                        video.dataset.asLoaded = '1';
+                        video.load();
+                    }
+                    play(video);
+                } else if (!video.paused) {
+                    video.pause();
+                }
+            });
+        }, { rootMargin: '200px 0px' });
+
+        vids.forEach(function (video) { obs.observe(video); });
+
+        document.addEventListener('visibilitychange', function () {
+            vids.forEach(function (video) {
+                if (document.hidden) {
+                    if (!video.paused) video.pause();
+                } else if (video.dataset.asLoaded) {
+                    play(video);
+                }
+            });
+        });
+    })();
+
+    /* ══════════════════════════════════════════════
        1 · Bucle único de scroll
        ══════════════════════════════════════════════ */
 

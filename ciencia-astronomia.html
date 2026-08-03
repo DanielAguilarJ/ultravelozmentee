@@ -82,7 +82,7 @@
          + footer-modern.min.css + navbar-unified.min.css + aos.css
          mientras usaba una navbar propia: cuatro hojas peleando. -->
     <link rel="stylesheet" href="css/navbar-unified.min.css">
-    <link rel="stylesheet" href="css/ciencia-astronomia-2026.css">
+    <link rel="stylesheet" href="css/ciencia-astronomia-2026.css?v=20260803">
 
     <!-- Meta Pixel Code -->
     <script>
@@ -547,7 +547,18 @@
              acusa a su madre, que es quien está leyendo. Aquí se
              describen conductas observables, sin culpa y sin miedo.
              ══════════════════════════════════════════════════════ -->
-        <section class="as-band" id="observar" aria-labelledby="as-obs-t">
+        <section class="as-band as-has-media" id="observar" aria-labelledby="as-obs-t">
+            <!-- Capa decorativa: telescopio de latón bajo luz de luna.
+                 aria-hidden porque lo que se observa ya está descrito
+                 en el texto de la banda. -->
+            <div class="as-band-media" aria-hidden="true">
+                <video data-bg-video
+                    src="images/ciencia-astronomia-curso-ninos-telescopio.mp4"
+                    poster="images/ciencia-astronomia-curso-ninos-telescopio.webp"
+                    muted loop playsinline preload="none"
+                    disablepictureinpicture disableremoteplayback
+                    width="1280" height="720"></video>
+            </div>
             <div class="as-wrap">
                 <div class="as-head as-rise">
                     <p class="as-eyebrow">Lo que se ve en casa</p>
@@ -666,6 +677,10 @@
                             <g class="as-star" tabindex="0" role="button" data-name="Betelgeuse" data-bayer="&alpha; Orionis"
                                 data-mag="0.42 (variable)" data-dist="~548 a&ntilde;os luz" data-type="M1-2 Ia-ab"
                                 data-note="Supergigante roja. Es tan grande que, puesta en el lugar del Sol, su superficie llegar&iacute;a m&aacute;s all&aacute; de la &oacute;rbita de Marte.">
+                                <!-- Zona de toque. r=18 es el mayor radio que no solapa con la
+                                     estrella vecina mas cercana (32.6 unidades): da unos 40 px
+                                     reales en telefono, frente a los 26-30 que daba el halo. -->
+                                <circle class="as-star-hit" cx="78" cy="52" r="18" />
                                 <title>Betelgeuse, alfa Orionis, magnitud 0.42</title>
                                 <circle class="as-star-halo" cx="78" cy="52" r="13" />
                                 <circle class="as-star-focus" cx="78" cy="52" r="11" />
@@ -676,6 +691,10 @@
                             <g class="as-star" tabindex="0" role="button" data-name="Rigel" data-bayer="&beta; Orionis"
                                 data-mag="0.13" data-dist="~863 a&ntilde;os luz" data-type="B8 Ia"
                                 data-note="Supergigante azul y la m&aacute;s brillante de la constelaci&oacute;n. Emite unas 120 000 veces m&aacute;s luz que el Sol.">
+                                <!-- Zona de toque. r=18 es el mayor radio que no solapa con la
+                                     estrella vecina mas cercana (32.6 unidades): da unos 40 px
+                                     reales en telefono, frente a los 26-30 que daba el halo. -->
+                                <circle class="as-star-hit" cx="206" cy="182" r="18" />
                                 <title>Rigel, beta Orionis, magnitud 0.13</title>
                                 <circle class="as-star-halo" cx="206" cy="182" r="13" />
                                 <circle class="as-star-focus" cx="206" cy="182" r="11" />
@@ -686,6 +705,10 @@
                             <g class="as-star" tabindex="0" role="button" data-name="Bellatrix" data-bayer="&gamma; Orionis"
                                 data-mag="1.64" data-dist="~250 a&ntilde;os luz" data-type="B2 III"
                                 data-note="La m&aacute;s cercana de las ocho. Es la referencia que se usa en clase para comparar distancias.">
+                                <!-- Zona de toque. r=18 es el mayor radio que no solapa con la
+                                     estrella vecina mas cercana (32.6 unidades): da unos 40 px
+                                     reales en telefono, frente a los 26-30 que daba el halo. -->
+                                <circle class="as-star-hit" cx="196" cy="44" r="18" />
                                 <title>Bellatrix, gamma Orionis, magnitud 1.64</title>
                                 <circle class="as-star-halo" cx="196" cy="44" r="11" />
                                 <circle class="as-star-focus" cx="196" cy="44" r="9.5" />
@@ -696,6 +719,10 @@
                             <g class="as-star" tabindex="0" role="button" data-name="Alnilam" data-bayer="&epsilon; Orionis"
                                 data-mag="1.69" data-dist="~2000 a&ntilde;os luz" data-type="B0 Ia"
                                 data-note="La estrella central del Cintur&oacute;n. Su luz sali&oacute; cuando en la Tierra a&uacute;n no exist&iacute;a el Imperio romano.">
+                                <!-- Zona de toque. r=18 es el mayor radio que no solapa con la
+                                     estrella vecina mas cercana (32.6 unidades): da unos 40 px
+                                     reales en telefono, frente a los 26-30 que daba el halo. -->
+                                <circle class="as-star-hit" cx="140" cy="112" r="18" />
                                 <title>Alnilam, epsilon Orionis, magnitud 1.69</title>
                                 <circle class="as-star-halo" cx="140" cy="112" r="11" />
                                 <circle class="as-star-focus" cx="140" cy="112" r="9.5" />
@@ -706,6 +733,10 @@
                             <g class="as-star" tabindex="0" role="button" data-name="Alnitak" data-bayer="&zeta; Orionis"
                                 data-mag="1.77" data-dist="~1260 a&ntilde;os luz" data-type="O9.7 Ib"
                                 data-note="Extremo oriental del Cintur&oacute;n. En realidad son tres estrellas girando una alrededor de otra.">
+                                <!-- Zona de toque. r=18 es el mayor radio que no solapa con la
+                                     estrella vecina mas cercana (32.6 unidades): da unos 40 px
+                                     reales en telefono, frente a los 26-30 que daba el halo. -->
+                                <circle class="as-star-hit" cx="108" cy="118" r="18" />
                                 <title>Alnitak, zeta Orionis, magnitud 1.77</title>
                                 <circle class="as-star-halo" cx="108" cy="118" r="11" />
                                 <circle class="as-star-focus" cx="108" cy="118" r="9.5" />
@@ -716,6 +747,10 @@
                             <g class="as-star" tabindex="0" role="button" data-name="Saiph" data-bayer="&kappa; Orionis"
                                 data-mag="2.07" data-dist="~650 a&ntilde;os luz" data-type="B0.5 Ia"
                                 data-note="Emite casi toda su luz en ultravioleta, que el ojo no ve. Por eso parece m&aacute;s d&eacute;bil de lo que es.">
+                                <!-- Zona de toque. r=18 es el mayor radio que no solapa con la
+                                     estrella vecina mas cercana (32.6 unidades): da unos 40 px
+                                     reales en telefono, frente a los 26-30 que daba el halo. -->
+                                <circle class="as-star-hit" cx="96" cy="190" r="18" />
                                 <title>Saiph, kappa Orionis, magnitud 2.07</title>
                                 <circle class="as-star-halo" cx="96" cy="190" r="10" />
                                 <circle class="as-star-focus" cx="96" cy="190" r="9" />
@@ -726,6 +761,10 @@
                             <g class="as-star" tabindex="0" role="button" data-name="Mintaka" data-bayer="&delta; Orionis"
                                 data-mag="2.25" data-dist="~1200 a&ntilde;os luz" data-type="O9.5 II"
                                 data-note="Extremo occidental del Cintur&oacute;n. Est&aacute; casi sobre el ecuador celeste, as&iacute; que se ve desde los dos hemisferios.">
+                                <!-- Zona de toque. r=18 es el mayor radio que no solapa con la
+                                     estrella vecina mas cercana (32.6 unidades): da unos 40 px
+                                     reales en telefono, frente a los 26-30 que daba el halo. -->
+                                <circle class="as-star-hit" cx="172" cy="106" r="18" />
                                 <title>Mintaka, delta Orionis, magnitud 2.25</title>
                                 <circle class="as-star-halo" cx="172" cy="106" r="10" />
                                 <circle class="as-star-focus" cx="172" cy="106" r="9" />
@@ -736,6 +775,10 @@
                             <g class="as-star" tabindex="0" role="button" data-name="Meissa" data-bayer="&lambda; Orionis"
                                 data-mag="3.39" data-dist="~1100 a&ntilde;os luz" data-type="O8 III"
                                 data-note="Marca la cabeza. Es la m&aacute;s d&eacute;bil de las ocho: buen ejercicio para aprender a mirar sin luz de ciudad.">
+                                <!-- Zona de toque. r=18 es el mayor radio que no solapa con la
+                                     estrella vecina mas cercana (32.6 unidades): da unos 40 px
+                                     reales en telefono, frente a los 26-30 que daba el halo. -->
+                                <circle class="as-star-hit" cx="140" cy="20" r="18" />
                                 <title>Meissa, lambda Orionis, magnitud 3.39</title>
                                 <circle class="as-star-halo" cx="140" cy="20" r="9" />
                                 <circle class="as-star-focus" cx="140" cy="20" r="8" />
@@ -1804,7 +1847,7 @@
          la página porque este llama a window.reportLead. -->
     <script src="js/lead-report.js" defer></script>
     <!-- Script propio de la página -->
-    <script src="js/ciencia-astronomia-2026.js" defer></script>
+    <script src="js/ciencia-astronomia-2026.js?v=20260803" defer></script>
 
     <!-- Clickwrap PROFECO.
 

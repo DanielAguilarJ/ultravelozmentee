@@ -129,6 +129,14 @@ header.scrolled{
 .nav-links a{text-decoration:none;font-size:.88rem;font-weight:500;color:var(--ink-60);transition:color .2s}
 .nav-links a:hover{color:var(--ink)}
 .nav-cta{font-size:.8rem;padding:.6rem 1.3rem}
+/* El CTA del nav salía ilegible: .nav-links a fija color:var(--ink-60) y su
+   especificidad (0,1,1) le gana a .btn-solid (0,1,0), así que el texto se
+   pintaba gris tinta al 60 % sobre el fondo tinta del botón — contraste
+   1,5:1, prácticamente invisible. Se restituye aquí con especificidad
+   suficiente en lugar de tocar las reglas generales de .btn o del nav,
+   que funcionan bien en el resto de la página. */
+.nav-links a.btn-solid{color:var(--porcelain)}
+.nav-links a.btn-solid:hover{color:#fff}
 .burger{display:none;background:none;border:1px solid var(--ink-30);border-radius:999px;padding:.5rem .95rem;font-size:1rem;cursor:pointer;color:var(--ink)}
 .mmenu{
   display:none;position:fixed;inset:64px 0 0;z-index:99;background:var(--porcelain);
@@ -144,6 +152,69 @@ header.scrolled{
 /* ---------- Hero ---------- */
 .hero{position:relative;min-height:100svh;display:flex;flex-direction:column;justify-content:center;padding:8rem 0 4rem}
 #field{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+/* ── Vídeo de fondo del hero ──
+   Se añade DEBAJO del lienzo de partículas y del contenido: no sustituye
+   nada de lo que ya había. El recorte del sobreancho va en este mismo
+   contenedor y NO en .hero, por dos razones: así no se arriesga recortar
+   contenido existente, y .hero no se convierte en contenedor de scroll
+   (que rompería cualquier línea temporal resuelta dentro).
+
+   La línea temporal es scroll(root) y no view(): el hero ya está a la
+   vista al cargar, así que lo que interesa es su recorrido de SALIDA,
+   medido sobre el scroll de la página, no su entrada en pantalla. */
+.hero-media{position:absolute;inset:0;z-index:0;overflow:hidden;pointer-events:none}
+.hero-media video{
+  position:absolute;left:0;top:-14%;width:100%;height:128%;object-fit:cover;
+  /* Tratamiento claro: el hero es porcelana y el material ya es de tono
+     alto. Se desatura bastante para que el azul Klein siga siendo el
+     único color con voz en la página: sin esto, el cobre del cable y la
+     madera del ábaco le disputaban el protagonismo. */
+  filter:grayscale(.28) contrast(1.02) brightness(1.04) saturate(.62);
+}
+/* Dos velos superpuestos. El horizontal protege la columna de texto, que
+   vive a la izquierda, y deja respirar el bodegón a la derecha; el
+   vertical funde el borde inferior con el color de la página. */
+.hero-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    linear-gradient(90deg,
+      rgba(246,244,238,.93) 0%,
+      rgba(246,244,238,.87) 44%,
+      rgba(246,244,238,.60) 100%),
+    linear-gradient(180deg,
+      rgba(246,244,238,.50) 0%,
+      rgba(246,244,238,.30) 45%,
+      var(--porcelain) 100%);
+}
+/* En móvil el titular ocupa todo el ancho, así que el velo se cierra
+   por igual en los dos lados. */
+@media (max-width:860px){
+  .hero-media::after{
+    background:
+      linear-gradient(180deg,
+        rgba(246,244,238,.90) 0%,
+        rgba(246,244,238,.84) 45%,
+        var(--porcelain) 100%);
+  }
+}
+/* En modo lite no se pinta ni se descarga: el módulo de JS ya sale antes. */
+html.lite .hero-media{display:none}
+@supports (animation-timeline: scroll()){
+  .hero-media video{
+    animation:hero-drift linear both;
+    animation-timeline:scroll(root block);
+    animation-range:0 100svh;
+  }
+  @keyframes hero-drift{
+    from{transform:translate3d(0,-6%,0)}
+    to{transform:translate3d(0,6%,0)}
+  }
+  /* El recorrido (±6 % de la altura del vídeo) queda dentro del 14 % de
+     sobreancho, así que nunca asoma un borde. */
+  @media (prefers-reduced-motion:reduce){
+    .hero-media video{animation:none;transform:none}
+  }
+}
 .hero-content{position:relative;z-index:2}
 .hero .est{display:flex;align-items:center;gap:1rem;margin-bottom:2.2rem}
 .hero .est::after{content:"";width:56px;height:1px;background:var(--ink-30)}
@@ -186,7 +257,63 @@ header.scrolled{
 
 /* ---------- Manifiesto (texto que se entinta al hacer scroll) ---------- */
 .manifesto{padding:9rem 0;border-block:1px solid var(--ink-12);background:var(--porcelain-2);
-  content-visibility:auto;contain-intrinsic-size:auto 640px}
+  content-visibility:auto;contain-intrinsic-size:auto 640px;
+  /* Contiene la capa de vídeo de abajo y le sirve de línea temporal. Se
+     declara aquí, en la sección, y NO en la capa: con overflow:hidden la
+     capa resolvería view() contra esta misma sección —donde no se mueve
+     nunca— y el parallax quedaría congelado a mitad de recorrido. */
+  position:relative;overflow:hidden;view-timeline-name:--creed-view}
+
+/* ── Vídeo de fondo del manifiesto ──
+   Esta sección es tipografía y nada más: el texto arranca en ink-30
+   porque las palabras se entintan al hacer scroll, y ese estado tenue es
+   el que fija el límite. Por eso el velo es casi opaco sobre la columna
+   de texto y solo se abre a la derecha, donde no hay nada que leer. */
+.manifesto-media{position:absolute;inset:0;z-index:0;pointer-events:none}
+.manifesto-media video{
+  position:absolute;left:0;top:-14%;width:100%;height:128%;object-fit:cover;
+  filter:grayscale(.3) contrast(1.02) brightness(1.04) saturate(.55);
+}
+.manifesto-media::after{
+  content:"";position:absolute;inset:0;
+  background:
+    /* horizontal: blinda la columna de texto (max-width 24ch, a la izquierda) */
+    linear-gradient(90deg,
+      rgba(239,236,227,.97) 0%,
+      rgba(239,236,227,.95) 46%,
+      rgba(239,236,227,.62) 100%),
+    /* vertical: funde con el fondo para no ensuciar los filetes de 1px */
+    linear-gradient(180deg,
+      var(--porcelain-2) 0%,
+      rgba(239,236,227,.42) 34%,
+      rgba(239,236,227,.42) 66%,
+      var(--porcelain-2) 100%);
+}
+/* En móvil el párrafo ocupa todo el ancho: el velo se cierra por igual. */
+@media (max-width:860px){
+  .manifesto-media::after{
+    background:linear-gradient(180deg,
+      var(--porcelain-2) 0%,
+      rgba(239,236,227,.93) 40%,
+      var(--porcelain-2) 100%);
+  }
+}
+.manifesto > .wrap{position:relative;z-index:1}
+html.lite .manifesto-media{display:none}
+@supports (animation-timeline: view()){
+  .manifesto-media video{
+    animation:creed-drift linear both;
+    animation-timeline:--creed-view;
+    animation-range:cover;
+  }
+  @keyframes creed-drift{
+    from{transform:translate3d(0,-6%,0)}
+    to{transform:translate3d(0,6%,0)}
+  }
+  @media (prefers-reduced-motion:reduce){
+    .manifesto-media video{animation:none;transform:none}
+  }
+}
 .manifesto p{
   font-family:var(--serif);font-size:clamp(1.7rem,4vw,3rem);line-height:1.32;max-width:24ch;
   color:var(--ink-30);
@@ -292,6 +419,27 @@ header.scrolled{
 .method-foot{display:flex;gap:3rem;margin-top:3.5rem;flex-wrap:wrap}
 .method-foot div b{font-family:var(--serif);font-size:1.9rem;font-weight:400;display:block;line-height:1.1}
 .method-foot div span{font-family:var(--mono);font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:rgba(246,244,238,.45)}
+
+/* ---------- Método: capa de vídeo de fondo ----------
+   Vídeo decorativo detrás del texto. La sección ya era oscura, así que
+   el vídeo solo añade textura y profundidad: no cambia el layout ni el
+   contraste del texto, que sigue sobre --ink gracias al degradado. */
+.method{position:relative;overflow:hidden;view-timeline-name:--idx-method-view}
+.method-media{position:absolute;inset:-12% 0;z-index:0;pointer-events:none}
+.method-media video{width:100%;height:100%;object-fit:cover;
+  filter:grayscale(.92) contrast(1.08) brightness(.26)}
+.method-media::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,var(--ink) 0%,rgba(22,21,18,.74) 45%,var(--ink) 100%)}
+/* El contenido va por encima de la capa de vídeo. */
+.method > .wrap{position:relative;z-index:1}
+/* Parallax nativo ligado al scroll; sin JS y sin listeners. */
+@supports (animation-timeline: view()){
+  .method-media{animation:mdrift linear both;animation-timeline: --idx-method-view;animation-range:cover}
+  @keyframes mdrift{
+    from{transform:translate3d(0,-3.5%,0)}
+    to{transform:translate3d(0,3.5%,0)}
+  }
+}
 
 /* ---------- Testimonios: pila de correspondencia ---------- */
 .letters{padding:8rem 0;content-visibility:auto;contain-intrinsic-size:auto 900px}
@@ -490,6 +638,20 @@ dialog.cmdk::backdrop{background:rgba(22,21,18,.35);backdrop-filter:blur(6px)}
 .press span{font-family:var(--mono);font-size:.66rem;letter-spacing:.2em;color:var(--ink-30)}
 .press b{font-family:var(--serif);font-size:1.05rem;font-weight:400;color:var(--ink-60);letter-spacing:.04em;transition:color .25s}
 .press b:hover{color:var(--ink)}
+/* Logotipos de prensa en SVG en línea. Vienen de Wikimedia Commons con
+   licencia de dominio público (PD-textlogo) y se les ha quitado el color
+   de marca: heredan uno solo vía fill="currentColor", así que la fila lee
+   como una sola tira gris y el hover funciona igual que en los <b>.
+   Las alturas NO son idénticas a propósito: se igualan por altura de
+   MAYÚSCULA. Forbes trae ascendente y Entrepreneur descendente, así que
+   a igual altura de caja se verían de tamaños distintos. */
+.press{--press-cap:15px}
+.press-logo{width:auto;display:block;flex:none;color:var(--ink-60);transition:color .25s}
+.press-logo:hover{color:var(--ink)}
+.press-logo--forbes{height:calc(var(--press-cap) * 1.04)}
+.press-logo--entrepreneur{height:calc(var(--press-cap) * 1.356)}
+.press-logo--tedx{height:calc(var(--press-cap) * 1.06)}
+.press-logo--eluniversal{height:calc(var(--press-cap) * .92)}
 
 /* Modo lite: elegancia intacta, costo cero */
 html.lite #field{display:none}
@@ -506,6 +668,55 @@ html.lite .letter{filter:none}
 .ritual .ic{font-size:1.7rem;display:block;margin-bottom:1rem}
 .ritual h3{font-family:var(--serif);font-weight:400;font-size:1.15rem;margin-bottom:.5rem}
 .ritual p{font-size:.88rem;color:var(--ink-60)}
+
+/* ── Fotografía de fondo de cada ritual ──
+   Solo aparece al acercar el puntero. Va en un <img> real y no en un
+   background-image de CSS a propósito: así la puede indexar Google
+   Imágenes y admite alt y title, que es donde está el valor SEO.
+
+   La tarjeta es clara con texto oscuro, así que al pasar el puntero se
+   invierte entera: la foto entra ya oscurecida por filtro y el texto
+   pasa a porcelana. Es la única forma de que una imagen oscura no se
+   coma la legibilidad en lugar de protegerla. */
+.ritual{position:relative;isolation:isolate;transition:background .3s,color .35s}
+
+.ritual-bg{
+  /* z-index negativo: queda detrás del texto pero DELANTE del fondo de
+     la propia tarjeta, que es justo el orden de pintado que hace falta. */
+  position:absolute;inset:0;z-index:-1;
+  width:100%;height:100%;object-fit:cover;
+  opacity:0;
+  /* El oscurecido va en el filtro y no en una capa aparte: un nodo
+     menos y el contraste está garantizado desde el primer fotograma. */
+  filter:grayscale(.22) brightness(.30) contrast(1.06) saturate(.85);
+  transform:scale(1.06);
+  transition:opacity .42s ease,transform .6s ease;
+  /* Sin eventos de puntero: no roba el hover de la tarjeta y, de paso,
+     el navegador no saca el tooltip del title encima del texto. */
+  pointer-events:none;
+}
+
+/* Solo donde existe un puntero de verdad; en táctil no se muestra
+   (ni se gasta la descarga en algo que nunca se vería). */
+@media (hover:hover){
+  .ritual:hover .ritual-bg{opacity:1;transform:scale(1)}
+  .ritual:hover{background:var(--ink)}
+  .ritual:hover h3{color:var(--porcelain)}
+  .ritual:hover p{color:rgba(246,244,238,.88)}
+}
+
+/* Mismo efecto para quien navega con teclado. */
+.ritual:focus-within .ritual-bg{opacity:1;transform:scale(1)}
+.ritual:focus-within{background:var(--ink)}
+.ritual:focus-within h3{color:var(--porcelain)}
+.ritual:focus-within p{color:rgba(246,244,238,.88)}
+
+.ritual h3,.ritual p{transition:color .35s}
+
+@media (prefers-reduced-motion:reduce){
+  .ritual-bg{transition:opacity .01ms;transform:none}
+  .ritual:hover .ritual-bg,.ritual:focus-within .ritual-bg{transform:none}
+}
 @media (max-width:980px){.rituals{grid-template-columns:1fr 1fr}}
 
 /* ---------- Ficha operativa ---------- */
@@ -534,14 +745,14 @@ html.lite .letter{filter:none}
 <meta property="og:title" content="Cursos de aprendizaje acelerado | WorldBrain México">
 <meta property="og:description" content="Cursos de lectura rápida, cálculo mental, robótica, inglés, memoria y liderazgo para niños, jóvenes y adultos en Cuautitlán Izcalli y en línea.">
 <meta property="og:url" content="https://ultravelozmente.com/">
-<meta property="og:image" content="https://ultravelozmente.com/images/fl-hero-brain.webp">
-<meta property="og:image:alt" content="WorldBrain México">
+<meta property="og:image" content="https://ultravelozmente.com/images/idx-og-editorial-flatlay.webp">
+<meta property="og:image:alt" content="WorldBrain México — Instituto de aprendizaje acelerado">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Cursos de aprendizaje acelerado | WorldBrain México">
 <meta name="twitter:description" content="Cursos de lectura rápida, cálculo mental, robótica, inglés, memoria y liderazgo para niños, jóvenes y adultos en Cuautitlán Izcalli y en línea.">
-<meta name="twitter:image" content="https://ultravelozmente.com/images/fl-hero-brain.webp">
-<meta name="twitter:image:alt" content="WorldBrain México">
+<meta name="twitter:image" content="https://ultravelozmente.com/images/idx-og-editorial-flatlay.webp">
+<meta name="twitter:image:alt" content="WorldBrain México — Instituto de aprendizaje acelerado">
 
 
 <script type="application/ld+json">
@@ -620,7 +831,7 @@ html.lite .letter{filter:none}
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://ultravelozmente.com/images/fl-hero-brain.webp"
+        "url": "https://ultravelozmente.com/images/idx-og-editorial-flatlay.webp"
       }
     }
   ]
@@ -663,6 +874,19 @@ html.lite .letter{filter:none}
 
 <!-- ═══════════ HERO ═══════════ -->
 <section class="hero">
+  <!-- Capa decorativa: bodegón cenital con material de los programas
+       (ábaco, libro, telescopio, placa de electrónica, fichas, compás,
+       globo). aria-hidden porque es atmósfera; el mensaje va en el texto.
+       Va antes del <canvas> a propósito: ambos son z-index 0/auto, así
+       que el orden del DOM deja las partículas por encima del vídeo. -->
+  <div class="hero-media" aria-hidden="true">
+    <video data-bg-video
+      src="images/index-hero-cursos-aprendizaje-acelerado-escritorio.mp4"
+      poster="images/index-hero-cursos-aprendizaje-acelerado-escritorio.webp"
+      muted loop playsinline preload="none"
+      disablepictureinpicture disableremoteplayback
+      width="1280" height="720"></video>
+  </div>
   <canvas id="field" aria-hidden="true"></canvas>
   <div class="wrap hero-content">
     <div class="est">
@@ -686,12 +910,27 @@ html.lite .letter{filter:none}
 <div class="press" aria-label="Reconocimientos de prensa">
   <div class="wrap">
     <span>RECONOCIDOS EN</span>
-    <b>FORBES</b><b>ENTREPRENEUR</b><b>TEDx</b><b>EL UNIVERSAL</b>
+    <svg class="press-logo press-logo--forbes" viewBox="0 0 200 54" fill="currentColor" role="img" aria-label="Forbes" focusable="false"><path d="M113.3 18.2c0-5.8.1-11.2.4-16.2L98.4 4.9v1.4l1.5.2c1.1.1 1.8.5 2.2 1.1.4.7.7 1.7.9 3.2.2 2.9.4 9.5.3 19.9 0 10.3-.1 16.8-.3 19.3 5.5 1.2 9.8 1.7 13 1.7 6 0 10.7-1.7 14.1-5.2 3.4-3.4 5.2-8.2 5.2-14.1 0-4.7-1.3-8.6-3.9-11.7-2.6-3.1-5.9-4.6-9.8-4.6-2.6 0-5.3.7-8.3 2.1zm.3 30.8c-.2-3.2-.4-12.8-.4-28.5.9-.3 2.1-.5 3.6-.5 2.4 0 4.3 1.2 5.7 3.7 1.4 2.5 2.1 5.5 2.1 9.3 0 4.7-.8 8.5-2.4 11.7-1.6 3.1-3.6 4.7-6.1 4.7-.8-.2-1.6-.3-2.5-.4zM41 3H1v2l2.1.2c1.6.3 2.7.9 3.4 1.8.7 1 1.1 2.6 1.2 4.8.8 10.8.8 20.9 0 30.2-.2 2.2-.6 3.8-1.2 4.8-.7 1-1.8 1.6-3.4 1.8l-2.1.3v2h25.8v-2l-2.7-.2a4.9 4.9 0 0 1-3.4-1.8c-.7-1-1.1-2.6-1.2-4.8-.3-4-.5-8.6-.5-13.7l5.4.1c2.9.1 4.9 2.3 5.9 6.7h2V18.9h-2c-1 4.3-2.9 6.5-5.9 6.6l-5.4.1c0-9 .2-15.4.5-19.3h7.9c5.6 0 9.4 3.6 11.6 10.8l2.4-.7L41 3zm-4.7 30.8c0 5.2 1.5 9.5 4.4 12.9 2.9 3.4 7.2 5 12.6 5s9.8-1.7 13-5.2c3.2-3.4 4.7-7.7 4.7-12.9s-1.5-9.5-4.4-12.9c-2.9-3.4-7.2-5-12.6-5s-9.8 1.7-13 5.2c-3.2 3.4-4.7 7.7-4.7 12.9zm22.3-11.4c1.2 2.9 1.7 6.7 1.7 11.3 0 10.6-2.2 15.8-6.5 15.8-2.2 0-3.9-1.5-5.1-4.5-1.2-3-1.7-6.8-1.7-11.3C47 23.2 49.2 18 53.5 18c2.2-.1 3.9 1.4 5.1 4.4zm84.5 24.3c3.3 3.3 7.5 5 12.5 5 3.1 0 5.8-.6 8.2-1.9 2.4-1.2 4.3-2.7 5.6-4.5l-1-1.2c-2.2 1.7-4.7 2.5-7.6 2.5-4 0-7.1-1.3-9.2-4-2.2-2.7-3.2-6.1-3-10.5H170c0-4.8-1.2-8.7-3.7-11.8-2.5-3-6-4.5-10.5-4.5-5.6 0-9.9 1.8-13 5.3-3.1 3.5-4.6 7.8-4.6 12.9 0 5.2 1.6 9.4 4.9 12.7zm7.4-25.1c1.1-2.4 2.5-3.6 4.4-3.6 3 0 4.5 3.8 4.5 11.5l-10.6.2c.1-3 .6-5.7 1.7-8.1zm46.4-4c-2.7-1.2-6.1-1.9-10.2-1.9-4.2 0-7.5 1.1-10 3.2s-3.8 4.7-3.8 7.8c0 2.7.8 4.8 2.3 6.3 1.5 1.5 3.9 2.8 7 3.9 2.8 1 4.8 2 5.8 2.9 1 1 1.6 2.1 1.6 3.6 0 1.4-.5 2.7-1.6 3.7-1 1.1-2.4 1.6-4.2 1.6-4.4 0-7.7-3.2-10-9.6l-1.7.5.4 10c3.6 1.4 7.6 2.1 12 2.1 4.6 0 8.1-1 10.7-3.1 2.6-2 3.9-4.9 3.9-8.5 0-2.4-.6-4.4-1.9-5.9-1.3-1.5-3.4-2.8-6.4-4-3.3-1.2-5.6-2.3-6.8-3.3-1.2-1-1.8-2.2-1.8-3.7s.4-2.7 1.3-3.7 2-1.4 3.4-1.4c4 0 6.9 2.9 8.7 8.6l1.7-.5-.4-8.6zm-96.2-.9c-1.4-.7-2.9-1-4.6-1-1.7 0-3.4.7-5.3 2.1-1.9 1.4-3.3 3.3-4.4 5.9l.1-8-15.2 3v1.4l1.5.1c1.9.2 3 1.7 3.2 4.4.6 6.2.6 12.8 0 19.8-.2 2.7-1.3 4.1-3.2 4.4l-1.5.2v1.9h21.2V49l-2.7-.2c-1.9-.2-3-1.7-3.2-4.4-.6-5.8-.7-12-.2-18.4.6-1 1.9-1.6 3.9-1.8 2-.2 4.3.4 6.7 1.8l3.7-9.3z"/></svg>
+    <svg class="press-logo press-logo--entrepreneur" viewBox="0 0 545.8 107.1" fill="currentColor" role="img" aria-label="Entrepreneur" focusable="false"><linearGradient gradientUnits="userSpaceOnUse" x1="-11.1909" y1="642.3496" x2="-10.4838" y2="641.6425"> <stop offset="0" style="stop-color:#20AC4B"/> <stop offset="0.9831" style="stop-color:#19361A"/> </linearGradient> <g> <g> <path d="M0.8,72.7l6.9-1.1V7.9L0,6.9L0.4,0h48.2l-1.2,19.3l-9.6-0.3L37.2,6.9H22.3v28.7h6.5l1.5-6.6l6.7,0.2V49h-6.7 l-1.6-6.8h-6.5v30.4h15l1.4-13.2l10.1,0.3l0.8,20.1H0.5L0.8,72.7z"/> <path d="M54,79.9l0.3-5.9l5.4-1.1V32.7l-6.3-0.6v-6l15.8-2.3l1.2,3.4v2.3c3.8-4,8.4-6.4,14.3-6.4 c8.6,0,15,5.2,15,15.5v34.2l5.7,1.1l-0.3,5.9H86.3V41.6c0-5.5-2-8.6-7-8.6c-1.7,0-2.9,0.3-4.2,0.8c-0.8,0.7-1.6,1.7-2.3,2.6v36.6 l5.7,1.1l-0.4,5.9H54z"/> <path d="M356.1,79.9l0.2-5.9l5.4-1.1V32.7l-6.3-0.6v-6l15.8-2.3l1.2,3.4v2.3c3.8-4,8.4-6.4,14.3-6.4 c8.6,0,15,5.2,15,15.5v34.2l5.7,1.1l-0.3,5.9h-18.7V41.6c0-5.5-2-8.6-7-8.6c-1.7,0-2.9,0.3-4.2,0.8c-0.8,0.7-1.6,1.7-2.3,2.6v36.6 l5.7,1.1l-0.4,5.9H356.1z"/> <path d="M135.2,78.8c-2.2,0.9-6.1,1.9-11.2,1.9c-6.7,0-12.9-3-12.9-12.8V32.7l-6.4-1l0.3-7l7.2-0.3l3.1-10.7l9.2-0.4 v11.5h9.9l-0.7,7l-9.1,1v35.2c0,2.9,1.6,4.8,4.6,4.8h5.4L135.2,78.8z"/> <path d="M509.5,79.9l0.2-5.8l5.1-1.2V32.7l-6-0.6v-6l16.4-2.3l1.1,3.9V29c4.3-3.2,10.1-5.3,17.1-5.3l2.4,2.1L544.1,41 l-9-0.3l-0.9-8.1c-2.1,0.3-4.1,0.9-5.8,2.1V73l5.7,1.2l-0.4,5.8H509.5z"/> <path d="M274,79.9l0.3-5.8l5.1-1.2V32.7l-6-0.6v-6l16.4-2.3l1.1,3.9V29c4.3-3.2,10.1-5.3,17.1-5.3l2.4,2.1L308.5,41 l-9-0.3l-0.9-8.1c-2.1,0.3-4.1,0.9-5.8,2.1V73l5.7,1.2l-0.4,5.8H274z"/> <path d="M139.2,79.9l0.3-5.8l5.1-1.2V32.7l-6-0.6v-6l16.4-2.3l1.1,3.9V29c4.3-3.2,10.1-5.3,17-5.3l2.4,2.1L173.8,41 l-9-0.3l-0.9-8.1c-2.1,0.3-4.1,0.9-5.8,2.1V73l5.7,1.2l-0.4,5.8H139.2z"/> <path d="M191,55.4c0,9.6,4.2,17,12.5,17c4.3,0,7.7-0.9,11.7-2.8l2.3,5.3c-4.1,3.3-10.1,5.8-17.6,5.8 c-14.6,0-23-12.6-23-28.8c0-13.8,6.1-28.9,22.8-28.9c14.6,0,20.1,13.5,20.1,28.5l-1.4,3.6L191,55.4z M190.8,49l16.8-0.8 c-0.3-6.7-1.7-17.3-8.3-17.3c-1.6,0-2.7,0.3-4.7,1.3C191.9,36.8,190.8,45.1,190.8,49z"/> <path d="M423.4,55.4c0,9.6,4.2,17,12.5,17c4.3,0,7.7-0.9,11.7-2.8l2.3,5.3c-4.1,3.3-10.1,5.8-17.6,5.8 c-14.6,0-23-12.6-23-28.8c0-13.8,6.1-28.9,22.8-28.9c14.6,0,20.1,13.5,20.1,28.5l-1.4,3.6L423.4,55.4z M423.2,49l16.8-0.8 c-0.3-6.7-1.7-17.3-8.3-17.3c-1.6,0-2.7,0.3-4.7,1.3C424.3,36.8,423.2,45.1,423.2,49z"/> <path d="M325.8,55.4c0,9.6,4.2,17,12.5,17c4.3,0,7.7-0.9,11.7-2.8l2.3,5.3c-4.1,3.3-10.1,5.8-17.6,5.8 c-14.6,0-23-12.6-23-28.8c0-13.8,6.1-28.9,22.8-28.9c14.6,0,20.1,13.5,20.1,28.5l-1.4,3.6L325.8,55.4z M325.6,49l16.8-0.8 c-0.3-6.7-1.7-17.3-8.3-17.3c-1.6,0-2.7,0.3-4.7,1.3C326.7,36.8,325.5,45.1,325.6,49z"/> <path d="M490,79.9l-1.4-4.8c-3.7,3.5-7.3,5.6-12.9,5.6c-8.6,0-16.3-4.3-16.3-16.2V31.3l-6.3-0.6v-5.3l18.2-2.1 l1.4,4.8v34.8c0,6.1,2.5,9.3,7.4,9.3c1.4,0,3.2-0.2,4.8-0.8c0.9-0.9,1.8-2,2.5-3.1v-37l-6.5-0.6v-5.3l18.4-2.1l1.4,4.8v44.8 l5.7,1.1l-0.7,5.9H490z"/> </g> <path d="M247.1,72.7c-2.9,0-5.2-0.5-7-1.5V35.9c0.8-1.2,1.7-2.3,2.6-3.3c1.7-0.6,3.2-0.8,5-0.8c7.5,0,8.8,7.6,8.8,21.2 c0,13.1-2,16.7-2.5,18.2C251.9,72.2,249.7,72.7,247.1,72.7z M269.5,50.6c0-16.9-5-27.5-17.5-27.5c-8.3,0-12.2,4.8-13.8,6.8V28 l-1.4-4.8l-16.3,2.3v5.8l6.3,0.8v68.2l-5.4,1.1l-0.3,5.7h24.1l0.4-5.7l-5.7-1.1V78.7c2.3,1.3,5.5,2.1,9,2.1 C269.3,80.8,269.5,60.1,269.5,50.6z"/> </g></svg>
+    <svg class="press-logo press-logo--tedx" viewBox="0 0 387 119" fill="currentColor" role="img" aria-label="TEDx" focusable="false"><path d="m32.678 30.831h-32.678l-1.4211e-14 -29.981h101.56v29.981h-32.685v87.469h-36.197v-87.469zm74.502-29.981h98.75v29.981h-62.55v14.462h62.55v28.212h-62.55v14.814h62.55v29.981h-98.75v-117.45zm104.72 0h59.39c39.01 0 52.71 28.923 52.71 58.551 0 35.975-18.98 58.899-59.74 58.899h-52.36v-117.45zm36.2 87.469h14.05c22.49 0 25.66-18.337 25.66-29.27 0-7.41-2.46-27.865-28.47-27.865h-11.6l0.36 57.135z"/><path d="M330.0,57.0 351.0,57.0 387.0,119.0 366.0,119.0ZM387.0,57.0 366.0,57.0 330.0,119.0 351.0,119.0Z"/></svg>
+    <svg class="press-logo press-logo--eluniversal" viewBox="0 0 610.1 59.2" fill="currentColor" role="img" aria-label="El Universal" focusable="false"><g> <g> <g> <g> <polygon points="45.9,57.7 0.7,57.7 0.7,53.3 7.2,53.3 7.2,5.9 0.7,5.9 0.7,1.5 45.1,1.5 45.1,16 39.6,16 39.6,7.6 22.4,7.6 22.4,26.4 29.7,26.4 29.7,20.5 34.8,20.5 34.8,36.8 29.7,36.8 29.7,30.9 22.4,30.9 22.4,51.8 40.4,51.8 40.4,42.1 45.9,42.1 "/> <polygon points="96,57.7 51.5,57.7 51.5,53.3 57.9,53.3 57.9,5.9 51.5,5.9 51.5,1.5 80.9,1.5 80.9,5.9 73.2,5.9 73.2,51.8 90.4,51.8 90.4,42.1 96,42.1 "/> <path d="M172.5,5.9h-4.6v32c0,15.5-9.5,20.9-24,20.9c-15.9,0-24-6.7-24-18.5V5.9h-5.2V1.5h26.9v4.4h-6.4v31.8 c0,12.3,4.9,15.2,13.8,15.2c9.4,0,12.8-5,12.8-15.2V6h-7.1V1.5h17.9L172.5,5.9z"/> <path d="M192.8,53.3h7.4v4.4h-20.1v-4.4h6.5V8.4c0-0.1-1.8-2.5-1.8-2.5h-6.5V1.5h21.5L227,38.9v-33h-8.4V1.5h20.8 v4.4h-6.1v52.8h-9.8l-30.6-41.8L192.8,53.3z"/> <polygon points="274.5,57.7 245.4,57.7 245.4,53.3 252.3,53.3 252.3,5.9 245.4,5.9 245.4,1.5 274.5,1.5 274.5,5.9 267.5,5.9 267.5,53.3 274.5,53.3 "/> <polygon points="314.7,59.2 305.9,59.2 285.1,5.9 280.4,5.9 280.4,1.5 309,1.5 309,5.9 300.7,5.9 314.9,43.2 329.3,5.9 323,5.9 323,1.5 340,1.5 340,5.9 335.5,5.9 "/> <polygon points="390.6,57.7 346.1,57.7 346.1,53.3 351,53.3 351,5.9 346.1,5.9 346.1,1.5 389.7,1.5 389.7,16 384.3,16 384.3,7.6 366.2,7.6 366.2,26.4 374.3,26.4 374.3,20.5 379.4,20.5 379.4,36.8 374.3,36.8 374.3,30.9 366.2,30.9 366.2,51.8 385,51.8 385,42.1 390.6,42.1 "/> <path d="M427.5,31.8c14.8-1.4,17.7-7.9,17.7-14.3c0-10.2-6.5-16-20.5-16h-28.4v4.4h7.2v47.4h-7.2v4.4h28.4v-4.4h-6 V35.7h2.2l13,22.1h18.5v-4.4h-4.1l-7.8-12.6c-3.9-6.3-5.5-7.9-13-8.5L427.5,31.8L427.5,31.8z M418.7,7.2h0.7 c8.4,0,10,3.4,10,10.6c0,7.3-1.1,12.3-10.3,12.3h-0.3L418.7,7.2z"/> <path d="M464.1,58.5h-5.9V42.1h5.9v9.1c4.1,1.2,7.6,1.5,12.6,1.5c7.1,0,9.7-2,9.7-6.9c0-3.9-3.4-5.7-11.3-9.5 c-12.4-6-16.5-10-16.5-20.2c0-10.6,7.9-15.6,18.5-15.6c3.3,0,10.8,1.2,13.5,3.1V0.2h5.5V16h-5.5V7.8c-3.2-0.9-6.7-1-9.9-1 c-5.8,0-8.6,1.8-8.6,6c0,5.1,3.4,6.6,10.6,10.1c9.7,4.7,17,8.4,17,19.8c0,10.8-8.3,16.1-19.6,16.1c-5,0-11.9-1-15.8-3.3 L464.1,58.5z"/> <path d="M517.5,42h20.4l4.3,11.3h-6.9v4.4h27v-4.4h-4.9L536.6,0h-8.9l-20.8,53.3h-5.3v4.4h17.3v-4.4h-5.8L517.5,42z M536.1,37.3h-16.8c0.1,0,8.4-21.7,8.4-21.7L536.1,37.3z"/> <polygon points="610.8,57.7 568.1,57.7 568.1,53.3 572.8,53.3 572.8,5.9 568.1,5.9 568.1,1.5 594.1,1.5 594.1,5.9 588.1,5.9 588.1,51.8 605.3,51.8 605.3,42.1 610.8,42.1 "/> </g> </g> </g> </g></svg>
   </div>
 </div>
 
 <!-- ═══════════ MANIFIESTO ═══════════ -->
 <section class="manifesto" aria-label="Manifiesto">
+  <!-- Capa decorativa: una fila de lápices gastados a distintas alturas,
+       la misma idea que dice el texto —el músculo se entrena con
+       constancia—. aria-hidden porque es atmósfera: el mensaje entero
+       está en el párrafo, que además se entinta palabra por palabra. -->
+  <div class="manifesto-media" aria-hidden="true">
+    <video data-bg-video
+      src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.mp4"
+      poster="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp"
+      muted loop playsinline preload="none"
+      disablepictureinpicture disableremoteplayback
+      width="1280" height="720"></video>
+  </div>
   <div class="wrap">
     <span class="mono klein">Nuestro punto de vista</span>
     <p id="creed" style="margin-top:1.6rem">La inteligencia no es un don que se hereda. Es un <em>músculo que se entrena</em> — con método, con constancia y con alguien que ya recorrió el camino doscientas mil veces.</p>
@@ -711,10 +950,10 @@ html.lite .letter{filter:none}
       <p style="color:var(--ink-60);margin-top:1rem;max-width:36rem">Antes de tocar un libro o un ábaco, dedicamos cinco minutos a preparar el cerebro: estimulamos ambos hemisferios para que el aprendizaje entre sin fricción. Es nuestro sello desde hace 30 años.</p>
     </div>
     <div class="rituals">
-      <div class="ritual rv"><span class="ic">🧠</span><h3>Integración de hemisferios</h3><p>Colaboración entre hemisferio izquierdo y derecho para mejorar cognición, creatividad y emociones.</p></div>
-      <div class="ritual rv"><span class="ic">🎵</span><h3>Musicoterapia</h3><p>El poder de la música para activar creatividad, positividad y fortaleza antes de aprender.</p></div>
-      <div class="ritual rv"><span class="ic">🌿</span><h3>Aromaterapia</h3><p>Aceites esenciales que equilibran cuerpo y mente, con beneficios educativos comprobados.</p></div>
-      <div class="ritual rv"><span class="ic">🎲</span><h3>Ludoterapia</h3><p>El juego como herramienta para superar bloqueos emocionales y fortalecer habilidades sociales.</p></div>
+      <div class="ritual rv"><img class="ritual-bg" src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Nuez abierta en sus dos mitades simétricas sobre pizarra oscura, imagen de la integración de hemisferios cerebrales con la que abre cada clase en WorldBrain México" title="Integración de hemisferios cerebrales · el ritual de los 5 minutos de WorldBrain México" loading="lazy" decoding="async" fetchpriority="low" width="820" height="820"><span class="ic">🧠</span><h3>Integración de hemisferios</h3><p>Colaboración entre hemisferio izquierdo y derecho para mejorar cognición, creatividad y emociones.</p></div>
+      <div class="ritual rv"><img class="ritual-bg" src="images/musicoterapia-para-ninos-aprendizaje-worldbrain.webp" alt="Diapasón de latón y afinador de metal sobre pizarra oscura, el material de musicoterapia que activa la creatividad antes de cada clase en WorldBrain México" title="Musicoterapia antes de aprender · el ritual de los 5 minutos de WorldBrain México" loading="lazy" decoding="async" fetchpriority="low" width="820" height="820"><span class="ic">🎵</span><h3>Musicoterapia</h3><p>El poder de la música para activar creatividad, positividad y fortaleza antes de aprender.</p></div>
+      <div class="ritual rv"><img class="ritual-bg" src="images/aromaterapia-para-estudiar-concentracion-worldbrain.webp" alt="Frasco de vidrio ámbar con aceite esencial y ramita de romero sobre pizarra oscura, la aromaterapia que equilibra cuerpo y mente antes de estudiar" title="Aromaterapia para la concentración · el ritual de los 5 minutos de WorldBrain México" loading="lazy" decoding="async" fetchpriority="low" width="820" height="820"><span class="ic">🌿</span><h3>Aromaterapia</h3><p>Aceites esenciales que equilibran cuerpo y mente, con beneficios educativos comprobados.</p></div>
+      <div class="ritual rv"><img class="ritual-bg" src="images/ludoterapia-infantil-juego-aprendizaje-worldbrain.webp" alt="Trompo de madera torneada, cubos y canica sobre pizarra oscura, el material de ludoterapia con el que se superan bloqueos emocionales al aprender" title="Ludoterapia y juego · el ritual de los 5 minutos de WorldBrain México" loading="lazy" decoding="async" fetchpriority="low" width="820" height="820"><span class="ic">🎲</span><h3>Ludoterapia</h3><p>El juego como herramienta para superar bloqueos emocionales y fortalecer habilidades sociales.</p></div>
     </div>
   </div>
 </section>
@@ -795,6 +1034,15 @@ html.lite .letter{filter:none}
 
 <!-- ═══════════ MÉTODO ═══════════ -->
 <section class="method" id="metodo">
+  <!-- Capa decorativa: vídeo de fondo. aria-hidden porque no aporta
+       información; el texto de la sección ya lo dice todo. -->
+  <div class="method-media" aria-hidden="true">
+    <video data-bg-video src="images/idx-method-books.mp4"
+      poster="images/idx-method-books.webp"
+      muted loop playsinline preload="none"
+      disablepictureinpicture disableremoteplayback
+      width="1280" height="720"></video>
+  </div>
   <div class="wrap">
     <span class="mono">El método · Tres actos</span>
     <h2 class="rv">No adivinamos cómo aprendes. <em>Lo medimos.</em></h2>
@@ -1079,6 +1327,33 @@ $$('#mmenu a').forEach(a=>a.addEventListener('click',()=>toggleMenu(false)));
   },{passive:true});
   new IntersectionObserver(([e])=>e.isIntersecting?play():stop()).observe(cv);
   document.addEventListener('visibilitychange',()=>document.hidden?stop():play());
+})();
+
+/* ── Vídeo de fondo del método (decorativo, coste opcional) ──── */
+(()=>{
+  /* Con movimiento reducido o en modo lite no se descarga: queda el
+     póster, que ya da la textura por 22 KB. */
+  if(REDUCED||LITE)return;
+  const vids=$$('video[data-bg-video]');
+  if(!vids.length)return;
+  const io=new IntersectionObserver(es=>es.forEach(e=>{
+    const v=e.target;
+    if(e.isIntersecting){
+      if(!v.dataset.loaded){v.dataset.loaded='1';v.load();}
+      v.play().catch(()=>{});          /* política de autoplay: da igual */
+    }else if(!v.paused){v.pause();}
+  }),{rootMargin:'200px 0px'});
+  /* Se empieza a observar después de 'load'. Importa por el vídeo del
+     hero, que está a la vista desde el primer instante: si se observara
+     de inmediato, sus 260 KB competirían con el LCP. Hasta entonces
+     manda el póster. Para los vídeos de más abajo no cambia nada. */
+  const observeAll=()=>vids.forEach(v=>io.observe(v));
+  if(document.readyState==='complete')observeAll();
+  else addEventListener('load',observeAll,{once:true});
+  document.addEventListener('visibilitychange',()=>vids.forEach(v=>{
+    if(document.hidden){if(!v.paused)v.pause();}
+    else if(v.dataset.loaded)v.play().catch(()=>{});
+  }));
 })();
 
 /* ── Manifiesto: se entinta palabra por palabra ──────────────── */

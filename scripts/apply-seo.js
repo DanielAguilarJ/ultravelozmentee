@@ -335,6 +335,100 @@ add(
    OPCIONES ADICIONALES POR PÁGINA (imagen, FAQs, modalidades)
 ───────────────────────────────────────────────────────────── */
 
+
+/* ─────────────────────────────────────────────────────────────
+   ARTÍCULOS RECUPERADOS (histórico de Search Console)
+   Slugs originales: restauran URLs que devolvían 404.
+───────────────────────────────────────────────────────────── */
+add(
+  'el-porfiriato-un-periodo-de-prosperidad-apar.html',
+  'article',
+  'Desigualdad social en el Porfiriato | WorldBrain',
+  'Grupos sociales del Porfiriato, quiénes vivían en la pobreza, causas del descontento y consecuencias sociales que llevaron a la Revolución Mexicana.',
+  'Desigualdad social en el Porfiriato',
+  '2026-08-04'
+);
+add(
+  'las-culturas-mesoamericanas-legado-sabiduria.html',
+  'article',
+  'Cuáles son las culturas mesoamericanas | WorldBrain',
+  'Las civilizaciones mesoamericanas una por una: olmeca, maya, zapoteca, teotihuacana, mixteca, tolteca y mexica, con sus aportaciones y su legado.',
+  'Las culturas mesoamericanas',
+  '2026-08-04'
+);
+add(
+  'los-olmecas-pioneros-de-la-agricultura-en-m.html',
+  'article',
+  'La agricultura de los olmecas | WorldBrain',
+  'Qué cultivaban los olmecas, cómo aprovecharon las vegas de los ríos, en qué consistía su economía y por qué el excedente agrícola sostuvo su civilización.',
+  'La agricultura de los olmecas',
+  '2026-08-04'
+);
+add(
+  'descubrimientos-matematicos-y-astronomicos-de.html',
+  'article',
+  'Descubrimientos matemáticos y astronómicos mayas | WorldBrain',
+  'Aportaciones de los mayas a las matemáticas y la astronomía: el cero, el sistema vigesimal, el año solar, los eclipses y los instrumentos que usaron.',
+  'Descubrimientos matemáticos y astronómicos de los mayas',
+  '2026-08-04'
+);
+add(
+  'la-cultura-mexica-y-sus-4-claves-alma-de-un-i.html',
+  'article',
+  'La cultura mexica: características y legado | WorldBrain',
+  'Qué fue la cultura mexica, sus características, la organización social, la religión, la educación y el legado que sigue vivo en el México actual.',
+  'La cultura mexica',
+  '2026-08-04'
+);
+add(
+  'la-cultura-chichimeca-guardianes-de-la-tradic.html',
+  'article',
+  'La cultura chichimeca: costumbres y tradiciones | WorldBrain',
+  'Quiénes fueron los chichimecas, sus costumbres y tradiciones, sus características, la Guerra Chichimeca y el legado que conservan los wixárikas.',
+  'La cultura chichimeca',
+  '2026-08-04'
+);
+add(
+  'las-dificultades-de-albert-einstein-en-la-educacion-convencional-y-el-valor-del-aprendizaje-alternativo.html',
+  'article',
+  'La educación de Albert Einstein | WorldBrain',
+  'La infancia y los estudios de Einstein, el mito de que reprobaba matemáticas y las dificultades reales que enfrentó en la educación convencional.',
+  'La educación de Albert Einstein',
+  '2026-08-04'
+);
+add(
+  'villa-y-zapata-los-caudillos-revolucionarios.html',
+  'article',
+  'Los caudillos revolucionarios de México | WorldBrain',
+  'Quiénes fueron los caudillos de la Revolución Mexicana, las diferencias entre Pancho Villa y Emiliano Zapata y por qué acabaron enfrentados entre sí.',
+  'Los caudillos revolucionarios',
+  '2026-08-04'
+);
+add(
+  'la-revolucion-mexicana-una-lucha-por-justicia.html',
+  'article',
+  'La Revolución Mexicana: en qué consistió | WorldBrain',
+  'En qué consistió la Revolución Mexicana, la crisis del Porfiriato, por qué fue una lucha por la justicia y qué quedó en la Constitución de 1917.',
+  'La Revolución Mexicana',
+  '2026-08-04'
+);
+add(
+  'las-dificultades-de-leer-a-arthur-schopenhauer-y-como-superarlas.html',
+  'article',
+  'Cómo leer a Schopenhauer: guía y libros | WorldBrain',
+  'Los libros de Schopenhauer, por qué cuesta leerlo, los conceptos que hay que entender antes y en qué orden abordar su obra para no abandonarla.',
+  'Cómo leer a Schopenhauer',
+  '2026-08-04'
+);
+add(
+  'las-dificultades-de-leer-asi-hablo-zaratustra-de-friedrich-nietzsche-y-como-facilitar-su-lectura.html',
+  'article',
+  'Así habló Zaratustra: cómo leerlo | WorldBrain',
+  'Por qué Así habló Zaratustra es difícil de leer, sus cuatro ideas centrales y estrategias concretas para facilitar su lectura sin abandonarlo.',
+  'Cómo leer Así habló Zaratustra',
+  '2026-08-04'
+);
+
 const WB_ADDRESS = {
   '@type': 'PostalAddress',
   streetAddress: 'Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano',

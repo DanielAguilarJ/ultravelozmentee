@@ -692,7 +692,19 @@ app.get('/sitemap.xml', (req, res) => {
       { f: 'blog-index.html', u: '/blog-index', p: '0.7', c: 'weekly' },
       { f: 'privacidad.html', u: '/privacidad', p: '0.3', c: 'yearly' },
       { f: 'terminos.html', u: '/terminos', p: '0.3', c: 'yearly' },
-      { f: 'reembolsos.html', u: '/reembolsos', p: '0.3', c: 'yearly' }
+      { f: 'reembolsos.html', u: '/reembolsos', p: '0.3', c: 'yearly' },
+      // Artículos recuperados (slugs originales)
+      { f: 'el-porfiriato-un-periodo-de-prosperidad-apar.html', u: '/el-porfiriato-un-periodo-de-prosperidad-apar', p: '0.7', c: 'monthly' },
+      { f: 'las-culturas-mesoamericanas-legado-sabiduria.html', u: '/las-culturas-mesoamericanas-legado-sabiduria', p: '0.7', c: 'monthly' },
+      { f: 'los-olmecas-pioneros-de-la-agricultura-en-m.html', u: '/los-olmecas-pioneros-de-la-agricultura-en-m', p: '0.7', c: 'monthly' },
+      { f: 'descubrimientos-matematicos-y-astronomicos-de.html', u: '/descubrimientos-matematicos-y-astronomicos-de', p: '0.7', c: 'monthly' },
+      { f: 'la-cultura-mexica-y-sus-4-claves-alma-de-un-i.html', u: '/la-cultura-mexica-y-sus-4-claves-alma-de-un-i', p: '0.7', c: 'monthly' },
+      { f: 'la-cultura-chichimeca-guardianes-de-la-tradic.html', u: '/la-cultura-chichimeca-guardianes-de-la-tradic', p: '0.7', c: 'monthly' },
+      { f: 'las-dificultades-de-albert-einstein-en-la-educacion-convencional-y-el-valor-del-aprendizaje-alternativo.html', u: '/las-dificultades-de-albert-einstein-en-la-educacion-convencional-y-el-valor-del-aprendizaje-alternativo', p: '0.7', c: 'monthly' },
+      { f: 'villa-y-zapata-los-caudillos-revolucionarios.html', u: '/villa-y-zapata-los-caudillos-revolucionarios', p: '0.7', c: 'monthly' },
+      { f: 'la-revolucion-mexicana-una-lucha-por-justicia.html', u: '/la-revolucion-mexicana-una-lucha-por-justicia', p: '0.7', c: 'monthly' },
+      { f: 'las-dificultades-de-leer-a-arthur-schopenhauer-y-como-superarlas.html', u: '/las-dificultades-de-leer-a-arthur-schopenhauer-y-como-superarlas', p: '0.7', c: 'monthly' },
+      { f: 'las-dificultades-de-leer-asi-hablo-zaratustra-de-friedrich-nietzsche-y-como-facilitar-su-lectura.html', u: '/las-dificultades-de-leer-asi-hablo-zaratustra-de-friedrich-nietzsche-y-como-facilitar-su-lectura', p: '0.7', c: 'monthly' }
     ];
     // Blogs: estáticos + generados por Make.com — auto-descubiertos.
     // AUDITADO: excluye backups y archivos "-old" (no deben indexarse)

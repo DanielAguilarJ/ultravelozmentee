@@ -24,7 +24,7 @@ nada si la verificación no cuadra.
          Antes comprueba que ningún /* o // viva dentro de una cadena o
          de una expresión regular; si lo encuentra, copia sin minificar.
 
-Uso:   python3 scripts/minify-navbar.py
+Uso:   python3 scripts/minify-assets.py
 """
 
 import os
@@ -34,8 +34,13 @@ import sys
 
 RAIZ = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-CSS_SRC = os.path.join(RAIZ, 'css', 'navbar-unified.css')
-CSS_OUT = os.path.join(RAIZ, 'css', 'navbar-unified.min.css')
+# Hojas que las páginas cargan en su variante .min y que por tanto hay que
+# regenerar cada vez que se edita la fuente.
+CSS = [
+    ('css/navbar-unified.css', 'css/navbar-unified.min.css'),
+    ('css/redaccion-ejecutiva.css', 'css/redaccion-ejecutiva.min.css'),
+]
+
 JS_SRC = os.path.join(RAIZ, 'js', 'navbar.js')
 JS_OUT = os.path.join(RAIZ, 'js', 'navbar.min.js')
 
@@ -86,33 +91,36 @@ def minificar_css(css):
     return css.replace(';}', '}').strip()
 
 
-def haz_css():
-    src = open(CSS_SRC, encoding='utf-8').read()
+def haz_css(rel_src, rel_out):
+    src_path = os.path.join(RAIZ, rel_src)
+    out_path = os.path.join(RAIZ, rel_out)
+    src = open(src_path, encoding='utf-8').read()
 
     for m in re.finditer(r'''(["'])(?:\\.|(?!\1).)*\1|url\([^)]*\)''', src):
         if '/*' in m.group(0):
-            sys.exit('CSS: hay un /* dentro de una cadena o url(), aborta')
+            sys.exit(f'{rel_src}: hay un /* dentro de una cadena o url(), aborta')
 
     mini = minificar_css(src)
 
     a, b = bloques(src), bloques(mini)
     if len(a) != len(b):
-        sys.exit(f'CSS: número de bloques distinto ({len(a)} vs {len(b)}), aborta')
+        sys.exit(f'{rel_src}: número de bloques distinto ({len(a)} vs {len(b)}), aborta')
     for (s1, d1), (s2, d2) in zip(a, b):
         if s1 != s2:
-            sys.exit(f'CSS: selector cambiado: «{s1}» vs «{s2}», aborta')
+            sys.exit(f'{rel_src}: selector cambiado: «{s1}» vs «{s2}», aborta')
         if d1 != d2:
             dif = {k: (d1.get(k), d2.get(k)) for k in set(d1) | set(d2) if d1.get(k) != d2.get(k)}
-            sys.exit(f'CSS: declaraciones cambiadas en «{s1}»: {dif}, aborta')
+            sys.exit(f'{rel_src}: declaraciones cambiadas en «{s1}»: {dif}, aborta')
 
     ca, cb = expresiones_calc(src), expresiones_calc(mini)
     if ca != cb:
-        sys.exit('CSS: alguna expresión calc/min/max/clamp cambió, aborta')
+        sys.exit(f'{rel_src}: alguna expresión calc/min/max/clamp cambió, aborta')
 
-    open(CSS_OUT, 'w', encoding='utf-8').write(
-        '/*! navbar-unified.min.css · generado por scripts/minify-navbar.py */\n' + mini + '\n')
+    nombre = os.path.basename(rel_out)
+    open(out_path, 'w', encoding='utf-8').write(
+        f'/*! {nombre} · generado por scripts/minify-assets.py */\n' + mini + '\n')
 
-    print(f'  CSS  {len(src)/1024:6.1f} KB → {len(mini)/1024:5.1f} KB  '
+    print(f'  CSS  {nombre:32} {len(src)/1024:6.1f} KB → {len(mini)/1024:5.1f} KB  '
           f'(-{100 - 100 * len(mini) / len(src):.0f}%)  '
           f'{len(a)} bloques y {len(ca)} calc() verificados')
 
@@ -147,7 +155,7 @@ def haz_js():
         r'''(["'])(?:\\.|(?!\1).)*\1''', sin_comentarios))
 
     open(JS_OUT, 'w', encoding='utf-8').write(
-        '/*! navbar.min.js · generado por scripts/minify-navbar.py */\n' + mini + '\n')
+        '/*! navbar.min.js · generado por scripts/minify-assets.py */\n' + mini + '\n')
 
     r = subprocess.run(['node', '--check', JS_OUT], capture_output=True, text=True)
     if r.returncode != 0:
@@ -169,6 +177,7 @@ def haz_js():
 
 
 if __name__ == '__main__':
-    haz_css()
+    for rel_src, rel_out in CSS:
+        haz_css(rel_src, rel_out)
     haz_js()
     print('  ✓ listo')

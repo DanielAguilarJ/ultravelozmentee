@@ -20,7 +20,7 @@
     /* Text Colors */
     --re-text-primary: #f5f5f7;
     --re-text-secondary: #a1a1aa;
-    --re-text-muted: #71717a;
+    --re-text-muted: #8a8a94;
     
     /* Effects */
     --re-border: rgba(255, 255, 255, 0.08);
@@ -41,6 +41,62 @@
     --re-radius-md: 16px;
     --re-radius-lg: 24px;
     --re-radius-xl: 32px;
+}
+
+/* ══════════════════════════════════════════════════════════════════
+   TEMA CLARO
+   La página traía el botón de tema en la píldora pero ni un token para
+   .light-mode: al pulsarlo el fondo seguía oscuro mientras el texto de
+   styles.css se volvía tinta. Aquí se cierra.
+
+   El dorado se PROFUNDIZA en lugar de aclararse. Es lo que pide la
+   doble función del token: --re-accent es texto 7 veces y fondo 15, y
+   en esos fondos el texto es var(--re-bg-primary). En oscuro eso
+   significa «tinta sobre oro claro»; en claro, «papel sobre oro
+   profundo». La semántica se invierte sola y las dos caras funcionan.
+
+   #c9a962 no serviría en claro: como texto sobre papel da 2,25:1. El
+   #7d6029 elegido da 5,58:1 sobre el fondo, 5,11:1 sobre el fondo
+   secundario y 5,58:1 llevando papel encima. Peor caso 5,11:1.
+   ══════════════════════════════════════════════════════════════════ */
+html.light-mode {
+    /* Papel cálido, para no perder el carácter dorado de la página. */
+    --re-bg-primary: #faf9f6;
+    --re-bg-secondary: #f5f2ea;
+    --re-bg-card: rgba(255, 255, 255, 0.85);
+    --re-bg-glass: rgba(10, 10, 15, 0.04);
+
+    --re-accent: #7d6029;
+    --re-accent-light: #6f5525;
+    --re-accent-glow: rgba(125, 96, 41, 0.22);
+    --re-accent-gradient: linear-gradient(135deg, #7d6029 0%, #6f5525 100%);
+
+    --re-text-primary: #16151a;
+    --re-text-secondary: #4a4750;
+    --re-text-muted: #66636e;
+
+    --re-border: rgba(0, 0, 0, 0.09);
+    --re-border-accent: rgba(125, 96, 41, 0.35);
+    --re-shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.12);
+    --re-shadow-glow: 0 0 60px rgba(125, 96, 41, 0.12);
+}
+
+/* Los velos radiales del fondo se pintaron para brillar sobre negro;
+   sobre papel se ven como manchas sucias. Se bajan. */
+html.light-mode .re-page::before {
+    opacity: 0.5;
+}
+
+/* La rejilla del hero y las líneas neuronales son casi blancas por
+   diseño: sobre papel desaparecen, así que se refuerzan. */
+html.light-mode .re-hero-grid {
+    background-image:
+        linear-gradient(rgba(125, 96, 41, .07) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(125, 96, 41, .07) 1px, transparent 1px);
+}
+
+html.light-mode .re-hero-neural {
+    opacity: 0.25;
 }
 
 /* === Base Reset === */
@@ -152,7 +208,12 @@ body.re-page {
 
 .re-btn-primary {
     background: var(--re-accent-gradient);
-    color: #0a0a0f;
+    /* Antes era #0a0a0f fijo. Todos los demás textos sobre el acento
+       usan var(--re-bg-primary), y este era la excepción: en tema claro
+       habría quedado tinta oscura sobre oro profundo. Con el token es
+       tinta sobre oro claro en oscuro y papel sobre oro profundo en
+       claro, 5,58:1 en los dos casos. */
+    color: var(--re-bg-primary);
     box-shadow: 
         0 4px 20px rgba(201, 169, 98, 0.3),
         0 0 0 1px rgba(201, 169, 98, 0.2);

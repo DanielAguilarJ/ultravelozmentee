@@ -87,6 +87,70 @@
             --legal-heading: #ffffff;
             --legal-accent: #3b82f6;
             --legal-gradient: linear-gradient(135deg, #3b82f6, #8b5cf6);
+
+            /* Estos seis estaban escritos con valor fijo dentro de las
+               reglas, así que en tema claro habrían quedado texto casi
+               blanco sobre papel. Los valores oscuros son exactamente
+               los que había: el tema actual no cambia. */
+            --legal-badge-fg: #60a5fa;
+            --legal-subtle: #94a3b8;
+            --legal-faint: #8592a8;
+            --legal-heading-2: #f1f5f9;
+            --legal-strong: #ffffff;
+            --legal-line: rgba(255, 255, 255, 0.05);
+            --legal-line-hi: rgba(255, 255, 255, 0.12);
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           TEMA CLARO
+           Estas páginas traían el botón de tema en la píldora pero ni
+           un token para .light-mode: al pulsarlo el fondo seguía
+           oscuro mientras el texto de styles.css se volvía tinta, y
+           quedaba a 1,22:1.
+
+           El azul se profundiza de #3b82f6 a #1d4ed8 porque aquí es
+           siempre texto o viñeta: el claro da 3,68:1 sobre papel y el
+           profundo 6,30:1. Se alinea con la paleta clara que
+           styles.css ya define para el sitio.
+           ══════════════════════════════════════════════════════════ */
+        html.light-mode {
+            --legal-bg: #f8f7ff;
+            --legal-card-bg: rgba(255, 255, 255, 0.85);
+            --legal-card-border: rgba(0, 0, 0, 0.08);
+            --legal-text: #4a4562;
+            --legal-heading: #1a1635;
+            --legal-accent: #1d4ed8;
+            --legal-gradient: linear-gradient(135deg, #1d4ed8, #6d28d9);
+
+            --legal-badge-fg: #1d4ed8;
+            --legal-subtle: #6b6588;
+            --legal-faint: #6b6588;
+            --legal-heading-2: #1a1635;
+            --legal-strong: #1a1635;
+            --legal-line: rgba(0, 0, 0, 0.07);
+            --legal-line-hi: rgba(0, 0, 0, 0.14);
+        }
+
+        /* Los velos radiales del fondo y del hero están al 5 y al 15 %
+           de azul y violeta: pensados para brillar sobre negro, sobre
+           papel ensucian. Se apagan. */
+        html.light-mode body {
+            background-image:
+                radial-gradient(circle at 15% 50%, rgba(29, 78, 216, .04) 0%, transparent 50%),
+                radial-gradient(circle at 85% 30%, rgba(109, 40, 217, .04) 0%, transparent 50%);
+        }
+
+        html.light-mode .legal-hero::before {
+            background: radial-gradient(ellipse at center, rgba(29, 78, 216, .07) 0%, transparent 70%);
+        }
+
+        html.light-mode .legal-card:hover {
+            box-shadow: 0 20px 40px rgba(26, 22, 53, .08);
+        }
+
+        html.light-mode .legal-contact-box {
+            background: linear-gradient(145deg, rgba(29, 78, 216, .06), rgba(109, 40, 217, .06));
+            border-color: rgba(109, 40, 217, .18);
         }
 
         body {
@@ -105,7 +169,7 @@
             text-align: center;
             position: relative;
             overflow: hidden;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid var(--legal-line);
         }
 
         .legal-hero::before {
@@ -157,14 +221,14 @@
             font-size: 1.1rem;
             max-width: 600px;
             margin: 0 auto;
-            color: #94a3b8;
+            color: var(--legal-subtle);
             line-height: 1.6;
         }
 
         .legal-updated {
             margin-top: 2rem;
             font-size: 0.9rem;
-            color: #64748b;
+            color: var(--legal-faint);
             font-family: 'JetBrains Mono', monospace;
         }
 
@@ -191,7 +255,7 @@
         .legal-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            border-color: rgba(255, 255, 255, 0.12);
+            border-color: var(--legal-line-hi);
         }
 
         .legal-card h2 {
@@ -212,7 +276,7 @@
         .legal-card h3 {
             font-family: 'Outfit', sans-serif;
             font-size: 1.2rem;
-            color: #f1f5f9;
+            color: var(--legal-heading-2);
             margin: 1.5rem 0 1rem 0;
             font-weight: 600;
         }
@@ -260,7 +324,7 @@
         }
 
         .legal-contact-box strong {
-            color: #fff;
+            color: var(--legal-strong);
         }
 
         .legal-link {

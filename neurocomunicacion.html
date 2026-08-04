@@ -97,6 +97,105 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             --nc-glass: rgba(255, 255, 255, 0.03);
             --nc-border: rgba(255, 255, 255, 0.08);
             --nc-glow: 0 0 20px rgba(139, 92, 246, 0.5);
+
+            /* Velos y filetes.
+               Estaban escritos como rgba(255,255,255,α) en nueve sitios,
+               así que en tema claro habrían sido blanco sobre blanco. Los
+               valores oscuros son exactamente los que había, para que el
+               tema actual no cambie ni un pixel. */
+            --nc-veil: rgba(255, 255, 255, 0.02);
+            --nc-veil-hi: rgba(255, 255, 255, 0.04);
+            --nc-veil-mid: rgba(255, 255, 255, 0.05);
+            --nc-line: rgba(255, 255, 255, 0.05);
+            --nc-line-hi: rgba(255, 255, 255, 0.1);
+
+            /* Segundo extremo del degradado ámbar, la marca de agua de
+               los números grandes, y las dos tintas que van ENCIMA de un
+               color de marca. Igual que arriba: los valores oscuros son
+               los que ya había. */
+            --nc-accent-2: #fcd34d;
+            --nc-watermark: rgba(255, 255, 255, 0.05);
+            --nc-on-accent: #0b0b12;
+            --nc-on-primary: #ffffff;
+            /* Violeta profundo solo para superficies que llevan texto
+               blanco encima. --nc-primary (#8b5cf6) no sirve ahí: da
+               4,23:1 con blanco. Y no se puede profundizar --nc-primary
+               sin más, porque también es texto sobre fondo oscuro, donde
+               aclararlo es justo lo que hace falta. */
+            --nc-primary-deep: #6d28d9;
+        }
+
+        /* ══════════════════════════════════════════════════════════
+           TEMA CLARO
+           La página traía el botón de tema pero ni un token para
+           .light-mode: al pulsarlo el fondo seguía oscuro mientras el
+           texto de styles.css se volvía tinta, y quedaba a 1,24:1.
+
+           Los tres colores de marca se profundizan porque en esta
+           página son sobre todo TEXTO (el ámbar 7 veces, el turquesa
+           7): #f59e0b sobre papel da 2,0:1 y #a84c07 da 5,33:1. Como
+           fondo de botón siguen funcionando, ahora con texto blanco.
+
+           Se alinea con la paleta clara que styles.css ya define para
+           el sitio (#f8f7ff de fondo, #1a1635 de tinta, #4a4562 de
+           cuerpo) para que la página no desafine con el resto.
+           ══════════════════════════════════════════════════════════ */
+        html.light-mode {
+            --nc-bg: #f8f7ff;
+            --nc-surface: #ffffff;
+            --nc-primary: #6d28d9;
+            --nc-accent: #a84c07;
+            --nc-secondary: #0f766e;
+            --nc-text: #1a1635;
+            --nc-text-muted: #4a4562;
+            --nc-gradient: linear-gradient(135deg, #6d28d9 0%, #a84c07 100%);
+            --nc-gradient-text: linear-gradient(to right, #6d28d9, #a84c07);
+            --nc-glass: rgba(255, 255, 255, 0.85);
+            --nc-border: rgba(0, 0, 0, 0.08);
+            --nc-glow: 0 0 20px rgba(109, 40, 217, 0.22);
+
+            --nc-veil: rgba(255, 255, 255, 0.85);
+            --nc-veil-hi: rgba(255, 255, 255, 0.95);
+            --nc-veil-mid: rgba(0, 0, 0, 0.04);
+            --nc-line: rgba(0, 0, 0, 0.08);
+            --nc-line-hi: rgba(0, 0, 0, 0.14);
+
+            /* El ámbar del degradado también se profundiza: si el
+               extremo se quedara en #fcd34d, el icono blanco de encima
+               daría 1,6:1 en ese lado. Y --nc-on-accent se invierte,
+               porque el ámbar profundo pide texto claro, no negro. */
+            --nc-accent-2: #b55a09;
+            --nc-watermark: rgba(26, 22, 53, 0.07);
+            --nc-on-accent: #ffffff;
+        }
+
+        /* Capas decorativas: están pintadas para brillar sobre negro y
+           sobre papel se ven como manchas o desaparecen. */
+
+        /* Los velos del hero se apagan: al 15 % sobre papel ensucian. */
+        html.light-mode .nc-hero {
+            background:
+                radial-gradient(circle at 20% 30%, rgba(109, 40, 217, .07), transparent 60%),
+                radial-gradient(circle at 80% 70%, rgba(168, 76, 7, .05), transparent 60%);
+        }
+
+        /* Borde con degradado de las tarjetas: en blanco sobre tarjeta
+           blanca no se ve nada. */
+        html.light-mode .nc-card::before {
+            background: linear-gradient(45deg, transparent, rgba(0, 0, 0, .1), transparent);
+        }
+
+        /* La tarjeta al pasar el puntero: la sombra negra al 50 % era
+           para fondo oscuro. */
+        html.light-mode .nc-card:hover {
+            box-shadow: 0 20px 60px rgba(26, 22, 53, .1), 0 0 20px rgba(109, 40, 217, .08);
+            border-color: rgba(109, 40, 217, .28);
+        }
+
+        /* El halo del titular: sobre papel, un resplandor violeta al
+           30 % deja el texto sucio en lugar de destacarlo. */
+        html.light-mode .nc-title-display {
+            text-shadow: none;
         }
 
         body.nc-page {
@@ -154,10 +253,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         /* Glass Cards 2.0 */
         .nc-card {
-            background: rgba(255, 255, 255, 0.02);
+            background: var(--nc-veil);
             backdrop-filter: blur(20px);
             -webkit-backdrop-filter: blur(20px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--nc-line);
             border-radius: 24px;
             padding: 40px;
             transition: all 0.5s cubic-bezier(0.23, 1, 0.32, 1);
@@ -182,7 +281,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 
         .nc-card:hover {
             transform: translateY(-10px) scale(1.02);
-            background: rgba(255, 255, 255, 0.04);
+            background: var(--nc-veil-hi);
             box-shadow: 0 20px 80px rgba(0, 0, 0, 0.5), 0 0 20px rgba(139, 92, 246, 0.1);
             border-color: rgba(139, 92, 246, 0.3);
         }
@@ -280,13 +379,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             margin-bottom: 30px;
             padding: 20px;
             border-radius: 16px;
-            background: rgba(255, 255, 255, 0.02);
-            border-left: 3px solid rgba(255, 255, 255, 0.1);
+            background: var(--nc-veil);
+            border-left: 3px solid var(--nc-line-hi);
             transition: 0.3s;
         }
 
         .pain-point-item:hover {
-            background: rgba(255, 255, 255, 0.04);
+            background: var(--nc-veil-hi);
             border-left-color: #ef4444;
         }
 
@@ -648,7 +747,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <i class="fab fa-whatsapp"></i> Aplicar al Programa
                         </a>
                         <a href="#temario" class="nc-btn"
-                            style="background: transparent; border-color: rgba(255,255,255,0.2);">
+                            style="background: transparent; border-color: var(--nc-line-hi);">
                             Ver Temario
                         </a>
                     </div>
@@ -681,7 +780,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <div class="nc-card"
                             style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 340px; z-index: 2; text-align: center; border-color: var(--nc-accent); background: rgba(15, 5, 24, 0.6);">
                             <div
-                                style="width: 90px; height: 90px; background: linear-gradient(135deg, var(--nc-accent), #fcd34d); border-radius: 50%; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 40px rgba(245, 158, 11, 0.5); position: relative;">
+                                style="width: 90px; height: 90px; background: linear-gradient(135deg, var(--nc-accent), var(--nc-accent-2)); border-radius: 50%; margin: 0 auto 25px; display: flex; align-items: center; justify-content: center; box-shadow: 0 0 40px rgba(245, 158, 11, 0.5); position: relative;">
                                 <i class="fas fa-brain" style="font-size: 3rem; color: #fff;"></i>
                                 <div
                                     style="position: absolute; width: 100%; height: 100%; border-radius: 50%; border: 2px solid rgba(255,255,255,0.5); animation: pulse 2s infinite;">
@@ -691,7 +790,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             <p style="color: var(--nc-text-muted); font-size: 1rem;">El sistema operativo del éxito.</p>
 
                             <div
-                                style="margin-top: 20px; padding-top: 20px; border-top: 1px solid rgba(255,255,255,0.1); display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--nc-text-muted);">
+                                style="margin-top: 20px; padding-top: 20px; border-top: 1px solid var(--nc-line-hi); display: flex; justify-content: space-between; font-size: 0.8rem; color: var(--nc-text-muted);">
                                 <span><i class="fas fa-check" style="color: var(--nc-secondary);"></i> Liderazgo</span>
                                 <span><i class="fas fa-check" style="color: var(--nc-secondary);"></i> Influencia</span>
                             </div>
@@ -725,7 +824,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div style="flex: 1; min-width: 250px;">
                         <span
                             style="display: block; font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; color: var(--nc-primary); margin-bottom: 10px;">CAUSA</span>
-                        <p style="font-size: 1.2rem; color: white;">Al dominar la <strong>NEUROCOMUNICACIÓN</strong>...
+                        <p style="font-size: 1.2rem; color: var(--nc-text);">Al dominar la <strong>NEUROCOMUNICACIÓN</strong>...
                         </p>
                     </div>
                     <div style="color: var(--nc-accent); font-size: 1.5rem;">
@@ -734,7 +833,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                     <div style="flex: 1; min-width: 250px;">
                         <span
                             style="display: block; font-size: 0.9rem; font-weight: 700; letter-spacing: 2px; color: var(--nc-accent); margin-bottom: 10px;">EFECTO</span>
-                        <p style="font-size: 1.2rem; color: white;">...reprogramas tu miedo escénico, proyectas
+                        <p style="font-size: 1.2rem; color: var(--nc-text);">...reprogramas tu miedo escénico, proyectas
                             <strong>autoridad natural</strong> y logras que cualquier audiencia diga <strong>SÍ a tus
                                 ideas</strong>.
                         </p>
@@ -824,7 +923,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <i class="fas fa-network-wired card-icon-glow"
                             style="font-size: 2.5rem; color: var(--nc-primary); transition: 0.3s;"></i>
                         <span
-                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: rgba(255,255,255,0.05);">01</span>
+                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: var(--nc-watermark);">01</span>
                     </div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Neurocomunicación</h3>
                     <p style="color: var(--nc-text-muted); line-height: 1.6;">Deja de hablar y empieza a conectar.
@@ -839,7 +938,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <i class="fas fa-chess-king card-icon-glow"
                             style="font-size: 2.5rem; color: var(--nc-accent); transition: 0.3s;"></i>
                         <span
-                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: rgba(255,255,255,0.05);">02</span>
+                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: var(--nc-watermark);">02</span>
                     </div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Liderazgo Exponencial</h3>
                     <p style="color: var(--nc-text-muted); line-height: 1.6;">Pasa de ser jefe a ser líder. Desarrolla
@@ -854,7 +953,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <i class="fas fa-shapes card-icon-glow"
                             style="font-size: 2.5rem; color: var(--nc-secondary); transition: 0.3s;"></i>
                         <span
-                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: rgba(255,255,255,0.05);">03</span>
+                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: var(--nc-watermark);">03</span>
                     </div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Multiinteligencias</h3>
                     <p style="color: var(--nc-text-muted); line-height: 1.6;">No eres "malo" en nada, solo usas la
@@ -869,7 +968,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <i class="fas fa-coins card-icon-glow"
                             style="font-size: 2.5rem; color: #fbbf24; transition: 0.3s;"></i>
                         <span
-                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: rgba(255,255,255,0.05);">04</span>
+                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: var(--nc-watermark);">04</span>
                     </div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px;">IQ Financiero</h3>
                     <p style="color: var(--nc-text-muted); line-height: 1.6;">La riqueza es una mentalidad. Aprende a
@@ -883,7 +982,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <i class="fas fa-heart-pulse card-icon-glow"
                             style="font-size: 2.5rem; color: #f43f5e; transition: 0.3s;"></i>
                         <span
-                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: rgba(255,255,255,0.05);">05</span>
+                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: var(--nc-watermark);">05</span>
                     </div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Maestría Emocional</h3>
                     <p style="color: var(--nc-text-muted); line-height: 1.6;">Tus emociones dictan tus resultados.
@@ -898,7 +997,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                         <i class="fas fa-lightbulb card-icon-glow"
                             style="font-size: 2.5rem; color: #38bdf8; transition: 0.3s;"></i>
                         <span
-                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: rgba(255,255,255,0.05);">06</span>
+                            style="font-family: 'Outfit'; font-weight: 800; font-size: 3rem; color: var(--nc-watermark);">06</span>
                     </div>
                     <h3 style="font-size: 1.5rem; margin-bottom: 15px;">Innovación Disruptiva</h3>
                     <p style="color: var(--nc-text-muted); line-height: 1.6;">En un mundo cambiante, el que no innova
@@ -992,7 +1091,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                             </ul>
                         </div>
                         <div style="margin-top: 40px;">
-                            <p style="font-size: 0.9rem; color: rgba(255,255,255,0.5);">* Las citas son limitadas y se
+                            <p style="font-size: 0.9rem; color: var(--nc-text-muted);">* Las citas son limitadas y se
                                 asignan por orden de llegada.</p>
                         </div>
                     </div>
@@ -1010,20 +1109,20 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                             style="display: block; margin-bottom: 8px; color: var(--nc-text-muted);">Nombre
                                             Completo</label>
                                         <input type="text" id="client-name" required
-                                            style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none;">
+                                            style="width: 100%; padding: 12px; background: var(--nc-veil-mid); border: 1px solid var(--nc-line-hi); border-radius: 8px; color: var(--nc-text); outline: none;">
                                     </div>
                                     <div class="form-group">
                                         <label
                                             style="display: block; margin-bottom: 8px; color: var(--nc-text-muted);" for="client-phone">WhatsApp</label>
                                         <input type="tel" id="client-phone" required
-                                            style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none;">
+                                            style="width: 100%; padding: 12px; background: var(--nc-veil-mid); border: 1px solid var(--nc-line-hi); border-radius: 8px; color: var(--nc-text); outline: none;">
                                     </div>
                                     <div class="form-group">
                                         <label
                                             style="display: block; margin-bottom: 8px; color: var(--nc-text-muted);">Curso
                                             de Interés</label>
                                         <select id="course-select"
-                                            style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; outline: none;">
+                                            style="width: 100%; padding: 12px; background: var(--nc-veil-mid); border: 1px solid var(--nc-line-hi); border-radius: 8px; color: var(--nc-text); outline: none;">
                                             <option value="Neurocomunicación" style="color: black;">Neurocomunicación
                                             </option>
                                             <option value="Liderazgo" style="color: black;">Liderazgo Exponencial
@@ -1056,7 +1155,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                 <label
                                     style="display: block; margin-bottom: 8px; color: var(--nc-text-muted);">Fecha</label>
                                 <input type="date" id="date-picker" onchange="loadTimeSlots()"
-                                    style="width: 100%; padding: 12px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; color: white; color-scheme: dark;">
+                                    style="width: 100%; padding: 12px; background: var(--nc-veil-mid); border: 1px solid var(--nc-line-hi); border-radius: 8px; color: var(--nc-text); color-scheme: dark;">
                             </div>
 
                             <div id="slots-container"
@@ -1084,7 +1183,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
                                     <i class="fab fa-google"></i> Guardar en Google Calendar
                                 </a>
                                 <a href="tel:+525578107837" class="nc-btn"
-                                    style="justify-content: center; background: transparent; border: 1px solid rgba(255,255,255,0.2);">
+                                    style="justify-content: center; background: transparent; border: 1px solid var(--nc-line-hi);">
                                     <i class="fas fa-phone"></i> Llamar Ahora
                                 </a>
                             </div>
@@ -1104,24 +1203,28 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
 
             .time-slot {
                 padding: 12px;
-                background: rgba(255, 255, 255, 0.05);
-                border: 1px solid rgba(255, 255, 255, 0.1);
+                background: var(--nc-veil-mid);
+                border: 1px solid var(--nc-line-hi);
                 border-radius: 8px;
-                color: white;
+                color: var(--nc-text);
                 cursor: pointer;
                 transition: 0.3s;
                 font-family: 'Plus Jakarta Sans', sans-serif;
             }
 
             .time-slot:hover:not(:disabled) {
-                background: var(--nc-primary);
-                border-color: var(--nc-primary);
+                background: var(--nc-primary-deep);
+                border-color: var(--nc-primary-deep);
+                /* Sin esto el texto heredaba --nc-text, que en tema
+                   claro es tinta: tinta sobre violeta da 2,4:1. Blanco
+                   sobre el violeta funciona en los dos temas. */
+                color: var(--nc-on-primary);
             }
 
             .time-slot.selected {
                 background: var(--nc-accent);
                 border-color: var(--nc-accent);
-                color: black;
+                color: var(--nc-on-accent);
                 font-weight: bold;
                 box-shadow: 0 0 15px rgba(245, 158, 11, 0.4);
             }
@@ -1129,7 +1232,7 @@ height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
             .time-slot:disabled {
                 opacity: 0.4;
                 cursor: not-allowed;
-                background: rgba(255, 255, 255, 0.02);
+                background: var(--nc-veil);
                 text-decoration: line-through;
                 color: #ef4444;
                 border-color: rgba(239, 68, 68, 0.2);

@@ -1,187 +1,402 @@
-/* =============================================
-   UNIFIED PILL NAVBAR - WorldBrain Mexico
-   Glassmorphism + Dynamic Contrast + Responsive
-   ============================================= */
+/* ══════════════════════════════════════════════════════════════════
+   NAVBAR PILL UNIFICADO · WorldBrain México
+   ══════════════════════════════════════════════════════════════════
 
-/* =============================================
-   BASE - Pill Container
-   ============================================= */
+   Una sola píldora flotante para las 26 páginas que la usan. El
+   marcado es idéntico en todas; lo que cambia es la PALETA, y eso se
+   resuelve aquí sin tocar ni una línea de HTML.
+
+   ── Cómo se adapta a cada página ──
+   Todo el aspecto se expresa con tokens --nav-*. La sección 2 los
+   reasigna por página leyendo los tokens que esa página ya define
+   (--as-red, --gl-gold, --rg-acid…). Como esos tokens ya son
+   conscientes del tema (en claro, --as-night pasa de #070A14 a
+   #F1EDE2), un solo bloque por página cubre los dos temas.
+
+   Una página sin bloque propio se queda con el índigo de marca, así
+   que añadir la píldora a una página nueva no exige tocar esta hoja.
+
+   ── Sobre el orden de las secciones ──
+   El bloque de modo claro (1b) va ANTES de los mapeos (2) a
+   propósito: ambos tienen especificidad (0,2,0), así que el que va
+   después gana. De ese modo el mapeo impone la superficie de la
+   página, y los colores de texto los sigue poniendo el bloque de
+   modo claro, que es lo que se quiere.
+   ══════════════════════════════════════════════════════════════════ */
+
+
+/* ══════════════════════════════════════════════════════════════════
+   1 · TOKENS
+
+   Van en :root y en body, NO en .nav-pill. Es importante: el panel
+   móvil es hermano de la píldora en el DOM, no descendiente, así que
+   si los tokens vivieran en .nav-pill el panel no heredaría ninguno.
+   El CTA del panel se quedaría con var(--nav-cta-bg) sin resolver y,
+   por la regla de «inválido en tiempo de valor computado», el fondo
+   no caería al valor anterior sino a transparente: un botón invisible.
+   ══════════════════════════════════════════════════════════════════ */
+
+:root {
+    /* ── Superficie y texto ── */
+    --nav-surface: #0a0a1e;
+    --nav-fg: #f8fafc;
+    --nav-fg-soft: #cbd5e1;
+    --nav-fg-dim: #94a3b8;
+
+    /* ── Acento ── */
+    --nav-accent: #6366f1;
+    --nav-accent-2: #8b5cf6;
+
+    /* El CTA se separa del acento porque no todo acento admite texto
+       blanco. El oro (#C9A84C) da 2,29:1 con blanco y 8,28:1 con
+       tinta; el verde ácido (#C9F24E), 1,29:1 contra 14,69:1. Cada
+       página elige, y de paso el índigo por defecto sube de #6366f1
+       (4,47:1, por debajo de AA) a #4f46e5 (6,29:1). */
+    --nav-cta-bg: #4f46e5;
+    --nav-cta-bg-2: #7c3aed;
+    --nav-cta-fg: #ffffff;
+
+    /* Tinta de referencia para los acentos claros. */
+    --nav-ink: #0B1020;
+
+    /* ── Opacidades del cristal ── */
+    --nav-glass: 74%;
+    --nav-glass-scrolled: 90%;
+    --nav-hairline: 14%;
+
+    /* ── Geometría ──
+       --nav-gap-top es la distancia al borde, ya con el área segura
+       del dispositivo sumada: en un iPhone con muesca en horizontal,
+       o con la barra de estado, la píldora no se mete debajo. */
+    --nav-gap-top: calc(16px + env(safe-area-inset-top, 0px));
+    --nav-gap-side: max(16px, env(safe-area-inset-left, 0px));
+
+    /* Alto mínimo del objetivo táctil. En puntero fino se relaja para
+       no engordar la píldora en escritorio. */
+    --nav-touch: 44px;
+}
+
+/* ── 1b · Modo claro ──
+   Las páginas alternan tema con .light-mode en <html>. Aquí solo se
+   invierten los colores de texto y la superficie por defecto; la
+   superficie concreta de cada página la pone la sección 2. */
+html.light-mode {
+    --nav-surface: #ffffff;
+    --nav-fg: #1e1b4b;
+    --nav-fg-soft: #475569;
+    --nav-fg-dim: #64748b;
+    --nav-hairline: 10%;
+    --nav-glass: 80%;
+    --nav-glass-scrolled: 94%;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════
+   2 · PALETA POR PÁGINA
+   Cada bloque solo reasigna tokens. Nada de reglas de aspecto.
+
+   Van en body y no en .nav-pill para que la píldora Y el panel móvil
+   los hereden con una sola declaración.
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Ciencia y Astronomía · noche índigo y rojo de Marte.
+   El CTA usa el rojo profundo que la página ya define, porque el rojo
+   claro da 3,67:1 con blanco y el profundo 5,69:1. */
+body.as-body {
+    --nav-surface: var(--as-night, #070A14);
+    --nav-accent: var(--as-red, #E4573D);
+    --nav-accent-2: var(--as-gold, #C08A2E);
+    --nav-cta-bg: var(--as-red-deep, #B93A24);
+    --nav-cta-bg-2: var(--as-red, #E4573D);
+    --nav-cta-fg: #ffffff;
+}
+
+/* ALFA-CASH · grafito de tablero y ámbar. */
+body.ac-body {
+    --nav-surface: var(--ac-ink, #090C12);
+    --nav-accent: var(--ac-amber, #F0A93B);
+    --nav-accent-2: var(--ac-red, #E0524F);
+    --nav-cta-bg: var(--ac-amber, #F0A93B);
+    --nav-cta-bg-2: var(--ac-amber, #F0A93B);
+    --nav-cta-fg: var(--nav-ink);
+}
+
+/* Grandes Líderes · negro de escenario y oro. */
+body.gl-body {
+    --nav-surface: var(--gl-ink, #080808);
+    --nav-accent: var(--gl-gold, #C9A84C);
+    --nav-accent-2: var(--gl-gold-lt, #E4C874);
+    --nav-cta-bg: var(--gl-gold, #C9A84C);
+    --nav-cta-bg-2: var(--gl-gold-lt, #E4C874);
+    --nav-cta-fg: var(--nav-ink);
+}
+
+/* Familia editorial .fx · Fotolectura, MatheKids y Homeschool.
+   Estas tres declaran sus tokens en .fx, que es un DESCENDIENTE de
+   body, así que var(--fx-bg) no resolvería aquí. Se fijan los valores
+   a mano, con su variante clara justo debajo. */
+body.fx-body,
+body.mk-body,
+body.hs-body {
+    --nav-surface: #0e0c1d;
+    --nav-accent: #f0a938;
+    --nav-accent-2: #f5c369;
+    --nav-cta-bg: #f0a938;
+    --nav-cta-bg-2: #f0a938;
+    --nav-cta-fg: var(--nav-ink);
+}
+
+html.light-mode body.fx-body,
+html.light-mode body.mk-body,
+html.light-mode body.hs-body {
+    --nav-surface: #faf8f3;
+}
+
+/* Lectoescritura · naranja de lápiz. */
+body.lecto-body {
+    --nav-surface: var(--lecto-bg, #0e0c1d);
+    --nav-accent: var(--lecto-accent, #f97316);
+    --nav-accent-2: var(--lecto-accent, #f97316);
+    --nav-cta-bg: var(--lecto-accent, #f97316);
+    --nav-cta-bg-2: var(--lecto-accent, #f97316);
+    --nav-cta-fg: var(--nav-ink);
+}
+
+/* Regularización Express · vacío y verde ácido. */
+body.rg-body {
+    --nav-surface: var(--rg-void, #06080F);
+    --nav-accent: var(--rg-acid, #C9F24E);
+    --nav-accent-2: var(--rg-acid, #C9F24E);
+    --nav-cta-bg: var(--rg-acid, #C9F24E);
+    --nav-cta-bg-2: var(--rg-acid, #C9F24E);
+    --nav-cta-fg: var(--nav-ink);
+}
+
+/* Neurocomunicación · violeta.
+   El violeta de la página da 4,23:1 con blanco y 4,47:1 con tinta:
+   ninguno llega a AA, así que el CTA usa un violeta más profundo
+   (#7c3aed, 5,70:1 con blanco). */
+body.nc-page {
+    --nav-surface: var(--nc-bg, #0f0518);
+    --nav-accent: var(--nc-primary, #8b5cf6);
+    --nav-accent-2: var(--nc-accent, #f59e0b);
+    --nav-cta-bg: #7c3aed;
+    --nav-cta-bg-2: #6d28d9;
+    --nav-cta-fg: #ffffff;
+}
+
+/* Universidad Dominical · espresso y latón. */
+body.ud-body {
+    --nav-surface: var(--ud-void, #100D0B);
+    --nav-accent: var(--ud-brass, #C9A227);
+    --nav-accent-2: var(--ud-brass, #C9A227);
+    --nav-cta-bg: var(--ud-brass, #C9A227);
+    --nav-cta-bg-2: var(--ud-brass, #C9A227);
+    --nav-cta-fg: var(--nav-ink);
+}
+
+/* Redacción Ejecutiva · dorado sobrio. */
+body.re-page {
+    --nav-surface: var(--re-bg-primary, #0a0a0f);
+    --nav-accent: var(--re-accent, #c9a962);
+    --nav-accent-2: var(--re-accent-light, #e5d4a1);
+    --nav-cta-bg: var(--re-accent, #c9a962);
+    --nav-cta-bg-2: var(--re-accent-light, #e5d4a1);
+    --nav-cta-fg: var(--nav-ink);
+}
+
+/* Páginas legales · azul institucional. */
+body.legal-body {
+    --nav-surface: var(--legal-bg, #0c0a1d);
+    --nav-accent: var(--legal-accent, #3b82f6);
+    --nav-accent-2: var(--legal-accent, #3b82f6);
+    --nav-cta-bg: #2563eb;
+    --nav-cta-bg-2: #1d4ed8;
+    --nav-cta-fg: #ffffff;
+}
+
+
+/* ── 2b · Páginas que NO tienen tema claro ──
+   Neurocomunicación, Redacción Ejecutiva y las legales traen el botón
+   de tema, pero su hoja no define ni un token para .light-mode: su
+   fondo se queda oscuro al pulsarlo. Comprobado: en
+   css/redaccion-ejecutiva.css no hay ninguna regla .light-mode, y en
+   las otras dos las apariciones son solo del script del botón.
+
+   Sin este bloque el navbar tomaría los colores de texto claros
+   (tinta oscura) sobre una superficie que sigue siendo oscura: 1,24:1
+   medido, ilegible. Se queda entero en oscuro, que además es lo
+   coherente con una página que no se aclara.
+
+   Especificidad (0,2,2), por encima de html.light-mode (0,1,1) y de
+   body.nc-page (0,1,1), así que gana sin necesidad de !important. */
+html.light-mode body.nc-page,
+html.light-mode body.re-page,
+html.light-mode body.legal-body {
+    --nav-fg: #f8fafc;
+    --nav-fg-soft: #cbd5e1;
+    --nav-fg-dim: #94a3b8;
+    --nav-hairline: 14%;
+    --nav-glass: 74%;
+    --nav-glass-scrolled: 90%;
+}
+
+/* El icono del botón también: si la página no se aclara, mostrar el
+   sol sería mentir sobre el estado. */
+html.light-mode .nc-page .nav-pill-theme .icon-sun,
+html.light-mode .re-page .nav-pill-theme .icon-sun,
+html.light-mode .legal-body .nav-pill-theme .icon-sun {
+    display: none;
+}
+
+html.light-mode .nc-page .nav-pill-theme .icon-moon,
+html.light-mode .re-page .nav-pill-theme .icon-moon,
+html.light-mode .legal-body .nav-pill-theme .icon-moon {
+    display: inline;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════
+   3 · LA PÍLDORA
+   ══════════════════════════════════════════════════════════════════ */
 
 .nav-pill {
     position: fixed;
-    top: 16px;
+    top: var(--nav-gap-top);
     left: 50%;
     transform: translateX(-50%);
     z-index: 9999;
+
     display: flex;
     align-items: center;
     gap: 6px;
-    padding: 10px 20px;
+    padding: 8px 10px 8px 14px;
     border-radius: 100px;
-    background: rgba(10, 10, 30, 0.72);
+    min-height: 52px;
+
+    /* Nunca más ancha que la ventana menos los márgenes seguros. */
+    max-width: calc(100% - var(--nav-gap-side) * 2);
+
+    /* Sin overflow: hidden aquí a propósito. Parecía una buena red de
+       seguridad contra desbordes, pero el desplegable de escritorio es
+       descendiente de la píldora y se coloca POR DEBAJO de ella, así
+       que quedaría recortado y no se vería nada. El desborde se evita
+       con el max-width de arriba y con los puntos de corte. */
+
+    background: rgba(10, 10, 30, .74);
+    border: 1px solid rgba(255, 255, 255, .1);
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, .3),
+        0 0 0 1px rgba(255, 255, 255, .04) inset;
+
     backdrop-filter: blur(20px) saturate(1.4);
     -webkit-backdrop-filter: blur(20px) saturate(1.4);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.3),
-        0 0 0 1px rgba(255, 255, 255, 0.04) inset;
-    transition: all 0.35s cubic-bezier(0.4, 0, 0.2, 1);
-    max-width: calc(100% - 32px);
-    min-height: 48px;
+
+    transition:
+        top .35s cubic-bezier(.4, 0, .2, 1),
+        transform .35s cubic-bezier(.4, 0, .2, 1),
+        background .35s ease,
+        box-shadow .35s ease;
+
     contain: layout style;
 }
 
-/* Scrolled state - more solid */
+/* El cristal derivado de la página necesita componer un alfa sobre un
+   color hexadecimal, y eso solo lo hace color-mix(). Va dentro de
+   @supports para que un navegador antiguo se quede con el rgba() de
+   arriba en lugar de heredar un valor inválido. */
+@supports (background: color-mix(in srgb, red 50%, transparent)) {
+    .nav-pill {
+        background: color-mix(in srgb, var(--nav-surface) var(--nav-glass), transparent);
+        border-color: color-mix(in srgb, var(--nav-fg) var(--nav-hairline), transparent);
+        box-shadow:
+            0 8px 32px rgba(0, 0, 0, .3),
+            0 0 0 1px color-mix(in srgb, var(--nav-fg) 5%, transparent) inset;
+    }
+
+    .nav-pill.scrolled {
+        background: color-mix(in srgb, var(--nav-surface) var(--nav-glass-scrolled), transparent);
+    }
+}
+
+/* Al desplazarse, más cuerpo y un poco más cerca del borde. */
 .nav-pill.scrolled {
-    background: rgba(10, 10, 30, 0.88);
+    top: calc(12px + env(safe-area-inset-top, 0px));
+    background: rgba(10, 10, 30, .9);
     box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.4),
-        0 0 0 1px rgba(255, 255, 255, 0.06) inset;
-    top: 12px;
+        0 12px 40px rgba(0, 0, 0, .4),
+        0 0 0 1px rgba(255, 255, 255, .06) inset;
 }
 
-/* =============================================
-   LIGHT MODE - Inverted Contrast
-   ============================================= */
-
-html.light-mode .nav-pill {
-    background: rgba(255, 255, 255, 0.78);
-    border-color: rgba(0, 0, 0, 0.06);
-    box-shadow:
-        0 8px 32px rgba(0, 0, 0, 0.08),
-        0 0 0 1px rgba(0, 0, 0, 0.03) inset;
+/* Se retira al bajar y vuelve al subir. Solo en pantallas cortas,
+   donde 52 px de píldora sobre el contenido sí se notan. La clase la
+   pone el JS; sin JS la píldora simplemente no se esconde. */
+.nav-pill.nav-hidden {
+    transform: translateX(-50%) translateY(calc(-100% - var(--nav-gap-top) - 8px));
 }
 
-html.light-mode .nav-pill.scrolled {
-    background: rgba(255, 255, 255, 0.92);
-    box-shadow:
-        0 12px 40px rgba(0, 0, 0, 0.12),
-        0 0 0 1px rgba(0, 0, 0, 0.05) inset;
-}
 
-html.light-mode .nav-pill-logo {
-    color: #1e1b4b;
-}
-
-html.light-mode .nav-pill-link {
-    color: #475569;
-}
-
-html.light-mode .nav-pill-link:hover,
-html.light-mode .nav-pill-link:focus-visible {
-    color: #1e1b4b;
-    background: rgba(0, 0, 0, 0.04);
-}
-
-html.light-mode .nav-pill-cta {
-    background: #4f46e5;
-    color: white;
-}
-
-html.light-mode .nav-pill-cta:hover {
-    background: #4338ca;
-}
-
-html.light-mode .nav-pill-hamburger span {
-    background: #1e1b4b;
-}
-
-html.light-mode .nav-pill-theme {
-    color: #475569;
-    border-color: rgba(0, 0, 0, 0.08);
-}
-
-html.light-mode .nav-pill-theme:hover {
-    background: rgba(0, 0, 0, 0.05);
-}
-
-html.light-mode .nav-dropdown-menu {
-    background: rgba(255, 255, 255, 0.96);
-    border-color: rgba(0, 0, 0, 0.08);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.12);
-}
-
-html.light-mode .nav-dropdown-menu .dropdown-group-title {
-    color: #6366f1;
-}
-
-html.light-mode .nav-dropdown-menu a {
-    color: #475569;
-}
-
-html.light-mode .nav-dropdown-menu a:hover {
-    color: #1e1b4b;
-    background: rgba(99, 102, 241, 0.06);
-}
-
-html.light-mode .nav-mobile-panel {
-    background: rgba(255, 255, 255, 0.95);
-}
-
-html.light-mode .nav-mobile-panel .nav-pill-link {
-    color: #334155;
-    border-bottom-color: rgba(0, 0, 0, 0.06);
-}
-
-html.light-mode .nav-mobile-panel .nav-pill-link:hover {
-    color: #1e1b4b;
-    background: rgba(99, 102, 241, 0.05);
-}
-
-html.light-mode .nav-mobile-panel .mobile-dropdown-content a {
-    color: #475569;
-}
-
-html.light-mode .nav-mobile-panel .mobile-dropdown-content a:hover {
-    color: #4f46e5;
-}
-
-/* =============================================
-   LOGO
-   ============================================= */
+/* ══════════════════════════════════════════════════════════════════
+   4 · LOGOTIPO
+   ══════════════════════════════════════════════════════════════════ */
 
 .nav-pill-logo {
     font-family: 'Outfit', 'Space Grotesk', sans-serif;
     font-weight: 800;
     font-size: 1.15rem;
-    color: #f8fafc;
+    color: var(--nav-fg);
     text-decoration: none;
-    letter-spacing: -0.02em;
+    letter-spacing: -.02em;
     white-space: nowrap;
-    padding: 4px 8px 4px 4px;
-    transition: opacity 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    min-height: var(--nav-touch);
+    padding-inline: 2px 8px;
+    transition: opacity .2s ease;
+    flex-shrink: 0;
 }
 
 .nav-pill-logo:hover {
-    opacity: 0.85;
+    opacity: .85;
 }
 
+.nav-pill-logo:focus-visible {
+    outline: 2px solid var(--nav-accent);
+    outline-offset: 3px;
+    border-radius: 8px;
+}
+
+/* La segunda palabra toma el acento de la página. El color sólido va
+   primero para que, si el relleno con degradado no se aplica, quede
+   texto legible en lugar de texto invisible. */
 .nav-pill-logo span {
-    background: linear-gradient(135deg, #6366f1, #a855f7);
+    color: var(--nav-accent);
+    background: linear-gradient(135deg, var(--nav-accent), var(--nav-accent-2));
     -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
     background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
-/* =============================================
-   NAV LINKS (Desktop)
-   ============================================= */
+
+/* ══════════════════════════════════════════════════════════════════
+   5 · ENLACES (escritorio)
+   ══════════════════════════════════════════════════════════════════ */
 
 .nav-pill-links {
     display: flex;
     align-items: center;
-    gap: 4px;
+    gap: 2px;
+    min-width: 0;
 }
 
 .nav-pill-link {
     font-family: 'Inter', sans-serif;
-    font-size: 0.875rem;
+    font-size: .875rem;
     font-weight: 500;
-    color: #cbd5e1;
+    color: var(--nav-fg-soft);
     text-decoration: none;
-    padding: 8px 14px;
+    padding: 8px 13px;
     border-radius: 100px;
-    transition: all 0.2s ease;
     white-space: nowrap;
     cursor: pointer;
     background: none;
@@ -189,60 +404,95 @@ html.light-mode .nav-mobile-panel .mobile-dropdown-content a:hover {
     display: inline-flex;
     align-items: center;
     gap: 5px;
+    transition: color .2s ease, background .2s ease;
 }
 
 .nav-pill-link:hover,
 .nav-pill-link:focus-visible {
-    color: #ffffff;
-    background: rgba(255, 255, 255, 0.08);
+    color: var(--nav-fg);
+    background: color-mix(in srgb, var(--nav-fg) 9%, transparent);
 }
 
 .nav-pill-link:focus-visible {
-    outline: 2px solid #6366f1;
+    outline: 2px solid var(--nav-accent);
     outline-offset: 2px;
 }
 
 .nav-pill-link i {
-    font-size: 0.65rem;
-    transition: transform 0.2s ease;
+    font-size: .65rem;
+    transition: transform .2s ease;
 }
 
 .nav-dropdown.open .nav-pill-link i {
     transform: rotate(180deg);
 }
 
-/* =============================================
-   CTA BUTTON
-   ============================================= */
+/* La página en la que estás, marcada también en la píldora y no solo
+   dentro del desplegable. */
+.nav-pill-link[aria-current="page"] {
+    color: var(--nav-fg);
+    background: color-mix(in srgb, var(--nav-accent) 16%, transparent);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════
+   6 · CTA
+   ══════════════════════════════════════════════════════════════════ */
 
 .nav-pill-cta {
     font-family: 'Inter', sans-serif;
-    font-size: 0.84rem;
+    font-size: .84rem;
     font-weight: 600;
-    color: #ffffff;
+    color: var(--nav-cta-fg);
     text-decoration: none;
-    padding: 9px 18px;
+    padding: 10px 18px;
     border-radius: 100px;
-    background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 100%);
-    transition: all 0.25s ease;
+    background: linear-gradient(135deg, var(--nav-cta-bg) 0%, var(--nav-cta-bg-2) 100%);
     white-space: nowrap;
-    box-shadow: 0 2px 8px rgba(99, 102, 241, 0.3);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 10px color-mix(in srgb, var(--nav-cta-bg) 34%, transparent);
+    transition: transform .25s ease, box-shadow .25s ease, filter .25s ease;
+    flex-shrink: 0;
 }
 
 .nav-pill-cta:hover {
     transform: translateY(-1px);
-    box-shadow: 0 4px 16px rgba(99, 102, 241, 0.4);
-    background: linear-gradient(135deg, #4f46e5 0%, #7c3aed 100%);
+    filter: brightness(1.08);
+    box-shadow: 0 4px 18px color-mix(in srgb, var(--nav-cta-bg) 46%, transparent);
 }
 
 .nav-pill-cta:focus-visible {
-    outline: 2px solid #6366f1;
+    outline: 2px solid var(--nav-accent);
     outline-offset: 3px;
 }
 
-/* =============================================
-   THEME TOGGLE
-   ============================================= */
+
+/* ══════════════════════════════════════════════════════════════════
+   7 · TEMA Y HAMBURGUESA
+
+   Los dos botones son los objetivos más pequeños de la píldora: antes
+   medían 34×34 y 36×32, por debajo del mínimo táctil de 44.
+
+   En puntero grueso la CAJA crece a 44×44 de verdad, y el círculo
+   visible de 34 px lo dibuja un ::before. Se hace así, y no estirando
+   la zona sensible con un ::after que sobresalga, porque un ::after de
+   44 px alrededor de una caja de 34 se metería 1-2 px por encima del
+   CTA vecino y algún toque en su borde acabaría cambiando el tema.
+   Creciendo la caja, el propio flex reserva el sitio y no hay solape.
+   ══════════════════════════════════════════════════════════════════ */
+
+.nav-pill-theme,
+.nav-pill-hamburger {
+    position: relative;
+    flex-shrink: 0;
+    cursor: pointer;
+    background: none;
+    border: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
 
 .nav-pill-theme {
     display: flex;
@@ -251,23 +501,20 @@ html.light-mode .nav-mobile-panel .mobile-dropdown-content a:hover {
     width: 34px;
     height: 34px;
     border-radius: 50%;
-    background: none;
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    cursor: pointer;
-    transition: all 0.2s ease;
-    font-size: 0.85rem;
-    color: #94a3b8;
-    padding: 0;
-    flex-shrink: 0;
+    border: 1px solid color-mix(in srgb, var(--nav-fg) 14%, transparent);
+    font-size: .85rem;
+    color: var(--nav-fg-dim);
+    transition: background .2s ease, border-color .2s ease, color .2s ease;
 }
 
 .nav-pill-theme:hover {
-    background: rgba(255, 255, 255, 0.08);
-    border-color: rgba(255, 255, 255, 0.2);
+    background: color-mix(in srgb, var(--nav-fg) 9%, transparent);
+    border-color: color-mix(in srgb, var(--nav-fg) 26%, transparent);
+    color: var(--nav-fg);
 }
 
 .nav-pill-theme:focus-visible {
-    outline: 2px solid #6366f1;
+    outline: 2px solid var(--nav-accent);
     outline-offset: 2px;
 }
 
@@ -283,43 +530,38 @@ html.light-mode .nav-pill-theme .icon-sun {
     display: inline;
 }
 
-/* =============================================
-   HAMBURGER (Mobile only)
-   ============================================= */
-
 .nav-pill-hamburger {
     display: none;
     flex-direction: column;
+    justify-content: center;
     gap: 5px;
-    cursor: pointer;
-    padding: 8px;
-    background: none;
-    border: none;
-    border-radius: 8px;
-    transition: background 0.2s ease;
-    flex-shrink: 0;
+    width: 38px;
+    height: 34px;
+    border-radius: 10px;
+    transition: background .2s ease;
 }
 
 .nav-pill-hamburger:hover {
-    background: rgba(255, 255, 255, 0.08);
+    background: color-mix(in srgb, var(--nav-fg) 9%, transparent);
 }
 
 .nav-pill-hamburger:focus-visible {
-    outline: 2px solid #6366f1;
+    outline: 2px solid var(--nav-accent);
     outline-offset: 2px;
 }
 
 .nav-pill-hamburger span {
     width: 20px;
     height: 2px;
-    background: #e2e8f0;
+    margin-inline: auto;
+    background: var(--nav-fg);
     border-radius: 2px;
-    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     transform-origin: center;
+    transition: transform .3s cubic-bezier(.4, 0, .2, 1), opacity .2s ease;
 }
 
 .nav-pill-hamburger.active span:nth-child(1) {
-    transform: rotate(45deg) translate(4px, 4px);
+    transform: translateY(7px) rotate(45deg);
 }
 
 .nav-pill-hamburger.active span:nth-child(2) {
@@ -328,12 +570,13 @@ html.light-mode .nav-pill-theme .icon-sun {
 }
 
 .nav-pill-hamburger.active span:nth-child(3) {
-    transform: rotate(-45deg) translate(5px, -5px);
+    transform: translateY(-7px) rotate(-45deg);
 }
 
-/* =============================================
-   DROPDOWN MENU (Desktop)
-   ============================================= */
+
+/* ══════════════════════════════════════════════════════════════════
+   8 · DESPLEGABLE DE ESCRITORIO
+   ══════════════════════════════════════════════════════════════════ */
 
 .nav-dropdown {
     position: relative;
@@ -341,35 +584,52 @@ html.light-mode .nav-pill-theme .icon-sun {
 
 .nav-dropdown-menu {
     position: absolute;
-    top: calc(100% + 16px);
+    top: calc(100% + 14px);
     left: 50%;
-    transform: translateX(-50%) translateY(8px);
-    min-width: 480px;
-    padding: 24px;
-    background: rgba(15, 12, 40, 0.95);
+    /* Nunca más ancho que la ventana. Antes tenía min-width: 480px
+       fijo, que a 769 px de ventana se salía por un lado. */
+    width: min(480px, calc(100vw - 2rem));
+    padding: 22px;
+    background: rgba(15, 12, 40, .96);
+    border: 1px solid rgba(255, 255, 255, .1);
+    border-radius: 20px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 20px;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 8px;
+    gap: 6px;
+
+    /* Si no cabe en alto, se desplaza dentro en lugar de salirse. */
+    max-height: min(70vh, 560px);
+    overflow-y: auto;
+    overscroll-behavior: contain;
+
     opacity: 0;
     visibility: hidden;
-    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transform: translateX(-50%) translateY(8px);
     pointer-events: none;
+    transition: opacity .25s ease, transform .25s cubic-bezier(.4, 0, .2, 1), visibility .25s;
     z-index: 100;
 }
 
+@supports (background: color-mix(in srgb, red 50%, transparent)) {
+    .nav-dropdown-menu {
+        background: color-mix(in srgb, var(--nav-surface) 96%, transparent);
+        border-color: color-mix(in srgb, var(--nav-fg) 12%, transparent);
+    }
+}
+
+/* Puente invisible entre la píldora y el menú para que el puntero no
+   lo cierre al cruzar el hueco. */
 .nav-dropdown-menu::before {
     content: '';
     position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
+    top: -14px;
+    left: 0;
     width: 100%;
-    height: 8px;
+    height: 14px;
 }
 
 .nav-dropdown.open .nav-dropdown-menu {
@@ -381,10 +641,10 @@ html.light-mode .nav-pill-theme .icon-sun {
 
 .nav-dropdown-menu .dropdown-group-title {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.7rem;
+    font-size: .7rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: #6366f1;
+    color: var(--nav-accent);
     font-weight: 700;
     padding: 4px 12px 8px;
     display: block;
@@ -396,47 +656,52 @@ html.light-mode .nav-pill-theme .icon-sun {
     gap: 10px;
     padding: 9px 12px;
     font-family: 'Inter', sans-serif;
-    font-size: 0.84rem;
-    color: #cbd5e1;
+    font-size: .84rem;
+    color: var(--nav-fg-soft);
     text-decoration: none;
     border-radius: 10px;
-    transition: all 0.15s ease;
+    transition: color .15s ease, background .15s ease;
 }
 
 .nav-dropdown-menu a:hover {
-    color: #ffffff;
-    background: rgba(99, 102, 241, 0.12);
+    color: var(--nav-fg);
+    background: color-mix(in srgb, var(--nav-accent) 14%, transparent);
 }
 
 .nav-dropdown-menu a:focus-visible {
-    outline: 2px solid #6366f1;
+    outline: 2px solid var(--nav-accent);
     outline-offset: 2px;
+}
+
+.nav-dropdown-menu a[aria-current="page"] {
+    color: var(--nav-fg);
+    background: color-mix(in srgb, var(--nav-accent) 12%, transparent);
+    font-weight: 600;
 }
 
 .nav-dropdown-menu a i {
     width: 20px;
     text-align: center;
-    color: #6366f1;
-    font-size: 0.8rem;
+    color: var(--nav-accent);
+    font-size: .8rem;
+    flex-shrink: 0;
 }
 
-/* =============================================
-   MOBILE PANEL
-   ============================================= */
+
+/* ══════════════════════════════════════════════════════════════════
+   9 · PANEL MÓVIL
+   ══════════════════════════════════════════════════════════════════ */
 
 .nav-mobile-overlay {
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
+    inset: 0;
+    background: rgba(0, 0, 0, .55);
     backdrop-filter: blur(4px);
     -webkit-backdrop-filter: blur(4px);
     z-index: 9998;
     opacity: 0;
     visibility: hidden;
-    transition: all 0.3s ease;
+    transition: opacity .3s ease, visibility .3s;
 }
 
 .nav-mobile-overlay.active {
@@ -447,53 +712,103 @@ html.light-mode .nav-pill-theme .icon-sun {
 .nav-mobile-panel {
     position: fixed;
     top: 0;
-    right: -100%;
-    width: 85%;
-    max-width: 360px;
+    right: 0;
+    width: min(86vw, 380px);
+
+    /* 100dvh y no 100vh: en móvil la barra del navegador aparece y
+       desaparece, y con 100vh el pie del panel queda por debajo del
+       borde visible y no se puede alcanzar. El 100vh de la línea
+       anterior es el respaldo para navegadores sin dvh. */
     height: 100vh;
-    background: rgba(12, 10, 30, 0.96);
+    height: 100dvh;
+
+    /* Respeta muesca, barra de estado e indicador inferior. */
+    padding:
+        calc(84px + env(safe-area-inset-top, 0px))
+        calc(22px + env(safe-area-inset-right, 0px))
+        calc(28px + env(safe-area-inset-bottom, 0px))
+        22px;
+
+    background: rgba(12, 10, 30, .97);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
+    border-left: 1px solid rgba(255, 255, 255, .08);
     z-index: 10000;
-    padding: 80px 24px 32px;
+
     display: flex;
     flex-direction: column;
-    gap: 4px;
-    transition: right 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+    gap: 2px;
+
     overflow-y: auto;
-    border-left: 1px solid rgba(255, 255, 255, 0.06);
+    /* Que el rebote del panel no arrastre la página de detrás. */
+    overscroll-behavior: contain;
+    -webkit-overflow-scrolling: touch;
+
+    /* Se traslada en lugar de animar `right`: el transform lo compone
+       la GPU y no provoca recálculo de layout en cada fotograma.
+
+       `visibility` entra en la transición para que al cerrar el panel
+       siga visible mientras se desliza y solo entonces desaparezca.
+       Sin ella se esfumaría de golpe y la animación no se vería. Al
+       abrir se conmuta al instante (0s, más abajo). */
+    transform: translateX(100%);
+    visibility: hidden;
+    transition:
+        transform .35s cubic-bezier(.4, 0, .2, 1),
+        visibility .35s;
+}
+
+@supports (background: color-mix(in srgb, red 50%, transparent)) {
+    .nav-mobile-panel {
+        background: color-mix(in srgb, var(--nav-surface) 97%, transparent);
+        border-left-color: color-mix(in srgb, var(--nav-fg) 10%, transparent);
+    }
 }
 
 .nav-mobile-panel.active {
-    right: 0;
+    transform: translateX(0);
+    visibility: visible;
+    transition:
+        transform .35s cubic-bezier(.4, 0, .2, 1),
+        visibility 0s;
 }
 
+/* El panel hereda los tokens de <body>, igual que la píldora: por eso
+   la sección 2 los declara ahí y no en .nav-pill. Antes esto era un
+   bloque duplicado con la mitad de los tokens, y al panel le faltaban
+   justamente --nav-cta-bg y --nav-cta-fg, así que su botón de contacto
+   se quedaba sin fondo ni color. */
+
+/* Enlaces del panel: alto mínimo táctil de verdad, no por casualidad. */
 .nav-mobile-panel .nav-pill-link {
     font-size: 1.05rem;
-    padding: 14px 16px;
+    min-height: var(--nav-touch);
+    padding: 12px 14px;
     border-radius: 12px;
-    border-bottom: 1px solid rgba(255, 255, 255, 0.04);
+    border-bottom: 1px solid color-mix(in srgb, var(--nav-fg) 7%, transparent);
     width: 100%;
     justify-content: space-between;
+    color: var(--nav-fg-soft);
 }
 
 .nav-mobile-panel .nav-pill-link:hover {
-    background: rgba(255, 255, 255, 0.05);
+    color: var(--nav-fg);
+    background: color-mix(in srgb, var(--nav-fg) 6%, transparent);
 }
 
 .nav-mobile-panel .nav-pill-cta {
     margin-top: 16px;
-    padding: 16px 24px;
+    min-height: 52px;
+    padding: 15px 22px;
     text-align: center;
     font-size: 1rem;
-    display: block;
     width: 100%;
 }
 
-/* Mobile dropdown accordion */
+/* Acordeón del panel */
 .mobile-dropdown-content {
     display: none;
-    padding: 8px 0 8px 16px;
+    padding: 6px 0 6px 12px;
     flex-direction: column;
     gap: 2px;
 }
@@ -504,84 +819,89 @@ html.light-mode .nav-pill-theme .icon-sun {
 
 .mobile-dropdown-content a {
     font-family: 'Inter', sans-serif;
-    font-size: 0.9rem;
-    color: #94a3b8;
+    font-size: .9rem;
+    color: var(--nav-fg-dim);
     text-decoration: none;
+    min-height: var(--nav-touch);
     padding: 10px 14px;
     border-radius: 8px;
-    transition: all 0.15s ease;
     display: flex;
     align-items: center;
     gap: 10px;
+    transition: color .15s ease, background .15s ease;
 }
 
 .mobile-dropdown-content a:hover {
-    color: #e2e8f0;
-    background: rgba(99, 102, 241, 0.08);
+    color: var(--nav-fg);
+    background: color-mix(in srgb, var(--nav-accent) 10%, transparent);
+}
+
+.mobile-dropdown-content a[aria-current="page"] {
+    color: var(--nav-fg);
+    background: color-mix(in srgb, var(--nav-accent) 12%, transparent);
+    font-weight: 600;
 }
 
 .mobile-dropdown-content a i {
-    color: #6366f1;
+    color: var(--nav-accent);
     width: 18px;
     text-align: center;
-    font-size: 0.8rem;
+    font-size: .8rem;
+    flex-shrink: 0;
 }
 
 .mobile-dropdown-content .dropdown-group-title {
     font-family: 'Outfit', sans-serif;
-    font-size: 0.68rem;
+    font-size: .68rem;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: #6366f1;
+    color: var(--nav-accent);
     font-weight: 700;
     padding: 12px 14px 4px;
 }
 
-/* =============================================
-   RESPONSIVE - TABLET (768px - 1024px)
-   ============================================= */
 
-@media (max-width: 1024px) {
+/* ══════════════════════════════════════════════════════════════════
+   10 · ADAPTACIÓN A DISPOSITIVOS
+   ══════════════════════════════════════════════════════════════════ */
+
+/* ── Escritorio estrecho y tableta grande (1025–1200) ──
+   Se comprime la fila antes de tener que esconderla. */
+@media (max-width: 1200px) {
     .nav-pill {
-        padding: 8px 16px;
         gap: 4px;
+        padding: 8px 8px 8px 12px;
     }
 
     .nav-pill-link {
-        font-size: 0.82rem;
-        padding: 7px 10px;
+        font-size: .82rem;
+        padding: 8px 10px;
     }
 
     .nav-pill-cta {
-        font-size: 0.8rem;
-        padding: 8px 14px;
+        font-size: .8rem;
+        padding: 10px 15px;
     }
 
     .nav-pill-logo {
         font-size: 1.05rem;
     }
-
-    .nav-dropdown-menu {
-        min-width: 420px;
-        padding: 20px;
-    }
 }
 
-/* =============================================
-   RESPONSIVE - MOBILE (<768px)
-   ============================================= */
-
-@media (max-width: 768px) {
+/* ── Punto de corte a móvil ──
+   Sube de 768 a 900: entre 769 y 900 px la fila de escritorio cabía
+   por poco y quedaba apretada contra el CTA. */
+@media (max-width: 900px) {
     .nav-pill {
-        top: 12px;
-        padding: 10px 16px;
-        width: calc(100% - 24px);
+        top: calc(12px + env(safe-area-inset-top, 0px));
+        width: calc(100% - var(--nav-gap-side) * 2);
         max-width: none;
         justify-content: space-between;
+        padding: 8px 10px 8px 14px;
     }
 
     .nav-pill.scrolled {
-        top: 8px;
+        top: calc(8px + env(safe-area-inset-top, 0px));
     }
 
     .nav-pill-links {
@@ -592,92 +912,294 @@ html.light-mode .nav-pill-theme .icon-sun {
         display: flex;
     }
 
-    .nav-pill-logo {
-        font-size: 1.1rem;
+    /* El CTA se queda en la píldora pero cede sitio al logotipo. */
+    .nav-pill-cta {
+        font-size: .8rem;
+        padding: 9px 14px;
+        margin-left: auto;
     }
 }
 
-/* =============================================
-   RESPONSIVE - SMALL MOBILE (<480px)
-   ============================================= */
-
-@media (max-width: 480px) {
+/* ── Teléfono (≤600) ── */
+@media (max-width: 600px) {
     .nav-pill {
-        top: 8px;
-        padding: 8px 14px;
-        width: calc(100% - 16px);
+        gap: 4px;
+        padding: 8px 8px 8px 12px;
+        min-height: 50px;
     }
 
     .nav-pill-logo {
         font-size: 1rem;
     }
 
+    .nav-pill-cta {
+        font-size: .78rem;
+        padding: 9px 13px;
+    }
+}
+
+/* ── Teléfono estrecho (≤380) ──
+   A 320 px el logotipo, el CTA, el tema y la hamburguesa no caben con
+   holgura. Se retira el CTA de la píldora: sigue estando dentro del
+   panel, donde ocupa el ancho completo y se ve mejor. */
+@media (max-width: 380px) {
+    .nav-pill {
+        --nav-gap-side: max(8px, env(safe-area-inset-left, 0px));
+        padding: 6px 6px 6px 10px;
+        min-height: 48px;
+    }
+
+    .nav-pill > .nav-pill-cta {
+        display: none;
+    }
+
+    .nav-pill-logo {
+        font-size: .95rem;
+    }
+
     .nav-pill-theme {
-        width: 30px;
-        height: 30px;
-        font-size: 0.75rem;
+        width: 32px;
+        height: 32px;
+        font-size: .8rem;
+    }
+}
+
+/* ── Horizontal con poca altura ──
+   En un teléfono tumbado la píldora y el panel se comen la pantalla.
+   Se aplanan. */
+@media (max-height: 460px) and (orientation: landscape) {
+    .nav-pill {
+        --nav-gap-top: calc(8px + env(safe-area-inset-top, 0px));
+        min-height: 44px;
+        padding-block: 5px;
     }
 
     .nav-mobile-panel {
-        width: 90%;
-        max-width: none;
-        padding: 72px 20px 24px;
+        padding-top: calc(64px + env(safe-area-inset-top, 0px));
+    }
+
+    .nav-mobile-panel .nav-pill-link {
+        min-height: 40px;
+        padding-block: 8px;
+        font-size: .98rem;
+    }
+
+    .nav-dropdown-menu {
+        max-height: 76vh;
     }
 }
 
-/* =============================================
-   ACCESSIBILITY
-   ============================================= */
+/* ── Puntero grueso ──
+   Dedo en lugar de ratón: todo lo pulsable llega a 44 px. Va por tipo
+   de puntero y no por ancho, porque una tableta de 1024 px también se
+   toca, y un portátil de 900 px no. */
+@media (pointer: coarse) {
 
-@media (prefers-reduced-motion: reduce) {
-    .nav-pill,
     .nav-pill-link,
     .nav-pill-cta,
-    .nav-dropdown-menu,
-    .nav-mobile-panel,
-    .nav-mobile-overlay,
-    .nav-pill-hamburger span {
-        transition: none;
+    .nav-dropdown-menu a {
+        min-height: var(--nav-touch);
+    }
+
+    /* La caja crece a 44; el círculo visible lo pinta el ::before, así
+       que el diseño no cambia y el objetivo sí cumple. */
+    .nav-pill-theme,
+    .nav-pill-hamburger {
+        width: var(--nav-touch);
+        height: var(--nav-touch);
+    }
+
+    .nav-pill-theme {
+        border: 0;
+        border-radius: 50%;
+    }
+
+    .nav-pill-theme::before {
+        content: "";
+        position: absolute;
+        inset: 5px;
+        border: 1px solid color-mix(in srgb, var(--nav-fg) 14%, transparent);
+        border-radius: 50%;
+        pointer-events: none;
+    }
+
+    .nav-pill-theme:hover::before {
+        border-color: color-mix(in srgb, var(--nav-fg) 26%, transparent);
+    }
+
+    /* Sin hover real, el estado activo es lo único que informa. */
+    .nav-pill-link:active,
+    .nav-pill-cta:active,
+    .nav-dropdown-menu a:active,
+    .mobile-dropdown-content a:active {
+        background: color-mix(in srgb, var(--nav-accent) 18%, transparent);
+    }
+
+    .nav-pill-theme:active,
+    .nav-pill-hamburger:active {
+        background: color-mix(in srgb, var(--nav-fg) 12%, transparent);
     }
 }
 
-/* Skip to content link */
-.nav-skip-link {
-    position: absolute;
-    top: -100%;
-    left: 16px;
-    padding: 8px 16px;
-    background: #6366f1;
-    color: white;
-    border-radius: 8px;
-    font-family: 'Inter', sans-serif;
-    font-size: 0.875rem;
-    font-weight: 600;
-    text-decoration: none;
-    z-index: 99999;
-    transition: top 0.2s ease;
+/* En puntero fino no hace falta reservar 44 px: se recupera la
+   densidad de escritorio. */
+@media (pointer: fine) {
+
+    /* En :root y no en .nav-pill: el panel es hermano de la píldora y
+       también consume --nav-touch. */
+    :root {
+        --nav-touch: 34px;
+    }
+
+    .nav-pill-logo {
+        min-height: 0;
+    }
 }
 
-.nav-skip-link:focus {
-    top: 16px;
-}
 
-/* =============================================
-   PROMO BAR INTERACTION
-   When marketing floating bar is visible, push pill down
-   ============================================= */
+/* ══════════════════════════════════════════════════════════════════
+   11 · BARRA PROMOCIONAL
+   Cuando la barra de marketing está visible, la píldora baja.
+   ══════════════════════════════════════════════════════════════════ */
 
 .wbm-bar-active .nav-pill {
-    top: 60px;
-    transition: top 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+    top: calc(60px + env(safe-area-inset-top, 0px));
 }
 
 .wbm-bar-active .nav-pill.scrolled {
-    top: 56px;
+    top: calc(56px + env(safe-area-inset-top, 0px));
 }
 
-@media (max-width: 768px) {
-    .wbm-bar-active .nav-pill {
-        top: 56px;
+@media (max-width: 900px) {
+    .wbm-bar-active .nav-pill,
+    .wbm-bar-active .nav-pill.scrolled {
+        top: calc(56px + env(safe-area-inset-top, 0px));
     }
+}
+
+
+/* ══════════════════════════════════════════════════════════════════
+   12 · ACCESIBILIDAD
+   ══════════════════════════════════════════════════════════════════ */
+
+/* Salto al contenido: invisible hasta que el teclado lo enfoca. */
+.nav-skip-link {
+    position: fixed;
+    top: -100%;
+    left: var(--nav-gap-side, 16px);
+    display: inline-flex;
+    align-items: center;
+    min-height: 44px;
+    padding: 10px 18px;
+    background: var(--nav-cta-bg, #4f46e5);
+    color: var(--nav-cta-fg, #fff);
+    border-radius: 10px;
+    font-family: 'Inter', sans-serif;
+    font-size: .9rem;
+    font-weight: 600;
+    text-decoration: none;
+    z-index: 100000;
+    transition: top .2s ease;
+}
+
+.nav-skip-link:focus {
+    top: calc(12px + env(safe-area-inset-top, 0px));
+}
+
+/* Quien pide menos movimiento no recibe deslizamientos ni la píldora
+   que se esconde: solo aparición y desaparición. */
+@media (prefers-reduced-motion: reduce) {
+
+    .nav-pill,
+    .nav-pill-link,
+    .nav-pill-cta,
+    .nav-pill-theme,
+    .nav-dropdown-menu,
+    .nav-mobile-panel,
+    .nav-mobile-overlay,
+    .nav-pill-hamburger span,
+    .nav-skip-link {
+        transition-duration: .01ms !important;
+    }
+
+    .nav-pill.nav-hidden {
+        transform: translateX(-50%);
+    }
+
+    .nav-pill-cta:hover {
+        transform: none;
+    }
+}
+
+/* Contraste forzado (alto contraste de Windows).
+   La píldora se sostiene sobre transparencias y desenfoque, que en
+   este modo desaparecen: sin esto quedaría un bloque invisible. */
+@media (forced-colors: active) {
+
+    .nav-pill,
+    .nav-dropdown-menu,
+    .nav-mobile-panel {
+        background: Canvas;
+        border: 1px solid CanvasText;
+        backdrop-filter: none;
+        -webkit-backdrop-filter: none;
+    }
+
+    .nav-pill-logo,
+    .nav-pill-link,
+    .nav-dropdown-menu a,
+    .mobile-dropdown-content a {
+        color: LinkText;
+    }
+
+    /* El relleno con degradado deja el texto transparente, y en este
+       modo el degradado no se pinta: la palabra desaparecería. */
+    .nav-pill-logo span {
+        -webkit-text-fill-color: currentColor;
+        background: none;
+        color: LinkText;
+    }
+
+    .nav-pill-cta {
+        background: ButtonFace;
+        color: ButtonText;
+        border: 1px solid ButtonText;
+    }
+
+    .nav-pill-hamburger span {
+        background: CanvasText;
+    }
+
+    .nav-pill-theme {
+        border: 1px solid CanvasText;
+        color: CanvasText;
+        background: none;
+    }
+
+    .nav-pill-link[aria-current="page"],
+    .nav-dropdown-menu a[aria-current="page"] {
+        outline: 2px solid Highlight;
+    }
+}
+
+/* Cuando el panel está cerrado no debe ser alcanzable por nada, ni
+   por el foco ni por el puntero. El JS marca [inert]; esto cubre el
+   caso de que el navegador no lo soporte. */
+.nav-mobile-panel[aria-hidden="true"] {
+    pointer-events: none;
+}
+
+.nav-mobile-panel.active[aria-hidden="false"] {
+    pointer-events: auto;
+}
+
+/* Bloqueo de desplazamiento del fondo con el panel abierto. La clase
+   la pone el JS en <html>, que además guarda la posición.
+
+   Sin `touch-action: none` a propósito: puesto en body impediría
+   también desplazar el contenido del propio panel, que es hijo de
+   body. El rebote lo contiene `overscroll-behavior` del panel. */
+html.nav-locked,
+html.nav-locked body {
+    overflow: hidden;
 }

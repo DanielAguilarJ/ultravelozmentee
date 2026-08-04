@@ -216,43 +216,41 @@ body.legal-body {
 }
 
 
-/* ── 2b · Páginas que NO tienen tema claro ──
-   Neurocomunicación, Redacción Ejecutiva y las legales traen el botón
-   de tema, pero su hoja no define ni un token para .light-mode: su
-   fondo se queda oscuro al pulsarlo. Comprobado: en
-   css/redaccion-ejecutiva.css no hay ninguna regla .light-mode, y en
-   las otras dos las apariciones son solo del script del botón.
+/* ── 2b · Antes había aquí un guard ──
+   Neurocomunicación, Redacción Ejecutiva y las legales traían el botón
+   de tema pero ninguna definía tokens para .light-mode: su fondo se
+   quedaba oscuro al pulsarlo, así que el navbar tenía que mantenerse en
+   oscuro para no poner tinta sobre tinta (1,24:1 medido).
 
-   Sin este bloque el navbar tomaría los colores de texto claros
-   (tinta oscura) sobre una superficie que sigue siendo oscura: 1,24:1
-   medido, ilegible. Se queda entero en oscuro, que además es lo
-   coherente con una página que no se aclara.
+   Ya no hace falta: las tres tienen tema claro completo, con su
+   superficie invirtiendo como las demás, y el navbar sigue su paleta por
+   el camino normal de la sección 2. */
 
-   Especificidad (0,2,2), por encima de html.light-mode (0,1,1) y de
-   body.nc-page (0,1,1), así que gana sin necesidad de !important. */
-html.light-mode body.nc-page,
-html.light-mode body.re-page,
-html.light-mode body.legal-body {
-    --nav-fg: #f8fafc;
-    --nav-fg-soft: #cbd5e1;
-    --nav-fg-dim: #94a3b8;
-    --nav-hairline: 14%;
-    --nav-glass: 74%;
-    --nav-glass-scrolled: 90%;
-}
 
-/* El icono del botón también: si la página no se aclara, mostrar el
-   sol sería mentir sobre el estado. */
-html.light-mode .nc-page .nav-pill-theme .icon-sun,
-html.light-mode .re-page .nav-pill-theme .icon-sun,
-html.light-mode .legal-body .nav-pill-theme .icon-sun {
-    display: none;
-}
+/* ── 2c · El texto del CTA invierte con el acento ──
+   Los siete acentos de página se PROFUNDIZAN en tema claro (el ámbar
+   de ALFA-CASH pasa de #F0A93B a #8A5A06, el dorado de Redacción de
+   #c9a962 a #7d6029), porque en claro tienen que funcionar como texto
+   sobre papel. Pero el CTA del navbar ponía tinta encima en los dos
+   temas, y sobre un acento profundo la tinta no llega:
 
-html.light-mode .nc-page .nav-pill-theme .icon-moon,
-html.light-mode .re-page .nav-pill-theme .icon-moon,
-html.light-mode .legal-body .nav-pill-theme .icon-moon {
-    display: inline;
+     alfa-cash        #8A5A06  tinta 3,20 → blanco 5,92
+     lectoescritura   #c2410c  tinta 3,66 → blanco 5,18
+     universidad-dom  #8A6A0B  tinta 3,74 → blanco 5,06
+     redaccion        #7d6029  tinta 3,22 → blanco 5,87
+
+   Grandes Líderes y Regularización se quedan con tinta a propósito: su
+   acento claro sigue siendo luminoso (#9C7C1E da 4,79 con tinta y 3,95
+   con blanco; el verde #6E9200, 5,21 contra 3,64).
+
+   Fotolectura, MatheKids y Homeschool no aparecen porque su acento en
+   el navbar es un valor fijo: sus tokens viven en .fx, que no es
+   ancestro de la píldora. */
+html.light-mode body.ac-body,
+html.light-mode body.lecto-body,
+html.light-mode body.ud-body,
+html.light-mode body.re-page {
+    --nav-cta-fg: #ffffff;
 }
 
 

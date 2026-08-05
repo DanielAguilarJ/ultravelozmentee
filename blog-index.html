@@ -58,136 +58,6 @@
     <!-- AOS CSS -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-    <style>
-        /* Estilos específicos para el listado del Blog */
-        .blog-hero {
-            padding: 12rem 0 6rem;
-            background: linear-gradient(135deg, rgba(37, 99, 235, 0.05) 0%, rgba(12, 10, 29, 1) 100%);
-            position: relative;
-            text-align: center;
-        }
-
-        .blog-hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .blog-hero p {
-            font-size: 1.25rem;
-            color: var(--text-secondary);
-            max-width: 600px;
-            margin: 0 auto;
-        }
-
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2.5rem;
-            padding: 4rem 0;
-        }
-
-        .blog-card {
-            background: var(--bg-card);
-            border: 1px solid var(--border-color);
-            border-radius: 1rem;
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
-            position: relative;
-            display: flex;
-            flex-direction: column;
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .blog-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
-            border-color: rgba(37, 99, 235, 0.4);
-        }
-
-        .blog-card-image {
-            width: 100%;
-            height: 240px;
-            background-color: #1a1a2e;
-            /* placeholder color */
-            position: relative;
-            overflow: hidden;
-        }
-
-        .blog-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .blog-card:hover .blog-card-image img {
-            transform: scale(1.05);
-        }
-
-        .blog-badge {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: var(--primary);
-            color: white;
-            padding: 0.4rem 1rem;
-            border-radius: 2rem;
-            font-size: 0.8rem;
-            font-weight: 600;
-            z-index: 2;
-        }
-
-        .blog-card-content {
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            flex-grow: 1;
-        }
-
-        .blog-meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            font-size: 0.9rem;
-            color: var(--text-muted);
-            margin-bottom: 1rem;
-        }
-
-        .blog-meta span {
-            display: flex;
-            align-items: center;
-            gap: 0.4rem;
-        }
-
-        .blog-card-title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.3;
-            color: var(--text-color);
-        }
-
-        .blog-card-excerpt {
-            color: var(--text-secondary);
-            margin-bottom: 2rem;
-            flex-grow: 1;
-            line-height: 1.6;
-        }
-
-        .blog-read-more {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: var(--brand-blue);
-            font-weight: 600;
-            font-family: var(--font-heading);
-            transition: gap 0.3s ease;
-        }
-
-        .blog-card:hover .blog-read-more {
-            gap: 1rem;
-        }
-    </style>
 <script defer src="https://capi-automation.s3.us-east-2.amazonaws.com/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>
     <!-- Theme: FOUC Prevention -->
     <script>
@@ -198,6 +68,7 @@
             }
         })();
     </script>
+    <link rel="stylesheet" href="css/blog-editorial.css">
     <link rel="stylesheet" href="css/footer-modern.min.css">
         <link rel="stylesheet" href="css/navbar-unified.min.css?v=20260804">
 
@@ -428,206 +299,189 @@
 
 
 
-    <main role="main">
-        <section class="blog-hero">
+    <main role="main" id="main-content" class="ed-blog-main">
+        <!-- Hero Editorial -->
+        <section class="ed-hero">
             <div class="container">
-                <span class="badge" data-aos="fade-up" style="margin: 0 auto 1.5rem;">
-                    <i class="fas fa-book-open"></i> Centro de Conocimiento
-                </span>
-                <h1 data-aos="fade-up" data-aos-delay="100">
-                    Blog <span class="text-gradient">Educativo</span>
-                </h1>
-                <p data-aos="fade-up" data-aos-delay="200">
-                    Artículos profundos sobre contenido orgánico, educación acelerada, liderazgo y neurocomunicación. El
-                    conocimiento es tu mejor herramienta.
-                </p>
+                <span class="ed-kicker">WorldBrain Blog</span>
+                <h1>Blog <span class="text-gradient">Educativo</span></h1>
+                <p>Artículos profundos sobre contenido orgánico, educación acelerada, liderazgo y neurocomunicación.</p>
+                <ul class="ed-hero-facts">
+                    <li>11 artículos publicados</li>
+                    <li>5 temas especializados</li>
+                </ul>
             </div>
         </section>
 
-        <section class="blog-list" style="background: var(--bg-body);">
-            <div class="container blog-grid">
-
-                <!-- Blog 1 -->
-                <a href="/blog-1-poder-contenido-organico" class="blog-card" data-aos="fade-up">
-                    <div class="blog-badge">Redacción y SEO</div>
-                    <div class="blog-card-image">
-                        <!-- Placeholder until real image is generated -->
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> 20 Feb 2026</span>
-                            <span><i class="far fa-clock"></i> 5 min de lectura</span>
-                        </div>
-                        <h2 class="blog-card-title">El Poder del Contenido Orgánico en la Era Digital</h2>
-                        <p class="blog-card-excerpt">Descubre por qué el contenido orgánico genera mayor confianza y
-                            autoridad a largo plazo en comparación con la publicidad pagada (ads) y cómo dominarlo.</p>
-                        <div class="blog-read-more">
-                            Leer Artículo <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Blog 2 -->
-                <a href="/blog-2-contenido-organico-liderazgo" class="blog-card" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <div class="blog-badge">Liderazgo</div>
-                    <div class="blog-card-image">
-                        <!-- Placeholder until real image is generated -->
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> 22 Feb 2026</span>
-                            <span><i class="far fa-clock"></i> 6 min de lectura</span>
-                        </div>
-                        <h2 class="blog-card-title">Cómo el Contenido Orgánico Transforma el Liderazgo y la Comunicación
-                        </h2>
-                        <p class="blog-card-excerpt">Los líderes modernos no anuncian, comunican valor. Entiende por qué
-                            publicar constantemente consolida tu influencia, impacto y reputación profesional.</p>
-                        <div class="blog-read-more">
-                            Leer Artículo <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Blog 3 -->
-                <a href="/blog-3-creacion-contenido-seo" class="blog-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="blog-badge">Marketing Educativo</div>
-                    <div class="blog-card-image">
-                        <!-- Placeholder until real image is generated -->
-                    </div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta">
-                            <span><i class="far fa-calendar"></i> 25 Feb 2026</span>
-                            <span><i class="far fa-clock"></i> 7 min de lectura</span>
-                        </div>
-                        <h2 class="blog-card-title">Creación de Contenido Orgánico: La Clave para Dominar el SEO</h2>
-                        <p class="blog-card-excerpt">Una guía paso a paso sobre estrategias para estructurar y escribir
-                            textos que los motores de búsqueda aman y las personas devoran. Aprende a escribir para
-                            humanos y algoritmos.</p>
-                        <div class="blog-read-more">
-                            Leer Artículo <i class="fas fa-arrow-right"></i>
-                        </div>
-                    </div>
-                </a>
-
-                <!-- Blog 4 -->
-                <a href="/blog-4-despertar-inteligencia-infantil" class="blog-card" data-aos="fade-up">
-                    <div class="blog-badge">Desarrollo Infantil</div>
-                    <div class="blog-card-image"></div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 28 Feb 2026</span><span><i
-                                    class="far fa-clock"></i> 5 min</span></div>
-                        <h2 class="blog-card-title">El Despertar de la Inteligencia Infantil</h2>
-                        <p class="blog-card-excerpt">Cómo estimular tempranamente a los niños con matemáticas básicas y
-                            lectoescritura a través de metodologías basadas en el juego.</p>
-                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-
-                <!-- Blog 5 -->
-                <a href="/blog-5-eliminar-miedo-matematicas" class="blog-card" data-aos="fade-up"
-                    data-aos-delay="100">
-                    <div class="blog-badge">Matemáticas Divertidas</div>
-                    <div class="blog-card-image"></div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 02 Mar 2026</span><span><i
-                                    class="far fa-clock"></i> 6 min</span></div>
-                        <h2 class="blog-card-title">Cómo Eliminar el Miedo a los Números</h2>
-                        <p class="blog-card-excerpt">El Ábaco Soroban como herramienta definitiva para pasar del odio a
-                            las matemáticas hacia la capacidad de realizar cálculo mental de forma natural.</p>
-                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-
-                <!-- Blog 6 -->
-                <a href="/blog-6-robotica-ciencia-futuro" class="blog-card" data-aos="fade-up" data-aos-delay="200">
-                    <div class="blog-badge">Robótica y Ciencia</div>
-                    <div class="blog-card-image"></div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 05 Mar 2026</span><span><i
-                                    class="far fa-clock"></i> 6 min</span></div>
-                        <h2 class="blog-card-title">Preparando a la Generación del Mañana</h2>
-                        <p class="blog-card-excerpt">Robótica y pensamiento científico para adolescentes. Transformando
-                            jóvenes consumidores en ingenieros del futuro.</p>
-                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-
-                <!-- Blog 7 -->
-                <a href="/blog-7-ingles-sin-gramatica" class="blog-card" data-aos="fade-up">
-                    <div class="blog-badge">Idiomas</div>
-                    <div class="blog-card-image"></div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 06 Mar 2026</span><span><i
-                                    class="far fa-clock"></i> 5 min</span></div>
-                        <h2 class="blog-card-title">Inglés e Innovación para Niños</h2>
-                        <p class="blog-card-excerpt">Conoce el sistema cognitivo Inmersivo de FastKids donde los niños
-                            asimilan el idioma por medio de neurociencia aplicada, sin exámenes aburridos.</p>
-                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-
-                <!-- Blog 8 -->
-                <a href="/blog-8-educacion-alternativa" class="blog-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="blog-badge">Flexibilidad Educativa</div>
-                    <div class="blog-card-image"></div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 08 Mar 2026</span><span><i
-                                    class="far fa-clock"></i> 7 min</span></div>
-                        <h2 class="blog-card-title">Sistema Tradicional vs Alternativo</h2>
-                        <p class="blog-card-excerpt">Desde niños libres estudiando a través de Homeschooling hasta
-                            ejecutivos maduros graduándose de Universidades Dominicales con preparación para admisión.</p>
-                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-
-                <!-- Blog 9 -->
-                <a href="/blog-9-vencer-examenes-admision" class="blog-card" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <div class="blog-badge">Desempeño Universitario</div>
-                    <div class="blog-card-image"></div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 09 Mar 2026</span><span><i
-                                    class="far fa-clock"></i> 6 min</span></div>
-                        <h2 class="blog-card-title">Rescate y Triunfo Académico</h2>
-                        <p class="blog-card-excerpt">Tácticas implacables para derrotar los exámenes de Admisión a
-                            universidades (UNAM, IPN) o superar problemas graves académicos en tiempo exprés.</p>
-                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-
-                <!-- Blog 10 -->
-                <a href="/blog-10-super-cerebro" class="blog-card" data-aos="fade-up" data-aos-delay="100">
-                    <div class="blog-badge">Biohacking Mental</div>
-                    <div class="blog-card-image"></div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 10 Mar 2026</span><span><i
-                                    class="far fa-clock"></i> 8 min</span></div>
-                        <h2 class="blog-card-title">Técnicas del Súper Cerebro</h2>
-                        <p class="blog-card-excerpt">La conjunción absoluta entre leer 300 páginas en apenas 30 minutos
-                            por medio de la Fotolectura y poseer una Memoria Prodigiosa digna de genios.</p>
-                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-
-                <!-- Blog 11 -->
-                <a href="/blog-11-jovenes-lideres-finanzas" class="blog-card" data-aos="fade-up"
-                    data-aos-delay="200">
-                    <div class="blog-badge">Juventud Ejecutiva</div>
-                    <div class="blog-card-image"></div>
-                    <div class="blog-card-content">
-                        <div class="blog-meta"><span><i class="far fa-calendar"></i> 12 Mar 2026</span><span><i
-                                    class="far fa-clock"></i> 6 min</span></div>
-                        <h2 class="blog-card-title">Liderazgo y Educación Financiera</h2>
-                        <p class="blog-card-excerpt">Rompe con el gran virus de la inestabilidad social enseñando
-                            habilidades de liderazgo de alto rendimiento (oratoria) y administración de finanzas reales.
-                        </p>
-                        <div class="blog-read-more">Leer Artículo <i class="fas fa-arrow-right"></i></div>
-                    </div>
-                </a>
-
+        <!-- Featured Article -->
+        <article class="ed-featured" aria-label="Artículo destacado">
+            <a href="/blog-11-jovenes-lideres-finanzas" class="ed-featured-media"><img src="images/blog_11_cover.webp" alt="Jóvenes líderes y finanzas" loading="eager" fetchpriority="high" width="800" height="450"></a>
+            <div class="ed-featured-body">
+                <div class="ed-featured-meta"><span class="ed-card-category">Liderazgo</span><time datetime="2026-03-12">12 mar 2026</time><span class="ed-card-read-time">6 min</span> · <span>Equipo Editorial WorldBrain</span></div>
+                <h2><a href="/blog-11-jovenes-lideres-finanzas">Liderazgo y Educación Financiera</a></h2>
+                <p>Rompe con la inestabilidad social enseñando habilidades de liderazgo de alto rendimiento y administración de finanzas reales.</p>
             </div>
-        </section>
+        </article>
+
+        <!-- Search & Filters -->
+        <div class="ed-toolbar">
+            <div role="search" aria-label="Buscar artículos">
+                <input type="search" class="ed-search-input" aria-label="Buscar en el blog" placeholder="Buscar artículos…">
+            </div>
+            <div class="ed-chips" role="group" aria-label="Filtrar por tema">
+                <button data-topic="all" aria-pressed="true">Todos</button>
+                <button data-topic="infancia" aria-pressed="false">Infancia</button>
+                <button data-topic="liderazgo" aria-pressed="false">Liderazgo</button>
+                <button data-topic="seo" aria-pressed="false">SEO</button>
+                <button data-topic="cerebro" aria-pressed="false">Cerebro</button>
+                <button data-topic="educacion" aria-pressed="false">Educación</button>
+            </div>
+            <div class="ed-toolbar-actions">
+                <button data-saved-filter aria-pressed="false" aria-label="Ver guardados">Guardados</button>
+                <button class="ed-view-toggle" aria-label="Cambiar vista">Vista</button>
+            </div>
+        </div>
+
+        <div aria-live="polite" class="ed-live"></div>
+        <div data-empty-state hidden>No se encontraron artículos.</div>
+        <noscript><div class="ed-no-js">Activa JavaScript para filtrar y guardar artículos.</div></noscript>
+
+        <!-- Editorial Layout -->
+        <div class="ed-layout">
+            <div class="ed-main-column">
+                <header class="ed-feed-heading"><div><span class="ed-kicker">Archivo editorial</span><h2>Últimas publicaciones</h2></div></header>
+                <div class="ed-feed" data-editorial-feed data-view="grid">
+                    <article class="ed-card" data-slug="blog-11-jovenes-lideres-finanzas" data-topic="liderazgo educacion">
+                        <div class="ed-card-copy">
+                            <div class="ed-card-meta"><span class="ed-card-category">Liderazgo</span><time datetime="2026-03-12">12 mar 2026</time><span class="ed-card-read-time">6 min</span></div>
+                            <h2><a href="/blog-11-jovenes-lideres-finanzas">Liderazgo y Educación Financiera</a></h2>
+                            <p>Rompe con la inestabilidad social enseñando habilidades de liderazgo de alto rendimiento y administración de finanzas reales.</p>
+                        </div>
+                        <a class="ed-card-media" href="/blog-11-jovenes-lideres-finanzas"><img src="images/blog_11_cover.webp" alt="Jóvenes líderes y finanzas" loading="lazy" width="190" height="125"></a>
+                        <button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡</button>
+                    </article>
+
+                    <article class="ed-card" data-slug="blog-10-super-cerebro" data-topic="cerebro educacion">
+                        <div class="ed-card-copy">
+                            <div class="ed-card-meta"><span class="ed-card-category">Cerebro</span><time datetime="2026-03-10">10 mar 2026</time><span class="ed-card-read-time">8 min</span></div>
+                            <h2><a href="/blog-10-super-cerebro">Técnicas del Súper Cerebro</a></h2>
+                            <p>La conjunción absoluta entre Fotolectura a 300 páginas en 30 minutos y poseer una Memoria Prodigiosa digna de genios.</p>
+                        </div>
+                        <a class="ed-card-media" href="/blog-10-super-cerebro"><img src="images/blog_10_cover.webp" alt="Técnicas del súper cerebro" loading="lazy" width="190" height="125"></a>
+                        <button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡</button>
+                    </article>
+
+                    <article class="ed-card" data-slug="blog-9-vencer-examenes-admision" data-topic="educacion cerebro">
+                        <div class="ed-card-copy">
+                            <div class="ed-card-meta"><span class="ed-card-category">Educación</span><time datetime="2026-03-09">9 mar 2026</time><span class="ed-card-read-time">6 min</span></div>
+                            <h2><a href="/blog-9-vencer-examenes-admision">Rescate y Triunfo Académico</a></h2>
+                            <p>Tácticas implacables para derrotar los exámenes de admisión a universidades o superar problemas graves académicos.</p>
+                        </div>
+                        <a class="ed-card-media" href="/blog-9-vencer-examenes-admision"><img src="images/blog_9_cover.webp" alt="Vencer exámenes de admisión" loading="lazy" width="190" height="125"></a>
+                        <button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡</button>
+                    </article>
+
+                    <article class="ed-card" data-slug="blog-8-educacion-alternativa" data-topic="educacion infancia">
+                        <div class="ed-card-copy">
+                            <div class="ed-card-meta"><span class="ed-card-category">Educación</span><time datetime="2026-03-08">8 mar 2026</time><span class="ed-card-read-time">7 min</span></div>
+                            <h2><a href="/blog-8-educacion-alternativa">Sistema Tradicional vs Alternativo</a></h2>
+                            <p>Desde niños libres estudiando a través de Homeschooling hasta ejecutivos maduros graduándose de Universidades Dominicales.</p>
+                        </div>
+                        <a class="ed-card-media" href="/blog-8-educacion-alternativa"><img src="images/blog_8_cover.webp" alt="Educación alternativa y homeschool" loading="lazy" width="190" height="125"></a>
+                        <button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡</button>
+                    </article>
+
+                    <article class="ed-card" data-slug="blog-7-ingles-sin-gramatica" data-topic="infancia educacion">
+                        <div class="ed-card-copy">
+                            <div class="ed-card-meta"><span class="ed-card-category">Infancia</span><time datetime="2026-03-06">6 mar 2026</time><span class="ed-card-read-time">5 min</span></div>
+                            <h2><a href="/blog-7-ingles-sin-gramatica">Inglés e Innovación para Niños</a></h2>
+                            <p>Conoce el sistema cognitivo inmersivo de FastKids donde los niños asimilan el idioma por medio de neurociencia aplicada.</p>
+                        </div>
+                        <a class="ed-card-media" href="/blog-7-ingles-sin-gramatica"><img src="images/blog_7_cover.webp" alt="Inglés sin gramática para niños" loading="lazy" width="190" height="125"></a>
+                        <button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡</button>
+                    </article>
+
+                    <article class="ed-card" data-slug="blog-6-robotica-ciencia-futuro" data-topic="infancia educacion">
+                        <div class="ed-card-copy">
+                            <div class="ed-card-meta"><span class="ed-card-category">Infancia</span><time datetime="2026-03-05">5 mar 2026</time><span class="ed-card-read-time">6 min</span></div>
+                            <h2><a href="/blog-6-robotica-ciencia-futuro">Preparando a la Generación del Mañana</a></h2>
+                            <p>Robótica y pensamiento científico para adolescentes. Transformando jóvenes consumidores en ingenieros del futuro.</p>
+                        </div>
+                        <a class="ed-card-media" href="/blog-6-robotica-ciencia-futuro"><img src="images/blog_6_cover.webp" alt="Robótica y ciencia para el futuro" loading="lazy" width="190" height="125"></a>
+                        <button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡</button>
+                    </article>
+
+                    <article class="ed-card" data-slug="blog-5-eliminar-miedo-matematicas" data-topic="infancia educacion cerebro">
+                        <div class="ed-card-copy">
+                            <div class="ed-card-meta"><span class="ed-card-category">Infancia</span><time datetime="2026-03-02">2 mar 2026</time><span class="ed-card-read-time">6 min</span></div>
+                            <h2><a href="/blog-5-eliminar-miedo-matematicas">Cómo Eliminar el Miedo a los Números</a></h2>
+                            <p>El Ábaco Soroban como herramienta definitiva para pasar del odio a las matemáticas hacia el cálculo mental natural.</p>
+                        </div>
+                        <a class="ed-card-media" href="/blog-5-eliminar-miedo-matematicas"><img src="images/blog_5_cover.webp" alt="Eliminar el miedo a las matemáticas" loading="lazy" width="190" height="125"></a>
+                        <button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡</button>
+                    </article>
+
+                    <article class="ed-card" data-slug="blog-4-despertar-inteligencia-infantil" data-topic="infancia educacion">
+                        <div class="ed-card-copy">
+                            <div class="ed-card-meta"><span class="ed-card-category">Infancia</span><time datetime="2026-02-28">28 feb 2026</time><span class="ed-card-read-time">5 min</span></div>
+                            <h2><a href="/blog-4-despertar-inteligencia-infantil">El Despertar de la Inteligencia Infantil</a></h2>
+                            <p>Cómo estimular tempranamente a los niños con matemáticas básicas y lectoescritura a través de metodologías basadas en el juego.</p>
+                        </div>
+                        <a class="ed-card-media" href="/blog-4-despertar-inteligencia-infantil"><img src="images/blog_4_cover.webp" alt="Despertar inteligencia infantil" loading="lazy" width="190" height="125"></a>
+                        <button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡</button>
+                    </article>
+
+                    <article class="ed-card" data-slug="blog-3-creacion-contenido-seo" data-topic="seo educacion">
+                        <div class="ed-card-copy">
+                            <div class="ed-card-meta"><span class="ed-card-category">SEO</span><time datetime="2026-02-25">25 feb 2026</time><span class="ed-card-read-time">7 min</span></div>
+                            <h2><a href="/blog-3-creacion-contenido-seo">Creación de Contenido Orgánico: La Clave para Dominar el SEO</a></h2>
+                            <p>Guía paso a paso sobre estrategias para estructurar y escribir textos que los motores de búsqueda aman y las personas devoran.</p>
+                        </div>
+                        <a class="ed-card-media" href="/blog-3-creacion-contenido-seo"><img src="images/blog_3_cover.webp" alt="Creación de contenido SEO" loading="lazy" width="190" height="125"></a>
+                        <button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡</button>
+                    </article>
+
+                    <article class="ed-card" data-slug="blog-2-contenido-organico-liderazgo" data-topic="liderazgo seo">
+                        <div class="ed-card-copy">
+                            <div class="ed-card-meta"><span class="ed-card-category">Liderazgo</span><time datetime="2026-02-22">22 feb 2026</time><span class="ed-card-read-time">6 min</span></div>
+                            <h2><a href="/blog-2-contenido-organico-liderazgo">Cómo el Contenido Orgánico Transforma el Liderazgo y la Comunicación</a></h2>
+                            <p>Los líderes modernos no anuncian, comunican valor. Publicar constantemente consolida tu influencia y reputación profesional.</p>
+                        </div>
+                        <a class="ed-card-media" href="/blog-2-contenido-organico-liderazgo"><img src="images/blog_2_cover.webp" alt="Contenido orgánico transforma el liderazgo" loading="lazy" width="190" height="125"></a>
+                        <button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡</button>
+                    </article>
+
+                    <article class="ed-card" data-slug="blog-1-poder-contenido-organico" data-topic="seo liderazgo">
+                        <div class="ed-card-copy">
+                            <div class="ed-card-meta"><span class="ed-card-category">SEO</span><time datetime="2026-02-20">20 feb 2026</time><span class="ed-card-read-time">5 min</span></div>
+                            <h2><a href="/blog-1-poder-contenido-organico">El Poder del Contenido Orgánico en la Era Digital</a></h2>
+                            <p>Descubre por qué el contenido orgánico genera mayor confianza y autoridad a largo plazo en comparación con la publicidad pagada.</p>
+                        </div>
+                        <a class="ed-card-media" href="/blog-1-poder-contenido-organico"><img src="images/blog_1_cover.webp" alt="El poder del contenido orgánico en la era digital" loading="lazy" width="190" height="125"></a>
+                        <button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡</button>
+                    </article>
+                </div>
+            </div>
+            <aside class="ed-aside" aria-label="Explorar el blog">
+                <div class="ed-aside-inner">
+                    <section class="ed-aside-section" aria-labelledby="library-title">
+                        <h2 id="library-title">Tu biblioteca</h2>
+                        <strong class="ed-library-count" data-saved-count>0 guardados</strong>
+                        <p>Guarda lecturas en este navegador para volver a ellas cuando quieras.</p>
+                    </section>
+                    <section class="ed-aside-section" aria-labelledby="topics-title">
+                        <h2 id="topics-title">Temas del archivo</h2>
+                        <div class="ed-topic-list" aria-label="Temas disponibles">
+                            <span>Infancia</span><span>Liderazgo</span><span>SEO</span><span>Cerebro</span><span>Educación</span>
+                        </div>
+                    </section>
+                    <section class="ed-aside-section" aria-labelledby="editorial-title">
+                        <h2 id="editorial-title">Equipo Editorial WorldBrain</h2>
+                        <p>Ideas prácticas sobre aprendizaje acelerado, comunicación y desarrollo de habilidades.</p>
+                    </section>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->
@@ -765,59 +619,6 @@
     </script>
     <script src="js/navbar.min.js?v=20260804" defer></script>
     
-    <!-- Dynamic Blog Posts Loader for Make.com Automation -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            fetch('/api/posts')
-                .then(response => response.json())
-                .then(posts => {
-                    const grid = document.querySelector('.blog-grid');
-                    if (grid && posts && posts.length > 0) {
-                        posts.forEach(post => {
-                            const card = document.createElement('a');
-                            card.href = post.filename;
-                            card.className = 'blog-card';
-                            card.setAttribute('data-aos', 'fade-up');
-                            
-                            // Determinar icono o estilo visual según la categoría
-                            let iconClass = 'fa-brain';
-                            if (post.category.toLowerCase().includes('pareja') || post.category.toLowerCase().includes('relaciones')) {
-                                iconClass = 'fa-heart';
-                            } else if (post.category.toLowerCase().includes('trauma') || post.category.toLowerCase().includes('sanacion')) {
-                                iconClass = 'fa-hand-holding-heart';
-                            } else if (post.category.toLowerCase().includes('psico')) {
-                                iconClass = 'fa-user-md';
-                            }
-
-                            card.innerHTML = `
-                                <div class="blog-badge">${post.category}</div>
-                                <div class="blog-card-image" style="background: linear-gradient(135deg, rgba(37,99,235,0.1) 0%, rgba(12,10,29,0.9) 100%); display: flex; align-items: center; justify-content: center; height: 200px; border-bottom: 1px solid rgba(255,255,255,0.1);">
-                                    <i class="fas ${iconClass}" style="font-size: 3.5rem; color: #2563eb; filter: drop-shadow(0 0 10px rgba(37,99,235,0.3));"></i>
-                                </div>
-                                <div class="blog-card-content">
-                                    <div class="blog-meta">
-                                        <span><i class="far fa-calendar"></i> ${post.date}</span>
-                                        <span><i class="far fa-clock"></i> ${post.readTime}</span>
-                                    </div>
-                                    <h2 class="blog-card-title">${post.title}</h2>
-                                    <p class="blog-card-excerpt">${post.excerpt}</p>
-                                    <div class="blog-read-more">
-                                        Leer Artículo <i class="fas fa-arrow-right"></i>
-                                    </div>
-                                </div>
-                            `;
-                            // Prepend en la rejilla para que aparezca antes de los estáticos
-                            grid.insertBefore(card, grid.firstChild);
-                        });
-                        
-                        // Re-inicializar AOS si está cargado para animar las nuevas tarjetas
-                        if (window.AOS) {
-                            window.AOS.refresh();
-                        }
-                    }
-                })
-                .catch(err => console.error('Error cargando posts automatizados:', err));
-        });
-    </script>
+    <script src="js/blog-editorial.js" defer></script>
 </body>
 </html>

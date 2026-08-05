@@ -59,6 +59,7 @@
     <link rel="dns-prefetch" href="//unpkg.com">
     <link rel="stylesheet" href="css/styles.min.css">
     <link rel="stylesheet" href="css/blog.min.css">
+    <link rel="stylesheet" href="css/blog-editorial.css">
     <link rel="stylesheet" href="css/marketing-toolkit.min.css">
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -324,7 +325,9 @@
 
 
 
-    <main role="main" style="background: var(--bg-body);">
+    <main id="main-content" role="main" style="background: var(--bg-body);">
+        <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
+        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
         <header class="blog-post-hero">
             <div class="container blog-post-header">
                 <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
@@ -503,6 +506,7 @@
             });
         }
     </script>
+    <script src="js/blog-article.js" defer></script>
     <script src="js/navbar.min.js?v=20260804" defer></script>
     </body>
 

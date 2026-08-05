@@ -18,6 +18,7 @@ const loadedEnvKeys = loadEnvFile(path.join(__dirname, '.env'));
 
 const { sendCapiEvent } = require('./js/capi');
 const leads = require('./js/leads');
+const { sanitizeBlogContent } = require('./js/blog-sanitizer');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -63,6 +64,7 @@ const PRIVATE_FILES = new Set([
   '/js/capi.js',
   '/js/leads.js',
   '/js/env-file.js',
+  '/js/blog-sanitizer.js',
   '/fix_founding_year.py',
   '/fix_fake_testimonials.py',
   '/update_global_testimonials.py',
@@ -543,8 +545,10 @@ app.post('/api/posts', authenticateBlogAPI, (req, res) => {
       try { posts = JSON.parse(fs.readFileSync(postsPath, 'utf8')); } catch (e) { posts = []; }
     }
     const i = posts.findIndex(p => p.slug === cleanSlug);
-    if (i !== -1) posts[i] = meta; else posts.unshift(meta);
-    fs.writeFileSync(postsPath, JSON.stringify(posts, null, 2));
+    const nextPosts = i !== -1
+      ? posts.map((post, index) => index === i ? meta : post)
+      : [meta, ...posts];
+    fs.writeFileSync(postsPath, JSON.stringify(nextPosts, null, 2));
     sitemapCache = null; // invalidar: el nuevo post entra al sitemap al instante
     res.json({ success: true, url: `/blog-${cleanSlug}`, slug: cleanSlug });
   } catch (error) {
@@ -567,6 +571,7 @@ function jsonLd(value) {
 }
 
 function buildBlogHtml(m, content) {
+  const safeContent = sanitizeBlogContent(content);
   const url = `${BASE}/blog-${m.slug}`;
   const image = `${BASE}/images/fl-hero-brain.webp`;
 
@@ -650,7 +655,7 @@ nav a{color:var(--ink);text-decoration:none;font-weight:500}
 <nav><a href="/">← WorldBrain</a> · <a href="/blog-index">Blog</a></nav>
 <h1>${escapeHtml(m.title)}</h1>
 <p class="meta">${escapeHtml(m.category)} · ${escapeHtml(m.date)} · ${escapeHtml(m.readTime)} · ${escapeHtml(m.author)}</p>
-<article>${content}</article>
+<article>${safeContent}</article>
 <div class="cta">
 <h3 style="font-family:'Instrument Serif',serif;font-weight:400;margin:0">Aprende a la velocidad de tu potencial</h3>
 <p style="color:rgba(246,244,238,.7)">Agenda una clase muestra gratuita y descubre de lo que eres capaz.</p>

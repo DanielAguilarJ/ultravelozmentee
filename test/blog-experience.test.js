@@ -79,10 +79,12 @@ const BLOG_SLUGS = [
   'blog-11-jovenes-lideres-finanzas',
 ];
 
-test('blog-index: 11 cards as <article> with semantic structure', () => {
+test('blog-index: cards as <article> with semantic structure', () => {
   const { document } = dom(readFile('blog-index.html')).window;
   const articles = document.querySelectorAll('article.ed-card');
-  assert.equal(articles.length, 11, `Expected 11 <article.ed-card>, got ${articles.length}`);
+  // El conteo crece cada vez que se publica: se afirma el mínimo histórico y
+  // se valida la estructura de TODAS las tarjetas, que es lo que importa.
+  assert.ok(articles.length >= 11, `Expected at least 11 <article.ed-card>, got ${articles.length}`);
   articles.forEach((art, i) => {
     assert.ok(art.querySelector('h2'), `Card ${i + 1} missing <h2>`);
     assert.ok(art.querySelector('p'), `Card ${i + 1} missing <p> excerpt`);
@@ -92,12 +94,16 @@ test('blog-index: 11 cards as <article> with semantic structure', () => {
 test('blog-index: each card has local cover image from images/', () => {
   const { document } = dom(readFile('blog-index.html')).window;
   const cards = document.querySelectorAll('article.ed-card');
-  assert.equal(cards.length, 11);
+  assert.ok(cards.length >= 11);
   cards.forEach((card, i) => {
     const img = card.querySelector('img');
     assert.ok(img, `Card ${i + 1} missing <img>`);
     const src = img.getAttribute('src') || '';
-    assert.ok(src.startsWith('images/blog_'), `Card ${i + 1} img src should start with images/blog_, got: ${src}`);
+    // La intención del test es "imagen LOCAL desde images/", no el prefijo
+    // blog_ de la serie vieja: los 60 posts usan images/<curso>.webp, también
+    // locales. Se afirma images/ (local, no externa) y se conservan las demás
+    // comprobaciones (.webp, alt, lazy, dimensiones).
+    assert.ok(src.startsWith('images/'), `Card ${i + 1} img src should be local (images/), got: ${src}`);
     assert.ok(src.endsWith('.webp'), `Card ${i + 1} img should be .webp`);
     assert.ok(img.getAttribute('alt'), `Card ${i + 1} img missing alt`);
     assert.ok(img.getAttribute('loading') === 'lazy', `Card ${i + 1} img missing loading=lazy`);
@@ -344,14 +350,24 @@ function visibleStaticCards(document) {
 test('blog behaviour: search filters static stories and updates live result count', async () => {
   const instance = await bootBrowserScript('blog-index.html', 'js/blog-editorial.js');
   const { document, Event } = instance.window;
+  const term = 'robótica';
+  const norm = (s) => s.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  const esperadas = [...document.querySelectorAll('article.ed-card')]
+    .filter((c) => norm(c.textContent || '').includes(norm(term)));
+
   const input = document.querySelector('input[type="search"]');
-  input.value = 'robótica';
+  input.value = term;
   input.dispatchEvent(new Event('input', { bubbles: true }));
 
   const visible = visibleStaticCards(document);
-  assert.equal(visible.length, 1);
-  assert.equal(visible[0].dataset.slug, 'blog-6-robotica-ciencia-futuro');
-  assert.match(document.querySelector('[aria-live="polite"]').textContent, /1/);
+  // Se compara contra las tarjetas que realmente contienen el término, no
+  // contra un número fijo: así el test sigue siendo válido al publicar más.
+  assert.ok(esperadas.length > 0, 'El término de prueba debe existir en el índice');
+  assert.equal(visible.length, esperadas.length);
+  visible.forEach((card) => {
+    assert.ok(norm(card.textContent || '').includes(norm(term)), 'Toda tarjeta visible debe contener el término');
+  });
+  assert.match(document.querySelector('[aria-live="polite"]').textContent, new RegExp(String(visible.length)));
   instance.window.close();
 });
 
@@ -448,13 +464,13 @@ test('article behaviour: bookmark and progress state update through blog-article
    13. Editorial hierarchy — prevent regression to a generic card grid
    ───────────────────────────────────────────────────────────────── */
 
-test('editorial hierarchy: featured story is separate from the 11-item feed', () => {
+test('editorial hierarchy: featured story is separate from the feed', () => {
   const { document } = dom(readFile('blog-index.html')).window;
   const featured = document.querySelector('article.ed-featured[aria-label]');
   assert.ok(featured, 'A separate article.ed-featured is required');
   assert.equal(featured.classList.contains('ed-card'), false, 'Featured story must not count as a feed card');
   assert.match(featured.querySelector('img').getAttribute('src'), /blog_11_cover\.webp$/);
-  assert.equal(document.querySelectorAll('article.ed-card').length, 11);
+  assert.ok(document.querySelectorAll('article.ed-card').length >= 11);
 });
 
 test('editorial hierarchy: hero exposes kicker and concise collection facts', () => {
@@ -476,7 +492,13 @@ test('editorial hierarchy: desktop layout has a main feed and a sticky editorial
 test('editorial hierarchy: feed rows expose publication, category, time and linked thumbnail', () => {
   const { document } = dom(readFile('blog-index.html')).window;
   const cards = [...document.querySelectorAll('article.ed-card')];
-  assert.equal(cards[0].dataset.slug, 'blog-11-jovenes-lideres-finanzas', 'Feed should be newest first');
+  // Se comprueba la propiedad que el nombre del test afirma —que el feed va de
+  // más reciente a más antiguo— en vez de fijar un slug concreto, que cambia
+  // cada vez que se publica algo más nuevo.
+  const fechas = cards.map((c) => c.querySelector('time[datetime]')?.getAttribute('datetime') || '');
+  assert.ok(fechas.every(Boolean), 'Toda tarjeta necesita time[datetime]');
+  const ordenadas = [...fechas].sort().reverse();
+  assert.deepEqual(fechas, ordenadas, 'Feed should be newest first');
   cards.forEach((card, index) => {
     assert.ok(card.querySelector('.ed-card-meta'), `Card ${index + 1} metadata missing`);
     assert.ok(card.querySelector('.ed-card-category'), `Card ${index + 1} category missing`);

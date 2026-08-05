@@ -146,6 +146,15 @@
   align-items: start;
 }
 
+/* El filtro por tema, el buscador y "Guardados" ocultan tarjetas con
+   card.hidden = true, pero `display: grid` de arriba gana sobre el
+   [hidden] del navegador, así que no se ocultaba ninguna y los filtros
+   no hacían nada. Con 71 tarjetas eso deja el buscador inservible. */
+.ed-card[hidden],
+.ed-featured[hidden] {
+  display: none !important;
+}
+
 .ed-card-copy {
   min-width: 0;
 }
@@ -996,11 +1005,34 @@ html.light-mode {
     padding: 0.8rem 1rem;
   }
 
+  /* min-width: 0 es lo que faltaba. Con flex-wrap: nowrap los chips tienen
+     un min-content de ~464px y, al ser min-width: auto por defecto, no podían
+     encogerse: eso inflaba el ancho de la línea flex y, vía
+     align-items: stretch, arrastraba al buscador fuera de la pantalla
+     (90px de desborde a 390px, 139px a 414px). Ahora los chips se ajustan al
+     ancho disponible y su propio overflow-x da el scroll horizontal previsto. */
+  .ed-toolbar > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  /* En fila, `flex: 1 1 15rem` sobre el buscador significa "al menos 240px de
+     ancho". Al pasar a columna ese basis se interpreta como ALTURA, así que el
+     envoltorio del input reservaba 240px de alto para un campo de 44px y dejaba
+     ~196px de hueco vacío bajo el buscador. Va en este bloque y no en el de
+     640px de más arriba porque la regla base está después en el archivo y
+     ganaba por orden de cascada. */
+  .ed-toolbar [role="search"] {
+    flex: 0 0 auto;
+  }
+
   .ed-chips {
     flex-wrap: nowrap;
     padding-bottom: 0.3rem;
     overflow-x: auto;
+    overscroll-behavior-x: contain;
     scrollbar-width: thin;
+    min-width: 0;
   }
 
   .ed-toolbar-actions {

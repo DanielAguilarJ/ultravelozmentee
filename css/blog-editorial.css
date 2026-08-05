@@ -1018,3 +1018,90 @@ html.light-mode {
     gap: 0.4rem;
   }
 }
+
+/* ===== Bloques del artículo SEO (60 posts): respuesta rápida, FAQ, fuentes ===== */
+.ed-quick-answer {
+  background: var(--ed-bg-card);
+  border: 1px solid var(--ed-border);
+  border-left: 4px solid var(--ed-violet);
+  border-radius: var(--ed-radius);
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+}
+
+.ed-quick-answer h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--ed-violet);
+  font-size: 1.05rem;
+  margin: 0 0 0.75rem;
+}
+
+.ed-quick-answer p {
+  margin: 0;
+  color: var(--ed-text);
+}
+
+.ed-faq-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin: 1.5rem 0 2rem;
+}
+
+.ed-faq-item {
+  background: var(--ed-bg-card);
+  border: 1px solid var(--ed-border);
+  border-radius: var(--ed-radius);
+  padding: 1.25rem 1.5rem;
+  transition: border-color var(--ed-transition);
+}
+
+.ed-faq-item:hover {
+  border-color: var(--ed-violet-light);
+}
+
+.ed-faq-item h4 {
+  margin: 0 0 0.5rem;
+  color: var(--ed-text);
+  font-size: 1rem;
+}
+
+.ed-faq-item p {
+  margin: 0;
+  color: var(--ed-text-secondary);
+}
+
+.ed-sources-list {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 2rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.ed-sources-list li {
+  font-size: 0.9rem;
+  color: var(--ed-text-secondary);
+  padding-left: 1.25rem;
+  position: relative;
+}
+
+.ed-sources-list li::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  color: var(--ed-violet);
+}
+
+.ed-sources-list a {
+  color: var(--ed-violet-light);
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.ed-sources-list a:hover {
+  text-decoration: underline;
+}

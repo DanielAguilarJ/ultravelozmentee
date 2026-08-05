@@ -506,7 +506,9 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  align-items: center;
+  /* stretch, no center: con center cada botón tomaba el ancho de su
+     texto y el rail quedaba con el borde dentado. */
+  align-items: stretch;
   padding: 0.75rem;
   background: var(--ed-bg-card);
   border: 1px solid var(--ed-border);
@@ -518,6 +520,8 @@
 .ed-article-toolbar button {
   display: inline-flex;
   align-items: center;
+  /* Texto centrado dentro de botones ya igualados por stretch. */
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -527,6 +531,7 @@
   cursor: pointer;
   font-size: 0.875rem;
   text-decoration: none;
+  white-space: nowrap;
   transition: background var(--ed-transition);
 }
 
@@ -849,7 +854,11 @@ html.light-mode {
 
 /* Reading view */
 .blog-post-hero {
-  padding: 10.5rem 1.5rem 5.5rem;
+  /* Sin padding horizontal: el inset lo aplica .blog-post-header, igual
+     que .blog-content lo aplica en su propia caja. Si el hero insetea
+     por fuera y el cuerpo por dentro, los bordes solo coinciden por
+     casualidad a un ancho concreto. */
+  padding: 10.5rem 0 5.5rem;
   text-align: left;
   background:
     radial-gradient(circle at 78% 20%, rgba(124, 58, 237, 0.18), transparent 35%),
@@ -857,11 +866,14 @@ html.light-mode {
   border-bottom: 1px solid var(--ed-border);
 }
 
-/* El hero y el cuerpo comparten la misma medida para que el borde
-   izquierdo del título coincida con el del texto en escritorio. */
+/* El hero y el cuerpo comparten medida Y padding, así que el borde
+   izquierdo del título coincide con el del texto en cualquier ancho.
+   El padding explícito anula el de .container (24px/16px), que era
+   la causa del desfase de 16px en móvil. */
 .blog-post-header {
   max-width: var(--ed-measure, 760px);
   margin-inline: auto;
+  padding-inline: 1.5rem;
 }
 
 .blog-post-title {
@@ -1180,7 +1192,15 @@ html.light-mode {
 /* ===== Ajustes responsive del artículo ===== */
 @media (max-width: 900px) {
   .blog-post-hero {
-    padding: 8rem 1.25rem 3.5rem;
+    padding: 8rem 0 3.5rem;
+  }
+
+  .blog-post-header {
+    padding-inline: 1.25rem;
+  }
+
+  .blog-content {
+    padding-inline: 1.25rem;
   }
 
   .blog-post-title {
@@ -1190,11 +1210,18 @@ html.light-mode {
 
 @media (max-width: 640px) {
   .blog-post-hero {
-    padding: 7rem 1.15rem 2.75rem;
+    padding: 7rem 0 2.75rem;
+  }
+
+  /* Ambos al mismo valor: es lo que mantiene alineado el título con el
+     cuerpo del texto en móvil. */
+  .blog-post-header,
+  .blog-content {
+    padding-inline: 1.15rem;
   }
 
   .blog-content {
-    padding: 0 1.15rem 4.5rem;
+    padding-bottom: 4.5rem;
     line-height: 1.7;
   }
 

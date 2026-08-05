@@ -6,6 +6,7 @@ como fuente de metadatos (título, imagen, curso, categoría, fecha)."""
 from __future__ import annotations
 
 import json
+import struct
 from datetime import date
 from pathlib import Path
 
@@ -59,6 +60,33 @@ def word_count_of(post: dict) -> int:
 def esc(text: str) -> str:
     """Escapa comillas dobles para atributos HTML (el texto ya viene en UTF-8 válido)."""
     return text.replace('"', "&quot;")
+
+
+def webp_size(rel_path: str) -> tuple[int, int] | None:
+    """Lee el tamaño intrínseco de un .webp para poder emitir width/height
+    reales en el <img> y evitar reflow de layout (CLS). Devuelve None si el
+    archivo no existe o el formato no se reconoce."""
+    path = ROOT / rel_path
+    if not path.is_file():
+        return None
+    data = path.read_bytes()
+    if data[:4] != b"RIFF" or data[8:12] != b"WEBP":
+        return None
+    fmt = data[12:16]
+    if fmt == b"VP8X":
+        return (
+            int.from_bytes(data[24:27], "little") + 1,
+            int.from_bytes(data[27:30], "little") + 1,
+        )
+    if fmt == b"VP8 ":
+        i = data.find(b"\x9d\x01\x2a")
+        if i > 0:
+            w, h = struct.unpack("<HH", data[i + 3 : i + 7])
+            return w & 0x3FFF, h & 0x3FFF
+    if fmt == b"VP8L":
+        n = int.from_bytes(data[21:25], "little")
+        return (n & 0x3FFF) + 1, ((n >> 14) & 0x3FFF) + 1
+    return None
 
 
 def render_head(meta: dict, post: dict) -> str:
@@ -470,8 +498,8 @@ def render_body(meta: dict, post: dict, wc: int) -> str:
 
     faq_items = "\n".join(
         f"""            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item">
-                <h4>{qa['question']}</h4>
+            <div class="ed-faq-item seo-faq-item">
+                <h3>{qa['question']}</h3>
                 <p>{qa['answer']}</p>
             </div>
             <!-- SEO:FAQ:END -->"""
@@ -485,6 +513,10 @@ def render_body(meta: dict, post: dict, wc: int) -> str:
 
     lead_paragraphs = "\n".join(f'            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">{p}</p>' for p in post["lead"][:1])
     extra_lead = "\n".join(f"            <p>{p}</p>" for p in post["lead"][1:])
+
+    # width/height reales: reservan la caja antes de que cargue la imagen.
+    dims = webp_size(meta["image"])
+    dim_attrs = f' width="{dims[0]}" height="{dims[1]}"' if dims else ""
 
     return f"""{NAVBAR}
     <main id="main-content" role="main" style="background: var(--bg-body);">
@@ -507,7 +539,7 @@ def render_body(meta: dict, post: dict, wc: int) -> str:
         </header>
 
         <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
-            <img src="{meta['image']}" alt="{meta['title']}">
+            <img src="{meta['image']}" alt="{esc(meta['title'])}"{dim_attrs} fetchpriority="high" decoding="async">
         </div>
 
         <article class="blog-content">
@@ -515,7 +547,7 @@ def render_body(meta: dict, post: dict, wc: int) -> str:
 {extra_lead}
 
             <div class="ed-quick-answer" data-aos="fade-up">
-                <h3><i class="fas fa-bolt"></i> Respuesta rápida</h3>
+                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
                 <p>{post['quick_answer']}</p>
             </div>
 
@@ -542,7 +574,7 @@ def render_body(meta: dict, post: dict, wc: int) -> str:
             <div class="blog-author">
                 <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
                 <div class="blog-author-info">
-                    <h4>Equipo Editorial WorldBrain</h4>
+                    <h3>Equipo Editorial WorldBrain</h3>
                     <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
                 </div>
             </div>

@@ -506,7 +506,9 @@
   display: flex;
   flex-direction: column;
   gap: 0.75rem;
-  align-items: center;
+  /* stretch, no center: con center cada botón tomaba el ancho de su
+     texto y el rail quedaba con el borde dentado. */
+  align-items: stretch;
   padding: 0.75rem;
   background: var(--ed-bg-card);
   border: 1px solid var(--ed-border);
@@ -518,6 +520,8 @@
 .ed-article-toolbar button {
   display: inline-flex;
   align-items: center;
+  /* Texto centrado dentro de botones ya igualados por stretch. */
+  justify-content: center;
   gap: 0.5rem;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
@@ -527,6 +531,7 @@
   cursor: pointer;
   font-size: 0.875rem;
   text-decoration: none;
+  white-space: nowrap;
   transition: background var(--ed-transition);
 }
 
@@ -563,6 +568,18 @@
 :root {
   --ed-toolbar-bg: rgba(12, 10, 29, 0.92);
   --ed-surface-soft: rgba(255, 255, 255, 0.035);
+  /* Medida de lectura compartida por el hero y el cuerpo del artículo. */
+  --ed-measure: 760px;
+  /* Acento SOLO para texto: el violeta base no alcanza 4.5:1 sobre el
+     fondo oscuro, así que en tema oscuro se usa la variante clara.
+     Medido: 6.3:1 sobre --ed-bg-card, 7.2:1 sobre --ed-bg. */
+  --ed-accent-text: var(--ed-violet-light);
+}
+
+html.light-mode {
+  /* En claro se invierte: la variante clara daría 2.6:1 sobre #f8fafc.
+     El violeta base mide 5.5:1 sobre --ed-bg y 5.7:1 sobre blanco. */
+  --ed-accent-text: var(--ed-violet);
 }
 
 html.light-mode {
@@ -837,7 +854,11 @@ html.light-mode {
 
 /* Reading view */
 .blog-post-hero {
-  padding: 10.5rem 1.5rem 5.5rem;
+  /* Sin padding horizontal: el inset lo aplica .blog-post-header, igual
+     que .blog-content lo aplica en su propia caja. Si el hero insetea
+     por fuera y el cuerpo por dentro, los bordes solo coinciden por
+     casualidad a un ancho concreto. */
+  padding: 10.5rem 0 5.5rem;
   text-align: left;
   background:
     radial-gradient(circle at 78% 20%, rgba(124, 58, 237, 0.18), transparent 35%),
@@ -845,21 +866,31 @@ html.light-mode {
   border-bottom: 1px solid var(--ed-border);
 }
 
+/* El hero y el cuerpo comparten medida Y padding, así que el borde
+   izquierdo del título coincide con el del texto en cualquier ancho.
+   El padding explícito anula el de .container (24px/16px), que era
+   la causa del desfase de 16px en móvil. */
 .blog-post-header {
-  max-width: 820px;
+  max-width: var(--ed-measure, 760px);
+  margin-inline: auto;
+  padding-inline: 1.5rem;
 }
 
 .blog-post-title {
-  max-width: 18ch;
+  /* 18ch partía los títulos largos en 4-5 líneas; 30ch respeta la
+     medida óptima sin fragmentar el titular. */
+  max-width: 30ch;
   margin-right: auto;
-  font-size: clamp(2.35rem, 6vw, 4.5rem);
-  line-height: 1.04;
-  letter-spacing: -0.045em;
+  font-size: clamp(2.1rem, 5vw, 3.75rem);
+  line-height: 1.08;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
 }
 
 .blog-post-meta {
   justify-content: flex-start;
   flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
 }
 
 .blog-post-cover {
@@ -872,10 +903,12 @@ html.light-mode {
 }
 
 .blog-content {
+  max-width: var(--ed-measure, 760px);
+  margin-inline: auto;
   padding: 0 1.5rem 7rem;
   color: var(--ed-text);
-  font-size: clamp(1.08rem, 1.4vw, 1.18rem);
-  line-height: 1.86;
+  font-size: clamp(1.05rem, 1.3vw, 1.15rem);
+  line-height: 1.75;
 }
 
 .blog-content h2,
@@ -906,6 +939,20 @@ html.light-mode {
   background: var(--ed-surface-soft);
   border: 1px solid var(--ed-border);
   border-radius: var(--ed-radius);
+}
+
+/* El nombre del autor pasó de h4 a h3 para no saltar niveles de
+   encabezado; conserva su escala de etiqueta, no de sección. */
+.blog-author h3 {
+  margin: 0 0 0.35rem;
+  font-size: 1.05rem;
+  line-height: 1.3;
+  font-weight: 600;
+  color: var(--ed-text);
+}
+
+.blog-author h3::after {
+  content: none;
 }
 
 @media (pointer: fine) and (hover: hover) {
@@ -1029,13 +1076,22 @@ html.light-mode {
   margin: 2rem 0;
 }
 
-.ed-quick-answer h3 {
+.ed-quick-answer h2 {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  color: var(--ed-violet);
+  color: var(--ed-accent-text);
+  /* Es un H2 por jerarquía de documento, pero visualmente es una
+     etiqueta del bloque: no debe competir con los H2 de sección. */
   font-size: 1.05rem;
+  line-height: 1.3;
+  letter-spacing: 0.01em;
   margin: 0 0 0.75rem;
+  padding: 0;
+}
+
+.ed-quick-answer h2::after {
+  content: none;
 }
 
 .ed-quick-answer p {
@@ -1062,15 +1118,21 @@ html.light-mode {
   border-color: var(--ed-violet-light);
 }
 
-.ed-faq-item h4 {
+.ed-faq-item h3 {
   margin: 0 0 0.5rem;
   color: var(--ed-text);
-  font-size: 1rem;
+  /* La pregunta debe pesar más que la respuesta: antes iba a 1rem,
+     por debajo del cuerpo del artículo, e invertía la jerarquía. */
+  font-size: 1.0625rem;
+  line-height: 1.4;
+  font-weight: 600;
+  text-wrap: balance;
 }
 
 .ed-faq-item p {
   margin: 0;
   color: var(--ed-text-secondary);
+  line-height: 1.7;
 }
 
 .ed-sources-list {
@@ -1093,15 +1155,92 @@ html.light-mode {
   content: "→";
   position: absolute;
   left: 0;
-  color: var(--ed-violet);
+  color: var(--ed-accent-text);
 }
 
 .ed-sources-list a {
-  color: var(--ed-violet-light);
+  color: var(--ed-accent-text);
   text-decoration: none;
   font-weight: 500;
 }
 
 .ed-sources-list a:hover {
   text-decoration: underline;
+}
+
+/* ===== Accesibilidad: focus visible en todo el artículo =====
+   Sin esto, navegar el artículo con teclado no mostraba dónde
+   estaba el foco en los enlaces de fuentes ni en el CTA. */
+.blog-content a:focus-visible,
+.ed-sources-list a:focus-visible,
+.blog-cta-box a:focus-visible,
+.ed-article-toolbar a:focus-visible,
+.ed-article-toolbar button:focus-visible {
+  outline: 2px solid var(--ed-violet-light);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+/* ===== Imágenes: reservar espacio para evitar reflow (CLS) ===== */
+.blog-post-cover img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ===== Ajustes responsive del artículo ===== */
+@media (max-width: 900px) {
+  .blog-post-hero {
+    padding: 8rem 0 3.5rem;
+  }
+
+  .blog-post-header {
+    padding-inline: 1.25rem;
+  }
+
+  .blog-content {
+    padding-inline: 1.25rem;
+  }
+
+  .blog-post-title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .blog-post-hero {
+    padding: 7rem 0 2.75rem;
+  }
+
+  /* Ambos al mismo valor: es lo que mantiene alineado el título con el
+     cuerpo del texto en móvil. */
+  .blog-post-header,
+  .blog-content {
+    padding-inline: 1.15rem;
+  }
+
+  .blog-content {
+    padding-bottom: 4.5rem;
+    line-height: 1.7;
+  }
+
+  .blog-post-cover {
+    width: 100%;
+    min-height: 210px;
+    height: 46vw;
+    margin-top: -1.25rem;
+    border-radius: 0;
+    border-inline: 0;
+  }
+
+  .ed-quick-answer,
+  .ed-faq-item {
+    padding: 1.1rem 1.15rem;
+  }
+
+  .blog-post-meta {
+    gap: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
 }

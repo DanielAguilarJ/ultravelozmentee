@@ -388,13 +388,78 @@ h2.title .g{color:var(--green)}
 .form-step small{font-size:.72rem;color:var(--text-dim)}
 
 /* ---------- Footer ---------- */
-footer{border-top:1px solid var(--line-2);background:var(--bg-2);padding:4rem 0 2rem;font-size:.88rem}
-.foot-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr 1fr;gap:2.4rem;margin-bottom:3rem}
-footer h4{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:1.1rem}
-footer ul{list-style:none;display:flex;flex-direction:column;gap:.5rem}
+footer{font-size:.88rem;padding-top:clamp(3rem,7vw,5.5rem)}
+
+/* Carcasa: panel redondeado que "aterriza" al final de la página,
+   como la carcasa de una consola. */
+.foot-shell{
+  position:relative;overflow:hidden;isolation:isolate;
+  background:var(--panel);
+  border:1px solid var(--line-2);border-bottom:0;
+  border-radius:24px 24px 0 0;
+  padding:clamp(2rem,4vw,3.2rem) clamp(1.2rem,3.2vw,2.8rem) 0;
+}
+.foot-shell::before{
+  content:"";position:absolute;inset:0 0 auto;height:1px;pointer-events:none;
+  background:linear-gradient(90deg,transparent,rgba(90,247,142,.55),transparent);
+}
+
+.foot-grid{
+  display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;
+  gap:clamp(1.6rem,3vw,2.6rem);align-items:start;
+}
+.foot-brand .logo{font-size:1.2rem;text-decoration:none}
+.foot-tag{margin-top:.85rem;color:var(--text-dim);max-width:34ch}
+
+.foot-chip{
+  display:inline-flex;align-items:center;gap:.5rem;margin-top:1.2rem;
+  font-family:var(--mono);font-size:.66rem;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--green);background:rgba(90,247,142,.08);
+  border:1px solid var(--line);border-radius:999px;padding:.4rem .8rem;
+}
+.foot-chip i{
+  width:7px;height:7px;border-radius:50%;background:var(--green);flex:none;
+  box-shadow:0 0 0 0 rgba(90,247,142,.65);animation:footPulse 2.4s infinite;
+}
+@keyframes footPulse{
+  70%{box-shadow:0 0 0 9px rgba(90,247,142,0)}
+  100%{box-shadow:0 0 0 0 rgba(90,247,142,0)}
+}
+.foot-actions{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.4rem}
+.foot-actions .btn{padding:.75rem 1.2rem;font-size:.78rem}
+
+footer h4{font-family:var(--mono);font-size:.66rem;letter-spacing:.18em;text-transform:uppercase;color:var(--green);margin-bottom:1.05rem}
+footer ul{list-style:none;display:flex;flex-direction:column;gap:.34rem}
 footer a{text-decoration:none;color:var(--text-dim);transition:color .2s}
 footer a:hover{color:var(--green)}
-.foot-legal{border-top:1px solid var(--line-2);padding-top:1.5rem;font-size:.72rem;color:var(--text-dim);opacity:.7;display:flex;flex-wrap:wrap;gap:1rem;justify-content:space-between}
+
+/* Enlace con la etiqueta duplicada: al pasar el cursor la copia
+   verde sube y sustituye a la original. */
+.fl{display:inline-block;color:var(--text)}
+.fl-in{display:block;position:relative;overflow:hidden;height:1.5em}
+.fl-in span{display:block;line-height:1.5em;transition:transform .4s var(--spring)}
+.fl-in span:last-child{color:var(--green)}
+.fl:hover .fl-in span,.fl:focus-visible .fl-in span{transform:translateY(-1.5em)}
+.fl[aria-current] .fl-in span:first-child{color:var(--green)}
+.fl-mini{font-size:.8rem;opacity:.72}
+.fl-mini:hover,.fl-mini:focus-visible{opacity:1}
+
+.foot-legal{
+  border-top:1px solid var(--line-2);margin-top:clamp(2rem,4vw,3rem);padding-top:1.4rem;
+  font-size:.72rem;color:var(--text-dim);opacity:.72;
+  display:flex;flex-wrap:wrap;gap:.6rem 1.4rem;justify-content:space-between;
+}
+.foot-legal a{color:inherit;text-decoration:underline;text-decoration-color:rgba(255,255,255,.22);text-underline-offset:3px}
+
+/* Panel LED: los "ojos" del robot dibujados sobre una matriz de
+   puntos. El canvas se pinta desde JS (ver footer LED al final). */
+.foot-eyes{
+  position:relative;margin-top:clamp(1.6rem,3.4vw,2.6rem);
+  height:clamp(150px,21vw,300px);overflow:hidden;
+  -webkit-mask-image:linear-gradient(180deg,#000 0 96%,transparent 100%);
+  mask-image:linear-gradient(180deg,#000 0 96%,transparent 100%);
+}
+.foot-eyes canvas{display:block;width:100%;height:100%}
 
 /* ---------- WhatsApp ---------- */
 .wa{
@@ -416,10 +481,14 @@ footer a:hover{color:var(--green)}
   .pgrid,.testimonials-grid,.nodes{grid-template-columns:1fr 1fr}
   .kit-grid{grid-template-columns:1fr}
   .foot-grid{grid-template-columns:1fr 1fr}
+  .foot-brand{grid-column:1/-1}
+  .foot-tag{max-width:58ch}
   section{padding:4.4rem 0}
 }
 @media (max-width:520px){
   .pgrid,.nodes,.testimonials-grid{grid-template-columns:1fr}
+  .foot-grid{grid-template-columns:1fr}
+  .foot-legal{justify-content:flex-start}
 }
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important}
@@ -1009,52 +1078,69 @@ footer a:hover{color:var(--green)}
 <!-- ═══════════ FOOTER ═══════════ -->
 <footer>
   <div class="wrap">
-    <div class="foot-grid">
-      <div>
-        <a class="logo" href="/">World<span>Brain</span>_</a>
-        <p style="margin-top:1rem;color:var(--text-dim)">Pioneros en neuroaprendizaje y desarrollo mental acelerado desde 2000. Transformamos la manera en que Latinoamérica aprende.</p>
+    <div class="foot-shell">
+      <div class="foot-grid">
+        <div class="foot-brand">
+          <a class="logo" href="/">World<span>Brain</span>_</a>
+          <p class="foot-tag">Pioneros en neuroaprendizaje y desarrollo mental acelerado desde 2000. Transformamos la manera en que Latinoamérica aprende.</p>
+          <span class="foot-chip"><i></i>Robotics Code · en línea</span>
+          <div class="foot-actions">
+            <a class="btn btn-run" data-cta="footer_prueba" href="#inscripcion">clase_de_prueba</a>
+            <a class="btn btn-ghost" data-cta="footer_wa" href="https://wa.me/525578107837?text=Hola,%20quiero%20info%20de%20Robotics%20Code">WhatsApp</a>
+          </div>
+        </div>
+        <nav aria-labelledby="foot-ninos">
+          <h4 id="foot-ninos">Niños</h4>
+          <ul>
+            <li><a class="fl" href="/fastkids"><span class="fl-in"><span>FastKids</span><span aria-hidden="true">FastKids</span></span></a></li>
+            <li><a class="fl" href="/mathekids"><span class="fl-in"><span>MatheKids</span><span aria-hidden="true">MatheKids</span></span></a></li>
+            <li><a class="fl" href="/juniormath_v2"><span class="fl-in"><span>JuniorMath</span><span aria-hidden="true">JuniorMath</span></span></a></li>
+            <li><a class="fl" href="/lectoescritura"><span class="fl-in"><span>Lectoescritura</span><span aria-hidden="true">Lectoescritura</span></span></a></li>
+            <li><a class="fl" href="/ciencia-astronomia"><span class="fl-in"><span>Ciencia y Astronomía</span><span aria-hidden="true">Ciencia y Astronomía</span></span></a></li>
+            <li><a class="fl" href="/robotics" aria-current="page"><span class="fl-in"><span>Robotics Code</span><span aria-hidden="true">Robotics Code</span></span></a></li>
+            <li><a class="fl" href="/homeschool"><span class="fl-in"><span>Homeschool</span><span aria-hidden="true">Homeschool</span></span></a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="foot-adultos">
+          <h4 id="foot-adultos">Jóvenes y Adultos</h4>
+          <ul>
+            <li><a class="fl" href="/fotolectura"><span class="fl-in"><span>Fotolectura</span><span aria-hidden="true">Fotolectura</span></span></a></li>
+            <li><a class="fl" href="/memoria-prodigiosa"><span class="fl-in"><span>Memoria Prodigiosa</span><span aria-hidden="true">Memoria Prodigiosa</span></span></a></li>
+            <li><a class="fl" href="/neurocomunicacion"><span class="fl-in"><span>Neurocomunicación</span><span aria-hidden="true">Neurocomunicación</span></span></a></li>
+            <li><a class="fl" href="/grandes-lideres"><span class="fl-in"><span>Grandes Líderes</span><span aria-hidden="true">Grandes Líderes</span></span></a></li>
+            <li><a class="fl" href="/redaccion-ejecutiva"><span class="fl-in"><span>Redacción Ejecutiva</span><span aria-hidden="true">Redacción Ejecutiva</span></span></a></li>
+            <li><a class="fl" href="/admision-universitaria"><span class="fl-in"><span>Admisión Universitaria</span><span aria-hidden="true">Admisión Universitaria</span></span></a></li>
+            <li><a class="fl" href="/universidad-dominical"><span class="fl-in"><span>Universidad Dominical</span><span aria-hidden="true">Universidad Dominical</span></span></a></li>
+            <li><a class="fl" href="/regularizacion-express"><span class="fl-in"><span>Regularización Express</span><span aria-hidden="true">Regularización Express</span></span></a></li>
+            <li><a class="fl" href="/alfa-cash"><span class="fl-in"><span>ALFA-CASH</span><span aria-hidden="true">ALFA-CASH</span></span></a></li>
+          </ul>
+        </nav>
+        <nav aria-labelledby="foot-contacto">
+          <h4 id="foot-contacto">Contacto</h4>
+          <ul>
+            <li><a class="fl" href="tel:+525578107837"><span class="fl-in"><span>+52 (55) 7810-7837</span><span aria-hidden="true">+52 (55) 7810-7837</span></span></a></li>
+            <li><a class="fl" href="https://wa.me/525578107837"><span class="fl-in"><span>WhatsApp</span><span aria-hidden="true">WhatsApp</span></span></a></li>
+            <li><a class="fl" href="mailto:contacto@ultravelozmente.com"><span class="fl-in"><span>Correo</span><span aria-hidden="true">Correo</span></span></a></li>
+            <li><a class="fl" href="/blog-index"><span class="fl-in"><span>Blog Educativo</span><span aria-hidden="true">Blog Educativo</span></span></a></li>
+            <li><a class="fl" href="/testimonios"><span class="fl-in"><span>Testimonios</span><span aria-hidden="true">Testimonios</span></span></a></li>
+          </ul>
+          <ul style="margin-top:1.4rem">
+            <li><a class="fl-mini" href="mailto:contacto@ultravelozmente.com">contacto@ultravelozmente.com</a></li>
+            <li><span class="fl-mini" style="color:var(--text-dim)">Cuautitlán Izcalli, Edo. de Méx.</span></li>
+          </ul>
+        </nav>
       </div>
-      <div>
-        <h4>Niños</h4>
-        <ul>
-          <li><a href="/fastkids">FastKids</a></li>
-          <li><a href="/mathekids">MatheKids</a></li>
-          <li><a href="/juniormath_v2">JuniorMath</a></li>
-          <li><a href="/lectoescritura">Lectoescritura</a></li>
-          <li><a href="/ciencia-astronomia">Ciencia y Astronomía</a></li>
-          <li><a href="/robotics">Robotics Code</a></li>
-          <li><a href="/homeschool">Homeschool</a></li>
-        </ul>
+
+      <div class="foot-legal">
+        <span>CWBMX, S.C. · RFC: CWB170626UH4 · Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano, Cuautitlán Izcalli, Edo. de Méx., C.P. 54700 · © 2026 WorldBrain México</span>
+        <span><a href="/terminos">Términos</a> · <a href="/privacidad">Privacidad</a> · <a href="/reembolsos">Devoluciones</a></span>
       </div>
-      <div>
-        <h4>Jóvenes y Adultos</h4>
-        <ul>
-          <li><a href="/fotolectura">Fotolectura</a></li>
-          <li><a href="/memoria-prodigiosa">Memoria Prodigiosa</a></li>
-          <li><a href="/neurocomunicacion">Neurocomunicación</a></li>
-          <li><a href="/grandes-lideres">Grandes Líderes</a></li>
-          <li><a href="/redaccion-ejecutiva">Redacción Ejecutiva</a></li>
-          <li><a href="/admision-universitaria">Admisión Universitaria</a></li>
-          <li><a href="/universidad-dominical">Universidad Dominical</a></li>
-          <li><a href="/regularizacion-express">Regularización Express</a></li>
-          <li><a href="/alfa-cash">ALFA-CASH</a></li>
-        </ul>
+
+      <!-- Matriz de LEDs con los ojos del robot. Decorativa: el
+           contenido equivalente ya está en el texto del footer. -->
+      <div class="foot-eyes" aria-hidden="true">
+        <canvas id="footEyes"></canvas>
       </div>
-      <div>
-        <h4>Contacto</h4>
-        <ul>
-          <li><a href="tel:+525578107837">+52 (55) 7810-7837</a></li>
-          <li><a href="https://wa.me/525578107837">WhatsApp</a></li>
-          <li><a href="mailto:contacto@ultravelozmente.com">contacto@ultravelozmente.com</a></li>
-          <li style="color:var(--text-dim)">Cuautitlán Izcalli, Edo. de Méx.</li>
-          <li><a href="/blog-index">Blog Educativo</a></li>
-          <li><a href="/testimonios">Testimonios</a></li>
-        </ul>
-      </div>
-    </div>
-    <div class="foot-legal">
-      <span>CWBMX, S.C. · RFC: CWB170626UH4 · Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano, Cuautitlán Izcalli, Edo. de Méx., C.P. 54700 · © 2026 WorldBrain México</span>
-      <span><a href="/terminos">Términos</a> · <a href="/privacidad">Privacidad</a> · <a href="/reembolsos">Devoluciones</a></span>
     </div>
   </div>
 </footer>
@@ -1381,6 +1467,182 @@ $('#stackTrack').innerHTML+=$('#stackTrack').innerHTML;
     if('startViewTransition' in document)document.startViewTransition(()=>apply(b.dataset.f));
     else apply(b.dataset.f);
   }));
+})();
+
+/* ── Panel LED del footer ────────────────────────────────────────
+   Dibuja una matriz de LEDs y enciende los que forman dos ojos de
+   robot. Los ojos parpadean, miran alrededor y sonríen; si el cursor
+   entra al panel, lo siguen. Con prefers-reduced-motion se pinta un
+   único fotograma estático. El bucle sólo corre si el footer está
+   visible y la pestaña activa. */
+(()=>{
+  const cv=$('#footEyes');
+  if(!cv)return;
+  const ctx=cv.getContext('2d');
+  if(!ctx)return;
+
+  const TAU=Math.PI*2;
+  const OFF='rgba(217,226,241,.055)';    // LED apagado
+  const DIM='rgba(90,247,142,.28)';      // borde del trazo
+  const ON='#5AF78E';
+
+  let PITCH=22;                          // separación entre LEDs (px CSS)
+  let w=0,h=0,cols=0,rows=0,ox=0,oy=0;
+  let eyeW=0,eyeH=0,eyeR=0,cxA=0,cxB=0,cyPx=0;
+
+  const measure=()=>{
+    const r=cv.getBoundingClientRect();
+    if(r.width<2||r.height<2)return false;
+    const dpr=Math.min(devicePixelRatio||1,2);
+    w=r.width;h=r.height;
+    cv.width=Math.round(w*dpr);cv.height=Math.round(h*dpr);
+    ctx.setTransform(dpr,0,0,dpr,0,0);
+    // En pantallas pequeñas el panel es más bajo: con un paso menor
+    // sigue habiendo suficientes LEDs para dibujar los ojos.
+    PITCH=w<480?14:(w<760?18:22);
+    cols=Math.max(8,Math.round(w/PITCH));
+    rows=Math.max(4,Math.floor(h/PITCH));
+    // La rejilla se centra en el panel, así nunca se sale por abajo.
+    ox=(w-(cols-1)*PITCH)/2;
+    oy=(h-(rows-1)*PITCH)/2;
+    // Todo se mide en número de LEDs, no en píxeles: así los dos ojos
+    // caen sobre la misma rejilla y salen idénticos (si la separación
+    // no fuese un múltiplo exacto del paso, uno se vería más ancho).
+    const eh=Math.max(4,Math.min(12,Math.round(rows*.74)));
+    let ew=Math.max(3,Math.round(eh*.58));
+    if(ew%2===0)ew++;                       // ancho impar: ojo centrado en un LED
+    const gapCols=Math.max(3,Math.round(ew*.7));
+    eyeH=eh*PITCH;eyeW=ew*PITCH;eyeR=eyeW*.46;
+    const mid=ox+(cols-1)/2*PITCH, half=(ew+gapCols)/2*PITCH;
+    cxA=mid-half;cxB=mid+half;
+    cyPx=oy+(rows-1)/2*PITCH;
+    return true;
+  };
+
+  /* Distancia firmada a un rectángulo redondeado: <0 dentro. */
+  const rrect=(px,py,cx,cy,hw,hh,r)=>{
+    r=Math.min(r,hw,hh);
+    const dx=Math.abs(px-cx)-(hw-r), dy=Math.abs(py-cy)-(hh-r);
+    return Math.hypot(Math.max(dx,0),Math.max(dy,0))-r+Math.min(Math.max(dx,dy),0);
+  };
+  /* Ojo "feliz": al rectángulo redondeado se le come la mitad
+     inferior con un círculo grande, dejando la curva ⌒ del párpado
+     que sube al sonreír. */
+  const dome=(px,py,cx,cy,hw,hh,r)=>{
+    const R=hw*1.75, ccy=cy-hh*.16+R;
+    return Math.max(rrect(px,py,cx,cy,hw,hh,r),R-Math.hypot(px-cx,py-ccy));
+  };
+
+  // Estado animado: apertura del párpado, sonrisa y dirección de mirada.
+  let open=1,openT=1, joy=0,joyT=0, lx=0,ly=0, lxT=0,lyT=0;
+  let hover=false, nextAt=0, until=0, acting='';
+
+  const snap=v=>Math.round(v/PITCH)*PITCH;
+
+  const dist=(px,py)=>{
+    // Al sonreír se pierde la mitad inferior del ojo, así que el centro
+    // baja un poco para que la forma siga ópticamente centrada.
+    const cy=cyPx+snap(ly)+snap(joy*eyeH*.22), dx=snap(lx);
+    let best=1e3;
+    for(const cx0 of [cxA,cxB]){
+      const cx=cx0+dx;
+      const hh=Math.max(eyeH/2*open,PITCH*.42);
+      const dn=rrect(px,py,cx,cy,eyeW/2,hh,eyeR);
+      let d=dn;
+      if(joy>.002){
+        const dj=dome(px,py,cx,cy,eyeW/2,hh,eyeR);
+        d=dn+(dj-dn)*joy;                  // mezcla continua ojo → sonrisa
+      }
+      if(d<best)best=d;
+    }
+    return best;
+  };
+
+  const paint=()=>{
+    ctx.clearRect(0,0,w,h);
+    const rOff=PITCH*.24, rOn=PITCH*.3;
+    const pOff=new Path2D(), pDim=new Path2D(), pOn=new Path2D();
+    for(let ry=0;ry<rows;ry++)for(let cx2=0;cx2<cols;cx2++){
+      const px=ox+cx2*PITCH, py=oy+ry*PITCH;
+      const d=dist(px,py);
+      if(d<0){pOn.moveTo(px+rOn,py);pOn.arc(px,py,rOn,0,TAU);}
+      else if(d<PITCH*.52){pDim.moveTo(px+rOff,py);pDim.arc(px,py,rOff,0,TAU);}
+      else{pOff.moveTo(px+rOff,py);pOff.arc(px,py,rOff,0,TAU);}
+    }
+    ctx.fillStyle=OFF;ctx.fill(pOff);
+    ctx.fillStyle=DIM;ctx.fill(pDim);
+    ctx.shadowColor=ON;ctx.shadowBlur=PITCH*.75;
+    ctx.fillStyle=ON;ctx.fill(pOn);
+    ctx.shadowBlur=0;
+  };
+
+  /* Elige el siguiente gesto: parpadeo, ojeada o sonrisa. */
+  const schedule=now=>{
+    const pick=Math.random();
+    if(pick<.45){acting='blink';openT=.05;until=now+170;}
+    else if(pick<.8){
+      acting='look';
+      lxT=(Math.random()*2-1)*PITCH*1.15;
+      lyT=(Math.random()*2-1)*PITCH*.55;
+      until=now+1400;
+    }else{acting='joy';joyT=1;until=now+1700;}
+    nextAt=until+900+Math.random()*2200;
+  };
+
+  const lerp=(a,b,k)=>a+(b-a)*k;
+  let raf=0,last=0;
+
+  const frame=now=>{
+    raf=requestAnimationFrame(frame);
+    if(now-last<1000/45)return;            // 45 fps basta y sobra
+    last=now;
+
+    if(hover){
+      openT=1;joyT=1;acting='';until=0;nextAt=now+1200;
+    }else{
+      if(acting&&now>until){
+        if(acting==='blink')openT=1;
+        if(acting==='look'){lxT=0;lyT=0;}
+        if(acting==='joy')joyT=0;
+        acting='';
+      }
+      if(!acting&&now>nextAt)schedule(now);
+    }
+    open=lerp(open,openT,.5);
+    joy =lerp(joy ,joyT ,.14);
+    lx  =lerp(lx  ,lxT  ,.08);
+    ly  =lerp(ly  ,lyT  ,.08);
+    paint();
+  };
+
+  const start=()=>{if(!raf){last=0;nextAt=performance.now()+700;raf=requestAnimationFrame(frame);}};
+  const stop =()=>{if(raf){cancelAnimationFrame(raf);raf=0;}};
+
+  if(!measure())return;
+  paint();
+
+  if(REDUCED){
+    addEventListener('resize',()=>{if(measure())paint();},{passive:true});
+    return;
+  }
+
+  const io=new IntersectionObserver(([e])=>e.isIntersecting?start():stop(),{rootMargin:'120px 0px'});
+  io.observe(cv);
+  document.addEventListener('visibilitychange',()=>document.hidden?stop():start());
+
+  let rt=0;
+  addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{if(measure())paint();},150);},{passive:true});
+
+  // La mirada sigue al cursor mientras esté sobre el panel LED.
+  const host=cv.parentElement;
+  host.addEventListener('pointermove',e=>{
+    if(e.pointerType==='touch')return;
+    const r=cv.getBoundingClientRect();
+    hover=true;
+    lxT=((e.clientX-r.left)/r.width-.5)*PITCH*2.6;
+    lyT=((e.clientY-r.top )/r.height-.5)*PITCH*1.2;
+  },{passive:true});
+  host.addEventListener('pointerleave',()=>{hover=false;lxT=0;lyT=0;joyT=0;openT=1;});
 })();
 
 /* ── Fallback reveal ─────────────────────────────────────────── */

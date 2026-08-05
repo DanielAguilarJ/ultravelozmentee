@@ -18,6 +18,7 @@ const loadedEnvKeys = loadEnvFile(path.join(__dirname, '.env'));
 
 const { sendCapiEvent } = require('./js/capi');
 const leads = require('./js/leads');
+const { sanitizeBlogContent } = require('./js/blog-sanitizer');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -63,6 +64,7 @@ const PRIVATE_FILES = new Set([
   '/js/capi.js',
   '/js/leads.js',
   '/js/env-file.js',
+  '/js/blog-sanitizer.js',
   '/fix_founding_year.py',
   '/fix_fake_testimonials.py',
   '/update_global_testimonials.py',
@@ -543,8 +545,10 @@ app.post('/api/posts', authenticateBlogAPI, (req, res) => {
       try { posts = JSON.parse(fs.readFileSync(postsPath, 'utf8')); } catch (e) { posts = []; }
     }
     const i = posts.findIndex(p => p.slug === cleanSlug);
-    if (i !== -1) posts[i] = meta; else posts.unshift(meta);
-    fs.writeFileSync(postsPath, JSON.stringify(posts, null, 2));
+    const nextPosts = i !== -1
+      ? posts.map((post, index) => index === i ? meta : post)
+      : [meta, ...posts];
+    fs.writeFileSync(postsPath, JSON.stringify(nextPosts, null, 2));
     sitemapCache = null; // invalidar: el nuevo post entra al sitemap al instante
     res.json({ success: true, url: `/blog-${cleanSlug}`, slug: cleanSlug });
   } catch (error) {
@@ -567,6 +571,7 @@ function jsonLd(value) {
 }
 
 function buildBlogHtml(m, content) {
+  const safeContent = sanitizeBlogContent(content);
   const url = `${BASE}/blog-${m.slug}`;
   const image = `${BASE}/images/fl-hero-brain.webp`;
 
@@ -650,7 +655,7 @@ nav a{color:var(--ink);text-decoration:none;font-weight:500}
 <nav><a href="/">← WorldBrain</a> · <a href="/blog-index">Blog</a></nav>
 <h1>${escapeHtml(m.title)}</h1>
 <p class="meta">${escapeHtml(m.category)} · ${escapeHtml(m.date)} · ${escapeHtml(m.readTime)} · ${escapeHtml(m.author)}</p>
-<article>${content}</article>
+<article>${safeContent}</article>
 <div class="cta">
 <h3 style="font-family:'Instrument Serif',serif;font-weight:400;margin:0">Aprende a la velocidad de tu potencial</h3>
 <p style="color:rgba(246,244,238,.7)">Agenda una clase muestra gratuita y descubre de lo que eres capaz.</p>
@@ -692,7 +697,19 @@ app.get('/sitemap.xml', (req, res) => {
       { f: 'blog-index.html', u: '/blog-index', p: '0.7', c: 'weekly' },
       { f: 'privacidad.html', u: '/privacidad', p: '0.3', c: 'yearly' },
       { f: 'terminos.html', u: '/terminos', p: '0.3', c: 'yearly' },
-      { f: 'reembolsos.html', u: '/reembolsos', p: '0.3', c: 'yearly' }
+      { f: 'reembolsos.html', u: '/reembolsos', p: '0.3', c: 'yearly' },
+      // Artículos recuperados (slugs originales)
+      { f: 'el-porfiriato-un-periodo-de-prosperidad-apar.html', u: '/el-porfiriato-un-periodo-de-prosperidad-apar', p: '0.7', c: 'monthly' },
+      { f: 'las-culturas-mesoamericanas-legado-sabiduria.html', u: '/las-culturas-mesoamericanas-legado-sabiduria', p: '0.7', c: 'monthly' },
+      { f: 'los-olmecas-pioneros-de-la-agricultura-en-m.html', u: '/los-olmecas-pioneros-de-la-agricultura-en-m', p: '0.7', c: 'monthly' },
+      { f: 'descubrimientos-matematicos-y-astronomicos-de.html', u: '/descubrimientos-matematicos-y-astronomicos-de', p: '0.7', c: 'monthly' },
+      { f: 'la-cultura-mexica-y-sus-4-claves-alma-de-un-i.html', u: '/la-cultura-mexica-y-sus-4-claves-alma-de-un-i', p: '0.7', c: 'monthly' },
+      { f: 'la-cultura-chichimeca-guardianes-de-la-tradic.html', u: '/la-cultura-chichimeca-guardianes-de-la-tradic', p: '0.7', c: 'monthly' },
+      { f: 'las-dificultades-de-albert-einstein-en-la-educacion-convencional-y-el-valor-del-aprendizaje-alternativo.html', u: '/las-dificultades-de-albert-einstein-en-la-educacion-convencional-y-el-valor-del-aprendizaje-alternativo', p: '0.7', c: 'monthly' },
+      { f: 'villa-y-zapata-los-caudillos-revolucionarios.html', u: '/villa-y-zapata-los-caudillos-revolucionarios', p: '0.7', c: 'monthly' },
+      { f: 'la-revolucion-mexicana-una-lucha-por-justicia.html', u: '/la-revolucion-mexicana-una-lucha-por-justicia', p: '0.7', c: 'monthly' },
+      { f: 'las-dificultades-de-leer-a-arthur-schopenhauer-y-como-superarlas.html', u: '/las-dificultades-de-leer-a-arthur-schopenhauer-y-como-superarlas', p: '0.7', c: 'monthly' },
+      { f: 'las-dificultades-de-leer-asi-hablo-zaratustra-de-friedrich-nietzsche-y-como-facilitar-su-lectura.html', u: '/las-dificultades-de-leer-asi-hablo-zaratustra-de-friedrich-nietzsche-y-como-facilitar-su-lectura', p: '0.7', c: 'monthly' }
     ];
     // Blogs: estáticos + generados por Make.com — auto-descubiertos.
     // AUDITADO: excluye backups y archivos "-old" (no deben indexarse)

@@ -1,1278 +1,1637 @@
 /* ═══════════════════════════════════════════════════════════════════
-   Blog Editorial CSS — WorldBrain Design System
-   Violeta/Naranja palette, light/dark, responsive, accessible
+   WorldBrain — Blog Editorial
+   Sistema de diseño de prensa: tinta sobre papel, jerarquía por
+   tipografía y espacio, filetes en vez de sombras. Cero degradados,
+   cero glow, cero glassmorphism.
+
+   CSS moderno: oklch + color-mix para toda la paleta, container
+   queries en vez de breakpoints de dispositivo, escala fluida con
+   clamp, :has() para estado, @property para transiciones tipadas,
+   propiedades lógicas y animación por scroll donde aporta.
+
+   Nota deliberada: NO se usa @layer. Las hojas globales del sitio
+   (styles.min.css, marketing-toolkit.min.css, footer-modern.min.css)
+   están sin capa, y lo no-capado gana a lo capado sin importar la
+   especificidad; meter esto en una capa lo debilitaría.
    ═══════════════════════════════════════════════════════════════════ */
 
+/* ───────────────────────────────────────────────────────────────────
+   1. Tokens
+   Fallback en hex primero para navegadores sin oklch; el bloque
+   @supports lo sustituye por la paleta real en espacio perceptual.
+   ─────────────────────────────────────────────────────────────────── */
+
 :root {
-  --ed-violet: #7c3aed;
-  --ed-violet-light: #a78bfa;
-  --ed-orange: #f97316;
-  --ed-orange-light: #fdba74;
-  --ed-bg: #0c0a1d;
-  --ed-bg-card: #1a1a2e;
-  --ed-text: #f1f5f9;
-  --ed-text-secondary: #94a3b8;
-  --ed-border: rgba(124, 58, 237, 0.2);
-  --ed-radius: 1rem;
-  --ed-transition: 0.3s ease;
+  /* Papel y tinta — tema oscuro por defecto (contrato del script FOUC) */
+  --ed-paper: #14121f;
+  --ed-paper-raised: #1b1828;
+  --ed-paper-sunken: #100e18;
+  --ed-ink: #f2efe9;
+  --ed-ink-muted: #a9a4b5;
+  --ed-ink-faint: #7d7889;
+  --ed-rule: rgba(242, 239, 233, 0.14);
+  --ed-rule-strong: rgba(242, 239, 233, 0.28);
+  --ed-accent: #b79cff;
+  --ed-accent-ink: #2a1758;
+  --ed-mark: #f0a868;
+
+  /* Tipografía */
+  --ed-font-display: 'Fraunces', 'Iowan Old Style', Palatino, Georgia, serif;
+  --ed-font-text: 'Newsreader', Georgia, 'Times New Roman', serif;
+  --ed-font-ui: 'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  /* Escala fluida (1.25 en móvil → 1.333 en escritorio) */
+  --ed-step--1: clamp(0.79rem, 0.77rem + 0.1vw, 0.84rem);
+  --ed-step-0: clamp(1rem, 0.97rem + 0.15vw, 1.09rem);
+  --ed-step-1: clamp(1.25rem, 1.19rem + 0.3vw, 1.45rem);
+  --ed-step-2: clamp(1.56rem, 1.45rem + 0.55vw, 1.94rem);
+  --ed-step-3: clamp(1.95rem, 1.76rem + 0.95vw, 2.58rem);
+  --ed-step-4: clamp(2.44rem, 2.11rem + 1.6vw, 3.44rem);
+  --ed-step-5: clamp(3.05rem, 2.5rem + 2.7vw, 4.58rem);
+
+  /* Ritmo vertical y medida de lectura */
+  --ed-measure: 45rem;
+  --ed-gutter: clamp(1.15rem, 0.8rem + 1.8vw, 2.5rem);
+  --ed-shell: 76rem;
+
+  /* Movimiento */
+  --ed-ease: cubic-bezier(0.2, 0, 0, 1);
+  --ed-fast: 140ms;
+
+  color-scheme: dark;
 }
 
-.light-mode {
-  --ed-bg: #f8fafc;
-  --ed-bg-card: #ffffff;
-  --ed-text: #1e293b;
-  --ed-text-secondary: #64748b;
-  --ed-border: rgba(124, 58, 237, 0.15);
+html.light-mode {
+  --ed-paper: #fbfaf7;
+  --ed-paper-raised: #ffffff;
+  --ed-paper-sunken: #f3f1ec;
+  --ed-ink: #241f1a;
+  --ed-ink-muted: #625b52;
+  --ed-ink-faint: #857d73;
+  --ed-rule: rgba(36, 31, 26, 0.16);
+  --ed-rule-strong: rgba(36, 31, 26, 0.34);
+  --ed-accent: #5b21b6;
+  --ed-accent-ink: #f4efff;
+  --ed-mark: #b4520d;
+
+  color-scheme: light;
 }
 
+@supports (color: oklch(50% 0.1 200)) {
+  :root {
+    --ed-paper: oklch(17.5% 0.022 288);
+    --ed-paper-raised: oklch(22% 0.026 288);
+    --ed-paper-sunken: oklch(14% 0.02 288);
+    --ed-ink: oklch(95% 0.008 85);
+    --ed-ink-muted: oklch(72% 0.014 288);
+    --ed-ink-faint: oklch(59% 0.016 288);
+    --ed-rule: oklch(95% 0.008 85 / 0.15);
+    --ed-rule-strong: oklch(95% 0.008 85 / 0.3);
+    --ed-accent: oklch(80% 0.12 295);
+    --ed-accent-ink: oklch(26% 0.11 295);
+    --ed-mark: oklch(78% 0.12 62);
+  }
 
+  html.light-mode {
+    --ed-paper: oklch(98.4% 0.006 85);
+    --ed-paper-raised: oklch(100% 0 0);
+    --ed-paper-sunken: oklch(95.6% 0.008 85);
+    --ed-ink: oklch(24% 0.017 60);
+    --ed-ink-muted: oklch(48% 0.015 60);
+    --ed-ink-faint: oklch(60% 0.014 60);
+    --ed-rule: oklch(24% 0.017 60 / 0.17);
+    --ed-rule-strong: oklch(24% 0.017 60 / 0.36);
+    --ed-accent: oklch(46% 0.19 295);
+    --ed-accent-ink: oklch(96% 0.02 295);
+    --ed-mark: oklch(52% 0.15 52);
+  }
+}
 
-/* ─── Hero Editorial ─── */
+/* Prop tipada: permite animar el subrayado de los enlaces del archivo */
+@property --ed-underline {
+  syntax: '<length>';
+  inherits: false;
+  initial-value: 0px;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   2. Base del blog
+   ─────────────────────────────────────────────────────────────────── */
+
+.ed-blog-main {
+  background: var(--ed-paper);
+  color: var(--ed-ink);
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step-0);
+  min-height: 100vh;
+  overflow-x: clip;
+  scrollbar-gutter: stable;
+  /* Cifras alineadas: fechas y conteos no bailan entre filas */
+  font-variant-numeric: tabular-nums;
+}
+
+.ed-blog-main :is(h1, h2, h3) {
+  font-family: var(--ed-font-display);
+  font-weight: 600;
+  font-optical-sizing: auto;
+  letter-spacing: -0.021em;
+  text-wrap: balance;
+  color: var(--ed-ink);
+}
+
+.ed-blog-main p {
+  text-wrap: pretty;
+}
+
+.ed-blog-main a {
+  color: inherit;
+}
+
+/* Contenedor propio: el .container global mete 1200px y padding fijo */
+.ed-blog-main .container {
+  inline-size: 100%;
+  max-inline-size: var(--ed-shell);
+  margin-inline: auto;
+  padding-inline: var(--ed-gutter);
+}
+
+/* Etiqueta de sección en versalitas */
+.ed-kicker {
+  display: block;
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  font-weight: 500;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--ed-ink-faint);
+  margin-block-end: 1.1rem;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   3. Cabecera del archivo (masthead)
+   Sin tarjeta decorativa: manda el tamaño del título y el filete.
+   ─────────────────────────────────────────────────────────────────── */
+
 .ed-hero {
-  padding: 10rem 1.5rem 4rem;
-  text-align: center;
-  background: linear-gradient(135deg, rgba(124,58,237,0.08) 0%, var(--ed-bg) 100%);
+  padding-block: clamp(7.5rem, 6rem + 7vw, 11rem) 0;
+  background: var(--ed-paper);
+}
+
+.ed-hero-inner {
+  border-block-end: 1px solid var(--ed-rule-strong);
+  padding-block-end: clamp(1.75rem, 1.2rem + 1.8vw, 2.75rem);
 }
 
 .ed-hero h1 {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  color: var(--ed-text);
-  margin-bottom: 1rem;
-}
-
-.ed-hero p {
-  color: var(--ed-text-secondary);
-  max-width: 600px;
-  margin: 0 auto;
-  font-size: 1.15rem;
-}
-
-/* ─── Featured Card ─── */
-.ed-card--featured {
-  border: 2px solid var(--ed-violet);
-  box-shadow: 0 0 24px rgba(124, 58, 237, 0.15);
-}
-
-/* ─── Search & Filters ─── */
-.ed-toolbar {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem;
-  align-items: center;
-  padding: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.ed-search-input {
-  flex: 1 1 200px;
-  padding: 0.75rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--ed-border);
-  background: var(--ed-bg-card);
-  color: var(--ed-text);
-  font-size: 1rem;
-}
-
-.ed-chips {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-}
-
-.ed-chips button {
-  padding: 0.5rem 1rem;
-  border-radius: 2rem;
-  border: 1px solid var(--ed-border);
-  background: transparent;
-  color: var(--ed-text);
-  cursor: pointer;
-  font-size: 0.875rem;
-  transition: background var(--ed-transition), color var(--ed-transition);
-}
-
-.ed-chips button[aria-pressed="true"] {
-  background: var(--ed-violet);
-  color: #fff;
-  border-color: var(--ed-violet);
-}
-
-.ed-view-toggle {
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--ed-border);
-  background: transparent;
-  color: var(--ed-text);
-  cursor: pointer;
-}
-
-/* ─── Editorial Layout ─── */
-.ed-layout {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 300px;
-  gap: 2rem;
-  padding: 0 1.5rem 3rem;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-@media (max-width: 900px) {
-  .ed-layout {
-    grid-template-columns: 1fr;
-  }
-}
-
-.ed-main-column {
-  min-width: 0;
-}
-
-/* ─── Feed Layout ─── */
-.ed-feed {
-  display: flex;
-  flex-direction: column;
-  gap: 0;
-}
-
-.ed-feed[data-view="compact"] .ed-card {
-  grid-template-columns: 1fr 100px;
-}
-
-/* ─── Cards ─── */
-.ed-card {
-  display: grid;
-  grid-template-columns: minmax(0, 1fr) 190px;
-  gap: 1rem;
-  padding: 1.5rem 0;
-  border-bottom: 1px solid var(--ed-border);
-  align-items: start;
-}
-
-/* El filtro por tema, el buscador y "Guardados" ocultan tarjetas con
-   card.hidden = true, pero `display: grid` de arriba gana sobre el
-   [hidden] del navegador, así que no se ocultaba ninguna y los filtros
-   no hacían nada. Con 71 tarjetas eso deja el buscador inservible. */
-.ed-card[hidden],
-.ed-featured[hidden] {
-  display: none !important;
-}
-
-.ed-card-copy {
-  min-width: 0;
-}
-
-.ed-card-meta {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-  font-size: 0.8rem;
-  color: var(--ed-text-secondary);
-  margin-bottom: 0.5rem;
-}
-
-.ed-card-category {
-  color: var(--ed-violet);
-  font-weight: 600;
-  text-transform: uppercase;
-  font-size: 0.75rem;
-}
-
-.ed-card-read-time {
-  color: var(--ed-text-secondary);
-}
-
-.ed-card h2 {
-  font-size: 1.15rem;
-  color: var(--ed-text);
-  margin: 0 0 0.5rem;
-  line-height: 1.4;
-}
-
-.ed-card h2 a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.ed-card h2 a:hover {
-  color: var(--ed-violet);
-}
-
-.ed-card p {
-  color: var(--ed-text-secondary);
+  font-size: var(--ed-step-5);
+  line-height: 0.95;
   margin: 0;
-  line-height: 1.6;
-  font-size: 0.95rem;
+  max-inline-size: 22ch;
 }
 
-.ed-card-media {
-  display: block;
-  border-radius: 0.5rem;
-  overflow: hidden;
+/* "Educativo" en cursiva de display: acento tipográfico, no degradado */
+.ed-blog-main .text-gradient,
+.ed-hero h1 .text-gradient {
+  display: inline;
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+  color: var(--ed-accent);
+  font-style: italic;
+  font-weight: 400;
 }
 
-.ed-card-media img {
-  width: 190px;
-  height: 125px;
-  object-fit: cover;
-  display: block;
-  border-radius: 0.5rem;
+.ed-standfirst {
+  font-family: var(--ed-font-text);
+  font-size: var(--ed-step-1);
+  line-height: 1.5;
+  color: var(--ed-ink-muted);
+  max-inline-size: 52ch;
+  margin-block: 1.5rem 0;
 }
 
-.ed-card [data-bookmark] {
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  color: var(--ed-text-secondary);
-  padding: 0.25rem;
-  grid-column: 1 / -1;
-  justify-self: start;
-}
-
-.ed-card [data-bookmark][aria-pressed="true"] {
-  color: var(--ed-orange);
-}
-
-/* ─── Aside ─── */
-.ed-aside {
-  padding: 0;
-}
-
-.ed-aside-inner {
-  position: sticky;
-  top: 6rem;
-  padding: 1.5rem;
-  background: var(--ed-bg-card);
-  border-radius: var(--ed-radius);
-  border: 1px solid var(--ed-border);
-}
-
-/* ─── Article Reading Typography ─── */
-.blog-content {
-  font-family: Georgia, 'Times New Roman', serif;
-  max-width: 720px;
-  margin: 0 auto;
-  line-height: 1.8;
-  color: var(--ed-text);
-}
-
-/* ─── Featured Article ─── */
-.ed-featured {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  padding: 2rem 1.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  align-items: center;
-}
-
-.ed-featured-media {
-  display: block;
-  border-radius: var(--ed-radius);
-  overflow: hidden;
-}
-
-.ed-featured-media img {
-  width: 100%;
-  height: auto;
-  display: block;
-}
-
-.ed-featured-body h2 {
-  font-size: 1.75rem;
-  margin: 0 0 1rem;
-  color: var(--ed-text);
-}
-
-.ed-featured-body h2 a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.ed-featured-body p {
-  color: var(--ed-text-secondary);
-  line-height: 1.6;
-}
-
-/* ─── Live region ─── */
-.ed-live {
-  padding: 0 1.5rem;
-  color: var(--ed-text-secondary);
-  font-size: 0.9rem;
-  min-height: 1.5rem;
-}
-
-/* ─── Hover for fine pointer ─── */
-@media (pointer: fine) and (hover: hover) {
-  .ed-card:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 12px 32px rgba(124, 58, 237, 0.18);
-  }
-
-  .ed-chips button:hover {
-    background: rgba(124, 58, 237, 0.1);
-  }
-
-  .ed-view-toggle:hover {
-    background: rgba(124, 58, 237, 0.1);
-  }
-
-  .ed-article-toolbar button:hover {
-    background: rgba(124, 58, 237, 0.1);
-  }
-}
-
-/* ─── Hover None — neutralize hover effects ─── */
-@media (hover: none) {
-  .ed-card:hover {
-    transform: none;
-    box-shadow: none;
-  }
-
-  .ed-chips button:hover {
-    background: transparent;
-  }
-
-  .ed-view-toggle:hover {
-    background: transparent;
-  }
-
-  .ed-article-toolbar button:hover {
-    background: transparent;
-  }
-}
-
-/* ─── Responsive: 1200px ─── */
-@media (min-width: 1200px) {
-  .ed-layout {
-    max-width: 1200px;
-  }
-}
-
-/* ─── Responsive: 900px ─── */
-@media (max-width: 900px) {
-  .ed-card {
-    grid-template-columns: minmax(0, 1fr) 120px;
-  }
-
-  .ed-card-media img {
-    width: 120px;
-    height: 80px;
-  }
-}
-
-/* ─── Responsive: 640px ─── */
-@media (max-width: 640px) {
-  .ed-layout {
-    padding: 0 1rem 2rem;
-  }
-
-  .ed-card {
-    grid-template-columns: 1fr;
-  }
-
-  .ed-toolbar {
-    flex-direction: column;
-    align-items: stretch;
-  }
-
-  .ed-hero {
-    padding: 8rem 1rem 3rem;
-  }
-
-  .ed-featured {
-    grid-template-columns: 1fr;
-  }
-}
-
-/* ─── Responsive: 400px ─── */
-@media (max-width: 400px) {
-  .ed-hero h1 {
-    font-size: 1.75rem;
-  }
-
-  .ed-card-body {
-    padding: 1rem;
-  }
-
-  .ed-chips button {
-    font-size: 0.8rem;
-    padding: 0.4rem 0.75rem;
-  }
-}
-
-/* ─── Focus Visible ─── */
-:focus-visible {
-  outline: 3px solid var(--ed-violet);
-  outline-offset: 2px;
-}
-
-/* ─── Pointer Coarse (touch) ─── */
-@media (pointer: coarse) {
-  .ed-chips button {
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  .ed-card [data-bookmark] {
-    min-height: 44px;
-    min-width: 44px;
-  }
-
-  .ed-article-toolbar button {
-    min-height: 44px;
-  }
-}
-
-/* ─── Reduced Motion ─── */
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    transition-duration: 0.01ms !important;
-  }
-}
-
-/* ─── Forced Colors ─── */
-@media (forced-colors: active) {
-  .ed-card {
-    border: 2px solid CanvasText;
-  }
-
-  .ed-chips button[aria-pressed="true"] {
-    background: Highlight;
-    color: HighlightText;
-  }
-
-  .ed-progress-bar {
-    background: Highlight;
-  }
-}
-
-/* ─── Print ─── */
-@media print {
-  .ed-toolbar,
-  .ed-view-toggle,
-  .ed-progress,
-  .ed-article-toolbar {
-    display: none;
-  }
-
-  .ed-card {
-    break-inside: avoid;
-    border: 1px solid #ccc;
-  }
-
-  .ed-feed {
-    display: block;
-  }
-
-  .ed-feed .ed-card {
-    margin-bottom: 1rem;
-  }
-}
-
-/* ─── Safe Area (notch devices) ─── */
-@supports (padding: env(safe-area-inset-left)) {
-  .ed-toolbar {
-    padding-left: calc(1.5rem + env(safe-area-inset-left));
-    padding-right: calc(1.5rem + env(safe-area-inset-right));
-  }
-
-  .ed-feed {
-    padding-left: calc(1.5rem + env(safe-area-inset-left));
-    padding-right: calc(1.5rem + env(safe-area-inset-right));
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   Article Enhancements over blog.min.css
-   ═══════════════════════════════════════════════════════════════════ */
-
-/* ─── Progress Bar ─── */
-.ed-progress {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 4px;
-  background: rgba(124, 58, 237, 0.1);
-  z-index: 9998;
-}
-
-.ed-progress-bar {
-  height: 100%;
-  background: linear-gradient(90deg, var(--ed-violet), var(--ed-orange));
-  width: 0%;
-  transition: width 0.15s linear;
-}
-
-/* ─── Article Toolbar ─── */
-.ed-article-toolbar {
-  position: fixed;
-  top: 50%;
-  left: 1.5rem;
-  transform: translateY(-50%);
-  display: flex;
-  flex-direction: column;
-  gap: 0.75rem;
-  /* stretch, no center: con center cada botón tomaba el ancho de su
-     texto y el rail quedaba con el borde dentado. */
-  align-items: stretch;
-  padding: 0.75rem;
-  background: var(--ed-bg-card);
-  border: 1px solid var(--ed-border);
-  border-radius: var(--ed-radius);
-  z-index: 900;
-}
-
-.ed-article-toolbar a,
-.ed-article-toolbar button {
-  display: inline-flex;
-  align-items: center;
-  /* Texto centrado dentro de botones ya igualados por stretch. */
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.5rem 1rem;
-  border-radius: 0.5rem;
-  border: 1px solid var(--ed-border);
-  background: var(--ed-bg-card);
-  color: var(--ed-text);
-  cursor: pointer;
-  font-size: 0.875rem;
-  text-decoration: none;
-  white-space: nowrap;
-  transition: background var(--ed-transition);
-}
-
-.ed-article-toolbar button[aria-pressed="true"] {
-  background: var(--ed-violet);
-  color: #fff;
-  border-color: var(--ed-violet);
-}
-
-@media (max-width: 1100px) {
-  .ed-article-toolbar {
-    position: fixed;
-    top: auto;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    transform: none;
-    flex-direction: row;
-    justify-content: center;
-    border-radius: 0;
-    padding-bottom: calc(0.75rem + env(safe-area-inset-bottom));
-    z-index: 900;
-  }
-
-  body {
-    padding-bottom: calc(4rem + env(safe-area-inset-bottom));
-  }
-}
-
-/* ═══════════════════════════════════════════════════════════════════
-   Final editorial polish
-   ═══════════════════════════════════════════════════════════════════ */
-
-:root {
-  --ed-toolbar-bg: rgba(12, 10, 29, 0.92);
-  --ed-surface-soft: rgba(255, 255, 255, 0.035);
-  /* Medida de lectura compartida por el hero y el cuerpo del artículo. */
-  --ed-measure: 760px;
-  /* Acento SOLO para texto: el violeta base no alcanza 4.5:1 sobre el
-     fondo oscuro, así que en tema oscuro se usa la variante clara.
-     Medido: 6.3:1 sobre --ed-bg-card, 7.2:1 sobre --ed-bg. */
-  --ed-accent-text: var(--ed-violet-light);
-}
-
-html.light-mode {
-  /* En claro se invierte: la variante clara daría 2.6:1 sobre #f8fafc.
-     El violeta base mide 5.5:1 sobre --ed-bg y 5.7:1 sobre blanco. */
-  --ed-accent-text: var(--ed-violet);
-}
-
-html.light-mode {
-  --ed-toolbar-bg: rgba(248, 247, 255, 0.94);
-  --ed-surface-soft: rgba(124, 58, 237, 0.045);
-}
-
-.ed-blog-main {
-  min-height: 100vh;
-  overflow-x: clip;
-  color: var(--ed-text);
-  background: var(--ed-bg);
-}
-
-.ed-hero {
-  position: relative;
-  isolation: isolate;
-  overflow: hidden;
-  text-align: left;
-  border-bottom: 1px solid var(--ed-border);
-}
-
-.ed-hero::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  width: 34rem;
-  height: 34rem;
-  top: 2rem;
-  right: -8rem;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(124, 58, 237, 0.2), transparent 68%);
-  pointer-events: none;
-}
-
-.ed-hero .container {
-  max-width: 1200px;
-}
-
-.ed-hero p {
-  margin: 0;
-}
-
-.ed-kicker {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.55rem;
-  margin-bottom: 1rem;
-  color: var(--ed-violet-light);
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.ed-kicker::before {
-  content: "";
-  width: 1.75rem;
-  height: 2px;
-  background: linear-gradient(90deg, var(--ed-violet), var(--ed-orange));
-}
-
+/* Datos del archivo: línea de texto, no chips de plástico */
 .ed-hero-facts {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.75rem 1.75rem;
-  padding: 0;
-  margin: 1.5rem 0 0;
+  gap: 0.4rem 1.6rem;
   list-style: none;
-  color: var(--ed-text-secondary);
-  font-size: 0.875rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  font-size: var(--ed-step--1);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ed-ink-faint);
 }
 
-.ed-hero-facts li {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
+.ed-hero-facts li + li {
+  padding-inline-start: 1.6rem;
+  border-inline-start: 1px solid var(--ed-rule);
 }
 
-.ed-hero-facts li::before {
-  content: "";
-  width: 0.42rem;
-  height: 0.42rem;
-  border-radius: 50%;
-  background: var(--ed-orange);
-  box-shadow: 0 0 0 4px rgba(249, 115, 22, 0.12);
-}
+/* ───────────────────────────────────────────────────────────────────
+   4. Destacado
+   Dos columnas asimétricas: imagen a sangre y titular grande.
+   ─────────────────────────────────────────────────────────────────── */
 
 .ed-featured {
-  padding-top: 3.25rem;
-  padding-bottom: 3.25rem;
-  border-bottom: 1px solid var(--ed-border);
+  display: grid;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+  gap: clamp(1.5rem, 1rem + 2.5vw, 3.5rem);
+  align-items: center;
+  inline-size: 100%;
+  max-inline-size: var(--ed-shell);
+  margin-inline: auto;
+  padding: clamp(2.25rem, 1.6rem + 2.4vw, 3.75rem) var(--ed-gutter);
+  border-block-end: 1px solid var(--ed-rule);
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
 }
 
 .ed-featured-media {
-  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.28);
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 4 / 3;
+  background: var(--ed-paper-sunken);
+  border-radius: 2px;
 }
 
 .ed-featured-media img {
-  aspect-ratio: 16 / 9;
+  inline-size: 100%;
+  block-size: 100%;
   object-fit: cover;
-}
-
-.ed-featured-body {
-  max-width: 34rem;
+  display: block;
+  /* Foto de prensa: sin saturación de más ni bordes redondeados */
+  filter: saturate(0.94);
+  transition: scale 600ms var(--ed-ease), filter 300ms linear;
 }
 
 .ed-featured-meta {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 0.5rem 0.75rem;
-  margin-bottom: 0.9rem;
-  color: var(--ed-text-secondary);
-  font-size: 0.78rem;
+  gap: 0.5rem 0.85rem;
+  font-size: var(--ed-step--1);
+  color: var(--ed-ink-faint);
+  margin-block-end: 1rem;
 }
+
+.ed-featured-body h2 {
+  font-size: var(--ed-step-4);
+  line-height: 1.02;
+  margin: 0;
+}
+
+.ed-featured-body h2 a {
+  text-decoration: none;
+  text-underline-offset: 0.18em;
+  text-decoration-thickness: 1px;
+}
+
+.ed-featured-body p {
+  font-family: var(--ed-font-text);
+  font-size: var(--ed-step-1);
+  line-height: 1.55;
+  color: var(--ed-ink-muted);
+  margin-block: 1.15rem 0;
+  max-inline-size: 46ch;
+}
+
+/* Etiqueta "Destacado": versalitas con marca cálida, sin píldora */
+.ed-featured-body::before {
+  content: 'Destacado';
+  display: block;
+  font-size: var(--ed-step--1);
+  font-weight: 600;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--ed-mark);
+  margin-block-end: 0.9rem;
+}
+
+/* Una container query no puede estilar a su propio contenedor, así que
+   el apilado del destacado se resuelve con media query. */
+@media (max-width: 48rem) {
+  .ed-featured {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .ed-featured-media {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   5. Barra de filtros
+   Un solo filete pegajoso: campo sin caja y temas como texto.
+   ─────────────────────────────────────────────────────────────────── */
 
 .ed-toolbar {
   position: sticky;
-  top: 5.5rem;
-  z-index: 50;
-  max-width: 1200px;
-  margin: 0 auto 1.25rem;
-  padding: 1rem 1.5rem;
-  background: var(--ed-toolbar-bg);
-  border-bottom: 1px solid var(--ed-border);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-  backdrop-filter: blur(18px);
-  -webkit-backdrop-filter: blur(18px);
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.85rem clamp(1rem, 0.6rem + 1.5vw, 2.25rem);
+  inline-size: 100%;
+  max-inline-size: var(--ed-shell);
+  margin-inline: auto;
+  padding: 0.9rem var(--ed-gutter);
+  background: color-mix(in oklab, var(--ed-paper) 88%, transparent);
+  backdrop-filter: blur(10px);
+  border-block-end: 1px solid var(--ed-rule);
 }
 
-.ed-toolbar [role="search"] {
-  flex: 1 1 15rem;
+.ed-toolbar [role='search'] {
+  flex: 0 0 auto;
+  min-inline-size: 0;
 }
 
 .ed-search-input {
-  width: 100%;
-  min-height: 44px;
+  inline-size: clamp(9rem, 20vw, 15rem);
+  /* El campo se ajusta a lo escrito en navegadores que lo soportan */
+  field-sizing: content;
+  min-inline-size: 9rem;
+  max-inline-size: 100%;
+  padding: 0.35rem 0;
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  color: var(--ed-ink);
+  background: none;
+  border: 0;
+  border-block-end: 1px solid var(--ed-rule-strong);
+  border-radius: 0;
+  transition: border-color var(--ed-fast) linear;
+}
+
+.ed-search-input::placeholder {
+  color: var(--ed-ink-faint);
+}
+
+.ed-search-input:focus {
+  outline: none;
+  border-block-end-color: var(--ed-accent);
+}
+
+.ed-chips {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: center;
+  gap: clamp(0.7rem, 0.4rem + 0.9vw, 1.35rem);
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.ed-chips::-webkit-scrollbar {
+  display: none;
+}
+
+.ed-chips button,
+.ed-toolbar-actions button {
+  flex: 0 0 auto;
+  padding: 0.3rem 0;
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  letter-spacing: 0.02em;
+  color: var(--ed-ink-muted);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  cursor: pointer;
+  white-space: nowrap;
+  /* Subrayado que crece desde 0: la prop tipada lo hace animable */
+  box-shadow: inset 0 calc(-1 * var(--ed-underline)) 0 0 var(--ed-accent);
+  transition: --ed-underline var(--ed-fast) var(--ed-ease), color var(--ed-fast) linear;
+}
+
+.ed-chips button[aria-pressed='true'],
+.ed-toolbar-actions button[aria-pressed='true'] {
+  --ed-underline: 2px;
+  color: var(--ed-ink);
+  font-weight: 600;
 }
 
 .ed-toolbar-actions {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
-  margin-left: auto;
-}
-
-.ed-toolbar-actions button {
-  min-height: 42px;
-  padding: 0.55rem 0.9rem;
-  border: 1px solid var(--ed-border);
-  border-radius: 999px;
-  background: transparent;
-  color: var(--ed-text);
-  font: inherit;
-  font-size: 0.84rem;
-  cursor: pointer;
-}
-
-.ed-toolbar-actions button[aria-pressed="true"] {
-  color: #fff;
-  background: var(--ed-violet);
-  border-color: var(--ed-violet);
+  gap: clamp(0.7rem, 0.4rem + 0.9vw, 1.35rem);
+  margin-inline-start: auto;
+  min-inline-size: 0;
 }
 
 .ed-live,
-[data-empty-state],
-.ed-no-js {
-  max-width: 1200px;
-  margin-right: auto;
-  margin-left: auto;
-}
-
-[data-empty-state],
-.ed-no-js {
-  padding: 1.25rem 1.5rem;
-  color: var(--ed-text-secondary);
-  text-align: center;
-  background: var(--ed-surface-soft);
-  border: 1px dashed var(--ed-border);
-  border-radius: var(--ed-radius);
-}
-
 [data-empty-state] {
-  margin-bottom: 1.5rem;
+  inline-size: 100%;
+  max-inline-size: var(--ed-shell);
+  margin-inline: auto;
+  padding: 1.25rem var(--ed-gutter) 0;
+  font-size: var(--ed-step--1);
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--ed-ink-faint);
+}
+
+.ed-no-js {
+  max-inline-size: var(--ed-shell);
+  margin-inline: auto;
+  padding: 1rem var(--ed-gutter);
+  color: var(--ed-ink-muted);
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   6. Rejilla del archivo
+   ─────────────────────────────────────────────────────────────────── */
+
+.ed-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 17rem);
+  gap: clamp(2rem, 1rem + 4vw, 4.5rem);
+  inline-size: 100%;
+  max-inline-size: var(--ed-shell);
+  margin-inline: auto;
+  padding: clamp(1.5rem, 1rem + 1.5vw, 2.5rem) var(--ed-gutter) 5rem;
+  align-items: start;
+}
+
+.ed-main-column {
+  min-inline-size: 0;
+  container-type: inline-size;
+  container-name: feed;
 }
 
 .ed-feed-heading {
-  display: flex;
-  align-items: end;
-  justify-content: space-between;
-  gap: 1rem;
-  padding: 0.25rem 0 1.25rem;
-  border-bottom: 1px solid var(--ed-border);
-}
-
-.ed-feed-heading h2,
-.ed-aside h2 {
-  margin: 0;
-  color: var(--ed-text);
-  font-family: var(--font-heading, "Space Grotesk", sans-serif);
+  border-block-end: 1px solid var(--ed-rule-strong);
+  padding-block-end: 0.85rem;
+  margin-block-end: 0.5rem;
 }
 
 .ed-feed-heading h2 {
-  font-size: clamp(1.45rem, 3vw, 2rem);
+  font-size: var(--ed-step-2);
+  line-height: 1.1;
+  margin: 0;
 }
 
+.ed-feed {
+  /* Numeración del archivo: reinicia aquí y se salta las filas
+     filtradas, porque display:none no incrementa contadores. */
+  counter-reset: ed-entry;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ── Fila del archivo ── */
 .ed-card {
+  counter-increment: ed-entry;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 8.5rem);
+  grid-template-areas: 'copy media' 'save media';
+  gap: 0.5rem clamp(1.25rem, 0.8rem + 1.5vw, 2.5rem);
+  align-items: start;
+  padding-block: clamp(1.5rem, 1.2rem + 0.8vw, 2.1rem);
+  border-block-end: 1px solid var(--ed-rule);
+  border-radius: 0;
   position: relative;
-  background: transparent;
-  transition: background-color var(--ed-transition), transform var(--ed-transition), box-shadow var(--ed-transition);
+  transition: background var(--ed-fast) linear;
 }
 
-.ed-card:first-child {
-  border-top: 0;
+/* El filtro y el buscador ocultan con card.hidden; display:grid le
+   ganaba al [hidden] del navegador y no se ocultaba nada. */
+.ed-card[hidden],
+.ed-featured[hidden] {
+  display: none !important;
+}
+
+.ed-card-copy {
+  grid-area: copy;
+  min-inline-size: 0;
+}
+
+/* Metadatos con el folio del archivo delante */
+.ed-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.35rem 0.8rem;
+  font-size: var(--ed-step--1);
+  color: var(--ed-ink-faint);
+  margin-block-end: 0.55rem;
+}
+
+.ed-card-meta::before {
+  content: counter(ed-entry, decimal-leading-zero);
+  font-variant-numeric: tabular-nums;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--ed-rule-strong);
+  transition: color var(--ed-fast) linear;
+}
+
+.ed-card-category {
+  font-size: inherit;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--ed-accent);
+}
+
+.ed-card-read-time {
+  color: var(--ed-ink-faint);
 }
 
 .ed-card h2 {
-  font-size: clamp(1.12rem, 2vw, 1.32rem);
+  font-size: var(--ed-step-1);
+  line-height: 1.16;
+  margin: 0 0 0.5rem;
+  max-inline-size: 40ch;
+}
+
+.ed-card h2 a {
+  text-decoration: none;
+}
+
+.ed-card p {
+  font-family: var(--ed-font-text);
+  font-size: var(--ed-step-0);
+  line-height: 1.55;
+  color: var(--ed-ink-muted);
+  margin: 0;
+  max-inline-size: 62ch;
+}
+
+.ed-card-media {
+  grid-area: media;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 3 / 2;
+  background: var(--ed-paper-sunken);
+  border-radius: 2px;
+  align-self: start;
 }
 
 .ed-card-media img {
-  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1);
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+  display: block;
+  border: 0;
+  border-radius: 0;
+  filter: saturate(0.92);
+  transition: filter 300ms linear, scale 600ms var(--ed-ease);
+}
+
+.ed-card [data-bookmark] {
+  grid-area: save;
+  justify-self: start;
+  align-self: end;
+  padding: 0.15rem 0;
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  color: var(--ed-ink-faint);
+  background: none;
+  border: 0;
+  cursor: pointer;
+  transition: color var(--ed-fast) linear;
+}
+
+.ed-card [data-bookmark][aria-pressed='true'] {
+  color: var(--ed-accent);
+}
+
+/* Vista compacta: el JS alterna data-view en el feed */
+.ed-feed[data-view='compact'] .ed-card {
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-areas: 'copy' 'save';
+  padding-block: 1.15rem;
+}
+
+.ed-feed[data-view='compact'] .ed-card-media,
+.ed-feed[data-view='compact'] .ed-card p {
+  display: none;
+}
+
+/* Una sola columna cuando la columna del feed se estrecha */
+@container feed (max-width: 34rem) {
+  .ed-card {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'media' 'copy' 'save';
+  }
+
+  .ed-card-media {
+    aspect-ratio: 16 / 9;
+    margin-block-end: 0.35rem;
+  }
+
+  .ed-card h2 {
+    font-size: var(--ed-step-1);
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   7. Columna lateral
+   ─────────────────────────────────────────────────────────────────── */
+
+.ed-aside {
+  min-inline-size: 0;
+  padding: 0;
 }
 
 .ed-aside-inner {
-  top: 10.5rem;
-  padding: 0;
-  background: transparent;
-  border: 0;
-  border-radius: 0;
+  position: sticky;
+  top: 5.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
 .ed-aside-section {
-  padding: 1.35rem 0;
-  border-top: 1px solid var(--ed-border);
+  padding: 0;
+  background: none;
+  border: 0;
+  border-block-start: 1px solid var(--ed-rule-strong);
+  border-radius: 0;
+  padding-block-start: 1rem;
 }
 
 .ed-aside-section h2 {
-  margin-bottom: 0.75rem;
-  font-size: 1rem;
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--ed-ink-faint);
+  margin: 0 0 0.85rem;
 }
 
 .ed-aside-section p {
-  margin: 0;
-  color: var(--ed-text-secondary);
-  font-size: 0.9rem;
+  font-size: var(--ed-step--1);
   line-height: 1.6;
+  color: var(--ed-ink-muted);
+  margin: 0;
 }
 
 .ed-library-count {
   display: block;
-  margin-bottom: 0.35rem;
-  color: var(--ed-text);
-  font-size: 1.6rem;
-  font-weight: 700;
+  font-family: var(--ed-font-display);
+  font-size: var(--ed-step-2);
+  font-weight: 600;
+  line-height: 1;
+  letter-spacing: -0.02em;
+  color: var(--ed-ink);
+  margin-block-end: 0.5rem;
 }
 
 .ed-topic-list {
   display: flex;
   flex-wrap: wrap;
-  gap: 0.45rem;
+  gap: 0.3rem 1rem;
+  font-size: var(--ed-step--1);
+  color: var(--ed-ink-muted);
 }
 
 .ed-topic-list span {
-  padding: 0.4rem 0.65rem;
-  color: var(--ed-text-secondary);
-  font-size: 0.78rem;
-  border: 1px solid var(--ed-border);
-  border-radius: 999px;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-radius: 0;
 }
 
-/* Reading view */
-.blog-post-hero {
-  /* Sin padding horizontal: el inset lo aplica .blog-post-header, igual
-     que .blog-content lo aplica en su propia caja. Si el hero insetea
-     por fuera y el cuerpo por dentro, los bordes solo coinciden por
-     casualidad a un ancho concreto. */
-  padding: 10.5rem 0 5.5rem;
-  text-align: left;
-  background:
-    radial-gradient(circle at 78% 20%, rgba(124, 58, 237, 0.18), transparent 35%),
-    linear-gradient(180deg, var(--ed-bg-card), var(--ed-bg));
-  border-bottom: 1px solid var(--ed-border);
-}
-
-/* El hero y el cuerpo comparten medida Y padding, así que el borde
-   izquierdo del título coincide con el del texto en cualquier ancho.
-   El padding explícito anula el de .container (24px/16px), que era
-   la causa del desfase de 16px en móvil. */
-.blog-post-header {
-  max-width: var(--ed-measure, 760px);
-  margin-inline: auto;
-  padding-inline: 1.5rem;
-}
-
-.blog-post-title {
-  /* 18ch partía los títulos largos en 4-5 líneas; 30ch respeta la
-     medida óptima sin fragmentar el titular. */
-  max-width: 30ch;
-  margin-right: auto;
-  font-size: clamp(2.1rem, 5vw, 3.75rem);
-  line-height: 1.08;
-  letter-spacing: -0.035em;
-  text-wrap: balance;
-}
-
-.blog-post-meta {
-  justify-content: flex-start;
-  flex-wrap: wrap;
-  gap: 0.75rem 1.5rem;
-}
-
-.blog-post-cover {
-  width: calc(100% - 2rem);
-  max-width: 1040px;
-  height: min(52vw, 520px);
-  min-height: 320px;
-  margin-top: -2.5rem;
-  border: 1px solid var(--ed-border);
-}
-
-.blog-content {
-  max-width: var(--ed-measure, 760px);
-  margin-inline: auto;
-  padding: 0 1.5rem 7rem;
-  color: var(--ed-text);
-  font-size: clamp(1.05rem, 1.3vw, 1.15rem);
-  line-height: 1.75;
-}
-
-.blog-content h2,
-.blog-content h3,
-.blog-cta-box,
-.blog-author {
-  font-family: var(--font-heading, "Space Grotesk", sans-serif);
-}
-
-.blog-content p,
-.blog-content li {
-  color: var(--ed-text);
-}
-
-.blog-content blockquote {
-  color: var(--ed-text);
-  background: var(--ed-surface-soft);
-  border-left-color: var(--ed-violet);
-}
-
-.blog-cta-box {
-  background: linear-gradient(145deg, rgba(124, 58, 237, 0.13), rgba(249, 115, 22, 0.06));
-  border-color: var(--ed-border);
-}
-
-.blog-author {
-  padding: 1.5rem;
-  background: var(--ed-surface-soft);
-  border: 1px solid var(--ed-border);
-  border-radius: var(--ed-radius);
-}
-
-/* El nombre del autor pasó de h4 a h3 para no saltar niveles de
-   encabezado; conserva su escala de etiqueta, no de sección. */
-.blog-author h3 {
-  margin: 0 0 0.35rem;
-  font-size: 1.05rem;
-  line-height: 1.3;
-  font-weight: 600;
-  color: var(--ed-text);
-}
-
-.blog-author h3::after {
-  content: none;
-}
-
-@media (pointer: fine) and (hover: hover) {
-  .ed-card:hover {
-    background: var(--ed-surface-soft);
+/* Escritorio estrecho: la barra lateral pasa debajo */
+@media (max-width: 60rem) {
+  .ed-layout {
+    grid-template-columns: minmax(0, 1fr);
   }
 
-  .ed-card:hover .ed-card-media img,
-  .ed-featured:hover .ed-featured-media img {
-    transform: scale(1.025);
-  }
-
-  .ed-toolbar-actions button:hover {
-    background: var(--ed-surface-soft);
-  }
-}
-
-@media (max-width: 1100px) {
   .ed-aside-inner {
     position: static;
   }
 }
 
-@media (max-width: 640px) {
-  .ed-hero {
-    text-align: left;
-  }
+/* ───────────────────────────────────────────────────────────────────
+   8. Artículo — progreso de lectura
+   El JS fija el ancho; donde hay animación por scroll se calcula en
+   el compositor y el hilo principal queda libre.
+   ─────────────────────────────────────────────────────────────────── */
 
-  .ed-hero::before {
-    width: 20rem;
-    height: 20rem;
-  }
+.ed-progress {
+  position: fixed;
+  inset-block-start: 0;
+  inset-inline: 0;
+  block-size: 2px;
+  z-index: 950;
+  background: var(--ed-rule);
+}
 
-  .ed-featured {
-    padding-top: 2rem;
-    padding-bottom: 2rem;
-  }
+.ed-progress-bar {
+  block-size: 100%;
+  inline-size: 0;
+  background: var(--ed-accent);
+  transform-origin: left center;
+}
 
-  .ed-toolbar {
-    top: 4.75rem;
-    padding: 0.8rem 1rem;
-  }
-
-  /* min-width: 0 es lo que faltaba. Con flex-wrap: nowrap los chips tienen
-     un min-content de ~464px y, al ser min-width: auto por defecto, no podían
-     encogerse: eso inflaba el ancho de la línea flex y, vía
-     align-items: stretch, arrastraba al buscador fuera de la pantalla
-     (90px de desborde a 390px, 139px a 414px). Ahora los chips se ajustan al
-     ancho disponible y su propio overflow-x da el scroll horizontal previsto. */
-  .ed-toolbar > * {
-    min-width: 0;
-    max-width: 100%;
-  }
-
-  /* En fila, `flex: 1 1 15rem` sobre el buscador significa "al menos 240px de
-     ancho". Al pasar a columna ese basis se interpreta como ALTURA, así que el
-     envoltorio del input reservaba 240px de alto para un campo de 44px y dejaba
-     ~196px de hueco vacío bajo el buscador. Va en este bloque y no en el de
-     640px de más arriba porque la regla base está después en el archivo y
-     ganaba por orden de cascada. */
-  .ed-toolbar [role="search"] {
-    flex: 0 0 auto;
-  }
-
-  .ed-chips {
-    flex-wrap: nowrap;
-    padding-bottom: 0.3rem;
-    overflow-x: auto;
-    overscroll-behavior-x: contain;
-    scrollbar-width: thin;
-    min-width: 0;
-  }
-
-  .ed-toolbar-actions {
-    margin-left: 0;
-  }
-
-  .ed-card {
-    grid-template-columns: minmax(0, 1fr) 96px;
-    padding: 1.2rem 0;
-  }
-
-  .ed-card p {
-    display: none;
-  }
-
-  .ed-card-media img {
-    width: 96px;
-    height: 76px;
-  }
-
-  .ed-card [data-bookmark] {
-    grid-column: 1;
-  }
-
-  .blog-post-hero {
-    padding: 8.5rem 1rem 4rem;
-  }
-
-  .blog-post-title {
-    font-size: clamp(2.2rem, 12vw, 3.15rem);
-  }
-
-  .blog-post-cover {
-    width: 100%;
-    min-height: 240px;
-    height: 58vw;
-    border-right: 0;
-    border-left: 0;
-    border-radius: 0;
-  }
-
-  .blog-content {
-    padding-right: 1.15rem;
-    padding-left: 1.15rem;
+@supports (animation-timeline: scroll()) {
+  @media (prefers-reduced-motion: no-preference) {
+    .ed-progress-bar {
+      inline-size: 100%;
+      scale: 0 1;
+      transform-origin: left center;
+      animation: ed-read-progress linear both;
+      animation-timeline: scroll(root block);
+    }
   }
 }
 
-@media (max-width: 400px) {
-  .ed-hero-facts {
-    display: grid;
+@keyframes ed-read-progress {
+  from { scale: 0 1; }
+  to { scale: 1 1; }
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   9. Artículo — raíl de acciones
+   ─────────────────────────────────────────────────────────────────── */
+
+.ed-article-toolbar {
+  position: fixed;
+  inset-block-start: 50%;
+  inset-inline-start: clamp(0.75rem, 0.2rem + 1.5vw, 1.75rem);
+  translate: 0 -50%;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 0;
+  z-index: 900;
+  padding: 0;
+  background: none;
+  border: 0;
+  border-inline-start: 1px solid var(--ed-rule-strong);
+  border-radius: 0;
+}
+
+.ed-article-toolbar a,
+.ed-article-toolbar button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.5rem;
+  padding: 0.5rem 0 0.5rem 0.85rem;
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  letter-spacing: 0.02em;
+  color: var(--ed-ink-muted);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: color var(--ed-fast) linear, box-shadow var(--ed-fast) linear;
+}
+
+.ed-article-toolbar button[aria-pressed='true'] {
+  color: var(--ed-accent);
+  background: none;
+  box-shadow: inset 2px 0 0 0 var(--ed-accent);
+}
+
+/* Tableta y móvil: barra inferior respetando el área segura */
+@media (max-width: 1100px) {
+  .ed-article-toolbar {
+    inset-block-start: auto;
+    bottom: 0;
+    inset-inline: 0;
+    translate: none;
+    flex-direction: row;
+    justify-content: center;
+    gap: clamp(1rem, 4vw, 2.5rem);
+    padding-block: 0.65rem;
+    padding-block-end: calc(0.65rem + env(safe-area-inset-bottom));
+    background: color-mix(in oklab, var(--ed-paper) 92%, transparent);
+    backdrop-filter: blur(10px);
+    border-inline-start: 0;
+    border-block-start: 1px solid var(--ed-rule);
   }
 
-  .ed-toolbar-actions {
-    width: 100%;
+  .ed-article-toolbar a,
+  .ed-article-toolbar button {
+    padding: 0.35rem 0;
   }
 
-  .ed-toolbar-actions button {
-    flex: 1;
+  .ed-article-toolbar button[aria-pressed='true'] {
+    box-shadow: inset 0 -2px 0 0 var(--ed-accent);
   }
 
-  .ed-card-meta {
-    gap: 0.4rem;
+  body {
+    padding-block-end: calc(3.5rem + env(safe-area-inset-bottom));
   }
 }
 
-/* ===== Bloques del artículo SEO (60 posts): respuesta rápida, FAQ, fuentes ===== */
+/* ───────────────────────────────────────────────────────────────────
+   10. Artículo — cabecera
+   ─────────────────────────────────────────────────────────────────── */
+
+.blog-post-hero {
+  background: var(--ed-paper);
+  padding-block: clamp(7.5rem, 6rem + 7vw, 10.5rem) 0;
+}
+
+.blog-post-header {
+  inline-size: 100%;
+  max-inline-size: var(--ed-measure);
+  margin-inline: auto;
+  padding-inline: var(--ed-gutter);
+}
+
+/* Rúbrica de sección: versalitas, sin píldora ni icono decorativo */
+.blog-post-hero .badge {
+  display: block;
+  margin: 0 0 1.15rem !important;
+  padding: 0;
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--ed-mark);
+  background: none;
+  border: 0;
+  border-radius: 0;
+}
+
+.blog-post-hero .badge i {
+  display: none;
+}
+
+.blog-post-title {
+  font-family: var(--ed-font-display);
+  font-size: var(--ed-step-4);
+  font-weight: 600;
+  font-optical-sizing: auto;
+  line-height: 1.03;
+  letter-spacing: -0.023em;
+  text-wrap: balance;
+  color: var(--ed-ink);
+  margin: 0;
+}
+
+.blog-post-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.4rem 1.4rem;
+  margin-block-start: 1.5rem;
+  padding-block-start: 1.1rem;
+  border-block-start: 1px solid var(--ed-rule);
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  font-variant-numeric: tabular-nums;
+  color: var(--ed-ink-faint);
+}
+
+.blog-post-meta i {
+  display: none;
+}
+
+/* Portada: recorte de prensa a lo ancho de la medida de lectura */
+.blog-post-cover {
+  inline-size: 100%;
+  max-inline-size: var(--ed-shell);
+  margin: clamp(2rem, 1.5rem + 2vw, 3.25rem) auto 0;
+  padding-inline: var(--ed-gutter);
+}
+
+.blog-post-cover img {
+  inline-size: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  display: block;
+  border-radius: 2px;
+  background: var(--ed-paper-sunken);
+  filter: saturate(0.94);
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   11. Artículo — tipografía de lectura
+   ─────────────────────────────────────────────────────────────────── */
+
+.blog-content {
+  font-family: 'Newsreader', Georgia, 'Times New Roman', serif;
+  max-width: 720px;
+  margin-inline: auto;
+  padding-inline: var(--ed-gutter);
+  padding-block: clamp(2.5rem, 2rem + 2vw, 4rem) 5rem;
+  font-size: clamp(1.09rem, 1.03rem + 0.3vw, 1.24rem);
+  line-height: 1.72;
+  color: var(--ed-ink);
+  font-optical-sizing: auto;
+  /* Comillas y guiones colgados donde el motor lo permite */
+  hanging-punctuation: first last;
+}
+
+.blog-content > p {
+  margin-block: 0 1.4em;
+  text-wrap: pretty;
+}
+
+/* Entradilla: cursiva de texto, sin tamaño inline peleando */
+.blog-content .lead {
+  font-size: 1.3em !important;
+  font-weight: 400 !important;
+  font-style: italic;
+  line-height: 1.5;
+  color: var(--ed-ink) !important;
+  margin-block-end: 1.6em;
+}
+
+.blog-content h2 {
+  font-family: var(--ed-font-display);
+  font-size: var(--ed-step-2);
+  font-weight: 600;
+  line-height: 1.14;
+  letter-spacing: -0.02em;
+  color: var(--ed-ink);
+  margin-block: 2.5em 0.65em;
+  padding-block-start: 0.85em;
+  border-block-start: 1px solid var(--ed-rule);
+  text-wrap: balance;
+  scroll-margin-block-start: 5rem;
+}
+
+.blog-content h3 {
+  font-family: var(--ed-font-display);
+  font-size: var(--ed-step-1);
+  font-weight: 600;
+  line-height: 1.2;
+  color: var(--ed-ink);
+  margin-block: 1.9em 0.5em;
+  scroll-margin-block-start: 5rem;
+}
+
+.blog-content :is(ul, ol) {
+  margin-block: 0 1.5em;
+  padding-inline-start: 1.35em;
+}
+
+.blog-content li {
+  margin-block-end: 0.55em;
+  padding-inline-start: 0.25em;
+}
+
+.blog-content li::marker {
+  color: var(--ed-accent);
+}
+
+.blog-content strong {
+  font-weight: 600;
+}
+
+.blog-content a {
+  color: var(--ed-ink);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-decoration-color: var(--ed-accent);
+  text-underline-offset: 0.16em;
+  transition: text-decoration-thickness var(--ed-fast) linear;
+}
+
+.blog-content blockquote {
+  margin: 2em 0;
+  padding-inline-start: 1.35em;
+  border-inline-start: 2px solid var(--ed-accent);
+  font-style: italic;
+  color: var(--ed-ink-muted);
+}
+
+.blog-content img {
+  inline-size: 100%;
+  block-size: auto;
+  border-radius: 2px;
+  margin-block: 1.5em;
+}
+
+/* ── Respuesta rápida: nota al margen, no tarjeta de plástico ── */
 .ed-quick-answer {
-  background: var(--ed-bg-card);
-  border: 1px solid var(--ed-border);
-  border-left: 4px solid var(--ed-violet);
-  border-radius: var(--ed-radius);
-  padding: 1.5rem 1.75rem;
-  margin: 2rem 0;
+  margin-block: 2.25em;
+  padding: 0 0 0 1.35rem;
+  background: none;
+  border: 0;
+  border-inline-start: 2px solid var(--ed-mark);
+  border-radius: 0;
 }
 
 .ed-quick-answer h2 {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: var(--ed-accent-text);
-  /* Es un H2 por jerarquía de documento, pero visualmente es una
-     etiqueta del bloque: no debe competir con los H2 de sección. */
-  font-size: 1.05rem;
-  line-height: 1.3;
-  letter-spacing: 0.01em;
-  margin: 0 0 0.75rem;
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--ed-mark);
+  margin: 0 0 0.6rem;
   padding: 0;
+  border: 0;
 }
 
-.ed-quick-answer h2::after {
-  content: none;
+.ed-quick-answer h2 i {
+  display: none;
 }
 
 .ed-quick-answer p {
   margin: 0;
-  color: var(--ed-text);
+  font-size: 1.06em;
+  line-height: 1.6;
+  color: var(--ed-ink);
 }
 
+/* ── FAQ: filetes y numeración, sin cajas apiladas ── */
 .ed-faq-list {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  margin: 1.5rem 0 2rem;
+  counter-reset: ed-faq;
+  margin-block: 1.5em 2.5em;
+  border-block-start: 1px solid var(--ed-rule);
 }
 
 .ed-faq-item {
-  background: var(--ed-bg-card);
-  border: 1px solid var(--ed-border);
-  border-radius: var(--ed-radius);
-  padding: 1.25rem 1.5rem;
-  transition: border-color var(--ed-transition);
-}
-
-.ed-faq-item:hover {
-  border-color: var(--ed-violet-light);
+  counter-increment: ed-faq;
+  padding: 1.15rem 0;
+  background: none;
+  border: 0;
+  border-block-end: 1px solid var(--ed-rule);
+  border-radius: 0;
 }
 
 .ed-faq-item h3 {
-  margin: 0 0 0.5rem;
-  color: var(--ed-text);
-  /* La pregunta debe pesar más que la respuesta: antes iba a 1rem,
-     por debajo del cuerpo del artículo, e invertía la jerarquía. */
-  font-size: 1.0625rem;
-  line-height: 1.4;
+  display: flex;
+  gap: 0.7rem;
+  font-family: var(--ed-font-display);
+  font-size: 1.0625em;
   font-weight: 600;
-  text-wrap: balance;
+  line-height: 1.35;
+  color: var(--ed-ink);
+  margin: 0 0 0.45rem;
+}
+
+.ed-faq-item h3::before {
+  content: counter(ed-faq, decimal-leading-zero);
+  flex: 0 0 auto;
+  font-family: var(--ed-font-ui);
+  font-size: 0.75em;
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+  color: var(--ed-ink-faint);
+  padding-block-start: 0.25em;
 }
 
 .ed-faq-item p {
-  margin: 0;
-  color: var(--ed-text-secondary);
-  line-height: 1.7;
+  margin: 0 0 0 2.05rem;
+  font-size: 0.98em;
+  line-height: 1.65;
+  color: var(--ed-ink-muted);
 }
 
+/* ── Fuentes: aparato crítico en cuerpo pequeño con sangría francesa ── */
 .ed-sources-list {
-  list-style: none;
+  margin-block: 1.25em 2.5em;
   padding: 0;
-  margin: 1rem 0 2rem;
-  display: flex;
-  flex-direction: column;
-  gap: 0.6rem;
+  list-style: none;
+  font-family: var(--ed-font-ui);
+  font-size: 0.85em;
+  line-height: 1.6;
+  color: var(--ed-ink-muted);
 }
 
 .ed-sources-list li {
-  font-size: 0.9rem;
-  color: var(--ed-text-secondary);
-  padding-left: 1.25rem;
-  position: relative;
-}
-
-.ed-sources-list li::before {
-  content: "→";
-  position: absolute;
-  left: 0;
-  color: var(--ed-accent-text);
+  margin-block-end: 0.75em;
+  padding-inline-start: 1.35rem;
+  text-indent: -1.35rem;
 }
 
 .ed-sources-list a {
-  color: var(--ed-accent-text);
+  color: var(--ed-ink);
+  text-decoration-color: var(--ed-accent);
+}
+
+/* ── Bloque de conversión: tinta plana, sin degradado ── */
+.blog-cta-box {
+  margin-block: 3em;
+  padding: clamp(1.5rem, 1.2rem + 1.2vw, 2.25rem);
+  background: var(--ed-paper-sunken);
+  border: 0;
+  border-inline-start: 2px solid var(--ed-accent);
+  border-radius: 2px;
+}
+
+.blog-cta-box h3 {
+  font-family: var(--ed-font-display);
+  font-size: var(--ed-step-1);
+  margin: 0 0 0.6rem;
+  color: var(--ed-ink);
+}
+
+.blog-cta-box p {
+  font-size: 0.97em;
+  line-height: 1.62;
+  color: var(--ed-ink-muted);
+  margin: 0 0 1.35rem;
+}
+
+.blog-content .blog-cta-box .btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.7rem 1.35rem !important;
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1) !important;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--ed-paper);
+  background: var(--ed-ink);
+  border: 0;
+  border-radius: 2px;
   text-decoration: none;
-  font-weight: 500;
+  transition: background var(--ed-fast) linear;
 }
 
-.ed-sources-list a:hover {
-  text-decoration: underline;
+.blog-content .blog-cta-box .btn-primary:hover {
+  background: var(--ed-accent);
+  color: var(--ed-accent-ink);
 }
 
-/* ===== Accesibilidad: focus visible en todo el artículo =====
-   Sin esto, navegar el artículo con teclado no mostraba dónde
-   estaba el foco en los enlaces de fuentes ni en el CTA. */
-.blog-content a:focus-visible,
-.ed-sources-list a:focus-visible,
-.blog-cta-box a:focus-visible,
-.ed-article-toolbar a:focus-visible,
-.ed-article-toolbar button:focus-visible {
-  outline: 2px solid var(--ed-violet-light);
+/* ── Firma ── */
+.blog-author {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-block-start: 3.5em;
+  padding-block-start: 1.35rem;
+  background: none;
+  border: 0;
+  border-block-start: 1px solid var(--ed-rule-strong);
+  border-radius: 0;
+}
+
+.blog-author .avatar-initials {
+  flex: 0 0 auto;
+  inline-size: 2.6rem;
+  block-size: 2.6rem;
+  display: grid;
+  place-items: center;
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: var(--ed-ink);
+  background: none;
+  border: 1px solid var(--ed-rule-strong);
+  border-radius: 50%;
+}
+
+.blog-author-info h3 {
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ed-ink);
+  margin: 0.2rem 0 0.4rem;
+}
+
+.blog-author-info p {
+  font-size: 0.88em;
+  line-height: 1.6;
+  color: var(--ed-ink-muted);
+  margin: 0;
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   12. Interacción
+   El realce es de tinta y filete: nada salta ni brilla.
+   ─────────────────────────────────────────────────────────────────── */
+
+@media (hover: hover) and (pointer: fine) {
+  .ed-card:hover {
+    background: color-mix(in oklab, var(--ed-ink) 4%, transparent);
+  }
+
+  .ed-card:hover .ed-card-meta::before {
+    color: var(--ed-accent);
+  }
+
+  .ed-card:hover :is(.ed-card-media img, .ed-featured-media img),
+  .ed-featured:hover .ed-featured-media img {
+    filter: saturate(1);
+    scale: 1.03;
+  }
+
+  .ed-card h2 a:hover,
+  .ed-featured-body h2 a:hover {
+    text-decoration-line: underline;
+    text-decoration-color: var(--ed-accent);
+    text-decoration-thickness: 1px;
+  }
+
+  .ed-chips button:hover,
+  .ed-toolbar-actions button:hover,
+  .ed-article-toolbar a:hover,
+  .ed-article-toolbar button:hover {
+    color: var(--ed-ink);
+  }
+
+  .ed-card [data-bookmark]:hover {
+    color: var(--ed-accent);
+  }
+
+  .blog-content a:hover {
+    text-decoration-thickness: 2px;
+  }
+}
+
+/* Foco visible: contorno de tinta, nunca eliminado */
+.ed-blog-main :focus-visible,
+.ed-article-toolbar :focus-visible,
+.footer-modern :focus-visible {
+  outline: 2px solid var(--ed-accent);
   outline-offset: 3px;
-  border-radius: 4px;
+  border-radius: 1px;
 }
 
-/* ===== Imágenes: reservar espacio para evitar reflow (CLS) ===== */
-.blog-post-cover img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.ed-search-input:focus-visible {
+  outline-offset: 5px;
+}
+
+/* Objetivos táctiles de 44px sin engordar el diseño en escritorio */
+@media (pointer: coarse) {
+  .ed-chips button,
+  .ed-toolbar-actions button,
+  .ed-card [data-bookmark],
+  .ed-article-toolbar a,
+  .ed-article-toolbar button {
+    min-block-size: 44px;
+    display: inline-flex;
+    align-items: center;
+  }
+}
+
+/* Móvil: la barra pegajosa estorba en pantallas cortas */
+@media (max-width: 40rem) {
+  .ed-toolbar {
+    position: static;
+    gap: 0.75rem 1.25rem;
+  }
+
+  .ed-toolbar-actions {
+    margin-inline-start: 0;
+  }
+
+  .ed-search-input {
+    inline-size: 100%;
+  }
+
+  .ed-toolbar [role='search'] {
+    flex: 1 1 100%;
+  }
+
+  .ed-hero h1 {
+    max-inline-size: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ed-blog-main *,
+  .ed-blog-main *::before,
+  .ed-blog-main *::after,
+  .ed-article-toolbar *,
+  .ed-progress-bar {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scale: none !important;
+  }
+}
+
+@media (forced-colors: active) {
+  .ed-card,
+  .ed-faq-item,
+  .ed-hero-inner,
+  .ed-feed-heading {
+    border-color: CanvasText;
+  }
+
+  .ed-card-meta::before,
+  .ed-card-category,
+  .blog-content li::marker {
+    color: CanvasText;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   13. Footer
+   Mismo HTML que footer-modern, re-vestido con los tokens del blog
+   para que siga el tema y pertenezca a la publicación. Va sin capa y
+   con `body` delante porque footer-modern.min.css carga después.
+   Esta hoja solo la cargan páginas de blog: el footer del resto del
+   sitio no se toca.
+   ─────────────────────────────────────────────────────────────────── */
+
+body .footer-modern {
+  background: var(--ed-paper);
+  color: var(--ed-ink);
+  border-block-start: 1px solid var(--ed-rule-strong);
+  padding-block-end: 3rem;
+  font-family: var(--ed-font-ui);
+}
+
+/* Fuera la línea de neón, el halo radial y las formas flotantes */
+body .footer-modern::before,
+body .footer-modern::after,
+body .footer-modern .footer-shape,
+body .footer-curve {
+  display: none;
+}
+
+body .footer-content-wrapper {
+  padding-block-start: 3.5rem;
+}
+
+/* CTA: bloque plano sobre papel hundido */
+body .footer-cta-card {
+  max-inline-size: var(--ed-shell);
+  margin: 0 auto 3.5rem;
+  padding: clamp(2rem, 1.5rem + 2vw, 3rem);
+  text-align: start;
+  background: var(--ed-paper-sunken);
+  border: 0;
+  border-inline-start: 2px solid var(--ed-accent);
+  border-radius: 2px;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  box-shadow: none;
+  overflow: visible;
+}
+
+body .footer-cta-card::before {
+  display: none;
+}
+
+body .cta-content h2 {
+  font-family: var(--ed-font-display);
+  font-size: var(--ed-step-2);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  color: var(--ed-ink);
+  margin-block-end: 0.6rem;
+}
+
+body .cta-content p {
+  font-family: var(--ed-font-text);
+  font-size: var(--ed-step-0);
+  color: var(--ed-ink-muted);
+  margin: 0 0 1.5rem;
+  max-inline-size: 46ch;
+  margin-inline: 0;
+}
+
+body .cta-content .btn-cta-footer {
+  padding: 0.75rem 1.4rem;
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  color: var(--ed-paper);
+  background: var(--ed-ink);
+  border-radius: 2px;
+  box-shadow: none;
+  transition: background var(--ed-fast) linear;
+}
+
+body .cta-content .btn-cta-footer:hover {
+  transform: none;
+  background: var(--ed-accent);
+  color: var(--ed-accent-ink);
+  box-shadow: none;
+}
+
+/* Marca */
+body .footer-brand-col .footer-brand-name {
+  font-family: var(--ed-font-display);
+  font-size: var(--ed-step-1);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--ed-ink);
+}
+
+body .footer-brand-col .footer-brand-name span {
+  background: none;
+  -webkit-background-clip: border-box;
+  background-clip: border-box;
+  -webkit-text-fill-color: currentColor;
+  color: var(--ed-accent);
+  font-style: italic;
+  font-weight: 400;
+}
+
+body .footer-brand-col .footer-tagline {
+  font-family: var(--ed-font-text);
+  font-size: var(--ed-step-0);
+  line-height: 1.6;
+  color: var(--ed-ink-muted);
+}
+
+body .footer-brand-col .footer-socials a {
+  inline-size: 2.25rem;
+  block-size: 2.25rem;
+  color: var(--ed-ink-muted);
+  background: none;
+  border: 1px solid var(--ed-rule);
+  border-radius: 50%;
+  box-shadow: none;
+}
+
+body .footer-brand-col .footer-socials a:hover {
+  transform: none;
+  color: var(--ed-ink);
+  background: none;
+  border-color: var(--ed-rule-strong);
+  box-shadow: none;
+}
+
+/* Columnas de enlaces */
+body .footer-modern .footer-col h4 {
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  font-weight: 600;
+  letter-spacing: 0.19em;
+  text-transform: uppercase;
+  color: var(--ed-ink-faint);
+  padding-block-end: 0.75rem;
+  border-block-end: 1px solid var(--ed-rule);
+}
+
+body .footer-modern .footer-col h4::after {
+  display: none;
+}
+
+body .footer-modern .footer-col ul li a,
+body .footer-contact-col .contact-item,
+body .footer-contact-col .contact-item a {
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  color: var(--ed-ink-muted);
+}
+
+body .footer-modern .footer-col ul li a:hover,
+body .footer-contact-col .contact-item a:hover {
+  transform: none;
+  color: var(--ed-ink);
+  text-decoration-line: underline;
+  text-decoration-color: var(--ed-accent);
+  text-underline-offset: 0.18em;
+}
+
+body .footer-contact-col .contact-item i {
+  color: var(--ed-ink-faint);
+}
+
+/* Barra legal */
+body .footer-bottom-bar {
+  border-block-start: 1px solid var(--ed-rule);
+  padding-block-start: 1.75rem;
+  align-items: flex-start;
+  text-align: start;
+}
+
+body .footer-bottom-bar .footer-legal-text,
+body .footer-bottom-bar .footer-copyright,
+body .footer-bottom-bar .footer-legal-links a {
+  font-family: var(--ed-font-ui);
+  font-size: var(--ed-step--1);
+  color: var(--ed-ink-faint);
+}
+
+body .footer-bottom-bar .footer-legal-links {
+  justify-content: flex-start;
+  margin-block-start: 0.5rem;
+}
+
+body .footer-bottom-bar .footer-legal-links a:hover {
+  color: var(--ed-ink);
+}
+
+body .footer-bottom-bar .footer-legal-links a:not(:last-child)::after {
+  background: var(--ed-rule-strong);
+}
+
+@media (max-width: 48rem) {
+  body .footer-cta-card {
+    margin-inline: var(--ed-gutter);
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────
+   14. Neutralización de la hoja antigua del post (css/blog.min.css)
+   Esa hoja centra el titular, pinta un degradado azul en el hero y
+   redondea la portada con sombra. Aquí se declaran explícitamente las
+   propiedades que hay que revertir; el prefijo .ed-blog-main da la
+   especificidad necesaria frente a reglas como `html.light-mode .badge`.
+   ─────────────────────────────────────────────────────────────────── */
+
+.ed-blog-main .blog-post-hero {
+  text-align: start;
+  background: var(--ed-paper);
+  padding-inline: 0;
+}
+
+.ed-blog-main .blog-post-header {
+  max-width: var(--ed-measure);
+  text-align: start;
+}
+
+.ed-blog-main .blog-post-title {
+  font-size: var(--ed-step-4);
+  margin-block-end: 0;
+}
+
+.ed-blog-main .blog-post-meta {
+  justify-content: flex-start;
+  gap: 0.4rem 1.4rem;
+  margin-block-end: 0;
+  font-size: var(--ed-step--1);
+  color: var(--ed-ink-faint);
+}
+
+/* Rúbrica: se anula la píldora lavanda global */
+.ed-blog-main .blog-post-hero .badge {
   display: block;
+  inline-size: fit-content;
+  padding: 0;
+  color: var(--ed-mark);
+  background: none;
+  border: 0;
+  border-radius: 0;
+  font-size: var(--ed-step--1);
 }
 
-/* ===== Ajustes responsive del artículo ===== */
-@media (max-width: 900px) {
-  .blog-post-hero {
-    padding: 8rem 0 3.5rem;
-  }
+/* Portada: recorte plano, sin caja de 500px ni sombra */
+.ed-blog-main .blog-post-cover {
+  max-width: var(--ed-shell);
+  block-size: auto;
+  height: auto;
+  margin: clamp(2rem, 1.5rem + 2vw, 3.25rem) auto 0;
+  background: none;
+  border-radius: 0;
+  box-shadow: none;
+  overflow: visible;
+}
 
-  .blog-post-header {
-    padding-inline: 1.25rem;
-  }
+.ed-blog-main .blog-post-cover img {
+  block-size: auto;
+  aspect-ratio: 16 / 9;
+  border-radius: 2px;
+}
 
-  .blog-content {
-    padding-inline: 1.25rem;
-  }
+/* Cuerpo: la hoja antigua fija color blanco fijo y 760px */
+.ed-blog-main .blog-content {
+  color: var(--ed-ink);
+  max-width: 720px;
+}
 
-  .blog-post-title {
-    max-width: 100%;
+.ed-blog-main .blog-content :is(h2, h3) {
+  color: var(--ed-ink);
+}
+
+@media (max-width: 48rem) {
+  .ed-blog-main .blog-post-cover img {
+    aspect-ratio: 4 / 3;
   }
 }
 
-@media (max-width: 640px) {
-  .blog-post-hero {
-    padding: 7rem 0 2.75rem;
-  }
+/* ── Ajustes finales sobre el legado y el navbar flotante ── */
 
-  /* Ambos al mismo valor: es lo que mantiene alineado el título con el
-     cuerpo del texto en móvil. */
-  .blog-post-header,
-  .blog-content {
-    padding-inline: 1.15rem;
-  }
+/* blog.css cuelga un subrayado de 60x3px bajo cada h2; el filete
+   superior ya marca el cambio de sección. */
+.ed-blog-main .blog-content h2::after {
+  content: none;
+  display: none;
+}
 
-  .blog-content {
-    padding-bottom: 4.5rem;
-    line-height: 1.7;
-  }
+/* El navbar del sitio es una píldora fija: la barra de filtros se
+   estaciona por debajo en vez de quedar tapada. */
+.ed-toolbar {
+  top: 5.25rem;
+}
 
-  .blog-post-cover {
-    width: 100%;
-    min-height: 210px;
-    height: 46vw;
-    margin-top: -1.25rem;
-    border-radius: 0;
-    border-inline: 0;
-  }
+/* Guardar: el corazón necesitaba peso para leerse a este cuerpo */
+.ed-card [data-bookmark] {
+  font-size: 1rem;
+  line-height: 1;
+  color: var(--ed-ink-muted);
+}
 
-  .ed-quick-answer,
-  .ed-faq-item {
-    padding: 1.1rem 1.15rem;
-  }
-
-  .blog-post-meta {
-    gap: 0.5rem 1rem;
-    font-size: 0.9rem;
+@media (max-width: 40rem) {
+  .ed-toolbar {
+    top: auto;
   }
 }

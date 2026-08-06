@@ -60,9 +60,9 @@
     --nav-ink: #0B1020;
 
     /* ── Opacidades del cristal ── */
-    --nav-glass: 74%;
-    --nav-glass-scrolled: 90%;
-    --nav-hairline: 14%;
+    --nav-glass: 93%;
+    --nav-glass-scrolled: 97%;
+    --nav-hairline: 22%;
 
     /* ── Geometría ──
        --nav-gap-top es la distancia al borde, ya con el área segura
@@ -85,9 +85,9 @@ html.light-mode {
     --nav-fg: #1e1b4b;
     --nav-fg-soft: #475569;
     --nav-fg-dim: #64748b;
-    --nav-hairline: 10%;
-    --nav-glass: 80%;
-    --nav-glass-scrolled: 94%;
+    --nav-hairline: 18%;
+    --nav-glass: 95%;
+    --nav-glass-scrolled: 98%;
 }
 
 
@@ -281,14 +281,14 @@ html.light-mode body.re-page {
        que quedaría recortado y no se vería nada. El desborde se evita
        con el max-width de arriba y con los puntos de corte. */
 
-    background: rgba(10, 10, 30, .74);
+    background: rgba(10, 10, 30, .94);
     border: 1px solid rgba(255, 255, 255, .1);
     box-shadow:
         0 8px 32px rgba(0, 0, 0, .3),
         0 0 0 1px rgba(255, 255, 255, .04) inset;
 
-    backdrop-filter: blur(20px) saturate(1.4);
-    -webkit-backdrop-filter: blur(20px) saturate(1.4);
+    backdrop-filter: blur(20px) saturate(1.1);
+    -webkit-backdrop-filter: blur(20px) saturate(1.1);
 
     transition:
         top .35s cubic-bezier(.4, 0, .2, 1),
@@ -320,7 +320,7 @@ html.light-mode body.re-page {
 /* Al desplazarse, más cuerpo y un poco más cerca del borde. */
 .nav-pill.scrolled {
     top: calc(12px + env(safe-area-inset-top, 0px));
-    background: rgba(10, 10, 30, .9);
+    background: rgba(10, 10, 30, .97);
     box-shadow:
         0 12px 40px rgba(0, 0, 0, .4),
         0 0 0 1px rgba(255, 255, 255, .06) inset;
@@ -1200,4 +1200,59 @@ html.light-mode .nav-pill-theme .icon-sun {
 html.nav-locked,
 html.nav-locked body {
     overflow: hidden;
+}
+
+/* ── Legibilidad de la píldora sobre fondos claros ─────────────────
+   La píldora es translúcida y flota sobre el contenido: al pasar por
+   una sección blanca o una foto clara, ese blanco se mezclaba con la
+   superficie y el texto se quedaba sin contraste. Tres medidas:
+   1) superficie casi opaca ya en reposo (tokens --nav-glass arriba),
+   2) un aro exterior de 1px que da borde propio aunque el fondo sea
+      del mismo color que la píldora,
+   3) superficie 100% sólida donde no hay backdrop-filter, porque sin
+      desenfoque la translucidez se lee como suciedad.
+   ------------------------------------------------------------------ */
+:root {
+    --nav-ring: rgba(255, 255, 255, .16);
+    --nav-ring-outer: rgba(0, 0, 0, .38);
+}
+
+html.light-mode {
+    --nav-ring: rgba(15, 23, 42, .10);
+    --nav-ring-outer: rgba(15, 23, 42, .16);
+}
+
+.nav-pill {
+    box-shadow:
+        0 0 0 1px var(--nav-ring-outer),
+        0 10px 30px -12px rgba(0, 0, 0, .45),
+        0 1px 0 0 var(--nav-ring) inset;
+}
+
+.nav-pill.scrolled {
+    /* Bug de fondo: la regla .nav-pill.scrolled con el fondo oscuro
+       hardcodeado vive DESPUÉS del bloque @supports que compone el
+       cristal a partir de --nav-surface. Al empatar en especificidad
+       ganaba la última, así que en tema claro la píldora se volvía
+       casi negra y su texto (pizarra oscuro) quedaba en 1.9:1. Se
+       recupera aquí, al final de la hoja, con el color del tema. */
+    background: color-mix(in srgb, var(--nav-surface) var(--nav-glass-scrolled), transparent);
+    box-shadow:
+        0 0 0 1px var(--nav-ring-outer),
+        0 14px 38px -14px rgba(0, 0, 0, .55),
+        0 1px 0 0 var(--nav-ring) inset;
+}
+
+@supports not (background: color-mix(in srgb, red 50%, transparent)) {
+    .nav-pill.scrolled {
+        background: var(--nav-surface);
+    }
+}
+
+@supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+    .nav-pill,
+    .nav-pill.scrolled,
+    .nav-mobile-panel {
+        background: var(--nav-surface);
+    }
 }

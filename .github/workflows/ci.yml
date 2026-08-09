@@ -1,0 +1,60 @@
+name: Quality Gates
+on:
+  push: { branches: [main] }
+  pull_request:
+
+jobs:
+  gates:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20 }
+
+      - name: Ejecutar quality gates
+        run: |
+          chmod +x check.sh
+          ./check.sh
+
+      - name: Instalar deps de runtime y verificar resolución
+        run: |
+          npm install --omit=dev
+          node -e "
+            const pkg = require('./package.json');
+            const deps = Object.keys(pkg.dependencies || {});
+            deps.forEach(d => require(d));
+            console.log('✅ Runtime deps resuelven:', deps.join(', '));
+          "
+
+      - name: Suite de tests
+        run: npm test
+
+      - name: Validar scripts de mantenimiento
+        run: |
+          python3 -m py_compile fix_fake_testimonials.py
+          python3 -m py_compile fix_founding_year.py
+          python3 -m py_compile update_global_testimonials.py
+
+      - name: Validar sintaxis de server.js
+        run: node --check server.js
+
+  build:
+    runs-on: ubuntu-latest
+    if: ${{ hashFiles('package.json') != '' }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 20, cache: npm }
+      - run: npm ci || npm install
+      - run: npm run build --if-present
+      # linkinator solo tiene sentido si el build produjo algo. La
+      # migración a Eleventy está en curso y "npm run build" es un
+      # echo, así que _site puede no existir: comprobarlo evita un
+      # fallo de CI que no indica nada sobre el código.
+      - name: Verificar links internos del output
+        run: |
+          if [ -d ./_site ] && [ -n "$(ls -A ./_site 2>/dev/null)" ]; then
+            npx --yes linkinator ./_site --recurse --skip "^https?://"
+          else
+            echo "ℹ️ _site vacío o ausente (build es un echo): nada que verificar."
+          fi

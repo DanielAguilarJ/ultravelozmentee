@@ -16,15 +16,9 @@ jobs:
           chmod +x check.sh
           ./check.sh
 
-      - name: Instalar deps de runtime y verificar resolución
-        run: |
-          npm install --omit=dev
-          node -e "
-            const pkg = require('./package.json');
-            const deps = Object.keys(pkg.dependencies || {});
-            deps.forEach(d => require(d));
-            console.log('✅ Runtime deps resuelven:', deps.join(', '));
-          "
+      # Instalación completa: la suite necesita jsdom, que es devDependency.
+      - name: Instalar dependencias
+        run: npm ci || npm install
 
       - name: Suite de tests
         run: npm test
@@ -37,6 +31,20 @@ jobs:
 
       - name: Validar sintaxis de server.js
         run: node --check server.js
+
+      # Al final, porque --omit=dev poda las devDependencies: comprueba
+      # que el sitio arranca en producción sin nada del entorno de
+      # desarrollo. Si se ejecutara antes, se llevaría jsdom por delante
+      # y la suite de tests fallaría por dependencia ausente.
+      - name: Verificar que las deps de runtime resuelven sin devDependencies
+        run: |
+          npm install --omit=dev
+          node -e "
+            const pkg = require('./package.json');
+            const deps = Object.keys(pkg.dependencies || {});
+            deps.forEach(d => require(d));
+            console.log('✅ Runtime deps resuelven:', deps.join(', '));
+          "
 
   build:
     runs-on: ubuntu-latest

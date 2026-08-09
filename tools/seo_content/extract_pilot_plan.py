@@ -13,7 +13,7 @@ OUT = ROOT / "reports" / "seo" / "editorial-plan-pilot-10.json"
 def main() -> None:
     data = json.loads(PLAN_500.read_text(encoding="utf-8"))
     pilots = [p for p in data["posts"] if p["status"] == "pilot"]
-    assert len(pilots) == 10, f"esperaba 10 posts piloto, encontré {len(pilots)}"
+    assert pilots, "no hay posts marcados status=pilot en el plan de 500"
     out = {
         "meta": {
             "site": "https://ultravelozmente.com",

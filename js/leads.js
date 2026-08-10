@@ -33,10 +33,17 @@ const LIMITS = {
     phone: 25,
     course: 60,
     page: 120,
-    stage: 12
+    stage: 12,
+    /* 254 es el máximo real de una dirección de correo (RFC 5321). */
+    email: 254,
+    resource: 60
 };
 
-const STAGES = new Set(['contacto', 'confirmado']);
+/* 'recurso' = descarga de un material gratuito. Es el único stage que
+   pide correo y no teléfono: el visitante que baja una guía todavía no
+   quiere que le llamen, y exigirle el WhatsApp ahí hunde la conversión.
+   Los dos stages de cita siguen exigiendo teléfono, igual que antes. */
+const STAGES = new Set(['contacto', 'confirmado', 'recurso']);
 
 /* ── Saneamiento ─────────────────────────────────────────────── */
 
@@ -67,6 +74,30 @@ function normalizePhone(value) {
     if (!digits) return '';
 
     return (plus ? '+' : '') + digits;
+}
+
+/**
+ * Normaliza un correo para poder deduplicar: minúsculas y sin espacios.
+ * No se toca la parte local más allá de eso —hay servidores que sí
+ * distinguen mayúsculas— pero para comparar y para enviar basta.
+ */
+function normalizeEmail(value) {
+    return cleanText(value, LIMITS.email).replace(/\s+/g, '').toLowerCase();
+}
+
+/**
+ * Validación deliberadamente conservadora: algo@algo.tld sin espacios,
+ * sin comas y con un TLD de al menos dos letras. No se intenta
+ * implementar el RFC completo —esa regex es célebre por ser
+ * inmantenible y por rechazar direcciones válidas—; el objetivo es
+ * frenar erratas y basura, no certificar entregabilidad.
+ */
+function isValidEmail(value) {
+    if (typeof value !== 'string') return false;
+    if (value.length > LIMITS.email) return false;
+
+    return /^[^\s@,;:<>()[\]\\"]+@[^\s@,;.]+(\.[^\s@,;.]+)*\.[A-Za-z]{2,}$/
+        .test(value);
 }
 
 function isValidDate(value) {
@@ -112,15 +143,28 @@ function validateLead(body, now) {
     const phone = normalizePhone(input.phone);
     const course = cleanText(input.course, LIMITS.course) || 'No especificado';
     const page = cleanText(input.page, LIMITS.page) || '/';
+    const email = normalizeEmail(input.email);
+    const resource = cleanText(input.resource, LIMITS.resource);
 
-    if (name.length < 2) {
-        errors.push('name');
-    }
+    /* Una descarga solo necesita el correo. Pedir nombre ahí añade
+       fricción sin añadir información útil: el correo ya identifica. */
+    if (stage === 'recurso') {
+        if (!isValidEmail(email)) errors.push('email');
+        if (!resource) errors.push('resource');
+    } else {
+        if (name.length < 2) {
+            errors.push('name');
+        }
 
-    /* 10 dígitos es el mínimo de un número mexicano; el formulario
-       ya lo exige, pero la API no puede confiar en el cliente. */
-    if (phone.replace(/\D/g, '').length < 10) {
-        errors.push('phone');
+        /* 10 dígitos es el mínimo de un número mexicano; el formulario
+           ya lo exige, pero la API no puede confiar en el cliente. */
+        if (phone.replace(/\D/g, '').length < 10) {
+            errors.push('phone');
+        }
+
+        /* En una cita el correo es opcional, pero si viene mal escrito
+           conviene decirlo en vez de guardar una dirección inservible. */
+        if (email && !isValidEmail(email)) errors.push('email');
     }
 
     const date = typeof input.date === 'string' ? input.date.trim() : '';
@@ -145,6 +189,8 @@ function validateLead(body, now) {
             stage,
             name,
             phone,
+            email,
+            resource,
             course,
             date,
             time,
@@ -225,6 +271,27 @@ function waLink(phone) {
 function formatMessage(record) {
     const isFull = record.stage === 'confirmado';
 
+    /* Una descarga es un lead frío y con datos distintos: no hay
+       teléfono al que contestar, así que el aviso no debe fingir que
+       lo hay ni ofrecer un enlace de WhatsApp vacío. */
+    if (record.stage === 'recurso') {
+        const lines = [
+            '📩 Descarga de material gratuito',
+            '',
+            'Correo: ' + record.email,
+            'Material: ' + record.resource
+        ];
+
+        if (record.name) lines.push('Nombre: ' + record.name);
+        if (record.course && record.course !== 'No especificado') {
+            lines.push('Curso relacionado: ' + record.course);
+        }
+
+        lines.push('Página: ' + record.page);
+
+        return lines.join('\n');
+    }
+
     const lines = [
         isFull
             ? '🟢 CITA CONFIRMADA'
@@ -234,6 +301,10 @@ function formatMessage(record) {
         'WhatsApp: ' + record.phone,
         'Curso: ' + record.course
     ];
+
+    if (record.email) {
+        lines.push('Correo: ' + record.email);
+    }
 
     if (record.date || record.time) {
         lines.push('Cita: ' + [record.date, record.time].filter(Boolean).join(' a las '));
@@ -371,6 +442,8 @@ module.exports = {
     DEFAULT_FILE,
     cleanText,
     normalizePhone,
+    normalizeEmail,
+    isValidEmail,
     isValidDate,
     isValidTime,
     validateLead,

@@ -144,9 +144,12 @@
                  */
                 var phone = normalizePhone(userData.ph || userData.phone);
                 var firstName = userData.fn || userData.first_name;
-                if (phone || firstName) {
+                var email = (userData.em || userData.email || '')
+                    .toString().trim().toLowerCase();
+                if (phone || firstName || email) {
                     var enhanced = {};
                     if (phone) enhanced.phone_number = phone;
+                    if (email) enhanced.email = email;
                     if (firstName) enhanced.address = { first_name: firstName };
                     window.gtag('set', 'user_data', enhanced);
                 }

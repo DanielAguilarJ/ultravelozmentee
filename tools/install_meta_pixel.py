@@ -39,6 +39,13 @@ ROOT = Path(__file__).resolve().parent.parent
 
 PIXEL_ID = "280967147554736"
 
+# Los scripts de medición se sirven con cache-control de 24 h (y hasta 7 días
+# de stale-while-revalidate). Sin versionar, cualquier corrección de tracking
+# tarda un día en llegar a quien ya visitó el sitio. Al tocar js/meta-pixel.js
+# o js/tracking.js hay que subir esta versión, igual que se hace con el CSS
+# (navbar-unified.min.css?v=20260806).
+ASSET_VERSION = "20260810"
+
 # googleb3…: archivo de verificación de Google, no es una página.
 # 404: no queremos contar PageView de una página de error.
 SKIP = {"googleb3cccf1efd67c490.html", "404.html"}
@@ -56,7 +63,7 @@ GTAG_SNIPPET = f"""<!-- Google tag (gtag.js) -->
 
 PIXEL_MARKER = "js/meta-pixel.js"
 PIXEL_SNIPPET = f"""<!-- Meta Pixel — código base único en js/meta-pixel.js (pixel {PIXEL_ID}) -->
-<script src="js/meta-pixel.js"></script>
+<script src="js/meta-pixel.js?v={ASSET_VERSION}"></script>
 <noscript><img height="1" width="1" style="display:none" alt=""
     src="https://www.facebook.com/tr?id={PIXEL_ID}&ev=PageView&noscript=1" /></noscript>"""
 
@@ -67,8 +74,8 @@ PARAM_BUILDER_SNIPPET = (
 )
 
 BODY_MARKER = "js/tracking.js"
-BODY_SNIPPET = """<script src="js/param-builder-client.min.js" defer></script>
-<script src="js/tracking.js" defer></script>"""
+BODY_SNIPPET = f"""<script src="js/param-builder-client.min.js" defer></script>
+<script src="js/tracking.js?v={ASSET_VERSION}" defer></script>"""
 
 # Bloque inline heredado, con o sin el comentario de cierre.
 INLINE_PIXEL_RE = re.compile(

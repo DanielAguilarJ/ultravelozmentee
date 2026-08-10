@@ -20,6 +20,7 @@ const loadedEnvKeys = loadEnvFile(path.join(__dirname, '.env'));
 const { sendCapiEvent } = require('./js/capi');
 const leads = require('./js/leads');
 const { sanitizeBlogContent } = require('./js/blog-sanitizer');
+const { resolveLegacyPath } = require('./js/legacy-redirects');
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -72,6 +73,7 @@ const PRIVATE_FILES = new Set([
   '/js/leads.js',
   '/js/env-file.js',
   '/js/blog-sanitizer.js',
+  '/js/legacy-redirects.js',
   '/fix_founding_year.py',
   '/fix_fake_testimonials.py',
   '/update_global_testimonials.py',
@@ -164,6 +166,31 @@ app.use((req, res, next) => {
 //    para no disparar PageView en redirects)
 //    Una sola URL por página: https, sin www, sin .html, sin /
 // ─────────────────────────────────────────────────────────────
+
+/*
+ * Página servible = <slug>.html en la raíz, excluyendo lo que la
+ * ruta limpia de la sección 9 también excluye (backups, archivos
+ * "-old") más el 404 y el token de verificación de Google. Sin esta
+ * exclusión una URL heredada podría destapar un backup.
+ */
+const SERVABLE_SLUG = /^[A-Za-z0-9][A-Za-z0-9._-]*$/;
+
+function pageExists(slug) {
+  if (!SERVABLE_SLUG.test(slug) || slug.includes('..')) return false;
+  if (slug === '404' || slug.startsWith('googleb')) return false;
+  if (slug.includes('backup') || slug.includes('-old')) return false;
+  return fs.existsSync(path.join(staticPath, `${slug}.html`));
+}
+
+/* Conserva la query string al redirigir, respetando el fragmento. */
+function withQuery(target, originalUrl) {
+  const i = originalUrl.indexOf('?');
+  if (i === -1) return target;
+  const qs = originalUrl.slice(i);
+  const h = target.indexOf('#');
+  return h === -1 ? target + qs : target.slice(0, h) + qs + target.slice(h);
+}
+
 app.use((req, res, next) => {
   const CANONICAL_HOST = 'ultravelozmente.com';
 
@@ -193,6 +220,18 @@ app.use((req, res, next) => {
   // /index.html y /index → /
   if (req.path === '/index.html' || req.path === '/index') {
     return res.redirect(301, '/');
+  }
+  /*
+   * URLs heredadas del WordPress antiguo (/home/fastkids.html,
+   * /planteles/, /regularizacion/…). Va ANTES del strip de .html a
+   * propósito: así /home/fastkids.html hace UNA redirección a
+   * /fastkids en lugar de la cadena .html → sin extensión → 404.
+   * Sin destino relevante devuelve null y la petición sigue su curso
+   * hasta el 404 honesto de la sección 10.
+   */
+  const legacyTarget = resolveLegacyPath(req.path, pageExists);
+  if (legacyTarget) {
+    return res.redirect(301, withQuery(legacyTarget, req.originalUrl));
   }
   // .html → URL limpia
   if (req.path.endsWith('.html')) {

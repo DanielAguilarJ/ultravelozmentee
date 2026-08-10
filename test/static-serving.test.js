@@ -11,7 +11,7 @@
    Efecto visible para el usuario: al pulsar "Siguiente" en el
    formulario de agendado, la página recargaba y volvía al inicio,
    porque el script que llama a preventDefault nunca cargaba. Sin
-   booking.min.js tampoco existía window.goToStep2, así que ninguna
+   booking.js tampoco existía window.goToStep2, así que ninguna
    cita podía agendarse en todo el sitio.
 
    La suite ataca el regex directamente en lugar de levantar el
@@ -58,10 +58,9 @@ const PRIVATE_FILES = extractPrivateFiles();
 test('los scripts del sitio NO se bloquean por extensión', () => {
     /* Este es el caso que rompía el formulario de agendado. */
     const scripts = [
-        '/js/booking.min.js',
         '/js/booking.js',
         '/js/navbar.min.js',
-        '/js/tracking.min.js',
+        '/js/tracking.js',
         '/js/param-builder-client.min.js',
         '/js/regularizacion-2026.js',
         '/js/lectoescritura-adapter.js',

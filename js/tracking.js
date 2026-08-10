@@ -8,6 +8,49 @@
     'use strict';
 
     /**
+     * CONVERSIONES DE GOOGLE ADS
+     * ──────────────────────────
+     * Cuenta 545-967-1262 · etiqueta AW-10846614576
+     *
+     * Solo los eventos listados aquí cuentan como conversión. Antes, TODOS
+     * los eventos (y además cada carga de página) disparaban la misma
+     * etiqueta '3anQCMTY77oDELDoiLQo', que corresponde a una conversión de
+     * tipo "vista de página". Resultado: para Google, una visita, un clic a
+     * WhatsApp y una cita agendada eran el mismo hecho indistinguible, y el
+     * Smart Bidding acabaría optimizando para conseguir visitas en lugar de
+     * clientes. Ahora la única conversión es la que de verdad vale para el
+     * negocio: que agenden la cita de cortesía.
+     *
+     * El valor es uniforme (1 MXN) porque en la cuenta está configurado
+     * "utilizar el mismo valor para cada conversión". Con un valor igual para
+     * todas, optimizar por valor y por volumen es matemáticamente idéntico:
+     * cuando se conozca el valor real de un alumno inscrito, basta cambiar
+     * esta constante y el valor por defecto en Google Ads.
+     */
+    var GOOGLE_ADS_ID = 'AW-10846614576';
+    var GOOGLE_ADS_CONVERSIONS = {
+        // "Cita de cortesía agendada" — acción principal, recuento: una
+        Lead: 'zbTsCOr_g98cELDoiLQo'
+    };
+    var CONVERSION_VALUE = 1;
+    var CONVERSION_CURRENCY = 'MXN';
+    var DEFAULT_PHONE_COUNTRY_CODE = '+52';
+
+    /**
+     * Normaliza un teléfono mexicano a E.164 (+52XXXXXXXXXX), que es el
+     * formato que exigen las conversiones avanzadas de Google Ads. Si no
+     * hay dígitos suficientes devuelve null para no mandar basura.
+     */
+    function normalizePhone(raw) {
+        if (!raw) return null;
+        var digits = String(raw).replace(/\D/g, '');
+        if (digits.length < 10) return null;
+        if (String(raw).trim().charAt(0) === '+') return '+' + digits;
+        if (digits.length === 10) return DEFAULT_PHONE_COUNTRY_CODE + digits;
+        return '+' + digits;
+    }
+
+    /**
      * Obtiene parámetros mejorados de ParamBuilder del lado del cliente
      * para incluir en los eventos enviados al servidor
      */
@@ -68,7 +111,7 @@
         // 3. Enviar a Google Ads (gtag) con mapeo de eventos
         if (window.gtag) {
             var gtagEventMap = {
-                'Contact': 'conversion',
+                'Contact': 'generate_lead',
                 'ViewContent': 'view_item',
                 'SubmitApplication': 'generate_lead',
                 'AddToWishlist': 'add_to_wishlist',
@@ -78,13 +121,33 @@
             };
             var gtagEventName = gtagEventMap[eventName] || eventName.toLowerCase();
 
-            // Para conversiones específicas de Google Ads
-            if (eventName === 'Contact' || eventName === 'SubmitApplication' || eventName === 'Lead') {
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-10846614576/3anQCMTY77oDELDoiLQo',
-                    'value': 1.0,
-                    'currency': 'MXN',
-                    'event_callback': function () { }
+            /*
+             * Conversión de Google Ads: solo si este evento tiene una
+             * etiqueta propia asignada. Los demás eventos se siguen mandando
+             * como eventos normales (abajo) para poder analizarlos, pero no
+             * se cuentan como conversión ni guían las pujas.
+             */
+            var conversionLabel = GOOGLE_ADS_CONVERSIONS[eventName];
+            if (conversionLabel) {
+                /*
+                 * Conversiones avanzadas: el nombre y el teléfono que dejó la
+                 * persona al agendar mejoran la atribución. gtag los hashea en
+                 * el navegador; no viajan en claro.
+                 */
+                var phone = normalizePhone(userData.ph || userData.phone);
+                var firstName = userData.fn || userData.first_name;
+                if (phone || firstName) {
+                    var enhanced = {};
+                    if (phone) enhanced.phone_number = phone;
+                    if (firstName) enhanced.address = { first_name: firstName };
+                    window.gtag('set', 'user_data', enhanced);
+                }
+
+                window.gtag('event', 'conversion', {
+                    'send_to': GOOGLE_ADS_ID + '/' + conversionLabel,
+                    'value': CONVERSION_VALUE,
+                    'currency': CONVERSION_CURRENCY,
+                    'transaction_id': eventId
                 });
             }
 
@@ -220,14 +283,16 @@
     }
 
     /**
-     * Enviar conversión "Vista de página" automáticamente al cargar
+     * Una vista de página NO es una conversión.
+     *
+     * Aquí antes se disparaba gtag('event','conversion') en cada carga, con
+     * la misma etiqueta que los leads. Eso llenaba la cuenta de conversiones
+     * falsas: cualquier visita contaba como éxito. La etiqueta de Google ya
+     * registra la vista de página por sí sola con gtag('config'), así que no
+     * hace falta mandar nada extra aquí.
      */
     function sendPageViewConversion() {
-        if (window.gtag) {
-            gtag('event', 'conversion', {
-                'send_to': 'AW-10846614576/3anQCMTY77oDELDoiLQo'
-            });
-        }
+        /* intencionadamente vacío — ver comentario de arriba */
     }
 
     // Inicializar todos los trackers

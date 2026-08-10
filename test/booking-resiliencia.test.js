@@ -21,7 +21,7 @@
    Invariante que fija esta suite: la analítica NUNCA puede impedir que
    una cita se agende. Perder una métrica es barato; perder un lead no.
 
-   Se prueba sobre booking.min.js, que es el archivo que las páginas
+   Se prueba sobre booking.js, que es el archivo que las páginas
    cargan en producción.
    ══════════════════════════════════════════════════════════════════ */
 
@@ -46,7 +46,7 @@ const MARKUP = `<!DOCTYPE html><body>
   </div></body>`;
 
 /**
- * Monta el flujo con booking.min.js y permite inyectar un
+ * Monta el flujo con booking.js y permite inyectar un
  * trackMetaEvent que falle, para simular un bloqueador de anuncios.
  */
 function mount(options) {
@@ -77,7 +77,7 @@ function mount(options) {
         window.trackMetaEvent = () => { /* silencioso */ };
     }
 
-    window.eval(fs.readFileSync(path.join(ROOT, 'js/booking.min.js'), 'utf8'));
+    window.eval(fs.readFileSync(path.join(ROOT, 'js/booking.js'), 'utf8'));
     window.document.dispatchEvent(new window.Event('DOMContentLoaded'));
 
     const d = window.document;

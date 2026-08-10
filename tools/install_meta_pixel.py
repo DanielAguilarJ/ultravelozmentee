@@ -66,9 +66,9 @@ PARAM_BUILDER_SNIPPET = (
     '/public/client_js/capiParamBuilder/clientParamBuilder.bundle.js"></script>'
 )
 
-BODY_MARKER = "js/tracking.min.js"
+BODY_MARKER = "js/tracking.js"
 BODY_SNIPPET = """<script src="js/param-builder-client.min.js" defer></script>
-<script src="js/tracking.min.js" defer></script>"""
+<script src="js/tracking.js" defer></script>"""
 
 # Bloque inline heredado, con o sin el comentario de cierre.
 INLINE_PIXEL_RE = re.compile(

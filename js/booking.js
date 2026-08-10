@@ -267,13 +267,19 @@
             // el catch de abajo y el usuario veía "Hubo un error al
             // procesar tu reserva" pese a estar todo bien.
             safeTrack(function () {
+                /*
+                 * fn y ph van al nivel superior a propósito. js/capi.js solo
+                 * hashea como PII los campos que reconoce ahí ('fn','ph','em'…);
+                 * anidados dentro de user_data acababan tratados como datos
+                 * personalizados, sin hashear y sin mejorar la calidad de
+                 * coincidencia de Meta. Google Ads los usa igual para las
+                 * conversiones avanzadas (ver js/tracking.js).
+                 */
                 window.trackMetaEvent('Lead', {
                     content_name: bookingData.course,
                     content_category: 'Booking',
-                    user_data: {
-                        fn: bookingData.name,
-                        ph: bookingData.phone
-                    }
+                    fn: bookingData.name,
+                    ph: bookingData.phone
                 });
             });
 

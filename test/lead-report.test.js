@@ -11,7 +11,7 @@
    visitante veía su cita confirmada, se le abría WhatsApp, y el lead
    nunca llegaba al equipo.
 
-   La causa: el reporte a /api/bookings vive dentro de booking.min.js,
+   La causa: el reporte a /api/bookings vive dentro de booking.js,
    y esas dos páginas implementan el agendado inline sin cargarlo.
 
    Aquí se comprueba el contrato completo: que el cliente construya un

@@ -35,6 +35,20 @@ def load_content() -> dict[int, dict]:
     return content
 
 
+def load_all_known_titles() -> dict[str, str]:
+    """Mapa slug -> título, para resolver la sección 'Sigue leyendo' de
+    cualquier post que enlace a otro por slug, sin importar de qué plan
+    (60, 500-piloto) venga el destino."""
+    titles: dict[str, str] = {}
+    for plan_file in (PLAN_PATH, ROOT / "reports" / "seo" / "editorial-plan-60-posts.json"):
+        if not plan_file.is_file():
+            continue
+        for p in json.loads(plan_file.read_text(encoding="utf-8"))["posts"]:
+            if p.get("title") and p.get("slug"):
+                titles[p["slug"]] = p["title"]
+    return titles
+
+
 def fmt_date_es(iso: str) -> str:
     y, m, d = (int(x) for x in iso.split("-"))
     return f"{d} de {MONTHS_ES[m]}, {y}"
@@ -489,12 +503,28 @@ def render_section_html(section: dict) -> str:
     return "\n".join(parts)
 
 
-def render_body(meta: dict, post: dict, wc: int) -> str:
+def render_body(meta: dict, post: dict, wc: int, titles: dict[str, str] | None = None) -> str:
     course_href = meta["course_url"]
     pub_date_es = fmt_date_es(meta["publication_date"])
     minutes = reading_minutes(wc)
 
     sections_html = "\n\n".join(render_section_html(s) for s in post["sections"])
+
+    related_html = ""
+    related_slugs = [s for s in post.get("related", []) if titles and s in titles]
+    if related_slugs:
+        items = "\n".join(
+            f'                <li><a href="/blog-{slug}">{titles[slug]}</a></li>'
+            for slug in related_slugs
+        )
+        related_html = f"""
+            <div class="ed-related-posts" aria-label="Artículos relacionados">
+                <h2>Sigue leyendo</h2>
+                <ul>
+{items}
+                </ul>
+            </div>
+"""
 
     faq_items = "\n".join(
         f"""            <!-- SEO:FAQ:START -->
@@ -561,6 +591,7 @@ def render_body(meta: dict, post: dict, wc: int) -> str:
                 </a>
             </div>
 
+{related_html}
             <h2>Preguntas frecuentes</h2>
             <div class="ed-faq-list">
 {faq_items}
@@ -590,6 +621,7 @@ if __name__ == "__main__":
 
     plan = load_plan()
     content = load_content()
+    titles = load_all_known_titles()
     missing = sorted(set(plan) - set(content))
     print(f"Plan: {len(plan)} posts. Contenido cargado: {len(content)} posts.")
     if missing:
@@ -601,7 +633,7 @@ if __name__ == "__main__":
         post = content[post_id]
         wc = word_count_of(post)
         head = render_head(meta, post)
-        body = render_body(meta, post, wc)
+        body = render_body(meta, post, wc, titles)
         return head + "\n" + body
 
     if "--test" in sys.argv:

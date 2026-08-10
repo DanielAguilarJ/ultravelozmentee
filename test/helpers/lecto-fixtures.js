@@ -7,7 +7,7 @@
    js/lecto-demo.js buscan por id, clase o selector.
    ══════════════════════════════════════════════════════════════ */
 
-/* Variantes de horario que produce loadTimeSlots() de booking.min.js:
+/* Variantes de horario que produce loadTimeSlots() de booking.js:
    libre (clicable), seleccionado (.selected) y ocupado
    (disabled + .booked + title). */
 var SLOT_VARIANTS = ['libre', 'seleccionado', 'ocupado'];
@@ -185,7 +185,7 @@ function buildLectoDocument(options) {
 
 /**
  * Inyecta `count` botones de horario en `#slots-container`,
- * imitando loadTimeSlots() de booking.min.js: vacía el contenedor
+ * imitando loadTimeSlots() de booking.js: vacía el contenedor
  * y añade un <button type="button" class="course-time-slot"> por hora.
  *
  * @param {Document} doc documento del fixture

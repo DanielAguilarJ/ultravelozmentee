@@ -34,7 +34,7 @@
      Se añade en la tarea 3.7, en test/lecto-freeze.bug.test.js.
    ══════════════════════════════════════════════════════════════ */
 
-/* booking.min.js deriva `#date-picker.min` con
+/* booking.js deriva `#date-picker.min` con
    `new Date().setDate(getDate() + 1)` + `toISOString()`, cuyo
    resultado depende del huso del host: con desplazamientos ≠ 0 el
    día UTC puede no coincidir con el día local. Se fija UTC para que
@@ -62,7 +62,7 @@ function isoLocal(date) {
         String(date.getDate()).padStart(2, '0');
 }
 
-/** Copia fiel de initBookingSystem() de booking.min.js: fija
+/** Copia fiel de initBookingSystem() de booking.js: fija
  *  `min` = mañana y resetea el valor. Es el último escritor real de
  *  `#date-picker`, porque corre en DOMContentLoaded, después de los
  *  scripts deferidos. */
@@ -83,7 +83,7 @@ function initBookingSystemStub(document) {
     return tomorrowStr;
 }
 
-/** Stubs de goToStep1/2/3 equivalentes a booking.min.js: alternan
+/** Stubs de goToStep1/2/3 equivalentes a booking.js: alternan
  *  `style.display` entre los pasos. */
 function installBookingStepStubs(window) {
     var document = window.document;
@@ -228,7 +228,7 @@ test('Preservación 1 · #date-picker.min efectivo es mañana en el orden de car
         datePicker.getAttribute('min'),
         null,
         'js/lecto-demo.js ya no escribe min: el único dueño es ' +
-        'initBookingSystem() de booking.min.js. Antes de la tarea 3.6 ' +
+        'initBookingSystem() de booking.js. Antes de la tarea 3.6 ' +
         'este script dejaba min = hoy (' + today + '), inconsistente con ' +
         'la validación de loadTimeSlots()'
     );
@@ -544,7 +544,7 @@ test('Preservación 4 · pasos 1 → 2 → 1 → 2 → 3 con aria-hidden/inert y
 
     assert.deepEqual(stepState(document), expectVisible(2), 'paso 1 → paso 2 (segunda vez)');
 
-    /* ── 2 → 3 · lo dispara booking.min.js al confirmar la reserva ── */
+    /* ── 2 → 3 · lo dispara booking.js al confirmar la reserva ── */
     window.goToStep3();
     await harness.flush();
 
@@ -958,6 +958,6 @@ test('Preservación 7 · js/lecto-demo.js ya no escribe #lectoMobileBar ni #date
         document.getElementById('date-picker').getAttribute('min'),
         null,
         '#date-picker no recibe ningún `min` de este script (problema C.4). ' +
-        'Único dueño: initBookingSystem() de booking.min.js'
+        'Único dueño: initBookingSystem() de booking.js'
     );
 });

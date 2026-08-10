@@ -203,7 +203,7 @@ test('los horarios del formulario son pulsables con el dedo', () => {
     assert.match(
         coarse,
         /course-time-slot[\s\S]{0,140}min-height/,
-        'los horarios que inyecta booking.min.js necesitan altura táctil'
+        'los horarios que inyecta booking.js necesitan altura táctil'
     );
 });
 

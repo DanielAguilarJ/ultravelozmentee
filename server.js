@@ -5,6 +5,7 @@ const compression = require('compression');
 const cookieParser = require('cookie-parser');
 const path = require('path');
 const fs = require('fs');
+const crypto = require('crypto');
 const { ParamBuilder } = require('capi-param-builder-nodejs');
 
 /*
@@ -47,6 +48,12 @@ const PRIVATE_PREFIXES = [
    */
   '/var/',
   '/scripts/',
+  /*
+   * /tools/ son scripts de build y mantenimiento (generadores de HTML,
+   * instalador del pixel). No contienen secretos, pero no tienen ninguna
+   * razón para servirse por HTTP.
+   */
+  '/tools/',
   '/node_modules/',
   '/graphify-out/',
   '/redaccion-ejecutiva/src/',
@@ -281,7 +288,15 @@ app.use((req, res, next) => {
     "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
     "script-src-elem 'self' 'unsafe-inline' https://www.googletagmanager.com https://googletagmanager.com https://www.google-analytics.com https://google-analytics.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://www.google.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
     "img-src 'self' data: https:",
-    "connect-src 'self' https://www.google-analytics.com https://google-analytics.com https://www.googletagmanager.com https://googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com",
+    /*
+     * Google Ads manda las conversiones a dominios regionales
+     * (www.google.com.mx para el tráfico de México) y a ad.doubleclick.net.
+     * CSP no admite comodines parciales tipo https://www.google.*, así que
+     * se listan los que aplican al público del sitio. Si se abren campañas
+     * en otros países, hay que añadir su ccTLD aquí o las conversiones de
+     * Google Ads se bloquean (las de Meta no dependen de esto).
+     */
+    "connect-src 'self' https://www.google-analytics.com https://google-analytics.com https://www.googletagmanager.com https://googletagmanager.com https://www.googleadservices.com https://googleads.g.doubleclick.net https://ad.doubleclick.net https://www.google.com https://www.google.com.mx https://analytics.google.com https://stats.g.doubleclick.net https://www.facebook.com https://connect.facebook.net https://capi-automation.s3.us-east-2.amazonaws.com",
     "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net https://cdnjs.cloudflare.com",
     "font-src 'self' https://fonts.gstatic.com https://cdnjs.cloudflare.com",
     "frame-src 'self' https://www.googletagmanager.com https://td.doubleclick.net https://www.google.com https://www.facebook.com",
@@ -302,14 +317,21 @@ function isPageRequest(requestPath) {
   }
 
   /*
-   * Las páginas públicas limpias solo tienen un segmento.
-   * Evita tracking de API, 404, archivos y rutas internas.
+   * Las páginas públicas tienen un solo segmento, con o sin extensión
+   * .html: /fotolectura y /fotolectura.html son la misma página y las dos
+   * deben contar PageView (los anuncios y los enlaces externos apuntan a
+   * ambas formas). El regex anterior no admitía el punto, así que ninguna
+   * URL .html enviaba PageView por CAPI.
+   *
+   * Sigue excluyendo /api/, /.well-known/, archivos estáticos y rutas
+   * internas de varios segmentos.
    */
-  if (!/^\/[a-z0-9_-]+$/i.test(requestPath)) {
+  const match = /^\/([a-z0-9_-]+)(?:\.html)?$/i.exec(requestPath);
+  if (!match) {
     return false;
   }
 
-  const page = requestPath.slice(1);
+  const page = match[1];
 
   if (
     page === '404' ||
@@ -323,8 +345,34 @@ function isPageRequest(requestPath) {
   return fs.existsSync(filePath);
 }
 
+/*
+ * event_id compartido Pixel ↔ CAPI.
+ *
+ * El PageView viaja por dos caminos: el navegador (js/meta-pixel.js) y el
+ * servidor (CAPI). Sin un event_id común, Meta los cuenta como dos eventos
+ * y las conversiones quedan infladas al doble. Aquí generamos el id, lo
+ * usamos en el evento de CAPI y lo dejamos en la cookie _wb_eid para que el
+ * navegador lo reutilice como eventID. La cookie NO es httpOnly a propósito:
+ * el script del pixel tiene que leerla. Vive poco y el navegador la expira
+ * en cuanto la usa, así que ninguna vista de página reutiliza un id viejo.
+ */
+const PAGEVIEW_EVENT_ID_COOKIE = '_wb_eid';
+const PAGEVIEW_EVENT_ID_TTL_MS = 120_000;
+
+function newPageViewEventId() {
+  return `pv_${Date.now()}_${crypto.randomBytes(6).toString('hex')}`;
+}
+
 app.use((req, res, next) => {
   if (req.method === 'GET' && (req.path === '/' || isPageRequest(req.path))) {
+    const pageViewEventId = newPageViewEventId();
+    res.cookie(PAGEVIEW_EVENT_ID_COOKIE, pageViewEventId, {
+      maxAge: PAGEVIEW_EVENT_ID_TTL_MS,
+      path: '/',
+      httpOnly: false,
+      sameSite: 'Lax'
+    });
+
     try {
       const builder = new ParamBuilder(['ultravelozmente.com', 'localhost']);
       const cookiesToSet = builder.processRequest(
@@ -347,10 +395,10 @@ app.use((req, res, next) => {
         }
       }
       req.paramBuilder = builder;
-      sendCapiEvent('PageView', req);
+      sendCapiEvent('PageView', req, {}, pageViewEventId);
     } catch (err) {
       console.error('⚠️ ParamBuilder error:', err.message);
-      sendCapiEvent('PageView', req);
+      sendCapiEvent('PageView', req, {}, pageViewEventId);
     }
   }
   next();

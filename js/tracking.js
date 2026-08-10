@@ -21,18 +21,26 @@
      * clientes. Ahora la única conversión es la que de verdad vale para el
      * negocio: que agenden la cita de cortesía.
      *
-     * El valor es uniforme (1 MXN) porque en la cuenta está configurado
-     * "utilizar el mismo valor para cada conversión". Con un valor igual para
-     * todas, optimizar por valor y por volumen es matemáticamente idéntico:
-     * cuando se conozca el valor real de un alumno inscrito, basta cambiar
-     * esta constante y el valor por defecto en Google Ads.
+     * VALOR DE LA CONVERSIÓN
+     * ──────────────────────
+     * 900 MXN = 3,000 (precio del curso) × 30 % (tasa de cierre asumida).
+     *
+     * Una cita de cortesía NO vale lo que vale el curso: vale lo que vale el
+     * curso multiplicado por la proporción de citas que acaban en inscripción.
+     * El 30 % es una estimación conservadora de partida, no un dato medido.
+     * Cuando se conozca la tasa real, se cambia este número y el valor por
+     * defecto de la acción en Google Ads (deben coincidir).
+     *
+     * Mientras solo exista una conversión, el valor no altera las pujas: con
+     * un importe igual para todas, optimizar por valor y por volumen da el
+     * mismo orden. Solo cambia cómo se lee el ROAS en los informes.
      */
     var GOOGLE_ADS_ID = 'AW-10846614576';
     var GOOGLE_ADS_CONVERSIONS = {
         // "Cita de cortesía agendada" — acción principal, recuento: una
         Lead: 'zbTsCOr_g98cELDoiLQo'
     };
-    var CONVERSION_VALUE = 1;
+    var CONVERSION_VALUE = 900;
     var CONVERSION_CURRENCY = 'MXN';
     var DEFAULT_PHONE_COUNTRY_CODE = '+52';
 

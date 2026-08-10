@@ -208,6 +208,10 @@ def render_head(meta: dict, post: dict) -> str:
         }})(window, document, 'script', 'dataLayer', 'GTM-MWMFXQS7');</script>
     <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
+    <!-- Meta Pixel — código base único en js/meta-pixel.js (pixel 280967147554736) -->
+    <script src="js/meta-pixel.js"></script>
+    <noscript><img height="1" width="1" style="display:none" alt=""
+        src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1" /></noscript>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta property="article:section" content="{esc(meta['category'])}">
@@ -477,7 +481,7 @@ FOOTER_AND_SCRIPTS = """    <!-- Footer Unificado WorldBrain -->
         }
     </script>
     <script src="js/param-builder-client.min.js" defer></script>
-    <script src="js/tracking.min.js" defer></script>
+    <script src="js/tracking.js" defer></script>
     <script src="js/blog-article.js" defer></script>
     <script src="js/navbar.min.js?v=20260804" defer></script>
     </body>

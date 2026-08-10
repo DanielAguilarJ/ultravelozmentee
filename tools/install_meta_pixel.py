@@ -141,7 +141,7 @@ def process(html: str, result: PageResult) -> str:
             result.error = "no se encontró </body>"
             return html
         html = html[: match.start()] + BODY_SNIPPET + "\n" + html[match.start():]
-        result.actions.append("tracking.min.js añadido")
+        result.actions.append("tracking.js añadido")
 
     return html
 

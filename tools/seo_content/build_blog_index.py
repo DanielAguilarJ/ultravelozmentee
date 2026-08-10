@@ -1,11 +1,22 @@
 #!/usr/bin/env python3
-"""Hace visibles los 60 posts en /blog-index.
+"""Hace visibles en /blog-index TODOS los posts que tienen contenido y HTML.
 
-Problema que resuelve: los 60 HTML existen y el sitemap los auto-descubre,
-pero blog-index.html solo enlazaba los 11 posts de la serie anterior y
-data/posts.json estaba vacío ([]), así que el cargador dinámico de
-js/blog-editorial.js abortaba y los 60 quedaban huérfanos: alcanzables por
-URL directa, invisibles desde la navegación.
+Problema que resuelve: los HTML existen y el sitemap los auto-descubre, pero
+blog-index.html solo enlazaba una parte, así que el resto quedaba huérfano de
+enlazado interno: alcanzable por URL directa, casi invisible para el rastreo.
+
+Ocurrió dos veces por la misma causa (un plan editorial cableado en el
+script):
+
+  1.ª vez  los 11 posts de la serie original enlazados, los 60 del plan de 60
+           invisibles.
+  2.ª vez  los 60 + 11 enlazados, los 164 del plan de 500 invisibles.
+
+Para que no haya una tercera, el script ya NO se ata a un plan: recorre
+PLANS y publica toda entrada que cumpla las dos condiciones reales de estar
+publicable —tener contenido en content/posts y su HTML renderizado en la
+raíz—. Añadir un plan nuevo no exige tocar este archivo; basta sumarlo a
+PLANS.
 
 Se generan tarjetas ESTÁTICAS (no solo el JSON del API) porque así los
 enlaces internos son rastreables y el listado funciona sin JS y en cualquier
@@ -21,7 +32,10 @@ import re
 from pathlib import Path
 
 ROOT = Path(__file__).parents[2]
-PLAN = ROOT / "reports" / "seo" / "editorial-plan-60-posts.json"
+PLANS = (
+    ROOT / "reports" / "seo" / "editorial-plan-60-posts.json",
+    ROOT / "reports" / "seo" / "editorial-plan-500-posts.json",
+)
 POSTS_DIR = ROOT / "content" / "posts"
 INDEX = ROOT / "blog-index.html"
 POSTS_JSON = ROOT / "data" / "posts.json"
@@ -36,10 +50,15 @@ MESES = {
     7: "jul", 8: "ago", 9: "sep", 10: "oct", 11: "nov", 12: "dic",
 }
 
-# Los chips existentes del índice son: infancia, liderazgo, seo, cerebro,
-# educacion. Se mapean los 10 clústeres a esos temas en vez de añadir chips
-# nuevos, para no alterar el diseño del filtro.
+# Cada clúster se publica bajo uno de los chips del filtro. Los cinco chips
+# originales (infancia, liderazgo, seo, cerebro, educacion) no discriminaban
+# con 235 posts: "educacion" se habría llevado más de la mitad. Se añaden dos
+# chips (productividad, tecnologia) en blog-index.html con el mismo markup que
+# los demás, y los clústeres restantes caen donde encajan de verdad:
+# metodologías de estudio con Cerebro (donde ya viven fotolectura y memoria),
+# habilidades blandas con Liderazgo, aprendizaje temprano con Infancia.
 CLUSTER_TOPIC = {
+    # plan de 60
     "universidad-dominical": "educacion",
     "fotolectura": "cerebro",
     "matematicas": "infancia",
@@ -50,6 +69,18 @@ CLUSTER_TOPIC = {
     "estudio-memoria": "cerebro",
     "ingles": "infancia",
     "finanzas-liderazgo-ia": "liderazgo",
+    # plan de 500
+    "metodologias-aprendizaje": "cerebro",
+    "productividad-estudiantil": "productividad",
+    "tecnologia-educativa": "tecnologia",
+    "habilidades-blandas": "liderazgo",
+    "aprendizaje-temprano": "infancia",
+    "desarrollo-profesional": "liderazgo",
+    "crianza-educacion": "infancia",
+    "neurociencia-aprendizaje": "cerebro",
+    "bienestar-estudiantil": "productividad",
+    "ciencia-y-futuro": "tecnologia",
+    "educacion-financiera": "liderazgo",
 }
 
 
@@ -99,9 +130,38 @@ def render_card(meta: dict, post: dict) -> str:
                     </article>"""
 
 
-def main() -> None:
-    plan = json.loads(PLAN.read_text(encoding="utf-8"))["posts"]
+def load_plan_entries() -> list[dict]:
+    """Entradas publicables de todos los planes, sin duplicar y ordenadas.
+
+    Publicable = tiene contenido en content/posts Y su HTML en la raíz. Un
+    plan declara 500 posts mucho antes de que existan; sin este filtro el
+    índice enlazaría a 404 y el script moriría con KeyError en el primero
+    sin contenido.
+    """
     content = load_content()
+    entries: dict[int, dict] = {}
+    for plan_path in PLANS:
+        if not plan_path.exists():
+            continue
+        for meta in json.loads(plan_path.read_text(encoding="utf-8"))["posts"]:
+            if meta["id"] in entries:
+                continue
+            if meta["id"] not in content:
+                continue
+            if not (ROOT / f"blog-{meta['slug']}.html").exists():
+                continue
+            entries[meta["id"]] = meta
+    # Más reciente primero: es un feed de blog, no un catálogo por id.
+    return sorted(
+        entries.values(),
+        key=lambda m: (m["publication_date"], m["id"]),
+        reverse=True,
+    )
+
+
+def main() -> None:
+    content = load_content()
+    plan = load_plan_entries()
 
     cards = "\n".join(render_card(m, content[m["id"]]) for m in plan)
     block = f"{START}\n{cards}\n                    {END}"

@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
-"""Renderiza los 60 posts JSON (content/posts/batch-*.json) a blog-<slug>.html
+"""Renderiza los posts JSON (content/posts/batch-*.json) a blog-<slug>.html
 siguiendo la plantilla de blog-1-poder-contenido-organico.html (navbar unificado,
-hero editorial, blog-content, footer). Usa reports/seo/editorial-plan-60-posts.json
-como fuente de metadatos (título, imagen, curso, categoría, fecha)."""
+hero editorial, blog-content, footer). Combina reports/seo/editorial-plan-60-posts.json
+y reports/seo/editorial-plan-500-posts.json como fuente de metadatos (título,
+imagen, curso, categoría, fecha).
+
+Nota histórica: hasta 2026-08-13 este script solo leía el plan de 60, aunque
+ya existían ~176 HTML renderizados de posts del plan de 500 en el repo. Esos
+archivos se generaron con un script temporal que nunca se commiteó -- una
+brecha real de reproducibilidad. PLANS combina ambos planes de forma
+permanente, igual que ya hace build_blog_index.py con su propia tupla PLANS."""
 from __future__ import annotations
 
 import json
@@ -11,7 +18,10 @@ from datetime import date
 from pathlib import Path
 
 ROOT = Path(__file__).parents[2]
-PLAN_PATH = ROOT / "reports" / "seo" / "editorial-plan-60-posts.json"
+PLANS = (
+    ROOT / "reports" / "seo" / "editorial-plan-60-posts.json",
+    ROOT / "reports" / "seo" / "editorial-plan-500-posts.json",
+)
 POSTS_DIR = ROOT / "content" / "posts"
 OUT_DIR = ROOT
 SITE = "https://ultravelozmente.com"
@@ -23,8 +33,18 @@ MONTHS_ES = {
 
 
 def load_plan() -> dict[int, dict]:
-    data = json.loads(PLAN_PATH.read_text(encoding="utf-8"))
-    return {p["id"]: p for p in data["posts"]}
+    """Combina todos los planes; un ID con datos incompletos (title=None,
+    status='draft-slug') se excluye para no romper el render ni tapar el
+    aviso de 'faltan en contenido' con un IndexError distinto."""
+    merged: dict[int, dict] = {}
+    for plan_path in PLANS:
+        if not plan_path.exists():
+            continue
+        data = json.loads(plan_path.read_text(encoding="utf-8"))
+        for p in data["posts"]:
+            if p.get("title") and p.get("status") != "draft-slug":
+                merged[p["id"]] = p
+    return merged
 
 
 def load_content() -> dict[int, dict]:
@@ -38,9 +58,14 @@ def load_content() -> dict[int, dict]:
 def load_all_known_titles() -> dict[str, str]:
     """Mapa slug -> título, para resolver la sección 'Sigue leyendo' de
     cualquier post que enlace a otro por slug, sin importar de qué plan
-    (60, 500-piloto) venga el destino."""
+    (60, 500) venga el destino.
+
+    Bug corregido 2026-08-13: antes iteraba el mismo archivo
+    (editorial-plan-60-posts.json) dos veces por error de copiar/pegar,
+    así que el internal linking nunca pudo resolver títulos de posts
+    del plan de 500."""
     titles: dict[str, str] = {}
-    for plan_file in (PLAN_PATH, ROOT / "reports" / "seo" / "editorial-plan-60-posts.json"):
+    for plan_file in PLANS:
         if not plan_file.is_file():
             continue
         for p in json.loads(plan_file.read_text(encoding="utf-8"))["posts"]:
@@ -459,6 +484,7 @@ FOOTER_AND_SCRIPTS = """    <!-- Footer Unificado WorldBrain -->
                 <p class="footer-legal-text">CWBMX, S.C. | RFC: CWB170626UH4 | Domicilio: Av. 1 de Mayo, Mz-C24B, Loc 282-283, Col. Centro Urbano, Cuautitl&aacute;n Izcalli, Edo. de M&eacute;x., C.P. 54700.</p>
                 <p class="footer-copyright">&copy; 2026 WorldBrain M&eacute;xico. Todos los derechos reservados.</p>
                 <div class="footer-legal-links">
+                    <a href="/nosotros">Nosotros</a>
                     <a href="/terminos">T&eacute;rminos y Condiciones</a>
                     <a href="/privacidad">Aviso de Privacidad</a>
                     <a href="/reembolsos">Pol&iacute;ticas de Devoluci&oacute;n</a>
@@ -656,11 +682,21 @@ if __name__ == "__main__":
     plan = load_plan()
     content = load_content()
     titles = load_all_known_titles()
-    missing = sorted(set(plan) - set(content))
-    print(f"Plan: {len(plan)} posts. Contenido cargado: {len(content)} posts.")
-    if missing:
-        print(f"Faltan en contenido: {missing}")
-        sys.exit(1)
+    # Con el plan de 60 la guarda histórica era abortar si faltaba contenido
+    # para algún ID planeado, porque los 60 se escribían de una sola vez.
+    # Con el plan de 500 mezclado eso ya no aplica: la producción es
+    # incremental por diseño (274 IDs siguen "draft-slug" a propósito), así
+    # que aquí se renderiza la intersección real -- solo se aborta si un ID
+    # tiene contenido en content/posts/ pero su entrada de plan quedó
+    # incompleta (title=None), porque eso sí sería un JSON corrupto.
+    renderable = sorted(set(plan) & set(content))
+    orphan_content = sorted(set(content) - set(plan))
+    print(f"Plan con metadatos completos: {len(plan)} posts. "
+          f"Contenido en disco: {len(content)} posts. "
+          f"Con ambos (se renderizan): {len(renderable)}.")
+    if orphan_content:
+        print(f"Contenido sin metadatos completos en el plan (no se renderiza, "
+              f"revisar status draft-slug): {orphan_content}")
 
     def render_post(post_id: int) -> str:
         meta = plan[post_id]
@@ -679,7 +715,7 @@ if __name__ == "__main__":
         sys.exit(0)
 
     written = []
-    for post_id in sorted(plan):
+    for post_id in renderable:
         meta = plan[post_id]
         html = render_post(post_id)
         out_path = OUT_DIR / f"blog-{meta['slug']}.html"

@@ -102,7 +102,33 @@ async function main() {
 
         const words = await page.evaluate(() => {
             const main = document.querySelector('main');
-            return main ? main.innerText.trim().split(/\s+/).length : 0;
+            const body = main || document.body;
+            return body.innerText.trim().split(/\s+/).length;
+        });
+
+        /* Guardián de desbordamiento. Las hojas tienen altura fija y
+           overflow:hidden, así que el contenido que no cabe NO empuja
+           una página nueva: desaparece sin aviso. Un PDF con un párrafo
+           recortado a media frase pasa cualquier revisión superficial,
+           así que hay que medirlo. */
+        const overflow = await page.evaluate(() => {
+            const out = [];
+            document.querySelectorAll('.sheet').forEach((sheet, i) => {
+                const limit = sheet.getBoundingClientRect().bottom;
+                /* El pie va posicionado en absoluto por diseño: no cuenta. */
+                sheet.querySelectorAll('.page > *, .cover-body, .figs, .chips')
+                    .forEach(el => {
+                        const b = el.getBoundingClientRect().bottom;
+                        if (b > limit + 1) {
+                            out.push({
+                                sheet: i + 1,
+                                el: el.className || el.tagName,
+                                exceso: Math.round((b - limit) / (96 / 25.4))
+                            });
+                        }
+                    });
+            });
+            return out;
         });
 
         await page.pdf({
@@ -124,7 +150,7 @@ async function main() {
         const raw = fs.readFileSync(out, 'latin1');
         const pages = (raw.match(/\/Type\s*\/Page[^s]/g) || []).length;
 
-        results.push({ slug, pages, kb: Math.round(size / 1024), words, hasBrandFont });
+        results.push({ slug, pages, kb: Math.round(size / 1024), words, hasBrandFont, overflow });
     }
 
     await browser.close();
@@ -140,14 +166,25 @@ async function main() {
             r.hasBrandFont ? '   ok' : '   FALTA'
         );
         if (!r.hasBrandFont) problems++;
+
+        if (r.overflow && r.overflow.length) {
+            problems++;
+            for (const o of r.overflow) {
+                console.log(
+                    `      ⚠ hoja ${o.sheet}: '${o.el}' se sale ${o.exceso}mm ` +
+                    `— el contenido se está RECORTANDO`
+                );
+            }
+        }
     }
 
     console.log('\n' + results.length + ' PDF generados en descargas/');
 
     if (problems) {
         console.error(
-            '\n' + problems + ' documento(s) se renderizaron sin la tipografía de ' +
-            'marca. Revisa la conexión a Google Fonts antes de publicar.'
+            '\n' + problems + ' documento(s) con problemas. Un desbordamiento ' +
+            'significa texto perdido en silencio: reparte el contenido en más ' +
+            'hojas antes de publicar.'
         );
         process.exit(1);
     }

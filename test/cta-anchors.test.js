@@ -35,7 +35,8 @@ const path = require('path');
 const ROOT = path.join(__dirname, '..');
 const PLANS = [
     'reports/seo/editorial-plan-60-posts.json',
-    'reports/seo/editorial-plan-500-posts.json'
+    'reports/seo/editorial-plan-500-posts.json',
+    'reports/seo/editorial-plan-national-international.json'
 ];
 
 /** course_url → course_name, leído de los planes editoriales. */

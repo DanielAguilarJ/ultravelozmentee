@@ -35,6 +35,7 @@ ROOT = Path(__file__).parents[2]
 PLANS = (
     ROOT / "reports" / "seo" / "editorial-plan-60-posts.json",
     ROOT / "reports" / "seo" / "editorial-plan-500-posts.json",
+    ROOT / "reports" / "seo" / "editorial-plan-national-international.json",
 )
 POSTS_DIR = ROOT / "content" / "posts"
 INDEX = ROOT / "blog-index.html"

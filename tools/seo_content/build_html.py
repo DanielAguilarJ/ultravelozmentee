@@ -1,20 +1,20 @@
 #!/usr/bin/env python3
 """Renderiza los posts JSON (content/posts/batch-*.json) a blog-<slug>.html
 siguiendo la plantilla de blog-1-poder-contenido-organico.html (navbar unificado,
-hero editorial, blog-content, footer). Combina reports/seo/editorial-plan-60-posts.json
-y reports/seo/editorial-plan-500-posts.json como fuente de metadatos (título,
-imagen, curso, categoría, fecha).
+hero editorial, blog-content, footer). Combina todos los planes declarados en
+PLANS como fuente de metadatos (título, imagen, curso, categoría y fecha).
 
 Nota histórica: hasta 2026-08-13 este script solo leía el plan de 60, aunque
 ya existían ~176 HTML renderizados de posts del plan de 500 en el repo. Esos
-archivos se generaron con un script temporal que nunca se commiteó -- una
-brecha real de reproducibilidad. PLANS combina ambos planes de forma
-permanente, igual que ya hace build_blog_index.py con su propia tupla PLANS."""
+archivos se generaron con un script temporal que nunca se commiteó: una
+brecha real de reproducibilidad. PLANS conserva explícitamente cada plan
+publicable, igual que build_blog_index.py con su propia tupla PLANS."""
 from __future__ import annotations
 
 import hashlib
 import json
 import struct
+import sys
 from datetime import date
 from pathlib import Path
 
@@ -22,7 +22,14 @@ ROOT = Path(__file__).parents[2]
 PLANS = (
     ROOT / "reports" / "seo" / "editorial-plan-60-posts.json",
     ROOT / "reports" / "seo" / "editorial-plan-500-posts.json",
+    ROOT / "reports" / "seo" / "editorial-plan-national-international.json",
 )
+
+TOOLS_DIR = ROOT / "tools"
+if str(TOOLS_DIR) not in sys.path:
+    sys.path.insert(0, str(TOOLS_DIR))
+from inject_lead_magnet import pick_magnet as select_lead_magnet  # noqa: E402
+
 POSTS_DIR = ROOT / "content" / "posts"
 OUT_DIR = ROOT
 SITE = "https://ultravelozmente.com"
@@ -509,7 +516,7 @@ FOOTER_AND_SCRIPTS = """    <!-- Footer Unificado WorldBrain -->
     </script>
     <script src="js/param-builder-client.min.js" defer></script>
     <script src="js/tracking.js?v=20260810" defer></script>
-    <script src="js/lead-capture.js?v=20260810" defer></script>
+    <script src="js/lead-capture.js?v=20260814" defer></script>
     <script src="js/blog-article.js" defer></script>
     <script src="js/navbar.min.js?v=20260804" defer></script>
     </body>
@@ -724,9 +731,10 @@ MAGNETS, MAGNET_BY_CLUSTER = load_magnets()
 DEFAULT_MAGNET = "guia-tecnicas-de-estudio"
 
 
-def render_magnet(cluster: str | None) -> str:
-    """Bloque de captura con el documento del cluster del artículo."""
-    slug = MAGNET_BY_CLUSTER.get(cluster or "", DEFAULT_MAGNET)
+def render_magnet(cluster: str | None, page_slug: str) -> str:
+    """Bloque de captura resuelto por el selector compartido del pipeline."""
+    slug_clusters = {page_slug: cluster} if cluster else {}
+    slug = select_lead_magnet(page_slug, slug_clusters, MAGNET_BY_CLUSTER)
     meta = MAGNETS.get(slug) or MAGNETS.get(DEFAULT_MAGNET)
     if not meta:
         # Sin catálogo no se inventa un enlace: mejor sin bloque que con
@@ -769,7 +777,7 @@ def render_body(meta: dict, post: dict, wc: int, titles: dict[str, str] | None =
     course_href = meta["course_url"]
     cta_label = cta_anchor(post["slug"], course_href, post["cta"]["label"],
                            meta.get("course_name", ""))
-    magnet_html = render_magnet(meta.get("cluster"))
+    magnet_html = render_magnet(meta.get("cluster"), meta["slug"])
     pub_date_es = fmt_date_es(meta["publication_date"])
     minutes = reading_minutes(wc)
 

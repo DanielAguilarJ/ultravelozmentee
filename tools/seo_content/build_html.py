@@ -12,6 +12,7 @@ brecha real de reproducibilidad. PLANS combina ambos planes de forma
 permanente, igual que ya hace build_blog_index.py con su propia tupla PLANS."""
 from __future__ import annotations
 
+import hashlib
 import json
 import struct
 from datetime import date
@@ -534,8 +535,241 @@ def render_section_html(section: dict) -> str:
     return "\n".join(parts)
 
 
+# ── Anclaje interno de los CTA ────────────────────────────────────────
+#
+# Por qué existe: los 270 enlaces internos desde el blog hacia /robotics
+# usaban el MISMO texto de ancla, el nombre de marca ("Robotics Code").
+# El texto de ancla es una señal de relevancia: 270 enlaces repitiendo la
+# marca le enseñan a Google que la página trata de "Robotics Code" —que
+# nadie busca— en vez de "curso de robótica para niños", que es lo que sí
+# se busca y donde la página estaba en posición 33-60.
+#
+# La corrección NO es poner la keyword exacta en los 270: un perfil de
+# anclaje con 100 % de coincidencia exacta es el patrón que Google trata
+# como manipulación. Se reparte entre la marca (que debe seguir siendo
+# frecuente, es la marca real del curso) y variantes descriptivas
+# naturales, que además siguen funcionando como texto de botón.
+#
+# El reparto es determinista por slug: el mismo post siempre produce el
+# mismo ancla, así que regenerar el sitio no cambia el HTML y el diff se
+# mantiene legible.
+
+CTA_ANCHORS: dict[str, tuple[str, ...]] = {
+    "/robotics": (
+        "Ver el curso de robótica para niños",
+        "Conocer las clases de robótica",
+        "Curso de robótica y programación",
+        "Ver el taller de robótica para niños",
+    ),
+    "/mathekids": (
+        "Ver el curso de matemáticas para niños",
+        "Conocer las clases de matemáticas",
+        "Curso de cálculo mental para niños",
+    ),
+    "/fotolectura": (
+        "Ver el curso de lectura veloz",
+        "Conocer el curso de lectura rápida",
+        "Curso de comprensión lectora",
+    ),
+    "/memoria-prodigiosa": (
+        "Ver el curso de memoria",
+        "Conocer las técnicas de memorización",
+        "Curso de memoria para estudiantes",
+    ),
+    "/regularizacion-express": (
+        "Ver el curso de regularización escolar",
+        "Conocer las clases de regularización",
+        "Regularización de primaria y secundaria",
+    ),
+    "/admision-universitaria": (
+        "Ver el curso de admisión universitaria",
+        "Conocer la preparación para el examen de admisión",
+        "Curso para el examen de admisión",
+    ),
+    "/neurocomunicacion": (
+        "Ver el curso de comunicación efectiva",
+        "Conocer el taller de oratoria",
+        "Curso de comunicación para adolescentes",
+    ),
+    "/grandes-lideres": (
+        "Ver el curso de liderazgo para adolescentes",
+        "Conocer el taller de liderazgo",
+        "Curso de liderazgo juvenil",
+    ),
+    "/lectoescritura": (
+        "Ver el curso de lectoescritura",
+        "Conocer las clases de lectoescritura",
+        "Curso de lectura y escritura para niños",
+    ),
+    "/fastkids": (
+        "Ver el curso de inglés para niños",
+        "Conocer las clases de inglés para niños",
+        "Curso de inglés infantil",
+    ),
+    "/homeschool": (
+        "Ver el programa de homeschool",
+        "Conocer la educación en casa",
+        "Programa de homeschool en México",
+    ),
+    "/redaccion-ejecutiva": (
+        "Ver el curso de redacción",
+        "Conocer el curso de redacción ejecutiva",
+        "Curso de escritura profesional",
+    ),
+    "/alfa-cash": (
+        "Ver el curso de educación financiera",
+        "Conocer el taller de finanzas personales",
+        "Curso de finanzas para jóvenes",
+    ),
+    "/ciencia-astronomia": (
+        "Ver el curso de ciencia y astronomía",
+        "Conocer el taller de astronomía",
+        "Curso de astronomía para niños",
+    ),
+}
+
+# De cada N enlaces, cuántos conservan el ancla de marca del propio post.
+# 1 de cada 3: la marca sigue siendo el ancla más frecuente por sí sola,
+# y el resto se reparte entre las variantes descriptivas.
+BRAND_EVERY = 3
+
+
+def load_course_names() -> dict[str, str]:
+    """course_url → course_name, leído de los planes editoriales.
+
+    Se deriva del plan en vez de escribirse a mano para que no se
+    desincronice cuando se añada o renombre un curso.
+    """
+    out: dict[str, str] = {}
+    for plan_path in PLANS:
+        if not plan_path.exists():
+            continue
+        for post in json.loads(plan_path.read_text(encoding="utf-8"))["posts"]:
+            url = post.get("course_url")
+            name = post.get("course_name")
+            if url and name:
+                out.setdefault(url, name)
+    return out
+
+
+COURSE_NAMES = load_course_names()
+
+
+def cta_anchor(slug: str, course_url: str, brand_label: str,
+               course_name: str = "") -> str:
+    """Ancla del CTA para este post: marca o variante descriptiva.
+
+    Determinista: depende solo del slug, así que el HTML generado es
+    estable entre ejecuciones.
+
+    Además corrige un desajuste real del contenido: 25 artículos traían
+    un `cta.label` que nombra un curso DISTINTO al de su `course_url`
+    —por ejemplo «Conocer el curso MatheKids» enlazando a /robotics, o
+    los ids 64 y 65 intercambiados entre sí—. El botón prometía un curso
+    y llevaba a otro: mala experiencia y, para Google, ancla que no
+    describe el destino. Cuando se detecta, se descarta el label y se usa
+    una variante descriptiva del curso real.
+    """
+    variants = CTA_ANCHORS.get(course_url)
+    if not variants:
+        return brand_label
+
+    digest = hashlib.sha1(slug.encode("utf-8")).digest()
+
+    # ¿El label nombra otro curso del catálogo? Entonces no es utilizable.
+    otros = [
+        name for url, name in COURSE_NAMES.items()
+        if name in brand_label and url != course_url
+        # Un destino con dos cursos ("Homeschool y Lectoescritura") puede
+        # nombrar legítimamente uno de los dos.
+        and name not in course_name
+    ]
+    if otros:
+        return variants[digest[1] % len(variants)]
+
+    if digest[0] % BRAND_EVERY == 0:
+        return brand_label
+    return variants[digest[1] % len(variants)]
+
+
+# ── Lead magnet por cluster ───────────────────────────────────────────
+#
+# Antes la plantilla llevaba el bloque escrito a mano con la guía de
+# técnicas de estudio fija. Cada regeneración revertía los 258 artículos
+# al documento genérico —perdiendo el reparto por cluster— hasta que
+# alguien recordara ejecutar tools/inject_lead_magnet.py después. Un
+# artefacto correcto que el propio generador deshace es la misma brecha
+# de reproducibilidad que ya apareció con los HTML del plan de 500.
+#
+# Ahora el bloque se resuelve del catálogo, que es la única fuente de
+# verdad del mapeo cluster → documento → curso.
+
+MAGNET_CATALOG = ROOT / "tools" / "lead_magnets" / "catalog.json"
+
+
+def load_magnets() -> tuple[dict, dict]:
+    """Devuelve (magnets, cluster→slug) desde el catálogo."""
+    if not MAGNET_CATALOG.exists():
+        return {}, {}
+    data = json.loads(MAGNET_CATALOG.read_text(encoding="utf-8"))
+    magnets = data.get("magnets", {})
+    by_cluster: dict[str, str] = {}
+    for slug, meta in magnets.items():
+        for cluster in meta.get("clusters", []):
+            by_cluster[cluster] = slug
+    return magnets, by_cluster
+
+
+MAGNETS, MAGNET_BY_CLUSTER = load_magnets()
+DEFAULT_MAGNET = "guia-tecnicas-de-estudio"
+
+
+def render_magnet(cluster: str | None) -> str:
+    """Bloque de captura con el documento del cluster del artículo."""
+    slug = MAGNET_BY_CLUSTER.get(cluster or "", DEFAULT_MAGNET)
+    meta = MAGNETS.get(slug) or MAGNETS.get(DEFAULT_MAGNET)
+    if not meta:
+        # Sin catálogo no se inventa un enlace: mejor sin bloque que con
+        # una descarga que responde 404.
+        return ""
+
+    download = f"/descargas/{slug}.pdf"
+    return f"""            <!-- SEO:MAGNET:START -->
+                <section class="ed-magnet" aria-labelledby="magnet-title">
+                    <p class="ed-magnet-kicker">Descarga gratuita</p>
+                    <h2 id="magnet-title">{meta['title']}</h2>
+                    <p>{meta['teaser']}</p>
+                    <form data-lead-magnet
+                          data-resource="{slug}"
+                          data-download="{download}"
+                          data-course="{meta['course_name']}"
+                          novalidate>
+                        <div class="ed-magnet-row" data-lm-fields>
+                            <label for="magnet-email">Tu correo electrónico</label>
+                            <input type="email" id="magnet-email" name="email"
+                                   autocomplete="email" inputmode="email"
+                                   placeholder="tucorreo@ejemplo.com"
+                                   required data-lm-email>
+                            <button type="submit" data-lm-submit>{meta['button']}</button>
+                        </div>
+                        <p class="ed-magnet-status" role="status" aria-live="polite"
+                           data-lm-status></p>
+                        <div class="ed-magnet-done" hidden data-lm-done>
+                            <a href="{download}" download>Descargar el PDF</a>
+                        </div>
+                        <p class="ed-magnet-note">Te lo damos al instante en esta
+                        misma página. Usamos tu correo para enviarte material
+                        educativo; puedes pedir que lo borremos cuando quieras.</p>
+                    </form>
+                </section>
+                <!-- SEO:MAGNET:END -->"""
+
+
 def render_body(meta: dict, post: dict, wc: int, titles: dict[str, str] | None = None) -> str:
     course_href = meta["course_url"]
+    cta_label = cta_anchor(post["slug"], course_href, post["cta"]["label"],
+                           meta.get("course_name", ""))
+    magnet_html = render_magnet(meta.get("cluster"))
     pub_date_es = fmt_date_es(meta["publication_date"])
     minutes = reading_minutes(wc)
 
@@ -618,7 +852,7 @@ def render_body(meta: dict, post: dict, wc: int, titles: dict[str, str] | None =
                 <h3>{post['cta']['heading']}</h3>
                 <p>{post['cta']['text']}</p>
                 <a href="{course_href}" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    {post['cta']['label']} <i class="fas fa-arrow-right"></i>
+                    {cta_label} <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
 
@@ -640,35 +874,7 @@ def render_body(meta: dict, post: dict, wc: int, titles: dict[str, str] | None =
                     <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
                 </div>
             </div>
-            <!-- SEO:MAGNET:START -->
-                <section class="ed-magnet" aria-labelledby="magnet-title">
-                    <p class="ed-magnet-kicker">Descarga gratuita</p>
-                    <h2 id="magnet-title">Guía: cómo estudiar para que se quede</h2>
-                    <p>Siete técnicas de estudio explicadas con ejemplos y un plan
-                    de 14 días para aplicarlas. PDF de 5 páginas, sin costo.</p>
-                    <form data-lead-magnet
-                          data-resource="guia-tecnicas-de-estudio"
-                          data-download="/descargas/guia-tecnicas-de-estudio.pdf"
-                          novalidate>
-                        <div class="ed-magnet-row" data-lm-fields>
-                            <label for="magnet-email">Tu correo electrónico</label>
-                            <input type="email" id="magnet-email" name="email"
-                                   autocomplete="email" inputmode="email"
-                                   placeholder="tucorreo@ejemplo.com"
-                                   required data-lm-email>
-                            <button type="submit" data-lm-submit>Descargar la guía</button>
-                        </div>
-                        <p class="ed-magnet-status" role="status" aria-live="polite"
-                           data-lm-status></p>
-                        <div class="ed-magnet-done" hidden data-lm-done>
-                            <a href="/descargas/guia-tecnicas-de-estudio.pdf" download>Descargar el PDF</a>
-                        </div>
-                        <p class="ed-magnet-note">Te la damos al instante en esta
-                        misma página. Usamos tu correo para enviarte material
-                        educativo; puedes pedir que lo borremos cuando quieras.</p>
-                    </form>
-                </section>
-                <!-- SEO:MAGNET:END -->
+{magnet_html}
         </article>
 
     </main>

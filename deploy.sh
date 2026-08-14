@@ -19,6 +19,7 @@ echo "── 2/5 Sync de archivos (rsync = atómico por archivo) ──"
 rsync -avz --delete -e "ssh -p $REMOTE_PORT" \
   --include='*.html' --include='css/***' --include='js/***' \
   --include='images/***' --include='data/***' \
+  --include='descargas/***' \
   --include='server.js' --include='package.json' --include='package-lock.json' \
   --include='robots.txt' --include='llms.txt' \
   --exclude='node_modules' --exclude='.git' --exclude='_archive' \
@@ -58,6 +59,13 @@ check "Términos"                "$URL/terminos"               "200"
 check "404"                     "$URL/404"                    "404"
 check "robotics.html → 301"     "$URL/robotics.html"          "301"
 check "comipems.html → 301"     "$URL/comipems.html"          "301"
+
+# Los lead magnets: si rsync deja descargas/ fuera, el PDF existe en el
+# repo, funciona en local y responde 404 en producción. Ya pasó una vez
+# y nada lo detectó, así que ahora el deploy lo comprueba.
+for slug in $(ls descargas/*.pdf 2>/dev/null | xargs -n1 basename 2>/dev/null); do
+  check "Descarga $slug" "$URL/descargas/$slug" "200"
+done
 
 infected=$(curl -s "$URL/" | grep -c "randomuser\|pravatar\|images.unsplash.com" || true)
 if [ "$infected" -eq 0 ]; then

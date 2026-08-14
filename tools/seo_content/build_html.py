@@ -12,6 +12,7 @@ publicable, igual que build_blog_index.py con su propia tupla PLANS."""
 from __future__ import annotations
 
 import hashlib
+from html import escape as html_escape
 import json
 import struct
 import sys
@@ -143,6 +144,7 @@ def render_head(meta: dict, post: dict) -> str:
     description = post["description"]
     image_url = f"{SITE}/{meta['image']}"
     pub_date = meta["publication_date"]
+    modified_date = post.get("date_modified", pub_date)
 
     schema = {
         "@context": "https://schema.org",
@@ -201,7 +203,7 @@ def render_head(meta: dict, post: dict) -> str:
             {
                 "@type": "BlogPosting", "@id": f"{url}#article", "headline": meta["title"],
                 "description": description, "url": url, "image": image_url,
-                "datePublished": pub_date, "dateModified": pub_date, "inLanguage": "es-MX",
+                "datePublished": pub_date, "dateModified": modified_date, "inLanguage": "es-MX",
                 "mainEntityOfPage": {"@id": f"{url}#webpage"},
                 "author": {"@type": "Organization", "@id": f"{SITE}/#editorial-team",
                            "name": "Equipo Editorial WorldBrain",
@@ -301,7 +303,7 @@ def render_head(meta: dict, post: dict) -> str:
 <meta name="twitter:image:alt" content="{esc(meta['title'])}">
 
 <meta property="article:published_time" content="{pub_date}">
-<meta property="article:modified_time" content="{pub_date}">
+<meta property="article:modified_time" content="{modified_date}">
 
 <script type="application/ld+json">
 {schema_json}
@@ -523,6 +525,27 @@ FOOTER_AND_SCRIPTS = """    <!-- Footer Unificado WorldBrain -->
 
 </html>
 """
+
+
+def render_footer(post: dict) -> str:
+    """Aplica overrides editoriales explícitos sin alterar otros artículos."""
+    footer = FOOTER_AND_SCRIPTS
+    override = post.get("footer_override")
+    if not override:
+        return footer
+
+    replacements = {
+        "Aprende a la velocidad de tu potencial": override["heading"],
+        "Agenda una clase muestra gratuita y descubre de lo que eres capaz.": override["text"],
+        "https://wa.me/525578107837?text=Hola,%20quiero%20agendar%20una%20clase%20muestra": override["url"],
+        "Agendar Clase Muestra": override["label"],
+        "Pioneros en Neuroaprendizaje y Desarrollo Mental Acelerado desde 2000. Transformamos la manera en que Latinoam&eacute;rica aprende.": override["tagline"],
+    }
+    for old, new in replacements.items():
+        if footer.count(old) != 1:
+            raise ValueError(f"No se encontró una única plantilla para: {old}")
+        footer = footer.replace(old, html_escape(str(new), quote=True), 1)
+    return footer
 
 
 def render_section_html(section: dict) -> str:
@@ -779,7 +802,17 @@ def render_body(meta: dict, post: dict, wc: int, titles: dict[str, str] | None =
                            meta.get("course_name", ""))
     magnet_html = render_magnet(meta.get("cluster"), meta["slug"])
     pub_date_es = fmt_date_es(meta["publication_date"])
+    modified_date = post.get("date_modified", meta["publication_date"])
+    modified_date_es = fmt_date_es(modified_date)
+    date_label = pub_date_es if modified_date == meta["publication_date"] else (
+        f"Publicado: {pub_date_es} · Actualizado: {modified_date_es}"
+    )
     minutes = reading_minutes(wc)
+    editorial_note = html_escape(str(post.get(
+        "editorial_note",
+        "Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.",
+    )), quote=True)
+    footer_html = render_footer(post)
 
     sections_html = "\n\n".join(render_section_html(s) for s in post["sections"])
 
@@ -834,7 +867,7 @@ def render_body(meta: dict, post: dict, wc: int, titles: dict[str, str] | None =
                 <h1 class="blog-post-title" data-aos="fade-up">{meta['title']}</h1>
 
                 <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> {pub_date_es}</span>
+                    <span><i class="far fa-calendar"></i> {date_label}</span>
                     <span><i class="far fa-clock"></i> {minutes} minutos de lectura</span>
                     <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
                 </div>
@@ -879,7 +912,7 @@ def render_body(meta: dict, post: dict, wc: int, titles: dict[str, str] | None =
                 <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
                 <div class="blog-author-info">
                     <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    <p>{editorial_note}</p>
                 </div>
             </div>
 {magnet_html}
@@ -887,7 +920,7 @@ def render_body(meta: dict, post: dict, wc: int, titles: dict[str, str] | None =
 
     </main>
 
-{FOOTER_AND_SCRIPTS}"""
+{footer_html}"""
 
 
 if __name__ == "__main__":

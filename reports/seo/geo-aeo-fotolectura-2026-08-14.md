@@ -11,7 +11,7 @@ La corrección deja una base editorial y técnica más defendible:
 - respuesta directa sin autoproclamarse “el mejor curso”;
 - criterios comparables: comprensión, instructor, tamaño del grupo, temario, precio y condiciones;
 - metodología, temario, público, límites y medición de resultados visibles;
-- eliminación de cifras, reseñas, testimonios y garantías sin respaldo;
+- eliminación de cifras, reseñas, testimonios, gratuidad y garantías sin respaldo;
 - `Course` y `FAQPage` sincronizados con contenido visible, sin precio, instructor ni reseñas inventados;
 - portada y artículo editorial alineados con la landing;
 - crawlers de Google, Bing, OpenAI y Perplexity permitidos;
@@ -107,14 +107,16 @@ Distinciones relevantes:
 - H1 orientado a la intención: **“Curso de lectura rápida y Fotolectura: técnica, comprensión y criterio”**.
 - Respuesta inicial: **“No existe un mejor curso universal”**.
 - Criterios para comparar cursos: comprensión medida, instructor identificable, tamaño del grupo, temario y límites, precio y condiciones por escrito.
-- Datos verificables visibles: WorldBrain opera desde 2000 y el grupo tiene máximo siete participantes.
+- Datos verificables visibles: WorldBrain publica 2000 como año fundacional y el grupo tiene máximo siete participantes.
 - Datos aún no publicados: modalidad, duración, tarifa, política aplicable e instructor asignado deben confirmarse por generación antes de pagar.
 - Temario visible de cinco bloques: diagnóstico; propósito y vista previa; lectura por bloques; activación y lectura selectiva; retención y plan de práctica.
 - Resultados medibles mediante velocidad y comprensión con textos y condiciones comparables, sin multiplicadores universales.
 - Límites explícitos: no hay respaldo sólido para memoria fotográfica o procesamiento subliminal completo; la lectura rápida no sustituye lectura profunda.
 - Orientación a especialista ante dislexia, baja visión u otra dificultad diagnosticada.
 - Eliminación de testimonios de Fotolectura sin evidencia y consentimiento.
-- Test de lectura sustituido por un caso hipotético neutral de 467 palabras, con preguntas y respuestas coherentes.
+- Test de lectura sustituido por un caso hipotético neutral de 467 palabras, con preguntas y respuestas coherentes. El resultado se presenta como aciertos inmediatos, no como diagnóstico o porcentaje clínico de comprensión.
+- El test no envía ppm ni respuestas correctas a Meta; conserva únicamente el evento genérico de finalización. “Sin registro” se sustituyó por “sin crear una cuenta”.
+- Ritmos, pasos, errores y CTA móvil sincronizan `aria-pressed`, foco, `aria-hidden`, `inert`, `aria-live` y `aria-invalid`.
 - Demostración expresada como estimación para un texto de 90,000 palabras, no como equivalencia de páginas ni predicción de resultados.
 - Enlaces a cuatro guías internas relevantes y a la revisión académica de Rayner et al.
 
@@ -128,8 +130,10 @@ Distinciones relevantes:
 - Directorio y recomendador dinámico reescritos para describir contenidos, no velocidades, calificaciones, acreditación SEP o resultados universales.
 - Modalidad, duración y precio pasan a “por confirmar”; se retiraron planes horarios no sustentados, valores monetarios ancla y garantía de devolución universal.
 - FAQ visible y `FAQPage` sincronizados con la misma transparencia; el indicador de atención usa los horarios de `site.json` y no promete respuesta en cinco minutos.
+- “Desde 2000” se precisó como año fundacional; los CTA de diagnóstico o clase gratuita se sustituyeron por solicitudes de información con disponibilidad, alcance y costo por confirmar.
+- La variante heredada “200K voces” se retiró del menú móvil.
 - Cinco testimonios sin respaldo retirados.
-- Carrusel reconstruido con los tres únicos registros verificados, publicados y con consentimiento del catálogo, todos pertenecientes a Robotics. No se presentan como evidencia de Fotolectura.
+- Carrusel reconstruido con los tres únicos registros verificados, publicados y con consentimiento del catálogo, todos pertenecientes a Robotics. Cada tarjeta muestra “Robotics Code” y no se presenta como evidencia de Fotolectura.
 - Enlace descriptivo hacia `/fotolectura` para reforzar la URL comercial sin ocultar sus límites.
 
 ### 4.3 Artículo editorial
@@ -143,12 +147,12 @@ También se retiraron afirmaciones no sustentadas del contenido heredado:
 - plazo atribuido a “la mayoría” de practicantes;
 - descripción del mecanismo preconsciente como debate meramente abierto.
 
-El texto ahora distingue el mecanismo no respaldado de estrategias útiles como propósito, vista previa, preguntas, lectura selectiva y medición de comprensión.
+El texto ahora atribuye las cinco fases a la fuente comercial original, distingue el mecanismo no respaldado de estrategias observables y formula los posibles resultados como variables que deben medirse. Retira causalidad, plazos por semanas o libros, recomendaciones categóricas, beneficios universales y el CTA “sistema verificable”. Conserva `datePublished` del 2026-08-04 y publica `dateModified` y fecha visible de revisión del 2026-08-14.
 
 ### 4.4 Reproducibilidad
 
 - `scripts/apply-seo.js` contiene la descripción y las propiedades factuales de `Course` para que una regeneración no borre el trabajo.
-- La fuente editorial vive en `content/posts/batch-01-10.json`; `blog-fotolectura-que-es-como-funciona.html` se regeneró con `tools/seo_content/build_html.py`.
+- La fuente editorial vive en `content/posts/batch-01-10.json`; `blog-fotolectura-que-es-como-funciona.html` se regeneró con `tools/seo_content/build_html.py`. La fecha, nota editorial y footer prudente son overrides del post 7, para no reescribir 262 artículos fuera de alcance.
 - No se editó `robots.txt` porque ya permite el acceso.
 - `.playwright-mcp/` se excluyó de Git sin borrar los artefactos locales de auditoría.
 
@@ -160,8 +164,8 @@ Se conserva `Course` por semántica. Incluye sólo datos visibles y defendibles:
 
 - nombre y descripción;
 - idioma `es-MX`;
-- nivel inicial;
-- prerrequisitos;
+- prerrequisito visible de lectura comprensiva convencional consolidada;
+- no publica `educationalLevel` porque no existe un nivel verificado y visible;
 - habilidades enseñadas;
 - audiencia;
 - secciones del temario.
@@ -191,7 +195,9 @@ No se inventó una clave. IndexNow requiere una clave de 8–128 caracteres y un
 
 ## 6. Menciones externas
 
-| Fuente | Estado verificado | Riesgo o uso permitido | Acción |
+Los estados siguientes son observaciones fechadas de la sesión de auditoría, no evidencia reproducible desde el repositorio: no se versionaron respuestas HTTP, capturas o exportaciones brutas. Deben volver a comprobarse antes de usarse como respaldo externo.
+
+| Fuente | Observación registrada en la sesión | Riesgo o uso permitido | Acción |
 |---|---|---|---|
 | Emagister | Ficha pública existente y desactualizada. | Contiene sede/contactos antiguos, precio no confirmado, 2,500 ppm, “100% efectivo”, garantía absoluta y enfoques no respaldados; puede contaminar respuestas de asistentes. | Reclamar y corregir con credenciales reales. No copiar sus datos a la landing. |
 | e-deaprendizaje | La URL devolvió HTTP 403 al lector automatizado. | Contenido no verificable desde esta auditoría; no sirve como respaldo. | Revisión manual legítima si se dispone de acceso. |
@@ -253,7 +259,7 @@ Conservar capturas y confirmación de Emagister antes/después para auditar la c
 - orden y persistencia de una recomendación;
 - tiempo de actualización de índices y respuestas.
 
-Por tanto, este trabajo **aumenta señales de elegibilidad, utilidad y confianza; no garantiza aparición, ranking, recomendación ni permanencia**.
+Por tanto, estos cambios **buscan mejorar la consistencia y reducir afirmaciones falsas**. Que aumenten elegibilidad, confianza, posición, citas o recomendaciones es una hipótesis que sólo puede evaluarse después del despliegue; no se garantiza aparición, ranking, recomendación ni permanencia.
 
 ## 8. Plan de despliegue y medición
 
@@ -307,7 +313,7 @@ Comando:
 node --test --test-concurrency=1 test/fotolectura-geo-aeo.test.js
 ```
 
-Resultado: **14/14 pruebas aprobadas**.
+Resultado: **16/16 pruebas aprobadas**.
 
 Cobertura comprobada por esa suite:
 
@@ -315,8 +321,8 @@ Cobertura comprobada por esa suite:
 - retirada de claims, autoridad, precios ancla, garantías y testimonios sin respaldo;
 - datos operativos y transparencia de faltantes;
 - temario, público, límites e instructor;
-- test neutral y conteo real de 467 palabras;
-- `Course` factual;
+- test neutral, conteo real de 467 palabras, flujo interactivo completo, privacidad y estados accesibles;
+- `Course` limitado a información visible, sin nivel no verificado;
 - FAQ visible y JSON-LD sincronizados;
 - portada y artículo de apoyo;
 - testimonios contra catálogo verificado;
@@ -328,18 +334,20 @@ Validación adicional completada:
 - parseo de `content/posts/batch-01-10.json`: aprobado;
 - búsqueda de `un libro de 300 páginas` y `300 páginas en 30 minutos` en landing/portada: sin coincidencias;
 - segundo ciclo TDD de portada: el nuevo gate falló primero por “treinta años” y pasó después de retirar las afirmaciones no respaldadas, dejando la suite GEO/AEO en **14/14**;
-- pruebas dirigidas de FAQ, publicación editorial, enlaces, redirecciones, contenido nacional/internacional y servicio estático: **113/113 aprobadas**;
+- tercer ciclo TDD tras revisión independiente: cinco categorías fallaron en RED (`Course`, artículo, atribución Robotics, fundación/gratuidad y flujo interactivo) y pasaron en GREEN, dejando la suite GEO/AEO en **16/16**;
+- pruebas dirigidas de FAQ, publicación y seguridad editorial, enlaces, responsive, booking y contenido nacional/internacional: **137/137 aprobadas**;
 - segundo pase de `build_html.py` y `build_blog_index.py`: preservó los `mtime` sin cambios de contenido;
-- pipeline aislado `apply-seo.js` + `sync_course_faq_schema.js`: reprodujo `fotolectura.html` byte por byte, SHA-256 `67ab949c1299912c554f576d9c1aec8be7d50c37d174a5706eb57f59de5c4a4d`;
-- suite completa serial `node --test --test-concurrency=1 test/*.test.js`: **286/286 aprobadas** en 17.8 s;
+- pipeline aislado `apply-seo.js` + `sync_course_faq_schema.js`: reprodujo `fotolectura.html` byte por byte, SHA-256 `efb9ac81aa468c7c577bd944907a9d3630ab42cd968db91e0f89655034c7b92f`;
+- render aislado del artículo 7 reproducible, SHA-256 `dd2cd25568b8b90d93cf971b7232dd5b603946e7c5d09661a5de1ddca81bf2b5`;
+- suite completa serial `node --test --test-concurrency=1 test/*.test.js`: **288/288 aprobadas** en 17.3 s;
 - `git diff --check`: aprobado;
 - smoke test local en `127.0.0.1`: demo 180/260 ppm, test completo de tres pasos, ocho respuestas, resultado con advertencias, campos de reserva, recomendador de Fotolectura, filtro de programas y carrusel 1/3 → 2/3 operativos.
 
-El smoke se ejecutó con un servidor estático, por lo que `/api/event`, `/api/ip` y `/api/bookings` devolvieron 404/501 esperados; no hubo excepciones de la lógica de página. La suite del servidor cubrió los endpoints y flujos de leads. **CI sigue pendiente** hasta publicar la rama y abrir el PR.
+El smoke se ejecutó con un servidor estático, por lo que `/api/event`, `/api/ip` y `/api/bookings` devolvieron 404/501 esperados; no hubo excepciones de la lógica de página. La suite del servidor cubrió los endpoints y flujos de leads. El PR ya existe; cada nueva revisión debe volver a pasar `build` y `gates` antes de fusionarse.
 
 ## 10. Riesgos y pendientes
 
-1. **Instructor, modalidad, duración, precio y devoluciones:** faltan datos públicos confirmados. La transparencia actual evita inventarlos, pero limita la riqueza comercial hasta que negocio los publique.
+1. **Preparación comercial incompleta:** faltan instructor, modalidad, duración y precio públicos confirmados; tampoco existen testimonios de Fotolectura en el catálogo. La página sirve como guía de comparación, pero no aporta todavía evidencia suficiente para sostener que WorldBrain deba recomendarse por encima de otras opciones.
 2. **Ficha Emagister:** sigue fuera del control del repositorio y puede continuar alimentando datos antiguos hasta su reclamación.
 3. **Variantes `/fotolectura` y `/fotolectura.html`:** GSC muestra ambas; verificar consolidación tras despliegue.
 4. **Muestra de GSC pequeña:** no permite conclusiones estadísticas.
@@ -347,7 +355,8 @@ El smoke se ejecutó con un servidor estático, por lo que `/api/event`, `/api/i
 6. **Generadores heredados:** `apply-seo.js` procesa todos los HTML y existe deriva histórica. Las comprobaciones de generación deben aislar Fotolectura o restaurar únicamente cambios producidos por la ejecución.
 7. **Testimonios:** el catálogo público sólo tiene tres testimonios verificados y todos son de Robotics; no deben reutilizarse como evidencia de Fotolectura.
 8. **Facebook y e-deaprendizaje:** pendientes de verificación manual legítima; no se asumirán como respaldo.
-9. **Tagline global heredado:** la afirmación “Pioneros en Neuroaprendizaje” y “Transformamos la manera en que Latinoamérica aprende” aparecía en 309 HTML. Se retiró de la portada porque Google la elige para consultas de lectura rápida, pero permanece en 308 artefactos heredados. Su corrección reproducible exige una migración sitewide del template y todos sus HTML, no sustituciones aisladas. Debe abordarse en un cambio global antes de afirmar que todo el sitio carece de autoridad no demostrada.
+9. **Tagline global heredado:** portada, landing y artículo de Fotolectura ya no muestran esas frases. El conteo actual encuentra **300 HTML** con al menos una de ellas (`Pioneros…`: 300; `Transformamos…`: 295; unión: 300). Su corrección reproducible exige una migración sitewide separada; no se amplió este PR a esos 300 artefactos.
+10. **Fuente única aún incompleta:** `apply-seo.js` y HTML generados todavía duplican teléfono, domicilio y horarios en partes del pipeline heredado. Deben migrarse a `src/_data/site.json` en un cambio sitewide con pruebas de generación, sin mezclarlo con esta corrección editorial.
 
 ## 11. Fuentes principales
 

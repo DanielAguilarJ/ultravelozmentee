@@ -36,7 +36,7 @@ add(
   'fotolectura.html',
   'course',
   'Curso de lectura rápida y Fotolectura | WorldBrain México',
-  'Curso de lectura rápida y Fotolectura para adolescentes y adultos: temario, límites de evidencia, criterios de elección y clase muestra.',
+  'Curso de lectura rápida y Fotolectura para adolescentes y adultos: temario, límites de evidencia, criterios de elección y datos por confirmar.',
   'Curso de lectura rápida y Fotolectura'
 );
 
@@ -503,8 +503,7 @@ const PAGE_OPTIONS = {
   'fotolectura.html': {
     courseDetails: {
       availableLanguage: 'es-MX',
-      educationalLevel: 'Inicial',
-      coursePrerequisites: 'Lectura comprensiva convencional consolidada; no se requiere experiencia previa en técnicas de lectura rápida.',
+      coursePrerequisites: 'Lectura comprensiva convencional consolidada.',
       teaches: [
         'Medición de velocidad y comprensión',
         'Lectura por bloques',

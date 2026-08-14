@@ -1,531 +1,458 @@
 /* ═══════════════════════════════════════════════════════════════════
-   LEAD MAGNETS · Hoja de estilo compartida
+   LEAD MAGNETS · Hoja compartida
 
-   Una sola hoja para los 10 documentos del catálogo. Cambiar el diseño
-   aquí lo cambia en todos, que es exactamente lo que se quiere: son
-   piezas de la misma colección, no folletos sueltos.
+   Dirección: "fichas didácticas" (banda sólida a sangre, pastilla de
+   datos cabalgando el borde, fichas de índice con color por sección,
+   barras proporcionales) con dos recursos tomados de la dirección
+   editorial: las CIFRAS grandes en portada y la CITA destacada entre
+   filetes. Ese par es lo que le da carácter tipográfico; sin ellos la
+   ficha didáctica se queda en material escolar correcto pero anodino.
 
-   Dirección: prensa editorial. La misma que el blog tras el rediseño
-   (css/blog-editorial.css): papel crema, tinta cálida, acento violeta
-   funcional, cero degradados y cero sombras decorativas. Los filetes
-   hacen el trabajo que en otros diseños harían las sombras.
+   Por qué este sistema y no el de suplemento editorial: la colección
+   son 7 documentos que van de robótica a primera infancia a redacción
+   profesional. Este es el único que cubre ese rango cambiando UNA
+   variable —--brand— por cluster, sin rehacer la composición.
 
-   Tipografía de marca, no de sistema:
-     Fraunces   → display (con optical sizing alto en portada)
-     Newsreader → texto corrido
-     Inter      → etiquetas, tablas, UI
-
-   Medida de línea acotada a ~34em. Un PDF Letter a sangre completa da
-   líneas de 95+ caracteres, que es donde el ojo pierde el renglón: es
-   la razón principal por la que un documento "sin diseño" se siente
-   agotador aunque el contenido sea bueno.
+   Cada documento fija su color en el <body> con style="--brand:…".
    ═══════════════════════════════════════════════════════════════════ */
 
-@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,700;1,9..144,600&family=Inter:wght@400;500;600;700&display=swap');
 
 :root {
-  --paper:        #fbfaf7;
-  --paper-raised: #ffffff;
-  --paper-sunken: #f3f1ec;
-  --ink:          #241f1a;
-  --ink-muted:    #625b52;
-  --ink-faint:    #857d73;
-  --rule:         rgba(36, 31, 26, 0.16);
-  --rule-strong:  rgba(36, 31, 26, 0.34);
-  --accent:       #5b21b6;
-  --accent-ink:   #f4efff;
-  --mark:         #b4520d;
+  --paper:      #fffdf9;
+  --paper-soft: #f1efe9;
+  --ink:        #16232b;
+  --ink-mut:    #55636b;
+  --ink-fai:    #8a959b;
+  --rule:       rgba(22, 35, 43, 0.13);
+  --rule-firm:  rgba(22, 35, 43, 0.28);
 
-  --font-display: 'Fraunces', 'Iowan Old Style', Palatino, Georgia, serif;
-  --font-text:    'Newsreader', Georgia, 'Times New Roman', serif;
-  --font-ui:      'Inter', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  /* Sobrescritos por documento. El valor por omisión es el azul
+     profundo, que funciona para cualquier tema. */
+  --brand:      #0f2e3d;
+  --brand-soft: #123a4d;
+  --spot:       #c2571a;
+
+  --fd: 'Fraunces', Georgia, serif;
+  --fu: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-@page {
-  size: Letter;
-  /* Margen superior amplio: el encabezado corrido del PDF vive ahí. */
-  margin: 20mm 22mm 18mm;
-}
+@page { size: Letter; margin: 0; }
 
 * { box-sizing: border-box; }
-
 html { -webkit-print-color-adjust: exact; print-color-adjust: exact; }
 
 body {
   margin: 0;
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-text);
-  font-size: 10.8pt;
-  line-height: 1.62;
-  font-optical-sizing: auto;
-  /* Ligaduras y números proporcionales: el texto corrido se lee mejor
-     con oldstyle, pero las tablas necesitan tabulares (ver .data). */
-  font-variant-numeric: oldstyle-nums proportional-nums;
+  font-family: var(--fu);
+  font-size: 10.4pt;
+  line-height: 1.6;
 }
 
-/* ── Portada ─────────────────────────────────────────────────────
-   Página completa propia. Un lead magnet sin portada se siente como
-   un borrador impreso; con ella se siente como algo que alguien
-   decidió publicar. */
-
-.cover {
-  height: 232mm;
-  display: flex;
-  flex-direction: column;
-  page-break-after: always;
+/* Cada hoja es un contenedor de página completo. Se prescinde del flujo
+   automático de impresión a propósito: con la banda a sangre y la
+   pastilla cabalgando el borde, dejar que el navegador reparta el
+   contenido produce cortes en mitad de un elemento de color. Aquí cada
+   página se compone explícitamente. */
+.sheet {
+  width: 216mm;
+  height: 279mm;
   position: relative;
+  overflow: hidden;
+  page-break-after: always;
+  background: var(--paper);
+}
+.sheet:last-child { page-break-after: auto; }
+
+/* ── PORTADA ───────────────────────────────────────────────────── */
+
+.band {
+  background: var(--brand);
+  color: #fff;
+  padding: 14mm 16mm 13mm;
 }
 
-.cover-mark {
-  font-family: var(--font-ui);
-  font-size: 8.5pt;
-  font-weight: 600;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: var(--ink);
-  padding-bottom: 4mm;
-  border-bottom: 1.5pt solid var(--ink);
+.band-top {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-}
-
-.cover-mark span:last-child {
-  color: var(--accent);
+  align-items: center;
+  font-size: 7.6pt;
+  font-weight: 600;
   letter-spacing: 0.16em;
-}
-
-.cover-body {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-  /* Título e índice agrupados arriba; el blanco sobrante se acumula
-     abajo, donde lee como margen intencional. Repartirlo con
-     space-between dejaba el hueco en el centro, entre dos elementos,
-     que es donde el ojo lo interpreta como error de maquetación. */
-  justify-content: flex-start;
-  padding: 14mm 0 6mm;
-}
-
-.cover-eyebrow {
-  font-family: var(--font-ui);
-  font-size: 9pt;
-  font-weight: 500;
-  letter-spacing: 0.14em;
   text-transform: uppercase;
-  color: var(--mark);
-  margin: 0 0 7mm;
+  color: rgba(255, 255, 255, 0.6);
+  margin-bottom: 11mm;
 }
+.band-top b { color: #fff; font-weight: 700; }
 
-.cover h1 {
-  font-family: var(--font-display);
-  /* opsz alto: Fraunces afila las astas y aprieta el interletraje en
-     tamaños de titular, que es para lo que existe la variable. */
-  font-variation-settings: 'opsz' 120, 'SOFT' 0, 'WONK' 0;
+.band h1 {
+  font-family: var(--fd);
+  font-variation-settings: 'opsz' 130;
   font-weight: 700;
-  font-size: 32pt;
-  line-height: 1.07;
-  letter-spacing: -0.015em;
-  margin: 0 0 8mm;
-  /* Acotado a ~17em para que el titular rompa en dos o tres líneas
-     equilibradas en vez de dejar una palabra huérfana al final. */
-  max-width: 17em;
+  font-size: 30pt;
+  line-height: 1.05;
+  letter-spacing: -0.018em;
+  margin: 0 0 5mm;
+  max-width: 152mm;
   text-wrap: balance;
 }
-
-.cover h1 em {
+.band h1 em {
   font-style: italic;
-  font-weight: 400;
-  color: var(--accent);
+  font-weight: 600;
+  color: #fff;
+  /* Subrayado fino en vez de cambio de color: el color sobre banda
+     oscura pierde contraste y es el tic que delataba la versión
+     anterior. */
+  border-bottom: 1.5pt solid rgba(255, 255, 255, 0.45);
 }
 
-.cover-sub {
-  font-family: var(--font-text);
-  font-size: 12.5pt;
+.band-sub {
+  font-size: 11.4pt;
   line-height: 1.5;
-  color: var(--ink-muted);
+  color: rgba(255, 255, 255, 0.82);
+  max-width: 132mm;
   margin: 0;
-  max-width: 24em;
-  padding-left: 5mm;
-  border-left: 2pt solid var(--accent);
 }
 
-/* Índice de portada. Cumple dos funciones: da al lector la razón para
-   seguir leyendo, y ocupa el espacio que antes quedaba en blanco. */
+/* Pastilla de datos: cabalga el borde de la banda. Da profundidad sin
+   una sola sombra ni degradado. */
+.chips {
+  display: flex;
+  margin: 0 16mm;
+  transform: translateY(-6.5mm);
+  border: 1px solid var(--rule);
+  background: var(--paper);
+}
+.chip {
+  flex: 1;
+  padding: 4mm 5mm;
+  border-right: 1px solid var(--rule);
+}
+.chip:last-child { border-right: none; }
+.chip-k {
+  font-size: 6.6pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--ink-fai);
+  margin-bottom: 1.2mm;
+}
+.chip-v { font-size: 9.4pt; font-weight: 600; }
 
-.cover-toc {
-  border-top: 1pt solid var(--rule);
-  padding-top: 5mm;
-  margin-top: 12mm;
+/* Cifras de portada — recurso tomado de la dirección editorial. Ocupa
+   la banda que en las tres maquetas quedaba vacía, y convierte un dato
+   del contenido en el elemento gráfico de la página. */
+.figs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 7mm;
+  margin: 6mm 16mm 0;
+}
+.fig { border-top: 2.2pt solid var(--ink); padding-top: 2.6mm; }
+.fig-n {
+  font-family: var(--fd);
+  font-variation-settings: 'opsz' 144;
+  font-weight: 700;
+  font-size: 33pt;
+  /* line-height por debajo de 1 recortaba el asta del 4 en Fraunces.
+     Se deja holgura y se compensa el espacio con el margen inferior. */
+  /* Interlínea >= 1.2: con valores más apretados el medio-interlineado
+     negativo saca el asta del 4 y del 5 fuera de la caja de línea y el
+     glifo se pinta recortado. */
+  line-height: 1.2;
+  letter-spacing: -0.03em;
+  font-variant-numeric: lining-nums;
+}
+.fig:nth-child(2) .fig-n { color: var(--spot); }
+.fig-l {
+  font-size: 7.4pt;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--ink-mut);
+  margin-top: 1.6mm;
+  line-height: 1.35;
 }
 
-.cover-toc-label {
-  font-family: var(--font-ui);
-  font-size: 8pt;
+.cover-body { padding: 7mm 16mm 0; }
+
+.cover-h3 {
+  font-size: 7.6pt;
   font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: var(--ink-faint);
+  color: var(--ink-fai);
   margin: 0 0 4mm;
 }
 
-/* Grid en vez de columns: con multicolumna, un ::before posicionado en
-   absoluto puede perder su caja al caer justo en el salto de columna
-   —el numeral 04 desaparecía— y en impresión el reparto es además
-   impredecible. */
-.cover-toc ol {
-  list-style: none;
-  counter-reset: toc;
-  padding: 0;
-  margin: 0;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.6mm 10mm;
-}
-
-.cover-toc li {
-  counter-increment: toc;
-  font-family: var(--font-ui);
-  font-size: 9.5pt;
-  color: var(--ink);
-  padding-left: 8mm;
-  position: relative;
-  margin: 0;
-}
-
-.cover-toc li::before {
-  content: counter(toc, decimal-leading-zero);
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-weight: 700;
-  color: var(--accent);
-  font-variant-numeric: lining-nums tabular-nums;
-  font-size: 9pt;
-}
-
-.cover-meta {
-  font-family: var(--font-ui);
-  font-size: 8.5pt;
-  color: var(--ink-faint);
-  border-top: 1pt solid var(--rule);
-  padding-top: 4mm;
+/* Fichas de índice. El color codifica la sección y reaparece en el
+   interior, así que el lector reconoce dónde está sin leer el número. */
+.cards { display: grid; grid-template-columns: 1fr 1fr; gap: 3.4mm; }
+.card {
+  border: 1px solid var(--rule);
+  border-left: 3pt solid var(--brand);
+  padding: 3.4mm 4mm;
   display: flex;
-  gap: 8mm;
+  gap: 3.4mm;
+  align-items: flex-start;
 }
-
-.cover-meta strong {
-  color: var(--ink-muted);
-  font-weight: 600;
-}
-
-/* ── Cuerpo ──────────────────────────────────────────────────────
-   Medida acotada a ~38em (unos 72 caracteres), que es el límite alto
-   del rango legible. Más estrecho desperdiciaba 40mm de página y
-   estiraba el documento una hoja entera; a sangre completa (95+
-   caracteres) el ojo pierde el renglón al volver. */
-
-main { max-width: 38em; }
-
-.lede {
-  font-family: var(--font-text);
-  font-size: 12pt;
-  line-height: 1.55;
-  color: var(--ink);
-  margin: 0 0 5mm;
-}
-
-.lede::first-letter {
-  font-family: var(--font-display);
-  font-variation-settings: 'opsz' 144;
+.card-n {
+  font-family: var(--fd);
   font-weight: 700;
-  font-size: 3.1em;
-  float: left;
-  line-height: 0.82;
-  padding: 1mm 2mm 0 0;
-  color: var(--accent);
-}
-
-p { margin: 0 0 4mm; }
-
-/* Sección numerada. El numeral es un elemento de diseño, no el texto
-   "1 ·" delante del título — esa era la parte que más delataba el
-   documento como plantilla sin trabajar.
-
-   Deliberadamente SIN `page-break-inside: avoid`: una sección de tres
-   párrafos rara vez cabe en el remanente de una página, así que el
-   avoid la empujaba entera a la siguiente y dejaba un hueco. Sumados,
-   esos huecos añadían una hoja completa al documento. Lo que sí hay que
-   evitar es un encabezado huérfano al pie, y eso lo resuelve
-   `page-break-after: avoid` sobre la cabecera. */
-
-.step {
-  margin: 7mm 0 0;
-}
-
-.step-head {
-  display: flex;
-  align-items: baseline;
-  gap: 4mm;
-  margin-bottom: 3mm;
-  page-break-after: avoid;
-  page-break-inside: avoid;
-}
-
-.step-num {
-  font-family: var(--font-display);
-  font-variation-settings: 'opsz' 96;
-  font-weight: 700;
-  font-size: 22pt;
+  font-size: 14.5pt;
   line-height: 1;
-  color: var(--accent);
-  min-width: 11mm;
+  min-width: 8.5mm;
+  color: var(--brand);
   font-variant-numeric: lining-nums;
 }
+.card-t { font-size: 9.3pt; font-weight: 500; line-height: 1.34; padding-top: 0.5mm; }
+.card-d { font-size: 7.9pt; color: var(--ink-fai); margin-top: 0.7mm; }
 
-.step h2,
-h2 {
-  font-family: var(--font-display);
-  font-variation-settings: 'opsz' 48, 'SOFT' 0;
+/* Acentos por ficha: cinco tintas se acercaban a "material escolar
+   genérico", así que se reducen a la marca del documento y el spot,
+   alternando. Menos color, más sistema. */
+.card:nth-child(even) { border-left-color: var(--spot); }
+.card:nth-child(even) .card-n { color: var(--spot); }
+
+.cover-foot {
+  position: absolute;
+  left: 16mm; right: 16mm; bottom: 12mm;
+  border-top: 1px solid var(--rule);
+  padding-top: 3mm;
+  font-size: 7.4pt;
+  color: var(--ink-fai);
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ── INTERIOR ──────────────────────────────────────────────────── */
+
+.run {
+  background: var(--brand);
+  color: #fff;
+  padding: 3.4mm 16mm;
+  display: flex;
+  justify-content: space-between;
+  font-size: 7.4pt;
   font-weight: 600;
-  font-size: 15pt;
-  line-height: 1.22;
-  letter-spacing: -0.006em;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.run span:last-child { color: rgba(255, 255, 255, 0.66); }
+
+.page { padding: 9mm 16mm; }
+
+.shead { display: flex; align-items: baseline; gap: 5mm; margin: 0 0 4mm; }
+.shead-n {
+  font-family: var(--fd);
+  font-weight: 700;
+  font-size: 25pt;
+  line-height: 1;
+  color: var(--brand);
+  font-variant-numeric: lining-nums;
+}
+.shead h2 {
+  font-family: var(--fd);
+  font-variation-settings: 'opsz' 44;
+  font-weight: 600;
+  font-size: 16pt;
+  line-height: 1.16;
   margin: 0;
-  color: var(--ink);
-  page-break-after: avoid;
 }
 
-/* H2 fuera de una sección numerada lleva su propio filete superior. */
-main > h2 {
-  margin: 10mm 0 3.5mm;
-  padding-top: 4mm;
-  border-top: 1pt solid var(--rule);
+h2.plain {
+  font-family: var(--fd);
+  font-variation-settings: 'opsz' 44;
+  font-weight: 600;
+  font-size: 14.5pt;
+  line-height: 1.2;
+  margin: 8mm 0 3mm;
+  padding-top: 3.5mm;
+  border-top: 1px solid var(--rule);
 }
+.page > h2.plain:first-child { margin-top: 0; padding-top: 0; border-top: none; }
 
 h3 {
-  font-family: var(--font-ui);
-  font-size: 9.5pt;
-  font-weight: 600;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-  color: var(--mark);
-  margin: 6mm 0 2.5mm;
-  page-break-after: avoid;
-}
-
-ul, ol { margin: 0 0 4mm; padding-left: 6mm; }
-li { margin-bottom: 2mm; }
-li::marker { color: var(--accent); }
-
-ol { counter-reset: item; list-style: none; padding-left: 0; }
-ol > li {
-  counter-increment: item;
-  padding-left: 9mm;
-  position: relative;
-}
-ol > li::before {
-  content: counter(item);
-  position: absolute;
-  left: 0;
-  top: 0;
-  font-family: var(--font-ui);
-  font-size: 8.5pt;
+  font-size: 7.6pt;
   font-weight: 700;
-  color: var(--accent);
-  background: var(--accent-ink);
-  width: 6mm;
-  height: 6mm;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--spot);
+  margin: 5mm 0 2mm;
+}
+
+p { margin: 0 0 3.6mm; }
+
+/* Cita destacada — el otro recurso tomado de la dirección editorial.
+   Sin caja: dos filetes y peso tipográfico. */
+.pull {
+  font-family: var(--fd);
+  font-variation-settings: 'opsz' 60;
+  font-weight: 600;
+  font-size: 14pt;
+  line-height: 1.24;
+  border-top: 2.2pt solid var(--spot);
+  border-bottom: 2.2pt solid var(--spot);
+  padding: 4mm 0;
+  margin: 6mm 0;
+}
+
+.note {
+  background: var(--paper-soft);
+  border-left: 3.4pt solid var(--spot);
+  padding: 4mm 5mm;
+  margin: 5mm 0;
+}
+.note-k {
+  font-size: 7pt;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+  color: var(--spot);
+  margin-bottom: 1.6mm;
+}
+.note p { margin: 0; font-size: 9.9pt; }
+.note p + p { margin-top: 2.5mm; }
+
+ul, ol { margin: 0 0 4mm; padding-left: 5.5mm; }
+li { margin-bottom: 1.9mm; }
+li::marker { color: var(--brand); }
+
+ol { counter-reset: it; list-style: none; padding-left: 0; }
+ol > li { counter-increment: it; padding-left: 8.5mm; position: relative; }
+ol > li::before {
+  content: counter(it);
+  position: absolute; left: 0; top: 0.3mm;
+  width: 5.6mm; height: 5.6mm;
   border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  background: var(--brand);
+  color: #fff;
+  font-size: 8pt;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
   font-variant-numeric: lining-nums;
 }
 
-/* ── Cajas ───────────────────────────────────────────────────────
-   Sin sombras: filete lateral y fondo hundido, como el blog. */
-
-.note {
-  background: var(--paper-sunken);
-  border-left: 2.5pt solid var(--mark);
-  padding: 4.5mm 5mm;
-  margin: 5mm 0;
-  page-break-inside: avoid;
-  font-size: 10.2pt;
+/* Escalera de progreso: dato cuantitativo dibujado, no escrito. */
+.steps { margin: 5mm 0; }
+.step-row {
+  display: grid;
+  grid-template-columns: 21mm 1fr 21mm;
+  gap: 4mm;
+  align-items: center;
+  padding: 2.7mm 0;
+  border-bottom: 1px solid var(--rule);
 }
+.step-row:last-child { border-bottom: none; }
+.step-w { font-size: 8.4pt; font-weight: 700; }
+.step-t { font-size: 9.6pt; }
+.step-m { font-size: 8pt; color: var(--ink-fai); text-align: right; font-weight: 500; }
+.track { height: 2.6mm; background: rgba(22, 35, 43, 0.09); position: relative; margin-top: 1.6mm; }
+.track i { position: absolute; inset: 0 auto 0 0; background: var(--brand); }
 
-.note p:last-child { margin-bottom: 0; }
-
-.note-label {
-  font-family: var(--font-ui);
-  font-size: 8pt;
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  color: var(--mark);
-  display: block;
-  margin-bottom: 1.5mm;
-}
-
-/* ── Tablas ──────────────────────────────────────────────────────
-   Sin relleno en la cabecera: un filete grueso basta y pesa menos en
-   la página. Números tabulares para que las columnas se alineen. */
-
+/* Tabla con banda de cabecera en la tinta del documento. */
 .data {
   width: 100%;
   border-collapse: collapse;
+  font-size: 8.8pt;
   margin: 5mm 0;
-  font-family: var(--font-ui);
-  font-size: 9pt;
   font-variant-numeric: tabular-nums lining-nums;
-  page-break-inside: avoid;
 }
-
 .data th {
-  text-align: left;
-  font-size: 7.8pt;
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: var(--ink-faint);
-  padding: 0 3mm 2mm 0;
-  border-bottom: 1.5pt solid var(--ink);
-}
-
-.data td {
-  padding: 2.6mm 3mm 2.6mm 0;
-  border-bottom: 1pt solid var(--rule);
-  vertical-align: top;
-  color: var(--ink);
-}
-
-.data tr:last-child td { border-bottom: none; }
-
-.data td:first-child {
-  font-weight: 600;
-  color: var(--ink);
-  white-space: nowrap;
-}
-
-.muted {
-  color: var(--ink-faint);
-  font-size: 9pt;
-  font-family: var(--font-ui);
-}
-
-/* ── Lista de verificación ───────────────────────────────────────
-   Casillas reales: el lector puede imprimir y marcar. */
-
-.check { list-style: none; padding-left: 0; margin: 4mm 0; }
-.check li {
-  padding-left: 8mm;
-  position: relative;
-  margin-bottom: 2.5mm;
-}
-.check li::before {
-  content: '';
-  position: absolute;
-  left: 0;
-  top: 1.2mm;
-  width: 4mm;
-  height: 4mm;
-  border: 1.2pt solid var(--rule-strong);
-  border-radius: 0.7mm;
-}
-
-/* ── CTA al curso ────────────────────────────────────────────────
-   Bloque en negativo, al final. Es la única pieza promocional del
-   documento y va marcada como tal: el resto es contenido útil. */
-
-.cta {
   background: var(--ink);
   color: var(--paper);
-  padding: 7mm;
-  margin: 10mm 0 0;
-  page-break-inside: avoid;
+  text-align: left;
+  padding: 2.1mm 3mm;
+  font-size: 7.2pt;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.data td { padding: 2.5mm 3mm; border-bottom: 1px solid var(--rule); vertical-align: top; }
+.data td:first-child { font-weight: 600; white-space: nowrap; }
+.data tr:last-child td { border-bottom: 2.2pt solid var(--ink); }
+
+.muted { color: var(--ink-fai); font-size: 8.6pt; }
+
+/* Lista de verificación con casillas reales: se puede imprimir y marcar. */
+.check { list-style: none; padding-left: 0; margin: 4mm 0; }
+.check li { padding-left: 7.5mm; position: relative; margin-bottom: 2.4mm; }
+.check li::before {
+  content: '';
+  position: absolute; left: 0; top: 1.1mm;
+  width: 4mm; height: 4mm;
+  border: 1.2pt solid var(--rule-firm);
+  border-radius: 0.6mm;
 }
 
-.cta-label {
-  font-family: var(--font-ui);
-  font-size: 8pt;
-  font-weight: 600;
+/* ── CTA al curso ──────────────────────────────────────────────── */
+
+.cta { background: var(--brand); color: #fff; padding: 7mm; margin: 8mm 0 0; }
+.cta-k {
+  font-size: 7.4pt;
+  font-weight: 700;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  color: #b79cff;
+  color: rgba(255, 255, 255, 0.58);
   margin: 0 0 3mm;
 }
-
 .cta h2 {
-  font-family: var(--font-display);
+  font-family: var(--fd);
   font-variation-settings: 'opsz' 60;
-  font-weight: 600;
-  font-size: 16pt;
-  line-height: 1.2;
-  color: var(--paper);
-  margin: 0 0 3.5mm;
+  font-weight: 700;
+  font-size: 17pt;
+  line-height: 1.18;
+  color: #fff;
+  margin: 0 0 3.4mm;
   border: none;
   padding: 0;
 }
-
-.cta p {
-  color: rgba(251, 250, 247, 0.82);
-  font-size: 10.5pt;
-  margin-bottom: 4mm;
+.cta p { color: rgba(255, 255, 255, 0.82); font-size: 10.2pt; margin-bottom: 4mm; }
+.cta-facts { list-style: none; padding: 0; margin: 4mm 0 0; border-top: 1px solid rgba(255,255,255,0.2); padding-top: 4mm; }
+.cta-facts li {
+  font-size: 8.8pt;
+  color: rgba(255, 255, 255, 0.78);
+  padding-left: 4.5mm;
+  position: relative;
+  margin-bottom: 1.6mm;
 }
-
+.cta-facts li::before {
+  content: '';
+  position: absolute; left: 0; top: 1.7mm;
+  width: 2mm; height: 2mm;
+  background: var(--spot);
+}
 .cta-link {
-  font-family: var(--font-ui);
   font-size: 10pt;
-  font-weight: 600;
-  color: #cbb6ff;
+  font-weight: 700;
+  color: #fff;
   text-decoration: none;
-  border-bottom: 1pt solid rgba(203, 182, 255, 0.5);
+  border-bottom: 1.4pt solid var(--spot);
   padding-bottom: 0.6mm;
 }
 
-.cta-facts {
-  margin: 4mm 0 0;
-  padding: 4mm 0 0;
-  border-top: 1pt solid rgba(251, 250, 247, 0.2);
-  font-family: var(--font-ui);
-  font-size: 8.8pt;
-  color: rgba(251, 250, 247, 0.7);
-  list-style: none;
-  padding-left: 0;
-}
-
-.cta-facts li {
-  margin-bottom: 1.5mm;
-  padding-left: 4mm;
-  position: relative;
-}
-
-.cta-facts li::before {
-  content: '·';
-  position: absolute;
-  left: 0.8mm;
-  color: #b79cff;
-  font-weight: 700;
-}
-
-/* ── Colofón ─────────────────────────────────────────────────────── */
-
 .colophon {
-  margin-top: 9mm;
-  padding-top: 4mm;
-  border-top: 1pt solid var(--rule);
-  font-family: var(--font-ui);
-  font-size: 8.5pt;
+  margin-top: 7mm;
+  padding-top: 3.5mm;
+  border-top: 1px solid var(--rule);
+  font-size: 8.2pt;
   line-height: 1.5;
-  color: var(--ink-faint);
-  page-break-inside: avoid;
+  color: var(--ink-fai);
+}
+.colophon strong { color: var(--ink-mut); font-weight: 600; }
+.colophon a { color: var(--ink-mut); text-decoration: none; }
+
+.page-foot {
+  position: absolute;
+  left: 16mm; right: 16mm; bottom: 10mm;
+  border-top: 1px solid var(--rule);
+  padding-top: 2.4mm;
+  font-size: 7pt;
+  color: var(--ink-fai);
+  display: flex;
+  justify-content: space-between;
 }
 
-.colophon strong { color: var(--ink-muted); font-weight: 600; }
-.colophon a { color: var(--ink-muted); text-decoration: none; }
-
-a { color: var(--accent); }
-
-.page-break { page-break-before: always; }
+a { color: var(--brand); }

@@ -188,7 +188,12 @@ def main() -> None:
         count=1,
     )
 
-    INDEX.write_text(raw, encoding="utf-8")
+    def write_text_if_changed(path: Path, text: str) -> None:
+        if path.exists() and path.read_text(encoding="utf-8") == text:
+            return
+        path.write_text(text, encoding="utf-8")
+
+    write_text_if_changed(INDEX, raw)
 
     # data/posts.json alimenta GET /api/posts. El cargador dinámico deduplica
     # por slug, así que no duplica las tarjetas estáticas que acabamos de
@@ -208,7 +213,8 @@ def main() -> None:
             "createdAt": m["publication_date"] + "T00:00:00.000Z",
         })
     POSTS_JSON.parent.mkdir(parents=True, exist_ok=True)
-    POSTS_JSON.write_text(json.dumps(posts, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
+    posts_json = json.dumps(posts, ensure_ascii=False, indent=2) + "\n"
+    write_text_if_changed(POSTS_JSON, posts_json)
 
     print(f"blog-index.html: {len(plan)} tarjetas inyectadas")
     print(f"data/posts.json: {len(posts)} posts")

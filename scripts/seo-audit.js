@@ -238,7 +238,7 @@ for (const file of files) {
 
   /* FAQPage sin FAQ visible */
   const hasFaqSchema = /"@type"\s*:\s*"FAQPage"/i.test(html);
-  const hasFaqVisible = /<!-- SEO:FAQ:START -->/.test(html) || /class="seo-faq-item"/i.test(html) || /<details\b/i.test(html);
+  const hasFaqVisible = /<!-- SEO:FAQ:START -->/.test(html) || /class="[^"]*\bseo-faq-item\b[^"]*"/i.test(html) || /<details\b/i.test(html);
   if (hasFaqSchema && !hasFaqVisible) {
     error(file, 'contiene FAQPage schema sin FAQ visible en el HTML');
   }

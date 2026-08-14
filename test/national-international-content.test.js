@@ -204,3 +204,78 @@ test('los cinco HTML generados conservan canonical, FAQ visible/schema y CTA cor
     assert.deepEqual(faq.mainEntity.map(item => item.name), post.faq.map(item => item.question));
   }
 });
+
+test('las fuentes editoriales excluyen URLs verificadas como no disponibles', () => {
+  const { content } = requireSources();
+  const unavailableUrls = new Set([
+    'https://ligaabaco.com/que-es-el-soroban/',
+    'https://doi.org/10.1016/0010-0277(77)90011-3',
+    'https://www.cambridgeinternational.org/support-and-training-for-schools/teaching-cambridge-at-your-school/study-skills/',
+  ]);
+
+  for (const post of content) {
+    for (const source of post.sources) {
+      assert.ok(!unavailableUrls.has(source.url), `${post.slug}: fuente no disponible ${source.url}`);
+    }
+  }
+});
+
+test('los generadores preservan mtime cuando el contenido no cambia', () => {
+  const { execFileSync } = require('node:child_process');
+  const generatedFiles = [
+    ...fs.readdirSync(ROOT).filter(name => /^blog-.*\.html$/.test(name)),
+    'data/posts.json',
+  ];
+  const mtimesBefore = new Map(generatedFiles.map(rel => [
+    rel,
+    fs.statSync(path.join(ROOT, rel), { bigint: true }).mtimeNs,
+  ]));
+
+  for (const script of [
+    'tools/seo_content/build_html.py',
+    'tools/seo_content/build_blog_index.py',
+  ]) {
+    execFileSync('python3', [script], { cwd: ROOT, stdio: 'pipe' });
+  }
+
+  for (const [rel, mtimeBefore] of mtimesBefore) {
+    const mtimeAfter = fs.statSync(path.join(ROOT, rel), { bigint: true }).mtimeNs;
+    assert.equal(mtimeAfter, mtimeBefore, `${rel}: mtime cambió sin modificar contenido`);
+  }
+});
+
+test('todo cross-sell entre CTA del artículo y CTA del documento queda declarado', () => {
+  const { plan } = requireSources();
+  const catalogData = JSON.parse(fs.readFileSync(
+    path.join(ROOT, 'tools/lead_magnets/catalog.json'),
+    'utf8',
+  ));
+  const magnets = catalogData.magnets;
+  const declarations = catalogData.cross_sell_exceptions?.['national-international-01'] || {};
+  const mismatches = [];
+
+  for (const article of plan) {
+    const html = fs.readFileSync(path.join(ROOT, article.filename), 'utf8');
+    const document = new JSDOM(html).window.document;
+    const magnetSlug = document.querySelector('form[data-lead-magnet]')?.dataset.resource;
+    const articleCourseUrl = document.querySelector('.blog-cta-box a.btn-primary')?.getAttribute('href');
+    assert.ok(magnets[magnetSlug], `${article.slug}: lead magnet fuera del catálogo`);
+    assert.equal(articleCourseUrl, article.course_url, `${article.slug}: CTA primario desactualizado`);
+    const magnetCourseUrl = magnets[magnetSlug].course_url;
+    if (articleCourseUrl === magnetCourseUrl) {
+      assert.equal(declarations[article.slug], undefined, `${article.slug}: excepción obsoleta`);
+      continue;
+    }
+
+    mismatches.push(article.slug);
+    assert.deepEqual(declarations[article.slug], {
+      article_course_url: articleCourseUrl,
+      magnet: magnetSlug,
+      magnet_course_url: magnetCourseUrl,
+      reason: declarations[article.slug]?.reason,
+    }, `${article.slug}: cross-sell no declarado o desactualizado`);
+    assert.ok(declarations[article.slug].reason.trim(), `${article.slug}: falta justificar el cross-sell`);
+  }
+
+  assert.deepEqual(Object.keys(declarations).sort(), mismatches.sort(), 'declaraciones de cross-sell obsoletas');
+});

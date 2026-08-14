@@ -928,14 +928,20 @@ if __name__ == "__main__":
         print("\n--- (truncado) ---")
         sys.exit(0)
 
+    def write_text_if_changed(path: Path, text: str) -> bool:
+        if path.exists() and path.read_text(encoding="utf-8") == text:
+            return False
+        path.write_text(text, encoding="utf-8")
+        return True
+
     written = []
     for post_id in renderable:
         meta = plan[post_id]
         html = render_post(post_id)
         out_path = OUT_DIR / f"blog-{meta['slug']}.html"
-        out_path.write_text(html, encoding="utf-8")
-        written.append(out_path.name)
+        if write_text_if_changed(out_path, html):
+            written.append(out_path.name)
 
-    print(f"\nEscritos {len(written)} archivos HTML en {OUT_DIR}:")
+    print(f"\nActualizados {len(written)} archivos HTML en {OUT_DIR}:")
     for name in written:
         print(f"  {name}")

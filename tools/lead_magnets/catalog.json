@@ -1,5 +1,22 @@
 {
-  "_comment": "Catálogo de lead magnets. Fuente única de verdad del mapeo cluster → documento → curso. tools/inject_lead_magnet.py lo lee para decidir qué documento ofrece cada artículo, y build_pdfs.js genera los PDF desde los HTML de tools/lead_magnets/. Los course_url deben existir como página real del sitio: un CTA a una URL inexistente es peor que no tener CTA.",
+  "_comment": "Catálogo de lead magnets. Fuente única de verdad del mapeo cluster → documento → curso. tools/inject_lead_magnet.py lo lee para decidir qué documento ofrece cada artículo, y build_pdfs.js genera los PDF desde los HTML de tools/lead_magnets/. Los course_url deben existir como página real del sitio: un CTA a una URL inexistente es peor que no tener CTA. cross_sell_exceptions registra por lote auditado los casos donde el CTA principal del artículo y el CTA interno del documento apuntan a cursos distintos; no representa un inventario global y no se añade una excepción sin revisar el PDF.",
+
+  "cross_sell_exceptions": {
+    "national-international-01": {
+      "ejercicios-soroban-principiantes": {
+        "article_course_url": "/mathekids",
+        "magnet": "guia-estimulacion-temprana",
+        "magnet_course_url": "/fastkids",
+        "reason": "El recurso disponible aporta actividades tempranas relacionadas, pero falta una guía específica de MatheKids."
+      },
+      "tecnicas-estudio-secundaria": {
+        "article_course_url": "/memoria-prodigiosa",
+        "magnet": "guia-tecnicas-de-estudio",
+        "magnet_course_url": "/fotolectura",
+        "reason": "La guía cubre la intención de técnicas de estudio, pero falta una variante específica de Memoria Prodigiosa."
+      }
+    }
+  },
 
   "magnets": {
     "guia-robotica-educativa-en-casa": {

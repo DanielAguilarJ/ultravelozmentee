@@ -8,10 +8,12 @@ robótica pedía el correo a cambio de una guía de técnicas de estudio: el
 lector no recibía lo que el contexto le prometía, y la descarga dejaba de
 tener relación con el curso al que el propio artículo remite.
 
-Ahora cada artículo ofrece el documento de SU cluster, definido en
-tools/lead_magnets/catalog.json. El CTA del documento apunta al curso de
-ese mismo cluster, así que la cadena artículo → documento → curso es
-coherente de principio a fin.
+Ahora cada artículo ofrece un documento relacionado con SU cluster, definido en
+tools/lead_magnets/catalog.json. El CTA del documento apunta al curso declarado
+por ese lead magnet. En cada lote auditado, las diferencias frente al CTA
+principal del artículo deben registrarse en cross_sell_exceptions después de
+revisar el PDF. Ese registro no presupone un inventario retroactivo ni
+una coherencia comercial universal.
 
 ── Cómo sabe a qué cluster pertenece un artículo ────────────────────
 Por el slug, cruzado con todos los planes editoriales declarados. Los

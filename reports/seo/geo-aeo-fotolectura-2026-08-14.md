@@ -121,8 +121,13 @@ Distinciones relevantes:
 ### 4.2 Portada
 
 - Retirada la promesa “300 páginas en 30 minutos”.
-- Descripción sustituida por diagnóstico, práctica guiada y medición sin promesas universales.
-- Recomendación del selector JavaScript sincronizada.
+- Descripción de Fotolectura sustituida por diagnóstico, práctica guiada y medición sin promesas universales; recomendación del selector JavaScript sincronizada.
+- Eliminadas métricas no documentadas: 30 años, 200,000 graduados, 97% de éxito, transformación en ocho semanas y resultados desde la primera sesión.
+- Retirada la franja “Reconocidos en” con logos de Forbes, Entrepreneur, TEDx y El Universal porque no había expedientes enlazados que acreditaran esas apariciones.
+- La rutina “Los 5 Minutos” se describe como actividad de apertura, sin atribuir eficacia educativa a hemisferios, música, aromas o juego.
+- Directorio y recomendador dinámico reescritos para describir contenidos, no velocidades, calificaciones, acreditación SEP o resultados universales.
+- Modalidad, duración y precio pasan a “por confirmar”; se retiraron planes horarios no sustentados, valores monetarios ancla y garantía de devolución universal.
+- FAQ visible y `FAQPage` sincronizados con la misma transparencia; el indicador de atención usa los horarios de `site.json` y no promete respuesta en cinco minutos.
 - Cinco testimonios sin respaldo retirados.
 - Carrusel reconstruido con los tres únicos registros verificados, publicados y con consentimiento del catálogo, todos pertenecientes a Robotics. No se presentan como evidencia de Fotolectura.
 - Enlace descriptivo hacia `/fotolectura` para reforzar la URL comercial sin ocultar sus límites.
@@ -302,12 +307,12 @@ Comando:
 node --test --test-concurrency=1 test/fotolectura-geo-aeo.test.js
 ```
 
-Resultado: **13/13 pruebas aprobadas**.
+Resultado: **14/14 pruebas aprobadas**.
 
 Cobertura comprobada por esa suite:
 
 - respuesta directa y criterios de elección;
-- retirada de claims y testimonios sin respaldo;
+- retirada de claims, autoridad, precios ancla, garantías y testimonios sin respaldo;
 - datos operativos y transparencia de faltantes;
 - temario, público, límites e instructor;
 - test neutral y conteo real de 467 palabras;
@@ -322,12 +327,13 @@ Validación adicional completada:
 - `node --check test/fotolectura-geo-aeo.test.js`: aprobado;
 - parseo de `content/posts/batch-01-10.json`: aprobado;
 - búsqueda de `un libro de 300 páginas` y `300 páginas en 30 minutos` en landing/portada: sin coincidencias;
-- pruebas dirigidas de FAQ, publicación editorial, enlaces, redirecciones y servicio estático: **45/45 aprobadas** tras sincronizar el tiempo de lectura derivado;
+- segundo ciclo TDD de portada: el nuevo gate falló primero por “treinta años” y pasó después de retirar las afirmaciones no respaldadas, dejando la suite GEO/AEO en **14/14**;
+- pruebas dirigidas de FAQ, publicación editorial, enlaces, redirecciones, contenido nacional/internacional y servicio estático: **113/113 aprobadas**;
 - segundo pase de `build_html.py` y `build_blog_index.py`: preservó los `mtime` sin cambios de contenido;
 - pipeline aislado `apply-seo.js` + `sync_course_faq_schema.js`: reprodujo `fotolectura.html` byte por byte, SHA-256 `67ab949c1299912c554f576d9c1aec8be7d50c37d174a5706eb57f59de5c4a4d`;
-- suite completa serial `node --test --test-concurrency=1 test/*.test.js`: **285/285 aprobadas** en 16.0 s;
+- suite completa serial `node --test --test-concurrency=1 test/*.test.js`: **286/286 aprobadas** en 17.8 s;
 - `git diff --check`: aprobado;
-- smoke test local en `127.0.0.1`: demo 180/260 ppm, test completo de tres pasos, ocho respuestas, resultado con advertencias, campos de reserva y carrusel 1/3 → 2/3 operativos.
+- smoke test local en `127.0.0.1`: demo 180/260 ppm, test completo de tres pasos, ocho respuestas, resultado con advertencias, campos de reserva, recomendador de Fotolectura, filtro de programas y carrusel 1/3 → 2/3 operativos.
 
 El smoke se ejecutó con un servidor estático, por lo que `/api/event`, `/api/ip` y `/api/bookings` devolvieron 404/501 esperados; no hubo excepciones de la lógica de página. La suite del servidor cubrió los endpoints y flujos de leads. **CI sigue pendiente** hasta publicar la rama y abrir el PR.
 
@@ -341,7 +347,7 @@ El smoke se ejecutó con un servidor estático, por lo que `/api/event`, `/api/i
 6. **Generadores heredados:** `apply-seo.js` procesa todos los HTML y existe deriva histórica. Las comprobaciones de generación deben aislar Fotolectura o restaurar únicamente cambios producidos por la ejecución.
 7. **Testimonios:** el catálogo público sólo tiene tres testimonios verificados y todos son de Robotics; no deben reutilizarse como evidencia de Fotolectura.
 8. **Facebook y e-deaprendizaje:** pendientes de verificación manual legítima; no se asumirán como respaldo.
-9. **Tagline global heredado:** el footer de 309 HTML afirma “Pioneros en Neuroaprendizaje” y “Transformamos la manera en que Latinoamérica aprende”. No se usó como evidencia y no se modificó en este PR porque su corrección reproducible exige una migración sitewide del template y todos sus artefactos, no una sustitución aislada en Fotolectura. Debe auditarse y sustituirse en un cambio global antes de afirmar que todo el sitio carece de autoridad no demostrada.
+9. **Tagline global heredado:** la afirmación “Pioneros en Neuroaprendizaje” y “Transformamos la manera en que Latinoamérica aprende” aparecía en 309 HTML. Se retiró de la portada porque Google la elige para consultas de lectura rápida, pero permanece en 308 artefactos heredados. Su corrección reproducible exige una migración sitewide del template y todos sus HTML, no sustituciones aisladas. Debe abordarse en un cambio global antes de afirmar que todo el sitio carece de autoridad no demostrada.
 
 ## 11. Fuentes principales
 

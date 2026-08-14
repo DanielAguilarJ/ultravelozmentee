@@ -95,6 +95,48 @@ test('la landing y la portada retiran métricas y resultados sin evidencia', () 
     );
 });
 
+test('la portada no usa autoridad, eficacia, precios ni garantías sin respaldo', () => {
+    const homeHtml = fs.readFileSync(HOME_PATH, 'utf8');
+    const homeDocument = new JSDOM(homeHtml).window.document;
+    const visible = normalize(homeDocument.body.textContent);
+    const prohibitedVisible = [
+        /treinta años|30\+?\s*años|desde hace 30 años/i,
+        /200[,.]000\+?\s*(graduados|veces)/i,
+        /97%\s*tasa de éxito/i,
+        /resultados medibles desde la primera sesión/i,
+        /reconocidos en/i,
+        /integración de hemisferios|musicoterapia|aromaterapia|ludoterapia/i,
+        /beneficios educativos comprobados/i,
+        /certificación oficial SEP/i,
+        /90 operaciones en 6 minutos/i,
+        /comprensión total/i,
+        /8 semanas\s*promedio de transformación/i,
+        /recordar sin esfuerzo|para siempre/i,
+        /diagnóstico neuro-cognitivo/i,
+        /valor\s*\$\s*(1[,.]500|800|500)/i,
+        /garantía\s*100%|garantía de resultados|devolvemos el 100%/i,
+        /transformación real y medible/i,
+        /cuarenta y cinco minutos|menos de 5 minutos/i,
+    ];
+    const prohibitedSource = [
+        /del "no puedo" al "mira esto, mamá" en 90 días/i,
+        /estrategia probada/i,
+        /recupera calificaciones/i,
+        /mnemotecnia de campeones/i,
+    ];
+
+    for (const pattern of prohibitedVisible) {
+        assert.doesNotMatch(visible, pattern, `claim visible no respaldado en portada: ${pattern}`);
+    }
+    for (const pattern of prohibitedSource) {
+        assert.doesNotMatch(homeHtml, pattern, `claim dinámico no respaldado en portada: ${pattern}`);
+    }
+
+    assert.match(visible, /desde 2000/i);
+    assert.match(visible, /máx(?:imo)?\.?\s*7/i);
+    assert.match(visible, /17 programas/i);
+});
+
 test('publica datos operativos verificables y transparenta los que faltan', () => {
     const facts = landingDocument.querySelector('#datos-curso');
     assert.ok(facts, 'falta #datos-curso');

@@ -24,21 +24,22 @@ const test = require('node:test');
 const assert = require('node:assert');
 const fs = require('fs');
 const path = require('path');
+const { JSDOM } = require('jsdom');
 
 const ROOT = path.join(__dirname, '..');
+const ENTITY_DECODER = new JSDOM('').window.document.createElement('textarea');
 
-/** Texto visible aproximado: se quitan etiquetas y se decodifican entidades. */
+/** Texto visible aproximado: se quitan etiquetas, se decodifican entidades y se normalizan espacios. */
 function visibleText(html) {
-    return html
+    const withoutMarkup = html
         .replace(/<script[\s\S]*?<\/script>/gi, ' ')
         .replace(/<style[\s\S]*?<\/style>/gi, ' ')
-        .replace(/<[^>]+>/g, '\n')
-        .replace(/&nbsp;/g, ' ')
-        .replace(/&amp;/g, '&')
-        .replace(/&quot;/g, '"')
-        .replace(/&#39;/g, "'")
-        .replace(/&lt;/g, '<')
-        .replace(/&gt;/g, '>');
+        .replace(/<[^>]+>/g, ' ');
+    ENTITY_DECODER.innerHTML = withoutMarkup;
+    return ENTITY_DECODER.value
+        .replace(/\s+/g, ' ')
+        .replace(/\s+([,.;:!?])/g, '$1')
+        .trim();
 }
 
 /** Devuelve todos los nodos FAQPage de una página, o [] si no hay. */
@@ -65,6 +66,33 @@ function faqNodes(html) {
 }
 
 const pages = fs.readdirSync(ROOT).filter(f => f.endsWith('.html'));
+const coursePages = pages.filter(file => {
+    const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+    return /"@type"\s*:\s*"Course"/.test(html);
+});
+
+test('todas las páginas de curso publican FAQ visible y FAQPage', () => {
+    const sinSchema = [];
+    const sinFaqVisible = [];
+
+    for (const file of coursePages) {
+        const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
+        const nodes = faqNodes(html);
+        const preguntas = nodes.flatMap(node => node.mainEntity || []);
+        const itemsVisibles = (html.match(/\bseo-faq-item\b/g) || []).length;
+
+        if (preguntas.length < 4) {
+            sinSchema.push(`${file}: ${preguntas.length} preguntas en FAQPage`);
+        }
+        if (itemsVisibles < 4) {
+            sinFaqVisible.push(`${file}: ${itemsVisibles} elementos .seo-faq-item`);
+        }
+    }
+
+    assert.ok(coursePages.length >= 15, `solo se detectaron ${coursePages.length} páginas Course`);
+    assert.deepStrictEqual(sinSchema, [], 'páginas Course sin schema FAQ suficiente');
+    assert.deepStrictEqual(sinFaqVisible, [], 'páginas Course sin FAQ visible auditable');
+});
 
 test('todo el JSON-LD del sitio es sintácticamente válido', () => {
     const roto = [];

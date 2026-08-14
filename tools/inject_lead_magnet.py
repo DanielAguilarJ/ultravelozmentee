@@ -14,7 +14,7 @@ ese mismo cluster, así que la cadena artículo → documento → curso es
 coherente de principio a fin.
 
 ── Cómo sabe a qué cluster pertenece un artículo ────────────────────
-Por el slug, cruzado con los planes editoriales (60 y 500 posts). Los
+Por el slug, cruzado con todos los planes editoriales declarados. Los
 artículos de la serie original que no están en ningún plan usan un mapa
 explícito por palabra clave del slug; lo que no se pueda resolver
 conserva el documento por omisión, que es el de técnicas de estudio
@@ -35,6 +35,7 @@ CATALOG = ROOT / "tools" / "lead_magnets" / "catalog.json"
 PLANS = (
     ROOT / "reports" / "seo" / "editorial-plan-60-posts.json",
     ROOT / "reports" / "seo" / "editorial-plan-500-posts.json",
+    ROOT / "reports" / "seo" / "editorial-plan-national-international.json",
 )
 
 START = "<!-- SEO:MAGNET:START -->"
@@ -48,6 +49,8 @@ DEFAULT_MAGNET = "guia-tecnicas-de-estudio"
 # Artículos de la serie original (no están en ningún plan editorial).
 # El orden importa: se toma la primera coincidencia.
 SLUG_HINTS = (
+    ("primer-lenguaje-programacion-ninos", "guia-robotica-educativa-en-casa"),
+    ("comprension-lectora-primaria-por-grados", "guia-lectoescritura-en-casa"),
     ("robotica", "guia-robotica-educativa-en-casa"),
     ("arduino", "guia-robotica-educativa-en-casa"),
     ("scratch", "guia-robotica-educativa-en-casa"),

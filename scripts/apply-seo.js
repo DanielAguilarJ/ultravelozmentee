@@ -36,7 +36,7 @@ add(
   'fotolectura.html',
   'course',
   'Curso de lectura rápida y Fotolectura | WorldBrain México',
-  'Curso de Fotolectura y técnicas de lectura rápida con comprensión para jóvenes y adultos. Consulta metodología, modalidades y clase muestra.',
+  'Curso de lectura rápida y Fotolectura para adolescentes y adultos: temario, límites de evidencia, criterios de elección y clase muestra.',
   'Curso de lectura rápida y Fotolectura'
 );
 
@@ -500,6 +500,50 @@ function canonicalFor(file) {
 }
 
 const PAGE_OPTIONS = {
+  'fotolectura.html': {
+    courseDetails: {
+      availableLanguage: 'es-MX',
+      educationalLevel: 'Inicial',
+      coursePrerequisites: 'Lectura comprensiva convencional consolidada; no se requiere experiencia previa en técnicas de lectura rápida.',
+      teaches: [
+        'Medición de velocidad y comprensión',
+        'Lectura por bloques',
+        'Activación y lectura selectiva',
+        'Estrategias de retención'
+      ],
+      audience: {
+        '@type': 'EducationalAudience',
+        audienceType: 'Adolescentes y adultos'
+      },
+      syllabusSections: [
+        {
+          '@type': 'Syllabus',
+          name: 'Diagnóstico de velocidad y comprensión',
+          description: 'Línea base de palabras por minuto y respuestas de comprensión.'
+        },
+        {
+          '@type': 'Syllabus',
+          name: 'Propósito y vista previa',
+          description: 'Definición del objetivo y exploración de la estructura del texto.'
+        },
+        {
+          '@type': 'Syllabus',
+          name: 'Lectura por bloques',
+          description: 'Práctica progresiva de fijaciones y reducción de regresiones innecesarias.'
+        },
+        {
+          '@type': 'Syllabus',
+          name: 'Activación y lectura selectiva',
+          description: 'Selección de pasajes que requieren lectura detenida según el propósito.'
+        },
+        {
+          '@type': 'Syllabus',
+          name: 'Retención y plan de práctica',
+          description: 'Síntesis, recuperación de ideas y seguimiento con nuevas mediciones.'
+        }
+      ]
+    }
+  },
   'comipems.html': {
     image: `${BASE}/images/fl-hero-brain.webp`,
     modes: ['Online', 'Presencial'],
@@ -695,7 +739,8 @@ function schemaFor(page) {
       inLanguage: 'es-MX',
       provider: {
         '@id': `${BASE}/#organization`
-      }
+      },
+      ...(page.courseDetails || {})
     };
 
     if (Array.isArray(page.modes) && page.modes.length) {

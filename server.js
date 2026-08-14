@@ -781,6 +781,7 @@ app.get('/sitemap.xml', (req, res) => {
       { f: 'alfa-cash.html', u: '/alfa-cash', p: '0.7', c: 'monthly' },
       { f: 'redaccion-ejecutiva.html', u: '/redaccion-ejecutiva', p: '0.7', c: 'monthly' },
       { f: 'testimonios.html', u: '/testimonios', p: '0.7', c: 'monthly' },
+      { f: 'nosotros.html', u: '/nosotros', p: '0.6', c: 'monthly' },
       { f: 'blog-index.html', u: '/blog-index', p: '0.7', c: 'weekly' },
       { f: 'privacidad.html', u: '/privacidad', p: '0.3', c: 'yearly' },
       { f: 'terminos.html', u: '/terminos', p: '0.3', c: 'yearly' },

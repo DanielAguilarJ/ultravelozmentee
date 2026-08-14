@@ -1067,11 +1067,13 @@ function audit(file, html, page) {
 }
 
 /* Primero normaliza enlaces en todos los HTML de la raíz */
+let unchanged = 0;
 for (const file of fs.readdirSync(ROOT)) {
   if (!file.endsWith('.html') || file.startsWith('google')) continue;
 
   const filePath = path.join(ROOT, file);
-  let html = fs.readFileSync(filePath, 'utf8');
+  const original = fs.readFileSync(filePath, 'utf8');
+  let html = original;
 
   html = normalizeLang(html);
   html = cleanInternalUrls(html);
@@ -1084,8 +1086,18 @@ for (const file of fs.readdirSync(ROOT)) {
     console.warn(`⚠️ Sin configuración SEO: ${file}`);
   }
 
+  // Solo se escribe cuando el contenido cambia. El sitemap dinámico deriva
+  // <lastmod> de la fecha de modificación del archivo (ver server.js), así que
+  // reescribir un archivo idéntico le declararía a Google una actualización
+  // que no existió y acabaría restando credibilidad a todas las fechas.
+  if (html === original) {
+    unchanged += 1;
+    continue;
+  }
+
   fs.writeFileSync(filePath, html, 'utf8');
   console.log(`✅ Procesado: ${file}`);
 }
 
-console.log('\nSEO aplicado. Revisa los warnings antes de desplegar.');
+console.log(`\n${unchanged} archivos ya estaban al día (no se reescriben: conservan su fecha de modificación y con ella un lastmod honesto en el sitemap).`);
+console.log('SEO aplicado. Revisa los warnings antes de desplegar.');

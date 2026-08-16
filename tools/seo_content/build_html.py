@@ -35,6 +35,15 @@ POSTS_DIR = ROOT / "content" / "posts"
 OUT_DIR = ROOT
 SITE = "https://ultravelozmente.com"
 
+# Fuente ÚNICA de identidad. Antes el tagline vivía incrustado en la plantilla
+# del pie de este archivo, así que una corrección editorial se perdía en la
+# siguiente regeneración y había que replicarla a mano en cientos de páginas.
+# Ahora se edita en src/_data/site.json y este generador la consume.
+SITE_DATA = json.loads(
+    (ROOT / "src" / "_data" / "site.json").read_text(encoding="utf-8")
+)
+SITE_TAGLINE = SITE_DATA["tagline"]
+
 MONTHS_ES = {
     1: "Enero", 2: "Febrero", 3: "Marzo", 4: "Abril", 5: "Mayo", 6: "Junio",
     7: "Julio", 8: "Agosto", 9: "Septiembre", 10: "Octubre", 11: "Noviembre", 12: "Diciembre",
@@ -412,7 +421,7 @@ NAVBAR = """<body>
 """
 
 
-FOOTER_AND_SCRIPTS = """    <!-- Footer Unificado WorldBrain -->
+_FOOTER_TEMPLATE = """    <!-- Footer Unificado WorldBrain -->
 <footer class="footer-modern" role="contentinfo">
     <div class="footer-content-wrapper">
         <div class="footer-cta-card">
@@ -433,7 +442,7 @@ FOOTER_AND_SCRIPTS = """    <!-- Footer Unificado WorldBrain -->
             <div class="footer-grid">
                 <div class="footer-brand-col">
                     <div class="footer-brand-name">World<span>Brain</span></div>
-                    <p class="footer-tagline">Pioneros en Neuroaprendizaje y Desarrollo Mental Acelerado desde 2000. Transformamos la manera en que Latinoam&eacute;rica aprende.</p>
+                    <p class="footer-tagline">__SITE_TAGLINE__</p>
                     <div class="footer-socials">
                         <a href="https://www.facebook.com/WorldBrainMx/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/worldbrainmx1/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Principal"><i class="fab fa-instagram"></i></a>
@@ -533,6 +542,10 @@ FOOTER_AND_SCRIPTS = """    <!-- Footer Unificado WorldBrain -->
 """
 
 
+# El pie servido deriva del marcador anterior; el tagline nunca se
+# vuelve a escribir a mano en este archivo.
+FOOTER_AND_SCRIPTS = _FOOTER_TEMPLATE.replace("__SITE_TAGLINE__", SITE_TAGLINE)
+
 def render_footer(post: dict) -> str:
     """Aplica overrides editoriales explícitos sin alterar otros artículos."""
     footer = FOOTER_AND_SCRIPTS
@@ -545,7 +558,6 @@ def render_footer(post: dict) -> str:
         "Agenda una clase muestra gratuita y descubre de lo que eres capaz.": override["text"],
         "https://wa.me/525578107837?text=Hola,%20quiero%20agendar%20una%20clase%20muestra": override["url"],
         "Agendar Clase Muestra": override["label"],
-        "Pioneros en Neuroaprendizaje y Desarrollo Mental Acelerado desde 2000. Transformamos la manera en que Latinoam&eacute;rica aprende.": override["tagline"],
     }
     for old, new in replacements.items():
         if footer.count(old) != 1:

@@ -60,15 +60,51 @@ if [ "$year_count" -gt 1 ]; then
 fi
 
 # ── Gate 7: solo teléfonos autorizados ───────────────────────
-ALLOWED_PHONES="5578107837|55 7810 7837|55\) 7810-7837|\+52 55 7810-7837|55-7810-7837|5558686784|55 5868 6784|55\) 5868-6784|55-5868-6784"
+# La lista se DERIVA de src/_data/site.json (phonesAuthorized), la única
+# fuente de verdad. Antes estaba escrita a mano aquí, así que autorizar o
+# retirar una línea exigía editar dos lugares y el gate podía quedar
+# desincronizado del sitio que vigila.
+ALLOWED_PHONES=$(python3 - <<'PY'
+import json, re
+from pathlib import Path
+
+site = json.loads(Path("src/_data/site.json").read_text(encoding="utf-8"))
+variants = []
+for phone in site["phonesAuthorized"]:
+    d = phone["digits"]                      # p. ej. 5578107837
+    lada, a, b = d[:2], d[2:6], d[6:]        # 55 | 7810 | 7837
+    variants += [
+        d,                                   # 5578107837
+        f"{lada} {a} {b}",                   # 55 7810 7837
+        rf"{lada}\) {a}-{b}",                # 55) 7810-7837
+        rf"\+52 {lada} {a}-{b}",             # +52 55 7810-7837
+        f"{lada}-{a}-{b}",                   # 55-7810-7837
+        f"{lada} {a}-{b}",                   # 55 7810-7837
+    ]
+print("|".join(variants))
+PY
+)
+if [ -z "$ALLOWED_PHONES" ]; then
+  say "❌ Gate 7: no se pudo derivar phonesAuthorized de src/_data/site.json"
+  fail=1
+fi
 found_phones=$(grep -roE $GREP_EXCLUDES "(\+52\s?)?\(?55\)?[ -]?[0-9]{4}[ -]?[0-9]{4}" --include="*.html" . 2>/dev/null \
   | cut -d: -f2- | grep -vE "$ALLOWED_PHONES" | sort -u || true)
 if [ -n "$found_phones" ]; then
   say "❌ Gate 7: teléfono(s) NO autorizados detectados:"
   printf '   %s\n' "$found_phones"
-  say "   Si es real: añádelo a ALLOWED_PHONES en check.sh (con aprobación)."
+  say "   Si es real: añádelo a phonesAuthorized en src/_data/site.json (con aprobación)."
   say "   Si no: elimínalo — un número muerto es un lead quemado."
   fail=1
+fi
+
+# ── Gate 7b: la identidad servida deriva de src/_data/site.json ──
+# Causa raíz: un tagline sin evidencia sobrevivió en ~300 HTML porque cada
+# corrección era un parche manual que el generador revertía.
+if [ -f tools/sync_site_identity.py ]; then
+  if ! python3 tools/sync_site_identity.py --check; then
+    fail=1
+  fi
 fi
 
 # ── Gate 8: dependencias de server.js declaradas en package.json ──

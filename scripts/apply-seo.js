@@ -5,6 +5,40 @@ const path = require('path');
 
 const ROOT = process.cwd();
 const BASE = 'https://ultravelozmente.com';
+
+// Identidad derivada de la ÚNICA fuente de verdad. Hasta el 2026-08-16 este
+// archivo repetía la lista de perfiles y publicaba en `sameAs` el canal
+// youtube.com/@worldbrainmexico, que devuelve HTTP 404: un enlace roto en
+// sameAs declara a los buscadores una identidad que no existe.
+const SITE = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'src/_data/site.json'), 'utf8')
+);
+const SITE_SOCIAL = Object.values(SITE.social).flat();
+
+// Propiedad del FAQPage.
+//
+// tools/seo_content/sync_course_faq_schema.js construye el FAQPage de las 18
+// páginas de curso LEYENDO el FAQ visible con JSDOM, lo que garantiza que el
+// schema coincida con lo que ve el usuario. Este archivo también sabía
+// emitir FAQPage, así que en las páginas donde coincidían ambos se producía
+// una oscilación infinita: apply-seo insertaba su nodo dentro de
+// SEO:GENERATED y el sincronizador lo retiraba, cada uno deshaciendo al otro
+// en cada corrida. Esa pelea es la causa de la 'deriva de apply-seo' que
+// llevaba meses sin resolverse.
+//
+// Regla: si la página lleva el marcador del sincronizador, él es el dueño y
+// aquí NO se emite FAQPage. Se detecta por el marcador y no por una lista
+// duplicada, para que no puedan desincronizarse.
+const COURSE_FAQ_OWNER_MARKER = '<!-- COURSE FAQ SCHEMA:START -->';
+
+function faqOwnedBySynchronizer(file) {
+  try {
+    return fs.readFileSync(path.join(ROOT, file), 'utf8')
+      .includes(COURSE_FAQ_OWNER_MARKER);
+  } catch {
+    return false;
+  }
+}
 const DEFAULT_IMAGE = `${BASE}/images/fl-hero-brain.webp`;
 
 const PAGES = {};
@@ -68,7 +102,10 @@ add(
   'robotics.html',
   'course',
   'Robótica y programación para niños | Robotics Code',
-  'Curso de robótica y programación para niños y adolescentes con Scratch, Python, Arduino e introducción a inteligencia artificial.',
+  // Descripción alineada con la que el sitio ya servía: incluye sede y
+  // modalidad, señal local útil, y evita que este generador y el
+  // sincronizador de FAQ se sobrescribieran el meta en cada corrida.
+  'Curso de robótica y programación para niños y adolescentes con Scratch, Python y Arduino. Clases en Cuautitlán Izcalli y en línea.',
   'Robotics Code: robótica y programación'
 );
 
@@ -444,13 +481,7 @@ const ORGANIZATION = {
   name: 'WorldBrain México',
   alternateName: 'UltraVelozmente',
   url: `${BASE}/`,
-  sameAs: [
-    'https://www.facebook.com/WorldBrainMx/',
-    'https://www.instagram.com/worldbrainmx1/',
-    'https://x.com/WorldBrainMx',
-    'https://youtube.com/@worldbrainmexico',
-    'https://tiktok.com/@worldbrainmexico'
-  ],
+  sameAs: SITE_SOCIAL,
   logo: {
     '@type': 'ImageObject',
     url: `${BASE}/images/logo.svg`
@@ -542,6 +573,39 @@ const PAGE_OPTIONS = {
         }
       ]
     }
+  },
+  'las-culturas-mesoamericanas-legado-sabiduria.html': {
+    // Estas preguntas ya estaban visibles y marcadas en el HTML, pero NO
+    // declaradas aquí: cualquier regeneración del bloque SEO borraba su
+    // FAQPage. Es una de las dos páginas con más impresiones orgánicas, así
+    // que la pérdida era silenciosa y costosa. Declararlas aquí hace que el
+    // generador sea la fuente y que la reconciliación sea segura.
+    faqs: [
+      {
+        q: '¿Cuáles son las culturas mesoamericanas más importantes?',
+        a: 'Olmeca, maya, zapoteca, teotihuacana, mixteca, tolteca, totonaca, huasteca y mexica. La olmeca se considera la cultura madre y la mexica fue la última antes de la conquista española.'
+      },
+      {
+        q: '¿Cuál fue la cultura madre de Mesoamérica?',
+        a: 'La olmeca, desarrollada entre 1500 y 400 a. C. en la costa del Golfo. Se le llama cultura madre porque muchos de los rasgos que después compartieron las demás civilizaciones, como el juego de pelota, el conteo y el arte monumental, aparecen primero con ella.'
+      },
+      {
+        q: '¿Qué aportaron las culturas mesoamericanas al mundo?',
+        a: 'El cero y la notación posicional, calendarios de gran precisión, la escritura maya, la domesticación del maíz, el frijol, el chile, el jitomate, el cacao y el aguacate, sistemas agrícolas como la milpa y las chinampas, y un urbanismo que produjo ciudades de más de cien mil habitantes.'
+      },
+      {
+        q: '¿Cuántas culturas mesoamericanas hay?',
+        a: 'No hay una cifra única, y por eso se encuentran listas de 7, 9 o 12. La variación no es un error: depende de si se cuentan solo las civilizaciones con centros urbanos propios, si se incluyen culturas regionales como la totonaca y la huasteca, y si se separan etapas de un mismo pueblo. Las nueve de este artículo son las que aparecen en prácticamente todas las clasificaciones.'
+      },
+      {
+        q: '¿Cuáles son las 12 culturas mesoamericanas?',
+        a: 'Las listas de doce suelen sumar a las nueve principales otras tres culturas regionales o de transición: la cultura de Occidente (Colima, Jalisco y Nayarit), la chichimeca y la purépecha o tarasca. Conviene saber que la chichimeca se desarrolló en Aridoamérica, no en Mesoamérica, así que su inclusión depende del criterio de cada autor.'
+      },
+      {
+        q: '¿Qué diferencia hay entre Mesoamérica y México?',
+        a: 'Mesoamérica es una región cultural prehispánica que incluía el centro y sur de México junto con Guatemala, Belice, El Salvador y partes de Honduras, Nicaragua y Costa Rica. México es un país actual: parte de su territorio fue mesoamericano y otra parte, el norte árido, correspondía a Aridoamérica y Oasisamérica.'
+      }
+    ]
   },
   'comipems.html': {
     image: `${BASE}/images/fl-hero-brain.webp`,
@@ -757,7 +821,8 @@ function schemaFor(page) {
     graph.push(course);
   }
 
-  if (Array.isArray(page.faqs) && page.faqs.length) {
+  if (Array.isArray(page.faqs) && page.faqs.length
+      && !faqOwnedBySynchronizer(page.file)) {
     graph.push({
       '@type': 'FAQPage',
       '@id': `${url}#faq`,
@@ -1039,7 +1104,29 @@ function injectSeo(html, page) {
     /<head\b([^>]*)>([\s\S]*?)<\/head>/i,
     (full, attributes, head) => {
       const cleanHead = stripOldSeo(head);
-      return `<head${attributes}>${cleanHead}\n${buildSeoBlock(page)}\n</head>`;
+      const seoBlock = buildSeoBlock(page);
+
+      // Orden canónico dentro de <head>: primero el bloque SEO:GENERATED y
+      // después el del sincronizador de FAQ de cursos.
+      //
+      // Sin esta regla ambos generadores insertaban su bloque justo antes de
+      // </head> tras eliminar el propio, así que cada corrida intercambiaba
+      // el orden y la siguiente lo volvía a intercambiar: una oscilación
+      // infinita en 18 páginas de curso. El contenido era equivalente, pero
+      // el archivo cambiaba en cada pasada, reescribía mtimes y con ellos el
+      // lastmod del sitemap, y hacía imposible distinguir una deriva real de
+      // este ruido. Fijar el orden aquí hace converger a los dos.
+      const faqOwner = cleanHead.indexOf(COURSE_FAQ_OWNER_MARKER);
+      if (faqOwner !== -1) {
+        // El espaciado se normaliza a un solo salto por lado: si se deja al
+        // azar, cada generador añade o quita una línea en blanco y el archivo
+        // vuelve a cambiar en cada corrida aunque el contenido sea idéntico.
+        const before = cleanHead.slice(0, faqOwner).replace(/\s+$/, '');
+        const after = cleanHead.slice(faqOwner).replace(/\s+$/, '');
+        const block = seoBlock.replace(/\s+$/, '');
+        return `<head${attributes}>${before}\n${block}\n${after}\n</head>`;
+      }
+      return `<head${attributes}>${cleanHead}\n${seoBlock}\n</head>`;
     }
   );
 }

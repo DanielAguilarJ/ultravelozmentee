@@ -35,6 +35,23 @@ POSTS_DIR = ROOT / "content" / "posts"
 OUT_DIR = ROOT
 SITE = "https://ultravelozmente.com"
 
+# Fuente ÚNICA de identidad. Antes el tagline vivía incrustado en la plantilla
+# del pie de este archivo, así que una corrección editorial se perdía en la
+# siguiente regeneración y había que replicarla a mano en cientos de páginas.
+# Ahora se edita en src/_data/site.json y este generador la consume.
+SITE_DATA = json.loads(
+    (ROOT / "src" / "_data" / "site.json").read_text(encoding="utf-8")
+)
+SITE_TAGLINE = SITE_DATA["tagline"]
+
+# Perfiles externos verificados. Se publican como `sameAs` en el schema de
+# Organization, así que un enlace roto aquí le declara a los buscadores una
+# identidad que devuelve 404: hasta el 2026-08-16 se publicaba
+# youtube.com/@worldbrainmexico, que no existe.
+SITE_SOCIAL: list[str] = []
+for _value in SITE_DATA["social"].values():
+    SITE_SOCIAL.extend(_value if isinstance(_value, list) else [_value])
+
 MONTHS_ES = {
     1: "Enero", 2: "Febrero", 3: "Marzo", 4: "Abril", 5: "Mayo", 6: "Junio",
     7: "Julio", 8: "Agosto", 9: "Septiembre", 10: "Octubre", 11: "Noviembre", 12: "Diciembre",
@@ -155,13 +172,7 @@ def render_head(meta: dict, post: dict) -> str:
                 "name": "WorldBrain México",
                 "alternateName": "UltraVelozmente",
                 "url": f"{SITE}/",
-                "sameAs": [
-                    "https://www.facebook.com/WorldBrainMx/",
-                    "https://www.instagram.com/worldbrainmx1/",
-                    "https://x.com/WorldBrainMx",
-                    "https://youtube.com/@worldbrainmexico",
-                    "https://tiktok.com/@worldbrainmexico",
-                ],
+                "sameAs": SITE_SOCIAL,
                 "logo": {"@type": "ImageObject", "url": f"{SITE}/images/logo.svg"},
                 "telephone": "+52-55-7810-7837",
                 "email": "contacto@ultravelozmente.com",
@@ -412,7 +423,7 @@ NAVBAR = """<body>
 """
 
 
-FOOTER_AND_SCRIPTS = """    <!-- Footer Unificado WorldBrain -->
+_FOOTER_TEMPLATE = """    <!-- Footer Unificado WorldBrain -->
 <footer class="footer-modern" role="contentinfo">
     <div class="footer-content-wrapper">
         <div class="footer-cta-card">
@@ -433,14 +444,14 @@ FOOTER_AND_SCRIPTS = """    <!-- Footer Unificado WorldBrain -->
             <div class="footer-grid">
                 <div class="footer-brand-col">
                     <div class="footer-brand-name">World<span>Brain</span></div>
-                    <p class="footer-tagline">Pioneros en Neuroaprendizaje y Desarrollo Mental Acelerado desde 2000. Transformamos la manera en que Latinoam&eacute;rica aprende.</p>
+                    <p class="footer-tagline">__SITE_TAGLINE__</p>
                     <div class="footer-socials">
                         <a href="https://www.facebook.com/WorldBrainMx/" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/worldbrainmx1/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Principal"><i class="fab fa-instagram"></i></a>
                         <a href="https://www.instagram.com/worldbrainmx/" target="_blank" rel="noopener noreferrer" aria-label="Instagram Cuautitl&aacute;n Izcalli"><i class="fab fa-instagram"></i></a>
                         <a href="https://x.com/WorldBrainMx" target="_blank" rel="noopener noreferrer" aria-label="X (Twitter)"><i class="fab fa-x-twitter"></i></a>
-                        <a href="https://youtube.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                        <a href="https://tiktok.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                        <a href="__SOCIAL_YOUTUBE__" target="_blank" rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                        <a href="__SOCIAL_TIKTOK__" target="_blank" rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
                     </div>
                 </div>
                 <div class="footer-col">
@@ -533,6 +544,15 @@ FOOTER_AND_SCRIPTS = """    <!-- Footer Unificado WorldBrain -->
 """
 
 
+# El pie servido deriva del marcador anterior; el tagline nunca se
+# vuelve a escribir a mano en este archivo.
+FOOTER_AND_SCRIPTS = (
+    _FOOTER_TEMPLATE
+    .replace("__SITE_TAGLINE__", SITE_TAGLINE)
+    .replace("__SOCIAL_YOUTUBE__", SITE_DATA["social"]["youtube"])
+    .replace("__SOCIAL_TIKTOK__", SITE_DATA["social"]["tiktok"])
+)
+
 def render_footer(post: dict) -> str:
     """Aplica overrides editoriales explícitos sin alterar otros artículos."""
     footer = FOOTER_AND_SCRIPTS
@@ -545,7 +565,6 @@ def render_footer(post: dict) -> str:
         "Agenda una clase muestra gratuita y descubre de lo que eres capaz.": override["text"],
         "https://wa.me/525578107837?text=Hola,%20quiero%20agendar%20una%20clase%20muestra": override["url"],
         "Agendar Clase Muestra": override["label"],
-        "Pioneros en Neuroaprendizaje y Desarrollo Mental Acelerado desde 2000. Transformamos la manera en que Latinoam&eacute;rica aprende.": override["tagline"],
     }
     for old, new in replacements.items():
         if footer.count(old) != 1:

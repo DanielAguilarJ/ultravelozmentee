@@ -36,7 +36,7 @@ add(
   'fotolectura.html',
   'course',
   'Curso de lectura rápida y Fotolectura | WorldBrain México',
-  'Curso de Fotolectura y técnicas de lectura rápida con comprensión para jóvenes y adultos. Consulta metodología, modalidades y clase muestra.',
+  'Curso de lectura rápida y Fotolectura para adolescentes y adultos: temario, límites de evidencia, criterios de elección y datos por confirmar.',
   'Curso de lectura rápida y Fotolectura'
 );
 
@@ -500,6 +500,49 @@ function canonicalFor(file) {
 }
 
 const PAGE_OPTIONS = {
+  'fotolectura.html': {
+    courseDetails: {
+      availableLanguage: 'es-MX',
+      coursePrerequisites: 'Lectura comprensiva convencional consolidada.',
+      teaches: [
+        'Medición de velocidad y comprensión',
+        'Lectura por bloques',
+        'Activación y lectura selectiva',
+        'Estrategias de retención'
+      ],
+      audience: {
+        '@type': 'EducationalAudience',
+        audienceType: 'Adolescentes y adultos'
+      },
+      syllabusSections: [
+        {
+          '@type': 'Syllabus',
+          name: 'Diagnóstico de velocidad y comprensión',
+          description: 'Línea base de palabras por minuto y respuestas de comprensión.'
+        },
+        {
+          '@type': 'Syllabus',
+          name: 'Propósito y vista previa',
+          description: 'Definición del objetivo y exploración de la estructura del texto.'
+        },
+        {
+          '@type': 'Syllabus',
+          name: 'Lectura por bloques',
+          description: 'Práctica progresiva de fijaciones y reducción de regresiones innecesarias.'
+        },
+        {
+          '@type': 'Syllabus',
+          name: 'Activación y lectura selectiva',
+          description: 'Selección de pasajes que requieren lectura detenida según el propósito.'
+        },
+        {
+          '@type': 'Syllabus',
+          name: 'Retención y plan de práctica',
+          description: 'Síntesis, recuperación de ideas y seguimiento con nuevas mediciones.'
+        }
+      ]
+    }
+  },
   'comipems.html': {
     image: `${BASE}/images/fl-hero-brain.webp`,
     modes: ['Online', 'Presencial'],
@@ -695,7 +738,8 @@ function schemaFor(page) {
       inLanguage: 'es-MX',
       provider: {
         '@id': `${BASE}/#organization`
-      }
+      },
+      ...(page.courseDetails || {})
     };
 
     if (Array.isArray(page.modes) && page.modes.length) {
@@ -1023,11 +1067,13 @@ function audit(file, html, page) {
 }
 
 /* Primero normaliza enlaces en todos los HTML de la raíz */
+let unchanged = 0;
 for (const file of fs.readdirSync(ROOT)) {
   if (!file.endsWith('.html') || file.startsWith('google')) continue;
 
   const filePath = path.join(ROOT, file);
-  let html = fs.readFileSync(filePath, 'utf8');
+  const original = fs.readFileSync(filePath, 'utf8');
+  let html = original;
 
   html = normalizeLang(html);
   html = cleanInternalUrls(html);
@@ -1040,8 +1086,18 @@ for (const file of fs.readdirSync(ROOT)) {
     console.warn(`⚠️ Sin configuración SEO: ${file}`);
   }
 
+  // Solo se escribe cuando el contenido cambia. El sitemap dinámico deriva
+  // <lastmod> de la fecha de modificación del archivo (ver server.js), así que
+  // reescribir un archivo idéntico le declararía a Google una actualización
+  // que no existió y acabaría restando credibilidad a todas las fechas.
+  if (html === original) {
+    unchanged += 1;
+    continue;
+  }
+
   fs.writeFileSync(filePath, html, 'utf8');
   console.log(`✅ Procesado: ${file}`);
 }
 
-console.log('\nSEO aplicado. Revisa los warnings antes de desplegar.');
+console.log(`\n${unchanged} archivos ya estaban al día (no se reescriben: conservan su fecha de modificación y con ella un lastmod honesto en el sitemap).`);
+console.log('SEO aplicado. Revisa los warnings antes de desplegar.');

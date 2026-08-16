@@ -16,7 +16,7 @@ new_footer = """    <!-- Footer Global (Minimal) -->
                             aria-label="Síguenos en Facebook"><i class="fab fa-facebook-f"></i></a>
                         <a href="https://www.instagram.com/worldbrainmx1/" target="_blank" rel="noopener noreferrer"
                             aria-label="Síguenos en Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="https://youtube.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer"
+                        <a href="https://www.youtube.com/@worldbrainmx" target="_blank" rel="noopener noreferrer"
                             aria-label="Síguenos en YouTube"><i class="fab fa-youtube"></i></a>
                         <a href="https://tiktok.com/@worldbrainmexico" target="_blank" rel="noopener noreferrer"
                             aria-label="Síguenos en TikTok"><i class="fab fa-tiktok"></i></a>

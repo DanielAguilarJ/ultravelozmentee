@@ -5,6 +5,15 @@ const path = require('path');
 
 const ROOT = process.cwd();
 const BASE = 'https://ultravelozmente.com';
+
+// Identidad derivada de la ÚNICA fuente de verdad. Hasta el 2026-08-16 este
+// archivo repetía la lista de perfiles y publicaba en `sameAs` el canal
+// youtube.com/@worldbrainmexico, que devuelve HTTP 404: un enlace roto en
+// sameAs declara a los buscadores una identidad que no existe.
+const SITE = JSON.parse(
+  fs.readFileSync(path.join(ROOT, 'src/_data/site.json'), 'utf8')
+);
+const SITE_SOCIAL = Object.values(SITE.social).flat();
 const DEFAULT_IMAGE = `${BASE}/images/fl-hero-brain.webp`;
 
 const PAGES = {};
@@ -444,13 +453,7 @@ const ORGANIZATION = {
   name: 'WorldBrain México',
   alternateName: 'UltraVelozmente',
   url: `${BASE}/`,
-  sameAs: [
-    'https://www.facebook.com/WorldBrainMx/',
-    'https://www.instagram.com/worldbrainmx1/',
-    'https://x.com/WorldBrainMx',
-    'https://youtube.com/@worldbrainmexico',
-    'https://tiktok.com/@worldbrainmexico'
-  ],
+  sameAs: SITE_SOCIAL,
   logo: {
     '@type': 'ImageObject',
     url: `${BASE}/images/logo.svg`

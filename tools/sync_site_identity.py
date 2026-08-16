@@ -82,6 +82,38 @@ TAGLINE_NODE = re.compile(
 )
 LEGAL_NODE = re.compile(r'(<p class="footer-legal-text">)(.*?)(</p>)', re.DOTALL)
 
+# Perfiles externos: mapeo de la variante servida al perfil canónico.
+#
+# Cada regla se apoya en una comprobación del 2026-08-16, no en una
+# preferencia estética:
+#
+#   * `youtube.com/@worldbrainmexico` devuelve **HTTP 404**. El canal real es
+#     `@worldbrainmx`, cuyo propio título es "WorldBrain México". El enlace
+#     roto se servía 606 veces en 309 páginas porque tres generadores lo
+#     repetían por separado.
+#   * `twitter.com/...` sigue resolviendo, pero el sitio ya usa `x.com` en 606
+#     enlaces; mantener dos dominios para el mismo perfil fragmenta la señal.
+#   * `facebook.com/worldbrainmx1` queda detrás de login y no está indexado;
+#     `facebook.com/WorldBrainMx/` es el perfil público activo.
+#   * `facebook.com/ultravelozmente` e `instagram.com/ultravelozmente`
+#     aparecen una vez cada uno en fastkids.html, con un aria-label que ya
+#     dice "de WorldBrain México": apuntan al perfil de marca.
+SOCIAL_REWRITES = {
+    "https://youtube.com/@worldbrainmexico": ("youtube", None),
+    "https://www.youtube.com/@worldbrainmexico": ("youtube", None),
+    "https://twitter.com/WorldBrainMx": ("x", None),
+    "https://www.facebook.com/worldbrainmx1": ("facebook", None),
+    "https://www.facebook.com/ultravelozmente": ("facebook", None),
+    "https://www.instagram.com/ultravelozmente": ("instagram", 0),
+}
+
+
+def canonical_social(site: dict, red: str, index: int | None) -> str:
+    value = site["social"][red]
+    if isinstance(value, list):
+        return value[0 if index is None else index]
+    return value
+
 
 def load_site() -> dict:
     return json.loads(SITE_JSON.read_text(encoding="utf-8"))
@@ -115,7 +147,8 @@ def servable_html() -> list[Path]:
     return sorted(ROOT.glob("*.html"))
 
 
-def sync_text(html: str, tagline: str, legal: str, prose: str) -> tuple[str, list[str]]:
+def sync_text(html: str, site: dict, tagline: str, legal: str,
+              prose: str) -> tuple[str, list[str]]:
     """Devuelve (html_sincronizado, cambios_aplicados)."""
     changes: list[str] = []
 
@@ -142,6 +175,20 @@ def sync_text(html: str, tagline: str, legal: str, prose: str) -> tuple[str, lis
     html, hits = CLAIM_SENTENCE.subn(prose, html)
     if hits:
         changes.append(f"prosa-sin-evidencia x{hits}")
+
+    # Perfiles externos: se normaliza al perfil verificado. Se ancla en el
+    # valor entrecomillado, lo que cubre tanto `href="…"` como las cadenas de
+    # `sameAs` en JSON-LD, donde un 404 declara al buscador una identidad
+    # inexistente. No toca texto visible ni el píxel de medición.
+    for served, (red, index) in SOCIAL_REWRITES.items():
+        target = canonical_social(site, red, index)
+        if served.rstrip("/") == target.rstrip("/"):
+            continue
+        for variant in (served, f"{served}/"):
+            quoted = f'"{variant}"'
+            if quoted in html:
+                html = html.replace(quoted, f'"{target}"')
+                changes.append(f"perfil-{red}")
 
     return html, changes
 
@@ -174,7 +221,7 @@ def main() -> int:
     pending: list[tuple[Path, list[str]]] = []
     for path in servable_html():
         original = path.read_text(encoding="utf-8")
-        updated, changes = sync_text(original, tagline, legal, prose)
+        updated, changes = sync_text(original, site, tagline, legal, prose)
         if updated == original:
             continue
         pending.append((path, changes))

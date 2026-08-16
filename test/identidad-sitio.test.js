@@ -180,3 +180,77 @@ test('el sincronizador de identidad existe y es verificable sin escribir', () =>
   const fuente = fs.readFileSync(script, 'utf8');
   assert.ok(/--check/.test(fuente), 'el sincronizador debe ofrecer modo --check para CI');
 });
+
+/**
+ * Perfiles externos.
+ *
+ * Origen: la auditoría del 2026-08-16 comprobó que el canal declarado en el
+ * pie, https://www.youtube.com/@worldbrainmexico, devuelve HTTP 404, y que el
+ * canal real es @worldbrainmx (su propio título es "WorldBrain México").
+ * El enlace roto se servía 606 veces en 309 páginas porque tres generadores
+ * lo repetían por separado.
+ */
+const PERFILES_ROTOS = [
+  'youtube.com/@worldbrainmexico',
+];
+
+test('site.json declara los perfiles sociales verificados', () => {
+  assert.ok(SITE.social && typeof SITE.social === 'object', 'site.json debe declarar "social"');
+  for (const red of ['facebook', 'instagram', 'x', 'youtube', 'tiktok']) {
+    assert.ok(SITE.social[red], `site.json debe declarar social.${red}`);
+  }
+  for (const [red, url] of Object.entries(SITE.social)) {
+    const urls = Array.isArray(url) ? url : [url];
+    for (const u of urls) {
+      assert.ok(u.startsWith('https://'), `social.${red} debe usar HTTPS: ${u}`);
+    }
+  }
+});
+
+test('ningún HTML servible enlaza un perfil comprobadamente roto', () => {
+  const infractores = [];
+  for (const { nombre, texto } of htmlServibles()) {
+    for (const roto of PERFILES_ROTOS) {
+      if (texto.includes(roto)) infractores.push(`${nombre} → ${roto}`);
+    }
+  }
+  assert.deepEqual(infractores, [], `Perfiles con HTTP 404 todavía enlazados:\n  ${infractores.join('\n  ')}`);
+});
+
+test('los generadores no incrustan perfiles rotos', () => {
+  const generadores = [
+    'tools/seo_content/build_html.py',
+    'scripts/apply-seo.js',
+    'update_compliance_footer.py',
+  ];
+  const infractores = [];
+  for (const rel of generadores) {
+    const abs = path.join(ROOT, rel);
+    if (!fs.existsSync(abs)) continue;
+    const fuente = fs.readFileSync(abs, 'utf8');
+    for (const roto of PERFILES_ROTOS) {
+      // Se busca el URL como VALOR entrecomillado. Mencionarlo en un
+      // comentario que explica por qué se retiró no es reintroducirlo.
+      const comoValor = new RegExp(`["'\`]https?://(?:www\\.)?${roto.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}/?["'\`]`);
+      if (comoValor.test(fuente)) infractores.push(`${rel} → ${roto}`);
+    }
+  }
+  assert.deepEqual(infractores, [], `Generadores que reintroducirían un 404:\n  ${infractores.join('\n  ')}`);
+});
+
+test('todo enlace social servido pertenece al conjunto canónico', () => {
+  const canonicos = new Set(
+    Object.values(SITE.social).flat().map((u) => u.replace(/\/$/, '')),
+  );
+  const redes = /https?:\/\/(?:www\.)?(?:facebook|instagram|x|twitter|youtube|tiktok)\.com\/[^"'\s>]*/g;
+  const infractores = new Set();
+  for (const { nombre, texto } of htmlServibles()) {
+    for (const m of texto.matchAll(redes)) {
+      const url = m[0].replace(/\/$/, '');
+      // El píxel de Meta no es un perfil: es un endpoint de medición.
+      if (url.includes('facebook.com/tr')) continue;
+      if (!canonicos.has(url)) infractores.add(`${nombre} → ${url}`);
+    }
+  }
+  assert.deepEqual([...infractores], [], `Enlaces sociales fuera del conjunto canónico:\n  ${[...infractores].join('\n  ')}`);
+});

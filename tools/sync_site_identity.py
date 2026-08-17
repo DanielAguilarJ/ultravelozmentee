@@ -17,9 +17,9 @@ El informe GEO/AEO del 2026-08-14 dejó dos deudas medidas:
   pipeline heredado en lugar de derivarse de src/_data/site.json.
 
 Este script cierra el círculo: la identidad se edita en UN archivo y desde
-ahí se propaga. El texto canónico del tagline no se inventó aquí — es el que
-ya se revisó y publicó en fotolectura.html, que ATRIBUYE el año fundacional
-en lugar de afirmar autoridad.
+ahí se propaga. El tagline canónico mantiene una voz comercial; los datos
+institucionales, incluido el año fundacional, permanecen en sus campos
+específicos de site.json para que no se conviertan en descargos visibles.
 
 Garantías
 ---------
@@ -212,10 +212,16 @@ def main() -> int:
                   f"evidencia: {claim!r}", file=sys.stderr)
             return 2
 
-    if str(site["foundedYear"]) not in tagline:
-        print(f"❌ El tagline debe citar foundedYear "
-              f"({site['foundedYear']}) para no abrir una segunda fuente "
-              f"de año.", file=sys.stderr)
+    for phrase in ("por confirmar", "antes de inscribirse", "año fundacional"):
+        if phrase.casefold() in tagline.casefold():
+            print(f"❌ El tagline de site.json expone lenguaje institucional "
+                  f"en la experiencia comercial: {phrase!r}", file=sys.stderr)
+            return 2
+
+    if str(site["foundedYear"]) not in site["foundingStatement"]:
+        print(f"❌ foundingStatement debe citar foundedYear "
+              f"({site['foundedYear']}) para mantener una sola fuente de año.",
+              file=sys.stderr)
         return 2
 
     pending: list[tuple[Path, list[str]]] = []

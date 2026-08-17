@@ -19,6 +19,12 @@ function normalize(value) {
     return String(value || '').replace(/\s+/g, ' ').trim();
 }
 
+function visibleText(document) {
+    const body = document.body.cloneNode(true);
+    body.querySelectorAll('script, style, template, noscript').forEach(node => node.remove());
+    return normalize(body.textContent);
+}
+
 function escapeRegExp(value) {
     return String(value).replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
 }
@@ -46,19 +52,19 @@ function correctOptionText(questionName, answerValue) {
     return normalize(input.closest('label').textContent);
 }
 
-test('la respuesta inicial explica cómo elegir sin autoproclamarse el mejor curso', () => {
+test('la propuesta inicial explica el valor del curso sin autoproclamarse superior', () => {
     const h1 = normalize(landingDocument.querySelector('h1')?.textContent);
-    assert.match(h1, /curso de lectura rápida y Fotolectura/i);
+    assert.equal(h1, 'Leer rápido no es un don. Es una técnica que se entrena.');
 
     const section = landingDocument.querySelector('#como-elegir');
-    assert.ok(section, 'falta la respuesta directa #como-elegir');
+    assert.ok(section, 'falta la propuesta de valor #como-elegir');
     const text = normalize(section.textContent);
-    assert.match(text, /¿cuál es el mejor curso de lectura rápida\?/i);
-    assert.match(text, /no existe un mejor curso universal/i);
+    assert.match(text, /leer más rápido empieza por leer con intención/i);
 
-    for (const criterion of ['comprensión', 'instructor', 'tamaño del grupo', 'temario', 'precio']) {
-        assert.match(text, new RegExp(criterion, 'i'), `falta el criterio: ${criterion}`);
+    for (const idea of ['comprensión', 'ritmo flexible', 'práctica aplicada', 'grupos pequeños', 'avance observable']) {
+        assert.match(text, new RegExp(idea, 'i'), `falta la propuesta: ${idea}`);
     }
+    assert.doesNotMatch(text, /mejor curso universal|antes de pagar|por escrito/i);
 });
 
 test('la landing y la portada retiran métricas y resultados sin evidencia', () => {
@@ -91,14 +97,15 @@ test('la landing y la portada retiran métricas y resultados sin evidencia', () 
     assert.match(landingHtml, /Texto de referencia: 90,000 palabras/i);
     assert.match(
         landingHtml,
-        /Para un texto de 90,000 palabras, la estimación es[^.]+\. No predice tu resultado\./i,
+        /La estimación para 90,000 palabras a este ritmo es[^.]+\./i,
     );
+    assert.doesNotMatch(landingHtml, /No predice tu resultado/i);
 });
 
 test('la portada no usa autoridad, eficacia, precios ni garantías sin respaldo', () => {
     const homeHtml = fs.readFileSync(HOME_PATH, 'utf8');
     const homeDocument = new JSDOM(homeHtml).window.document;
-    const visible = normalize(homeDocument.body.textContent);
+    const visible = visibleText(homeDocument);
     const prohibitedVisible = [
         /treinta años|30\+?\s*años|desde hace 30 años/i,
         /200[,.]000\+?\s*(graduados|veces)|200\s*k\s*(graduados|voces)/i,
@@ -132,29 +139,30 @@ test('la portada no usa autoridad, eficacia, precios ni garantías sin respaldo'
         assert.doesNotMatch(homeHtml, pattern, `claim dinámico no respaldado en portada: ${pattern}`);
     }
 
-    assert.match(visible, /fundad[oa] en 2000|año fundacional[^.]{0,30}2000/i);
+    assert.match(visible, /No solo aprendas contenidos\. Aprende cómo aprender\./i);
     assert.match(visible, /máx(?:imo)?\.?\s*7/i);
     assert.match(visible, /17 programas/i);
+    assert.match(visible, /Cuautitlán Izcalli/i);
+    assert.doesNotMatch(visible, /por confirmar|publica 2000|antes de inscribirte|solicita por escrito/i);
 });
 
-test('publica datos operativos verificables y transparenta los que faltan', () => {
+test('publica claves verificables del programa sin placeholders operativos', () => {
     const facts = landingDocument.querySelector('#datos-curso');
     assert.ok(facts, 'falta #datos-curso');
     const text = normalize(facts.textContent);
 
-    assert.match(text, /fundado en 2000/i);
-    assert.match(text, /año fundacional[^.]{0,60}WorldBrain México/i);
-    assert.match(text, /máximo de 7 participantes/i);
-    assert.match(text, /duración[^.]{0,100}se confirma por generación/i);
-    assert.match(text, /no publica una tarifa vigente/i);
-    assert.match(text, /modalidad[^.]{0,100}se confirma por generación/i);
+    assert.match(text, /máximo 7/i);
+    assert.match(text, /lectura \+ comprensión/i);
+    assert.match(text, /práctica guiada/i);
+    assert.match(text, /avance observable/i);
+    assert.doesNotMatch(text, /por confirmar|tarifa vigente|cotización escrita|antes de pagar/i);
 
     const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'src', '_data', 'site.json'), 'utf8'));
     assert.equal(site.foundedYear, 2000);
     assert.equal(site.method.maxGroupSize, 7);
 });
 
-test('expone temario, público, límites, medición e información honesta del instructor', () => {
+test('expone temario, público, medición y acompañamiento en grupos pequeños', () => {
     const program = landingDocument.querySelector('#programa');
     assert.ok(program, 'falta #programa');
     const programText = normalize(program.textContent);
@@ -170,24 +178,26 @@ test('expone temario, público, límites, medición e información honesta del i
 
     const fit = normalize(landingDocument.querySelector('#para-quien')?.textContent);
     assert.match(fit, /adolescentes y adultos/i);
-    assert.match(fit, /no sustituye/i);
-    assert.match(fit, /dificultad de lectura[^.]{0,120}especialista/i);
+    assert.match(fit, /lectura comprensiva convencional consolidada/i);
+    assert.match(fit, /dificultad visual o de lectura[^.]{0,120}especialista/i);
 
     const results = normalize(landingDocument.querySelector('#resultados-realistas')?.textContent);
     assert.match(results, /velocidad y comprensión/i);
-    assert.match(results, /no garantiza/i);
-    assert.match(results, /condiciones comparables/i);
+    assert.match(results, /antes y después de practicar/i);
+    assert.match(results, /dificultad similar/i);
 
-    const instructor = normalize(landingDocument.querySelector('#instructor')?.textContent);
-    assert.match(instructor, /no publica todavía[^.]{0,100}perfil individual verificable/i);
-    assert.match(instructor, /solicita por escrito el nombre y la experiencia/i);
+    assert.equal(landingDocument.querySelector('#instructor'), null);
+    const support = normalize(landingDocument.querySelector('#acompanamiento')?.textContent);
+    assert.match(support, /máximo de 7 participantes/i);
+    assert.match(support, /practicar con guía/i);
 });
 
-test('distingue técnicas útiles de promesas no respaldadas y enlaza recursos de apoyo', () => {
+test('integra límites de lectura en una propuesta útil y enlaza recursos de apoyo', () => {
     const evidence = normalize(landingDocument.querySelector('#evidencia')?.textContent);
-    assert.match(evidence, /no hay evidencia sólida/i);
-    assert.match(evidence, /memoria fotográfica|procesamiento subliminal/i);
+    assert.match(evidence, /velocidad cuando conviene\. profundidad cuando importa/i);
+    assert.match(evidence, /explorar, localizar y seleccionar/i);
     assert.match(evidence, /lectura profunda/i);
+    assert.doesNotMatch(evidence, /evidencia y alcance|qué puede sostenerse y qué no|no hay evidencia sólida/i);
 
     const expectedLinks = [
         '/blog-fotolectura-que-es-como-funciona',
@@ -202,11 +212,11 @@ test('distingue técnicas útiles de promesas no respaldadas y enlaza recursos d
     }
 });
 
-test('no atribuye testimonios de Fotolectura sin evidencia y consentimiento', () => {
-    assert.equal(landingDocument.querySelectorAll('#evidencia-testimonios blockquote').length, 0);
-    const text = normalize(landingDocument.querySelector('#evidencia-testimonios')?.textContent);
-    assert.match(text, /no hay testimonios de Fotolectura con evidencia y consentimiento/i);
-    assert.match(text, /no atribuimos resultados a alumnos/i);
+test('no atribuye testimonios de Fotolectura ni anuncia públicamente su ausencia', () => {
+    assert.equal(landingDocument.querySelector('#evidencia-testimonios'), null);
+    assert.equal(landingDocument.querySelectorAll('main blockquote').length, 0);
+    const text = visibleText(landingDocument);
+    assert.doesNotMatch(text, /transparencia de testimonios|resultados de alumnos: sólo con respaldo/i);
 });
 
 test('el test usa un caso ficticio neutral, preguntas coherentes y conteo real', () => {
@@ -214,7 +224,7 @@ test('el test usa un caso ficticio neutral, preguntas coherentes y conteo real',
     assert.ok(reading, 'falta el texto del test');
     const readingText = normalize(reading.textContent);
     assert.match(readingText, /caso hipotético/i);
-    assert.match(readingText, /sirve únicamente para medir comprensión/i);
+    assert.match(readingText, /fue preparado para que practiques comprensión con información nueva/i);
     assert.doesNotMatch(readingText, /neurociencia|hemisferio|preconsciente|Tesla|memoria fotográfica/i);
 
     const expected = {
@@ -256,7 +266,7 @@ test('Course schema describe sólo información visible y elimina ofertas incomp
     assert.equal(course.coursePrerequisites, 'Lectura comprensiva convencional consolidada.');
     assert.doesNotMatch(course.description, /clase muestra/i);
     assert.match(
-        normalize(landingDocument.body.textContent),
+        visibleText(landingDocument),
         new RegExp(escapeRegExp(course.coursePrerequisites), 'i'),
         'el prerrequisito de Course no aparece visible'
     );
@@ -265,10 +275,10 @@ test('Course schema describe sólo información visible y elimina ofertas incomp
     assert.ok(Array.isArray(course.syllabusSections) && course.syllabusSections.length >= 5);
 
     for (const value of course.teaches) {
-        assert.match(normalize(landingDocument.body.textContent), new RegExp(value, 'i'));
+        assert.match(visibleText(landingDocument), new RegExp(value, 'i'));
     }
     for (const section of course.syllabusSections) {
-        assert.match(normalize(landingDocument.body.textContent), new RegExp(section.name, 'i'));
+        assert.match(visibleText(landingDocument), new RegExp(section.name, 'i'));
     }
 
     for (const forbidden of ['offers', 'aggregateRating', 'review', 'totalHistoricalEnrollment', 'hasCourseInstance']) {
@@ -370,17 +380,23 @@ test('cada testimonio de portada procede del catálogo verificado', () => {
     }
 });
 
-test('portada y landing distinguen fundación de operación y no inventan gratuidad', () => {
+test('conserva el año como dato verificable sin convertirlo en descargo ni inventar gratuidad', () => {
     const homeHtml = fs.readFileSync(HOME_PATH, 'utf8');
     const homeDocument = new JSDOM(homeHtml).window.document;
-    const homeText = normalize(homeDocument.body.textContent);
-    const landingText = normalize(landingDocument.body.textContent);
+    const homeText = visibleText(homeDocument);
+    const landingText = visibleText(landingDocument);
 
     assert.doesNotMatch(homeText, /opera(?:ción)? desde 2000|sesión inicial sin costo|diagnóstico gratuito|clase muestra gratuita|sin costo/i);
     assert.doesNotMatch(homeHtml, /diagn(?:ó|%C3%B3)stico(?:%20|\s)+(?:gratuito|gratuita)|clase(?:%20|\s)+muestra(?:%20|\s)+gratuita/i);
-    assert.doesNotMatch(landingText, /opera(?:ción)? desde 2000|clase muestra gratuita/i);
-    assert.match(homeText, /fundad[oa] en 2000|año fundacional[^.]{0,30}2000/i);
-    assert.match(landingText, /fundad[oa] en 2000|año fundacional[^.]{0,30}2000/i);
+    assert.doesNotMatch(landingText, /opera(?:ción)? desde 2000|clase muestra gratuita|año fundacional|fundad[oa] en 2000/i);
+
+    const ledger = normalize(homeDocument.querySelector('.ledger')?.textContent);
+    assert.match(ledger, /2000.*año fundacional/i);
+    const organization = jsonLdNodes(homeDocument).find(node => {
+        const types = Array.isArray(node['@type']) ? node['@type'] : [node['@type']];
+        return types.includes('EducationalOrganization');
+    });
+    assert.equal(String(organization?.foundingDate), '2000');
 });
 
 test('el test interactivo protege resultados y conserva un flujo accesible completo', () => {
@@ -395,7 +411,7 @@ test('el test interactivo protege resultados y conserva un flujo accesible compl
     const warning = staticDocument.querySelector('#fxQuizWarn');
     assert.equal(warning?.getAttribute('role'), 'alert');
     assert.match(warning?.getAttribute('aria-live') || '', /polite|assertive/);
-    assert.match(normalize(staticDocument.querySelector('#test-lectura .fx-section-head')?.textContent), /sin crear una cuenta/i);
+    assert.match(normalize(staticDocument.querySelector('#test-lectura .fx-section-head')?.textContent), /primera medición de lectura/i);
     assert.doesNotMatch(landingHtml, /ReadingTestResults|comprehension:\s*comp|comp\s*<\s*60/i);
 
     const analytics = [];

@@ -69,9 +69,9 @@ add(
 add(
   'fotolectura.html',
   'course',
-  'Curso de lectura rápida y Fotolectura | WorldBrain México',
-  'Curso de Fotolectura para adolescentes y adultos. Entrena tu ritmo de lectura, comprensión y selección de información con práctica guiada.',
-  'Curso de lectura rápida y Fotolectura'
+  'Fotolectura: curso de lectura rápida | WorldBrain México',
+  'Fotolectura, sistema integral de lectura rápida para adolescentes y adultos: ejercicios visuales, comprensión, retención, síntesis y lectura crítica.',
+  'Fotolectura: curso de lectura rápida'
 );
 
 add(
@@ -536,10 +536,12 @@ const PAGE_OPTIONS = {
       availableLanguage: 'es-MX',
       coursePrerequisites: 'Lectura comprensiva convencional consolidada.',
       teaches: [
-        'Medición de velocidad y comprensión',
-        'Lectura por bloques',
-        'Activación y lectura selectiva',
-        'Estrategias de retención'
+        'Percepción visual',
+        'Lectura por grupos de palabras',
+        'Comprensión y retención',
+        'Análisis y síntesis',
+        'Lectura crítica',
+        'Lectura Integral, Rastreo y Flexibilidad'
       ],
       audience: {
         '@type': 'EducationalAudience',
@@ -548,28 +550,28 @@ const PAGE_OPTIONS = {
       syllabusSections: [
         {
           '@type': 'Syllabus',
-          name: 'Diagnóstico de velocidad y comprensión',
-          description: 'Línea base de palabras por minuto y respuestas de comprensión.'
+          name: 'Percepción visual y campo de lectura',
+          description: 'Ejercicios visuales, lectura por grupos de palabras y ampliación progresiva del campo para dejar atrás la lectura estrictamente palabra por palabra.'
         },
         {
           '@type': 'Syllabus',
-          name: 'Propósito y vista previa',
-          description: 'Definición del objetivo y exploración de la estructura del texto.'
+          name: 'Comprensión, retención y atención',
+          description: 'Prácticas para recuperar ideas, reducir regresiones innecesarias, sostener la concentración y trabajar análisis, síntesis y lectura crítica.'
         },
         {
           '@type': 'Syllabus',
-          name: 'Lectura por bloques',
-          description: 'Práctica progresiva de fijaciones y reducción de regresiones innecesarias.'
+          name: 'Lectura Integral',
+          description: 'Lectura completa para construir resúmenes, mapas mentales, cuadros sinópticos, ensayos y síntesis según el propósito.'
         },
         {
           '@type': 'Syllabus',
-          name: 'Activación y lectura selectiva',
-          description: 'Selección de pasajes que requieren lectura detenida según el propósito.'
+          name: 'Rastreo',
+          description: 'Lectura selectiva para localizar códigos, nombres, cifras, datos y pasajes relevantes sin tratar todo el texto igual.'
         },
         {
           '@type': 'Syllabus',
-          name: 'Retención y plan de práctica',
-          description: 'Síntesis, recuperación de ideas y seguimiento con nuevas mediciones.'
+          name: 'Flexibilidad',
+          description: 'Ajuste del ritmo y la técnica según la complejidad, el tipo de texto y la información que necesitas comprender.'
         }
       ]
     }

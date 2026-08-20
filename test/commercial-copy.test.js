@@ -113,29 +113,29 @@ test('Fotolectura vende una práctica útil y conserva límites factuales sin pa
     /no predice tu resultado/i,
     'el demo de lectura conserva un descargo con tono de auditoría',
   );
-  assert.match(text(document.querySelector('.fx-lead')), /ritmo.*comprensión.*criterio/i);
+  assert.match(text(document.querySelector('.fx-lead')), /percepción visual.*comprensión.*retención.*lectura crítica/i);
   assert.equal(
     text(document.querySelector('#como-elegir h2')),
-    'Leer más rápido empieza por leer con intención.',
+    'No te falta capacidad. Tal vez estás usando la misma forma de leer para todo.',
   );
 
   const value = text(document.querySelector('#como-elegir'));
-  for (const idea of ['comprensión', 'ritmo flexible', 'práctica aplicada', 'grupos pequeños', 'avance observable']) {
+  for (const idea of ['palabra por palabra', 'campo de lectura', 'distracción', 'regresiones', 'ritmo único']) {
     assert.match(value, new RegExp(idea, 'i'), `falta propuesta de valor: ${idea}`);
   }
 
   const facts = text(document.querySelector('#datos-curso'));
-  for (const fact of [/máximo 7/i, /lectura \+ comprensión/i, /práctica guiada/i, /avance observable/i]) {
+  for (const fact of [/4, 6 o 12 meses/i, /2 horas/i, /3 × 10 min/i, /horario flexible/i]) {
     assert.match(facts, fact, `falta dato comercial verificable: ${fact}`);
   }
 
   assert.equal(
     text(document.querySelector('#evidencia h2')),
-    'Velocidad cuando conviene. Profundidad cuando importa.',
+    'Lo que entrenas va mucho más allá de la velocidad.',
   );
   assert.equal(
     text(document.querySelector('#programa h2')),
-    'Un recorrido para leer con más estrategia.',
+    'Cinco bloques para convertir la lectura en una herramienta.',
   );
   assert.equal(document.querySelector('#instructor'), null, 'no debe exhibirse un perfil de instructor ausente');
   assert.equal(
@@ -165,7 +165,7 @@ test('la identidad y el generador SEO no pueden reintroducir la regresión', () 
   }
   assert.doesNotMatch(site.tagline, /año fundacional/i);
   assert.doesNotMatch(applySeo, /límites de evidencia|datos por confirmar/i);
-  assert.match(applySeo, /Entrena tu ritmo de lectura, comprensión y selección de información/i);
+  assert.match(applySeo, /sistema integral de lectura rápida[^.]+ejercicios visuales[^.]+lectura crítica/i);
   assert.ok(
     !syncIdentity.includes('El tagline debe citar foundedYear'),
     'el sincronizador todavía obliga a convertir el tagline en una nota institucional',

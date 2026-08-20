@@ -59,9 +59,9 @@ test('la propuesta inicial explica el valor del curso sin autoproclamarse superi
     const section = landingDocument.querySelector('#como-elegir');
     assert.ok(section, 'falta la propuesta de valor #como-elegir');
     const text = normalize(section.textContent);
-    assert.match(text, /leer más rápido empieza por leer con intención/i);
+    assert.match(text, /no te falta capacidad/i);
 
-    for (const idea of ['comprensión', 'ritmo flexible', 'práctica aplicada', 'grupos pequeños', 'avance observable']) {
+    for (const idea of ['palabra por palabra', 'campo de lectura', 'distracción', 'regresiones', 'ritmo único']) {
         assert.match(text, new RegExp(idea, 'i'), `falta la propuesta: ${idea}`);
     }
     assert.doesNotMatch(text, /mejor curso universal|antes de pagar|por escrito/i);
@@ -151,10 +151,10 @@ test('publica claves verificables del programa sin placeholders operativos', () 
     assert.ok(facts, 'falta #datos-curso');
     const text = normalize(facts.textContent);
 
-    assert.match(text, /máximo 7/i);
-    assert.match(text, /lectura \+ comprensión/i);
-    assert.match(text, /práctica guiada/i);
-    assert.match(text, /avance observable/i);
+    assert.match(text, /4, 6 o 12 meses/i);
+    assert.match(text, /2 horas/i);
+    assert.match(text, /3 × 10 min/i);
+    assert.match(text, /horario flexible/i);
     assert.doesNotMatch(text, /por confirmar|tarifa vigente|cotización escrita|antes de pagar/i);
 
     const site = JSON.parse(fs.readFileSync(path.join(ROOT, 'src', '_data', 'site.json'), 'utf8'));
@@ -167,11 +167,11 @@ test('expone temario, público, medición y acompañamiento en grupos pequeños'
     assert.ok(program, 'falta #programa');
     const programText = normalize(program.textContent);
     for (const topic of [
-        'Diagnóstico de velocidad y comprensión',
-        'Propósito y vista previa',
-        'Lectura por bloques',
-        'Activación y lectura selectiva',
-        'Retención y plan de práctica',
+        'Percepción visual y campo de lectura',
+        'Comprensión, retención y atención',
+        'Lectura Integral',
+        'Rastreo',
+        'Flexibilidad',
     ]) {
         assert.match(programText, new RegExp(topic, 'i'), `falta tema: ${topic}`);
     }
@@ -194,8 +194,10 @@ test('expone temario, público, medición y acompañamiento en grupos pequeños'
 
 test('integra límites de lectura en una propuesta útil y enlaza recursos de apoyo', () => {
     const evidence = normalize(landingDocument.querySelector('#evidencia')?.textContent);
-    assert.match(evidence, /velocidad cuando conviene\. profundidad cuando importa/i);
-    assert.match(evidence, /explorar, localizar y seleccionar/i);
+    assert.match(evidence, /mucho más allá de la velocidad/i);
+    assert.match(evidence, /comprensión y retención/i);
+    assert.match(evidence, /análisis y síntesis/i);
+    assert.match(evidence, /lectura crítica/i);
     assert.match(evidence, /lectura profunda/i);
     assert.doesNotMatch(evidence, /evidencia y alcance|qué puede sostenerse y qué no|no hay evidencia sólida/i);
 

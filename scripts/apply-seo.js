@@ -532,6 +532,11 @@ function canonicalFor(file) {
 
 const PAGE_OPTIONS = {
   'fotolectura.html': {
+    // La página se rediseñó con dirección de arte sobre pintura clásica: su
+    // hero real es esta pieza. Sin `image` propia caía en DEFAULT_IMAGE
+    // (fl-hero-brain.webp), así que al compartir el enlace se veía un activo
+    // que la página ya no usa.
+    image: `${BASE}/images/fotolectura-arte-atencion-lectura.webp`,
     courseDetails: {
       availableLanguage: 'es-MX',
       coursePrerequisites: 'Lectura comprensiva convencional consolidada.',

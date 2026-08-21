@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html lang="es-MX">
+<!-- `light-mode` va fija: esta página tiene una sola paleta, la clara. Se
+     conserva el nombre de la clase porque de ella cuelgan los tokens y las
+     reglas de contraste de la página y del navbar compartido. El selector de
+     tema se ha retirado, y el módulo de tema de js/navbar.min.js sale solo al
+     no encontrar el botón. -->
+<html lang="es-MX" class="light-mode">
 
 <head><!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10846614576"></script>
@@ -55,7 +60,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,420;9..144,520;9..144,620&family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..620&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- FontAwesome (para navbar y footer) -->
@@ -64,16 +69,6 @@
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
-
-    <!-- Theme: FOUC Prevention -->
-    <script>
-        (function() {
-            var theme = localStorage.getItem('theme');
-            if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
-                document.documentElement.classList.add('light-mode');
-            }
-        })();
-    </script>
 
     <link rel="stylesheet" href="css/styles.min.css">
 
@@ -94,42 +89,36 @@
 
     <!-- ══════════════ Estilos de la página (Fotolectura v2) ══════════════ -->
     <style>
-        /* ---------- Tokens ---------- */
+        /* ---------- Tokens ----------
+           Una sola paleta: papel y tinta. Antes había un juego oscuro aquí y un
+           override claro en `.light-mode .fx`; se han fundido en este bloque
+           para que exista una única fuente de verdad del color.
+
+           Los nombres `--fx-amber*` se conservan porque de ellos cuelgan
+           cientos de referencias en esta hoja; el VALOR ya no es ámbar sino la
+           terracota de la nueva dirección de arte. */
         .fx {
-            --fx-bg: #0e0c1d;
-            --fx-bg-raised: #16132a;
-            --fx-bg-panel: #1a1731;
-            --fx-border: rgba(255, 255, 255, 0.09);
-            --fx-border-strong: rgba(255, 255, 255, 0.16);
-            --fx-text: #efecf6;
-            --fx-text-soft: #b6b0cc;
-            --fx-text-faint: #847d9f;
-            --fx-amber: #f0a938;
-            --fx-amber-soft: rgba(240, 169, 56, 0.14);
-            --fx-amber-text: #ffc466;
-            --fx-green: #4ade80;
-            --fx-red: #f87171;
-            --fx-serif: 'Fraunces', Georgia, serif;
+            --fx-bg: #f5f1e8;              /* papel */
+            --fx-bg-raised: #efe9dc;       /* papel cálido */
+            --fx-bg-panel: #e6ded0;        /* arena clara */
+            --fx-sand: #dccfbb;            /* arena */
+            --fx-border: rgba(34, 32, 29, 0.14);
+            --fx-border-strong: rgba(34, 32, 29, 0.30);
+            --fx-text: #22201d;            /* tinta */
+            --fx-text-soft: #55504a;
+            --fx-text-faint: #837c72;
+            --fx-amber: #c2542f;           /* acento: terracota */
+            --fx-amber-soft: rgba(194, 84, 47, 0.13);
+            --fx-amber-text: #a63f1e;
+            --fx-green: #4e5a44;
+            --fx-red: #b3432f;
+            --fx-serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
             --fx-sans: 'Inter', -apple-system, sans-serif;
-            --fx-max: 1080px;
+            --fx-max: 1180px;
             font-family: var(--fx-sans);
             color: var(--fx-text);
             background: var(--fx-bg);
-            line-height: 1.6;
-        }
-
-        .light-mode .fx {
-            --fx-bg: #faf8f3;
-            --fx-bg-raised: #ffffff;
-            --fx-bg-panel: #f3efe6;
-            --fx-border: rgba(28, 25, 43, 0.12);
-            --fx-border-strong: rgba(28, 25, 43, 0.22);
-            --fx-text: #1c192b;
-            --fx-text-soft: #4d4763;
-            --fx-text-faint: #77708f;
-            --fx-amber: #c77d14;
-            --fx-amber-soft: rgba(199, 125, 20, 0.12);
-            --fx-amber-text: #a26410;
+            line-height: 1.62;
         }
 
         .fx *,
@@ -139,28 +128,44 @@
         .fx-wrap {
             max-width: var(--fx-max);
             margin: 0 auto;
-            padding: 0 24px;
+            padding: 0 clamp(20px, 5vw, 48px);
         }
 
         /* ---------- Tipografía ---------- */
+        /* Serif de peso normal, interlineado ~1 y tracking negativo: la
+           presencia viene del ajuste, no del tamaño. */
         .fx h1, .fx h2, .fx h3 {
             font-family: var(--fx-serif);
-            font-weight: 520;
-            line-height: 1.12;
-            letter-spacing: -0.01em;
+            font-weight: 400;
+            line-height: 0.99;
+            letter-spacing: -0.03em;
             margin: 0;
             color: var(--fx-text);
+            text-wrap: balance;
         }
+
+        .fx h1 { line-height: 0.95; letter-spacing: -0.032em; }
+        .fx h3 { line-height: 1.04; letter-spacing: -0.022em; }
 
         .fx .fx-eyebrow {
             font-family: var(--fx-sans);
-            font-size: 0.8rem;
+            font-size: 0.69rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.14em;
-            color: var(--fx-amber-text);
-            margin-bottom: 18px;
-            display: block;
+            letter-spacing: 0.2em;
+            color: var(--fx-text-faint);
+            margin-bottom: 20px;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .fx .fx-eyebrow::before {
+            content: "";
+            width: 26px;
+            height: 1px;
+            background: var(--fx-amber);
+            flex: none;
         }
 
         .fx .fx-lead {
@@ -3183,6 +3188,1344 @@
 
             .fx-slots { grid-template-columns: repeat(2, 1fr); }
         }
+    
+        /* ═══════════════════════════════════════════════════════════════════
+           DIRECCIÓN DE ARTE — capa de cierre
+
+           Va al final de la hoja a propósito: sobrescribe lo que llega de
+           css/styles.min.css (navbar y pie son componentes compartidos con el
+           resto del sitio, que es oscuro). Todos los selectores están acotados
+           a esta página con `.fx-body`, así que ninguna otra página cambia.
+
+           Principios, extraídos de la referencia auditada:
+             · Papel y tinta. Los bloques de color van a sangre.
+             · Serif de peso normal, interlineado ~1, tracking negativo.
+             · Pintura clásica con la trama saliendo de la página hacia la
+               mirada. El libro siempre legible.
+             · Botones píldora, vacío generoso, marca-cinta fija.
+           ═══════════════════════════════════════════════════════════════════ */
+
+
+        /* ---------- La paleta, también a nivel de documento ----------
+           Los tokens `--fx-*` se declaran en `.fx`, que es el contenedor del
+           contenido. El navbar y el pie viven FUERA de ese contenedor, así que
+           allí esas variables no existen y cualquier regla que las use se
+           descarta en silencio: era la causa de que el pie quedara transparente.
+           Se repiten aquí en `:root` para que estén disponibles en toda la
+           página. Mismos valores: una sola fuente de verdad conceptual. */
+        :root {
+            --fx-bg: #f5f1e8;
+            --fx-bg-raised: #efe9dc;
+            --fx-bg-panel: #e6ded0;
+            --fx-sand: #dccfbb;
+            --fx-border: rgba(34, 32, 29, 0.14);
+            --fx-border-strong: rgba(34, 32, 29, 0.30);
+            --fx-text: #22201d;
+            --fx-text-soft: #55504a;
+            --fx-text-faint: #837c72;
+            --fx-amber: #c2542f;
+            --fx-amber-soft: rgba(194, 84, 47, 0.13);
+            --fx-amber-text: #a63f1e;
+            --fx-serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+            --fx-sans: 'Inter', -apple-system, sans-serif;
+
+            /* El navbar compartido se recolorea por sus propias variables. */
+            --nav-surface: #f5f1e8;
+            --nav-fg: #22201d;
+            --nav-fg-soft: #55504a;
+            --nav-fg-dim: #837c72;
+            --nav-accent: #c2542f;
+            --nav-accent-2: #a63f1e;
+            --nav-cta-bg: #22201d;
+            --nav-cta-bg-2: #22201d;
+            --nav-cta-fg: #f5f1e8;
+            --nav-ink: #22201d;
+            --nav-glass: 94%;
+            --nav-glass-scrolled: 97%;
+            --nav-hairline: 15%;
+            --nav-ring: rgba(34, 32, 29, 0.10);
+            --nav-ring-outer: rgba(34, 32, 29, 0.16);
+        }
+
+        /* La hoja del navbar reasigna estas variables para `body.fx-body` y para
+           `html.light-mode`, y ambas ganan a `:root` por especificidad. Se
+           repiten aquí con la misma forma del selector para que ganen por orden
+           de aparición, ya que esta hoja va después. */
+        html.light-mode body.fx-body,
+        body.fx-body {
+            --nav-surface: #f5f1e8;
+            --nav-accent: #c2542f;
+            --nav-accent-2: #a63f1e;
+            --nav-cta-bg: #22201d;
+            --nav-cta-bg-2: #22201d;
+            --nav-cta-fg: #f5f1e8;
+        }
+
+        html.light-mode {
+            --nav-surface: #f5f1e8;
+            --nav-fg: #22201d;
+            --nav-fg-soft: #55504a;
+            --nav-fg-dim: #837c72;
+            --nav-ring: rgba(34, 32, 29, 0.10);
+            --nav-ring-outer: rgba(34, 32, 29, 0.16);
+        }
+
+        /* ---------- Navbar ----------
+           La píldora compartida llega con acento dorado; aquí pasa a tinta y
+           terracota. No se toca js/navbar.min.js: es de todo el sitio. */
+        .fx-body .nav-pill {
+            background: rgba(245, 241, 232, 0.94);
+            backdrop-filter: saturate(140%) blur(14px);
+            -webkit-backdrop-filter: saturate(140%) blur(14px);
+            border: 1px solid var(--fx-border);
+            box-shadow: 0 10px 34px rgba(34, 32, 29, 0.09);
+        }
+
+        .fx-body .nav-pill-logo,
+        .fx-body .nav-pill-logo span {
+            font-family: var(--fx-sans);
+            color: var(--fx-text);
+            letter-spacing: -0.02em;
+        }
+        .fx-body .nav-pill-logo span { color: var(--fx-amber-text); }
+
+        .fx-body .nav-pill-link,
+        .fx-body .nav-pill-links > .nav-dropdown > .nav-pill-link {
+            color: var(--fx-text-soft);
+            font-weight: 500;
+            background: transparent;
+        }
+        .fx-body .nav-pill-link:hover,
+        .fx-body .nav-pill-link:focus-visible { color: var(--fx-text); }
+
+        .fx-body .nav-pill-cta {
+            background: var(--fx-text);
+            color: var(--fx-bg);
+            border: 1px solid var(--fx-text);
+            border-radius: 999px;
+            font-weight: 600;
+            transition: background 0.35s ease, border-color 0.35s ease;
+        }
+        .fx-body .nav-pill-cta:hover {
+            background: var(--fx-amber-text);
+            border-color: var(--fx-amber-text);
+            color: var(--fx-bg);
+        }
+
+        .fx-body .nav-dropdown-menu {
+            background: var(--fx-bg);
+            border: 1px solid var(--fx-border);
+            box-shadow: 0 22px 54px rgba(34, 32, 29, 0.14);
+        }
+        .fx-body .nav-dropdown-menu a { color: var(--fx-text-soft); }
+        .fx-body .nav-dropdown-menu a:hover {
+            color: var(--fx-text);
+            background: var(--fx-bg-raised);
+        }
+        .fx-body .nav-dropdown-menu a i { color: var(--fx-amber); }
+        .fx-body .dropdown-group-title {
+            color: var(--fx-text-faint);
+            letter-spacing: 0.18em;
+        }
+
+        .fx-body .nav-pill-hamburger span { background: var(--fx-text); }
+
+        .fx-body #navMobilePanel,
+        .fx-body .nav-mobile-panel {
+            background: var(--fx-bg);
+            border-color: var(--fx-border);
+        }
+        .fx-body #navMobilePanel a,
+        .fx-body .nav-mobile-panel a { color: var(--fx-text-soft); }
+
+        /* ---------- Botones píldora ----------
+           Un solo gesto para todos los CTA de la página. */
+        .fx .fx-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 15px 30px;
+            border-radius: 999px;
+            font-family: var(--fx-sans);
+            font-size: 0.93rem;
+            font-weight: 600;
+            letter-spacing: -0.005em;
+            text-decoration: none;
+            cursor: pointer;
+            border: 1px solid transparent;
+            transition: background 0.35s cubic-bezier(.22,.61,.36,1),
+                        color 0.35s cubic-bezier(.22,.61,.36,1),
+                        border-color 0.35s ease;
+        }
+
+        .fx .fx-btn-primary {
+            background: var(--fx-text);
+            color: var(--fx-bg);
+            border-color: var(--fx-text);
+        }
+        .fx .fx-btn-primary:hover {
+            background: var(--fx-amber-text);
+            border-color: var(--fx-amber-text);
+        }
+
+        .fx .fx-btn-ghost {
+            background: transparent;
+            color: var(--fx-text);
+            border-color: var(--fx-border-strong);
+        }
+        .fx .fx-btn-ghost:hover {
+            border-color: var(--fx-text);
+            background: rgba(34, 32, 29, 0.05);
+        }
+
+        .fx .fx-btn:focus-visible {
+            outline: 2px solid var(--fx-amber);
+            outline-offset: 3px;
+        }
+
+        /* ---------- Marca-cinta fija ----------
+           Interpretación propia del marcapáginas: cinta de tela con muesca y
+           puntos de trama. No es la estrella de la referencia. */
+        .fx-ribbon {
+            position: fixed;
+            top: 0;
+            left: clamp(14px, 3vw, 40px);
+            z-index: 40;
+            width: 42px;
+            text-decoration: none;
+            filter: drop-shadow(0 6px 14px rgba(34, 32, 29, 0.18));
+        }
+        .fx-ribbon svg { width: 100%; height: auto; display: block; }
+
+        @media (max-width: 1100px) { .fx-ribbon { display: none; } }
+
+        /* ---------- Hero con pintura y vídeo ---------- */
+        .fx .fx-hero {
+            position: relative;
+            overflow: hidden;
+            padding: clamp(104px, 15vh, 176px) 0 clamp(56px, 8vh, 96px);
+        }
+
+        .fx-hero-art {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+        }
+        .fx-hero-art img,
+        .fx-hero-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: 38% 34%;
+            display: block;
+        }
+        .fx-hero-video {
+            position: absolute;
+            inset: 0;
+            z-index: 0;
+            opacity: 0;
+            transition: opacity 1.2s cubic-bezier(.22,.61,.36,1);
+        }
+        .fx-hero-video.is-on { opacity: 1; }
+
+        /* Velo de papel: sólido bajo el texto, casi transparente sobre la
+           pintura, para que la trama se lea de verdad. */
+        .fx-hero-art::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            background:
+                linear-gradient(96deg, var(--fx-bg) 0%, var(--fx-bg) 30%,
+                                rgba(245, 241, 232, 0.90) 42%,
+                                rgba(245, 241, 232, 0.46) 56%,
+                                rgba(245, 241, 232, 0.10) 72%,
+                                rgba(245, 241, 232, 0) 88%),
+                linear-gradient(0deg, rgba(245, 241, 232, 0.42),
+                                rgba(245, 241, 232, 0) 34%);
+        }
+
+        .fx .fx-hero > .fx-wrap { position: relative; z-index: 2; }
+
+        .fx .fx-hero h1 {
+            font-size: clamp(2.75rem, 6.2vw, 5.1rem);
+            max-width: 17ch;
+        }
+        .fx .fx-hero .fx-lead { margin-top: 26px; }
+
+        .fx .fx-hero-ctas {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 34px;
+        }
+
+        .fx .fx-hero-proof {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            gap: 6px 18px;
+            margin: 40px 0 0;
+            padding-top: 22px;
+            border-top: 1px solid var(--fx-border);
+            max-width: 620px;
+            font-size: 0.84rem;
+            color: var(--fx-text-faint);
+        }
+        .fx .fx-hero-proof .fx-dot { color: var(--fx-amber); }
+
+        /* Troceado del titular por palabras.
+           La clase se llama `fx-hword` y no `fx-word` porque esa última ya está
+           tomada en esta página: son las pastillas de palabras de la sección de
+           diagnóstico. Reutilizarla convertía el titular en una fila de
+           pastillas con borde. */
+        .fx .fx-hword { display: inline-block; overflow: hidden; vertical-align: bottom; }
+        .fx .fx-hword i {
+            display: inline-block;
+            font-style: inherit;
+            transform: translate3d(0, 105%, 0);
+            transition: transform 1.05s cubic-bezier(.19, 1, .22, 1);
+            transition-delay: var(--w-delay, 0ms);
+        }
+        .fx .is-lit .fx-hword i { transform: none; }
+
+        /* ---------- Bloques de color a sangre ---------- */
+        .fx .fx-blk-warm { background: var(--fx-bg-raised); }
+        .fx .fx-blk-sand { background: var(--fx-sand); }
+
+        .fx .fx-blk-ink {
+            background: var(--fx-text);
+            color: var(--fx-bg);
+        }
+        .fx .fx-blk-ink h1,
+        .fx .fx-blk-ink h2,
+        .fx .fx-blk-ink h3 { color: var(--fx-bg); }
+        .fx .fx-blk-ink .fx-lead { color: rgba(245, 241, 232, 0.70); }
+        .fx .fx-blk-ink .fx-eyebrow { color: rgba(245, 241, 232, 0.56); }
+        .fx .fx-blk-ink .fx-btn-primary {
+            background: var(--fx-bg);
+            color: var(--fx-text);
+            border-color: var(--fx-bg);
+        }
+        .fx .fx-blk-ink .fx-btn-primary:hover {
+            background: var(--fx-amber);
+            border-color: var(--fx-amber);
+            color: var(--fx-bg);
+        }
+        .fx .fx-blk-ink .fx-btn-ghost {
+            color: var(--fx-bg);
+            border-color: rgba(245, 241, 232, 0.34);
+        }
+        .fx .fx-blk-ink .fx-btn-ghost:hover {
+            border-color: var(--fx-bg);
+            background: rgba(245, 241, 232, 0.08);
+        }
+
+        /* ---------- Banda de disolvencia entre bloques ----------
+           Mismo recurso que la referencia (un canvas 2D deshace un color en el
+           siguiente) dibujado con la trama de semitono de esta página. */
+        .fx .fx-dissolve {
+            display: block;
+            width: 100%;
+            height: clamp(66px, 8vw, 120px);
+        }
+
+        /* ---------- Pintura acompañando al texto ---------- */
+        .fx .fx-art-split {
+            display: grid;
+            grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
+            gap: clamp(30px, 5vw, 78px);
+            align-items: center;
+        }
+        .fx .fx-art-split--flip > .fx-art-figure { order: 2; }
+
+        .fx .fx-art-figure {
+            position: relative;
+            margin: 0;
+            border-radius: 2px;
+            overflow: hidden;
+            background: var(--fx-sand);
+        }
+        .fx .fx-art-figure img { width: 100%; height: auto; display: block; }
+        .fx .fx-art-figure figcaption {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            padding: 26px 20px 13px;
+            font-family: var(--fx-sans);
+            font-size: 0.66rem;
+            font-weight: 500;
+            letter-spacing: 0.13em;
+            text-transform: uppercase;
+            color: var(--fx-bg);
+            background: linear-gradient(0deg, rgba(34, 32, 29, 0.74),
+                                        rgba(34, 32, 29, 0));
+        }
+
+        /* ---------- Secuencia fijada: constelación de fijaciones ----------
+           El recurso más fuerte de la referencia, reinterpretado: un lienzo
+           fijo donde la frase del centro se releva mientras entran teselas de
+           pintura clásica. Cada tesela es una fijación de la mirada, y en todas
+           se ve un libro. */
+        .fx .fx-pin { position: relative; background: var(--fx-bg-raised); }
+        .fx .fx-pin-track { height: 300vh; }
+        .fx .fx-pin-stage {
+            position: sticky;
+            top: 0;
+            height: 100vh;
+            overflow: hidden;
+            display: grid;
+            place-items: center;
+        }
+
+        .fx .fx-pin-tiles { position: absolute; inset: 0; }
+        .fx .fx-pin-tile {
+            position: absolute;
+            left: var(--x);
+            top: var(--y);
+            width: var(--w);
+            aspect-ratio: 4 / 5;
+            border-radius: 2px;
+            overflow: hidden;
+            opacity: 0;
+            transform: translate3d(0, 34px, 0) scale(0.92);
+            transition: opacity 0.7s cubic-bezier(.22,.61,.36,1),
+                        transform 0.9s cubic-bezier(.22,.61,.36,1);
+            box-shadow: 0 14px 40px rgba(34, 32, 29, 0.13);
+        }
+        .fx .fx-pin-tile img {
+            width: 100%; height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .fx .fx-pin-tile.is-on { opacity: 1; transform: none; }
+
+        .fx .fx-pin-center {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            width: min(100% - 40px, 620px);
+        }
+        .fx .fx-pin-line { position: relative; display: grid; }
+        .fx .fx-pin-line > span {
+            grid-area: 1 / 1;
+            font-family: var(--fx-serif);
+            font-weight: 400;
+            font-size: clamp(1.5rem, 3.3vw, 2.6rem);
+            line-height: 1.02;
+            letter-spacing: -0.03em;
+            color: var(--fx-text);
+            opacity: 0;
+            transform: translate3d(0, 14px, 0);
+            transition: opacity 0.5s ease,
+                        transform 0.6s cubic-bezier(.22,.61,.36,1);
+        }
+        .fx .fx-pin-line > span.is-on { opacity: 1; transform: none; }
+
+        .fx .fx-pin-num {
+            font-family: var(--fx-sans);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            color: var(--fx-text-faint);
+            margin: 0 0 20px;
+        }
+        .fx .fx-pin-bar {
+            width: 100%;
+            max-width: 220px;
+            height: 2px;
+            margin: 30px auto 0;
+            background: var(--fx-border);
+            position: relative;
+            overflow: hidden;
+        }
+        .fx .fx-pin-bar i {
+            position: absolute;
+            inset: 0 auto 0 0;
+            width: 100%;
+            background: var(--fx-amber);
+            transform: scaleX(var(--pin-progress, 0));
+            transform-origin: 0 50%;
+        }
+
+        /* ---------- Pie y tarjeta de cierre ----------
+           Llegan en violeta oscuro desde css/footer-modern.min.css, que es
+           compartida con todo el sitio y no se toca. Se retiñen a tinta: el
+           cierre oscuro queda deliberado, igual que el bloque de tinta.
+
+           Los selectores replican la especificidad de la hoja original (dos
+           clases), porque `body .contact-item i` no le gana a
+           `.footer-contact-col .contact-item i`.
+
+           El verde de WhatsApp se conserva a propósito: es señal de marca. */
+        body .footer-modern,
+        body .footer-cta-card {
+            background: var(--fx-text);
+            color: rgba(245, 241, 232, 0.78);
+        }
+        body .footer-modern::before,
+        body .footer-modern::after { background: none; }
+
+        /* Los adornos venían en violeta; pasan a destellos de papel y terracota. */
+        body .footer-shape { background: rgba(245, 241, 232, 0.10); opacity: 1; }
+        body .footer-shape-2,
+        body .footer-shape-4 { background: rgba(194, 84, 47, 0.16); }
+
+        body .footer-cta-card h2 {
+            color: var(--fx-bg);
+            font-family: var(--fx-serif);
+            font-weight: 400;
+            line-height: 0.99;
+            letter-spacing: -0.03em;
+        }
+        body .footer-cta-card p { color: rgba(245, 241, 232, 0.70); }
+
+        /* El wordmark usa recorte de gradiente: hay que reponer ambas propiedades. */
+        body .footer-brand-col .footer-brand-name { color: var(--fx-bg); }
+        body .footer-brand-col .footer-brand-name span {
+            background: linear-gradient(135deg, var(--fx-amber), var(--fx-amber-text));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        body .footer-modern .footer-col h3,
+        body .footer-modern .footer-col h4 { color: var(--fx-bg); }
+        body .footer-modern .footer-col h4::after {
+            background: linear-gradient(90deg, var(--fx-amber), var(--fx-amber-text));
+        }
+
+        body .footer-modern .footer-col ul li a,
+        body .footer-modern .footer-col a { color: rgba(245, 241, 232, 0.72); }
+        body .footer-modern .footer-col ul li a:hover,
+        body .footer-modern .footer-col a:hover { color: var(--fx-bg); }
+
+        body .footer-contact-col .contact-item { color: rgba(245, 241, 232, 0.72); }
+        body .footer-contact-col .contact-item i { color: var(--fx-amber); }
+        body .footer-contact-col .contact-item a { color: rgba(245, 241, 232, 0.72); }
+        body .footer-contact-col .contact-item a:hover { color: var(--fx-bg); }
+
+        body .footer-brand-col .footer-socials a {
+            color: rgba(245, 241, 232, 0.78);
+            background: rgba(245, 241, 232, 0.07);
+            border-color: rgba(245, 241, 232, 0.14);
+        }
+        body .footer-brand-col .footer-socials a:hover {
+            color: var(--fx-text);
+            background: var(--fx-amber);
+            border-color: var(--fx-amber);
+        }
+
+        body .footer-brand-col .footer-tagline { color: rgba(245, 241, 232, 0.58); }
+
+        body .footer-bottom-bar { border-top-color: rgba(245, 241, 232, 0.14); }
+        body .footer-bottom-bar .footer-legal-text,
+        body .footer-bottom-bar .footer-copyright { color: rgba(245, 241, 232, 0.52); }
+        body .footer-bottom-bar .footer-legal-links a { color: rgba(245, 241, 232, 0.62); }
+        body .footer-bottom-bar .footer-legal-links a:hover { color: var(--fx-amber); }
+
+        body .footer-social-proof .proof-label,
+        body .footer-social-proof .proof-metric { color: var(--fx-amber); }
+        body .footer-social-proof .proof-quote { color: rgba(245, 241, 232, 0.76); }
+        body .footer-social-proof .proof-role,
+        body .footer-social-proof .proof-metric span { color: rgba(245, 241, 232, 0.52); }
+        body .footer-social-proof .proof-cta a {
+            background: var(--fx-bg);
+            color: var(--fx-text);
+        }
+        body .footer-social-proof .proof-cta a:hover {
+            background: var(--fx-amber);
+            color: var(--fx-bg);
+        }
+
+        /* Los anillos de foco heredados eran violetas. */
+        body .footer-modern a:focus-visible,
+        body .footer-modern button:focus-visible {
+            outline: 2px solid var(--fx-amber);
+            outline-offset: 3px;
+        }
+
+        /* Título accesible de la secuencia fijada, sin ocupar espacio. */
+        .fx-sr-only {
+            position: absolute;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* ---------- Movimiento reducido ---------- */
+        @media (prefers-reduced-motion: reduce) {
+            .fx .fx-hword i { transform: none; transition: none; }
+            .fx .fx-hero-video { display: none; }
+
+            .fx .fx-pin-track { height: auto; }
+            .fx .fx-pin-stage {
+                position: static;
+                height: auto;
+                display: flex;
+                flex-direction: column;
+                padding: clamp(72px, 10vh, 130px) 0;
+                overflow: visible;
+            }
+            .fx .fx-pin-center {
+                order: -1;
+                width: min(100% - 40px, 720px);
+                margin-inline: auto;
+                text-align: left;
+            }
+            .fx .fx-pin-line { display: block; }
+            .fx .fx-pin-line > span {
+                display: block;
+                grid-area: auto;
+                opacity: 1;
+                transform: none;
+                transition: none;
+                padding: 14px 0;
+                border-top: 1px solid var(--fx-border);
+                font-size: clamp(1.15rem, 2vw, 1.6rem);
+            }
+            .fx .fx-pin-bar { display: none; }
+            .fx .fx-pin-tiles {
+                position: static;
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+                gap: 10px;
+                width: min(100% - 40px, var(--fx-max));
+                margin: 44px auto 0;
+            }
+            .fx .fx-pin-tile {
+                position: static;
+                left: auto; top: auto;
+                width: 100%;
+                opacity: 1;
+                transform: none;
+                transition: none;
+                box-shadow: none;
+            }
+        }
+
+        /* ---------- Adaptación ---------- */
+        @media (max-width: 900px) {
+            .fx .fx-art-split { grid-template-columns: 1fr; gap: 32px; }
+            .fx .fx-art-split--flip > .fx-art-figure { order: 0; }
+            .fx-hero-art img,
+            .fx-hero-video { object-position: 68% 34%; }
+            .fx-hero-art::after {
+                background:
+                    linear-gradient(170deg, var(--fx-bg) 0%,
+                                    rgba(245, 241, 232, 0.92) 40%,
+                                    rgba(245, 241, 232, 0.50) 74%,
+                                    rgba(245, 241, 232, 0.22) 100%);
+            }
+        }
+
+        @media (max-width: 620px) {
+            .fx .fx-btn { width: 100%; }
+            .fx .fx-hero-ctas { flex-direction: column; align-items: stretch; }
+            .fx .fx-pin-track { height: 260vh; }
+
+            /* Las teselas medidas en vw quedan diminutas en vertical; se
+               escalan y se retiran las dos que caen a la altura del texto. */
+            .fx .fx-pin-tile { width: calc(var(--w) * 1.9); }
+            .fx .fx-pin-tile:nth-child(5),
+            .fx .fx-pin-tile:nth-child(6) { display: none; }
+            .fx .fx-pin-center::before {
+                content: "";
+                position: absolute;
+                inset: -30px -18px;
+                z-index: -1;
+                background: radial-gradient(ellipse at center,
+                            var(--fx-bg-raised) 42%, rgba(239, 233, 220, 0) 80%);
+            }
+
+            .fx-hero-art::after {
+                background:
+                    linear-gradient(172deg, var(--fx-bg) 0%,
+                                    rgba(245, 241, 232, 0.90) 34%,
+                                    rgba(245, 241, 232, 0.44) 62%,
+                                    rgba(245, 241, 232, 0.24) 100%),
+                    linear-gradient(0deg, var(--fx-bg) 0%,
+                                    rgba(245, 241, 232, 0.92) 16%,
+                                    rgba(245, 241, 232, 0) 44%);
+            }
+        }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   RETÍCULA DISPERSA  ·  capa de cierre
+   ───────────────────────────────────────────────────────────────────────────
+   Patrón observado en la referencia auditada y reescrito con nuestros tokens.
+   Nada de aquí es activo ni código ajeno: es la MECÁNICA, que consiste en tres
+   decisiones.
+
+     1. UNA sola cuadrícula por sección, con las celdas rellenadas de forma
+        selectiva. El vacío no es un hueco pendiente: es el papel —o la
+        pintura— respirando entre teselas. Las teselas caen en diagonal, y esa
+        diagonal es el recorrido de lectura de la sección.
+     2. Tesela opaca y plana: fondo teñido, esquina de 8 px, CERO borde. El
+        contorno lo dibuja el contraste con el fondo, no un filete. Antes
+        anidábamos tarjeta dentro de tarjeta dentro de caja, con borde en cada
+        nivel, y ese cromado le robaba presencia a la tipografía.
+     3. Una sola cifra por tesela, en serif grande arriba, y la explicación
+        pequeña abajo. El hueco intermedio es deliberado.
+
+   Lo que NO se ha copiado, y por qué: la referencia intercambia la etiqueta
+   del botón al pasar el ratón duplicando el nodo de texto. Eso obliga a
+   repetir la cadena en el DOM y los lectores de pantalla acaban leyéndola dos
+   veces. Se conserva el relleno al pasar el ratón, que da la misma sensación,
+   y se descarta el intercambio.
+
+   La reticula se declara con posiciones explicitas de cuadricula en lugar de
+   celdas espaciadoras vacias: sin nodos de relleno que ocultar, el colapso a
+   una columna en movil es automatico.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+        :root, .fx {
+            --lat-gap: 5px;                       /* filete de aire entre teselas */
+            --lat-radius: 8px;
+            --lat-row: clamp(148px, 19vh, 208px);
+        }
+
+        /* ── Tesela ─────────────────────────────────────────────────────────── */
+
+        .fx .lat-tile,
+        .fx .fx-rhythm-board > .fx-rhythm-card,
+        .fx .fx-rhythm-board > .fx-rhythm-flex,
+        .fx .fx-fit-board > .fx-fit-card {
+            display: flex;
+            flex-direction: column;
+            border: 0;
+            border-radius: var(--lat-radius);
+            background: var(--fx-bg-panel);
+            padding: clamp(20px, 2.6vw, 30px);
+            box-shadow: none;
+        }
+
+        /* La cifra: una por tesela, arriba, en serif grande. */
+        .fx .fx-rhythm-board > .fx-rhythm-card > h3 {
+            margin: 0;
+            font-family: var(--fx-serif);
+            font-weight: 400;
+            font-size: clamp(1.95rem, 3.5vw, 2.95rem);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: var(--fx-text);
+            text-wrap: balance;
+        }
+
+        /* La explicación: pequeña, al fondo, separada por el vacío. */
+        .fx .fx-rhythm-board > .fx-rhythm-card > p {
+            margin: auto 0 0;
+            padding-top: 26px;
+            color: var(--fx-text-soft);
+            font-size: 0.83rem;
+            line-height: 1.5;
+            max-width: 34ch;
+        }
+
+        /* `--fx-text-faint` sobre arena daba 3,09:1 a 10 px: por debajo de AA.
+           Los epígrafes son texto pequeño, así que van en el tono medio. */
+        .fx .fx-rhythm-label {
+            margin-bottom: 18px;
+            color: var(--fx-text-soft);
+            font-size: 0.63rem;
+            letter-spacing: 0.2em;
+        }
+
+        /* ── Retícula de cifras: 4 columnas, teselas en diagonal ───────────── */
+
+        .fx .fx-rhythm-board {
+            display: grid;
+            grid-template-columns: repeat(5, minmax(0, 1fr));
+            grid-auto-rows: minmax(var(--lat-row), auto);
+            gap: var(--lat-gap);
+        }
+
+        /* Descenso: arriba-izquierda → arriba-derecha → centro → abajo-derecha.
+           Cinco columnas y no cuatro porque con cuatro la tesela de la sesión
+           quedaba a una sola columna, su cifra rompía en tres líneas y esa
+           altura inflaba toda la fila: la tesela vecina heredaba un vacío que
+           ya no se leía como intención, sino como olvido. */
+        .fx .fx-rhythm-board > .fx-rhythm-route    { grid-area: 1 / 1 / 2 / 3; }
+        .fx .fx-rhythm-board > .fx-rhythm-session  { grid-area: 1 / 4 / 2 / 6; }
+        .fx .fx-rhythm-board > .fx-rhythm-practice { grid-area: 2 / 2 / 3 / 4; }
+        .fx .fx-rhythm-board > .fx-rhythm-flex     { grid-area: 3 / 3 / 4 / 6; }
+
+        /* ── Cromado degradado a un rango secundario ───────────────────────────
+           Estos adornos no pueden desaparecer: el contrato de pruebas exige que
+           sigan existiendo tres opciones de ruta, siete días y veintiún marcas.
+           Lo que sí cambia es su peso: pierden caja y borde y pasan a ser una
+           fila de cifras tenues bajo un filete, para no competir con la cifra
+           principal, que antes repetían literalmente. */
+
+        .fx .fx-route-options {
+            order: 3;
+            gap: 0;
+            margin: 18px 0 0;
+            padding-top: 14px;
+            border-top: 1px solid var(--fx-border);
+        }
+
+        .fx .fx-route-option {
+            border: 0;
+            border-radius: 0;
+            background: none;
+            padding: 0 22px 0 0;
+            min-width: 0;
+        }
+
+        .fx .fx-route-option strong { font-size: 1rem; color: var(--fx-text-faint); }
+        .fx .fx-route-option span   { margin-top: 1px; font-size: 0.58rem; }
+
+        .fx .fx-session-clock {
+            order: 3;
+            width: 52px;
+            height: 52px;
+            margin: 18px 0 0;
+            padding-top: 0;
+            background: none;
+        }
+
+        /* Los tres adornos comparten remate: filete fino y alineados a la
+           izquierda, para que la fila baja de cada tesela sea reconocible. */
+        .fx .fx-route-options,
+        .fx .fx-practice-week,
+        .fx .fx-session-clock {
+            border-top: 1px solid var(--fx-border);
+            margin-top: 18px;
+            padding-top: 14px;
+        }
+
+        .fx .fx-session-clock { height: 66px; }
+
+        .fx .fx-session-clock::before { opacity: 0.5; }
+        .fx .fx-session-clock strong  { font-size: 1.1rem; color: var(--fx-text-faint); }
+        .fx .fx-session-clock span    { font-size: 0.6rem; }
+
+        /* Esta tesela no tiene h3: su cifra vive aquí, así que es ESTA la que se
+           promueve al tamaño de figura en lugar de degradarse. */
+        .fx .fx-practice-title {
+            display: block;
+            margin: 0;
+        }
+
+        .fx .fx-practice-title strong {
+            display: block;
+            font-family: var(--fx-serif);
+            font-weight: 400;
+            font-size: clamp(1.95rem, 3.5vw, 2.95rem);
+            line-height: 1;
+            letter-spacing: -0.04em;
+            color: var(--fx-text);
+        }
+
+        .fx .fx-practice-title span {
+            display: block;
+            margin-top: 8px;
+            color: var(--fx-text-faint);
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.16em;
+            text-transform: uppercase;
+        }
+
+        .fx .fx-practice-week {
+            order: 3;
+            gap: 5px;
+            margin: 20px 0 0;
+            padding-top: 14px;
+            border-top: 1px solid var(--fx-border);
+        }
+
+        .fx .fx-practice-day {
+            border: 0;
+            border-radius: 0;
+            background: none;
+            padding: 0;
+            min-width: 0;
+            gap: 3px;
+        }
+
+        .fx .fx-practice-day > span { font-size: 0.58rem; color: var(--fx-text-faint); }
+
+        .fx .fx-practice-mark {
+            width: 9px;
+            height: 1.5px;
+            border-radius: 0;
+            background: var(--fx-amber);
+            opacity: 0.55;
+        }
+
+        /* ── Tesela de llamada: la única oscura de la retícula ─────────────── */
+
+        .fx .fx-rhythm-board > .fx-rhythm-flex {
+            grid-template-columns: none;
+            align-items: flex-start;
+            gap: 0;
+            background: var(--fx-green);           /* musgo, no el azul marino
+                                                      heredado del tema oscuro */
+            color: #f2efe6;
+        }
+
+        .fx .fx-rhythm-flex .fx-flex-mark {
+            width: 34px;
+            height: 34px;
+            margin-bottom: auto;
+            border: 1px solid rgba(242, 239, 230, 0.34);
+            border-radius: 999px;
+            background: none;
+            color: #f2efe6;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.82rem;
+        }
+
+        .fx .fx-rhythm-flex > div { margin-top: 26px; }
+
+        .fx .fx-rhythm-flex strong {
+            font-family: var(--fx-serif);
+            font-weight: 400;
+            font-size: clamp(1.4rem, 2.2vw, 1.85rem);
+            line-height: 1.04;
+            letter-spacing: -0.025em;
+            color: #f6f3ea;
+        }
+
+        .fx .fx-rhythm-flex p {
+            margin: 8px 0 0;
+            color: rgba(242, 239, 230, 0.72);
+            font-size: 0.82rem;
+        }
+
+        .fx .fx-rhythm-flex a {
+            margin-top: 20px;
+            align-self: flex-start;
+            padding: 10px 20px;
+            border-radius: 999px;
+            background: #f5f1e8;
+            color: #22201d;
+            font-size: 0.8rem;
+            transition: background 0.2s ease, color 0.2s ease;
+        }
+
+        .fx .fx-rhythm-flex a:hover { background: var(--fx-amber); color: #fff; }
+
+        .fx .fx-rhythm-flex a:focus-visible {
+            outline: 2px solid #f5f1e8;
+            outline-offset: 3px;
+        }
+
+        /* ── Features sobre pintura: la misma retícula, otro fondo ───────────
+           Antes la pintura y las tarjetas eran dos bloques apilados que no se
+           hablaban. Al fundirlos, la pintura pasa a ser el suelo de la
+           cuadrícula y asoma por las celdas vacías. Las teselas van opacas: el
+           texto nunca se apoya en la imagen, así que el contraste es el del
+           papel y no depende de lo que haya debajo. */
+
+        .fx .fx-fit-layout {
+            position: relative;
+            display: block;
+            border-radius: 14px;
+            overflow: hidden;
+        }
+
+        .fx .fx-fit-media {
+            position: absolute;
+            inset: 0;
+            margin: 0;
+            min-height: 0;
+            border: 0;
+            border-radius: 0;
+        }
+
+        .fx .fx-fit-media img { object-position: 54% 40%; }
+
+        /* Velo de papel: sólo lo justo para que las teselas manden. Empezó en
+           0,30–0,66 y lavaba la fotografía hasta dejarla irreconocible en las
+           celdas vacías; el texto va sobre tesela opaca, así que el velo no
+           tiene que sostener ningún contraste. */
+        .fx .fx-fit-media::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(168deg,
+                        rgba(245, 241, 232, 0.10) 0%,
+                        rgba(245, 241, 232, 0.26) 62%,
+                        rgba(245, 241, 232, 0.38) 100%);
+        }
+
+        /* Filetes de la retícula dibujados sobre la pintura: 4 columnas y 3
+           filas, como los de la referencia. */
+        .fx .fx-fit-layout::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+            pointer-events: none;
+            background-image:
+                repeating-linear-gradient(to right,
+                    rgba(245, 241, 232, 0.42) 0 1px, transparent 1px 25%),
+                repeating-linear-gradient(to bottom,
+                    rgba(245, 241, 232, 0.42) 0 1px, transparent 1px 33.333%);
+        }
+
+        .fx .fx-fit-board {
+            position: relative;
+            z-index: 2;
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            grid-auto-rows: minmax(var(--lat-row), auto);
+            gap: var(--lat-gap);
+            padding: var(--lat-gap);
+        }
+
+        /* Zigzag descendente: el orden 01 → 02 → 03 se lee en diagonal. */
+        .fx .fx-fit-board > .fx-fit-card:nth-child(1) { grid-area: 1 / 1 / 2 / 3; }
+        .fx .fx-fit-board > .fx-fit-card:nth-child(2) { grid-area: 2 / 3 / 3 / 5; }
+        .fx .fx-fit-board > .fx-fit-card:nth-child(3) { grid-area: 3 / 1 / 4 / 4; }
+
+        .fx .fx-fit-board > .fx-fit-card {
+            background: var(--fx-bg);              /* opaca: el texto no se apoya
+                                                      nunca en la pintura */
+        }
+
+        /* Mismo motivo que el epígrafe de la retícula de cifras: 3,66:1 no
+           cumple AA para texto pequeño. */
+        .fx .fx-fit-card > span {
+            color: var(--fx-text-soft);
+            font-size: 0.63rem;
+            font-weight: 600;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+        }
+
+        .fx .fx-fit-card h3 {
+            margin: 16px 0 10px;
+            font-size: clamp(1.25rem, 1.9vw, 1.62rem);
+        }
+
+        .fx .fx-fit-card p { color: var(--fx-text-soft); font-size: 0.88rem; }
+
+        /* El numeral fantasma venía en blanco al 3,5 %: sobre papel claro era
+           invisible. Se pasa a tinta muy diluida, que sí se ve, y baja dentro
+           de la tesela porque en negativo el `overflow: hidden` lo decapitaba. */
+        .fx .fx-fit-card::after {
+            top: 10px;
+            right: 16px;
+            color: rgba(34, 32, 29, 0.06);
+            font-size: 5.4rem;
+        }
+
+        /* La variante guardarraíl traía `align-items: center` de cuando era una
+           cuadrícula de dos columnas. En columna flex eso centra los hijos
+           horizontalmente: el epígrafe salía centrado y el titular indentado. */
+        .fx .fx-fit-guardrail {
+            gap: 18px;
+            align-items: stretch;
+            background: var(--fx-bg);
+        }
+
+        .fx .fx-fit-boundary { margin-top: auto; }
+
+        /* ── Botones píldora con relleno al pasar el ratón ───────────────────
+           La referencia usa píldora franca y un relleno de acento que entra por
+           debajo. Nuestro radio era de 10 px, a medio camino de ninguna parte.
+           El resplandor del estado hover seguía siendo ámbar, del juego de
+           color anterior, y no la terracota actual. */
+
+        .fx .fx-btn {
+            position: relative;
+            overflow: hidden;
+            border-radius: 999px;
+            isolation: isolate;
+        }
+
+        .fx .fx-btn::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            border-radius: inherit;
+            background: var(--fx-amber-text);
+            transform: translateY(101%);
+            transition: transform 0.34s cubic-bezier(0.22, 0.61, 0.36, 1);
+        }
+
+        .fx .fx-btn:hover::before,
+        .fx .fx-btn:focus-visible::before { transform: none; }
+
+        .fx .fx-btn-primary { color: #fff; }
+        .fx .fx-btn-primary:hover { box-shadow: none; color: #fff; }
+
+        .fx .fx-btn-ghost:hover { border-color: var(--fx-amber-text); color: #fff; }
+
+        .fx .fx-btn:focus-visible {
+            outline: 2px solid var(--fx-amber-text);
+            outline-offset: 3px;
+        }
+
+        /* ── Adaptación ─────────────────────────────────────────────────────
+           La retícula dispersa sólo tiene sentido cuando hay ancho para que el
+           vacío se lea como intención. Por debajo, una columna: las posiciones
+           explícitas se anulan y las teselas recuperan su orden de documento. */
+
+        @media (max-width: 1080px) {
+            .fx .fx-rhythm-board,
+            .fx .fx-fit-board { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+
+            .fx .fx-rhythm-board > .fx-rhythm-route    { grid-area: 1 / 1 / 2 / 3; }
+            .fx .fx-rhythm-board > .fx-rhythm-session  { grid-area: 2 / 1 / 3 / 2; }
+            .fx .fx-rhythm-board > .fx-rhythm-practice { grid-area: 2 / 2 / 3 / 3; }
+            .fx .fx-rhythm-board > .fx-rhythm-flex     { grid-area: 3 / 1 / 4 / 3; }
+
+            .fx .fx-fit-board > .fx-fit-card:nth-child(1) { grid-area: 1 / 1 / 2 / 3; }
+            .fx .fx-fit-board > .fx-fit-card:nth-child(2) { grid-area: 2 / 1 / 3 / 3; }
+            .fx .fx-fit-board > .fx-fit-card:nth-child(3) { grid-area: 3 / 1 / 4 / 3; }
+
+            .fx .fx-fit-layout::after { background-image: none; }
+        }
+
+        @media (max-width: 700px) {
+            .fx { --lat-row: auto; }
+
+            .fx .fx-rhythm-board,
+            .fx .fx-fit-board { grid-template-columns: minmax(0, 1fr); }
+
+            .fx .fx-rhythm-board > .fx-rhythm-card,
+            .fx .fx-rhythm-board > .fx-rhythm-flex { grid-area: auto; }
+
+            /* Con `:nth-child` para igualar la especificidad de las reglas de
+               1080 px: si no, el `grid-area` de allí seguía abarcando dos
+               columnas y la retícula generaba una segunda columna implícita
+               de 0 px que no pintaba nada pero desordenaba el flujo. */
+            .fx .fx-fit-board > .fx-fit-card:nth-child(1),
+            .fx .fx-fit-board > .fx-fit-card:nth-child(2),
+            .fx .fx-fit-board > .fx-fit-card:nth-child(3) { grid-area: auto; }
+
+            .fx .fx-rhythm-board > .fx-rhythm-card > p { padding-top: 18px; }
+            .fx .fx-rhythm-flex > div { margin-top: 18px; }
+            .fx .fx-practice-week { flex-wrap: wrap; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fx .fx-btn::before { transition: none; }
+        }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   DISCIPLINA DE MOVIMIENTO  ·  capa de cierre
+   ───────────────────────────────────────────────────────────────────────────
+   Medición de la referencia auditada: UNA curva —cubic-bezier(0.4, 0, 0.2, 1)—
+   y UNA duración —0,4 s— repartidas en 38 elementos. Ni una variación.
+
+   Esta página tenía 14 duraciones y 7 curvas en 33 declaraciones, y tres de
+   esas curvas eran la misma escrita de dos maneras (`.22,.61,.36,1` y
+   `0.22, 0.61, 0.36, 1`) más dos primas sueltas (`0.22,1,0.36,1`,
+   `.19,1,.22,1`). Nada de eso era una decisión: era deriva.
+
+   Se unifica en una curva y tres tiempos. Tres y no uno porque la página tiene
+   controles —pestañas, opciones, acordeones— donde 0,4 s se siente pastoso, y
+   un relevo fijado largo que necesita respirar. Fuera de esos dos casos, todo
+   entra en 0,4 s.
+
+   Excepción deliberada: `.fx-demo-text .w` se queda en 0,12 s lineal. No es
+   movimiento de interfaz, es un metrónomo de lectura: ahí una curva con
+   aceleración falsearía el ritmo que pretende demostrar.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+        :root, .fx {
+            --mo:      cubic-bezier(0.4, 0, 0.2, 1);
+            --mo-tap:  0.2s;    /* respuesta de un control bajo el dedo */
+            --mo-in:   0.4s;    /* entrada de un elemento */
+            --mo-long: 0.7s;    /* relevo de la secuencia fijada */
+        }
+
+        /* Entradas */
+        .fx .rv { transition: opacity var(--mo-in) var(--mo), transform var(--mo-in) var(--mo); }
+        .fx .fxb-panel-item { transition: opacity var(--mo-in) var(--mo), transform var(--mo-in) var(--mo); }
+        .fx.fx-mobile-bar,
+        .fx .fx-mobile-bar { transition: transform var(--mo-in) var(--mo); }
+        .fx .fx-pin-tile { transition: opacity var(--mo-long) var(--mo), transform var(--mo-long) var(--mo); }
+        .fx .fx-pin-line > span { transition: opacity var(--mo-long) var(--mo), transform var(--mo-long) var(--mo); }
+        .fx-hero-video { transition: opacity 1.2s var(--mo); }
+        .fx .fx-hword i { transition: transform 1.05s var(--mo); }
+
+        /* Controles */
+        .fx .fx-btn { transition: background var(--mo-tap) var(--mo), border-color var(--mo-tap) var(--mo), color var(--mo-tap) var(--mo); }
+        .fx .fx-btn::before { transition: transform var(--mo-in) var(--mo); }
+        .fx .fx-diagnostic-tab,
+        .fx .fx-method-tab,
+        .fx .fx-capability-tab { transition: color var(--mo-tap) var(--mo), border-color var(--mo-tap) var(--mo), background var(--mo-tap) var(--mo); }
+        .fx .fx-method-tab::after,
+        .fx .fx-module-toggle::after,
+        .fx .fx-faq summary::after { transition: transform var(--mo-tap) var(--mo); }
+        .fx .fx-module summary { transition: background var(--mo-tap) var(--mo); }
+        .fx .fx-opt,
+        .fx .fl-time-slot,
+        .fx .fx-speed-btn { transition: border-color var(--mo-tap) var(--mo), background var(--mo-tap) var(--mo), color var(--mo-tap) var(--mo); }
+        .fx .fx-field select { transition: border-color var(--mo-tap) var(--mo); }
+        .fx .fx-rhythm-flex a { transition: background var(--mo-tap) var(--mo), color var(--mo-tap) var(--mo); }
+        .fx .fxb-text-link span { transition: transform var(--mo-tap) var(--mo); }
+        .fx .fx-ribbon,
+        .fx-body .fx-ribbon,
+        .fx .fxb-text-link,
+        .fx .fx-resource-link { transition: transform var(--mo-tap) var(--mo), color var(--mo-tap) var(--mo), background var(--mo-tap) var(--mo), border-color var(--mo-tap) var(--mo); }
+        .fx .fx-field input,
+        .fx .fx-field textarea { transition: border-color var(--mo-tap) var(--mo), box-shadow var(--mo-tap) var(--mo); }
+        .fx-body .nav-pill-cta { transition: background var(--mo-tap) var(--mo), border-color var(--mo-tap) var(--mo); }
+
+        /* Lo que queda con otra curva es el navbar y el pie compartidos, que
+           viven en css/navbar-unified.min.css y css/footer-modern.min.css y
+           sirven a las 312 páginas del sitio: unificarlos desde aquí los
+           desincronizaría del resto. Queda anotado, no resuelto. */
+
+/* ── Reposo de la imagen al entrar ────────────────────────────────────────
+   En la referencia, los bloques de imagen NO aparecen con un interruptor: su
+   escala se interpola de forma continua con el scroll (medido: 0,29 → 0,77 →
+   0,99 a lo largo del recorrido). Nuestro `.rv` es binario, entra y ya está.
+
+   Aquí se usa la animación ligada al scroll nativa del navegador, sin JS ni
+   observador: la imagen llega con un 6 % de sobreescala y se asienta. Va de
+   1,06 a 1 y no de 0,3 a 1 como ellos, porque nuestras imágenes son de recorte
+   completo: partir por debajo de 1 destaparía el fondo de la caja.
+
+   Tras `@supports`, así que donde no exista queda simplemente estática.       */
+
+/* ── Reposo de la imagen al entrar ────────────────────────────────────────
+   En la referencia los bloques de imagen NO aparecen con un interruptor: su
+   escala se interpola con el scroll (medido: 0,29 → 0,77 → 0,99). Aquí la
+   imagen llega con un 6 % de sobreescala y se asienta; va de 1,06 a 1 y no de
+   0,3 a 1 porque nuestras imágenes son de recorte completo y partir por debajo
+   de 1 destaparía el fondo de la caja.
+
+   Se hizo con el observador que ya usa la página y NO con `animation-timeline:
+   view()`, que es lo que corresponde al patrón. Motivo medido: en esta página
+   el contenedor de scroll es `<body>` (`overflow: hidden auto`), mientras
+   `<html>` se queda en `visible`. Un ViewTimeline resuelve su origen al
+   elemento de scroll del documento —`<html>`—, que aquí no scrollea, así que
+   el cronograma nace fuera de rango (`currentTime: -1535 %`) y no avanza
+   jamás. Corregirlo exige mover el scroll a `<html>`, y de ese detalle
+   dependen la secuencia fijada, el navbar y la barra móvil: no es un cambio
+   que toque hacer de pasada.                                                  */
+
+        .fx .rv--media { transform: translateY(14px) scale(1.06); }
+        .fx .rv--media.in { transform: none; }
+
+        .fx .rv--media,
+        .fx .rv--media.in {
+            transition: opacity var(--mo-in) var(--mo),
+                        transform 1.1s var(--mo);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .fx .rv--media { transform: none; transition: none; }
+        }
+
+/* ── Aire entre secciones ─────────────────────────────────────────────────
+   La referencia deja cerca de un viewport completo de papel entre bloques: el
+   vacío es parte de la composición, no un descuido. Teníamos 90 px fijos, que
+   a 1920 px de ancho se leen como secciones apelmazadas. Pasa a escalar con la
+   altura de la ventana, con suelo y techo.                                    */
+
+        .fx .fx-section { padding: clamp(88px, 13vh, 168px) 0; }
+        .fx .fx-section-head { margin-bottom: clamp(44px, 6vh, 78px); }
+
+        /* Medida estrecha para el titular: obliga a partir en varias líneas y
+           es lo que da presencia al serif, igual que en la referencia. */
+        .fx .fx-section-head { max-width: 620px; }
+        .fx .fx-section-head h2 { max-width: 21ch; }
+
+/* ── Tesela de cifra más cuadrada ─────────────────────────────────────────
+   Medido en la referencia: 292 × 290 px, prácticamente un cuadrado, con la
+   cifra arriba y el pie abajo separados por un vacío que ocupa la mitad de la
+   tesela. Nuestras filas eran más bajas y anchas, y el vacío se perdía.        */
+
+        .fx { --lat-row: clamp(168px, 23vh, 248px); }
+
+        @media (max-width: 700px) {
+            .fx .fx-section { padding: clamp(64px, 9vh, 104px) 0; }
+        }
+
+/* ═══════════════════════════════════════════════════════════════════════════
+   BARRA FIJA DE CONVERSIÓN  ·  corrección de adaptación a móvil
+   ───────────────────────────────────────────────────────────────────────────
+   Medido antes de arreglarla, a 430, 390, 360 y 320 px de ancho: el botón
+   salía MÁS ANCHO QUE LA BARRA y se derramaba unos 94 px por la derecha, el
+   texto quedaba prensado en una columna de 85 px partida en cinco líneas, y la
+   barra crecía hasta 116 px de alto.
+
+   Causa: `@media (max-width: 620px) { .fx .fx-btn { width: 100% } }`, la regla
+   que estira los botones a ancho completo en móvil. Es la correcta para un
+   botón en fila dentro del cuerpo de la página, pero aquí el botón vive en una
+   fila flex y lleva `flex-shrink: 0`: se estira al 100 % del contenedor, no
+   puede encogerse y desborda.
+
+   Se resuelve devolviéndole el ancho de su contenido SÓLO dentro de la barra,
+   y quitando la línea descriptiva por debajo de 620 px: en 366 px de barra no
+   cabe junto a un botón, y lo que dice ya lo dice la sección a la que lleva.
+   De 621 a 900 px sí hay sitio, así que ahí se mantiene.
+
+   Se arreglan de paso dos restos del tema oscuro anterior: una sombra de
+   `rgba(0, 0, 0, .45)` —negro al 45 %, que sobre papel es una mancha— y un
+   fondo a un solo tono del de la página, con lo que la barra no llegaba a
+   despegarse del contenido.
+   ═══════════════════════════════════════════════════════════════════════════ */
+
+        .fx-mobile-bar {
+            /* Un tono por encima del papel: es lo que hace que flote. */
+            background: #faf7f0;
+            border-color: var(--fx-border-strong);
+            /* Sombra hacia arriba, que es de donde viene el contenido. */
+            box-shadow: 0 -4px 18px rgba(34, 32, 29, 0.10),
+                        0 10px 28px rgba(34, 32, 29, 0.13);
+            /* Respeta el indicador de inicio de iOS. */
+            bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+            gap: 12px;
+        }
+
+        .fx-mobile-bar-txt { min-width: 0; }
+
+        .fx-mobile-bar-txt strong {
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+
+        .fx-mobile-bar-sub { display: block; }
+
+        @media (max-width: 620px) {
+            /* Dentro de la barra el botón recupera el ancho de su contenido.
+               El selector cubre las dos formas porque `.fx` está en la PROPIA
+               barra (`class="fx fx-mobile-bar"`), no en un ancestro: con sólo
+               `.fx .fx-mobile-bar` la regla no llega a acertar. */
+            .fx.fx-mobile-bar .fx-btn,
+            .fx .fx-mobile-bar .fx-btn,
+            #fxMobileBar .fx-btn {
+                width: auto;
+                flex: 0 0 auto;
+                white-space: nowrap;
+                min-height: 44px;          /* objetivo táctil cómodo */
+                padding: 12px 18px;
+                font-size: 0.88rem;
+            }
+
+            /* En 366 px de barra la descripción no cabe al lado del botón. */
+            .fx-mobile-bar-sub { display: none; }
+
+            /* El rótulo manda: se queda con el espacio que sobra. */
+            .fx-mobile-bar-txt { flex: 1 1 auto; }
+            .fx-mobile-bar-txt strong { font-size: 1rem; }
+        }
+
+        @media (max-width: 360px) {
+            .fx-mobile-bar { left: 8px; right: 8px; padding: 10px 12px; }
+            .fx.fx-mobile-bar .fx-btn,
+            .fx .fx-mobile-bar .fx-btn,
+            #fxMobileBar .fx-btn { padding: 11px 14px; font-size: 0.82rem; }
+        }
+
     </style>
 
 <!-- SEO:GENERATED -->
@@ -3200,13 +4543,13 @@
 <meta property="og:title" content="Fotolectura: curso de lectura rápida | WorldBrain México">
 <meta property="og:description" content="Fotolectura, sistema integral de lectura rápida para adolescentes y adultos: ejercicios visuales, comprensión, retención, síntesis y lectura crítica.">
 <meta property="og:url" content="https://ultravelozmente.com/fotolectura">
-<meta property="og:image" content="https://ultravelozmente.com/images/fl-hero-brain.webp">
+<meta property="og:image" content="https://ultravelozmente.com/images/fotolectura-arte-atencion-lectura.webp">
 <meta property="og:image:alt" content="Fotolectura: curso de lectura rápida">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fotolectura: curso de lectura rápida | WorldBrain México">
 <meta name="twitter:description" content="Fotolectura, sistema integral de lectura rápida para adolescentes y adultos: ejercicios visuales, comprensión, retención, síntesis y lectura crítica.">
-<meta name="twitter:image" content="https://ultravelozmente.com/images/fl-hero-brain.webp">
+<meta name="twitter:image" content="https://ultravelozmente.com/images/fotolectura-arte-atencion-lectura.webp">
 <meta name="twitter:image:alt" content="Fotolectura: curso de lectura rápida">
 
 
@@ -3287,7 +4630,7 @@
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://ultravelozmente.com/images/fl-hero-brain.webp"
+        "url": "https://ultravelozmente.com/images/fotolectura-arte-atencion-lectura.webp"
       },
       "mainEntity": {
         "@id": "https://ultravelozmente.com/fotolectura#course"
@@ -3464,6 +4807,18 @@
 </head>
 
 <body class="fx-body">
+
+    <!-- Marca-cinta: marcapáginas de tela anclado al borde. Interpretación
+         propia del recurso de marca fija de la referencia. -->
+    <a class="fx-ribbon" href="#oferta" aria-label="Ir a la información del programa">
+        <svg viewBox="0 0 46 104" aria-hidden="true" focusable="false">
+            <path d="M0 0h46v86L23 72 0 86Z" fill="#c2542f"></path>
+            <path d="M0 0h46v10H0Z" fill="#a63f1e" opacity=".55"></path>
+            <circle cx="23" cy="34" r="4.6" fill="#f5f1e8"></circle>
+            <circle cx="23" cy="49" r="2.6" fill="#f5f1e8" opacity=".72"></circle>
+            <circle cx="23" cy="59" r="1.5" fill="#f5f1e8" opacity=".45"></circle>
+        </svg>
+    </a>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWMFXQS7" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -3512,11 +4867,6 @@
             <a href="/#contacto" class="nav-pill-cta">Contacto</a>
         </div>
 
-        <button class="nav-pill-theme" id="navThemeToggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
-            <span class="icon-moon">&#x1F319;</span>
-            <span class="icon-sun">&#x2600;&#xFE0F;</span>
-        </button>
-
         <button class="nav-pill-hamburger" id="navHamburger" aria-label="Abrir men&uacute;" aria-expanded="false" aria-controls="navMobilePanel">
             <span></span>
             <span></span>
@@ -3560,9 +4910,24 @@
 
         <!-- ══════════════ HERO ══════════════ -->
         <header class="fx-hero">
+            <!-- Pintura tratada: la trama de puntos sale de la página que lee y
+                 sube hacia su mirada. El libro queda intacto y legible: es la
+                 referencia al curso. El vídeo sólo se carga cuando procede; si
+                 no, esta imagen hace de póster. -->
+            <div class="fx-hero-art" aria-hidden="true">
+                <picture>
+                    <source media="(max-width: 700px)"
+                            srcset="images/fotolectura-arte-atencion-lectura-sm.webp">
+                    <img src="images/fotolectura-arte-atencion-lectura.webp"
+                         alt="" width="1600" height="1000" decoding="async" fetchpriority="high">
+                </picture>
+                <video class="fx-hero-video" width="1600" height="1000" data-hero-video muted loop playsinline
+                       preload="none" tabindex="-1"
+                       data-webm="images/fotolectura-hero-lectura.webm"
+                       data-mp4="images/fotolectura-hero-lectura.mp4"></video>
+            </div>
             <div class="fx-wrap">
-                <div class="fx-hero-grid">
-                    <div>
+                <div class="fx-hero-copy">
                         <span class="fx-eyebrow">Fotolectura · Sistema integral de lectura</span>
                         <h1>Leer rápido no es un don. Es una técnica que se entrena.</h1>
                         <p class="fx-lead">
@@ -3576,9 +4941,16 @@
                         <p class="fx-hero-proof">
                             Adolescentes y adultos<span class="fx-dot">·</span>Rutas de 4, 6 o 12 meses<span class="fx-dot">·</span>Horario flexible
                         </p>
-                    </div>
+                </div>
+            </div>
+        </header>
 
-                    <div class="fx-demo" aria-label="Demostración visual de distintos ritmos de lectura">
+        <!-- La demostración de ritmos sale del hero para que la pintura respire
+             y gana ancho. Conserva íntegros sus identificadores y clases, así
+             que el guion que la controla sigue funcionando igual. -->
+        <section class="fx-section fx-blk-warm" aria-label="Demostración de ritmos de lectura">
+            <div class="fx-wrap">
+                <div class="fx-demo" aria-label="Demostración visual de distintos ritmos de lectura">
                         <div class="fx-demo-head">
                             <span class="fx-demo-title">Prueba distintos ritmos de lectura</span>
                             <span class="fx-demo-book">demostración interactiva</span>
@@ -3591,9 +4963,11 @@
                         </div>
                         <p class="fx-demo-note" id="fxDemoNote">La estimación de tiempo usa como referencia un texto de 90,000 palabras.</p>
                     </div>
-                </div>
             </div>
-        </header>
+        </section>
+
+        <canvas class="fx-dissolve" data-dissolve
+                data-from="#efe9dc" data-to="#f5f1e8" aria-hidden="true"></canvas>
 
         <!-- ══════════════ BIBLIOTECA 3D ══════════════ -->
         <section class="fx-section fxb" id="tipos-de-lectura" aria-labelledby="fxbTitle">
@@ -3920,6 +5294,43 @@
 </section>
 
 <!-- ══════════════ LABORATORIO DEL MÉTODO ══════════════ -->
+        <canvas class="fx-dissolve" data-dissolve
+                data-from="#f5f1e8" data-to="#efe9dc" aria-hidden="true"></canvas>
+
+        <!-- Secuencia fijada: el recurso más fuerte de la referencia,
+             reinterpretado. Un lienzo fijo donde la frase del centro se releva
+             mientras entran teselas de pintura clásica. Cada tesela es una
+             fijación de la mirada y en las ocho se ve un libro. -->
+        <section class="fx-pin" aria-labelledby="fxPinTitle">
+            <h2 id="fxPinTitle" class="fx-sr-only">Cómo se entrena la mirada</h2>
+            <div class="fx-pin-track" data-pin>
+                <div class="fx-pin-stage">
+                    <div class="fx-pin-tiles" aria-hidden="true">
+                        <div class="fx-pin-tile" style="--x:6%;  --y:12%; --w:15vw"><img width="420" height="525" src="images/fotolectura-tesela-corot.webp" alt="" loading="lazy" decoding="async"></div>
+                        <div class="fx-pin-tile" style="--x:79%; --y:8%;  --w:12vw"><img width="420" height="525" src="images/fotolectura-tesela-rembrandt.webp" alt="" loading="lazy" decoding="async"></div>
+                        <div class="fx-pin-tile" style="--x:22%; --y:64%; --w:10vw"><img width="420" height="525" src="images/fotolectura-tesela-renoir.webp" alt="" loading="lazy" decoding="async"></div>
+                        <div class="fx-pin-tile" style="--x:66%; --y:58%; --w:17vw"><img width="420" height="525" src="images/fotolectura-tesela-fantin.webp" alt="" loading="lazy" decoding="async"></div>
+                        <div class="fx-pin-tile" style="--x:2%;  --y:40%; --w:8vw"><img width="420" height="525" src="images/fotolectura-tesela-vangogh.webp" alt="" loading="lazy" decoding="async"></div>
+                        <div class="fx-pin-tile" style="--x:87%; --y:36%; --w:9vw"><img width="420" height="525" src="images/fotolectura-tesela-fragonard.webp" alt="" loading="lazy" decoding="async"></div>
+                        <div class="fx-pin-tile" style="--x:37%; --y:3%;  --w:11vw"><img width="420" height="525" src="images/fotolectura-tesela-chardin.webp" alt="" loading="lazy" decoding="async"></div>
+                        <div class="fx-pin-tile" style="--x:52%; --y:76%; --w:8vw"><img width="420" height="525" src="images/fotolectura-tesela-peddler.webp" alt="" loading="lazy" decoding="async"></div>
+                        <div class="fx-pin-tile" style="--x:11%; --y:84%; --w:13vw"><img width="420" height="525" src="images/fotolectura-tesela-rembrandt.webp" alt="" loading="lazy" decoding="async"></div>
+                    </div>
+                    <div class="fx-pin-center">
+                        <p class="fx-pin-num" data-pin-num>01 — 05</p>
+                        <div class="fx-pin-line" data-pin-lines>
+                            <span>Tus ojos ya son bastante rápidos.</span>
+                            <span>Lo que te frena es volver atrás.</span>
+                            <span>Cada parada de la mirada cuesta unos 250 milisegundos.</span>
+                            <span>Agrupar palabras multiplica lo que cabe en cada parada.</span>
+                            <span>Ahí, y sólo ahí, empieza la fotolectura.</span>
+                        </div>
+                        <div class="fx-pin-bar" aria-hidden="true"><i></i></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
 <section class="fx-section fx-section-lab" id="metodologia">
     <div class="fx-wrap">
         <div class="fx-section-head">
@@ -4033,7 +5444,7 @@
             <p>El encaje depende de lo que lees, para qué lo lees y del punto de partida sobre el que vas a practicar.</p>
         </div>
         <div class="fx-fit-layout">
-            <figure class="fx-fit-media">
+            <figure class="fx-fit-media rv rv--media">
                 <img src="images/fotolectura-encaje-lectura-enfocada.webp" alt="Persona adulta leyendo con atención en un escritorio junto a una ventana con luz natural" width="1376" height="768" loading="lazy" decoding="async">
             </figure>
             <div class="fx-fit-board">
@@ -4183,7 +5594,7 @@
     <div class="fx-wrap">
         <div class="fx-section-head"><span class="fx-eyebrow">Haz visible tu avance</span><h2>Compara tu lectura antes y después de practicar.</h2><p>Observa velocidad y comprensión con textos nuevos de dificultad similar. Así puedes reconocer tendencias y descubrir en qué tipos de lectura has ganado más soltura.</p></div>
         <div class="fx-progress-layout">
-            <figure class="fx-progress-media">
+            <figure class="fx-progress-media rv rv--media">
                 <img src="images/fotolectura-progreso-diario-practica.webp" alt="Cuaderno de práctica con anotaciones de seguimiento y un reloj analógico sobre un escritorio" width="1376" height="768" loading="lazy" decoding="async">
             </figure>
             <div class="fx-progress-board">
@@ -4199,7 +5610,7 @@
 <section class="fx-section" id="recursos">
     <div class="fx-wrap">
         <div class="fx-section-head"><span class="fx-eyebrow">Sigue explorando</span><h2>Ideas para empezar a entrenar desde hoy.</h2><p>Conoce las fases del método, la relación entre rapidez y comprensión y ejercicios que puedes aplicar a tu próxima lectura.</p></div>
-        <figure class="fx-resource-media">
+        <figure class="fx-resource-media rv rv--media">
             <img src="images/fotolectura-recursos-mesa-lectura.webp" alt="Mesa de estudio con libros, laptop cerrada y notas adhesivas junto a lentes de lectura" width="1376" height="768" loading="lazy" decoding="async">
         </figure>
         <div class="fx-resource-grid">
@@ -4433,7 +5844,7 @@
     <div class="fx fx-mobile-bar" id="fxMobileBar" aria-hidden="true" inert>
         <div class="fx-mobile-bar-txt">
             <strong>Fotolectura</strong>
-            Conoce el programa y los grupos disponibles
+            <span class="fx-mobile-bar-sub">Conoce el programa y los grupos disponibles</span>
         </div>
         <a href="#oferta" class="fx-btn fx-btn-primary">Quiero información</a>
     </div>
@@ -4819,6 +6230,209 @@ $$('[data-fx-tabs]').forEach(function (root) {
                     String(today.getDate()).padStart(2, '0');
                 datePicker.min = iso;
             }
+
+
+            /* ══════════════════════════════════════════════════════════════
+               DIRECCIÓN DE ARTE — motor de los recursos nuevos
+
+               Se apoya en lo que ya existe en este ámbito: `$`, `$$` y
+               `reduceMotion`. Nada se anima con keyframes: igual que en la
+               referencia auditada, el scroll es la línea de tiempo.
+               ══════════════════════════════════════════════════════════════ */
+
+            /* ---------- Titular troceado por palabras ----------
+               Recorremos los nodos hijos y reemitimos los espacios tal cual,
+               para no separar la puntuación de la última palabra ni romper el
+               <em> del titular. */
+            (function heroWords() {
+                var host = $('.fx-hero h1');
+                if (!host) return;
+                if (reduceMotion) { host.classList.add('is-lit'); return; }
+
+                var i = 0;
+                var out = document.createDocumentFragment();
+
+                Array.prototype.slice.call(host.childNodes).forEach(function (node) {
+                    if (node.nodeType !== 3) { out.appendChild(node.cloneNode(true)); return; }
+                    node.nodeValue.split(/(\s+)/).forEach(function (chunk) {
+                        if (!chunk) return;
+                        if (/^\s+$/.test(chunk)) {
+                            out.appendChild(document.createTextNode(chunk));
+                            return;
+                        }
+                        var w = document.createElement('span');
+                        w.className = 'fx-hword';
+                        var inner = document.createElement('i');
+                        inner.textContent = chunk;
+                        inner.style.setProperty('--w-delay', (i++ * 55) + 'ms');
+                        w.appendChild(inner);
+                        out.appendChild(w);
+                    });
+                });
+
+                host.textContent = '';
+                host.appendChild(out);
+                requestAnimationFrame(function () { host.classList.add('is-lit'); });
+            })();
+
+            /* ---------- Vídeo del hero ----------
+               Sólo se carga si tiene sentido: nunca con movimiento reducido,
+               nunca en pantallas estrechas y nunca con ahorro de datos. En esos
+               casos la pintura fija ya está debajo y hace de póster, así que no
+               se descarga nada de más. Si el navegador bloquea la reproducción
+               automática también se queda la pintura quieta: no hay estado roto
+               posible. */
+            (function heroVideo() {
+                var v = $('[data-hero-video]');
+                if (!v) return;
+                if (reduceMotion) return;
+                if (window.matchMedia('(max-width: 900px)').matches) return;
+
+                var link = navigator.connection || navigator.mozConnection;
+                if (link && (link.saveData ||
+                    /(^|-)(2g|slow-2g)$/.test(link.effectiveType || ''))) return;
+
+                [['webm', 'video/webm'], ['mp4', 'video/mp4']].forEach(function (pair) {
+                    var url = v.dataset[pair[0]];
+                    if (!url) return;
+                    var s = document.createElement('source');
+                    s.src = url;
+                    s.type = pair[1];
+                    v.appendChild(s);
+                });
+
+                v.addEventListener('playing', function () {
+                    v.classList.add('is-on');
+                }, { once: true });
+
+                v.load();
+                var intento = v.play();
+                if (intento && intento.catch) intento.catch(function () { /* queda el póster */ });
+            })();
+
+            /* ---------- Bandas de disolvencia entre bloques ----------
+               Mismo recurso que en la referencia (un canvas 2D deshace un color
+               en el siguiente) pero dibujado con la trama de semitono de esta
+               página: una rejilla desplazada donde la probabilidad de tinta
+               crece con la altura. */
+            (function dissolveBands() {
+                var bands = $$('[data-dissolve]');
+                if (!bands.length) return;
+
+                var CELL = 7;
+
+                function paint(cv) {
+                    var from = cv.dataset.from || '#f5f1e8';
+                    var to = cv.dataset.to || '#efe9dc';
+                    var dpr = Math.min(window.devicePixelRatio || 1, 2);
+                    var w = cv.clientWidth;
+                    var h = cv.clientHeight;
+                    if (!w || !h) return;
+
+                    cv.width = Math.round(w * dpr);
+                    cv.height = Math.round(h * dpr);
+
+                    var g = cv.getContext('2d');
+                    if (!g) return;
+                    g.setTransform(dpr, 0, 0, dpr, 0, 0);
+                    g.fillStyle = from;
+                    g.fillRect(0, 0, w, h);
+                    g.fillStyle = to;
+
+                    var cols = Math.ceil(w / CELL) + 2;
+                    var rows = Math.ceil(h / CELL) + 2;
+
+                    for (var r = 0; r < rows; r++) {
+                        var t = r / (rows - 1);
+                        var p = Math.pow(t, 0.85);
+                        for (var c = 0; c < cols; c++) {
+                            if (Math.random() > p) continue;
+                            var offset = (r % 2) * (CELL / 2);
+                            var radius = (CELL / 2) * (0.42 + 0.58 * p);
+                            g.beginPath();
+                            g.arc(c * CELL + offset, r * CELL, radius, 0, Math.PI * 2);
+                            g.fill();
+                        }
+                    }
+                    /* Los últimos píxeles quedan sólidos: la banda entrega el
+                       color limpio al bloque siguiente y no se ve el corte. */
+                    g.fillRect(0, h - CELL, w, CELL);
+                }
+
+                function paintAll() { bands.forEach(paint); }
+                paintAll();
+
+                var timer;
+                window.addEventListener('resize', function () {
+                    clearTimeout(timer);
+                    timer = setTimeout(paintAll, 180);
+                });
+            })();
+
+            /* ---------- Secuencia fijada: constelación de fijaciones ----------
+               El recorrido del contenedor fijado se traduce en un progreso 0..1
+               que releva la frase del centro y va encendiendo las teselas. */
+            (function pinnedSequence() {
+                var track = $('[data-pin]');
+                if (!track) return;
+
+                var stage = $('.fx-pin-stage', track);
+                var lines = $$('[data-pin-lines] > span', track);
+                var tiles = $$('.fx-pin-tile', track);
+                var num = $('[data-pin-num]', track);
+                if (!stage || lines.length < 2) return;
+
+                var pad = function (n) { return (n < 10 ? '0' : '') + n; };
+
+                if (reduceMotion) {
+                    lines.forEach(function (el) { el.classList.add('is-on'); });
+                    tiles.forEach(function (el) { el.classList.add('is-on'); });
+                    if (num) num.textContent = '01 — ' + pad(lines.length);
+                    return;
+                }
+
+                var queued = false;
+                var lastStep = -1;
+
+                function render() {
+                    queued = false;
+
+                    var box = track.getBoundingClientRect();
+                    var span = track.offsetHeight - window.innerHeight;
+                    if (span <= 0) return;
+
+                    var p = Math.min(Math.max(-box.top / span, 0), 1);
+                    stage.style.setProperty('--pin-progress', p.toFixed(4));
+
+                    /* La frase ocupa una franja del recorrido; el reparto deja
+                       aire al principio y al final para que el relevo no
+                       coincida con la entrada ni la salida del fijado. */
+                    var eased = Math.min(Math.max((p - 0.06) / 0.86, 0), 0.9999);
+                    var step = Math.floor(eased * lines.length);
+
+                    if (step !== lastStep) {
+                        lastStep = step;
+                        lines.forEach(function (el, i) {
+                            el.classList.toggle('is-on', i === step);
+                        });
+                        if (num) num.textContent = pad(step + 1) + ' — ' + pad(lines.length);
+                    }
+
+                    tiles.forEach(function (el, i) {
+                        el.classList.toggle('is-on', p >= 0.08 + (i / tiles.length) * 0.74);
+                    });
+                }
+
+                function schedule() {
+                    if (queued) return;
+                    queued = true;
+                    requestAnimationFrame(render);
+                }
+
+                window.addEventListener('scroll', schedule, { passive: true });
+                window.addEventListener('resize', schedule);
+                render();
+            })();
 
             /* ---------- Biblioteca 3D: pila de libros dirigida por scroll ----------
                El scroll define qué libro está en foco: el resto queda tumbado en la

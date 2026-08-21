@@ -1,10 +1,5 @@
 <!DOCTYPE html>
-<!-- `light-mode` va fija: esta página tiene una sola paleta, la clara. Se
-     conserva el nombre de la clase porque de ella cuelgan los tokens y las
-     reglas de contraste de la página y del navbar compartido. El selector de
-     tema se ha retirado, y el módulo de tema de js/navbar.min.js sale solo al
-     no encontrar el botón. -->
-<html lang="es-MX" class="light-mode">
+<html lang="es-MX">
 
 <head><!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=AW-10846614576"></script>
@@ -30,7 +25,8 @@
 <script src="js/meta-pixel.js?v=20260810"></script>
 <noscript><img height="1" width="1" style="display:none" alt=""
     src="https://www.facebook.com/tr?id=280967147554736&ev=PageView&noscript=1" /></noscript>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     
 
@@ -59,7 +55,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
-        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..620&family=Inter:wght@400;500;600;700&display=swap"
+        href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,420;9..144,520;9..144,620&family=Inter:wght@400;500;600;700&display=swap"
         rel="stylesheet">
 
     <!-- FontAwesome (para navbar y footer) -->
@@ -68,6 +64,16 @@
     <noscript>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </noscript>
+
+    <!-- Theme: FOUC Prevention -->
+    <script>
+        (function() {
+            var theme = localStorage.getItem('theme');
+            if (theme === 'light' || (!theme && window.matchMedia('(prefers-color-scheme: light)').matches)) {
+                document.documentElement.classList.add('light-mode');
+            }
+        })();
+    </script>
 
     <link rel="stylesheet" href="css/styles.min.css">
 
@@ -88,36 +94,42 @@
 
     <!-- ══════════════ Estilos de la página (Fotolectura v2) ══════════════ -->
     <style>
-        /* ---------- Tokens ----------
-           Una sola paleta: papel y tinta. Antes había un juego oscuro aquí y un
-           override claro en `.light-mode .fx`; se han fundido en este bloque
-           para que exista una única fuente de verdad del color.
-
-           Los nombres `--fx-amber*` se conservan porque de ellos cuelgan
-           cientos de referencias en esta hoja; el VALOR ya no es ámbar sino la
-           terracota de la nueva dirección de arte. */
+        /* ---------- Tokens ---------- */
         .fx {
-            --fx-bg: #f5f1e8;              /* papel */
-            --fx-bg-raised: #efe9dc;       /* papel cálido */
-            --fx-bg-panel: #e6ded0;        /* arena clara */
-            --fx-sand: #dccfbb;            /* arena */
-            --fx-border: rgba(34, 32, 29, 0.14);
-            --fx-border-strong: rgba(34, 32, 29, 0.30);
-            --fx-text: #22201d;            /* tinta */
-            --fx-text-soft: #55504a;
-            --fx-text-faint: #837c72;
-            --fx-amber: #c2542f;           /* acento: terracota */
-            --fx-amber-soft: rgba(194, 84, 47, 0.13);
-            --fx-amber-text: #a63f1e;
-            --fx-green: #4e5a44;
-            --fx-red: #b3432f;
-            --fx-serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
+            --fx-bg: #0e0c1d;
+            --fx-bg-raised: #16132a;
+            --fx-bg-panel: #1a1731;
+            --fx-border: rgba(255, 255, 255, 0.09);
+            --fx-border-strong: rgba(255, 255, 255, 0.16);
+            --fx-text: #efecf6;
+            --fx-text-soft: #b6b0cc;
+            --fx-text-faint: #847d9f;
+            --fx-amber: #f0a938;
+            --fx-amber-soft: rgba(240, 169, 56, 0.14);
+            --fx-amber-text: #ffc466;
+            --fx-green: #4ade80;
+            --fx-red: #f87171;
+            --fx-serif: 'Fraunces', Georgia, serif;
             --fx-sans: 'Inter', -apple-system, sans-serif;
-            --fx-max: 1180px;
+            --fx-max: 1080px;
             font-family: var(--fx-sans);
             color: var(--fx-text);
             background: var(--fx-bg);
-            line-height: 1.62;
+            line-height: 1.6;
+        }
+
+        .light-mode .fx {
+            --fx-bg: #faf8f3;
+            --fx-bg-raised: #ffffff;
+            --fx-bg-panel: #f3efe6;
+            --fx-border: rgba(28, 25, 43, 0.12);
+            --fx-border-strong: rgba(28, 25, 43, 0.22);
+            --fx-text: #1c192b;
+            --fx-text-soft: #4d4763;
+            --fx-text-faint: #77708f;
+            --fx-amber: #c77d14;
+            --fx-amber-soft: rgba(199, 125, 20, 0.12);
+            --fx-amber-text: #a26410;
         }
 
         .fx *,
@@ -127,44 +139,28 @@
         .fx-wrap {
             max-width: var(--fx-max);
             margin: 0 auto;
-            padding: 0 clamp(20px, 5vw, 48px);
+            padding: 0 24px;
         }
 
         /* ---------- Tipografía ---------- */
-        /* Serif de peso normal, interlineado ~1 y tracking negativo: la
-           presencia viene del ajuste, no del tamaño. */
         .fx h1, .fx h2, .fx h3 {
             font-family: var(--fx-serif);
-            font-weight: 400;
-            line-height: 0.99;
-            letter-spacing: -0.03em;
+            font-weight: 520;
+            line-height: 1.12;
+            letter-spacing: -0.01em;
             margin: 0;
             color: var(--fx-text);
-            text-wrap: balance;
         }
-
-        .fx h1 { line-height: 0.95; letter-spacing: -0.032em; }
-        .fx h3 { line-height: 1.04; letter-spacing: -0.022em; }
 
         .fx .fx-eyebrow {
             font-family: var(--fx-sans);
-            font-size: 0.69rem;
+            font-size: 0.8rem;
             font-weight: 600;
             text-transform: uppercase;
-            letter-spacing: 0.2em;
-            color: var(--fx-text-faint);
-            margin-bottom: 20px;
-            display: inline-flex;
-            align-items: center;
-            gap: 10px;
-        }
-
-        .fx .fx-eyebrow::before {
-            content: "";
-            width: 26px;
-            height: 1px;
-            background: var(--fx-amber);
-            flex: none;
+            letter-spacing: 0.14em;
+            color: var(--fx-amber-text);
+            margin-bottom: 18px;
+            display: block;
         }
 
         .fx .fx-lead {
@@ -3187,671 +3183,6 @@
 
             .fx-slots { grid-template-columns: repeat(2, 1fr); }
         }
-    
-        /* ═══════════════════════════════════════════════════════════════════
-           DIRECCIÓN DE ARTE — capa de cierre
-
-           Va al final de la hoja a propósito: sobrescribe lo que llega de
-           css/styles.min.css (navbar y pie son componentes compartidos con el
-           resto del sitio, que es oscuro). Todos los selectores están acotados
-           a esta página con `.fx-body`, así que ninguna otra página cambia.
-
-           Principios, extraídos de la referencia auditada:
-             · Papel y tinta. Los bloques de color van a sangre.
-             · Serif de peso normal, interlineado ~1, tracking negativo.
-             · Pintura clásica con la trama saliendo de la página hacia la
-               mirada. El libro siempre legible.
-             · Botones píldora, vacío generoso, marca-cinta fija.
-           ═══════════════════════════════════════════════════════════════════ */
-
-
-        /* ---------- La paleta, también a nivel de documento ----------
-           Los tokens `--fx-*` se declaran en `.fx`, que es el contenedor del
-           contenido. El navbar y el pie viven FUERA de ese contenedor, así que
-           allí esas variables no existen y cualquier regla que las use se
-           descarta en silencio: era la causa de que el pie quedara transparente.
-           Se repiten aquí en `:root` para que estén disponibles en toda la
-           página. Mismos valores: una sola fuente de verdad conceptual. */
-        :root {
-            --fx-bg: #f5f1e8;
-            --fx-bg-raised: #efe9dc;
-            --fx-bg-panel: #e6ded0;
-            --fx-sand: #dccfbb;
-            --fx-border: rgba(34, 32, 29, 0.14);
-            --fx-border-strong: rgba(34, 32, 29, 0.30);
-            --fx-text: #22201d;
-            --fx-text-soft: #55504a;
-            --fx-text-faint: #837c72;
-            --fx-amber: #c2542f;
-            --fx-amber-soft: rgba(194, 84, 47, 0.13);
-            --fx-amber-text: #a63f1e;
-            --fx-serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
-            --fx-sans: 'Inter', -apple-system, sans-serif;
-
-            /* El navbar compartido se recolorea por sus propias variables. */
-            --nav-surface: #f5f1e8;
-            --nav-fg: #22201d;
-            --nav-fg-soft: #55504a;
-            --nav-fg-dim: #837c72;
-            --nav-accent: #c2542f;
-            --nav-accent-2: #a63f1e;
-            --nav-cta-bg: #22201d;
-            --nav-cta-bg-2: #22201d;
-            --nav-cta-fg: #f5f1e8;
-            --nav-ink: #22201d;
-            --nav-glass: 94%;
-            --nav-glass-scrolled: 97%;
-            --nav-hairline: 15%;
-            --nav-ring: rgba(34, 32, 29, 0.10);
-            --nav-ring-outer: rgba(34, 32, 29, 0.16);
-        }
-
-        /* La hoja del navbar reasigna estas variables para `body.fx-body` y para
-           `html.light-mode`, y ambas ganan a `:root` por especificidad. Se
-           repiten aquí con la misma forma del selector para que ganen por orden
-           de aparición, ya que esta hoja va después. */
-        html.light-mode body.fx-body,
-        body.fx-body {
-            --nav-surface: #f5f1e8;
-            --nav-accent: #c2542f;
-            --nav-accent-2: #a63f1e;
-            --nav-cta-bg: #22201d;
-            --nav-cta-bg-2: #22201d;
-            --nav-cta-fg: #f5f1e8;
-        }
-
-        html.light-mode {
-            --nav-surface: #f5f1e8;
-            --nav-fg: #22201d;
-            --nav-fg-soft: #55504a;
-            --nav-fg-dim: #837c72;
-            --nav-ring: rgba(34, 32, 29, 0.10);
-            --nav-ring-outer: rgba(34, 32, 29, 0.16);
-        }
-
-        /* ---------- Navbar ----------
-           La píldora compartida llega con acento dorado; aquí pasa a tinta y
-           terracota. No se toca js/navbar.min.js: es de todo el sitio. */
-        .fx-body .nav-pill {
-            background: rgba(245, 241, 232, 0.94);
-            backdrop-filter: saturate(140%) blur(14px);
-            -webkit-backdrop-filter: saturate(140%) blur(14px);
-            border: 1px solid var(--fx-border);
-            box-shadow: 0 10px 34px rgba(34, 32, 29, 0.09);
-        }
-
-        .fx-body .nav-pill-logo,
-        .fx-body .nav-pill-logo span {
-            font-family: var(--fx-sans);
-            color: var(--fx-text);
-            letter-spacing: -0.02em;
-        }
-        .fx-body .nav-pill-logo span { color: var(--fx-amber-text); }
-
-        .fx-body .nav-pill-link,
-        .fx-body .nav-pill-links > .nav-dropdown > .nav-pill-link {
-            color: var(--fx-text-soft);
-            font-weight: 500;
-            background: transparent;
-        }
-        .fx-body .nav-pill-link:hover,
-        .fx-body .nav-pill-link:focus-visible { color: var(--fx-text); }
-
-        .fx-body .nav-pill-cta {
-            background: var(--fx-text);
-            color: var(--fx-bg);
-            border: 1px solid var(--fx-text);
-            border-radius: 999px;
-            font-weight: 600;
-            transition: background 0.35s ease, border-color 0.35s ease;
-        }
-        .fx-body .nav-pill-cta:hover {
-            background: var(--fx-amber-text);
-            border-color: var(--fx-amber-text);
-            color: var(--fx-bg);
-        }
-
-        .fx-body .nav-dropdown-menu {
-            background: var(--fx-bg);
-            border: 1px solid var(--fx-border);
-            box-shadow: 0 22px 54px rgba(34, 32, 29, 0.14);
-        }
-        .fx-body .nav-dropdown-menu a { color: var(--fx-text-soft); }
-        .fx-body .nav-dropdown-menu a:hover {
-            color: var(--fx-text);
-            background: var(--fx-bg-raised);
-        }
-        .fx-body .nav-dropdown-menu a i { color: var(--fx-amber); }
-        .fx-body .dropdown-group-title {
-            color: var(--fx-text-faint);
-            letter-spacing: 0.18em;
-        }
-
-        .fx-body .nav-pill-hamburger span { background: var(--fx-text); }
-
-        .fx-body #navMobilePanel,
-        .fx-body .nav-mobile-panel {
-            background: var(--fx-bg);
-            border-color: var(--fx-border);
-        }
-        .fx-body #navMobilePanel a,
-        .fx-body .nav-mobile-panel a { color: var(--fx-text-soft); }
-
-        /* ---------- Botones píldora ----------
-           Un solo gesto para todos los CTA de la página. */
-        .fx .fx-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px 30px;
-            border-radius: 999px;
-            font-family: var(--fx-sans);
-            font-size: 0.93rem;
-            font-weight: 600;
-            letter-spacing: -0.005em;
-            text-decoration: none;
-            cursor: pointer;
-            border: 1px solid transparent;
-            transition: background 0.35s cubic-bezier(.22,.61,.36,1),
-                        color 0.35s cubic-bezier(.22,.61,.36,1),
-                        border-color 0.35s ease;
-        }
-
-        .fx .fx-btn-primary {
-            background: var(--fx-text);
-            color: var(--fx-bg);
-            border-color: var(--fx-text);
-        }
-        .fx .fx-btn-primary:hover {
-            background: var(--fx-amber-text);
-            border-color: var(--fx-amber-text);
-        }
-
-        .fx .fx-btn-ghost {
-            background: transparent;
-            color: var(--fx-text);
-            border-color: var(--fx-border-strong);
-        }
-        .fx .fx-btn-ghost:hover {
-            border-color: var(--fx-text);
-            background: rgba(34, 32, 29, 0.05);
-        }
-
-        .fx .fx-btn:focus-visible {
-            outline: 2px solid var(--fx-amber);
-            outline-offset: 3px;
-        }
-
-        /* ---------- Marca-cinta fija ----------
-           Interpretación propia del marcapáginas: cinta de tela con muesca y
-           puntos de trama. No es la estrella de la referencia. */
-        .fx-ribbon {
-            position: fixed;
-            top: 0;
-            left: clamp(14px, 3vw, 40px);
-            z-index: 40;
-            width: 42px;
-            text-decoration: none;
-            filter: drop-shadow(0 6px 14px rgba(34, 32, 29, 0.18));
-        }
-        .fx-ribbon svg { width: 100%; height: auto; display: block; }
-
-        @media (max-width: 1100px) { .fx-ribbon { display: none; } }
-
-        /* ---------- Hero con pintura y vídeo ---------- */
-        .fx .fx-hero {
-            position: relative;
-            overflow: hidden;
-            padding: clamp(104px, 15vh, 176px) 0 clamp(56px, 8vh, 96px);
-        }
-
-        .fx-hero-art {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-        }
-        .fx-hero-art img,
-        .fx-hero-video {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            object-position: 38% 34%;
-            display: block;
-        }
-        .fx-hero-video {
-            position: absolute;
-            inset: 0;
-            z-index: 0;
-            opacity: 0;
-            transition: opacity 1.2s cubic-bezier(.22,.61,.36,1);
-        }
-        .fx-hero-video.is-on { opacity: 1; }
-
-        /* Velo de papel: sólido bajo el texto, casi transparente sobre la
-           pintura, para que la trama se lea de verdad. */
-        .fx-hero-art::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            z-index: 1;
-            background:
-                linear-gradient(96deg, var(--fx-bg) 0%, var(--fx-bg) 30%,
-                                rgba(245, 241, 232, 0.90) 42%,
-                                rgba(245, 241, 232, 0.46) 56%,
-                                rgba(245, 241, 232, 0.10) 72%,
-                                rgba(245, 241, 232, 0) 88%),
-                linear-gradient(0deg, rgba(245, 241, 232, 0.42),
-                                rgba(245, 241, 232, 0) 34%);
-        }
-
-        .fx .fx-hero > .fx-wrap { position: relative; z-index: 2; }
-
-        .fx .fx-hero h1 {
-            font-size: clamp(2.75rem, 6.2vw, 5.1rem);
-            max-width: 17ch;
-        }
-        .fx .fx-hero .fx-lead { margin-top: 26px; }
-
-        .fx .fx-hero-ctas {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 12px;
-            margin-top: 34px;
-        }
-
-        .fx .fx-hero-proof {
-            display: flex;
-            flex-wrap: wrap;
-            align-items: center;
-            gap: 6px 18px;
-            margin: 40px 0 0;
-            padding-top: 22px;
-            border-top: 1px solid var(--fx-border);
-            max-width: 620px;
-            font-size: 0.84rem;
-            color: var(--fx-text-faint);
-        }
-        .fx .fx-hero-proof .fx-dot { color: var(--fx-amber); }
-
-        /* Troceado del titular por palabras.
-           La clase se llama `fx-hword` y no `fx-word` porque esa última ya está
-           tomada en esta página: son las pastillas de palabras de la sección de
-           diagnóstico. Reutilizarla convertía el titular en una fila de
-           pastillas con borde. */
-        .fx .fx-hword { display: inline-block; overflow: hidden; vertical-align: bottom; }
-        .fx .fx-hword i {
-            display: inline-block;
-            font-style: inherit;
-            transform: translate3d(0, 105%, 0);
-            transition: transform 1.05s cubic-bezier(.19, 1, .22, 1);
-            transition-delay: var(--w-delay, 0ms);
-        }
-        .fx .is-lit .fx-hword i { transform: none; }
-
-        /* ---------- Bloques de color a sangre ---------- */
-        .fx .fx-blk-warm { background: var(--fx-bg-raised); }
-        .fx .fx-blk-sand { background: var(--fx-sand); }
-
-        .fx .fx-blk-ink {
-            background: var(--fx-text);
-            color: var(--fx-bg);
-        }
-        .fx .fx-blk-ink h1,
-        .fx .fx-blk-ink h2,
-        .fx .fx-blk-ink h3 { color: var(--fx-bg); }
-        .fx .fx-blk-ink .fx-lead { color: rgba(245, 241, 232, 0.70); }
-        .fx .fx-blk-ink .fx-eyebrow { color: rgba(245, 241, 232, 0.56); }
-        .fx .fx-blk-ink .fx-btn-primary {
-            background: var(--fx-bg);
-            color: var(--fx-text);
-            border-color: var(--fx-bg);
-        }
-        .fx .fx-blk-ink .fx-btn-primary:hover {
-            background: var(--fx-amber);
-            border-color: var(--fx-amber);
-            color: var(--fx-bg);
-        }
-        .fx .fx-blk-ink .fx-btn-ghost {
-            color: var(--fx-bg);
-            border-color: rgba(245, 241, 232, 0.34);
-        }
-        .fx .fx-blk-ink .fx-btn-ghost:hover {
-            border-color: var(--fx-bg);
-            background: rgba(245, 241, 232, 0.08);
-        }
-
-        /* ---------- Banda de disolvencia entre bloques ----------
-           Mismo recurso que la referencia (un canvas 2D deshace un color en el
-           siguiente) dibujado con la trama de semitono de esta página. */
-        .fx .fx-dissolve {
-            display: block;
-            width: 100%;
-            height: clamp(66px, 8vw, 120px);
-        }
-
-        /* ---------- Pintura acompañando al texto ---------- */
-        .fx .fx-art-split {
-            display: grid;
-            grid-template-columns: minmax(0, 1fr) minmax(0, 0.92fr);
-            gap: clamp(30px, 5vw, 78px);
-            align-items: center;
-        }
-        .fx .fx-art-split--flip > .fx-art-figure { order: 2; }
-
-        .fx .fx-art-figure {
-            position: relative;
-            margin: 0;
-            border-radius: 2px;
-            overflow: hidden;
-            background: var(--fx-sand);
-        }
-        .fx .fx-art-figure img { width: 100%; height: auto; display: block; }
-        .fx .fx-art-figure figcaption {
-            position: absolute;
-            left: 0; right: 0; bottom: 0;
-            padding: 26px 20px 13px;
-            font-family: var(--fx-sans);
-            font-size: 0.66rem;
-            font-weight: 500;
-            letter-spacing: 0.13em;
-            text-transform: uppercase;
-            color: var(--fx-bg);
-            background: linear-gradient(0deg, rgba(34, 32, 29, 0.74),
-                                        rgba(34, 32, 29, 0));
-        }
-
-        /* ---------- Secuencia fijada: constelación de fijaciones ----------
-           El recurso más fuerte de la referencia, reinterpretado: un lienzo
-           fijo donde la frase del centro se releva mientras entran teselas de
-           pintura clásica. Cada tesela es una fijación de la mirada, y en todas
-           se ve un libro. */
-        .fx .fx-pin { position: relative; background: var(--fx-bg-raised); }
-        .fx .fx-pin-track { height: 300vh; }
-        .fx .fx-pin-stage {
-            position: sticky;
-            top: 0;
-            height: 100vh;
-            overflow: hidden;
-            display: grid;
-            place-items: center;
-        }
-
-        .fx .fx-pin-tiles { position: absolute; inset: 0; }
-        .fx .fx-pin-tile {
-            position: absolute;
-            left: var(--x);
-            top: var(--y);
-            width: var(--w);
-            aspect-ratio: 4 / 5;
-            border-radius: 2px;
-            overflow: hidden;
-            opacity: 0;
-            transform: translate3d(0, 34px, 0) scale(0.92);
-            transition: opacity 0.7s cubic-bezier(.22,.61,.36,1),
-                        transform 0.9s cubic-bezier(.22,.61,.36,1);
-            box-shadow: 0 14px 40px rgba(34, 32, 29, 0.13);
-        }
-        .fx .fx-pin-tile img {
-            width: 100%; height: 100%;
-            object-fit: cover;
-            display: block;
-        }
-        .fx .fx-pin-tile.is-on { opacity: 1; transform: none; }
-
-        .fx .fx-pin-center {
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            width: min(100% - 40px, 620px);
-        }
-        .fx .fx-pin-line { position: relative; display: grid; }
-        .fx .fx-pin-line > span {
-            grid-area: 1 / 1;
-            font-family: var(--fx-serif);
-            font-weight: 400;
-            font-size: clamp(1.5rem, 3.3vw, 2.6rem);
-            line-height: 1.02;
-            letter-spacing: -0.03em;
-            color: var(--fx-text);
-            opacity: 0;
-            transform: translate3d(0, 14px, 0);
-            transition: opacity 0.5s ease,
-                        transform 0.6s cubic-bezier(.22,.61,.36,1);
-        }
-        .fx .fx-pin-line > span.is-on { opacity: 1; transform: none; }
-
-        .fx .fx-pin-num {
-            font-family: var(--fx-sans);
-            font-size: 0.68rem;
-            font-weight: 600;
-            letter-spacing: 0.2em;
-            color: var(--fx-text-faint);
-            margin: 0 0 20px;
-        }
-        .fx .fx-pin-bar {
-            width: 100%;
-            max-width: 220px;
-            height: 2px;
-            margin: 30px auto 0;
-            background: var(--fx-border);
-            position: relative;
-            overflow: hidden;
-        }
-        .fx .fx-pin-bar i {
-            position: absolute;
-            inset: 0 auto 0 0;
-            width: 100%;
-            background: var(--fx-amber);
-            transform: scaleX(var(--pin-progress, 0));
-            transform-origin: 0 50%;
-        }
-
-        /* ---------- Pie y tarjeta de cierre ----------
-           Llegan en violeta oscuro desde css/footer-modern.min.css, que es
-           compartida con todo el sitio y no se toca. Se retiñen a tinta: el
-           cierre oscuro queda deliberado, igual que el bloque de tinta.
-
-           Los selectores replican la especificidad de la hoja original (dos
-           clases), porque `body .contact-item i` no le gana a
-           `.footer-contact-col .contact-item i`.
-
-           El verde de WhatsApp se conserva a propósito: es señal de marca. */
-        body .footer-modern,
-        body .footer-cta-card {
-            background: var(--fx-text);
-            color: rgba(245, 241, 232, 0.78);
-        }
-        body .footer-modern::before,
-        body .footer-modern::after { background: none; }
-
-        /* Los adornos venían en violeta; pasan a destellos de papel y terracota. */
-        body .footer-shape { background: rgba(245, 241, 232, 0.10); opacity: 1; }
-        body .footer-shape-2,
-        body .footer-shape-4 { background: rgba(194, 84, 47, 0.16); }
-
-        body .footer-cta-card h2 {
-            color: var(--fx-bg);
-            font-family: var(--fx-serif);
-            font-weight: 400;
-            line-height: 0.99;
-            letter-spacing: -0.03em;
-        }
-        body .footer-cta-card p { color: rgba(245, 241, 232, 0.70); }
-
-        /* El wordmark usa recorte de gradiente: hay que reponer ambas propiedades. */
-        body .footer-brand-col .footer-brand-name { color: var(--fx-bg); }
-        body .footer-brand-col .footer-brand-name span {
-            background: linear-gradient(135deg, var(--fx-amber), var(--fx-amber-text));
-            -webkit-background-clip: text;
-            background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
-
-        body .footer-modern .footer-col h3,
-        body .footer-modern .footer-col h4 { color: var(--fx-bg); }
-        body .footer-modern .footer-col h4::after {
-            background: linear-gradient(90deg, var(--fx-amber), var(--fx-amber-text));
-        }
-
-        body .footer-modern .footer-col ul li a,
-        body .footer-modern .footer-col a { color: rgba(245, 241, 232, 0.72); }
-        body .footer-modern .footer-col ul li a:hover,
-        body .footer-modern .footer-col a:hover { color: var(--fx-bg); }
-
-        body .footer-contact-col .contact-item { color: rgba(245, 241, 232, 0.72); }
-        body .footer-contact-col .contact-item i { color: var(--fx-amber); }
-        body .footer-contact-col .contact-item a { color: rgba(245, 241, 232, 0.72); }
-        body .footer-contact-col .contact-item a:hover { color: var(--fx-bg); }
-
-        body .footer-brand-col .footer-socials a {
-            color: rgba(245, 241, 232, 0.78);
-            background: rgba(245, 241, 232, 0.07);
-            border-color: rgba(245, 241, 232, 0.14);
-        }
-        body .footer-brand-col .footer-socials a:hover {
-            color: var(--fx-text);
-            background: var(--fx-amber);
-            border-color: var(--fx-amber);
-        }
-
-        body .footer-brand-col .footer-tagline { color: rgba(245, 241, 232, 0.58); }
-
-        body .footer-bottom-bar { border-top-color: rgba(245, 241, 232, 0.14); }
-        body .footer-bottom-bar .footer-legal-text,
-        body .footer-bottom-bar .footer-copyright { color: rgba(245, 241, 232, 0.52); }
-        body .footer-bottom-bar .footer-legal-links a { color: rgba(245, 241, 232, 0.62); }
-        body .footer-bottom-bar .footer-legal-links a:hover { color: var(--fx-amber); }
-
-        body .footer-social-proof .proof-label,
-        body .footer-social-proof .proof-metric { color: var(--fx-amber); }
-        body .footer-social-proof .proof-quote { color: rgba(245, 241, 232, 0.76); }
-        body .footer-social-proof .proof-role,
-        body .footer-social-proof .proof-metric span { color: rgba(245, 241, 232, 0.52); }
-        body .footer-social-proof .proof-cta a {
-            background: var(--fx-bg);
-            color: var(--fx-text);
-        }
-        body .footer-social-proof .proof-cta a:hover {
-            background: var(--fx-amber);
-            color: var(--fx-bg);
-        }
-
-        /* Los anillos de foco heredados eran violetas. */
-        body .footer-modern a:focus-visible,
-        body .footer-modern button:focus-visible {
-            outline: 2px solid var(--fx-amber);
-            outline-offset: 3px;
-        }
-
-        /* Título accesible de la secuencia fijada, sin ocupar espacio. */
-        .fx-sr-only {
-            position: absolute;
-            width: 1px; height: 1px;
-            padding: 0; margin: -1px;
-            overflow: hidden;
-            clip: rect(0, 0, 0, 0);
-            white-space: nowrap;
-            border: 0;
-        }
-
-        /* ---------- Movimiento reducido ---------- */
-        @media (prefers-reduced-motion: reduce) {
-            .fx .fx-hword i { transform: none; transition: none; }
-            .fx .fx-hero-video { display: none; }
-
-            .fx .fx-pin-track { height: auto; }
-            .fx .fx-pin-stage {
-                position: static;
-                height: auto;
-                display: flex;
-                flex-direction: column;
-                padding: clamp(72px, 10vh, 130px) 0;
-                overflow: visible;
-            }
-            .fx .fx-pin-center {
-                order: -1;
-                width: min(100% - 40px, 720px);
-                margin-inline: auto;
-                text-align: left;
-            }
-            .fx .fx-pin-line { display: block; }
-            .fx .fx-pin-line > span {
-                display: block;
-                grid-area: auto;
-                opacity: 1;
-                transform: none;
-                transition: none;
-                padding: 14px 0;
-                border-top: 1px solid var(--fx-border);
-                font-size: clamp(1.15rem, 2vw, 1.6rem);
-            }
-            .fx .fx-pin-bar { display: none; }
-            .fx .fx-pin-tiles {
-                position: static;
-                display: grid;
-                grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-                gap: 10px;
-                width: min(100% - 40px, var(--fx-max));
-                margin: 44px auto 0;
-            }
-            .fx .fx-pin-tile {
-                position: static;
-                left: auto; top: auto;
-                width: 100%;
-                opacity: 1;
-                transform: none;
-                transition: none;
-                box-shadow: none;
-            }
-        }
-
-        /* ---------- Adaptación ---------- */
-        @media (max-width: 900px) {
-            .fx .fx-art-split { grid-template-columns: 1fr; gap: 32px; }
-            .fx .fx-art-split--flip > .fx-art-figure { order: 0; }
-            .fx-hero-art img,
-            .fx-hero-video { object-position: 68% 34%; }
-            .fx-hero-art::after {
-                background:
-                    linear-gradient(170deg, var(--fx-bg) 0%,
-                                    rgba(245, 241, 232, 0.92) 40%,
-                                    rgba(245, 241, 232, 0.50) 74%,
-                                    rgba(245, 241, 232, 0.22) 100%);
-            }
-        }
-
-        @media (max-width: 620px) {
-            .fx .fx-btn { width: 100%; }
-            .fx .fx-hero-ctas { flex-direction: column; align-items: stretch; }
-            .fx .fx-pin-track { height: 260vh; }
-
-            /* Las teselas medidas en vw quedan diminutas en vertical; se
-               escalan y se retiran las dos que caen a la altura del texto. */
-            .fx .fx-pin-tile { width: calc(var(--w) * 1.9); }
-            .fx .fx-pin-tile:nth-child(5),
-            .fx .fx-pin-tile:nth-child(6) { display: none; }
-            .fx .fx-pin-center::before {
-                content: "";
-                position: absolute;
-                inset: -30px -18px;
-                z-index: -1;
-                background: radial-gradient(ellipse at center,
-                            var(--fx-bg-raised) 42%, rgba(239, 233, 220, 0) 80%);
-            }
-
-            .fx-hero-art::after {
-                background:
-                    linear-gradient(172deg, var(--fx-bg) 0%,
-                                    rgba(245, 241, 232, 0.90) 34%,
-                                    rgba(245, 241, 232, 0.44) 62%,
-                                    rgba(245, 241, 232, 0.24) 100%),
-                    linear-gradient(0deg, var(--fx-bg) 0%,
-                                    rgba(245, 241, 232, 0.92) 16%,
-                                    rgba(245, 241, 232, 0) 44%);
-            }
-        }
-
     </style>
 
 <!-- SEO:GENERATED -->
@@ -3869,13 +3200,13 @@
 <meta property="og:title" content="Fotolectura: curso de lectura rápida | WorldBrain México">
 <meta property="og:description" content="Fotolectura, sistema integral de lectura rápida para adolescentes y adultos: ejercicios visuales, comprensión, retención, síntesis y lectura crítica.">
 <meta property="og:url" content="https://ultravelozmente.com/fotolectura">
-<meta property="og:image" content="https://ultravelozmente.com/images/fotolectura-arte-atencion-lectura.webp">
+<meta property="og:image" content="https://ultravelozmente.com/images/fl-hero-brain.webp">
 <meta property="og:image:alt" content="Fotolectura: curso de lectura rápida">
 
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Fotolectura: curso de lectura rápida | WorldBrain México">
 <meta name="twitter:description" content="Fotolectura, sistema integral de lectura rápida para adolescentes y adultos: ejercicios visuales, comprensión, retención, síntesis y lectura crítica.">
-<meta name="twitter:image" content="https://ultravelozmente.com/images/fotolectura-arte-atencion-lectura.webp">
+<meta name="twitter:image" content="https://ultravelozmente.com/images/fl-hero-brain.webp">
 <meta name="twitter:image:alt" content="Fotolectura: curso de lectura rápida">
 
 
@@ -3956,7 +3287,7 @@
       },
       "primaryImageOfPage": {
         "@type": "ImageObject",
-        "url": "https://ultravelozmente.com/images/fotolectura-arte-atencion-lectura.webp"
+        "url": "https://ultravelozmente.com/images/fl-hero-brain.webp"
       },
       "mainEntity": {
         "@id": "https://ultravelozmente.com/fotolectura#course"
@@ -4133,18 +3464,6 @@
 </head>
 
 <body class="fx-body">
-
-    <!-- Marca-cinta: marcapáginas de tela anclado al borde. Interpretación
-         propia del recurso de marca fija de la referencia. -->
-    <a class="fx-ribbon" href="#oferta" aria-label="Ir a la información del programa">
-        <svg viewBox="0 0 46 104" aria-hidden="true" focusable="false">
-            <path d="M0 0h46v86L23 72 0 86Z" fill="#c2542f"></path>
-            <path d="M0 0h46v10H0Z" fill="#a63f1e" opacity=".55"></path>
-            <circle cx="23" cy="34" r="4.6" fill="#f5f1e8"></circle>
-            <circle cx="23" cy="49" r="2.6" fill="#f5f1e8" opacity=".72"></circle>
-            <circle cx="23" cy="59" r="1.5" fill="#f5f1e8" opacity=".45"></circle>
-        </svg>
-    </a>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-MWMFXQS7" height="0" width="0"
             style="display:none;visibility:hidden"></iframe></noscript>
@@ -4193,6 +3512,11 @@
             <a href="/#contacto" class="nav-pill-cta">Contacto</a>
         </div>
 
+        <button class="nav-pill-theme" id="navThemeToggle" aria-label="Cambiar tema claro/oscuro" title="Cambiar tema">
+            <span class="icon-moon">&#x1F319;</span>
+            <span class="icon-sun">&#x2600;&#xFE0F;</span>
+        </button>
+
         <button class="nav-pill-hamburger" id="navHamburger" aria-label="Abrir men&uacute;" aria-expanded="false" aria-controls="navMobilePanel">
             <span></span>
             <span></span>
@@ -4236,26 +3560,11 @@
 
         <!-- ══════════════ HERO ══════════════ -->
         <header class="fx-hero">
-            <!-- Pintura tratada: la trama de puntos sale de la página que lee y
-                 sube hacia su mirada. El libro queda intacto y legible: es la
-                 referencia al curso. El vídeo sólo se carga cuando procede; si
-                 no, esta imagen hace de póster. -->
-            <div class="fx-hero-art" aria-hidden="true">
-                <picture>
-                    <source media="(max-width: 700px)"
-                            srcset="images/fotolectura-arte-atencion-lectura-sm.webp">
-                    <img src="images/fotolectura-arte-atencion-lectura.webp"
-                         alt="" width="1600" height="1000" decoding="async" fetchpriority="high">
-                </picture>
-                <video class="fx-hero-video" data-hero-video muted loop playsinline
-                       preload="none" tabindex="-1"
-                       data-webm="images/fotolectura-hero-lectura.webm"
-                       data-mp4="images/fotolectura-hero-lectura.mp4"></video>
-            </div>
             <div class="fx-wrap">
-                <div class="fx-hero-copy">
+                <div class="fx-hero-grid">
+                    <div>
                         <span class="fx-eyebrow">Fotolectura · Sistema integral de lectura</span>
-                        <h1>Lees a la velocidad que te enseñaron, no a la que puedes.</h1>
+                        <h1>Leer rápido no es un don. Es una técnica que se entrena.</h1>
                         <p class="fx-lead">
                             Entrena <em class="fx-hl">percepción visual, comprensión, retención y lectura crítica</em>
                             con ejercicios guiados. Aprende a ampliar tu campo de lectura, leer grupos de palabras y elegir el ritmo adecuado según tu propósito.
@@ -4267,16 +3576,9 @@
                         <p class="fx-hero-proof">
                             Adolescentes y adultos<span class="fx-dot">·</span>Rutas de 4, 6 o 12 meses<span class="fx-dot">·</span>Horario flexible
                         </p>
-                </div>
-            </div>
-        </header>
+                    </div>
 
-        <!-- La demostración de ritmos sale del hero para que la pintura respire
-             y gana ancho. Conserva íntegros sus identificadores y clases, así
-             que el guion que la controla sigue funcionando igual. -->
-        <section class="fx-section fx-blk-warm" aria-label="Demostración de ritmos de lectura">
-            <div class="fx-wrap">
-                <div class="fx-demo" aria-label="Demostración visual de distintos ritmos de lectura">
+                    <div class="fx-demo" aria-label="Demostración visual de distintos ritmos de lectura">
                         <div class="fx-demo-head">
                             <span class="fx-demo-title">Prueba distintos ritmos de lectura</span>
                             <span class="fx-demo-book">demostración interactiva</span>
@@ -4289,11 +3591,9 @@
                         </div>
                         <p class="fx-demo-note" id="fxDemoNote">La estimación de tiempo usa como referencia un texto de 90,000 palabras.</p>
                     </div>
+                </div>
             </div>
-        </section>
-
-        <canvas class="fx-dissolve" data-dissolve
-                data-from="#efe9dc" data-to="#f5f1e8" aria-hidden="true"></canvas>
+        </header>
 
         <!-- ══════════════ BIBLIOTECA 3D ══════════════ -->
         <section class="fx-section fxb" id="tipos-de-lectura" aria-labelledby="fxbTitle">
@@ -4620,43 +3920,6 @@
 </section>
 
 <!-- ══════════════ LABORATORIO DEL MÉTODO ══════════════ -->
-        <canvas class="fx-dissolve" data-dissolve
-                data-from="#f5f1e8" data-to="#efe9dc" aria-hidden="true"></canvas>
-
-        <!-- Secuencia fijada: el recurso más fuerte de la referencia,
-             reinterpretado. Un lienzo fijo donde la frase del centro se releva
-             mientras entran teselas de pintura clásica. Cada tesela es una
-             fijación de la mirada y en las ocho se ve un libro. -->
-        <section class="fx-pin" aria-labelledby="fxPinTitle">
-            <h2 id="fxPinTitle" class="fx-sr-only">Cómo se entrena la mirada</h2>
-            <div class="fx-pin-track" data-pin>
-                <div class="fx-pin-stage">
-                    <div class="fx-pin-tiles" aria-hidden="true">
-                        <div class="fx-pin-tile" style="--x:6%;  --y:12%; --w:15vw"><img src="images/fotolectura-tesela-corot.webp" alt="" loading="lazy" decoding="async"></div>
-                        <div class="fx-pin-tile" style="--x:79%; --y:8%;  --w:12vw"><img src="images/fotolectura-tesela-rembrandt.webp" alt="" loading="lazy" decoding="async"></div>
-                        <div class="fx-pin-tile" style="--x:22%; --y:64%; --w:10vw"><img src="images/fotolectura-tesela-renoir.webp" alt="" loading="lazy" decoding="async"></div>
-                        <div class="fx-pin-tile" style="--x:66%; --y:58%; --w:17vw"><img src="images/fotolectura-tesela-fantin.webp" alt="" loading="lazy" decoding="async"></div>
-                        <div class="fx-pin-tile" style="--x:2%;  --y:40%; --w:8vw"><img src="images/fotolectura-tesela-vangogh.webp" alt="" loading="lazy" decoding="async"></div>
-                        <div class="fx-pin-tile" style="--x:87%; --y:36%; --w:9vw"><img src="images/fotolectura-tesela-fragonard.webp" alt="" loading="lazy" decoding="async"></div>
-                        <div class="fx-pin-tile" style="--x:37%; --y:3%;  --w:11vw"><img src="images/fotolectura-tesela-chardin.webp" alt="" loading="lazy" decoding="async"></div>
-                        <div class="fx-pin-tile" style="--x:52%; --y:76%; --w:8vw"><img src="images/fotolectura-tesela-peddler.webp" alt="" loading="lazy" decoding="async"></div>
-                        <div class="fx-pin-tile" style="--x:11%; --y:84%; --w:13vw"><img src="images/fotolectura-tesela-rembrandt.webp" alt="" loading="lazy" decoding="async"></div>
-                    </div>
-                    <div class="fx-pin-center">
-                        <p class="fx-pin-num" data-pin-num>01 — 05</p>
-                        <div class="fx-pin-line" data-pin-lines>
-                            <span>Tus ojos ya son bastante rápidos.</span>
-                            <span>Lo que te frena es volver atrás.</span>
-                            <span>Cada parada de la mirada cuesta unos 250 milisegundos.</span>
-                            <span>Agrupar palabras multiplica lo que cabe en cada parada.</span>
-                            <span>Ahí, y sólo ahí, empieza la fotolectura.</span>
-                        </div>
-                        <div class="fx-pin-bar" aria-hidden="true"><i></i></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
 <section class="fx-section fx-section-lab" id="metodologia">
     <div class="fx-wrap">
         <div class="fx-section-head">
@@ -4771,7 +4034,7 @@
         </div>
         <div class="fx-fit-layout">
             <figure class="fx-fit-media">
-                <img src="images/fotolectura-arte-diagnostico-fijaciones.webp" alt="Pintura clásica de una lectora concentrada; la trama de puntos nace de la página hacia su mirada" width="1376" height="768" loading="lazy" decoding="async">
+                <img src="images/fotolectura-encaje-lectura-enfocada.webp" alt="Persona adulta leyendo con atención en un escritorio junto a una ventana con luz natural" width="1376" height="768" loading="lazy" decoding="async">
             </figure>
             <div class="fx-fit-board">
             <article class="fx-fit-card" data-index="1"><span>01 · Estudio</span><h3>Adolescentes y adultos con materiales académicos</h3><p>Para abordar libros, apuntes y textos informativos con más estrategia, organización y criterio de profundidad.</p></article>
@@ -4871,7 +4134,7 @@
     <div class="fx-wrap">
         <div class="fx-section-head">
             <span class="fx-eyebrow">Temario del curso de Fotolectura</span>
-            <h2>Un método que se construye en cinco capas.</h2>
+            <h2>Cinco bloques para convertir la lectura en una herramienta.</h2>
             <p>El programa desarrolla percepción, comprensión y tres técnicas de lectura inteligente con aplicaciones para estudiar, trabajar y organizar información.</p>
         </div>
         <div class="fx-program-explorer">
@@ -4918,10 +4181,10 @@
 <!-- ══════════════ PROGRESO OBSERVABLE ══════════════ -->
 <section class="fx-section" id="resultados-realistas">
     <div class="fx-wrap">
-        <div class="fx-section-head"><span class="fx-eyebrow">Haz visible tu avance</span><h2>El progreso se mide, no se promete.</h2><p>Observa velocidad y comprensión con textos nuevos de dificultad similar, antes y después de practicar. Así puedes reconocer tendencias y descubrir en qué tipos de lectura has ganado más soltura.</p></div>
+        <div class="fx-section-head"><span class="fx-eyebrow">Haz visible tu avance</span><h2>Compara tu lectura antes y después de practicar.</h2><p>Observa velocidad y comprensión con textos nuevos de dificultad similar. Así puedes reconocer tendencias y descubrir en qué tipos de lectura has ganado más soltura.</p></div>
         <div class="fx-progress-layout">
             <figure class="fx-progress-media">
-                <img src="images/fotolectura-arte-metodo-comprension.webp" alt="Pintura clásica de una lectora sobre un libro abierto de texto legible, con la trama saliendo de la página" width="1376" height="768" loading="lazy" decoding="async">
+                <img src="images/fotolectura-progreso-diario-practica.webp" alt="Cuaderno de práctica con anotaciones de seguimiento y un reloj analógico sobre un escritorio" width="1376" height="768" loading="lazy" decoding="async">
             </figure>
             <div class="fx-progress-board">
             <article class="fx-progress-step"><span>01</span><h3>Tu punto de partida</h3><p>Registra texto, tiempo, palabras por minuto y respuestas correctas en una primera medición.</p><div class="fx-progress-signal" aria-hidden="true"><i></i><i></i><i></i></div></article>
@@ -4935,9 +4198,9 @@
 <!-- ══════════════ RECURSOS EDITORIALES ══════════════ -->
 <section class="fx-section" id="recursos">
     <div class="fx-wrap">
-        <div class="fx-section-head"><span class="fx-eyebrow">Sigue explorando</span><h2>Material para practicar desde el primer día.</h2><p>Conoce las fases del método, la relación entre rapidez y comprensión y ejercicios que puedes aplicar a tu próxima lectura.</p></div>
+        <div class="fx-section-head"><span class="fx-eyebrow">Sigue explorando</span><h2>Ideas para empezar a entrenar desde hoy.</h2><p>Conoce las fases del método, la relación entre rapidez y comprensión y ejercicios que puedes aplicar a tu próxima lectura.</p></div>
         <figure class="fx-resource-media">
-            <img src="images/fotolectura-arte-cierre-oficio.webp" alt="Pintura clásica de un vendedor de libros; los impresos que sostiene se disuelven en trama de puntos" width="1376" height="768" loading="lazy" decoding="async">
+            <img src="images/fotolectura-recursos-mesa-lectura.webp" alt="Mesa de estudio con libros, laptop cerrada y notas adhesivas junto a lentes de lectura" width="1376" height="768" loading="lazy" decoding="async">
         </figure>
         <div class="fx-resource-grid">
             <article class="fx-resource-card"><span class="fx-resource-type">Guía · Fotolectura</span><h3>Qué es la Fotolectura</h3><p>Un recorrido por sus fases, usos y la manera de elegir profundidad según el objetivo.</p><div class="fx-resource-links"><a class="fx-resource-link" href="/blog-fotolectura-que-es-como-funciona">Conocer el método</a></div></article>
@@ -4950,7 +4213,7 @@
 <!-- ══════════════ FAQ EDITORIAL ══════════════ -->
 <section class="fx-section" id="faq">
     <div class="fx-wrap">
-        <div class="fx-section-head"><span class="fx-eyebrow">Preguntas frecuentes</span><h2>Las preguntas que resuelven la decisión.</h2></div>
+        <div class="fx-section-head"><span class="fx-eyebrow">Preguntas frecuentes</span><h2>Respuestas claras antes de empezar.</h2></div>
         <div class="fx-faq-layout">
             <aside class="fx-faq-intro"><span class="fx-faq-count">10</span><div><strong>Respuestas esenciales</strong><p>Duración, práctica, técnicas, grupo, público e inversión.</p></div><a href="#oferta">¿Otra duda? Conversemos →</a></aside>
             <div class="fx-faq">
@@ -5556,209 +4819,6 @@ $$('[data-fx-tabs]').forEach(function (root) {
                     String(today.getDate()).padStart(2, '0');
                 datePicker.min = iso;
             }
-
-
-            /* ══════════════════════════════════════════════════════════════
-               DIRECCIÓN DE ARTE — motor de los recursos nuevos
-
-               Se apoya en lo que ya existe en este ámbito: `$`, `$$` y
-               `reduceMotion`. Nada se anima con keyframes: igual que en la
-               referencia auditada, el scroll es la línea de tiempo.
-               ══════════════════════════════════════════════════════════════ */
-
-            /* ---------- Titular troceado por palabras ----------
-               Recorremos los nodos hijos y reemitimos los espacios tal cual,
-               para no separar la puntuación de la última palabra ni romper el
-               <em> del titular. */
-            (function heroWords() {
-                var host = $('.fx-hero h1');
-                if (!host) return;
-                if (reduceMotion) { host.classList.add('is-lit'); return; }
-
-                var i = 0;
-                var out = document.createDocumentFragment();
-
-                Array.prototype.slice.call(host.childNodes).forEach(function (node) {
-                    if (node.nodeType !== 3) { out.appendChild(node.cloneNode(true)); return; }
-                    node.nodeValue.split(/(\s+)/).forEach(function (chunk) {
-                        if (!chunk) return;
-                        if (/^\s+$/.test(chunk)) {
-                            out.appendChild(document.createTextNode(chunk));
-                            return;
-                        }
-                        var w = document.createElement('span');
-                        w.className = 'fx-hword';
-                        var inner = document.createElement('i');
-                        inner.textContent = chunk;
-                        inner.style.setProperty('--w-delay', (i++ * 55) + 'ms');
-                        w.appendChild(inner);
-                        out.appendChild(w);
-                    });
-                });
-
-                host.textContent = '';
-                host.appendChild(out);
-                requestAnimationFrame(function () { host.classList.add('is-lit'); });
-            })();
-
-            /* ---------- Vídeo del hero ----------
-               Sólo se carga si tiene sentido: nunca con movimiento reducido,
-               nunca en pantallas estrechas y nunca con ahorro de datos. En esos
-               casos la pintura fija ya está debajo y hace de póster, así que no
-               se descarga nada de más. Si el navegador bloquea la reproducción
-               automática también se queda la pintura quieta: no hay estado roto
-               posible. */
-            (function heroVideo() {
-                var v = $('[data-hero-video]');
-                if (!v) return;
-                if (reduceMotion) return;
-                if (window.matchMedia('(max-width: 900px)').matches) return;
-
-                var link = navigator.connection || navigator.mozConnection;
-                if (link && (link.saveData ||
-                    /(^|-)(2g|slow-2g)$/.test(link.effectiveType || ''))) return;
-
-                [['webm', 'video/webm'], ['mp4', 'video/mp4']].forEach(function (pair) {
-                    var url = v.dataset[pair[0]];
-                    if (!url) return;
-                    var s = document.createElement('source');
-                    s.src = url;
-                    s.type = pair[1];
-                    v.appendChild(s);
-                });
-
-                v.addEventListener('playing', function () {
-                    v.classList.add('is-on');
-                }, { once: true });
-
-                v.load();
-                var intento = v.play();
-                if (intento && intento.catch) intento.catch(function () { /* queda el póster */ });
-            })();
-
-            /* ---------- Bandas de disolvencia entre bloques ----------
-               Mismo recurso que en la referencia (un canvas 2D deshace un color
-               en el siguiente) pero dibujado con la trama de semitono de esta
-               página: una rejilla desplazada donde la probabilidad de tinta
-               crece con la altura. */
-            (function dissolveBands() {
-                var bands = $$('[data-dissolve]');
-                if (!bands.length) return;
-
-                var CELL = 7;
-
-                function paint(cv) {
-                    var from = cv.dataset.from || '#f5f1e8';
-                    var to = cv.dataset.to || '#efe9dc';
-                    var dpr = Math.min(window.devicePixelRatio || 1, 2);
-                    var w = cv.clientWidth;
-                    var h = cv.clientHeight;
-                    if (!w || !h) return;
-
-                    cv.width = Math.round(w * dpr);
-                    cv.height = Math.round(h * dpr);
-
-                    var g = cv.getContext('2d');
-                    if (!g) return;
-                    g.setTransform(dpr, 0, 0, dpr, 0, 0);
-                    g.fillStyle = from;
-                    g.fillRect(0, 0, w, h);
-                    g.fillStyle = to;
-
-                    var cols = Math.ceil(w / CELL) + 2;
-                    var rows = Math.ceil(h / CELL) + 2;
-
-                    for (var r = 0; r < rows; r++) {
-                        var t = r / (rows - 1);
-                        var p = Math.pow(t, 0.85);
-                        for (var c = 0; c < cols; c++) {
-                            if (Math.random() > p) continue;
-                            var offset = (r % 2) * (CELL / 2);
-                            var radius = (CELL / 2) * (0.42 + 0.58 * p);
-                            g.beginPath();
-                            g.arc(c * CELL + offset, r * CELL, radius, 0, Math.PI * 2);
-                            g.fill();
-                        }
-                    }
-                    /* Los últimos píxeles quedan sólidos: la banda entrega el
-                       color limpio al bloque siguiente y no se ve el corte. */
-                    g.fillRect(0, h - CELL, w, CELL);
-                }
-
-                function paintAll() { bands.forEach(paint); }
-                paintAll();
-
-                var timer;
-                window.addEventListener('resize', function () {
-                    clearTimeout(timer);
-                    timer = setTimeout(paintAll, 180);
-                });
-            })();
-
-            /* ---------- Secuencia fijada: constelación de fijaciones ----------
-               El recorrido del contenedor fijado se traduce en un progreso 0..1
-               que releva la frase del centro y va encendiendo las teselas. */
-            (function pinnedSequence() {
-                var track = $('[data-pin]');
-                if (!track) return;
-
-                var stage = $('.fx-pin-stage', track);
-                var lines = $$('[data-pin-lines] > span', track);
-                var tiles = $$('.fx-pin-tile', track);
-                var num = $('[data-pin-num]', track);
-                if (!stage || lines.length < 2) return;
-
-                var pad = function (n) { return (n < 10 ? '0' : '') + n; };
-
-                if (reduceMotion) {
-                    lines.forEach(function (el) { el.classList.add('is-on'); });
-                    tiles.forEach(function (el) { el.classList.add('is-on'); });
-                    if (num) num.textContent = '01 — ' + pad(lines.length);
-                    return;
-                }
-
-                var queued = false;
-                var lastStep = -1;
-
-                function render() {
-                    queued = false;
-
-                    var box = track.getBoundingClientRect();
-                    var span = track.offsetHeight - window.innerHeight;
-                    if (span <= 0) return;
-
-                    var p = Math.min(Math.max(-box.top / span, 0), 1);
-                    stage.style.setProperty('--pin-progress', p.toFixed(4));
-
-                    /* La frase ocupa una franja del recorrido; el reparto deja
-                       aire al principio y al final para que el relevo no
-                       coincida con la entrada ni la salida del fijado. */
-                    var eased = Math.min(Math.max((p - 0.06) / 0.86, 0), 0.9999);
-                    var step = Math.floor(eased * lines.length);
-
-                    if (step !== lastStep) {
-                        lastStep = step;
-                        lines.forEach(function (el, i) {
-                            el.classList.toggle('is-on', i === step);
-                        });
-                        if (num) num.textContent = pad(step + 1) + ' — ' + pad(lines.length);
-                    }
-
-                    tiles.forEach(function (el, i) {
-                        el.classList.toggle('is-on', p >= 0.08 + (i / tiles.length) * 0.74);
-                    });
-                }
-
-                function schedule() {
-                    if (queued) return;
-                    queued = true;
-                    requestAnimationFrame(render);
-                }
-
-                window.addEventListener('scroll', schedule, { passive: true });
-                window.addEventListener('resize', schedule);
-                render();
-            })();
 
             /* ---------- Biblioteca 3D: pila de libros dirigida por scroll ----------
                El scroll define qué libro está en foco: el resto queda tumbado en la

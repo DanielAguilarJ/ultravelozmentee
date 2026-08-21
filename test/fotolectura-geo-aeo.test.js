@@ -54,7 +54,7 @@ function correctOptionText(questionName, answerValue) {
 
 test('la propuesta inicial explica el valor del curso sin autoproclamarse superior', () => {
     const h1 = normalize(landingDocument.querySelector('h1')?.textContent);
-    assert.equal(h1, 'Leer rápido no es un don. Es una técnica que se entrena.');
+    assert.equal(h1, 'Lees a la velocidad que te enseñaron, no a la que puedes.');
 
     const section = landingDocument.querySelector('#como-elegir');
     assert.ok(section, 'falta la propuesta de valor #como-elegir');

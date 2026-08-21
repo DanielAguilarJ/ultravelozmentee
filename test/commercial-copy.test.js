@@ -107,7 +107,7 @@ test('la FAQ visible de portada coincide exactamente con su FAQPage', () => {
 test('Fotolectura vende una práctica útil y conserva límites factuales sin parecer un informe', () => {
   const { html, document, visible } = loadPage('fotolectura.html');
 
-  assert.equal(text(document.querySelector('h1')), 'Leer rápido no es un don. Es una técnica que se entrena.');
+  assert.equal(text(document.querySelector('h1')), 'Lees a la velocidad que te enseñaron, no a la que puedes.');
   assert.doesNotMatch(
     html,
     /no predice tu resultado/i,
@@ -135,7 +135,7 @@ test('Fotolectura vende una práctica útil y conserva límites factuales sin pa
   );
   assert.equal(
     text(document.querySelector('#programa h2')),
-    'Cinco bloques para convertir la lectura en una herramienta.',
+    'Un método que se construye en cinco capas.',
   );
   assert.equal(document.querySelector('#instructor'), null, 'no debe exhibirse un perfil de instructor ausente');
   assert.equal(

@@ -297,27 +297,95 @@ def main():
     assert src.count(ancla_js) == 1, "no se localizo el inicio de la biblioteca 3D"
     src = src.replace(ancla_js, js + ancla_js, 1)
 
+    # ── 11. Copy de venta y coherencia de arte ────────────────────────────
+    # El titular del hero vuelve al aprobado por el cliente. Los titulares de
+    # sección que sonaban a blog ("Respuestas claras…", "Compara tu lectura…",
+    # "Ideas para empezar…", "Cinco bloques…") se reescriben con la voz
+    # editorial del resto de la página. El contenido interno de cada sección no
+    # se toca: los tests verifican ese contenido, no estos titulares. Las
+    # aserciones de test que fijaban el H1 y el h2 de #programa se actualizan
+    # aparte, en sus ficheros, a esta copia aprobada.
+    reemplazos_copy = [
+        ("<h1>Leer rápido no es un don. Es una técnica que se entrena.</h1>",
+         "<h1>Lees a la velocidad que te enseñaron, no a la que puedes.</h1>"),
+        ("<h2>Respuestas claras antes de empezar.</h2>",
+         "<h2>Las preguntas que resuelven la decisión.</h2>"),
+        ("<h2>Compara tu lectura antes y después de practicar.</h2>",
+         "<h2>El progreso se mide, no se promete.</h2>"),
+        # La frase "antes y después de practicar" era contenido GEO exigido y
+        # sólo vivía en el titular que se reescribe; se conserva en el párrafo.
+        ("<p>Observa velocidad y comprensión con textos nuevos de dificultad similar. Así puedes reconocer tendencias y descubrir en qué tipos de lectura has ganado más soltura.</p>",
+         "<p>Observa velocidad y comprensión con textos nuevos de dificultad similar, antes y después de practicar. Así puedes reconocer tendencias y descubrir en qué tipos de lectura has ganado más soltura.</p>"),
+        ("<h2>Ideas para empezar a entrenar desde hoy.</h2>",
+         "<h2>Material para practicar desde el primer día.</h2>"),
+        ("<h2>Cinco bloques para convertir la lectura en una herramienta.</h2>",
+         "<h2>Un método que se construye en cinco capas.</h2>"),
+    ]
+    for viejo, nuevo in reemplazos_copy:
+        assert src.count(viejo) == 1, "copy no encontrado: %s" % viejo
+        src = src.replace(viejo, nuevo, 1)
+
+    # Las tres fotografías de stock modernas rompían la dirección de arte (el
+    # resto de la página es pintura clásica tratada con semitono). Se sustituyen
+    # por piezas de arte ya publicadas y hasta ahora sin usar, coherentes con el
+    # tema de cada sección. Sólo cambia el origen y el texto alternativo; el
+    # marcado y el encuadre (object-fit) se conservan.
+    reemplazos_img = [
+        # #para-quien (encaje del lector) → Corot, mujer leyendo
+        ('src="images/fotolectura-encaje-lectura-enfocada.webp" alt="Persona adulta leyendo con atención en un escritorio junto a una ventana con luz natural"',
+         'src="images/fotolectura-arte-diagnostico-fijaciones.webp" alt="Pintura clásica de una lectora concentrada; la trama de puntos nace de la página hacia su mirada"'),
+        # #resultados-realistas (progreso) → Rembrandt, anciana leyendo
+        ('src="images/fotolectura-progreso-diario-practica.webp" alt="Cuaderno de práctica con anotaciones de seguimiento y un reloj analógico sobre un escritorio"',
+         'src="images/fotolectura-arte-metodo-comprension.webp" alt="Pintura clásica de una lectora sobre un libro abierto de texto legible, con la trama saliendo de la página"'),
+        # #recursos (mesa de lectura) → el buhonero de libros
+        ('src="images/fotolectura-recursos-mesa-lectura.webp" alt="Mesa de estudio con libros, laptop cerrada y notas adhesivas junto a lentes de lectura"',
+         'src="images/fotolectura-arte-cierre-oficio.webp" alt="Pintura clásica de un vendedor de libros; los impresos que sostiene se disuelven en trama de puntos"'),
+    ]
+    for viejo, nuevo in reemplazos_img:
+        assert src.count(viejo) == 1, "img no encontrada: %s" % viejo[:60]
+        src = src.replace(viejo, nuevo, 1)
+
+    # La imagen social (og:image, twitter:image y el ImageObject del JSON-LD)
+    # apuntaba al hero antiguo; se dirige al arte del nuevo hero. No hay <img>
+    # visible con ese archivo, así que el reemplazo global es seguro.
+    n_soc = src.count("fl-hero-brain.webp")
+    assert n_soc == 3, "se esperaban 3 referencias a la imagen social, hay %d" % n_soc
+    src = src.replace("fl-hero-brain.webp", "fotolectura-arte-atencion-lectura.webp")
+
     open(DESTINO, "w", encoding="utf-8").write(src)
     print("  %s escrito: %d bytes" % (DESTINO, len(src)))
 
     if "--sustituir" in sys.argv:
-        # Sustitución explícita: el contenido nuevo pasa a ser la página real y
-        # el fichero de trabajo desaparece. Se hace copia de seguridad antes y
-        # se retira el `noindex`, que sólo existía para no competir con la
-        # original mientras convivían.
-        import shutil
-        shutil.copy2(ORIGEN, RESPALDO)
-        final = src.replace('''<!-- MIENTRAS ESTA PÁGINA CONVIVA CON /fotolectura: fuera del índice para no
-         competir consigo misma. Al sustituir la original, borrar esta línea. -->
-    <meta name="robots" content="noindex, nofollow">
-    ''', "")
-        assert 'content="noindex, nofollow"' not in final, "quedo un noindex sin retirar"
+        # ── Puesta en producción ──────────────────────────────────────────
+        # La página nueva pasa a ser /fotolectura (misma ruta, mismo sitemap).
+        # La anterior se ARCHIVA en _archive/ (no se olvida y el audit SEO no la
+        # ve, porque sólo escanea la raíz), de modo que no queda una página
+        # gemela con el mismo título/canonical. Reversible: basta copiar de
+        # vuelta el archivo de _archive/.
+        import os, shutil, datetime, re as _re
+
+        os.makedirs("_archive", exist_ok=True)
+        stamp = datetime.date.today().isoformat()
+        archivo = "_archive/fotolectura-landing-%s.html" % stamp
+        shutil.copy2(ORIGEN, archivo)          # guarda la anterior intacta
+
+        # Retira el `noindex` de preview; queda el index,follow real del bloque SEO.
+        final = _re.sub(
+            r'\s*<!-- MIENTRAS ESTA PÁGINA CONVIVA[\s\S]*?-->\s*'
+            r'<meta name="robots" content="noindex, nofollow">\n',
+            "\n    ", src, count=1)
+
+        # Salvaguardas antes de publicar.
+        assert 'content="noindex, nofollow"' not in final, "quedó un noindex"
+        assert final.count('<meta name="robots"') == 1, "debe quedar una sola meta robots"
+        assert 'rel="canonical" href="https://ultravelozmente.com/fotolectura"' in final, \
+            "canonical de producción incorrecta"
+
         open(ORIGEN, "w", encoding="utf-8").write(final)
-        import os
         os.remove(DESTINO)
-        print("  SUSTITUIDO: %s es ahora la página, %s retirado" % (ORIGEN, DESTINO))
-        print("  respaldo de la anterior en %s" % RESPALDO)
-        print("  para deshacer:  cp %s %s" % (RESPALDO, ORIGEN))
+        print("  PRODUCCIÓN: %s es ahora la página nueva, indexada" % ORIGEN)
+        print("  anterior archivada en %s" % archivo)
+        print("  para deshacer:  cp %s %s" % (archivo, ORIGEN))
 
     return 0
 

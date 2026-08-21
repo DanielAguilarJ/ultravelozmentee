@@ -12,10 +12,9 @@
  *   el pipeline heredado en lugar de derivarse de src/_data/site.json.
  *
  * Estos guards obligan a que la identidad viva en UN solo archivo y a que
- * cada representación servible sea una copia exacta de esa fuente. El texto
- * canónico del tagline no se inventa aquí: es el que ya se revisó y publicó
- * en fotolectura.html, que atribuye el año fundacional en lugar de afirmar
- * autoridad.
+ * cada representación servible sea una copia exacta de esa fuente. El
+ * tagline se mantiene comercial; el año fundacional conserva su campo
+ * canónico sin convertirse en una nota defensiva visible en todos los pies.
  */
 
 const test = require('node:test');
@@ -64,10 +63,20 @@ test('el tagline canónico no afirma autoridad ni impacto sin evidencia', () => 
   }
 });
 
-test('el tagline cita el año fundacional declarado en site.json', () => {
+test('el tagline mantiene voz comercial y separa los datos institucionales', () => {
+  assert.match(
+    SITE.tagline,
+    /lectura.*cálculo.*tecnología.*aprender mejor/i,
+    'el tagline debe describir de forma concreta la propuesta educativa',
+  );
+  assert.doesNotMatch(
+    SITE.tagline,
+    /año fundacional|por confirmar|antes de inscribirse|condiciones vigentes/i,
+    'el tagline no debe parecer una nota de auditoría o condiciones',
+  );
   assert.ok(
-    SITE.tagline.includes(String(SITE.foundedYear)),
-    `El tagline debe citar foundedYear (${SITE.foundedYear}) para no abrir una segunda fuente de año`,
+    !SITE.tagline.includes(String(SITE.foundedYear)),
+    'el año pertenece a foundedYear y foundingStatement, no al tagline comercial',
   );
 });
 

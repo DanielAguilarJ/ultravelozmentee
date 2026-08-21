@@ -31,7 +31,16 @@ function sitemapDeclarado() {
 function paginasDeCurso() {
   return fs.readdirSync(ROOT)
     .filter((f) => f.endsWith('.html') && !f.startsWith('blog-'))
-    .filter((f) => /"@type":\s*"Course"/.test(fs.readFileSync(path.join(ROOT, f), 'utf8')));
+    .map((f) => [f, fs.readFileSync(path.join(ROOT, f), 'utf8')])
+    .filter(([, html]) => /"@type":\s*"Course"/.test(html))
+    // Una página marcada `noindex` no debe estar en el sitemap ni esperar
+    // enlaces internos: Google pide explícitamente no declarar en el sitemap
+    // URLs excluidas del índice, y enlazar a ellas no aporta rastreo. Sin esto,
+    // cualquier página de curso en preparación (una variante en revisión, por
+    // ejemplo) hacía fallar estas dos comprobaciones exigiendo justo lo
+    // contrario de lo que debe hacerse con ella.
+    .filter(([, html]) => !/<meta\s+name="robots"[^>]*content="[^"]*noindex/i.test(html))
+    .map(([f]) => f);
 }
 
 test('toda página de curso está declarada en el sitemap', () => {

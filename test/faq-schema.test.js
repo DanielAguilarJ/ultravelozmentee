@@ -68,7 +68,13 @@ function faqNodes(html) {
 const pages = fs.readdirSync(ROOT).filter(f => f.endsWith('.html'));
 const coursePages = pages.filter(file => {
     const html = fs.readFileSync(path.join(ROOT, file), 'utf8');
-    return /"@type"\s*:\s*"Course"/.test(html);
+    if (!/"@type"\s*:\s*"Course"/.test(html)) return false;
+    // Mismo criterio que test/cobertura-rastreo.test.js: una página marcada
+    // `noindex` no está publicada, así que las obligaciones de publicación
+    // (FAQ visible y su FAQPage) todavía no le aplican. La comprobación sigue
+    // cubriendo todas las páginas de curso que sí están en el índice, y la
+    // exigencia vuelve en cuanto se le retire el `noindex`.
+    return !/<meta\s+name="robots"[^>]*content="[^"]*noindex/i.test(html);
 });
 
 test('todas las páginas de curso publican FAQ visible y FAQPage', () => {

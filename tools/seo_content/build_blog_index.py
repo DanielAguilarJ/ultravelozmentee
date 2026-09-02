@@ -36,6 +36,9 @@ PLANS = (
     ROOT / "reports" / "seo" / "editorial-plan-60-posts.json",
     ROOT / "reports" / "seo" / "editorial-plan-500-posts.json",
     ROOT / "reports" / "seo" / "editorial-plan-national-international.json",
+    ROOT / "reports" / "seo" / "editorial-plan-lectura-2026-09.json",
+    ROOT / "reports" / "seo" / "editorial-plan-lectoescritura-2026-09.json",
+    ROOT / "reports" / "seo" / "editorial-plan-lectoescritura-secundaria-2026-09.json",
 )
 POSTS_DIR = ROOT / "content" / "posts"
 INDEX = ROOT / "blog-index.html"

@@ -27,6 +27,10 @@ PLANS = (
     ROOT / "reports" / "seo" / "editorial-plan-lectura-2026-09.json",
     ROOT / "reports" / "seo" / "editorial-plan-lectoescritura-2026-09.json",
     ROOT / "reports" / "seo" / "editorial-plan-lectoescritura-secundaria-2026-09.json",
+    ROOT / "reports" / "seo" / "editorial-plan-mathekids-soroban-2026-09.json",
+    ROOT / "reports" / "seo" / "editorial-plan-mathekids-matematicas-2026-09.json",
+    ROOT / "reports" / "seo" / "editorial-plan-ciencia-astronomia-2026-09.json",
+    ROOT / "reports" / "seo" / "editorial-plan-memoria-2026-09.json",
 )
 
 TOOLS_DIR = ROOT / "tools"

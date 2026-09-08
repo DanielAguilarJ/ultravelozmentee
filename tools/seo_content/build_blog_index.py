@@ -39,6 +39,10 @@ PLANS = (
     ROOT / "reports" / "seo" / "editorial-plan-lectura-2026-09.json",
     ROOT / "reports" / "seo" / "editorial-plan-lectoescritura-2026-09.json",
     ROOT / "reports" / "seo" / "editorial-plan-lectoescritura-secundaria-2026-09.json",
+    ROOT / "reports" / "seo" / "editorial-plan-mathekids-soroban-2026-09.json",
+    ROOT / "reports" / "seo" / "editorial-plan-mathekids-matematicas-2026-09.json",
+    ROOT / "reports" / "seo" / "editorial-plan-ciencia-astronomia-2026-09.json",
+    ROOT / "reports" / "seo" / "editorial-plan-memoria-2026-09.json",
 )
 POSTS_DIR = ROOT / "content" / "posts"
 INDEX = ROOT / "blog-index.html"
@@ -79,6 +83,7 @@ CLUSTER_TOPIC = {
     "tecnologia-educativa": "tecnologia",
     "habilidades-blandas": "liderazgo",
     "aprendizaje-temprano": "infancia",
+    "ciencia-ninos": "infancia",
     "desarrollo-profesional": "liderazgo",
     "crianza-educacion": "infancia",
     "neurociencia-aprendizaje": "cerebro",

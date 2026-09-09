@@ -994,6 +994,27 @@ if __name__ == "__main__":
         print("\n--- (truncado) ---")
         sys.exit(0)
 
+    if "--check" in sys.argv:
+        stale: list[str] = []
+        for post_id in renderable:
+            meta = plan[post_id]
+            out_path = OUT_DIR / f"blog-{meta['slug']}.html"
+            expected = render_post(post_id)
+            if not out_path.exists() or out_path.read_text(encoding="utf-8") != expected:
+                stale.append(out_path.name)
+        if orphan_content:
+            stale.extend(f"contenido-sin-plan:{post_id}" for post_id in orphan_content)
+        if stale:
+            print("❌ HTML generado ausente o desactualizado:")
+            for name in stale[:20]:
+                print(f"  {name}")
+            if len(stale) > 20:
+                print(f"  ... y {len(stale) - 20} más")
+            print("Fix: python3 tools/seo_content/build_html.py")
+            sys.exit(1)
+        print(f"✅ HTML generado sincronizado: {len(renderable)} posts.")
+        sys.exit(0)
+
     def write_text_if_changed(path: Path, text: str) -> bool:
         if path.exists() and path.read_text(encoding="utf-8") == text:
             return False

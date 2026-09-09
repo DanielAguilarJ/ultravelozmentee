@@ -29,6 +29,7 @@ from __future__ import annotations
 import html as html_mod
 import json
 import re
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).parents[2]
@@ -202,8 +203,6 @@ def main() -> None:
             return
         path.write_text(text, encoding="utf-8")
 
-    write_text_if_changed(INDEX, raw)
-
     # data/posts.json alimenta GET /api/posts. El cargador dinámico deduplica
     # por slug, así que no duplica las tarjetas estáticas que acabamos de
     # inyectar; queda como fuente para el API y para clientes futuros.
@@ -223,6 +222,21 @@ def main() -> None:
         })
     POSTS_JSON.parent.mkdir(parents=True, exist_ok=True)
     posts_json = json.dumps(posts, ensure_ascii=False, indent=2) + "\n"
+
+    if "--check" in sys.argv:
+        stale: list[str] = []
+        if not INDEX.exists() or INDEX.read_text(encoding="utf-8") != raw:
+            stale.append(INDEX.name)
+        if not POSTS_JSON.exists() or POSTS_JSON.read_text(encoding="utf-8") != posts_json:
+            stale.append(str(POSTS_JSON.relative_to(ROOT)))
+        if stale:
+            print(f"❌ Índice generado desactualizado: {', '.join(stale)}")
+            print("Fix: python3 tools/seo_content/build_blog_index.py")
+            raise SystemExit(1)
+        print(f"✅ Índice y API sincronizados: {len(plan)} posts.")
+        return
+
+    write_text_if_changed(INDEX, raw)
     write_text_if_changed(POSTS_JSON, posts_json)
 
     print(f"blog-index.html: {len(plan)} tarjetas inyectadas")

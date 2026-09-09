@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # ================================================================
-# check.sh v2 — Quality gates locales. Espejo del CI.
+# check.sh v3 — Quality gates locales. Espejo del CI.
 # Instalación (una vez por clon):
 #   chmod +x check.sh && ln -sf ../../check.sh .git/hooks/pre-commit
 # Cada gate existe porque su bug ya ocurrió una vez. No se negocian.
@@ -132,6 +132,29 @@ if [ -f scripts/seo-audit.js ]; then
   fi
 fi
 
+# ── Gate 10: contenido editorial moderno, generado y 10/10 ──
+# Desde el ID 1025 cada post nace bajo el contrato estricto. Este gate evita
+# tres regresiones que antes dependían de memoria humana: olvidar correr los
+# dos revisores, olvidar reconstruir los HTML y dejar el índice/API obsoletos.
+if [ -f tools/seo_content/review_strict_content.py ]; then
+  if ! python3 tools/seo_content/build_html.py --check; then
+    say "❌ Gate 10: HTML del blog desactualizado."
+    fail=1
+  fi
+  if ! python3 tools/seo_content/build_blog_index.py --check; then
+    say "❌ Gate 10: índice del blog o data/posts.json desactualizado."
+    fail=1
+  fi
+  if ! python3 tools/seo_content/review_strict_content.py; then
+    say "❌ Gate 10: algún post moderno no alcanza calidad y SEO 10/10."
+    fail=1
+  fi
+  if ! python3 test/test_seo_content_reviewers.py; then
+    say "❌ Gate 10: regresión en los revisores de contenido."
+    fail=1
+  fi
+fi
+
 # ── Veredicto ────────────────────────────────────────────────
 if [ "$fail" -eq 1 ]; then
   say ""
@@ -140,4 +163,4 @@ if [ "$fail" -eq 1 ]; then
   exit 1
 fi
 
-say "✅ Todos los gates pasan (9/9)."
+say "✅ Todos los gates pasan (10/10)."

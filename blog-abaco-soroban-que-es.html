@@ -354,123 +354,198 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="4">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-calculator"></i> MatheKids
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Ábaco soroban: qué es y cómo ayuda a comprender el cálculo</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 4 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">MatheKids</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Ábaco soroban: qué es y cómo ayuda a comprender el cálculo</h1>
+                <p class="blog-post-dek">El ábaco soroban es una herramienta de cálculo japonesa que ayuda a comprender el valor posicional y desarrollar cálculo mental. Aprende qué es y cómo funciona.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">MatheKids</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>4 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/mk-hero-kid.webp" alt="Ábaco soroban: qué es y cómo ayuda a comprender el cálculo" width="1024" height="1024" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Antes de que existieran las calculadoras, millones de personas realizaban operaciones complejas moviendo cuentas en un marco. El soroban, la versión japonesa del ábaco, sigue siendo una herramienta pedagógica vigente porque conecta el número abstracto con una representación física que los niños pueden manipular.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es el soroban y en qué se diferencia de otros ábacos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo ayuda el soroban a entender el valor posicional
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Operaciones básicas en el soroban
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Del soroban físico al cálculo mental (anzan)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Para qué edades y niveles es apropiado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Limitaciones honestas del soroban
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Antes de que existieran las calculadoras, millones de personas realizaban operaciones complejas moviendo cuentas en un marco. El soroban, la versión japonesa del ábaco, sigue siendo una herramienta pedagógica vigente porque conecta el número abstracto con una representación física que los niños pueden manipular.</p>
             <p>No se trata de velocidad por la velocidad. El valor del soroban está en que obliga a entender qué sucede en cada paso de una operación, algo que apretar teclas no ofrece.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>El ábaco soroban es un instrumento de cálculo de origen japonés con cuentas organizadas por valor posicional. Se usa para representar números de forma concreta, realizar operaciones manuales y, con práctica, desarrollar una imagen mental que permite calcular sin el objeto físico.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>El ábaco soroban es un instrumento de cálculo de origen japonés con cuentas organizadas por valor posicional. Se usa para representar números de forma concreta, realizar operaciones manuales y, con práctica, desarrollar una imagen mental que permite calcular sin el objeto físico.</p>
+                </aside>
 
-            <h2>Qué es el soroban y en qué se diferencia de otros ábacos</h2>
-            <p>El soroban tiene un marco rectangular con varillas verticales. Cada varilla representa una posición decimal: unidades, decenas, centenas. En cada varilla hay una cuenta superior que vale cinco unidades de esa posición y cuatro cuentas inferiores que valen una unidad cada una.</p>
-            <p>A diferencia del ábaco ruso, que tiene diez cuentas por fila, el soroban usa menos piezas y exige al usuario pensar en agrupaciones de cinco y complementos, lo que refuerza la comprensión del sistema decimal.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es el soroban y en qué se diferencia de otros ábacos</h2>
+                <p>El soroban tiene un marco rectangular con varillas verticales. Cada varilla representa una posición decimal: unidades, decenas, centenas. En cada varilla hay una cuenta superior que vale cinco unidades de esa posición y cuatro cuentas inferiores que valen una unidad cada una.</p>
+                <p>A diferencia del ábaco ruso, que tiene diez cuentas por fila, el soroban usa menos piezas y exige al usuario pensar en agrupaciones de cinco y complementos, lo que refuerza la comprensión del sistema decimal.</p>
+            </section>
 
-            <h2>Cómo ayuda el soroban a entender el valor posicional</h2>
-            <p>Muchos niños memorizan que en el número 352 el tres vale trescientos, pero no comprenden por qué. Con el soroban, ese tres se representa moviendo tres cuentas en la varilla de centenas: el valor se ve, se toca y se mueve. La abstracción llega después, cuando ya hay una imagen concreta como base.</p>
-            <p>Este camino de lo concreto a lo abstracto está alineado con la progresión que recomiendan los enfoques de enseñanza matemática basados en la representación (concreto-pictórico-abstracto).</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Cómo ayuda el soroban a entender el valor posicional</h2>
+                <p>Muchos niños memorizan que en el número 352 el tres vale trescientos, pero no comprenden por qué. Con el soroban, ese tres se representa moviendo tres cuentas en la varilla de centenas: el valor se ve, se toca y se mueve. La abstracción llega después, cuando ya hay una imagen concreta como base.</p>
+                <p>Este camino de lo concreto a lo abstracto está alineado con la progresión que recomiendan los enfoques de enseñanza matemática basados en la representación (concreto-pictórico-abstracto).</p>
+            </section>
 
-            <h2>Operaciones básicas en el soroban</h2>
-            <p>Las sumas y restas se ejecutan moviendo cuentas hacia o desde la barra central. Cuando las cuentas de una varilla se agotan, se aplica el concepto de acarreo de forma visible: devuelves cuentas y avanzas una en la varilla siguiente.</p>
-            <ol>
-                <li>Coloca el primer número moviendo las cuentas correspondientes en cada varilla.</li>
-                <li>Para sumar, agrega cuentas del segundo número posición por posición, empezando por las unidades.</li>
-                <li>Si una varilla se llena, devuelve cuentas y suma una en la posición siguiente (acarreo).</li>
-                <li>Para restar, retira cuentas; si no hay suficientes, toma prestado de la varilla superior.</li>
-                <li>Lee el resultado observando las cuentas que quedaron junto a la barra central.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Operaciones básicas en el soroban</h2>
+                <p>Las sumas y restas se ejecutan moviendo cuentas hacia o desde la barra central. Cuando las cuentas de una varilla se agotan, se aplica el concepto de acarreo de forma visible: devuelves cuentas y avanzas una en la varilla siguiente.</p>
+                <ol>
+                    <li>Coloca el primer número moviendo las cuentas correspondientes en cada varilla.</li>
+                    <li>Para sumar, agrega cuentas del segundo número posición por posición, empezando por las unidades.</li>
+                    <li>Si una varilla se llena, devuelve cuentas y suma una en la posición siguiente (acarreo).</li>
+                    <li>Para restar, retira cuentas; si no hay suficientes, toma prestado de la varilla superior.</li>
+                    <li>Lee el resultado observando las cuentas que quedaron junto a la barra central.</li>
+                </ol>
+            </section>
 
-            <h2>Del soroban físico al cálculo mental (anzan)</h2>
-            <p>Con la práctica suficiente, los usuarios de soroban pueden visualizar el instrumento mentalmente y operar cuentas imaginarias. Esta técnica se llama anzan y permite realizar cálculos sin soporte físico. No es magia: es el resultado de repetir los movimientos hasta que la imagen se automatiza.</p>
-            <p>El camino hacia el anzan es gradual y requiere meses o años de práctica regular. No todos los niños necesitan llegar a ese nivel; los beneficios en comprensión numérica aparecen mucho antes.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Del soroban físico al cálculo mental (anzan)</h2>
+                <p>Con la práctica suficiente, los usuarios de soroban pueden visualizar el instrumento mentalmente y operar cuentas imaginarias. Esta técnica se llama anzan y permite realizar cálculos sin soporte físico. No es magia: es el resultado de repetir los movimientos hasta que la imagen se automatiza.</p>
+                <p>El camino hacia el anzan es gradual y requiere meses o años de práctica regular. No todos los niños necesitan llegar a ese nivel; los beneficios en comprensión numérica aparecen mucho antes.</p>
+            </section>
 
-            <h2>Para qué edades y niveles es apropiado</h2>
-            <p>El soroban se puede introducir desde los cinco o seis años, cuando el niño reconoce los dígitos del cero al nueve y puede contar hasta veinte. No es prerrequisito saber sumar en papel; de hecho, muchos programas enseñan la suma primero en el soroban y luego la trasladan al formato escrito.</p>
-            <p>Para niños mayores que ya dominan la aritmética escrita, el soroban funciona como herramienta de agilidad mental y como una vía alternativa de comprensión cuando el método escolar no ha conectado.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Para qué edades y niveles es apropiado</h2>
+                <p>El soroban se puede introducir desde los cinco o seis años, cuando el niño reconoce los dígitos del cero al nueve y puede contar hasta veinte. No es prerrequisito saber sumar en papel; de hecho, muchos programas enseñan la suma primero en el soroban y luego la trasladan al formato escrito.</p>
+                <p>Para niños mayores que ya dominan la aritmética escrita, el soroban funciona como herramienta de agilidad mental y como una vía alternativa de comprensión cuando el método escolar no ha conectado.</p>
+            </section>
 
-            <h2>Limitaciones honestas del soroban</h2>
-            <p>El soroban no reemplaza la comprensión conceptual de las matemáticas ni enseña resolución de problemas por sí solo. Es una herramienta de cálculo, no un programa completo de matemáticas. Si se enseña solo como velocidad y competencia, puede reducirse a un truco motor sin ganancia conceptual.</p>
-            <ul>
-                <li>No sustituye la enseñanza de estrategias de resolución de problemas.</li>
-                <li>La rapidez sin comprensión no equivale a dominio matemático.</li>
-                <li>Requiere práctica regular; sesiones esporádicas no consolidan la habilidad.</li>
-                <li>Funciona mejor como complemento dentro de un programa más amplio.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Limitaciones honestas del soroban</h2>
+                <p>El soroban no reemplaza la comprensión conceptual de las matemáticas ni enseña resolución de problemas por sí solo. Es una herramienta de cálculo, no un programa completo de matemáticas. Si se enseña solo como velocidad y competencia, puede reducirse a un truco motor sin ganancia conceptual.</p>
+                <ul>
+                    <li>No sustituye la enseñanza de estrategias de resolución de problemas.</li>
+                    <li>La rapidez sin comprensión no equivale a dominio matemático.</li>
+                    <li>Requiere práctica regular; sesiones esporádicas no consolidan la habilidad.</li>
+                    <li>Funciona mejor como complemento dentro de un programa más amplio.</li>
+                </ul>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Aprende soroban con acompañamiento paso a paso</h3>
-                <p>En MatheKids trabajamos el ábaco soroban como parte de un programa que conecta el cálculo concreto con la comprensión matemática, avanzando al ritmo de cada niño sin convertir la rapidez en presión.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de matemáticas para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Aprende soroban con acompañamiento paso a paso</h2>
+                    <p>En MatheKids trabajamos el ábaco soroban como parte de un programa que conecta el cálculo concreto con la comprensión matemática, avanzando al ritmo de cada niño sin convertir la rapidez en presión.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Ver el curso de matemáticas para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El soroban sirve para niños que ya saben usar calculadora?</h3>
-                <p>Sí, porque el beneficio principal no es obtener resultados rápidos sino comprender el mecanismo de las operaciones. Un niño que sabe usar calculadora pero no entiende el acarreo puede beneficiarse del soroban como herramienta de comprensión.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo se necesita para ver resultados?</h3>
-                <p>Depende de la frecuencia y la edad. Con sesiones de quince a veinte minutos varias veces por semana, muchos niños dominan sumas y restas básicas en el soroban en dos o tres meses. El cálculo mental sin soporte toma considerablemente más tiempo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es mejor aprender soroban en grupo o de forma individual?</h3>
-                <p>Ambas opciones funcionan. El grupo ofrece motivación social y juegos colaborativos. La instrucción individual permite ajustar el ritmo. Lo importante es que haya retroalimentación constante sobre los movimientos y la comprensión, no solo sobre la velocidad.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El soroban puede confundir al niño con el método que usa en la escuela?</h3>
-                <p>Generalmente no, porque representan lo mismo de formas distintas. De hecho, tener dos representaciones del mismo concepto suele fortalecer la comprensión. Si hay confusión inicial, se resuelve haciendo explícita la conexión entre ambos métodos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://ligaabaco.com/que-es-el-soroban/" target="_blank" rel="noopener noreferrer">Liga Española de Ábaco — Qué es el soroban</a> — Descripción del instrumento y su uso pedagógico</li>
-                <li><a href="https://doi.org/10.1016/0010-0277(77)90011-3" target="_blank" rel="noopener noreferrer">Hatano et al. — Performance of expert abacus operators (Cognition)</a> — Investigación sobre representación mental en usuarios expertos de ábaco</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El soroban sirve para niños que ya saben usar calculadora?</h3>
+                    <p>Sí, porque el beneficio principal no es obtener resultados rápidos sino comprender el mecanismo de las operaciones. Un niño que sabe usar calculadora pero no entiende el acarreo puede beneficiarse del soroban como herramienta de comprensión.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo se necesita para ver resultados?</h3>
+                    <p>Depende de la frecuencia y la edad. Con sesiones de quince a veinte minutos varias veces por semana, muchos niños dominan sumas y restas básicas en el soroban en dos o tres meses. El cálculo mental sin soporte toma considerablemente más tiempo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es mejor aprender soroban en grupo o de forma individual?</h3>
+                    <p>Ambas opciones funcionan. El grupo ofrece motivación social y juegos colaborativos. La instrucción individual permite ajustar el ritmo. Lo importante es que haya retroalimentación constante sobre los movimientos y la comprensión, no solo sobre la velocidad.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El soroban puede confundir al niño con el método que usa en la escuela?</h3>
+                    <p>Generalmente no, porque representan lo mismo de formas distintas. De hecho, tener dos representaciones del mismo concepto suele fortalecer la comprensión. Si hay confusión inicial, se resuelve haciendo explícita la conexión entre ambos métodos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://ligaabaco.com/que-es-el-soroban/" target="_blank" rel="noopener noreferrer">Liga Española de Ábaco — Qué es el soroban</a> — Descripción del instrumento y su uso pedagógico</li>
+                    <li><a href="https://doi.org/10.1016/0010-0277(77)90011-3" target="_blank" rel="noopener noreferrer">Hatano et al. — Performance of expert abacus operators (Cognition)</a> — Investigación sobre representación mental en usuarios expertos de ábaco</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -500,8 +575,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es el soroban y en qué se diferencia de otros ábacos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo ayuda el soroban a entender el valor posicional
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Operaciones básicas en el soroban
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Del soroban físico al cálculo mental (anzan)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Para qué edades y niveles es apropiado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Limitaciones honestas del soroban
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>4 min restantes</span>
+                        <span>Lectura estimada: 4 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

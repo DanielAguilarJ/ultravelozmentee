@@ -362,160 +362,258 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="9">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Tecnología educativa para niños pequeños: qué usar y qué evitar</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 9 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Tecnología educativa para niños pequeños: qué usar y qué evitar</h1>
+                <p class="blog-post-dek">Tecnología educativa para niños pequeños: cuándo aporta, cómo acompañar la pantalla y qué señales indican que una app preescolar está bien hecha.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>9 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Tecnología educativa para niños pequeños: qué usar y qué evitar" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Antes de los siete u ocho años el aprendizaje pasa por el cuerpo. El niño entiende cantidad moviendo fichas, entiende secuencia armando una torre y entiende causa y efecto empujando algo para ver qué pasa. Cualquier herramienta digital que se introduzca a esa edad compite con actividades que ya son, por sí mismas, buenas para el desarrollo.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué significa hablar de niños pequeños en este contexto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Pantalla acompañada frente a pantalla sola
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Qué aporta la robótica y el juego con lógica a esta edad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Apps y gamificación: señales de buen diseño para preescolar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Seguridad digital cuando el niño todavía no lee
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: un mes con quince minutos al día
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes en casa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Antes de los siete u ocho años el aprendizaje pasa por el cuerpo. El niño entiende cantidad moviendo fichas, entiende secuencia armando una torre y entiende causa y efecto empujando algo para ver qué pasa. Cualquier herramienta digital que se introduzca a esa edad compite con actividades que ya son, por sí mismas, buenas para el desarrollo.</p>
             <p>Eso no significa que la tecnología no tenga lugar, sino que su lugar es más estrecho y más específico que en secundaria. Lo que sigue son criterios para decidir qué introducir, cómo acompañarlo y cómo notar a tiempo cuando una aplicación está entreteniendo en lugar de enseñar.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Con niños pequeños la tecnología educativa aporta cuando es acompañada, breve y termina en algo que ocurre fuera de la pantalla. A esta edad el aprendizaje se apoya en el cuerpo, la manipulación de objetos y la conversación con un adulto, así que la herramienta digital funciona como disparador de actividad, no como sustituto del juego. Sesiones cortas y una sola aplicación a la vez rinden más que catálogos amplios.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Con niños pequeños la tecnología educativa aporta cuando es acompañada, breve y termina en algo que ocurre fuera de la pantalla. A esta edad el aprendizaje se apoya en el cuerpo, la manipulación de objetos y la conversación con un adulto, así que la herramienta digital funciona como disparador de actividad, no como sustituto del juego. Sesiones cortas y una sola aplicación a la vez rinden más que catálogos amplios.</p>
+                </aside>
 
-            <h2>Qué significa hablar de niños pequeños en este contexto</h2>
-            <p>El rango aproximado de tres a siete años concentra un cambio grande: se pasa de manipular objetos a empezar a leer y a sostener atención en una tarea con reglas. Una aplicación pensada para un niño de seis años suele quedar corta para uno de cuatro, no por dificultad de contenido, sino porque exige leer instrucciones o mantener el foco más tiempo del disponible.</p>
-            <p>Por eso conviene mirar menos la etiqueta de edad de la tienda de aplicaciones y más tres cosas concretas: si las instrucciones se entienden sin leer, si una ronda completa dura pocos minutos y si el niño puede operarla sin que un adulto resuelva la interfaz por él.</p>
-            <p>El otro punto es la duración de la sesión. A esta edad la atención sostenida es corta por desarrollo, no por falta de interés. Diez o quince minutos con un cierre claro dejan mejor resultado que media hora en la que la última parte ya es solo deslizar la pantalla.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué significa hablar de niños pequeños en este contexto</h2>
+                <p>El rango aproximado de tres a siete años concentra un cambio grande: se pasa de manipular objetos a empezar a leer y a sostener atención en una tarea con reglas. Una aplicación pensada para un niño de seis años suele quedar corta para uno de cuatro, no por dificultad de contenido, sino porque exige leer instrucciones o mantener el foco más tiempo del disponible.</p>
+                <p>Por eso conviene mirar menos la etiqueta de edad de la tienda de aplicaciones y más tres cosas concretas: si las instrucciones se entienden sin leer, si una ronda completa dura pocos minutos y si el niño puede operarla sin que un adulto resuelva la interfaz por él.</p>
+                <p>El otro punto es la duración de la sesión. A esta edad la atención sostenida es corta por desarrollo, no por falta de interés. Diez o quince minutos con un cierre claro dejan mejor resultado que media hora en la que la última parte ya es solo deslizar la pantalla.</p>
+            </section>
 
-            <h2>Pantalla acompañada frente a pantalla sola</h2>
-            <p>La diferencia práctica más grande a esta edad no está en qué aplicación se usa, sino en si hay un adulto conversando. Cuando alguien pregunta por qué eligió esa figura, o le pide contar en voz alta lo que hizo, la actividad digital se convierte en lenguaje y en razonamiento explícito. Sin esa conversación, buena parte de lo que ocurre en pantalla queda como una secuencia de aciertos sin nombre.</p>
-            <p>Acompañar no significa estar sentado todo el tiempo. Puede ser un intercambio de dos minutos al final: qué hiciste, qué te costó, muéstrame cómo se hace. Ese cierre convierte la sesión en algo que el niño puede recordar y repetir.</p>
-            <ul>
-                <li>Preguntar cómo llegó a la respuesta, no solo si estuvo bien.</li>
-                <li>Pedirle que enseñe la actividad a otra persona de la casa.</li>
-                <li>Llevar lo que hizo en pantalla a un material físico: fichas, bloques, dibujo.</li>
-                <li>Cerrar la sesión con un acuerdo previo y visible, no con una interrupción.</li>
-            </ul>
-
-            <h2>Qué aporta la robótica y el juego con lógica a esta edad</h2>
-            <p>La robótica inicial y los juegos de programación por bloques tienen una ventaja concreta para niños pequeños: el error es visible y no tiene consecuencias emocionales fuertes. Si la secuencia de instrucciones está mal, el objeto va a otro lado. El niño lo ve, cambia una pieza y prueba otra vez. Ese ciclo de intentar, observar y ajustar es el mismo que después se necesita en matemáticas y en lectura.</p>
-            <p>También ordena el pensamiento en pasos. Decir a un robot que avance, gire y avance obliga a separar una intención general en instrucciones sueltas y en el orden correcto. Es una versión temprana y concreta de lo que más adelante se pide al resolver un problema por escrito.</p>
-            <p>Cuando hay una parte física, como piezas que se ensamblan, el beneficio se amplía porque suma coordinación y manipulación real. Si todo ocurre en pantalla, conviene compensar con actividades manuales el resto del día.</p>
-
-            <h2>Apps y gamificación: señales de buen diseño para preescolar</h2>
-            <p>Una aplicación bien hecha para esta edad hace pocas cosas y las hace despacio. Las señales de alerta son fáciles de detectar en cinco minutos de prueba por parte del adulto: animaciones de premio que duran más que la actividad, sonidos y personajes que se acumulan, publicidad, o compras dentro de la aplicación al alcance de un toque.</p>
-            <p>En cuanto a gamificación, el criterio es el mismo que en edades mayores pero más estricto: el juego debe estar en la tarea. Si el niño resuelve para llegar a la animación, lo que aprendió es a llegar a la animación. Si el reto en sí es lo interesante, la actividad se sostiene sin premio.</p>
-            <ul>
-                <li>Instrucciones que se entienden por imagen o audio, sin necesidad de leer.</li>
-                <li>Rondas cortas con un final claro, no ciclos infinitos.</li>
-                <li>Sin publicidad ni compras dentro de la aplicación.</li>
-                <li>Dificultad que sube de a poco y permite repetir sin castigo.</li>
-                <li>Sin cronómetro agresivo ni penalizaciones que generen frustración temprana.</li>
-            </ul>
-
-            <h2>Seguridad digital cuando el niño todavía no lee</h2>
-            <p>Un niño de cinco años no puede evaluar un anuncio ni distinguir un botón de compra de un botón de juego. Toda la responsabilidad de seguridad recae en la configuración que deje el adulto antes de entregar el dispositivo. Eso incluye desactivar compras, bloquear la salida a navegador y revisar si la aplicación tiene contenido sugerido que cambia solo.</p>
-            <p>El segundo punto es el reproductor de video. Muchas veces el problema no es la aplicación educativa, sino que al terminar aparece una lista de recomendaciones que lleva a cualquier parte. Cerrar la sesión en la aplicación y no dejar el dispositivo abierto evita la mayoría de esos casos.</p>
-            <ol>
-                <li>Activar el modo de uso restringido o zona infantil del dispositivo.</li>
-                <li>Desactivar compras dentro de aplicaciones y pedir confirmación por contraseña.</li>
-                <li>Revisar que la aplicación no muestre publicidad ni enlaces externos.</li>
-                <li>Quitar el reproductor de video de la pantalla principal si no se va a usar.</li>
-                <li>Cerrar la sesión y guardar el dispositivo al terminar, no dejarlo disponible.</li>
-            </ol>
-
-            <h2>Ejemplo aplicado: un mes con quince minutos al día</h2>
-            <p>Una familia decide introducir robótica inicial con un niño de cinco años que arma bien rompecabezas pero se frustra rápido cuando algo no sale a la primera. La meta no es que aprenda a programar, sino que tolere el intento fallido y vuelva a probar. Ese objetivo, y no la aplicación, es lo que define cómo se organiza el mes.</p>
-            <p>La primera semana se usa sin objetivo de logro: solo explorar qué hacen los bloques de instrucciones y ver el resultado. El adulto se sienta al lado y nombra en voz alta lo que ocurre: avanzó dos, giró, se pasó. Nombrar el error sin corregirlo de inmediato es la parte importante, porque le da tiempo al niño de notarlo por su cuenta.</p>
-            <p>En la segunda y tercera semana aparecen retos con una meta clara y corta: llegar a un punto concreto en pocas instrucciones. Cuando falla, el adulto no da la solución; pregunta qué parte salió distinta de lo esperado. Aquí es común ver el cambio que interesa: el niño empieza a decir por sí mismo qué pieza va a cambiar antes de intentar otra vez.</p>
-            <p>La cuarta semana el trabajo sale de la pantalla. Se marca un recorrido en el piso con cinta y el niño da instrucciones a un adulto, que las obedece literalmente, incluso cuando llevan a la pared. Ese juego suele provocar más risa y más aprendizaje que la aplicación, y deja claro que la herramienta digital fue el punto de partida, no el destino.</p>
-
-            <h2>Errores frecuentes en casa</h2>
-            <p>El más común es usar la aplicación educativa como forma de ocupar al niño mientras el adulto hace otra cosa. Es comprensible y a veces necesario, pero conviene llamarlo por su nombre: en ese momento la pantalla cumple una función de cuidado, no de enseñanza, y no debería contarse como tiempo de aprendizaje.</p>
-            <p>El segundo error es cambiar de aplicación cada vez que el niño se aburre. A esta edad el aburrimiento es rápido y no siempre indica que la herramienta esté mal; muchas veces indica que la sesión ya duró suficiente. Cerrar y retomar al día siguiente sostiene mejor el interés que instalar algo nuevo.</p>
-            <ul>
-                <li>Evitar usar la pantalla como recompensa por comer o portarse bien: refuerza su valor sobre otras actividades.</li>
-                <li>Mantener una sola aplicación educativa activa durante varias semanas.</li>
-                <li>No convertir el cierre en negociación: acordar la duración antes de empezar.</li>
-                <li>Sostener a diario el juego físico y la lectura en voz alta, que a esta edad siguen siendo la base.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Si el interés está en armar y hacer funcionar cosas</h3>
-                <p>Cuando un niño se engancha con la idea de dar instrucciones y ver un resultado, conviene darle una ruta con retos ordenados en lugar de aplicaciones sueltas. El curso de Robotics Code trabaja secuencia, causa y efecto y resolución de errores con actividades pensadas para esa etapa.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer las clases de robótica <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Pantalla acompañada frente a pantalla sola</h2>
+                <p>La diferencia práctica más grande a esta edad no está en qué aplicación se usa, sino en si hay un adulto conversando. Cuando alguien pregunta por qué eligió esa figura, o le pide contar en voz alta lo que hizo, la actividad digital se convierte en lenguaje y en razonamiento explícito. Sin esa conversación, buena parte de lo que ocurre en pantalla queda como una secuencia de aciertos sin nombre.</p>
+                <p>Acompañar no significa estar sentado todo el tiempo. Puede ser un intercambio de dos minutos al final: qué hiciste, qué te costó, muéstrame cómo se hace. Ese cierre convierte la sesión en algo que el niño puede recordar y repetir.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-como-elegir">Cómo elegir tecnología educativa según tu necesidad</a></li>
-                <li><a href="/blog-tecnologia-educativa-errores-de-los-padres">Errores de los padres al elegir tecnología educativa</a></li>
-                <li><a href="/blog-tecnologia-educativa-recursos-gratuitos">Recursos gratuitos de tecnología educativa que sí funcionan</a></li>
+                    <li>Preguntar cómo llegó a la respuesta, no solo si estuvo bien.</li>
+                    <li>Pedirle que enseñe la actividad a otra persona de la casa.</li>
+                    <li>Llevar lo que hizo en pantalla a un material físico: fichas, bloques, dibujo.</li>
+                    <li>Cerrar la sesión con un acuerdo previo y visible, no con una interrupción.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad puede empezar un niño con robótica o programación por bloques?</h3>
-                <p>Suele funcionar cuando el niño ya sigue instrucciones de dos o tres pasos y tolera repetir un intento. Eso ocurre en momentos distintos según el niño, no en una edad fija. Si se frustra al punto de abandonar en cada error, conviene esperar y trabajar antes con juegos físicos de secuencia.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo de pantalla educativa es razonable en preescolar?</h3>
-                <p>Más útil que fijar una cifra es cuidar dos cosas: que las sesiones sean cortas y con cierre claro, y que no desplacen juego libre, movimiento ni lectura compartida. Si al terminar el niño sigue con energía para jugar y conversar, la duración fue adecuada.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Las aplicaciones gratuitas para niños pequeños son seguras?</h3>
-                <p>Depende del modelo de negocio. Muchas se financian con publicidad o compras dentro de la aplicación, y ambas cosas son difíciles de manejar para un niño que aún no lee. Antes de instalar conviene revisar en la tienda si declara anuncios o compras, y probarla unos minutos como adulto.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es mejor un juguete de robótica físico o una aplicación en tableta?</h3>
-                <p>Con niños pequeños el material físico tiene una ventaja: suma manipulación y coordinación, y el error se ve en el mundo real. La aplicación es más accesible y permite más intentos por sesión. Si se puede combinar, lo físico conviene como base y lo digital como extensión.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si la aplicación enseña o solo entretiene?</h3>
-                <p>Una señal directa es si el niño puede mostrar fuera de la pantalla algo que hizo dentro: contar, ordenar una secuencia, explicar por qué el robot se equivocó. Si nada de la actividad se puede trasladar a fichas, dibujo o palabras, probablemente el valor fue de entretenimiento.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Qué aporta la robótica y el juego con lógica a esta edad</h2>
+                <p>La robótica inicial y los juegos de programación por bloques tienen una ventaja concreta para niños pequeños: el error es visible y no tiene consecuencias emocionales fuertes. Si la secuencia de instrucciones está mal, el objeto va a otro lado. El niño lo ve, cambia una pieza y prueba otra vez. Ese ciclo de intentar, observar y ajustar es el mismo que después se necesita en matemáticas y en lectura.</p>
+                <p>También ordena el pensamiento en pasos. Decir a un robot que avance, gire y avance obliga a separar una intención general en instrucciones sueltas y en el orden correcto. Es una versión temprana y concreta de lo que más adelante se pide al resolver un problema por escrito.</p>
+                <p>Cuando hay una parte física, como piezas que se ensamblan, el beneficio se amplía porque suma coordinación y manipulación real. Si todo ocurre en pantalla, conviene compensar con actividades manuales el resto del día.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Apps y gamificación: señales de buen diseño para preescolar</h2>
+                <p>Una aplicación bien hecha para esta edad hace pocas cosas y las hace despacio. Las señales de alerta son fáciles de detectar en cinco minutos de prueba por parte del adulto: animaciones de premio que duran más que la actividad, sonidos y personajes que se acumulan, publicidad, o compras dentro de la aplicación al alcance de un toque.</p>
+                <p>En cuanto a gamificación, el criterio es el mismo que en edades mayores pero más estricto: el juego debe estar en la tarea. Si el niño resuelve para llegar a la animación, lo que aprendió es a llegar a la animación. Si el reto en sí es lo interesante, la actividad se sostiene sin premio.</p>
+                <ul>
+                    <li>Instrucciones que se entienden por imagen o audio, sin necesidad de leer.</li>
+                    <li>Rondas cortas con un final claro, no ciclos infinitos.</li>
+                    <li>Sin publicidad ni compras dentro de la aplicación.</li>
+                    <li>Dificultad que sube de a poco y permite repetir sin castigo.</li>
+                    <li>Sin cronómetro agresivo ni penalizaciones que generen frustración temprana.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Seguridad digital cuando el niño todavía no lee</h2>
+                <p>Un niño de cinco años no puede evaluar un anuncio ni distinguir un botón de compra de un botón de juego. Toda la responsabilidad de seguridad recae en la configuración que deje el adulto antes de entregar el dispositivo. Eso incluye desactivar compras, bloquear la salida a navegador y revisar si la aplicación tiene contenido sugerido que cambia solo.</p>
+                <p>El segundo punto es el reproductor de video. Muchas veces el problema no es la aplicación educativa, sino que al terminar aparece una lista de recomendaciones que lleva a cualquier parte. Cerrar la sesión en la aplicación y no dejar el dispositivo abierto evita la mayoría de esos casos.</p>
+                <ol>
+                    <li>Activar el modo de uso restringido o zona infantil del dispositivo.</li>
+                    <li>Desactivar compras dentro de aplicaciones y pedir confirmación por contraseña.</li>
+                    <li>Revisar que la aplicación no muestre publicidad ni enlaces externos.</li>
+                    <li>Quitar el reproductor de video de la pantalla principal si no se va a usar.</li>
+                    <li>Cerrar la sesión y guardar el dispositivo al terminar, no dejarlo disponible.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: un mes con quince minutos al día</h2>
+                <p>Una familia decide introducir robótica inicial con un niño de cinco años que arma bien rompecabezas pero se frustra rápido cuando algo no sale a la primera. La meta no es que aprenda a programar, sino que tolere el intento fallido y vuelva a probar. Ese objetivo, y no la aplicación, es lo que define cómo se organiza el mes.</p>
+                <p>La primera semana se usa sin objetivo de logro: solo explorar qué hacen los bloques de instrucciones y ver el resultado. El adulto se sienta al lado y nombra en voz alta lo que ocurre: avanzó dos, giró, se pasó. Nombrar el error sin corregirlo de inmediato es la parte importante, porque le da tiempo al niño de notarlo por su cuenta.</p>
+                <p>En la segunda y tercera semana aparecen retos con una meta clara y corta: llegar a un punto concreto en pocas instrucciones. Cuando falla, el adulto no da la solución; pregunta qué parte salió distinta de lo esperado. Aquí es común ver el cambio que interesa: el niño empieza a decir por sí mismo qué pieza va a cambiar antes de intentar otra vez.</p>
+                <p>La cuarta semana el trabajo sale de la pantalla. Se marca un recorrido en el piso con cinta y el niño da instrucciones a un adulto, que las obedece literalmente, incluso cuando llevan a la pared. Ese juego suele provocar más risa y más aprendizaje que la aplicación, y deja claro que la herramienta digital fue el punto de partida, no el destino.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Errores frecuentes en casa</h2>
+                <p>El más común es usar la aplicación educativa como forma de ocupar al niño mientras el adulto hace otra cosa. Es comprensible y a veces necesario, pero conviene llamarlo por su nombre: en ese momento la pantalla cumple una función de cuidado, no de enseñanza, y no debería contarse como tiempo de aprendizaje.</p>
+                <p>El segundo error es cambiar de aplicación cada vez que el niño se aburre. A esta edad el aburrimiento es rápido y no siempre indica que la herramienta esté mal; muchas veces indica que la sesión ya duró suficiente. Cerrar y retomar al día siguiente sostiene mejor el interés que instalar algo nuevo.</p>
+                <ul>
+                    <li>Evitar usar la pantalla como recompensa por comer o portarse bien: refuerza su valor sobre otras actividades.</li>
+                    <li>Mantener una sola aplicación educativa activa durante varias semanas.</li>
+                    <li>No convertir el cierre en negociación: acordar la duración antes de empezar.</li>
+                    <li>Sostener a diario el juego físico y la lectura en voz alta, que a esta edad siguen siendo la base.</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Si el interés está en armar y hacer funcionar cosas</h2>
+                    <p>Cuando un niño se engancha con la idea de dar instrucciones y ver un resultado, conviene darle una ruta con retos ordenados en lugar de aplicaciones sueltas. El curso de Robotics Code trabaja secuencia, causa y efecto y resolución de errores con actividades pensadas para esa etapa.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Conocer las clases de robótica <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-como-elegir">
+                            <span>Cómo elegir tecnología educativa según tu necesidad</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-errores-de-los-padres">
+                            <span>Errores de los padres al elegir tecnología educativa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-recursos-gratuitos">
+                            <span>Recursos gratuitos de tecnología educativa que sí funcionan</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad puede empezar un niño con robótica o programación por bloques?</h3>
+                    <p>Suele funcionar cuando el niño ya sigue instrucciones de dos o tres pasos y tolera repetir un intento. Eso ocurre en momentos distintos según el niño, no en una edad fija. Si se frustra al punto de abandonar en cada error, conviene esperar y trabajar antes con juegos físicos de secuencia.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo de pantalla educativa es razonable en preescolar?</h3>
+                    <p>Más útil que fijar una cifra es cuidar dos cosas: que las sesiones sean cortas y con cierre claro, y que no desplacen juego libre, movimiento ni lectura compartida. Si al terminar el niño sigue con energía para jugar y conversar, la duración fue adecuada.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Las aplicaciones gratuitas para niños pequeños son seguras?</h3>
+                    <p>Depende del modelo de negocio. Muchas se financian con publicidad o compras dentro de la aplicación, y ambas cosas son difíciles de manejar para un niño que aún no lee. Antes de instalar conviene revisar en la tienda si declara anuncios o compras, y probarla unos minutos como adulto.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es mejor un juguete de robótica físico o una aplicación en tableta?</h3>
+                    <p>Con niños pequeños el material físico tiene una ventaja: suma manipulación y coordinación, y el error se ve en el mundo real. La aplicación es más accesible y permite más intentos por sesión. Si se puede combinar, lo físico conviene como base y lo digital como extensión.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si la aplicación enseña o solo entretiene?</h3>
+                    <p>Una señal directa es si el niño puede mostrar fuera de la pantalla algo que hizo dentro: contar, ordenar una secuencia, explicar por qué el robot se equivocó. Si nada de la actividad se puede trasladar a fichas, dibujo o palabras, probablemente el valor fue de entretenimiento.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -545,8 +643,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué significa hablar de niños pequeños en este contexto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Pantalla acompañada frente a pantalla sola
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Qué aporta la robótica y el juego con lógica a esta edad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Apps y gamificación: señales de buen diseño para preescolar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Seguridad digital cuando el niño todavía no lee
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: un mes con quince minutos al día
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes en casa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>9 min restantes</span>
+                        <span>Lectura estimada: 9 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

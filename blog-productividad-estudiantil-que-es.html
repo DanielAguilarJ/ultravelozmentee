@@ -362,150 +362,248 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Productividad estudiantil: qué es y por qué la mayoría la hace mal</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Productividad estudiantil: qué es y por qué la mayoría la hace mal</h1>
+                <p class="blog-post-dek">Qué es la productividad estudiantil, por qué no significa &#x27;estudiar más horas&#x27; y qué la diferencia de simplemente tener disciplina.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Productividad estudiantil: qué es y por qué la mayoría la hace mal" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Es común escuchar a un estudiante decir que 'estudió toda la tarde' y aun así sentir que no avanzó nada. La diferencia entre estudiar mucho tiempo y ser productivo casi nunca es de esfuerzo, sino de estructura: qué se estudia, cuándo, y con qué nivel real de atención.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es exactamente la productividad estudiantil
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Por qué más horas de estudio no es lo mismo que más productividad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Los tres pilares de la productividad estudiantil en la práctica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>La diferencia entre productividad y disciplina
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Señales de que tu forma de estudiar no es productiva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo empezar a mejorar tu productividad esta misma semana
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo de una semana real aplicando estos tres pilares
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Es común escuchar a un estudiante decir que 'estudió toda la tarde' y aun así sentir que no avanzó nada. La diferencia entre estudiar mucho tiempo y ser productivo casi nunca es de esfuerzo, sino de estructura: qué se estudia, cuándo, y con qué nivel real de atención.</p>
             <p>Este artículo explica qué es la productividad estudiantil desde una perspectiva práctica, sin fórmulas mágicas, y por qué confundirla con disciplina o con horas invertidas suele producir frustración en lugar de resultados.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La productividad estudiantil es la capacidad de lograr los objetivos académicos que te propones usando el menor tiempo y esfuerzo desperdiciado posible, no la cantidad de horas que pasas con el libro abierto. Se sostiene en tres pilares: planeación realista, foco durante el tiempo de estudio y descanso suficiente para consolidar lo aprendido.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La productividad estudiantil es la capacidad de lograr los objetivos académicos que te propones usando el menor tiempo y esfuerzo desperdiciado posible, no la cantidad de horas que pasas con el libro abierto. Se sostiene en tres pilares: planeación realista, foco durante el tiempo de estudio y descanso suficiente para consolidar lo aprendido.</p>
+                </aside>
 
-            <h2>Qué es exactamente la productividad estudiantil</h2>
-            <p>La productividad estudiantil combina tres elementos que funcionan juntos: saber qué hay que estudiar y en qué orden (planeación), poder concentrarse en ello sin distraerse constantemente (foco), y dejar espacio para que el cerebro consolide la información entre sesiones (descanso). Faltar cualquiera de los tres reduce el rendimiento aunque los otros dos estén bien resueltos.</p>
-            <p>Un estudiante puede tener una planeación perfecta en una libreta y, sin embargo, pasar cada sesión revisando el teléfono cada cinco minutos: la planeación no compensa la falta de foco. De la misma forma, sesiones muy concentradas pero sin descanso adecuado entre ellas terminan en agotamiento que reduce el rendimiento de los días siguientes.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es exactamente la productividad estudiantil</h2>
+                <p>La productividad estudiantil combina tres elementos que funcionan juntos: saber qué hay que estudiar y en qué orden (planeación), poder concentrarse en ello sin distraerse constantemente (foco), y dejar espacio para que el cerebro consolide la información entre sesiones (descanso). Faltar cualquiera de los tres reduce el rendimiento aunque los otros dos estén bien resueltos.</p>
+                <p>Un estudiante puede tener una planeación perfecta en una libreta y, sin embargo, pasar cada sesión revisando el teléfono cada cinco minutos: la planeación no compensa la falta de foco. De la misma forma, sesiones muy concentradas pero sin descanso adecuado entre ellas terminan en agotamiento que reduce el rendimiento de los días siguientes.</p>
+            </section>
 
-            <h2>Por qué más horas de estudio no es lo mismo que más productividad</h2>
-            <p>Existe una idea extendida de que pasar más tiempo estudiando garantiza mejores resultados. La evidencia sobre atención sostenida muestra lo contrario: después de cierto punto —generalmente entre 45 y 90 minutos, dependiendo de la persona y la materia— la capacidad de concentración cae de forma marcada, y las horas adicionales producen rendimientos decrecientes.</p>
-            <p>Esto explica por qué dos estudiantes pueden dedicar el mismo número de horas a la misma materia y obtener resultados muy distintos: uno estudia en bloques con foco real y descansos planeados, mientras el otro extiende sesiones largas donde buena parte del tiempo se dedica a releer sin comprender o a distraerse sin darse cuenta.</p>
-            <ul>
-                <li>La atención sostenida decae notablemente después de 45-90 minutos continuos.</li>
-                <li>Extender una sesión más allá de ese punto suele producir estudio de baja calidad, no estudio adicional real.</li>
-                <li>Dos sesiones cortas y enfocadas en distintos momentos del día superan a una sesión larga sin descansos.</li>
-            </ul>
-
-            <h2>Los tres pilares de la productividad estudiantil en la práctica</h2>
-            <p>La planeación no requiere un sistema complejo: basta con anotar, al final del día anterior, qué tres tareas académicas son prioritarias para el día siguiente y en qué orden se abordarán. Esa lista corta reduce la fricción de decidir por dónde empezar, que es uno de los principales motivos de procrastinación.</p>
-            <p>El foco se protege eliminando interrupciones antes de empezar, no intentando resistirlas mientras se estudia: guardar el teléfono en otra habitación o activar el modo no molestar antes de sentarse a estudiar es más efectivo que confiar en la fuerza de voluntad una vez que llega una notificación.</p>
-            <p>El descanso incluye tanto las pausas cortas dentro de una sesión como el sueño nocturno completo. Sacrificar horas de sueño para estudiar más la noche anterior a un examen suele reducir el rendimiento neto, porque la memoria se consolida durante el sueño.</p>
-            <ol>
-                <li>La noche anterior, anota las tres tareas académicas prioritarias del día siguiente.</li>
-                <li>Antes de estudiar, guarda el teléfono fuera de alcance o actívalo en modo no molestar.</li>
-                <li>Estudia en bloques de 45-60 minutos con descansos de 10 minutos entre bloques.</li>
-                <li>Prioriza dormir las horas necesarias sobre extender el estudio nocturno.</li>
-            </ol>
-
-            <h2>La diferencia entre productividad y disciplina</h2>
-            <p>La disciplina es la capacidad de hacer algo aunque no se tenga ganas; la productividad es tener un sistema que reduce cuánta disciplina se necesita para lograr el mismo resultado. Un estudiante con mucha disciplina pero sin estructura puede forzarse a estudiar largas horas y, aun así, rendir menos que otro con una planeación simple y bloques de tiempo bien definidos.</p>
-            <p>Depender solo de la disciplina es frágil: funciona bien las primeras semanas del ciclo escolar, cuando la motivación es alta, y se debilita cuando aparece cansancio, otras materias urgentes o simplemente una mala semana. Un sistema —aunque sea simple— sostiene el rendimiento incluso cuando la motivación baja.</p>
-
-            <h2>Señales de que tu forma de estudiar no es productiva</h2>
-            <p>Algunas señales claras: llegar al final de una sesión de estudio sin poder decir qué se aprendió, revisar el teléfono varias veces sin proponérselo, o sentir que 'estudiaste todo el fin de semana' pero seguir sin sentirte preparado para el examen. Ninguna de estas señales indica falta de esfuerzo; indican falta de estructura.</p>
-            <p>Otra señal frecuente es la sensación de urgencia constante: pasar de una tarea a otra sin terminar ninguna por completo, generando la impresión de estar siempre ocupado sin avanzar realmente en algo específico.</p>
-            <ul>
-                <li>No poder resumir qué se aprendió al final de una sesión larga.</li>
-                <li>Revisar el teléfono repetidamente sin decidirlo conscientemente.</li>
-                <li>Sentir que se estudió mucho tiempo pero seguir sin confianza para el examen.</li>
-                <li>Saltar entre tareas sin completar ninguna.</li>
-            </ul>
-
-            <h2>Cómo empezar a mejorar tu productividad esta misma semana</h2>
-            <p>El cambio con mayor impacto inmediato es anotar las tres prioridades del día siguiente antes de dormir, algo que toma menos de dos minutos pero elimina buena parte de la fricción inicial de cada sesión de estudio. El segundo cambio es fijar un bloque de tiempo con el teléfono fuera de alcance, aunque sea de solo 30 minutos al principio.</p>
-            <p>No es necesario adoptar un sistema completo de golpe. Aplicar solo estos dos cambios durante una semana suele mostrar una diferencia perceptible en cuánto se logra terminar, antes de sumar técnicas adicionales de gestión del tiempo.</p>
-
-            <h2>Ejemplo de una semana real aplicando estos tres pilares</h2>
-            <p>Un estudiante de preparatoria con cinco materias decide aplicar los tres pilares durante una semana de prueba. El domingo por la noche anota, para cada día de la semana, las tres tareas académicas más urgentes, ordenadas por fecha de entrega o de examen. Esto le toma diez minutos y le ahorra la indecisión de 'por dónde empiezo' cada tarde.</p>
-            <p>Cada tarde, antes de sentarse a estudiar, deja el teléfono en la cocina y avisa a su familia que estará ocupado durante el primer bloque de 50 minutos. Al terminar ese bloque, descansa 10 minutos reales —sin pantallas— antes de decidir si continúa con un segundo bloque o pasa a otra materia.</p>
-            <p>Los primeros dos días nota que termina las tres tareas prioritarias antes de la hora que solía tardar en terminar solo una. Hacia el jueves, ajusta el número de tareas diarias porque tres resultaron ambiciosas para materias con mucha carga, y reduce a dos tareas más grandes o tres más pequeñas según el día.</p>
-            <p>Al final de la semana, aunque no cambió ningún hábito de estudio específico de cada materia —no cambió de técnica ni de método—, el estudiante reporta haber avanzado más que en semanas anteriores, simplemente por reducir el tiempo perdido decidiendo qué hacer y por proteger los bloques de concentración de interrupciones.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Ponte al día sin acumular más estrés</h3>
-                <p>Si la falta de productividad ya te dejó materias atrasadas, el curso de Regularización Express está diseñado para recuperar el ritmo de forma estructurada, sin necesidad de sesiones interminables de estudio.</p>
-                <a href="/regularizacion-express" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de regularización escolar <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Por qué más horas de estudio no es lo mismo que más productividad</h2>
+                <p>Existe una idea extendida de que pasar más tiempo estudiando garantiza mejores resultados. La evidencia sobre atención sostenida muestra lo contrario: después de cierto punto —generalmente entre 45 y 90 minutos, dependiendo de la persona y la materia— la capacidad de concentración cae de forma marcada, y las horas adicionales producen rendimientos decrecientes.</p>
+                <p>Esto explica por qué dos estudiantes pueden dedicar el mismo número de horas a la misma materia y obtener resultados muy distintos: uno estudia en bloques con foco real y descansos planeados, mientras el otro extiende sesiones largas donde buena parte del tiempo se dedica a releer sin comprender o a distraerse sin darse cuenta.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-guia-completa">Guía completa de productividad estudiantil para secundaria y prepa</a></li>
-                <li><a href="/blog-productividad-estudiantil-para-principiantes">Productividad estudiantil para principiantes: primeros pasos reales</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-que-es">Qué son las metodologías de aprendizaje y cómo elegir la tuya</a></li>
+                    <li>La atención sostenida decae notablemente después de 45-90 minutos continuos.</li>
+                    <li>Extender una sesión más allá de ese punto suele producir estudio de baja calidad, no estudio adicional real.</li>
+                    <li>Dos sesiones cortas y enfocadas en distintos momentos del día superan a una sesión larga sin descansos.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es lo mismo productividad estudiantil que gestión del tiempo?</h3>
-                <p>La gestión del tiempo es una parte de la productividad estudiantil, pero esta también incluye el foco durante el estudio y el descanso adecuado; gestionar bien el calendario sin cuidar la concentración no basta.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántas horas al día debería estudiar para ser productivo?</h3>
-                <p>No hay un número universal; importa más la calidad del bloque de estudio que su duración. Bloques de 45-60 minutos con descansos suelen rendir mejor que sesiones largas sin pausas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La productividad estudiantil sirve igual para primaria que para universidad?</h3>
-                <p>Los principios son los mismos, pero los bloques de tiempo deben ajustarse: niños de primaria sostienen menos minutos de foco continuo que un estudiante universitario.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si sigo procrastinando aunque tenga una lista de prioridades?</h3>
-                <p>Revisa si la primera tarea de tu lista es demasiado grande o ambigua; dividirla en un paso más pequeño y específico suele reducir la resistencia a empezar.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo toma notar mejoras aplicando estos tres pilares?</h3>
-                <p>Muchos estudiantes notan diferencia en la misma primera semana, principalmente en cuánto logran terminar cada tarde; consolidar el hábito toma de dos a tres semanas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Los tres pilares de la productividad estudiantil en la práctica</h2>
+                <p>La planeación no requiere un sistema complejo: basta con anotar, al final del día anterior, qué tres tareas académicas son prioritarias para el día siguiente y en qué orden se abordarán. Esa lista corta reduce la fricción de decidir por dónde empezar, que es uno de los principales motivos de procrastinación.</p>
+                <p>El foco se protege eliminando interrupciones antes de empezar, no intentando resistirlas mientras se estudia: guardar el teléfono en otra habitación o activar el modo no molestar antes de sentarse a estudiar es más efectivo que confiar en la fuerza de voluntad una vez que llega una notificación.</p>
+                <p>El descanso incluye tanto las pausas cortas dentro de una sesión como el sueño nocturno completo. Sacrificar horas de sueño para estudiar más la noche anterior a un examen suele reducir el rendimiento neto, porque la memoria se consolida durante el sueño.</p>
+                <ol>
+                    <li>La noche anterior, anota las tres tareas académicas prioritarias del día siguiente.</li>
+                    <li>Antes de estudiar, guarda el teléfono fuera de alcance o actívalo en modo no molestar.</li>
+                    <li>Estudia en bloques de 45-60 minutos con descansos de 10 minutos entre bloques.</li>
+                    <li>Prioriza dormir las horas necesarias sobre extender el estudio nocturno.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">La diferencia entre productividad y disciplina</h2>
+                <p>La disciplina es la capacidad de hacer algo aunque no se tenga ganas; la productividad es tener un sistema que reduce cuánta disciplina se necesita para lograr el mismo resultado. Un estudiante con mucha disciplina pero sin estructura puede forzarse a estudiar largas horas y, aun así, rendir menos que otro con una planeación simple y bloques de tiempo bien definidos.</p>
+                <p>Depender solo de la disciplina es frágil: funciona bien las primeras semanas del ciclo escolar, cuando la motivación es alta, y se debilita cuando aparece cansancio, otras materias urgentes o simplemente una mala semana. Un sistema —aunque sea simple— sostiene el rendimiento incluso cuando la motivación baja.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Señales de que tu forma de estudiar no es productiva</h2>
+                <p>Algunas señales claras: llegar al final de una sesión de estudio sin poder decir qué se aprendió, revisar el teléfono varias veces sin proponérselo, o sentir que 'estudiaste todo el fin de semana' pero seguir sin sentirte preparado para el examen. Ninguna de estas señales indica falta de esfuerzo; indican falta de estructura.</p>
+                <p>Otra señal frecuente es la sensación de urgencia constante: pasar de una tarea a otra sin terminar ninguna por completo, generando la impresión de estar siempre ocupado sin avanzar realmente en algo específico.</p>
+                <ul>
+                    <li>No poder resumir qué se aprendió al final de una sesión larga.</li>
+                    <li>Revisar el teléfono repetidamente sin decidirlo conscientemente.</li>
+                    <li>Sentir que se estudió mucho tiempo pero seguir sin confianza para el examen.</li>
+                    <li>Saltar entre tareas sin completar ninguna.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo empezar a mejorar tu productividad esta misma semana</h2>
+                <p>El cambio con mayor impacto inmediato es anotar las tres prioridades del día siguiente antes de dormir, algo que toma menos de dos minutos pero elimina buena parte de la fricción inicial de cada sesión de estudio. El segundo cambio es fijar un bloque de tiempo con el teléfono fuera de alcance, aunque sea de solo 30 minutos al principio.</p>
+                <p>No es necesario adoptar un sistema completo de golpe. Aplicar solo estos dos cambios durante una semana suele mostrar una diferencia perceptible en cuánto se logra terminar, antes de sumar técnicas adicionales de gestión del tiempo.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Ejemplo de una semana real aplicando estos tres pilares</h2>
+                <p>Un estudiante de preparatoria con cinco materias decide aplicar los tres pilares durante una semana de prueba. El domingo por la noche anota, para cada día de la semana, las tres tareas académicas más urgentes, ordenadas por fecha de entrega o de examen. Esto le toma diez minutos y le ahorra la indecisión de 'por dónde empiezo' cada tarde.</p>
+                <p>Cada tarde, antes de sentarse a estudiar, deja el teléfono en la cocina y avisa a su familia que estará ocupado durante el primer bloque de 50 minutos. Al terminar ese bloque, descansa 10 minutos reales —sin pantallas— antes de decidir si continúa con un segundo bloque o pasa a otra materia.</p>
+                <p>Los primeros dos días nota que termina las tres tareas prioritarias antes de la hora que solía tardar en terminar solo una. Hacia el jueves, ajusta el número de tareas diarias porque tres resultaron ambiciosas para materias con mucha carga, y reduce a dos tareas más grandes o tres más pequeñas según el día.</p>
+                <p>Al final de la semana, aunque no cambió ningún hábito de estudio específico de cada materia —no cambió de técnica ni de método—, el estudiante reporta haber avanzado más que en semanas anteriores, simplemente por reducir el tiempo perdido decidiendo qué hacer y por proteger los bloques de concentración de interrupciones.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Ponte al día sin acumular más estrés</h2>
+                    <p>Si la falta de productividad ya te dejó materias atrasadas, el curso de Regularización Express está diseñado para recuperar el ritmo de forma estructurada, sin necesidad de sesiones interminables de estudio.</p>
+                    <a href="/regularizacion-express" class="btn-primary">
+                        Ver el curso de regularización escolar <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-guia-completa">
+                            <span>Guía completa de productividad estudiantil para secundaria y prepa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-para-principiantes">
+                            <span>Productividad estudiantil para principiantes: primeros pasos reales</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-que-es">
+                            <span>Qué son las metodologías de aprendizaje y cómo elegir la tuya</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es lo mismo productividad estudiantil que gestión del tiempo?</h3>
+                    <p>La gestión del tiempo es una parte de la productividad estudiantil, pero esta también incluye el foco durante el estudio y el descanso adecuado; gestionar bien el calendario sin cuidar la concentración no basta.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántas horas al día debería estudiar para ser productivo?</h3>
+                    <p>No hay un número universal; importa más la calidad del bloque de estudio que su duración. Bloques de 45-60 minutos con descansos suelen rendir mejor que sesiones largas sin pausas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La productividad estudiantil sirve igual para primaria que para universidad?</h3>
+                    <p>Los principios son los mismos, pero los bloques de tiempo deben ajustarse: niños de primaria sostienen menos minutos de foco continuo que un estudiante universitario.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si sigo procrastinando aunque tenga una lista de prioridades?</h3>
+                    <p>Revisa si la primera tarea de tu lista es demasiado grande o ambigua; dividirla en un paso más pequeño y específico suele reducir la resistencia a empezar.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo toma notar mejoras aplicando estos tres pilares?</h3>
+                    <p>Muchos estudiantes notan diferencia en la misma primera semana, principalmente en cuánto logran terminar cada tarde; consolidar el hábito toma de dos a tres semanas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -535,8 +633,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es exactamente la productividad estudiantil
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Por qué más horas de estudio no es lo mismo que más productividad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Los tres pilares de la productividad estudiantil en la práctica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>La diferencia entre productividad y disciplina
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Señales de que tu forma de estudiar no es productiva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo empezar a mejorar tu productividad esta misma semana
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo de una semana real aplicando estos tres pilares
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

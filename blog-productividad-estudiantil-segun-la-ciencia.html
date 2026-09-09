@@ -362,154 +362,247 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="9">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Ciencia y productividad estudiantil: qué respalda cada técnica</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 9 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Ciencia y productividad estudiantil: qué respalda cada técnica</h1>
+                <p class="blog-post-dek">Qué respalda la evidencia disponible sobre productividad estudiantil: práctica distribuida, recuperación activa, atención y sueño, sin promesas vacías.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>9 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Ciencia y productividad estudiantil: qué respalda cada técnica" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Buscar productividad estudiantil en internet devuelve cientos de rutinas, plantillas y aplicaciones, y casi todas se presentan como respaldadas por la ciencia. En la práctica, el conjunto de principios de aprendizaje que cuenta con investigación amplia y repetida es bastante más pequeño de lo que sugiere ese volumen de contenido.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué se puede afirmar y qué no cuando se apela a la ciencia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Práctica distribuida y recuperación activa: el núcleo con mejor respaldo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>La atención como recurso limitado y el costo de cambiar de tarea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Sueño, pausas y consolidación de lo aprendido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>La ilusión de fluidez: por qué lo fácil no siempre enseña
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: una semana de estudio rediseñada con criterio de evidencia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo probar una técnica antes de adoptarla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Buscar productividad estudiantil en internet devuelve cientos de rutinas, plantillas y aplicaciones, y casi todas se presentan como respaldadas por la ciencia. En la práctica, el conjunto de principios de aprendizaje que cuenta con investigación amplia y repetida es bastante más pequeño de lo que sugiere ese volumen de contenido.</p>
             <p>Este artículo separa ese núcleo con respaldo de las recomendaciones plausibles pero poco evaluadas, explica por qué las técnicas que funcionan suelen sentirse incómodas y propone una forma de probar cualquier método en tu propio caso antes de adoptarlo.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La evidencia disponible en psicología cognitiva respalda con consistencia unas pocas prácticas: distribuir el estudio en varios días, recuperar información de memoria en lugar de releerla, alternar tipos de problemas y proteger el sueño. La mayoría de las técnicas de productividad populares no se han evaluado con ese rigor, así que conviene tratarlas como hipótesis personales y medir su efecto en tu propio desempeño.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La evidencia disponible en psicología cognitiva respalda con consistencia unas pocas prácticas: distribuir el estudio en varios días, recuperar información de memoria en lugar de releerla, alternar tipos de problemas y proteger el sueño. La mayoría de las técnicas de productividad populares no se han evaluado con ese rigor, así que conviene tratarlas como hipótesis personales y medir su efecto en tu propio desempeño.</p>
+                </aside>
 
-            <h2>Qué se puede afirmar y qué no cuando se apela a la ciencia</h2>
-            <p>Decir que una técnica de estudio funciona según la ciencia debería significar algo concreto: que existe investigación publicada, repetida en más de un contexto, que compara esa técnica contra una alternativa razonable y reporta la magnitud de la diferencia, no solo si hubo diferencia. Buena parte del contenido sobre productividad estudiantil que circula en redes no cumple ninguna de esas condiciones.</p>
-            <p>En la literatura de psicología cognitiva y educativa existe un conjunto acotado de principios de aprendizaje con respaldo amplio. Alrededor de ese núcleo hay una zona mucho más grande de recomendaciones razonables pero poco evaluadas: aplicaciones, plantillas, rutinas matutinas y sistemas de organización. Distinguir las dos zonas evita dos errores opuestos: descartar todo por falta de estudios o adoptar cualquier método porque alguien lo llamó científico.</p>
-            <ul>
-                <li>Pregunta contra qué se comparó la técnica: releer no es lo mismo que no estudiar.</li>
-                <li>Revisa si el resultado se midió con una evaluación posterior o solo con la percepción del estudiante.</li>
-                <li>Busca si el hallazgo se repitió en distintos grados escolares y materias.</li>
-            </ul>
-
-            <h2>Práctica distribuida y recuperación activa: el núcleo con mejor respaldo</h2>
-            <p>Dos principios aparecen de forma consistente en la investigación sobre aprendizaje duradero. El primero es la práctica distribuida: repartir el estudio de un tema en varias sesiones separadas por días produce mejor retención a largo plazo que concentrar el mismo tiempo total en una sola sesión. El segundo es la recuperación activa: intentar traer la información a la mente —con preguntas, tarjetas o explicaciones sin apuntes— consolida más que volver a leer el material.</p>
-            <p>Ambos comparten una característica incómoda: se sienten más difíciles que releer o subrayar. Esa dificultad es parte del mecanismo, no un defecto del método. Por eso muchos estudiantes los abandonan justo cuando empiezan a rendir, y regresan a técnicas que producen una sensación agradable de dominio sin dejar huella estable en la memoria.</p>
-            <ul>
-                <li>Separa el repaso de un tema en al menos tres sesiones breves en distintos días.</li>
-                <li>Cierra los apuntes y escribe lo que recuerdes antes de revisar qué faltó.</li>
-                <li>Convierte cada apartado del temario en preguntas que puedas responderte.</li>
-            </ul>
-
-            <h2>La atención como recurso limitado y el costo de cambiar de tarea</h2>
-            <p>La investigación sobre atención sostenida coincide en que mantener el foco en una tarea exigente consume recursos que se agotan y necesitan recuperarse. También coincide en algo más práctico: cada interrupción tiene un costo de reentrada. Después de atender una notificación, la mente no vuelve de inmediato al punto exacto donde estaba; hay que reconstruir el contexto de la tarea.</p>
-            <p>Esto explica por qué una sesión de dos horas con el teléfono al lado puede rendir menos que cuarenta minutos sin interrupciones. No es solo fuerza de voluntad, sino cómo está armado el entorno: reducir estímulos y decisiones disponibles vuelve el foco el camino de menor resistencia.</p>
-            <ul>
-                <li>Deja el teléfono fuera del alcance visual durante el bloque de estudio.</li>
-                <li>Cierra pestañas y aplicaciones que no correspondan a la tarea en curso.</li>
-                <li>Anota en una hoja las ideas que te distraen y vuelve a ellas al terminar el bloque.</li>
-            </ul>
-
-            <h2>Sueño, pausas y consolidación de lo aprendido</h2>
-            <p>El sueño no es un tiempo neutro entre dos días de estudio. La evidencia sobre consolidación de memoria indica que mientras dormimos el cerebro reorganiza y estabiliza lo aprendido durante la vigilia. Recortar horas de sueño para estudiar más suele intercambiar cantidad de repaso por calidad de retención, además de deteriorar la atención del día siguiente.</p>
-            <p>Las pausas dentro de la sesión cumplen una función parecida a menor escala. Descansos breves y sin pantallas ayudan a sostener el rendimiento a lo largo de una tarde de estudio. La duración exacta importa menos que la regularidad: cualquier ritmo que puedas repetir varios días seguidos es preferible a un esquema exigente que abandonas en una semana.</p>
-            <p>Si el sueño está alterado de forma persistente, si hay somnolencia marcada durante el día o dificultad sostenida para concentrarse a pesar de cambios razonables en la rutina, conviene consultar a un profesional de la salud. Un artículo de divulgación no sustituye una valoración clínica.</p>
-
-            <h2>La ilusión de fluidez: por qué lo fácil no siempre enseña</h2>
-            <p>Uno de los hallazgos más útiles y menos intuitivos de la investigación sobre aprendizaje es que la sensación de estar aprendiendo predice mal el aprendizaje real. Releer un capítulo tres veces genera familiaridad con el texto, y esa familiaridad se confunde con dominio del contenido. Cuando llega el examen y la pregunta cambia de formato, la familiaridad no alcanza.</p>
-            <p>La consecuencia práctica es que la autoevaluación debe apoyarse en desempeño, no en sensación. Responder preguntas sin apuntes, explicar el tema a alguien más o resolver problemas mezclados de distintos capítulos revela huecos que el subrayado esconde. Una técnica de productividad que solo te hace sentir organizado, sin mover ningún indicador observable, no está haciendo el trabajo.</p>
-
-            <h2>Ejemplo aplicado: una semana de estudio rediseñada con criterio de evidencia</h2>
-            <p>Consideremos a una estudiante de preparatoria que se prepara para un examen de admisión y dedica sus tardes a lo mismo: releer la guía y subrayar. Estudia entre semana de forma irregular y concentra la mayor parte del esfuerzo el domingo, en una sesión larga con el teléfono a un lado. Termina con la sensación de haber trabajado mucho, pero sus simulacros no se mueven.</p>
-            <p>El rediseño no agrega horas; redistribuye las que ya tiene. Los temas se reparten en bloques de cuarenta y cinco minutos de lunes a viernes, con dos materias por día en lugar de una sola. Cada bloque empieza con diez minutos de recuperación activa: cierra la guía y escribe lo que recuerda del tema de la sesión anterior. Después revisa qué faltó y solo entonces avanza a material nuevo.</p>
-            <p>El domingo deja de ser el día de estudiar todo y se convierte en el día de mezclar: un bloque de problemas de distintos temas, sin saber de antemano cuál toca. Esa mezcla resulta incómoda y produce más errores visibles que estudiar tema por tema, pero se parece mucho más a lo que pide un examen real, donde las preguntas no vienen agrupadas por capítulo.</p>
-            <p>Al cabo de unas semanas el cambio relevante no es que se sienta más segura —de hecho suele sentirse menos segura al principio—, sino que sus respuestas dependen menos de reconocer el enunciado. Ese es el tipo de señal que vale seguir: un cambio en el desempeño observable, no en la sensación de control.</p>
-
-            <h2>Cómo probar una técnica antes de adoptarla</h2>
-            <p>Ninguna recomendación general sustituye la comprobación en tu propio caso. Un estudiante con jornada extendida, otro que trabaja medio tiempo y otro que estudia desde casa tienen restricciones distintas, y una técnica puede ser razonable en un contexto e impracticable en otro. Tratar cada método como una prueba con criterio de salida evita coleccionar sistemas que nunca se usan.</p>
-            <p>El procedimiento es deliberadamente lento. Cambiar cinco cosas a la vez hace imposible saber qué ayudó, y por eso tantos estudiantes concluyen que nada les funciona.</p>
-            <ol>
-                <li>Define qué quieres mejorar en términos observables: ejercicios resueltos, aciertos en simulacros, tareas entregadas a tiempo.</li>
-                <li>Registra dos semanas tu situación actual sin cambiar nada, para tener un punto de partida real.</li>
-                <li>Aplica una sola técnica nueva a la vez durante al menos tres semanas.</li>
-                <li>Mide el mismo indicador que definiste al inicio, no tu percepción de productividad.</li>
-                <li>Si no hay cambio, descarta la técnica sin culpa y prueba otra; si lo hay, consérvala antes de añadir la siguiente.</li>
-            </ol>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Cuando el objetivo concreto es un examen de admisión</h3>
-                <p>Aplicar estos principios por cuenta propia es posible, aunque toma tiempo armar los materiales y encontrar el ritmo. Si tu meta inmediata es presentar un examen de admisión universitaria, un programa estructurado puede aportar el temario ordenado, simulacros para medir avance real y retroalimentación externa. Revisa el contenido, los requisitos y la modalidad antes de decidir si corresponde a tu situación.</p>
-                <a href="/admision-universitaria" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer la preparación para el examen de admisión <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué se puede afirmar y qué no cuando se apela a la ciencia</h2>
+                <p>Decir que una técnica de estudio funciona según la ciencia debería significar algo concreto: que existe investigación publicada, repetida en más de un contexto, que compara esa técnica contra una alternativa razonable y reporta la magnitud de la diferencia, no solo si hubo diferencia. Buena parte del contenido sobre productividad estudiantil que circula en redes no cumple ninguna de esas condiciones.</p>
+                <p>En la literatura de psicología cognitiva y educativa existe un conjunto acotado de principios de aprendizaje con respaldo amplio. Alrededor de ese núcleo hay una zona mucho más grande de recomendaciones razonables pero poco evaluadas: aplicaciones, plantillas, rutinas matutinas y sistemas de organización. Distinguir las dos zonas evita dos errores opuestos: descartar todo por falta de estudios o adoptar cualquier método porque alguien lo llamó científico.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-que-dice-la-evidencia">Qué dice realmente la evidencia sobre productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-aplicacion-practica">Cómo aplicar la productividad estudiantil en el día a día</a></li>
+                    <li>Pregunta contra qué se comparó la técnica: releer no es lo mismo que no estudiar.</li>
+                    <li>Revisa si el resultado se midió con una evaluación posterior o solo con la percepción del estudiante.</li>
+                    <li>Busca si el hallazgo se repitió en distintos grados escolares y materias.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Hay alguna técnica de estudio con más respaldo que las demás?</h3>
-                <p>La recuperación activa y la práctica distribuida son las que aparecen con mayor consistencia en la investigación sobre retención a largo plazo. Eso no las vuelve universales: su efecto depende de la materia, del nivel previo y de que se apliquen con constancia. Conviene verlas como punto de partida sólido, no como receta única para cualquier estudiante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Sirve escuchar música mientras estudio?</h3>
-                <p>La evidencia es mixta y depende de la tarea. En trabajo que exige procesar lenguaje —leer, redactar, memorizar textos— la música con letra compite por los mismos recursos mentales. En tareas mecánicas o repetitivas la interferencia suele ser menor. Pruébalo con un indicador concreto durante unas semanas en lugar de decidirlo por preferencia.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Los estilos de aprendizaje visual, auditivo o kinestésico tienen respaldo?</h3>
-                <p>La idea de adaptar la enseñanza al estilo preferido de cada estudiante no ha encontrado apoyo consistente en la investigación educativa. Las personas sí tienen preferencias de formato, pero enseñarles en ese formato no ha mostrado mejoras claras de aprendizaje. Resulta más útil elegir el formato que represente mejor el contenido específico.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debería durar un bloque de estudio?</h3>
-                <p>No existe una duración óptima única. Los esquemas populares de veinticinco o cincuenta minutos son puntos de partida razonables, no hallazgos científicos precisos. Lo que importa es que el bloque sea lo bastante largo para entrar en la tarea y lo bastante corto para sostenerlo sin interrupciones varios días seguidos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo distingo un consejo de productividad con base de uno que solo suena bien?</h3>
-                <p>Fíjate en si menciona contra qué se comparó, en qué grupo se observó y qué se midió exactamente. Los consejos con base suelen incluir condiciones y límites de aplicación; los que solo suenan bien prometen utilidad universal y cambios rápidos, sin decir nunca en qué casos el método no ayuda.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Práctica distribuida y recuperación activa: el núcleo con mejor respaldo</h2>
+                <p>Dos principios aparecen de forma consistente en la investigación sobre aprendizaje duradero. El primero es la práctica distribuida: repartir el estudio de un tema en varias sesiones separadas por días produce mejor retención a largo plazo que concentrar el mismo tiempo total en una sola sesión. El segundo es la recuperación activa: intentar traer la información a la mente —con preguntas, tarjetas o explicaciones sin apuntes— consolida más que volver a leer el material.</p>
+                <p>Ambos comparten una característica incómoda: se sienten más difíciles que releer o subrayar. Esa dificultad es parte del mecanismo, no un defecto del método. Por eso muchos estudiantes los abandonan justo cuando empiezan a rendir, y regresan a técnicas que producen una sensación agradable de dominio sin dejar huella estable en la memoria.</p>
+                <ul>
+                    <li>Separa el repaso de un tema en al menos tres sesiones breves en distintos días.</li>
+                    <li>Cierra los apuntes y escribe lo que recuerdes antes de revisar qué faltó.</li>
+                    <li>Convierte cada apartado del temario en preguntas que puedas responderte.</li>
+                </ul>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">La atención como recurso limitado y el costo de cambiar de tarea</h2>
+                <p>La investigación sobre atención sostenida coincide en que mantener el foco en una tarea exigente consume recursos que se agotan y necesitan recuperarse. También coincide en algo más práctico: cada interrupción tiene un costo de reentrada. Después de atender una notificación, la mente no vuelve de inmediato al punto exacto donde estaba; hay que reconstruir el contexto de la tarea.</p>
+                <p>Esto explica por qué una sesión de dos horas con el teléfono al lado puede rendir menos que cuarenta minutos sin interrupciones. No es solo fuerza de voluntad, sino cómo está armado el entorno: reducir estímulos y decisiones disponibles vuelve el foco el camino de menor resistencia.</p>
+                <ul>
+                    <li>Deja el teléfono fuera del alcance visual durante el bloque de estudio.</li>
+                    <li>Cierra pestañas y aplicaciones que no correspondan a la tarea en curso.</li>
+                    <li>Anota en una hoja las ideas que te distraen y vuelve a ellas al terminar el bloque.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Sueño, pausas y consolidación de lo aprendido</h2>
+                <p>El sueño no es un tiempo neutro entre dos días de estudio. La evidencia sobre consolidación de memoria indica que mientras dormimos el cerebro reorganiza y estabiliza lo aprendido durante la vigilia. Recortar horas de sueño para estudiar más suele intercambiar cantidad de repaso por calidad de retención, además de deteriorar la atención del día siguiente.</p>
+                <p>Las pausas dentro de la sesión cumplen una función parecida a menor escala. Descansos breves y sin pantallas ayudan a sostener el rendimiento a lo largo de una tarde de estudio. La duración exacta importa menos que la regularidad: cualquier ritmo que puedas repetir varios días seguidos es preferible a un esquema exigente que abandonas en una semana.</p>
+                <p>Si el sueño está alterado de forma persistente, si hay somnolencia marcada durante el día o dificultad sostenida para concentrarse a pesar de cambios razonables en la rutina, conviene consultar a un profesional de la salud. Un artículo de divulgación no sustituye una valoración clínica.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">La ilusión de fluidez: por qué lo fácil no siempre enseña</h2>
+                <p>Uno de los hallazgos más útiles y menos intuitivos de la investigación sobre aprendizaje es que la sensación de estar aprendiendo predice mal el aprendizaje real. Releer un capítulo tres veces genera familiaridad con el texto, y esa familiaridad se confunde con dominio del contenido. Cuando llega el examen y la pregunta cambia de formato, la familiaridad no alcanza.</p>
+                <p>La consecuencia práctica es que la autoevaluación debe apoyarse en desempeño, no en sensación. Responder preguntas sin apuntes, explicar el tema a alguien más o resolver problemas mezclados de distintos capítulos revela huecos que el subrayado esconde. Una técnica de productividad que solo te hace sentir organizado, sin mover ningún indicador observable, no está haciendo el trabajo.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: una semana de estudio rediseñada con criterio de evidencia</h2>
+                <p>Consideremos a una estudiante de preparatoria que se prepara para un examen de admisión y dedica sus tardes a lo mismo: releer la guía y subrayar. Estudia entre semana de forma irregular y concentra la mayor parte del esfuerzo el domingo, en una sesión larga con el teléfono a un lado. Termina con la sensación de haber trabajado mucho, pero sus simulacros no se mueven.</p>
+                <p>El rediseño no agrega horas; redistribuye las que ya tiene. Los temas se reparten en bloques de cuarenta y cinco minutos de lunes a viernes, con dos materias por día en lugar de una sola. Cada bloque empieza con diez minutos de recuperación activa: cierra la guía y escribe lo que recuerda del tema de la sesión anterior. Después revisa qué faltó y solo entonces avanza a material nuevo.</p>
+                <p>El domingo deja de ser el día de estudiar todo y se convierte en el día de mezclar: un bloque de problemas de distintos temas, sin saber de antemano cuál toca. Esa mezcla resulta incómoda y produce más errores visibles que estudiar tema por tema, pero se parece mucho más a lo que pide un examen real, donde las preguntas no vienen agrupadas por capítulo.</p>
+                <p>Al cabo de unas semanas el cambio relevante no es que se sienta más segura —de hecho suele sentirse menos segura al principio—, sino que sus respuestas dependen menos de reconocer el enunciado. Ese es el tipo de señal que vale seguir: un cambio en el desempeño observable, no en la sensación de control.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo probar una técnica antes de adoptarla</h2>
+                <p>Ninguna recomendación general sustituye la comprobación en tu propio caso. Un estudiante con jornada extendida, otro que trabaja medio tiempo y otro que estudia desde casa tienen restricciones distintas, y una técnica puede ser razonable en un contexto e impracticable en otro. Tratar cada método como una prueba con criterio de salida evita coleccionar sistemas que nunca se usan.</p>
+                <p>El procedimiento es deliberadamente lento. Cambiar cinco cosas a la vez hace imposible saber qué ayudó, y por eso tantos estudiantes concluyen que nada les funciona.</p>
+                <ol>
+                    <li>Define qué quieres mejorar en términos observables: ejercicios resueltos, aciertos en simulacros, tareas entregadas a tiempo.</li>
+                    <li>Registra dos semanas tu situación actual sin cambiar nada, para tener un punto de partida real.</li>
+                    <li>Aplica una sola técnica nueva a la vez durante al menos tres semanas.</li>
+                    <li>Mide el mismo indicador que definiste al inicio, no tu percepción de productividad.</li>
+                    <li>Si no hay cambio, descarta la técnica sin culpa y prueba otra; si lo hay, consérvala antes de añadir la siguiente.</li>
+                </ol>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Cuando el objetivo concreto es un examen de admisión</h2>
+                    <p>Aplicar estos principios por cuenta propia es posible, aunque toma tiempo armar los materiales y encontrar el ritmo. Si tu meta inmediata es presentar un examen de admisión universitaria, un programa estructurado puede aportar el temario ordenado, simulacros para medir avance real y retroalimentación externa. Revisa el contenido, los requisitos y la modalidad antes de decidir si corresponde a tu situación.</p>
+                    <a href="/admision-universitaria" class="btn-primary">
+                        Conocer la preparación para el examen de admisión <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-que-dice-la-evidencia">
+                            <span>Qué dice realmente la evidencia sobre productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-aplicacion-practica">
+                            <span>Cómo aplicar la productividad estudiantil en el día a día</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Hay alguna técnica de estudio con más respaldo que las demás?</h3>
+                    <p>La recuperación activa y la práctica distribuida son las que aparecen con mayor consistencia en la investigación sobre retención a largo plazo. Eso no las vuelve universales: su efecto depende de la materia, del nivel previo y de que se apliquen con constancia. Conviene verlas como punto de partida sólido, no como receta única para cualquier estudiante.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Sirve escuchar música mientras estudio?</h3>
+                    <p>La evidencia es mixta y depende de la tarea. En trabajo que exige procesar lenguaje —leer, redactar, memorizar textos— la música con letra compite por los mismos recursos mentales. En tareas mecánicas o repetitivas la interferencia suele ser menor. Pruébalo con un indicador concreto durante unas semanas en lugar de decidirlo por preferencia.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Los estilos de aprendizaje visual, auditivo o kinestésico tienen respaldo?</h3>
+                    <p>La idea de adaptar la enseñanza al estilo preferido de cada estudiante no ha encontrado apoyo consistente en la investigación educativa. Las personas sí tienen preferencias de formato, pero enseñarles en ese formato no ha mostrado mejoras claras de aprendizaje. Resulta más útil elegir el formato que represente mejor el contenido específico.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debería durar un bloque de estudio?</h3>
+                    <p>No existe una duración óptima única. Los esquemas populares de veinticinco o cincuenta minutos son puntos de partida razonables, no hallazgos científicos precisos. Lo que importa es que el bloque sea lo bastante largo para entrar en la tarea y lo bastante corto para sostenerlo sin interrupciones varios días seguidos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo distingo un consejo de productividad con base de uno que solo suena bien?</h3>
+                    <p>Fíjate en si menciona contra qué se comparó, en qué grupo se observó y qué se midió exactamente. Los consejos con base suelen incluir condiciones y límites de aplicación; los que solo suenan bien prometen utilidad universal y cambios rápidos, sin decir nunca en qué casos el método no ayuda.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -539,8 +632,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué se puede afirmar y qué no cuando se apela a la ciencia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Práctica distribuida y recuperación activa: el núcleo con mejor respaldo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>La atención como recurso limitado y el costo de cambiar de tarea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Sueño, pausas y consolidación de lo aprendido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>La ilusión de fluidez: por qué lo fácil no siempre enseña
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: una semana de estudio rediseñada con criterio de evidencia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo probar una técnica antes de adoptarla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>9 min restantes</span>
+                        <span>Lectura estimada: 9 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

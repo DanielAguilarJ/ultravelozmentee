@@ -354,140 +354,231 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-bolt"></i> Fotolectura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Comprensión veloz: qué es y en qué se diferencia de solo leer rápido</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 2 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Fotolectura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Comprensión veloz: qué es y en qué se diferencia de solo leer rápido</h1>
+                <p class="blog-post-dek">Comprensión veloz explicada: la diferencia real entre leer más palabras por minuto y entender un texto sin tener que releerlo, y cómo se entrena cada una.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Fotolectura</span>
+                    <span>Publicado <time datetime="2026-09-02">2 de Septiembre, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fotolectura-curso-lectura-rapida-libro.webp" alt="Comprensión veloz: qué es y en qué se diferencia de solo leer rápido" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Cuando alguien busca 'comprensión veloz' casi siempre está describiendo una frustración concreta: puede leer rápido, pero al terminar un párrafo no sabría explicar de qué trataba. O al revés: entiende todo si lee despacio, pero ese ritmo lo deja exhausto en un texto largo o le hace perder tiempo en un examen con límite de minutos.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué mide exactamente la velocidad de lectura
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Qué mide la comprensión, y por qué es una variable distinta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Por qué se puede leer rápido y entender poco
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Por qué también se puede entender bien y seguir leyendo lento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo saber en cuál de las dos variables está la brecha
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué hacer según el resultado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Por qué esta distinción importa más en niños y adolescentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Cuando alguien busca 'comprensión veloz' casi siempre está describiendo una frustración concreta: puede leer rápido, pero al terminar un párrafo no sabría explicar de qué trataba. O al revés: entiende todo si lee despacio, pero ese ritmo lo deja exhausto en un texto largo o le hace perder tiempo en un examen con límite de minutos.</p>
             <p>Este artículo separa dos variables que el lenguaje cotidiano mezcla todo el tiempo -- velocidad de lectura y comprensión -- explica por qué entrenar solo una sin la otra no resuelve el problema real, y describe qué mirar para saber en cuál de las dos está la brecha antes de elegir cualquier método o curso.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La comprensión veloz es la capacidad de entender un texto con precisión en el primer paso de lectura, sin necesidad de releer para captar el sentido. Es distinta de la velocidad lectora pura (palabras por minuto): se puede leer rápido y entender poco, o leer a ritmo moderado y comprender casi todo. Un entrenamiento serio de lectura trabaja ambas variables de forma separada y verificable, no solo el cronómetro.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La comprensión veloz es la capacidad de entender un texto con precisión en el primer paso de lectura, sin necesidad de releer para captar el sentido. Es distinta de la velocidad lectora pura (palabras por minuto): se puede leer rápido y entender poco, o leer a ritmo moderado y comprender casi todo. Un entrenamiento serio de lectura trabaja ambas variables de forma separada y verificable, no solo el cronómetro.</p>
+                </aside>
 
-            <h2>Qué mide exactamente la velocidad de lectura</h2>
-            <p>La velocidad de lectura se mide en palabras por minuto (PPM): se cronometra un fragmento de texto, se cuenta cuántas palabras contiene y se divide entre los minutos que tardó la persona en leerlo completo. Es una métrica mecánica: no dice nada sobre si el lector entendió lo que pasó por sus ojos, solo sobre la velocidad a la que sus ojos y su procesamiento visual avanzaron por el texto.</p>
-            <p>Un lector puede aumentar su PPM entrenando movimientos oculares más eficientes -- menos regresiones involuntarias al mismo renglón, fijaciones más amplias que capturan varias palabras a la vez, menos subvocalización (pronunciar mentalmente cada palabra) -- y esas técnicas son reales y medibles. El problema aparece cuando se presenta el aumento de PPM como el objetivo final, sin verificar en paralelo qué pasó con la comprensión.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué mide exactamente la velocidad de lectura</h2>
+                <p>La velocidad de lectura se mide en palabras por minuto (PPM): se cronometra un fragmento de texto, se cuenta cuántas palabras contiene y se divide entre los minutos que tardó la persona en leerlo completo. Es una métrica mecánica: no dice nada sobre si el lector entendió lo que pasó por sus ojos, solo sobre la velocidad a la que sus ojos y su procesamiento visual avanzaron por el texto.</p>
+                <p>Un lector puede aumentar su PPM entrenando movimientos oculares más eficientes -- menos regresiones involuntarias al mismo renglón, fijaciones más amplias que capturan varias palabras a la vez, menos subvocalización (pronunciar mentalmente cada palabra) -- y esas técnicas son reales y medibles. El problema aparece cuando se presenta el aumento de PPM como el objetivo final, sin verificar en paralelo qué pasó con la comprensión.</p>
+            </section>
 
-            <h2>Qué mide la comprensión, y por qué es una variable distinta</h2>
-            <p>La comprensión lectora se mide de forma muy diferente: no con cronómetro, sino con preguntas sobre el contenido -- qué pasó, por qué, qué significa un dato específico, cómo se relaciona una idea con otra -- respondidas sin volver a mirar el texto. Un lector con buena comprensión puede reconstruir la idea central, los datos de apoyo y las relaciones lógicas del texto que acaba de leer, en una sola pasada.</p>
-            <p>La comprensión veloz, entonces, no es un tercer concepto separado de los otros dos: es la intersección de ambos. Es la capacidad de sostener una comprensión alta (responder bien las preguntas del texto) mientras se lee a un ritmo razonablemente rápido, sin necesidad de una segunda o tercera pasada por el mismo párrafo para 'que se le quede'.</p>
-            <p>Esta distinción importa porque el objetivo real casi nunca es 'leer más rápido' en abstracto -- es leer lo suficientemente rápido para no perder tiempo, sin sacrificar lo que se entiende. Confundir ambas cosas lleva a entrenar la variable equivocada.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Qué mide la comprensión, y por qué es una variable distinta</h2>
+                <p>La comprensión lectora se mide de forma muy diferente: no con cronómetro, sino con preguntas sobre el contenido -- qué pasó, por qué, qué significa un dato específico, cómo se relaciona una idea con otra -- respondidas sin volver a mirar el texto. Un lector con buena comprensión puede reconstruir la idea central, los datos de apoyo y las relaciones lógicas del texto que acaba de leer, en una sola pasada.</p>
+                <p>La comprensión veloz, entonces, no es un tercer concepto separado de los otros dos: es la intersección de ambos. Es la capacidad de sostener una comprensión alta (responder bien las preguntas del texto) mientras se lee a un ritmo razonablemente rápido, sin necesidad de una segunda o tercera pasada por el mismo párrafo para 'que se le quede'.</p>
+                <p>Esta distinción importa porque el objetivo real casi nunca es 'leer más rápido' en abstracto -- es leer lo suficientemente rápido para no perder tiempo, sin sacrificar lo que se entiende. Confundir ambas cosas lleva a entrenar la variable equivocada.</p>
+            </section>
 
-            <h2>Por qué se puede leer rápido y entender poco</h2>
-            <p>Es posible aumentar la velocidad de lectura mecánica -- las palabras por minuto -- sin que el cerebro esté procesando el significado al mismo ritmo. Esto ocurre típicamente cuando alguien practica ejercicios de velocidad pura (mover los ojos más rápido, ampliar el campo de fijación) sin verificar en paralelo cuánto está entendiendo de lo que 'lee' a esa velocidad nueva.</p>
-            <p>El síntoma es reconocible: la persona termina un texto en menos tiempo, pero al pedirle que resuma de qué trataba, solo recuerda fragmentos sueltos o la idea más superficial. Ha entrenado el componente mecánico (los ojos) sin entrenar el componente de procesamiento (la comprensión), y el resultado es lectura más rápida pero más vacía.</p>
-            <ul>
-                <li>Aumentar PPM sin verificar comprensión en paralelo con preguntas reales sobre el texto.</li>
-                <li>Confundir 'reconocer palabras' con 'entender ideas': se puede leer cada palabra correctamente y perder la relación lógica entre ellas.</li>
-                <li>Entrenar solo con textos fáciles o ya conocidos, donde la comprensión alta es engañosamente sencilla de lograr a cualquier velocidad.</li>
-                <li>No practicar con el tipo de texto que realmente se necesita leer rápido (académico, técnico, de examen), sino con textos narrativos sencillos que no exigen el mismo esfuerzo de comprensión.</li>
-            </ul>
-
-            <h2>Por qué también se puede entender bien y seguir leyendo lento</h2>
-            <p>El caso inverso también es real y común: hay lectores con comprensión sólida que leen a un ritmo mucho menor al que su nivel de comprensión permitiría, simplemente porque nunca trabajaron las técnicas mecánicas de eficiencia visual. Suelen subvocalizar cada palabra (pronunciarla mentalmente aunque no en voz alta), lo que limita la velocidad al ritmo del habla interna, muy por debajo del ritmo al que el cerebro puede reconocer palabras visualmente.</p>
-            <p>También es frecuente la regresión involuntaria: los ojos vuelven a un renglón ya leído por hábito o por falta de confianza, no porque el texto lo exija. Esta relectura constante añade minutos a cualquier lectura sin aportar comprensión adicional real, porque el lector ya había entendido el fragmento la primera vez.</p>
-
-            <h2>Cómo saber en cuál de las dos variables está la brecha</h2>
-            <p>Antes de entrenar cualquier técnica, conviene medir por separado ambas variables con un protocolo simple: cronometrar la lectura de un texto de dificultad conocida, calcular las palabras por minuto, y de inmediato responder sin mirar el texto un conjunto de preguntas de comprensión sobre datos concretos y relaciones entre ideas, no solo sobre el tema general.</p>
-            <ol>
-                <li>Elegir un texto de 400-600 palabras de dificultad similar a lo que se necesita leer en la vida real (académico, de examen, de trabajo), no un cuento fácil.</li>
-                <li>Cronometrar la lectura completa, una sola pasada, sin pausas para tomar notas.</li>
-                <li>Calcular palabras por minuto: total de palabras dividido entre minutos.</li>
-                <li>De inmediato, sin volver a mirar el texto, responder 5-8 preguntas concretas sobre datos y relaciones lógicas del contenido.</li>
-                <li>Calcular el porcentaje de respuestas correctas: esa es la comprensión real a esa velocidad.</li>
-                <li>Repetir el mismo protocolo con textos distintos en varias sesiones para tener un promedio confiable, no una sola medición que puede variar por cansancio o interés en el tema.</li>
-            </ol>
-
-            <h2>Qué hacer según el resultado</h2>
-            <p>Si la velocidad es alta pero la comprensión es baja, el error es entrenar más velocidad todavía: hay que bajar el ritmo intencionalmente hasta que la comprensión suba a un nivel aceptable, y desde ahí subir la velocidad de forma gradual sin perder ese nivel, verificando con el mismo protocolo de preguntas en cada paso.</p>
-            <p>Si la comprensión es alta pero la velocidad es baja, el trabajo indicado son las técnicas mecánicas: reducir la subvocalización con ejercicios de ritmo visual, entrenar fijaciones más amplias que capturan grupos de palabras, y eliminar la regresión involuntaria con técnicas de guía visual (un dedo, un marcador, o software que marca el ritmo).</p>
-            <p>Un entrenamiento serio de lectura veloz nunca sube la velocidad sin verificar en cada etapa qué pasó con la comprensión; y tampoco se conforma con una comprensión alta si el ritmo es tan lento que hace impráctico leer el volumen de texto que la persona realmente necesita cubrir.</p>
-
-            <h2>Por qué esta distinción importa más en niños y adolescentes</h2>
-            <p>En edad escolar, la presión suele estar puesta en la velocidad -- 'lee más rápido' es una instrucción común de maestros y padres -- sin verificar si esa velocidad viene acompañada de comprensión. Un niño que aprende a leer rápido sin comprender desarrolla un hábito difícil de revertir después: asocia 'leer bien' con 'terminar rápido', no con 'entender lo que leyó'.</p>
-            <p>Por eso, cualquier programa de lectura para niños o adolescentes debería medir y reportar ambas variables por separado -- velocidad y comprensión -- en lugar de solo celebrar el aumento de palabras por minuto, que es la métrica más fácil de medir pero la menos informativa por sí sola sobre si el entrenamiento está funcionando de verdad.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Entrena velocidad y comprensión con seguimiento real, no solo un cronómetro</h3>
-                <p>El curso de Fotolectura de WorldBrain México trabaja ambas variables por separado, con ejercicios de eficiencia visual y verificación de comprensión en cada sesión, en modalidad presencial en Cuautitlán Izcalli y Cuernavaca.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso de lectura rápida <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Por qué se puede leer rápido y entender poco</h2>
+                <p>Es posible aumentar la velocidad de lectura mecánica -- las palabras por minuto -- sin que el cerebro esté procesando el significado al mismo ritmo. Esto ocurre típicamente cuando alguien practica ejercicios de velocidad pura (mover los ojos más rápido, ampliar el campo de fijación) sin verificar en paralelo cuánto está entendiendo de lo que 'lee' a esa velocidad nueva.</p>
+                <p>El síntoma es reconocible: la persona termina un texto en menos tiempo, pero al pedirle que resuma de qué trataba, solo recuerda fragmentos sueltos o la idea más superficial. Ha entrenado el componente mecánico (los ojos) sin entrenar el componente de procesamiento (la comprensión), y el resultado es lectura más rápida pero más vacía.</p>
                 <ul>
-                <li><a href="/blog-comprension-lectora-vs-velocidad-lectora">Comprensión lectora vs. velocidad lectora: cómo entrenar cada una</a></li>
-                <li><a href="/blog-ejercicios-oculares-lectura-rapida">Ejercicios oculares para lectura rápida: fijaciones, regresiones y ritmo</a></li>
-                <li><a href="/blog-mitos-lectura-rapida">Mitos y verdades sobre la lectura rápida</a></li>
-                <li><a href="/blog-como-elegir-curso-lectura-rapida">Cómo elegir un curso de lectura rápida: 9 preguntas antes de inscribirte</a></li>
+                    <li>Aumentar PPM sin verificar comprensión en paralelo con preguntas reales sobre el texto.</li>
+                    <li>Confundir 'reconocer palabras' con 'entender ideas': se puede leer cada palabra correctamente y perder la relación lógica entre ellas.</li>
+                    <li>Entrenar solo con textos fáciles o ya conocidos, donde la comprensión alta es engañosamente sencilla de lograr a cualquier velocidad.</li>
+                    <li>No practicar con el tipo de texto que realmente se necesita leer rápido (académico, técnico, de examen), sino con textos narrativos sencillos que no exigen el mismo esfuerzo de comprensión.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La comprensión veloz es lo mismo que la lectura rápida?</h3>
-                <p>No exactamente. Lectura rápida suele referirse solo a la velocidad (palabras por minuto). Comprensión veloz es la combinación de leer a buen ritmo Y entender con precisión en esa misma pasada, sin necesidad de releer para captar el sentido.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si mi problema es de velocidad o de comprensión?</h3>
-                <p>Mide ambas por separado: cronometra la lectura de un texto y calcula palabras por minuto, luego responde preguntas concretas sobre el contenido sin volver a mirarlo. Si la velocidad es alta y las respuestas son pocas, el problema es de comprensión; si es al revés, es de eficiencia de lectura.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Se puede entrenar la comprensión veloz en poco tiempo?</h3>
-                <p>Depende de la brecha inicial y de la práctica constante con retroalimentación real. No existe una cifra universal honesta sobre cuánto tiempo toma; lo verificable es que debe medirse con el mismo protocolo de velocidad y comprensión en cada etapa para saber si el entrenamiento está funcionando.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Por qué mi hijo lee rápido en la escuela pero no entiende bien los textos?</h3>
-                <p>Es un patrón común cuando el entrenamiento o la retroalimentación escolar se enfocó en terminar rápido más que en comprender. Conviene medir su comprensión por separado con preguntas concretas sobre textos que aún no conoce, y ajustar el ritmo de lectura si la comprensión resulta baja.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Por qué también se puede entender bien y seguir leyendo lento</h2>
+                <p>El caso inverso también es real y común: hay lectores con comprensión sólida que leen a un ritmo mucho menor al que su nivel de comprensión permitiría, simplemente porque nunca trabajaron las técnicas mecánicas de eficiencia visual. Suelen subvocalizar cada palabra (pronunciarla mentalmente aunque no en voz alta), lo que limita la velocidad al ritmo del habla interna, muy por debajo del ritmo al que el cerebro puede reconocer palabras visualmente.</p>
+                <p>También es frecuente la regresión involuntaria: los ojos vuelven a un renglón ya leído por hábito o por falta de confianza, no porque el texto lo exija. Esta relectura constante añade minutos a cualquier lectura sin aportar comprensión adicional real, porque el lector ya había entendido el fragmento la primera vez.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cómo saber en cuál de las dos variables está la brecha</h2>
+                <p>Antes de entrenar cualquier técnica, conviene medir por separado ambas variables con un protocolo simple: cronometrar la lectura de un texto de dificultad conocida, calcular las palabras por minuto, y de inmediato responder sin mirar el texto un conjunto de preguntas de comprensión sobre datos concretos y relaciones entre ideas, no solo sobre el tema general.</p>
+                <ol>
+                    <li>Elegir un texto de 400-600 palabras de dificultad similar a lo que se necesita leer en la vida real (académico, de examen, de trabajo), no un cuento fácil.</li>
+                    <li>Cronometrar la lectura completa, una sola pasada, sin pausas para tomar notas.</li>
+                    <li>Calcular palabras por minuto: total de palabras dividido entre minutos.</li>
+                    <li>De inmediato, sin volver a mirar el texto, responder 5-8 preguntas concretas sobre datos y relaciones lógicas del contenido.</li>
+                    <li>Calcular el porcentaje de respuestas correctas: esa es la comprensión real a esa velocidad.</li>
+                    <li>Repetir el mismo protocolo con textos distintos en varias sesiones para tener un promedio confiable, no una sola medición que puede variar por cansancio o interés en el tema.</li>
+                </ol>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Qué hacer según el resultado</h2>
+                <p>Si la velocidad es alta pero la comprensión es baja, el error es entrenar más velocidad todavía: hay que bajar el ritmo intencionalmente hasta que la comprensión suba a un nivel aceptable, y desde ahí subir la velocidad de forma gradual sin perder ese nivel, verificando con el mismo protocolo de preguntas en cada paso.</p>
+                <p>Si la comprensión es alta pero la velocidad es baja, el trabajo indicado son las técnicas mecánicas: reducir la subvocalización con ejercicios de ritmo visual, entrenar fijaciones más amplias que capturan grupos de palabras, y eliminar la regresión involuntaria con técnicas de guía visual (un dedo, un marcador, o software que marca el ritmo).</p>
+                <p>Un entrenamiento serio de lectura veloz nunca sube la velocidad sin verificar en cada etapa qué pasó con la comprensión; y tampoco se conforma con una comprensión alta si el ritmo es tan lento que hace impráctico leer el volumen de texto que la persona realmente necesita cubrir.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Por qué esta distinción importa más en niños y adolescentes</h2>
+                <p>En edad escolar, la presión suele estar puesta en la velocidad -- 'lee más rápido' es una instrucción común de maestros y padres -- sin verificar si esa velocidad viene acompañada de comprensión. Un niño que aprende a leer rápido sin comprender desarrolla un hábito difícil de revertir después: asocia 'leer bien' con 'terminar rápido', no con 'entender lo que leyó'.</p>
+                <p>Por eso, cualquier programa de lectura para niños o adolescentes debería medir y reportar ambas variables por separado -- velocidad y comprensión -- en lugar de solo celebrar el aumento de palabras por minuto, que es la métrica más fácil de medir pero la menos informativa por sí sola sobre si el entrenamiento está funcionando de verdad.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Entrena velocidad y comprensión con seguimiento real, no solo un cronómetro</h2>
+                    <p>El curso de Fotolectura de WorldBrain México trabaja ambas variables por separado, con ejercicios de eficiencia visual y verificación de comprensión en cada sesión, en modalidad presencial en Cuautitlán Izcalli y Cuernavaca.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Conocer el curso de lectura rápida <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-comprension-lectora-vs-velocidad-lectora">
+                            <span>Comprensión lectora vs. velocidad lectora: cómo entrenar cada una</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-ejercicios-oculares-lectura-rapida">
+                            <span>Ejercicios oculares para lectura rápida: fijaciones, regresiones y ritmo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-mitos-lectura-rapida">
+                            <span>Mitos y verdades sobre la lectura rápida</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-elegir-curso-lectura-rapida">
+                            <span>Cómo elegir un curso de lectura rápida: 9 preguntas antes de inscribirte</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La comprensión veloz es lo mismo que la lectura rápida?</h3>
+                    <p>No exactamente. Lectura rápida suele referirse solo a la velocidad (palabras por minuto). Comprensión veloz es la combinación de leer a buen ritmo Y entender con precisión en esa misma pasada, sin necesidad de releer para captar el sentido.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si mi problema es de velocidad o de comprensión?</h3>
+                    <p>Mide ambas por separado: cronometra la lectura de un texto y calcula palabras por minuto, luego responde preguntas concretas sobre el contenido sin volver a mirarlo. Si la velocidad es alta y las respuestas son pocas, el problema es de comprensión; si es al revés, es de eficiencia de lectura.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Se puede entrenar la comprensión veloz en poco tiempo?</h3>
+                    <p>Depende de la brecha inicial y de la práctica constante con retroalimentación real. No existe una cifra universal honesta sobre cuánto tiempo toma; lo verificable es que debe medirse con el mismo protocolo de velocidad y comprensión en cada etapa para saber si el entrenamiento está funcionando.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Por qué mi hijo lee rápido en la escuela pero no entiende bien los textos?</h3>
+                    <p>Es un patrón común cuando el entrenamiento o la retroalimentación escolar se enfocó en terminar rápido más que en comprender. Conviene medir su comprensión por separado con preguntas concretas sobre textos que aún no conoce, y ajustar el ritmo de lectura si la comprensión resulta baja.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -517,8 +608,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué mide exactamente la velocidad de lectura
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Qué mide la comprensión, y por qué es una variable distinta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Por qué se puede leer rápido y entender poco
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Por qué también se puede entender bien y seguir leyendo lento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo saber en cuál de las dos variables está la brecha
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué hacer según el resultado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Por qué esta distinción importa más en niños y adolescentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

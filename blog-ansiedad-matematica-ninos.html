@@ -346,125 +346,200 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="4">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-calculator"></i> MatheKids
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Ansiedad matemática en niños: señales y formas de recuperar confianza</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 4 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">MatheKids</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Ansiedad matemática en niños: señales y formas de recuperar confianza</h1>
+                <p class="blog-post-dek">Señales de ansiedad matemática en niños y estrategias para recuperar la confianza. Lenguaje cuidadoso y apoyo pedagógico sin diagnósticos clínicos.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">MatheKids</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>4 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/mk-hero-kid.webp" alt="Ansiedad matemática en niños: señales y formas de recuperar confianza" width="1024" height="1024" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">A ningún niño le gustan las matemáticas si cada encuentro con ellas termina en frustración, vergüenza o castigo. Lo que llamamos ansiedad matemática no es un defecto del niño: es una respuesta aprendida ante experiencias negativas repetidas.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es la ansiedad matemática y qué no es
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Señales que vale la pena observar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Factores que alimentan la ansiedad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Estrategias para el entorno familiar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Estrategias para el entorno de estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuándo buscar apoyo profesional
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">A ningún niño le gustan las matemáticas si cada encuentro con ellas termina en frustración, vergüenza o castigo. Lo que llamamos ansiedad matemática no es un defecto del niño: es una respuesta aprendida ante experiencias negativas repetidas.</p>
             <p>Este artículo describe señales para identificarla y acciones pedagógicas para reducirla. No sustituye una valoración profesional cuando la situación es severa o persistente.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La ansiedad matemática se manifiesta cuando un niño evita sistemáticamente tareas numéricas, se bloquea ante problemas que antes resolvía o expresa malestar físico frente a las matemáticas. Se puede abordar con cambios en el lenguaje, exposición gradual y éxitos tempranos que reconstruyan la confianza.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La ansiedad matemática se manifiesta cuando un niño evita sistemáticamente tareas numéricas, se bloquea ante problemas que antes resolvía o expresa malestar físico frente a las matemáticas. Se puede abordar con cambios en el lenguaje, exposición gradual y éxitos tempranos que reconstruyan la confianza.</p>
+                </aside>
 
-            <h2>Qué es la ansiedad matemática y qué no es</h2>
-            <p>La ansiedad matemática es una respuesta emocional de tensión, miedo o incomodidad que aparece ante situaciones que involucran números u operaciones. No es pereza, falta de inteligencia ni un diagnóstico clínico formal, aunque puede coexistir con dificultades de aprendizaje.</p>
-            <p>Cualquier niño puede experimentarla: no es exclusiva de quienes tienen bajo rendimiento. Algunos estudiantes con buen desempeño la padecen en silencio porque compensan con sobresfuerzo.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es la ansiedad matemática y qué no es</h2>
+                <p>La ansiedad matemática es una respuesta emocional de tensión, miedo o incomodidad que aparece ante situaciones que involucran números u operaciones. No es pereza, falta de inteligencia ni un diagnóstico clínico formal, aunque puede coexistir con dificultades de aprendizaje.</p>
+                <p>Cualquier niño puede experimentarla: no es exclusiva de quienes tienen bajo rendimiento. Algunos estudiantes con buen desempeño la padecen en silencio porque compensan con sobresfuerzo.</p>
+            </section>
 
-            <h2>Señales que vale la pena observar</h2>
-            <p>Las señales no siempre son obvias. Un niño con ansiedad matemática puede parecer simplemente desinteresado o distraído cuando en realidad está evitando una situación que le genera malestar.</p>
-            <ul>
-                <li>Evita o pospone constantemente las tareas de matemáticas.</li>
-                <li>Dice frases como «no sirvo para esto» o «las matemáticas no son lo mío».</li>
-                <li>Se bloquea en un examen aunque haya estudiado y sepa el tema.</li>
-                <li>Manifiesta síntomas físicos: dolor de estómago, sudoración, querer ir al baño.</li>
-                <li>Depende excesivamente de la calculadora o de copiar procedimientos sin entender.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Señales que vale la pena observar</h2>
+                <p>Las señales no siempre son obvias. Un niño con ansiedad matemática puede parecer simplemente desinteresado o distraído cuando en realidad está evitando una situación que le genera malestar.</p>
+                <ul>
+                    <li>Evita o pospone constantemente las tareas de matemáticas.</li>
+                    <li>Dice frases como «no sirvo para esto» o «las matemáticas no son lo mío».</li>
+                    <li>Se bloquea en un examen aunque haya estudiado y sepa el tema.</li>
+                    <li>Manifiesta síntomas físicos: dolor de estómago, sudoración, querer ir al baño.</li>
+                    <li>Depende excesivamente de la calculadora o de copiar procedimientos sin entender.</li>
+                </ul>
+            </section>
 
-            <h2>Factores que alimentan la ansiedad</h2>
-            <p>La ansiedad matemática rara vez tiene una sola causa. Suele construirse con el tiempo a partir de varias experiencias: exposición pública al error, presión de tiempo excesiva, adultos que transmiten su propia incomodidad con los números, o un salto de dificultad sin preparación adecuada.</p>
-            <p>Los comentarios como «yo tampoco era bueno en matemáticas» normalizan la dificultad pero también envían el mensaje de que rendirse es aceptable. Es preferible reconocer que algo es difícil y mostrar que con práctica se avanza.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Factores que alimentan la ansiedad</h2>
+                <p>La ansiedad matemática rara vez tiene una sola causa. Suele construirse con el tiempo a partir de varias experiencias: exposición pública al error, presión de tiempo excesiva, adultos que transmiten su propia incomodidad con los números, o un salto de dificultad sin preparación adecuada.</p>
+                <p>Los comentarios como «yo tampoco era bueno en matemáticas» normalizan la dificultad pero también envían el mensaje de que rendirse es aceptable. Es preferible reconocer que algo es difícil y mostrar que con práctica se avanza.</p>
+            </section>
 
-            <h2>Estrategias para el entorno familiar</h2>
-            <p>El hogar es el primer espacio donde se puede cambiar la narrativa. No hace falta ser experto en matemáticas para ayudar; basta con crear un ambiente donde equivocarse sea seguro y los números no sean sinónimo de castigo.</p>
-            <ol>
-                <li>Elimina el lenguaje negativo sobre las matemáticas en la familia.</li>
-                <li>Celebra el esfuerzo y la estrategia, no solo la respuesta correcta.</li>
-                <li>Ofrece problemas ligeramente por debajo del nivel de frustración para generar éxitos.</li>
-                <li>Usa juegos de mesa y situaciones cotidianas donde los números aparezcan sin presión.</li>
-                <li>Evita comparar el rendimiento del niño con hermanos o compañeros.</li>
-                <li>Si notas bloqueo, haz una pausa y regresa al tema con un enfoque diferente.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Estrategias para el entorno familiar</h2>
+                <p>El hogar es el primer espacio donde se puede cambiar la narrativa. No hace falta ser experto en matemáticas para ayudar; basta con crear un ambiente donde equivocarse sea seguro y los números no sean sinónimo de castigo.</p>
+                <ol>
+                    <li>Elimina el lenguaje negativo sobre las matemáticas en la familia.</li>
+                    <li>Celebra el esfuerzo y la estrategia, no solo la respuesta correcta.</li>
+                    <li>Ofrece problemas ligeramente por debajo del nivel de frustración para generar éxitos.</li>
+                    <li>Usa juegos de mesa y situaciones cotidianas donde los números aparezcan sin presión.</li>
+                    <li>Evita comparar el rendimiento del niño con hermanos o compañeros.</li>
+                    <li>Si notas bloqueo, haz una pausa y regresa al tema con un enfoque diferente.</li>
+                </ol>
+            </section>
 
-            <h2>Estrategias para el entorno de estudio</h2>
-            <p>Cuando un niño ya asocia las matemáticas con malestar, los primeros ejercicios deben ser breves, exitosos y vinculados a algo que le interese. El objetivo inmediato no es avanzar en el temario sino reconstruir la relación con la materia.</p>
-            <ul>
-                <li>Sesiones cortas: cinco a diez minutos al principio, siempre terminando en un logro.</li>
-                <li>Material manipulable: fichas, bloques, ábaco; reducir lo abstracto hasta que haya confianza.</li>
-                <li>Progresión visible: que el niño vea su avance concreto, no solo calificaciones.</li>
-                <li>Permitir errores sin consecuencias: el error es información, no fallo personal.</li>
-                <li>Ofrecer opciones: dejar que elija por dónde empezar da sensación de control.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Estrategias para el entorno de estudio</h2>
+                <p>Cuando un niño ya asocia las matemáticas con malestar, los primeros ejercicios deben ser breves, exitosos y vinculados a algo que le interese. El objetivo inmediato no es avanzar en el temario sino reconstruir la relación con la materia.</p>
+                <ul>
+                    <li>Sesiones cortas: cinco a diez minutos al principio, siempre terminando en un logro.</li>
+                    <li>Material manipulable: fichas, bloques, ábaco; reducir lo abstracto hasta que haya confianza.</li>
+                    <li>Progresión visible: que el niño vea su avance concreto, no solo calificaciones.</li>
+                    <li>Permitir errores sin consecuencias: el error es información, no fallo personal.</li>
+                    <li>Ofrecer opciones: dejar que elija por dónde empezar da sensación de control.</li>
+                </ul>
+            </section>
 
-            <h2>Cuándo buscar apoyo profesional</h2>
-            <p>Si las estrategias anteriores se aplican consistentemente durante varias semanas y no hay mejora, o si la ansiedad se extiende a otras áreas de la vida escolar, conviene consultar con un profesional. Un psicólogo educativo o un neuropsicólogo puede evaluar si hay factores adicionales como dificultades de aprendizaje específicas o ansiedad generalizada.</p>
-            <p>Buscar ayuda no es etiquetar al niño. Es obtener información precisa para ofrecerle el apoyo adecuado.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cuándo buscar apoyo profesional</h2>
+                <p>Si las estrategias anteriores se aplican consistentemente durante varias semanas y no hay mejora, o si la ansiedad se extiende a otras áreas de la vida escolar, conviene consultar con un profesional. Un psicólogo educativo o un neuropsicólogo puede evaluar si hay factores adicionales como dificultades de aprendizaje específicas o ansiedad generalizada.</p>
+                <p>Buscar ayuda no es etiquetar al niño. Es obtener información precisa para ofrecerle el apoyo adecuado.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Un espacio donde los números no dan miedo</h3>
-                <p>MatheKids trabaja con progresiones suaves, material concreto y sesiones cortas diseñadas para reconstruir la confianza del niño con las matemáticas antes de exigir velocidad o rendimiento.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conoce el enfoque de MatheKids <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Un espacio donde los números no dan miedo</h2>
+                    <p>MatheKids trabaja con progresiones suaves, material concreto y sesiones cortas diseñadas para reconstruir la confianza del niño con las matemáticas antes de exigir velocidad o rendimiento.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Conoce el enfoque de MatheKids <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La ansiedad matemática se hereda?</h3>
-                <p>No se hereda genéticamente como tal, pero sí se transmite a través del ambiente. Un adulto que expresa abiertamente rechazo a las matemáticas modela esa actitud frente al niño. La buena noticia es que se puede modificar cambiando el discurso y la exposición.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad puede aparecer la ansiedad matemática?</h3>
-                <p>Puede manifestarse desde los seis o siete años, cuando las demandas escolares en aritmética aumentan. Sin embargo, también puede surgir en secundaria con la introducción del álgebra o en cualquier momento donde haya un salto sin preparación.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Las actividades con juegos realmente ayudan o son solo distracción?</h3>
-                <p>Ayudan cuando el juego involucra razonamiento numérico genuino. El objetivo es que el niño practique sin la carga emocional de una tarea. Con el tiempo, la experiencia positiva debilita la asociación entre matemáticas y malestar.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://doi.org/10.1016/S0022-0965(02)00130-3" target="_blank" rel="noopener noreferrer">Ashcraft & Moore — Mathematics Anxiety and the Affective Drop in Performance</a> — Efecto de la ansiedad matemática en el rendimiento cognitivo</li>
-                <li><a href="https://doi.org/10.1037/a0032955" target="_blank" rel="noopener noreferrer">Ramirez et al. — Math Anxiety, Working Memory, and Math Achievement in Early Elementary School</a> — Relación entre ansiedad y memoria de trabajo en niños</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La ansiedad matemática se hereda?</h3>
+                    <p>No se hereda genéticamente como tal, pero sí se transmite a través del ambiente. Un adulto que expresa abiertamente rechazo a las matemáticas modela esa actitud frente al niño. La buena noticia es que se puede modificar cambiando el discurso y la exposición.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad puede aparecer la ansiedad matemática?</h3>
+                    <p>Puede manifestarse desde los seis o siete años, cuando las demandas escolares en aritmética aumentan. Sin embargo, también puede surgir en secundaria con la introducción del álgebra o en cualquier momento donde haya un salto sin preparación.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Las actividades con juegos realmente ayudan o son solo distracción?</h3>
+                    <p>Ayudan cuando el juego involucra razonamiento numérico genuino. El objetivo es que el niño practique sin la carga emocional de una tarea. Con el tiempo, la experiencia positiva debilita la asociación entre matemáticas y malestar.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://doi.org/10.1016/S0022-0965(02)00130-3" target="_blank" rel="noopener noreferrer">Ashcraft & Moore — Mathematics Anxiety and the Affective Drop in Performance</a> — Efecto de la ansiedad matemática en el rendimiento cognitivo</li>
+                    <li><a href="https://doi.org/10.1037/a0032955" target="_blank" rel="noopener noreferrer">Ramirez et al. — Math Anxiety, Working Memory, and Math Achievement in Early Elementary School</a> — Relación entre ansiedad y memoria de trabajo en niños</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -494,8 +569,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es la ansiedad matemática y qué no es
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Señales que vale la pena observar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Factores que alimentan la ansiedad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Estrategias para el entorno familiar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Estrategias para el entorno de estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuándo buscar apoyo profesional
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>4 min restantes</span>
+                        <span>Lectura estimada: 4 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

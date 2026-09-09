@@ -354,135 +354,233 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-graduation-cap"></i> Fotolectura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Lectura rápida para estudiar y presentar exámenes: cómo aplicarla bien</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 2 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Fotolectura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Lectura rápida para estudiar y presentar exámenes: cómo aplicarla bien</h1>
+                <p class="blog-post-dek">Cuándo la lectura rápida ayuda a estudiar para un examen y cuándo puede perjudicar, con un protocolo de estudio en capas según el tipo de material y de pregunta.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Fotolectura</span>
+                    <span>Publicado <time datetime="2026-09-02">2 de Septiembre, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fotolectura-curso-lectura-rapida-libro.webp" alt="Lectura rápida para estudiar y presentar exámenes: cómo aplicarla bien" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Quien estudia para un examen con mucho material y poco tiempo suele preguntarse si la lectura rápida es la solución, y la respuesta honesta es que depende del tipo de examen, del tipo de material y de en qué momento del proceso de estudio se aplica.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Cuándo la lectura rápida sí ayuda a estudiar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cuándo puede ser contraproducente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>El protocolo de estudio en capas por velocidad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo distinguir qué material necesita cada tipo de pasada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Por qué la ansiedad de tiempo empuja al error de leer rápido todo por igual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué hacer durante el examen mismo, no solo al estudiar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Un error adicional: confundir velocidad con comprensión bajo presión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Cómo practicar esta calibración antes del día del examen
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Quien estudia para un examen con mucho material y poco tiempo suele preguntarse si la lectura rápida es la solución, y la respuesta honesta es que depende del tipo de examen, del tipo de material y de en qué momento del proceso de estudio se aplica.</p>
             <p>Este artículo explica en qué casos la lectura rápida realmente ayuda a estudiar, en qué casos puede ser contraproducente, y da un protocolo concreto para combinar distintas velocidades de lectura según la etapa del estudio y el tipo de contenido.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La lectura rápida ayuda a estudiar cuando se usa para una primera pasada de reconocimiento sobre material extenso, permitiendo identificar la estructura general antes de profundizar. Puede perjudicar cuando se aplica a la única pasada de estudio sobre material con datos exactos que hay que memorizar con precisión (fechas, fórmulas, definiciones literales), porque ahí la velocidad no sustituye la repetición necesaria para fijar el detalle. El protocolo correcto usa distintas velocidades en distintas pasadas, no una sola velocidad para todo el material.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La lectura rápida ayuda a estudiar cuando se usa para una primera pasada de reconocimiento sobre material extenso, permitiendo identificar la estructura general antes de profundizar. Puede perjudicar cuando se aplica a la única pasada de estudio sobre material con datos exactos que hay que memorizar con precisión (fechas, fórmulas, definiciones literales), porque ahí la velocidad no sustituye la repetición necesaria para fijar el detalle. El protocolo correcto usa distintas velocidades en distintas pasadas, no una sola velocidad para todo el material.</p>
+                </aside>
 
-            <h2>Cuándo la lectura rápida sí ayuda a estudiar</h2>
-            <p>La lectura rápida es más útil en la primera pasada de contacto con material extenso: un capítulo largo, un temario completo, un conjunto de apuntes acumulados durante un curso. En esa primera pasada, el objetivo no es memorizar cada detalle, sino identificar la estructura general del contenido -- qué temas cubre, cómo se relacionan entre sí, qué partes parecen más relevantes según el tipo de examen que se va a presentar.</p>
-            <p>Leer rápido en esta etapa inicial permite cubrir más material en menos tiempo sin la presión de memorizar todo de inmediato, y esa visión general facilita las siguientes pasadas de estudio más profundo, porque ya se sabe dónde encaja cada parte dentro del conjunto.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Cuándo la lectura rápida sí ayuda a estudiar</h2>
+                <p>La lectura rápida es más útil en la primera pasada de contacto con material extenso: un capítulo largo, un temario completo, un conjunto de apuntes acumulados durante un curso. En esa primera pasada, el objetivo no es memorizar cada detalle, sino identificar la estructura general del contenido -- qué temas cubre, cómo se relacionan entre sí, qué partes parecen más relevantes según el tipo de examen que se va a presentar.</p>
+                <p>Leer rápido en esta etapa inicial permite cubrir más material en menos tiempo sin la presión de memorizar todo de inmediato, y esa visión general facilita las siguientes pasadas de estudio más profundo, porque ya se sabe dónde encaja cada parte dentro del conjunto.</p>
+            </section>
 
-            <h2>Cuándo puede ser contraproducente</h2>
-            <p>El riesgo aparece cuando la lectura rápida se convierte en la única pasada de estudio sobre material que exige memorización precisa: fórmulas matemáticas, fechas exactas, definiciones literales que el examen puede pedir de forma textual, o pasos de un procedimiento donde el orden específico importa.</p>
-            <p>En ese tipo de contenido, la velocidad no sustituye la repetición espaciada necesaria para fijar el detalle en la memoria: leer una fórmula rápido una sola vez no la memoriza igual que repasarla varias veces con pausas deliberadas para recordarla sin verla. Aplicar la misma velocidad de lectura a todo el material, sin distinguir qué necesita memorización exacta y qué necesita solo comprensión general, es el error más común en esta aplicación.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Cuándo puede ser contraproducente</h2>
+                <p>El riesgo aparece cuando la lectura rápida se convierte en la única pasada de estudio sobre material que exige memorización precisa: fórmulas matemáticas, fechas exactas, definiciones literales que el examen puede pedir de forma textual, o pasos de un procedimiento donde el orden específico importa.</p>
+                <p>En ese tipo de contenido, la velocidad no sustituye la repetición espaciada necesaria para fijar el detalle en la memoria: leer una fórmula rápido una sola vez no la memoriza igual que repasarla varias veces con pausas deliberadas para recordarla sin verla. Aplicar la misma velocidad de lectura a todo el material, sin distinguir qué necesita memorización exacta y qué necesita solo comprensión general, es el error más común en esta aplicación.</p>
+            </section>
 
-            <h2>El protocolo de estudio en capas por velocidad</h2>
-            <p>La forma más efectiva de aprovechar la lectura rápida para estudiar no es aplicarla de manera uniforme a todo el material, sino en capas sucesivas con propósitos distintos y velocidades distintas en cada una.</p>
-            <ol>
-                <li>Primera pasada (rápida): recorrer todo el material de forma veloz para identificar estructura, temas principales y partes que parecen más relevantes para el tipo de examen.</li>
-                <li>Segunda pasada (velocidad media): releer con más atención las secciones identificadas como relevantes, verificando comprensión de las ideas centrales de cada una.</li>
-                <li>Tercera pasada (lenta y con repetición): para el contenido que exige memorización exacta (fórmulas, fechas, definiciones literales), dedicar tiempo específico de repaso espaciado en lugar de solo releer a cualquier velocidad.</li>
-                <li>Práctica activa: responder preguntas o resolver ejercicios sin ver el material, para verificar qué realmente se retuvo de las tres pasadas anteriores.</li>
-                <li>Repaso final antes del examen: una pasada rápida de repaso general, apoyada en lo ya trabajado en las capas anteriores, no un primer contacto con el material.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">El protocolo de estudio en capas por velocidad</h2>
+                <p>La forma más efectiva de aprovechar la lectura rápida para estudiar no es aplicarla de manera uniforme a todo el material, sino en capas sucesivas con propósitos distintos y velocidades distintas en cada una.</p>
+                <ol>
+                    <li>Primera pasada (rápida): recorrer todo el material de forma veloz para identificar estructura, temas principales y partes que parecen más relevantes para el tipo de examen.</li>
+                    <li>Segunda pasada (velocidad media): releer con más atención las secciones identificadas como relevantes, verificando comprensión de las ideas centrales de cada una.</li>
+                    <li>Tercera pasada (lenta y con repetición): para el contenido que exige memorización exacta (fórmulas, fechas, definiciones literales), dedicar tiempo específico de repaso espaciado en lugar de solo releer a cualquier velocidad.</li>
+                    <li>Práctica activa: responder preguntas o resolver ejercicios sin ver el material, para verificar qué realmente se retuvo de las tres pasadas anteriores.</li>
+                    <li>Repaso final antes del examen: una pasada rápida de repaso general, apoyada en lo ya trabajado en las capas anteriores, no un primer contacto con el material.</li>
+                </ol>
+            </section>
 
-            <h2>Cómo distinguir qué material necesita cada tipo de pasada</h2>
-            <p>No todo el material de un mismo examen necesita el mismo tratamiento. Un examen de opción múltiple sobre conceptos generales puede favorecer más tiempo en la primera y segunda pasada (comprensión general de ideas), mientras que un examen que pide fórmulas exactas o fechas específicas necesita más tiempo dedicado a la tercera pasada de repaso espaciado.</p>
-            <p>Una forma práctica de decidir es preguntarse, para cada sección del material: si el examen pidiera reproducir esto de memoria de forma exacta, ¿bastaría con haberlo entendido una vez, o hace falta haberlo repasado varias veces para recordarlo sin ver el texto? Si la respuesta es la segunda, esa sección necesita tiempo de repaso espaciado, no solo una lectura veloz.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Cómo distinguir qué material necesita cada tipo de pasada</h2>
+                <p>No todo el material de un mismo examen necesita el mismo tratamiento. Un examen de opción múltiple sobre conceptos generales puede favorecer más tiempo en la primera y segunda pasada (comprensión general de ideas), mientras que un examen que pide fórmulas exactas o fechas específicas necesita más tiempo dedicado a la tercera pasada de repaso espaciado.</p>
+                <p>Una forma práctica de decidir es preguntarse, para cada sección del material: si el examen pidiera reproducir esto de memoria de forma exacta, ¿bastaría con haberlo entendido una vez, o hace falta haberlo repasado varias veces para recordarlo sin ver el texto? Si la respuesta es la segunda, esa sección necesita tiempo de repaso espaciado, no solo una lectura veloz.</p>
+            </section>
 
-            <h2>Por qué la ansiedad de tiempo empuja al error de leer rápido todo por igual</h2>
-            <p>Cuando queda poco tiempo antes de un examen y el material pendiente es mucho, la tentación natural es acelerar la lectura de todo por igual, sin distinguir qué necesita más cuidado. Esto es comprensible pero suele producir un resultado peor que priorizar: cubrir todo el material de forma superficial deja huecos en el contenido que sí necesitaba repetición, sin haber ganado tampoco tiempo real de descanso.</p>
-            <p>Una estrategia más efectiva bajo presión de tiempo es priorizar: identificar rápido con una primera pasada qué porción del material es más probable que aparezca en el examen o representa más puntos, y concentrar el tiempo de repaso profundo ahí, en lugar de repartir el mismo esfuerzo superficial sobre todo el temario por igual.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Por qué la ansiedad de tiempo empuja al error de leer rápido todo por igual</h2>
+                <p>Cuando queda poco tiempo antes de un examen y el material pendiente es mucho, la tentación natural es acelerar la lectura de todo por igual, sin distinguir qué necesita más cuidado. Esto es comprensible pero suele producir un resultado peor que priorizar: cubrir todo el material de forma superficial deja huecos en el contenido que sí necesitaba repetición, sin haber ganado tampoco tiempo real de descanso.</p>
+                <p>Una estrategia más efectiva bajo presión de tiempo es priorizar: identificar rápido con una primera pasada qué porción del material es más probable que aparezca en el examen o representa más puntos, y concentrar el tiempo de repaso profundo ahí, en lugar de repartir el mismo esfuerzo superficial sobre todo el temario por igual.</p>
+            </section>
 
-            <h2>Qué hacer durante el examen mismo, no solo al estudiar</h2>
-            <p>La lectura rápida también tiene un uso durante la presentación del examen: en exámenes con límite de tiempo y muchas preguntas, una primera pasada rápida por todo el cuestionario -- sin responder aún -- ayuda a identificar qué preguntas son más rápidas de resolver y cuáles requieren más tiempo, permitiendo priorizar el orden de respuesta en lugar de resolver en el orden en que aparecen.</p>
-            <p>Esta técnica de reconocimiento previo no sustituye la lectura cuidadosa de cada pregunta al momento de responderla: sirve para planear el uso del tiempo disponible, no para responder de forma apresurada sin haber leído completa cada pregunta cuando llega el momento de resolverla.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Qué hacer durante el examen mismo, no solo al estudiar</h2>
+                <p>La lectura rápida también tiene un uso durante la presentación del examen: en exámenes con límite de tiempo y muchas preguntas, una primera pasada rápida por todo el cuestionario -- sin responder aún -- ayuda a identificar qué preguntas son más rápidas de resolver y cuáles requieren más tiempo, permitiendo priorizar el orden de respuesta en lugar de resolver en el orden en que aparecen.</p>
+                <p>Esta técnica de reconocimiento previo no sustituye la lectura cuidadosa de cada pregunta al momento de responderla: sirve para planear el uso del tiempo disponible, no para responder de forma apresurada sin haber leído completa cada pregunta cuando llega el momento de resolverla.</p>
+            </section>
 
-            <h2>Un error adicional: confundir velocidad con comprensión bajo presión</h2>
-            <p>Bajo la presión de un examen con tiempo limitado, es fácil confundir 'leí la pregunta rápido' con 'entendí la pregunta', especialmente en preguntas largas o con varias condiciones. Practicar de antemano la lectura rápida con verificación de comprensión -- no solo en el estudio, sino en simulacros de examen con condiciones similares de tiempo -- ayuda a calibrar si realmente se está comprendiendo a la velocidad que exige la presión del examen real, o si esa velocidad produce errores de comprensión que se manifiestan como respuestas incorrectas por mala lectura, no por desconocimiento del tema.</p>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Un error adicional: confundir velocidad con comprensión bajo presión</h2>
+                <p>Bajo la presión de un examen con tiempo limitado, es fácil confundir 'leí la pregunta rápido' con 'entendí la pregunta', especialmente en preguntas largas o con varias condiciones. Practicar de antemano la lectura rápida con verificación de comprensión -- no solo en el estudio, sino en simulacros de examen con condiciones similares de tiempo -- ayuda a calibrar si realmente se está comprendiendo a la velocidad que exige la presión del examen real, o si esa velocidad produce errores de comprensión que se manifiestan como respuestas incorrectas por mala lectura, no por desconocimiento del tema.</p>
+            </section>
 
-            <h2>Cómo practicar esta calibración antes del día del examen</h2>
-            <p>La forma más confiable de saber si la velocidad de lectura que se usará el día del examen es sostenible con la presión real es practicar simulacros bajo condiciones similares: mismo límite de tiempo, mismo tipo de preguntas, sin material de apoyo adicional al que se tendrá disponible en el examen real.</p>
-            <p>Después de cada simulacro, conviene revisar no solo cuántas respuestas fueron correctas, sino específicamente cuáles errores se debieron a mala comprensión de la pregunta por ir demasiado rápido, en contraste con errores por desconocimiento real del tema. Esta distinción es importante porque cada tipo de error se corrige de forma distinta: un error de comprensión por velocidad se corrige ajustando el ritmo de lectura en ese tipo específico de pregunta, mientras que un error de conocimiento se corrige con más estudio del contenido, no con ajustar la velocidad de lectura.</p>
-            <p>Repetir varios simulacros con esta revisión permite encontrar, para cada persona, el punto de velocidad donde la comprensión bajo presión se mantiene estable, en lugar de asumir de antemano cuál es esa velocidad sin haberla puesto a prueba en condiciones similares a las reales.</p>
+            <section class="ed-article-section" id="seccion-8" aria-labelledby="seccion-8-titulo">
+                <h2 id="seccion-8-titulo">Cómo practicar esta calibración antes del día del examen</h2>
+                <p>La forma más confiable de saber si la velocidad de lectura que se usará el día del examen es sostenible con la presión real es practicar simulacros bajo condiciones similares: mismo límite de tiempo, mismo tipo de preguntas, sin material de apoyo adicional al que se tendrá disponible en el examen real.</p>
+                <p>Después de cada simulacro, conviene revisar no solo cuántas respuestas fueron correctas, sino específicamente cuáles errores se debieron a mala comprensión de la pregunta por ir demasiado rápido, en contraste con errores por desconocimiento real del tema. Esta distinción es importante porque cada tipo de error se corrige de forma distinta: un error de comprensión por velocidad se corrige ajustando el ritmo de lectura en ese tipo específico de pregunta, mientras que un error de conocimiento se corrige con más estudio del contenido, no con ajustar la velocidad de lectura.</p>
+                <p>Repetir varios simulacros con esta revisión permite encontrar, para cada persona, el punto de velocidad donde la comprensión bajo presión se mantiene estable, en lugar de asumir de antemano cuál es esa velocidad sin haberla puesto a prueba en condiciones similares a las reales.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Aprende a aplicar la velocidad correcta según lo que estudias</h3>
-                <p>El curso de Fotolectura de WorldBrain México trabaja el ajuste de velocidad según el tipo de texto y objetivo, con verificación de comprensión en cada sesión, presencial en Cuautitlán Izcalli y Cuernavaca.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso de lectura rápida <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Aprende a aplicar la velocidad correcta según lo que estudias</h2>
+                    <p>El curso de Fotolectura de WorldBrain México trabaja el ajuste de velocidad según el tipo de texto y objetivo, con verificación de comprensión en cada sesión, presencial en Cuautitlán Izcalli y Cuernavaca.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Conocer el curso de lectura rápida <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
                 <ul>
-                <li><a href="/blog-ejercicios-oculares-lectura-rapida">Ejercicios oculares para lectura rápida: fijaciones, regresiones y ritmo</a></li>
-                <li><a href="/blog-comprension-lectora-vs-velocidad-lectora">Comprensión lectora vs. velocidad lectora: cómo entrenar cada una</a></li>
-                <li><a href="/blog-lectura-rapida-para-trabajo-reportes">Lectura rápida para el trabajo: cómo procesar reportes y correos sin perder detalles clave</a></li>
-                <li><a href="/blog-comprension-lectora-secundaria">Comprensión lectora en secundaria: qué cambia frente a primaria</a></li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-ejercicios-oculares-lectura-rapida">
+                            <span>Ejercicios oculares para lectura rápida: fijaciones, regresiones y ritmo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-comprension-lectora-vs-velocidad-lectora">
+                            <span>Comprensión lectora vs. velocidad lectora: cómo entrenar cada una</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-lectura-rapida-para-trabajo-reportes">
+                            <span>Lectura rápida para el trabajo: cómo procesar reportes y correos sin perder detalles clave</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-comprension-lectora-secundaria">
+                            <span>Comprensión lectora en secundaria: qué cambia frente a primaria</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo leer todo el temario rápido antes de un examen?</h3>
-                <p>Una primera pasada rápida por todo el temario es útil para identificar estructura y prioridades, pero no debe ser la única pasada de estudio. El material que exige memorización exacta necesita pasadas adicionales más lentas con repaso espaciado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La lectura rápida sirve para memorizar fórmulas o fechas?</h3>
-                <p>No de forma directa. La memorización precisa depende más de la repetición espaciada que de la velocidad de lectura. La lectura rápida ayuda en la comprensión general y en cubrir más material en la primera pasada, no en fijar detalles exactos en la memoria.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo uso la lectura rápida durante el examen mismo, no solo al estudiar?</h3>
-                <p>Una pasada rápida inicial por todo el cuestionario, sin responder aún, ayuda a identificar qué preguntas resolver primero según su dificultad y el tiempo disponible. No sustituye la lectura cuidadosa de cada pregunta al momento de responderla.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si tengo poco tiempo y mucho material pendiente?</h3>
-                <p>Prioriza en lugar de acelerar todo por igual: identifica rápido qué porción del material es más probable que aparezca o representa más puntos, y concentra el tiempo de repaso profundo disponible en esa porción, en vez de repartir el mismo esfuerzo superficial sobre todo el temario.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo leer todo el temario rápido antes de un examen?</h3>
+                    <p>Una primera pasada rápida por todo el temario es útil para identificar estructura y prioridades, pero no debe ser la única pasada de estudio. El material que exige memorización exacta necesita pasadas adicionales más lentas con repaso espaciado.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La lectura rápida sirve para memorizar fórmulas o fechas?</h3>
+                    <p>No de forma directa. La memorización precisa depende más de la repetición espaciada que de la velocidad de lectura. La lectura rápida ayuda en la comprensión general y en cubrir más material en la primera pasada, no en fijar detalles exactos en la memoria.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo uso la lectura rápida durante el examen mismo, no solo al estudiar?</h3>
+                    <p>Una pasada rápida inicial por todo el cuestionario, sin responder aún, ayuda a identificar qué preguntas resolver primero según su dificultad y el tiempo disponible. No sustituye la lectura cuidadosa de cada pregunta al momento de responderla.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si tengo poco tiempo y mucho material pendiente?</h3>
+                    <p>Prioriza en lugar de acelerar todo por igual: identifica rápido qué porción del material es más probable que aparezca o representa más puntos, y concentra el tiempo de repaso profundo disponible en esa porción, en vez de repartir el mismo esfuerzo superficial sobre todo el temario.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -512,8 +610,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Cuándo la lectura rápida sí ayuda a estudiar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cuándo puede ser contraproducente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>El protocolo de estudio en capas por velocidad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo distinguir qué material necesita cada tipo de pasada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Por qué la ansiedad de tiempo empuja al error de leer rápido todo por igual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué hacer durante el examen mismo, no solo al estudiar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Un error adicional: confundir velocidad con comprensión bajo presión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Cómo practicar esta calibración antes del día del examen
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

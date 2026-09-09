@@ -354,147 +354,222 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-home"></i> Homeschool y Lectoescritura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo enseñar a leer: habilidades previas y actividades por etapas</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Homeschool y Lectoescritura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo enseñar a leer: habilidades previas y actividades por etapas</h1>
+                <p class="blog-post-dek">Habilidades previas a la lectura y actividades organizadas por etapa para enseñar a leer en casa de forma progresiva y respetuosa.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Homeschool y Lectoescritura</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/homeschool-educacion-en-casa-certificada-sep.webp" alt="Cómo enseñar a leer: habilidades previas y actividades por etapas" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Enseñar a leer es una de las tareas más solicitadas por familias que educan en casa y también una de las que genera más ansiedad. La presión de que el niño lea a cierta edad lleva a muchos padres a forzar un proceso que necesita bases previas bien construidas.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Habilidades previas que muchos padres saltan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Etapa 1: conciencia fonológica (antes de las letras)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Etapa 2: correspondencia letra-sonido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Etapa 3: lectura de textos breves con comprensión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Señales de que el niño no está listo (y eso está bien)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>El rol del adulto: facilitador, no maestro de escuela
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Enseñar a leer es una de las tareas más solicitadas por familias que educan en casa y también una de las que genera más ansiedad. La presión de que el niño lea a cierta edad lleva a muchos padres a forzar un proceso que necesita bases previas bien construidas.</p>
             <p>Esta guía organiza el aprendizaje de la lectura en etapas claras con actividades concretas. No promueve un método único ni una edad obligatoria para empezar. Lo que sí establece es qué habilidades necesita el niño antes de descifrar texto y cómo saber si está listo para avanzar.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Enseñar a leer requiere desarrollar primero conciencia fonológica, luego correspondencia letra-sonido y finalmente comprensión de textos breves. Cada etapa tiene actividades específicas. No hay que apresurarse: un niño que domina las bases aprende a leer con más fluidez y menos frustración que uno que memoriza sílabas sin entenderlas.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Enseñar a leer requiere desarrollar primero conciencia fonológica, luego correspondencia letra-sonido y finalmente comprensión de textos breves. Cada etapa tiene actividades específicas. No hay que apresurarse: un niño que domina las bases aprende a leer con más fluidez y menos frustración que uno que memoriza sílabas sin entenderlas.</p>
+                </aside>
 
-            <h2>Habilidades previas que muchos padres saltan</h2>
-            <p>Antes de que un niño pueda leer, necesita un conjunto de habilidades que no se ven en una cartilla pero que son fundamentales. Sin ellas, el proceso se convierte en memorización mecánica sin comprensión.</p>
-            <p>Estas habilidades previas incluyen conciencia fonológica (escuchar y manipular los sonidos del habla), vocabulario oral amplio (no puede leer palabras que no conoce de oído), motricidad fina suficiente para sostener un lápiz, y capacidad de seguir secuencias (izquierda a derecha, arriba a abajo).</p>
-            <ul>
-                <li>Conciencia fonológica: identificar rimas, separar palabras en sílabas con palmadas, reconocer sonidos iniciales.</li>
-                <li>Vocabulario oral: nombrar objetos, describir imágenes, contar experiencias con detalle.</li>
-                <li>Discriminación visual: distinguir formas similares, encontrar diferencias, seguir patrones.</li>
-                <li>Memoria auditiva: recordar instrucciones de dos o tres pasos, repetir secuencias de palabras.</li>
-                <li>Motivación: asociar los libros con placer, no con obligación (lectura en voz alta diaria por parte del adulto).</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Habilidades previas que muchos padres saltan</h2>
+                <p>Antes de que un niño pueda leer, necesita un conjunto de habilidades que no se ven en una cartilla pero que son fundamentales. Sin ellas, el proceso se convierte en memorización mecánica sin comprensión.</p>
+                <p>Estas habilidades previas incluyen conciencia fonológica (escuchar y manipular los sonidos del habla), vocabulario oral amplio (no puede leer palabras que no conoce de oído), motricidad fina suficiente para sostener un lápiz, y capacidad de seguir secuencias (izquierda a derecha, arriba a abajo).</p>
+                <ul>
+                    <li>Conciencia fonológica: identificar rimas, separar palabras en sílabas con palmadas, reconocer sonidos iniciales.</li>
+                    <li>Vocabulario oral: nombrar objetos, describir imágenes, contar experiencias con detalle.</li>
+                    <li>Discriminación visual: distinguir formas similares, encontrar diferencias, seguir patrones.</li>
+                    <li>Memoria auditiva: recordar instrucciones de dos o tres pasos, repetir secuencias de palabras.</li>
+                    <li>Motivación: asociar los libros con placer, no con obligación (lectura en voz alta diaria por parte del adulto).</li>
+                </ul>
+            </section>
 
-            <h2>Etapa 1: conciencia fonológica (antes de las letras)</h2>
-            <p>Esta etapa trabaja exclusivamente con sonidos, sin mostrar letras escritas. El objetivo es que el niño comprenda que las palabras están hechas de sonidos más pequeños que se pueden separar, combinar y manipular.</p>
-            <p>Muchos métodos se saltan esta fase y van directo a la cartilla. El resultado es un niño que memoriza combinaciones sin entender la lógica del sistema alfabético. Invertir semanas en conciencia fonológica acelera todo lo que viene después.</p>
-            <ul>
-                <li>Juegos de rimas: '¿qué rima con gato? Pato, plato, zapato'. Cantar canciones con rima.</li>
-                <li>Separar sílabas con palmadas: me-sa (dos palmadas), ma-ri-po-sa (cuatro palmadas).</li>
-                <li>Identificar sonido inicial: '¿con qué sonido empieza mmmmesa? Con /m/'.</li>
-                <li>Quitar sonidos: '¿qué queda si a sol le quitas la /s/? Queda ol'.</li>
-                <li>Jugar veo-veo por sonido inicial: 'Veo algo que empieza con /p/'.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Etapa 1: conciencia fonológica (antes de las letras)</h2>
+                <p>Esta etapa trabaja exclusivamente con sonidos, sin mostrar letras escritas. El objetivo es que el niño comprenda que las palabras están hechas de sonidos más pequeños que se pueden separar, combinar y manipular.</p>
+                <p>Muchos métodos se saltan esta fase y van directo a la cartilla. El resultado es un niño que memoriza combinaciones sin entender la lógica del sistema alfabético. Invertir semanas en conciencia fonológica acelera todo lo que viene después.</p>
+                <ul>
+                    <li>Juegos de rimas: '¿qué rima con gato? Pato, plato, zapato'. Cantar canciones con rima.</li>
+                    <li>Separar sílabas con palmadas: me-sa (dos palmadas), ma-ri-po-sa (cuatro palmadas).</li>
+                    <li>Identificar sonido inicial: '¿con qué sonido empieza mmmmesa? Con /m/'.</li>
+                    <li>Quitar sonidos: '¿qué queda si a sol le quitas la /s/? Queda ol'.</li>
+                    <li>Jugar veo-veo por sonido inicial: 'Veo algo que empieza con /p/'.</li>
+                </ul>
+            </section>
 
-            <h2>Etapa 2: correspondencia letra-sonido</h2>
-            <p>Una vez que el niño manipula sonidos con facilidad, se introduce la relación entre sonido y letra escrita. No es necesario enseñar todo el alfabeto de corrido; se empieza con unas pocas letras que permitan formar palabras reales desde el primer día.</p>
-            <p>Conviene enseñar el sonido de la letra, no su nombre. El niño necesita saber que la m suena /m/, no que se llama eme. El nombre vendrá después sin esfuerzo. Empezar con vocales y tres o cuatro consonantes frecuentes (m, p, s, l) permite formar palabras como mama, papa, sol, mesa.</p>
-            <ol>
-                <li>Presenta una letra a la vez con su sonido. Asocia con imagen y movimiento (trazar en arena, formar con plastilina).</li>
-                <li>Practica la identificación del sonido en palabras conocidas: '¿Dónde escuchas /s/ en casa?'.</li>
-                <li>Cuando domine 5-6 letras, comienza a unir sonidos para formar sílabas y palabras cortas.</li>
-                <li>Lee palabras reales desde el principio, no sílabas sueltas sin sentido (ma-me-mi se convierte en 'mamá me mima').</li>
-                <li>Añade letras nuevas gradualmente, siempre practicando la lectura de palabras completas con las conocidas.</li>
-                <li>Introduce palabras funcionales frecuentes que no siguen reglas simples (el, la, un, y) como vocabulario visual.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Etapa 2: correspondencia letra-sonido</h2>
+                <p>Una vez que el niño manipula sonidos con facilidad, se introduce la relación entre sonido y letra escrita. No es necesario enseñar todo el alfabeto de corrido; se empieza con unas pocas letras que permitan formar palabras reales desde el primer día.</p>
+                <p>Conviene enseñar el sonido de la letra, no su nombre. El niño necesita saber que la m suena /m/, no que se llama eme. El nombre vendrá después sin esfuerzo. Empezar con vocales y tres o cuatro consonantes frecuentes (m, p, s, l) permite formar palabras como mama, papa, sol, mesa.</p>
+                <ol>
+                    <li>Presenta una letra a la vez con su sonido. Asocia con imagen y movimiento (trazar en arena, formar con plastilina).</li>
+                    <li>Practica la identificación del sonido en palabras conocidas: '¿Dónde escuchas /s/ en casa?'.</li>
+                    <li>Cuando domine 5-6 letras, comienza a unir sonidos para formar sílabas y palabras cortas.</li>
+                    <li>Lee palabras reales desde el principio, no sílabas sueltas sin sentido (ma-me-mi se convierte en 'mamá me mima').</li>
+                    <li>Añade letras nuevas gradualmente, siempre practicando la lectura de palabras completas con las conocidas.</li>
+                    <li>Introduce palabras funcionales frecuentes que no siguen reglas simples (el, la, un, y) como vocabulario visual.</li>
+                </ol>
+            </section>
 
-            <h2>Etapa 3: lectura de textos breves con comprensión</h2>
-            <p>Cuando el niño decodifica palabras sencillas, el siguiente paso es leer oraciones y textos cortísimos verificando que comprende lo que lee. Leer sin comprender no es leer; es solo sonorizar.</p>
-            <p>Los primeros textos deben tener vocabulario conocido, oraciones cortas y contenido que interese al niño. Si lee una oración y puede responder '¿qué pasó?' o '¿quién hizo qué?', está comprendiendo. Si solo repite las palabras sin poder explicar, hay que regresar a textos más simples.</p>
-            <ul>
-                <li>Usar textos con pocas palabras por página e ilustraciones de apoyo.</li>
-                <li>Preguntar después de cada página: '¿Qué pasó aquí?', '¿Qué crees que sigue?'.</li>
-                <li>No corregir cada error de inmediato; dejar que el contexto ayude a autocorregirse.</li>
-                <li>Releer el mismo texto varias veces para ganar fluidez y confianza antes de avanzar.</li>
-                <li>Alternar entre lectura del niño y lectura del adulto para mantener el placer.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Etapa 3: lectura de textos breves con comprensión</h2>
+                <p>Cuando el niño decodifica palabras sencillas, el siguiente paso es leer oraciones y textos cortísimos verificando que comprende lo que lee. Leer sin comprender no es leer; es solo sonorizar.</p>
+                <p>Los primeros textos deben tener vocabulario conocido, oraciones cortas y contenido que interese al niño. Si lee una oración y puede responder '¿qué pasó?' o '¿quién hizo qué?', está comprendiendo. Si solo repite las palabras sin poder explicar, hay que regresar a textos más simples.</p>
+                <ul>
+                    <li>Usar textos con pocas palabras por página e ilustraciones de apoyo.</li>
+                    <li>Preguntar después de cada página: '¿Qué pasó aquí?', '¿Qué crees que sigue?'.</li>
+                    <li>No corregir cada error de inmediato; dejar que el contexto ayude a autocorregirse.</li>
+                    <li>Releer el mismo texto varias veces para ganar fluidez y confianza antes de avanzar.</li>
+                    <li>Alternar entre lectura del niño y lectura del adulto para mantener el placer.</li>
+                </ul>
+            </section>
 
-            <h2>Señales de que el niño no está listo (y eso está bien)</h2>
-            <p>No todos los niños están listos para leer a la misma edad. Un niño de cinco años que no distingue rimas no necesita más presión: necesita más juegos fonológicos y tiempo. Forzar el proceso genera aversión a la lectura que es mucho más difícil de revertir que un inicio tardío.</p>
-            <p>Si después de varias semanas de práctica lúdica el niño no muestra avance en conciencia fonológica, no es un problema de esfuerzo sino posiblemente de madurez. Pausar un par de meses y retomar suele ser más efectivo que insistir diario sin resultados.</p>
-            <ul>
-                <li>No puede identificar rimas después de muchas exposiciones: la conciencia fonológica aún no madura.</li>
-                <li>Confunde constantemente letras visualmente similares (b/d, p/q): puede necesitar más trabajo de discriminación visual.</li>
-                <li>Se frustra intensamente cada sesión: la presión está siendo contraproducente.</li>
-                <li>Si las dificultades persisten varios meses, considerar una evaluación con un especialista en aprendizaje.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Señales de que el niño no está listo (y eso está bien)</h2>
+                <p>No todos los niños están listos para leer a la misma edad. Un niño de cinco años que no distingue rimas no necesita más presión: necesita más juegos fonológicos y tiempo. Forzar el proceso genera aversión a la lectura que es mucho más difícil de revertir que un inicio tardío.</p>
+                <p>Si después de varias semanas de práctica lúdica el niño no muestra avance en conciencia fonológica, no es un problema de esfuerzo sino posiblemente de madurez. Pausar un par de meses y retomar suele ser más efectivo que insistir diario sin resultados.</p>
+                <ul>
+                    <li>No puede identificar rimas después de muchas exposiciones: la conciencia fonológica aún no madura.</li>
+                    <li>Confunde constantemente letras visualmente similares (b/d, p/q): puede necesitar más trabajo de discriminación visual.</li>
+                    <li>Se frustra intensamente cada sesión: la presión está siendo contraproducente.</li>
+                    <li>Si las dificultades persisten varios meses, considerar una evaluación con un especialista en aprendizaje.</li>
+                </ul>
+            </section>
 
-            <h2>El rol del adulto: facilitador, no maestro de escuela</h2>
-            <p>Enseñar a leer en casa no requiere replicar el método de una maestra de primero. El adulto facilitador tiene una ventaja que la escuela no: conoce al niño, puede adaptar el ritmo en tiempo real y puede integrar la lectura en la vida cotidiana sin artificialidad.</p>
-            <p>Leer juntos por placer todos los días sigue siendo la práctica más poderosa para crear lectores. El niño que ve leer a sus padres, que escucha cuentos cada noche y que tiene libros accesibles desarrolla motivación interna que ninguna cartilla puede generar sola.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">El rol del adulto: facilitador, no maestro de escuela</h2>
+                <p>Enseñar a leer en casa no requiere replicar el método de una maestra de primero. El adulto facilitador tiene una ventaja que la escuela no: conoce al niño, puede adaptar el ritmo en tiempo real y puede integrar la lectura en la vida cotidiana sin artificialidad.</p>
+                <p>Leer juntos por placer todos los días sigue siendo la práctica más poderosa para crear lectores. El niño que ve leer a sus padres, que escucha cuentos cada noche y que tiene libros accesibles desarrolla motivación interna que ninguna cartilla puede generar sola.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Materiales organizados por etapa para aprender a leer</h3>
-                <p>El programa de Lectoescritura y Homeschool incluye actividades de conciencia fonológica, correspondencia letra-sonido y comprensión lectora organizadas por nivel de avance. Si buscas un plan estructurado para acompañar el proceso en casa, consulta los materiales disponibles.</p>
-                <a href="/homeschool" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Programa de homeschool en México <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Materiales organizados por etapa para aprender a leer</h2>
+                    <p>El programa de Lectoescritura y Homeschool incluye actividades de conciencia fonológica, correspondencia letra-sonido y comprensión lectora organizadas por nivel de avance. Si buscas un plan estructurado para acompañar el proceso en casa, consulta los materiales disponibles.</p>
+                    <a href="/homeschool" class="btn-primary">
+                        Programa de homeschool en México <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad debería aprender a leer un niño?</h3>
-                <p>No hay una edad universal obligatoria. La mayoría de los niños están cognitivamente listos entre los 5 y 7 años, pero algunos lo logran antes y otros después sin que eso indique un problema. Lo importante son las habilidades previas, no la edad del calendario.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué método es mejor: global, silábico o fonético?</h3>
-                <p>La evidencia favorece enfoques que trabajan conciencia fonológica y correspondencia letra-sonido de forma explícita. Esto no excluye el reconocimiento de palabras frecuentes por forma global. La combinación suele funcionar mejor que un método puro.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo al día debo dedicar a enseñar lectura?</h3>
-                <p>Para niños de 4 a 6 años, sesiones de 10 a 15 minutos de instrucción directa son suficientes. Esto se complementa con lectura en voz alta, juegos fonológicos y exposición natural a texto impreso durante el resto del día.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi hijo de 7 años aún no lee?</h3>
-                <p>Evalúa si domina las habilidades previas (conciencia fonológica, vocabulario oral). Si las tiene y aun así no avanza con instrucción adecuada, una evaluación con un especialista en aprendizaje puede descartar dificultades específicas como dislexia.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.planyprogramasdestudio.sep.gob.mx/" target="_blank" rel="noopener noreferrer">SEP – Programa de estudios: Lengua Materna</a> — Aprendizajes esperados en lectoescritura por grado escolar.</li>
-                <li><a href="https://www.nichd.nih.gov/publications/pubs/nrp/smallbook" target="_blank" rel="noopener noreferrer">National Reading Panel – Teaching Children to Read</a> — Revisión de evidencia sobre métodos efectivos de enseñanza de lectura.</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad debería aprender a leer un niño?</h3>
+                    <p>No hay una edad universal obligatoria. La mayoría de los niños están cognitivamente listos entre los 5 y 7 años, pero algunos lo logran antes y otros después sin que eso indique un problema. Lo importante son las habilidades previas, no la edad del calendario.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué método es mejor: global, silábico o fonético?</h3>
+                    <p>La evidencia favorece enfoques que trabajan conciencia fonológica y correspondencia letra-sonido de forma explícita. Esto no excluye el reconocimiento de palabras frecuentes por forma global. La combinación suele funcionar mejor que un método puro.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo al día debo dedicar a enseñar lectura?</h3>
+                    <p>Para niños de 4 a 6 años, sesiones de 10 a 15 minutos de instrucción directa son suficientes. Esto se complementa con lectura en voz alta, juegos fonológicos y exposición natural a texto impreso durante el resto del día.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi hijo de 7 años aún no lee?</h3>
+                    <p>Evalúa si domina las habilidades previas (conciencia fonológica, vocabulario oral). Si las tiene y aun así no avanza con instrucción adecuada, una evaluación con un especialista en aprendizaje puede descartar dificultades específicas como dislexia.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.planyprogramasdestudio.sep.gob.mx/" target="_blank" rel="noopener noreferrer">SEP – Programa de estudios: Lengua Materna</a> — Aprendizajes esperados en lectoescritura por grado escolar.</li>
+                    <li><a href="https://www.nichd.nih.gov/publications/pubs/nrp/smallbook" target="_blank" rel="noopener noreferrer">National Reading Panel – Teaching Children to Read</a> — Revisión de evidencia sobre métodos efectivos de enseñanza de lectura.</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -524,8 +599,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Habilidades previas que muchos padres saltan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Etapa 1: conciencia fonológica (antes de las letras)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Etapa 2: correspondencia letra-sonido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Etapa 3: lectura de textos breves con comprensión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Señales de que el niño no está listo (y eso está bien)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>El rol del adulto: facilitador, no maestro de escuela
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

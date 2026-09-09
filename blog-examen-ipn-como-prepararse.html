@@ -354,146 +354,221 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="4">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-graduation-cap"></i> Admisión Universitaria
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Examen IPN: cómo organizar temario, práctica y simulacros</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 4 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Admisión Universitaria</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Examen IPN: cómo organizar temario, práctica y simulacros</h1>
+                <p class="blog-post-dek">Guía de preparación para el examen de admisión al IPN: organización del temario, práctica con reactivos y referencia al portal oficial vigente.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Admisión Universitaria</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>4 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/admision-universitaria-curso-examen-ingreso-unam.webp" alt="Examen IPN: cómo organizar temario, práctica y simulacros" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">El Instituto Politécnico Nacional ofrece carreras técnicas y de ingeniería con alta demanda. El examen de admisión evalúa conocimientos generales y específicos según el nivel y área, y la competencia por lugares varía entre escuelas.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Paso 1: obtener la guía de estudio oficial del IPN
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Paso 2: diagnóstico con reactivos reales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Organización del temario por semanas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Práctica efectiva con reactivos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Matemáticas: el área donde más aspirantes pierden puntos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>La semana previa al examen
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">El Instituto Politécnico Nacional ofrece carreras técnicas y de ingeniería con alta demanda. El examen de admisión evalúa conocimientos generales y específicos según el nivel y área, y la competencia por lugares varía entre escuelas.</p>
             <p>Esta guía cubre el método de estudio, no las reglas administrativas del ciclo actual. Para fechas de registro, sedes, documentos y estructura vigente del examen, consulta directamente el portal de admisión del IPN.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Preparar el examen de admisión al IPN requiere descargar la guía de estudio oficial desde el sitio de admisión del Instituto, diagnosticar áreas débiles, resolver reactivos por tema y practicar con simulacros cronometrados. Las fechas y requisitos se actualizan cada ciclo en el portal oficial.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Preparar el examen de admisión al IPN requiere descargar la guía de estudio oficial desde el sitio de admisión del Instituto, diagnosticar áreas débiles, resolver reactivos por tema y practicar con simulacros cronometrados. Las fechas y requisitos se actualizan cada ciclo en el portal oficial.</p>
+                </aside>
 
-            <h2>Paso 1: obtener la guía de estudio oficial del IPN</h2>
-            <p>El IPN publica guías de estudio para nivel medio superior y nivel superior. Cada guía indica las áreas que se evalúan y el peso relativo de cada una. Es el punto de partida obligado antes de comprar cualquier material externo.</p>
-            <p>Si la guía del ciclo actual no está publicada al momento de iniciar tu preparación, puedes usar la del ciclo anterior como referencia provisional y verificar cambios cuando aparezca la nueva.</p>
-            <ul>
-                <li>Descarga la guía desde el portal oficial de admisión del IPN.</li>
-                <li>Identifica si tu examen corresponde a nivel medio superior o superior.</li>
-                <li>Nota las áreas evaluadas: generalmente incluyen matemáticas, comunicación, ciencias experimentales y sociales.</li>
-                <li>Compara con tu plan de estudios de preparatoria para identificar huecos.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Paso 1: obtener la guía de estudio oficial del IPN</h2>
+                <p>El IPN publica guías de estudio para nivel medio superior y nivel superior. Cada guía indica las áreas que se evalúan y el peso relativo de cada una. Es el punto de partida obligado antes de comprar cualquier material externo.</p>
+                <p>Si la guía del ciclo actual no está publicada al momento de iniciar tu preparación, puedes usar la del ciclo anterior como referencia provisional y verificar cambios cuando aparezca la nueva.</p>
+                <ul>
+                    <li>Descarga la guía desde el portal oficial de admisión del IPN.</li>
+                    <li>Identifica si tu examen corresponde a nivel medio superior o superior.</li>
+                    <li>Nota las áreas evaluadas: generalmente incluyen matemáticas, comunicación, ciencias experimentales y sociales.</li>
+                    <li>Compara con tu plan de estudios de preparatoria para identificar huecos.</li>
+                </ul>
+            </section>
 
-            <h2>Paso 2: diagnóstico con reactivos reales</h2>
-            <p>Antes de planificar semanas de estudio, resuelve un set de 50–80 reactivos tipo IPN sin ayuda. El resultado no importa como calificación, sino como mapa de fortalezas y debilidades.</p>
-            <p>Muchos aspirantes cometen el error de empezar por los temas que les gustan. El diagnóstico te obliga a enfrentar primero lo que no dominas.</p>
-            <ol>
-                <li>Resuelve el set completo en condiciones similares al examen: sin apuntes, con cronómetro.</li>
-                <li>Clasifica cada error: no conocía el tema, lo conocía pero no lo apliqué bien, leí mal el reactivo.</li>
-                <li>Ordena los temas de mayor a menor debilidad.</li>
-                <li>Asigna más horas semanales a los temas con errores conceptuales graves.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Paso 2: diagnóstico con reactivos reales</h2>
+                <p>Antes de planificar semanas de estudio, resuelve un set de 50–80 reactivos tipo IPN sin ayuda. El resultado no importa como calificación, sino como mapa de fortalezas y debilidades.</p>
+                <p>Muchos aspirantes cometen el error de empezar por los temas que les gustan. El diagnóstico te obliga a enfrentar primero lo que no dominas.</p>
+                <ol>
+                    <li>Resuelve el set completo en condiciones similares al examen: sin apuntes, con cronómetro.</li>
+                    <li>Clasifica cada error: no conocía el tema, lo conocía pero no lo apliqué bien, leí mal el reactivo.</li>
+                    <li>Ordena los temas de mayor a menor debilidad.</li>
+                    <li>Asigna más horas semanales a los temas con errores conceptuales graves.</li>
+                </ol>
+            </section>
 
-            <h2>Organización del temario por semanas</h2>
-            <p>Con 10–14 semanas de preparación, distribuye las áreas de forma alternada. Una semana enfocada exclusivamente en una materia genera olvido de las demás. La alternancia diaria favorece la retención a largo plazo.</p>
-            <ul>
-                <li>Semanas 1–4: bases de las áreas más débiles + repaso ligero de las fuertes.</li>
-                <li>Semanas 5–8: profundización con ejercicios de dificultad creciente.</li>
-                <li>Semanas 9–10: simulacros parciales (una materia completa por día).</li>
-                <li>Semanas 11–12+: simulacros completos + análisis de errores + repaso selectivo.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Organización del temario por semanas</h2>
+                <p>Con 10–14 semanas de preparación, distribuye las áreas de forma alternada. Una semana enfocada exclusivamente en una materia genera olvido de las demás. La alternancia diaria favorece la retención a largo plazo.</p>
+                <ul>
+                    <li>Semanas 1–4: bases de las áreas más débiles + repaso ligero de las fuertes.</li>
+                    <li>Semanas 5–8: profundización con ejercicios de dificultad creciente.</li>
+                    <li>Semanas 9–10: simulacros parciales (una materia completa por día).</li>
+                    <li>Semanas 11–12+: simulacros completos + análisis de errores + repaso selectivo.</li>
+                </ul>
+            </section>
 
-            <h2>Práctica efectiva con reactivos</h2>
-            <p>Resolver reactivos sin analizar los errores es como jugar sin llevar marcador: no sabes si mejoras. Cada sesión de práctica debe incluir resolución y revisión por partes iguales.</p>
-            <ul>
-                <li>Resuelve bloques de 15–20 reactivos por sesión, no 100 seguidos.</li>
-                <li>Después de cada bloque, revisa cada reactivo: los correctos también, para confirmar que el razonamiento fue válido.</li>
-                <li>Anota en un cuaderno los reactivos que erraste con la explicación corregida.</li>
-                <li>Vuelve a esos reactivos una semana después para verificar retención.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Práctica efectiva con reactivos</h2>
+                <p>Resolver reactivos sin analizar los errores es como jugar sin llevar marcador: no sabes si mejoras. Cada sesión de práctica debe incluir resolución y revisión por partes iguales.</p>
+                <ul>
+                    <li>Resuelve bloques de 15–20 reactivos por sesión, no 100 seguidos.</li>
+                    <li>Después de cada bloque, revisa cada reactivo: los correctos también, para confirmar que el razonamiento fue válido.</li>
+                    <li>Anota en un cuaderno los reactivos que erraste con la explicación corregida.</li>
+                    <li>Vuelve a esos reactivos una semana después para verificar retención.</li>
+                </ul>
+            </section>
 
-            <h2>Matemáticas: el área donde más aspirantes pierden puntos</h2>
-            <p>En la mayoría de las versiones del examen IPN, matemáticas tiene un peso significativo. Los temas recurrentes incluyen álgebra, geometría analítica, trigonometría y, para nivel superior, cálculo básico.</p>
-            <p>No basta con memorizar fórmulas: el examen pide aplicarlas en contextos específicos. Practica con problemas que requieran identificar qué fórmula usar antes de resolverlos.</p>
-            <ul>
-                <li>Domina operaciones con fracciones y exponentes antes de avanzar a temas complejos.</li>
-                <li>Practica la interpretación de gráficas y tablas: aparecen en varias áreas.</li>
-                <li>Resuelve al menos 5 problemas nuevos de matemáticas cada día de estudio.</li>
-                <li>Si un tema no avanza tras dos semanas, busca una explicación alternativa o apoyo externo.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Matemáticas: el área donde más aspirantes pierden puntos</h2>
+                <p>En la mayoría de las versiones del examen IPN, matemáticas tiene un peso significativo. Los temas recurrentes incluyen álgebra, geometría analítica, trigonometría y, para nivel superior, cálculo básico.</p>
+                <p>No basta con memorizar fórmulas: el examen pide aplicarlas en contextos específicos. Practica con problemas que requieran identificar qué fórmula usar antes de resolverlos.</p>
+                <ul>
+                    <li>Domina operaciones con fracciones y exponentes antes de avanzar a temas complejos.</li>
+                    <li>Practica la interpretación de gráficas y tablas: aparecen en varias áreas.</li>
+                    <li>Resuelve al menos 5 problemas nuevos de matemáticas cada día de estudio.</li>
+                    <li>Si un tema no avanza tras dos semanas, busca una explicación alternativa o apoyo externo.</li>
+                </ul>
+            </section>
 
-            <h2>La semana previa al examen</h2>
-            <p>La última semana no es para aprender temas nuevos. Es para consolidar lo aprendido, resolver un último simulacro y preparar la logística del día.</p>
-            <ul>
-                <li>Repasa tus notas de errores frecuentes, no el temario completo.</li>
-                <li>Verifica en el portal oficial tu sede, fecha, hora y documentos requeridos.</li>
-                <li>Prepara todo la noche anterior: credencial, comprobante, lápices, goma, reloj.</li>
-                <li>Duerme bien, come adecuadamente y llega con tiempo de sobra a la sede.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">La semana previa al examen</h2>
+                <p>La última semana no es para aprender temas nuevos. Es para consolidar lo aprendido, resolver un último simulacro y preparar la logística del día.</p>
+                <ul>
+                    <li>Repasa tus notas de errores frecuentes, no el temario completo.</li>
+                    <li>Verifica en el portal oficial tu sede, fecha, hora y documentos requeridos.</li>
+                    <li>Prepara todo la noche anterior: credencial, comprobante, lápices, goma, reloj.</li>
+                    <li>Duerme bien, come adecuadamente y llega con tiempo de sobra a la sede.</li>
+                </ul>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Plan de estudio con simulacros y retroalimentación</h3>
-                <p>El programa de Admisión Universitaria cubre el temario general con práctica por área, simulacros cronometrados y análisis de errores. Si necesitas estructura para organizar tu preparación al IPN, revisa el programa.</p>
-                <a href="/admision-universitaria" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso para el examen de admisión <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Plan de estudio con simulacros y retroalimentación</h2>
+                    <p>El programa de Admisión Universitaria cubre el temario general con práctica por área, simulacros cronometrados y análisis de errores. Si necesitas estructura para organizar tu preparación al IPN, revisa el programa.</p>
+                    <a href="/admision-universitaria" class="btn-primary">
+                        Curso para el examen de admisión <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El examen IPN es diferente para nivel medio superior y superior?</h3>
-                <p>Sí. Cada nivel tiene su propia estructura y temario. Además, dentro del nivel superior puede haber variaciones según el área (ingenierías, ciencias sociales, ciencias médico-biológicas). Consulta la guía específica para tu caso en el portal de admisión.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Dónde encuentro las fechas de registro y examen?</h3>
-                <p>Exclusivamente en el portal oficial de admisión del IPN (ipn.mx/admision). Las fechas se actualizan cada ciclo y dependen del nivel y periodo. No confíes en fechas publicadas por terceros.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántos aciertos necesito para quedar?</h3>
-                <p>No hay un número fijo publicado. El puntaje mínimo varía según la demanda de cada escuela y carrera en ese ciclo. Aspirar al máximo posible y elegir opciones realistas según tu diagnóstico es la estrategia más segura.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo prepararme solo sin tomar un curso?</h3>
-                <p>Sí, con disciplina y la guía oficial como referencia. Un curso aporta estructura y retroalimentación, pero no es requisito. Lo esencial es resolver reactivos activamente y analizar cada error.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.ipn.mx/admision/" target="_blank" rel="noopener noreferrer">Portal de Admisión IPN</a> — Guías de estudio, convocatorias, fechas y requisitos oficiales.</li>
-                <li><a href="https://www.ipn.mx/oferta-educativa/" target="_blank" rel="noopener noreferrer">IPN – Oferta educativa</a> — Catálogo de carreras por escuela y nivel.</li>
-                <li><a href="https://canalonce.mx/" target="_blank" rel="noopener noreferrer">Canal Once IPN</a> — Programas educativos y de divulgación del IPN disponibles en línea.</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El examen IPN es diferente para nivel medio superior y superior?</h3>
+                    <p>Sí. Cada nivel tiene su propia estructura y temario. Además, dentro del nivel superior puede haber variaciones según el área (ingenierías, ciencias sociales, ciencias médico-biológicas). Consulta la guía específica para tu caso en el portal de admisión.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Dónde encuentro las fechas de registro y examen?</h3>
+                    <p>Exclusivamente en el portal oficial de admisión del IPN (ipn.mx/admision). Las fechas se actualizan cada ciclo y dependen del nivel y periodo. No confíes en fechas publicadas por terceros.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántos aciertos necesito para quedar?</h3>
+                    <p>No hay un número fijo publicado. El puntaje mínimo varía según la demanda de cada escuela y carrera en ese ciclo. Aspirar al máximo posible y elegir opciones realistas según tu diagnóstico es la estrategia más segura.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo prepararme solo sin tomar un curso?</h3>
+                    <p>Sí, con disciplina y la guía oficial como referencia. Un curso aporta estructura y retroalimentación, pero no es requisito. Lo esencial es resolver reactivos activamente y analizar cada error.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.ipn.mx/admision/" target="_blank" rel="noopener noreferrer">Portal de Admisión IPN</a> — Guías de estudio, convocatorias, fechas y requisitos oficiales.</li>
+                    <li><a href="https://www.ipn.mx/oferta-educativa/" target="_blank" rel="noopener noreferrer">IPN – Oferta educativa</a> — Catálogo de carreras por escuela y nivel.</li>
+                    <li><a href="https://canalonce.mx/" target="_blank" rel="noopener noreferrer">Canal Once IPN</a> — Programas educativos y de divulgación del IPN disponibles en línea.</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -523,8 +598,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Paso 1: obtener la guía de estudio oficial del IPN
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Paso 2: diagnóstico con reactivos reales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Organización del temario por semanas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Práctica efectiva con reactivos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Matemáticas: el área donde más aspirantes pierden puntos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>La semana previa al examen
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>4 min restantes</span>
+                        <span>Lectura estimada: 4 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

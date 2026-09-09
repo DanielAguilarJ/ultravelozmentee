@@ -362,148 +362,246 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">A qué edad enseñar cada hábito de organización del estudio</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">A qué edad enseñar cada hábito de organización del estudio</h1>
+                <p class="blog-post-dek">A qué edad tiene sentido enseñar cada hábito de organización del estudio y por qué adelantar herramientas complejas suele producir rechazo en lugar de método.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="A qué edad enseñar cada hábito de organización del estudio" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La pregunta sobre la edad adecuada para enseñar organización suele responderse con extremos: o se asume que es cosa de la preparatoria, o se intenta implantar un sistema completo en tercero de primaria. Ambas respuestas fallan por el mismo motivo: tratan la organización como una sola habilidad.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué la secuencia importa más que la edad exacta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Primaria: rutina, lugar y duración corta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>De diez a doce años: la lista y la noción de cuánto tarda
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Secundaria: bloques con objetivo y autoevaluación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: adelantar una etapa y corregir el camino
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Bachillerato: planeación semanal y revisión propia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo saber si una etapa ya está consolidada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La pregunta sobre la edad adecuada para enseñar organización suele responderse con extremos: o se asume que es cosa de la preparatoria, o se intenta implantar un sistema completo en tercero de primaria. Ambas respuestas fallan por el mismo motivo: tratan la organización como una sola habilidad.</p>
             <p>En realidad son varias capacidades que maduran en momentos distintos, y cada una se apoya en la anterior. Aquí se propone una secuencia por etapas, con lo que sí corresponde a cada edad, lo que conviene esperar y las señales de que una etapa ya se puede dar por consolidada.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>No hay una edad única, sino una secuencia por etapas: en primaria conviene consolidar rutina y lugar fijo; entre los diez y doce años, listas de pendientes y estimación de tiempos; en secundaria, bloques con objetivo y autoevaluación; y en bachillerato, planeación semanal con revisión propia. Adelantar herramientas complejas suele generar rechazo más que método.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>No hay una edad única, sino una secuencia por etapas: en primaria conviene consolidar rutina y lugar fijo; entre los diez y doce años, listas de pendientes y estimación de tiempos; en secundaria, bloques con objetivo y autoevaluación; y en bachillerato, planeación semanal con revisión propia. Adelantar herramientas complejas suele generar rechazo más que método.</p>
+                </aside>
 
-            <h2>Por qué la secuencia importa más que la edad exacta</h2>
-            <p>Las edades que se mencionan aquí son referencias, no umbrales. Lo que determina si un hábito puede sostenerse no es el número de años, sino si la capacidad previa ya está firme: no se puede estimar cuánto tarda una tarea sin antes haber llevado un registro de tareas, y no se puede planear una semana sin manejar primero un día.</p>
-            <p>Cuando se adelanta una etapa, el resultado habitual no es aprendizaje temprano sino frustración y rechazo hacia la idea de organizarse. Ese rechazo tiende a durar años y cuesta más revertirlo que haber esperado unos meses.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué la secuencia importa más que la edad exacta</h2>
+                <p>Las edades que se mencionan aquí son referencias, no umbrales. Lo que determina si un hábito puede sostenerse no es el número de años, sino si la capacidad previa ya está firme: no se puede estimar cuánto tarda una tarea sin antes haber llevado un registro de tareas, y no se puede planear una semana sin manejar primero un día.</p>
+                <p>Cuando se adelanta una etapa, el resultado habitual no es aprendizaje temprano sino frustración y rechazo hacia la idea de organizarse. Ese rechazo tiende a durar años y cuesta más revertirlo que haber esperado unos meses.</p>
+            </section>
 
-            <h2>Primaria: rutina, lugar y duración corta</h2>
-            <p>En esta etapa el objetivo no es que el niño se organice, sino que el estudio ocurra en un momento y un lugar estables. La rutina la sostiene el adulto: misma hora, misma mesa, material a la mano. Esa regularidad es la base sobre la que después se puede montar cualquier método.</p>
-            <p>Las sesiones conviene mantenerlas cortas, cerrando antes de que aparezca el cansancio para que la asociación con el estudio no sea de agotamiento. Aquí no aplican bloques cronometrados ni listas de pendientes: la unidad de trabajo es la tarea del día y la termina, con acompañamiento cercano cuando hace falta.</p>
-            <ul>
-                <li>Misma hora y mismo lugar todos los días, sostenidos por el adulto.</li>
-                <li>Sesiones cortas que cierran antes del cansancio.</li>
-                <li>El material listo antes de empezar, sin que él tenga que buscarlo.</li>
-            </ul>
-
-            <h2>De diez a doce años: la lista y la noción de cuánto tarda</h2>
-            <p>Alrededor de esta edad ya es razonable introducir una lista escrita de pendientes escolares, hecha por el estudiante aunque el adulto la revise. El valor no está en el orden de la lista, sino en la práctica de sacar los pendientes de la cabeza y ponerlos en un lugar visible.</p>
-            <p>El segundo aprendizaje de esta etapa es estimar tiempos. Se puede plantear como un ejercicio de comparación: antes de empezar, que anote cuánto cree que va a tardar; al terminar, cuánto tardó de verdad. Las primeras estimaciones fallarán bastante, y precisamente esa comparación es lo que enseña. Esta habilidad sostiene toda la planeación posterior.</p>
-            <ol>
-                <li>Que escriba sus pendientes escolares en una sola lista, él mismo.</li>
-                <li>Antes de cada tarea, que anote cuánto cree que tardará.</li>
-                <li>Al terminar, que anote el tiempo real y compare sin juicio.</li>
-                <li>Después de un mes, revisen juntos qué tipo de tarea suele subestimar.</li>
-            </ol>
-
-            <h2>Secundaria: bloques con objetivo y autoevaluación</h2>
-            <p>Con la lista y la estimación funcionando, en secundaria se puede introducir el bloque de estudio con objetivo definido: no estudiar biología durante un rato, sino poder explicar un proceso sin ver los apuntes. Es el paso de medir esfuerzo por tiempo a medirlo por resultado.</p>
-            <p>También es la etapa para sustituir releer por autoevaluarse, que suele encontrar resistencia porque se siente más difícil. Conviene presentarlo con un argumento comprobable en lugar de una indicación: probar durante una semana escribir de memoria antes de repasar, y comparar cómo salió el examen respecto al anterior.</p>
-
-            <h2>Ejemplo aplicado: adelantar una etapa y corregir el camino</h2>
-            <p>Considera el caso de una familia que decidió instalar un sistema completo de planeación semanal con un estudiante de sexto de primaria: agenda con colores, bloques cronometrados y registro diario de tiempos. El material era ordenado y la intención razonable.</p>
-            <p>En dos semanas el sistema se había abandonado, y con un costo adicional: el niño empezó a resistirse a cualquier conversación sobre organizar el estudio, porque la asociaba con una tarea extra que no entendía para qué servía. Faltaba la capacidad previa: nunca había llevado una lista de pendientes ni comparado tiempos estimados con reales.</p>
-            <p>El ajuste consistió en retroceder una etapa. Se dejó la planeación semanal de lado y durante dos meses solo se trabajó una lista de pendientes escrita por él y la estimación de tiempo antes de cada tarea. Sin colores, sin bloques y sin cronómetro.</p>
-            <p>Al entrar a secundaria, con esa base ya sólida, los bloques con objetivo se incorporaron sin resistencia, porque para entonces él mismo notaba que ciertas tareas le tomaban el doble de lo que suponía. La secuencia funcionó cuando se respetó el orden, no cuando se aceleró.</p>
-
-            <h2>Bachillerato: planeación semanal y revisión propia</h2>
-            <p>En bachillerato la carga se vuelve simultánea —varias materias con entregas que se cruzan— y ahí la planeación semanal deja de ser un ejercicio y se vuelve necesaria. El estudiante ya puede armar su propio reparto de bloques y decidir el orden de las materias.</p>
-            <p>La pieza que corresponde a esta etapa es la revisión propia: quince minutos a la semana para comparar lo planeado con lo cumplido y ajustar. Es la habilidad que permite que el sistema sobreviva sin supervisión, y es también la que conviene practicar antes de la universidad, donde nadie va a preguntar si el plan se cumplió.</p>
-            <ul>
-                <li>Planeación semanal armada por el estudiante, no por el adulto.</li>
-                <li>Revisión propia de quince minutos con ajuste para la semana siguiente.</li>
-                <li>Un bloque semanal de repaso de temas anteriores, no solo material nuevo.</li>
-            </ul>
-
-            <h2>Cómo saber si una etapa ya está consolidada</h2>
-            <p>La señal es que el hábito ocurre sin recordatorio durante varias semanas. Si la lista de pendientes solo se escribe cuando alguien la pide, esa etapa no está lista y avanzar a la siguiente va a fallar. Si la lista aparece sola incluso en semanas complicadas, se puede introducir la pieza siguiente.</p>
-            <p>Conviene también aceptar que las etapas no se cursan a la misma velocidad y que un retroceso temporal es normal en periodos de cambio, como un cambio de escuela. Si además de desorganización se observan dificultades sostenidas de atención, ansiedad marcada ante las evaluaciones o un desfase importante respecto a lo esperado para su grado, lo indicado es consultar con el orientador educativo del plantel o con un profesional de salud, en lugar de insistir con más estructura.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Cuando la etapa se atrasó y hay materias pendientes</h3>
-                <p>Si la falta de método ya dejó unidades sin cubrir, pedirle al estudiante que ordene el contenido y aprenda a organizarse al mismo tiempo es demasiado. El curso de Regularización Express aporta el temario ya secuenciado, de modo que el trabajo de organización se limite a decidir cuándo estudiar.</p>
-                <a href="/regularizacion-express" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de regularización escolar <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Primaria: rutina, lugar y duración corta</h2>
+                <p>En esta etapa el objetivo no es que el niño se organice, sino que el estudio ocurra en un momento y un lugar estables. La rutina la sostiene el adulto: misma hora, misma mesa, material a la mano. Esa regularidad es la base sobre la que después se puede montar cualquier método.</p>
+                <p>Las sesiones conviene mantenerlas cortas, cerrando antes de que aparezca el cansancio para que la asociación con el estudio no sea de agotamiento. Aquí no aplican bloques cronometrados ni listas de pendientes: la unidad de trabajo es la tarea del día y la termina, con acompañamiento cercano cuando hace falta.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-para-padres">Cómo acompañar la organización del estudio de tu hijo</a></li>
-                <li><a href="/blog-productividad-estudiantil-como-empezar">Cómo empezar a organizar tu estudio sin rediseñar tu vida</a></li>
-                <li><a href="/blog-productividad-estudiantil-para-estudiantes">Guía para estudiantes: cómo dejar de posponer</a></li>
+                    <li>Misma hora y mismo lugar todos los días, sostenidos por el adulto.</li>
+                    <li>Sesiones cortas que cierran antes del cansancio.</li>
+                    <li>El material listo antes de empezar, sin que él tenga que buscarlo.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Se puede empezar más tarde si nunca se enseñó nada de esto?</h3>
-                <p>Sí, y la secuencia es la misma aunque se recorra más rápido. Un estudiante de bachillerato sin base previa suele necesitar unas semanas de lista de pendientes y estimación de tiempos antes de que la planeación semanal se sostenga; saltarse ese tramo es lo que hace fallar el intento.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué pasa si un hermano menor ya quiere usar el sistema del mayor?</h3>
-                <p>Puede participar en una versión simplificada: su propia lista corta o su estimación de tiempos, según su etapa. Lo que conviene evitar es darle la herramienta completa del mayor, porque el rechazo posterior cuesta más de revertir que la espera.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad conviene que maneje solo su tiempo de pantalla al estudiar?</h3>
-                <p>Suele funcionar mejor un acuerdo compartido durante la secundaria y una decisión propia hacia el bachillerato. Antes de eso, la regulación del entorno le corresponde al adulto, porque la capacidad de posponer una gratificación inmediata todavía está en desarrollo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Los cronómetros y temporizadores sirven a cualquier edad?</h3>
-                <p>En primaria pueden generar presión más que estructura, y ahí es mejor cerrar la sesión por tarea terminada. Desde secundaria, cuando ya existe la noción de cuánto tarda cada cosa, el temporizador se vuelve una referencia útil y no una fuente de tensión.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es tarde para enseñar esto en el último año de bachillerato?</h3>
-                <p>No, y suele haber una motivación aprovechable si hay un examen de admisión cerca. Con el tiempo justo conviene concentrarse en dos piezas: bloques con objetivo verificable y revisión semanal, dejando de lado los sistemas de registro más elaborados.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">De diez a doce años: la lista y la noción de cuánto tarda</h2>
+                <p>Alrededor de esta edad ya es razonable introducir una lista escrita de pendientes escolares, hecha por el estudiante aunque el adulto la revise. El valor no está en el orden de la lista, sino en la práctica de sacar los pendientes de la cabeza y ponerlos en un lugar visible.</p>
+                <p>El segundo aprendizaje de esta etapa es estimar tiempos. Se puede plantear como un ejercicio de comparación: antes de empezar, que anote cuánto cree que va a tardar; al terminar, cuánto tardó de verdad. Las primeras estimaciones fallarán bastante, y precisamente esa comparación es lo que enseña. Esta habilidad sostiene toda la planeación posterior.</p>
+                <ol>
+                    <li>Que escriba sus pendientes escolares en una sola lista, él mismo.</li>
+                    <li>Antes de cada tarea, que anote cuánto cree que tardará.</li>
+                    <li>Al terminar, que anote el tiempo real y compare sin juicio.</li>
+                    <li>Después de un mes, revisen juntos qué tipo de tarea suele subestimar.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Secundaria: bloques con objetivo y autoevaluación</h2>
+                <p>Con la lista y la estimación funcionando, en secundaria se puede introducir el bloque de estudio con objetivo definido: no estudiar biología durante un rato, sino poder explicar un proceso sin ver los apuntes. Es el paso de medir esfuerzo por tiempo a medirlo por resultado.</p>
+                <p>También es la etapa para sustituir releer por autoevaluarse, que suele encontrar resistencia porque se siente más difícil. Conviene presentarlo con un argumento comprobable en lugar de una indicación: probar durante una semana escribir de memoria antes de repasar, y comparar cómo salió el examen respecto al anterior.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Ejemplo aplicado: adelantar una etapa y corregir el camino</h2>
+                <p>Considera el caso de una familia que decidió instalar un sistema completo de planeación semanal con un estudiante de sexto de primaria: agenda con colores, bloques cronometrados y registro diario de tiempos. El material era ordenado y la intención razonable.</p>
+                <p>En dos semanas el sistema se había abandonado, y con un costo adicional: el niño empezó a resistirse a cualquier conversación sobre organizar el estudio, porque la asociaba con una tarea extra que no entendía para qué servía. Faltaba la capacidad previa: nunca había llevado una lista de pendientes ni comparado tiempos estimados con reales.</p>
+                <p>El ajuste consistió en retroceder una etapa. Se dejó la planeación semanal de lado y durante dos meses solo se trabajó una lista de pendientes escrita por él y la estimación de tiempo antes de cada tarea. Sin colores, sin bloques y sin cronómetro.</p>
+                <p>Al entrar a secundaria, con esa base ya sólida, los bloques con objetivo se incorporaron sin resistencia, porque para entonces él mismo notaba que ciertas tareas le tomaban el doble de lo que suponía. La secuencia funcionó cuando se respetó el orden, no cuando se aceleró.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Bachillerato: planeación semanal y revisión propia</h2>
+                <p>En bachillerato la carga se vuelve simultánea —varias materias con entregas que se cruzan— y ahí la planeación semanal deja de ser un ejercicio y se vuelve necesaria. El estudiante ya puede armar su propio reparto de bloques y decidir el orden de las materias.</p>
+                <p>La pieza que corresponde a esta etapa es la revisión propia: quince minutos a la semana para comparar lo planeado con lo cumplido y ajustar. Es la habilidad que permite que el sistema sobreviva sin supervisión, y es también la que conviene practicar antes de la universidad, donde nadie va a preguntar si el plan se cumplió.</p>
+                <ul>
+                    <li>Planeación semanal armada por el estudiante, no por el adulto.</li>
+                    <li>Revisión propia de quince minutos con ajuste para la semana siguiente.</li>
+                    <li>Un bloque semanal de repaso de temas anteriores, no solo material nuevo.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo saber si una etapa ya está consolidada</h2>
+                <p>La señal es que el hábito ocurre sin recordatorio durante varias semanas. Si la lista de pendientes solo se escribe cuando alguien la pide, esa etapa no está lista y avanzar a la siguiente va a fallar. Si la lista aparece sola incluso en semanas complicadas, se puede introducir la pieza siguiente.</p>
+                <p>Conviene también aceptar que las etapas no se cursan a la misma velocidad y que un retroceso temporal es normal en periodos de cambio, como un cambio de escuela. Si además de desorganización se observan dificultades sostenidas de atención, ansiedad marcada ante las evaluaciones o un desfase importante respecto a lo esperado para su grado, lo indicado es consultar con el orientador educativo del plantel o con un profesional de salud, en lugar de insistir con más estructura.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Cuando la etapa se atrasó y hay materias pendientes</h2>
+                    <p>Si la falta de método ya dejó unidades sin cubrir, pedirle al estudiante que ordene el contenido y aprenda a organizarse al mismo tiempo es demasiado. El curso de Regularización Express aporta el temario ya secuenciado, de modo que el trabajo de organización se limite a decidir cuándo estudiar.</p>
+                    <a href="/regularizacion-express" class="btn-primary">
+                        Ver el curso de regularización escolar <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-para-padres">
+                            <span>Cómo acompañar la organización del estudio de tu hijo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-como-empezar">
+                            <span>Cómo empezar a organizar tu estudio sin rediseñar tu vida</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-para-estudiantes">
+                            <span>Guía para estudiantes: cómo dejar de posponer</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Se puede empezar más tarde si nunca se enseñó nada de esto?</h3>
+                    <p>Sí, y la secuencia es la misma aunque se recorra más rápido. Un estudiante de bachillerato sin base previa suele necesitar unas semanas de lista de pendientes y estimación de tiempos antes de que la planeación semanal se sostenga; saltarse ese tramo es lo que hace fallar el intento.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué pasa si un hermano menor ya quiere usar el sistema del mayor?</h3>
+                    <p>Puede participar en una versión simplificada: su propia lista corta o su estimación de tiempos, según su etapa. Lo que conviene evitar es darle la herramienta completa del mayor, porque el rechazo posterior cuesta más de revertir que la espera.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad conviene que maneje solo su tiempo de pantalla al estudiar?</h3>
+                    <p>Suele funcionar mejor un acuerdo compartido durante la secundaria y una decisión propia hacia el bachillerato. Antes de eso, la regulación del entorno le corresponde al adulto, porque la capacidad de posponer una gratificación inmediata todavía está en desarrollo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Los cronómetros y temporizadores sirven a cualquier edad?</h3>
+                    <p>En primaria pueden generar presión más que estructura, y ahí es mejor cerrar la sesión por tarea terminada. Desde secundaria, cuando ya existe la noción de cuánto tarda cada cosa, el temporizador se vuelve una referencia útil y no una fuente de tensión.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es tarde para enseñar esto en el último año de bachillerato?</h3>
+                    <p>No, y suele haber una motivación aprovechable si hay un examen de admisión cerca. Con el tiempo justo conviene concentrarse en dos piezas: bloques con objetivo verificable y revisión semanal, dejando de lado los sistemas de registro más elaborados.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -533,8 +631,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué la secuencia importa más que la edad exacta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Primaria: rutina, lugar y duración corta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>De diez a doce años: la lista y la noción de cuánto tarda
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Secundaria: bloques con objetivo y autoevaluación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: adelantar una etapa y corregir el camino
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Bachillerato: planeación semanal y revisión propia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo saber si una etapa ya está consolidada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

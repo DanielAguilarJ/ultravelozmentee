@@ -362,141 +362,234 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Recomendaciones de expertos sobre productividad estudiantil</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Recomendaciones de expertos sobre productividad estudiantil</h1>
+                <p class="blog-post-dek">Recomendaciones generales de especialistas en hábitos de estudio sobre productividad estudiantil: entorno, planificación, autorregulación y descanso.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Recomendaciones de expertos sobre productividad estudiantil" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Más allá de técnicas específicas con nombre propio, existen principios generales que orientadores educativos y especialistas en hábitos de estudio recomiendan de forma consistente, independientemente de la materia o el nivel escolar. Este artículo reúne esas recomendaciones generales, sin presentarlas como fórmulas mágicas ni prometer un resultado idéntico para cualquier persona que las aplique.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Preparar el entorno antes de empezar a estudiar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Planificar con anticipación en lugar de decidir sobre la marcha
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Autorregulación: reconocer cuándo bajar el ritmo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: aplicar las cuatro recomendaciones en conjunto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>El descanso como parte del proceso de aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuándo buscar apoyo adicional más allá de estas recomendaciones
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Diferencias según la etapa escolar al aplicar estas recomendaciones
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Más allá de técnicas específicas con nombre propio, existen principios generales que orientadores educativos y especialistas en hábitos de estudio recomiendan de forma consistente, independientemente de la materia o el nivel escolar. Este artículo reúne esas recomendaciones generales, sin presentarlas como fórmulas mágicas ni prometer un resultado idéntico para cualquier persona que las aplique.</p>
             <p>Ninguna de estas recomendaciones sustituye el trabajo real de comprender el contenido; funcionan como el entorno que facilita ese trabajo, reduciendo la fricción que consume tiempo y energía sin aportar aprendizaje. Aplicarlas no exige talento especial ni condiciones excepcionales, solo constancia razonable durante varias semanas.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Las recomendaciones más consistentes de especialistas en hábitos de estudio coinciden en cuatro áreas: preparar el entorno físico antes de empezar, planificar el trabajo con anticipación en lugar de decidirlo sobre la marcha, practicar la autorregulación —reconocer cuándo bajar el ritmo o pedir ayuda— y respetar el descanso como parte necesaria del aprendizaje, no como tiempo perdido.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Las recomendaciones más consistentes de especialistas en hábitos de estudio coinciden en cuatro áreas: preparar el entorno físico antes de empezar, planificar el trabajo con anticipación en lugar de decidirlo sobre la marcha, practicar la autorregulación —reconocer cuándo bajar el ritmo o pedir ayuda— y respetar el descanso como parte necesaria del aprendizaje, no como tiempo perdido.</p>
+                </aside>
 
-            <h2>Preparar el entorno antes de empezar a estudiar</h2>
-            <p>Una recomendación recurrente es dedicar unos minutos a preparar el espacio de estudio antes de sentarse a trabajar: tener a la mano los materiales necesarios, despejar distracciones visibles y elegir, dentro de lo posible, un lugar consistente que la mente asocie con el trabajo académico.</p>
-            <p>Este paso, aunque parezca menor, reduce las interrupciones que ocurren a mitad de una tarea por tener que buscar algo que faltaba, y ayuda a que el cerebro entre más rápido en modo de concentración al reconocer el entorno como señal de trabajo.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Preparar el entorno antes de empezar a estudiar</h2>
+                <p>Una recomendación recurrente es dedicar unos minutos a preparar el espacio de estudio antes de sentarse a trabajar: tener a la mano los materiales necesarios, despejar distracciones visibles y elegir, dentro de lo posible, un lugar consistente que la mente asocie con el trabajo académico.</p>
+                <p>Este paso, aunque parezca menor, reduce las interrupciones que ocurren a mitad de una tarea por tener que buscar algo que faltaba, y ayuda a que el cerebro entre más rápido en modo de concentración al reconocer el entorno como señal de trabajo.</p>
+            </section>
 
-            <h2>Planificar con anticipación en lugar de decidir sobre la marcha</h2>
-            <p>Especialistas en organización del estudio suelen coincidir en que decidir qué estudiar justo al momento de sentarse consume tiempo y energía mental que podría dedicarse al contenido mismo. Planificar la noche anterior o al inicio de la semana qué se trabajará en cada sesión reduce esa carga de decisión constante.</p>
-            <p>La planificación no necesita ser elaborada: una lista simple de tareas ordenadas por prioridad, revisada brevemente antes de cada sesión, cumple la función principal sin requerir sistemas complejos.</p>
-            <ul>
-                <li>Planificar el contenido de la sesión antes de sentarse a estudiar, no durante.</li>
-                <li>Revisar brevemente la lista de tareas al inicio de cada sesión.</li>
-                <li>Ajustar la planificación semanal según lo que realmente se cumplió.</li>
-                <li>Evitar sistemas de planificación tan elaborados que consuman más tiempo del que ahorran.</li>
-            </ul>
-
-            <h2>Autorregulación: reconocer cuándo bajar el ritmo</h2>
-            <p>La autorregulación se refiere a la capacidad de notar el propio estado —cansancio, frustración, distracción— y ajustar el plan en consecuencia, en lugar de seguir forzando un ritmo que ya no está rindiendo. Especialistas en el tema señalan que esta habilidad se desarrolla con práctica: al principio cuesta reconocer las señales de agotamiento, pero con el tiempo se vuelve más automático distinguir entre una pausa necesaria y una evasión de la tarea.</p>
-
-            <h2>Ejemplo aplicado: aplicar las cuatro recomendaciones en conjunto</h2>
-            <p>Un estudiante de secundaria empezó a aplicar estas recomendaciones generales tras notar que, aunque dedicaba tiempo considerable a estudiar, sentía que avanzaba poco. Primero ajustó su entorno: dejó de estudiar en distintos lugares cada día y fijó un rincón específico de su cuarto, siempre con los materiales de la semana ya organizados en una caja.</p>
-            <p>Después empezó a escribir cada domingo una lista breve de lo que trabajaría cada día de la semana siguiente, en lugar de decidirlo cada tarde al llegar de la escuela. Notó que esto eliminaba varios minutos de indecisión que antes gastaba solo pensando por dónde empezar.</p>
-            <p>El tercer ajuste fue el más difícil: aprender a notar cuándo su concentración ya había bajado lo suficiente como para justificar un descanso, en lugar de forzar la sesión hasta terminar 'como fuera'. Al principio le costaba distinguir entre cansancio real y ganas de distraerse, pero después de varias semanas notó que podía identificar la diferencia con más claridad.</p>
-            <p>El cuarto ajuste fue simplemente respetar sus descansos planeados sin sentir culpa, entendiendo que formaban parte del proceso y no un desperdicio de tiempo. La combinación de los cuatro cambios, ninguno especialmente complejo por separado, produjo una mejora notable en cuánto lograba avanzar en el mismo tiempo dedicado al estudio.</p>
-
-            <h2>El descanso como parte del proceso de aprendizaje</h2>
-            <p>Especialistas en hábitos de estudio insisten con frecuencia en que el descanso no es la ausencia de estudio, sino una parte necesaria del proceso en que el cerebro consolida lo trabajado. Tratar el descanso como tiempo perdido y evitarlo por completo suele reducir, no aumentar, el rendimiento general a mediano plazo.</p>
-            <ol>
-                <li>Incluir descansos cortos dentro de cada sesión de estudio, no solo al final del día.</li>
-                <li>Reservar tiempo de descanso más amplio al menos una vez por semana.</li>
-                <li>Evitar sustituir el descanso por otra pantalla que mantenga la mente activa.</li>
-                <li>Observar si el rendimiento mejora al respetar estos descansos con constancia.</li>
-            </ol>
-
-            <h2>Cuándo buscar apoyo adicional más allá de estas recomendaciones</h2>
-            <p>Estas recomendaciones generales ayudan a la mayoría de los estudiantes a mejorar su organización del tiempo, pero no sustituyen una valoración específica cuando hay dificultades más profundas de atención, comprensión o motivación que persisten a pesar de aplicar estos principios con constancia. En esos casos, especialistas recomiendan buscar orientación psicopedagógica o tutoría específica en lugar de insistir únicamente en ajustes de organización general.</p>
-
-            <h2>Diferencias según la etapa escolar al aplicar estas recomendaciones</h2>
-            <p>Los cuatro principios se sostienen en cualquier nivel educativo, pero su forma de aplicación cambia según la edad. En primaria, el entorno y la planificación dependen en gran medida de un adulto acompañante, mientras que la autorregulación apenas empieza a desarrollarse y requiere modelado explícito por parte del adulto.</p>
-            <p>En secundaria y bachillerato, el estudiante puede asumir más responsabilidad directa sobre los cuatro principios, aunque el acompañamiento sigue siendo útil para revisar si la autorregulación se está desarrollando de forma adecuada. En estudios universitarios, la expectativa es que los cuatro principios operen con autonomía casi completa, con acompañamiento puntual solo ante dificultades específicas.</p>
-            <p>Independientemente del nivel escolar, el punto en común es que ningún principio se sostiene de forma aislada durante mucho tiempo si los demás fallan de manera constante: un entorno bien preparado pierde utilidad si nunca hay planificación previa, y la planificación pierde sentido si no queda espacio para el descanso que permite sostenerla.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De las recomendaciones generales a un acompañamiento específico</h3>
-                <p>Si necesitas aplicar estos principios en materias concretas donde vas atrasado, nuestro programa de Regularización Express combina esta estructura general con contenido específico de tus materias pendientes.</p>
-                <a href="/regularizacion-express" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Regularización de primaria y secundaria <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Planificar con anticipación en lugar de decidir sobre la marcha</h2>
+                <p>Especialistas en organización del estudio suelen coincidir en que decidir qué estudiar justo al momento de sentarse consume tiempo y energía mental que podría dedicarse al contenido mismo. Planificar la noche anterior o al inicio de la semana qué se trabajará en cada sesión reduce esa carga de decisión constante.</p>
+                <p>La planificación no necesita ser elaborada: una lista simple de tareas ordenadas por prioridad, revisada brevemente antes de cada sesión, cumple la función principal sin requerir sistemas complejos.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-como-lograrlo-sin-estres">Cómo lograr productividad estudiantil sin estrés</a></li>
-                <li><a href="/blog-productividad-estudiantil-que-esperar-el-primer-mes">Qué esperar el primer mes al mejorar tu productividad estudiantil</a></li>
+                    <li>Planificar el contenido de la sesión antes de sentarse a estudiar, no durante.</li>
+                    <li>Revisar brevemente la lista de tareas al inicio de cada sesión.</li>
+                    <li>Ajustar la planificación semanal según lo que realmente se cumplió.</li>
+                    <li>Evitar sistemas de planificación tan elaborados que consuman más tiempo del que ahorran.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Estas recomendaciones vienen de un estudio científico específico?</h3>
-                <p>Son principios generales ampliamente compartidos entre especialistas en hábitos de estudio y orientación educativa, más que resultado de un único estudio. Su valor está en la consistencia con la que se repiten en distintos contextos educativos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo aplicar las cuatro recomendaciones al mismo tiempo?</h3>
-                <p>No es necesario ni recomendable. Introducirlas de forma escalonada, dando tiempo a que cada una se vuelva hábito antes de sumar la siguiente, suele rendir mejor que intentar los cuatro cambios en la misma semana.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Estas recomendaciones aplican igual en todos los niveles educativos?</h3>
-                <p>Los principios generales se sostienen desde primaria hasta universidad, aunque la forma de aplicarlos cambia: en primaria el acompañamiento de un adulto es más necesario que en niveles superiores.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si la autorregulación me cuesta mucho más que las otras recomendaciones?</h3>
-                <p>Es la más difícil de desarrollar para la mayoría, porque requiere reconocer señales internas en lugar de solo seguir una estructura externa. Practicarla de forma consciente durante varias semanas, anotando cuándo se detecta cansancio real, ayuda a desarrollarla con el tiempo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si aplico todo esto y aun así no mejora mi rendimiento?</h3>
-                <p>Considera que puede haber un factor adicional —dificultad específica con el contenido, problemas de comprensión lectora, ansiedad— que estas recomendaciones generales no resuelven por sí solas, y busca apoyo específico para identificarlo. Es preferible detectar ese factor a tiempo que repetir las mismas recomendaciones generales durante meses sin ningún avance.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Autorregulación: reconocer cuándo bajar el ritmo</h2>
+                <p>La autorregulación se refiere a la capacidad de notar el propio estado —cansancio, frustración, distracción— y ajustar el plan en consecuencia, en lugar de seguir forzando un ritmo que ya no está rindiendo. Especialistas en el tema señalan que esta habilidad se desarrolla con práctica: al principio cuesta reconocer las señales de agotamiento, pero con el tiempo se vuelve más automático distinguir entre una pausa necesaria y una evasión de la tarea.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: aplicar las cuatro recomendaciones en conjunto</h2>
+                <p>Un estudiante de secundaria empezó a aplicar estas recomendaciones generales tras notar que, aunque dedicaba tiempo considerable a estudiar, sentía que avanzaba poco. Primero ajustó su entorno: dejó de estudiar en distintos lugares cada día y fijó un rincón específico de su cuarto, siempre con los materiales de la semana ya organizados en una caja.</p>
+                <p>Después empezó a escribir cada domingo una lista breve de lo que trabajaría cada día de la semana siguiente, en lugar de decidirlo cada tarde al llegar de la escuela. Notó que esto eliminaba varios minutos de indecisión que antes gastaba solo pensando por dónde empezar.</p>
+                <p>El tercer ajuste fue el más difícil: aprender a notar cuándo su concentración ya había bajado lo suficiente como para justificar un descanso, en lugar de forzar la sesión hasta terminar 'como fuera'. Al principio le costaba distinguir entre cansancio real y ganas de distraerse, pero después de varias semanas notó que podía identificar la diferencia con más claridad.</p>
+                <p>El cuarto ajuste fue simplemente respetar sus descansos planeados sin sentir culpa, entendiendo que formaban parte del proceso y no un desperdicio de tiempo. La combinación de los cuatro cambios, ninguno especialmente complejo por separado, produjo una mejora notable en cuánto lograba avanzar en el mismo tiempo dedicado al estudio.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">El descanso como parte del proceso de aprendizaje</h2>
+                <p>Especialistas en hábitos de estudio insisten con frecuencia en que el descanso no es la ausencia de estudio, sino una parte necesaria del proceso en que el cerebro consolida lo trabajado. Tratar el descanso como tiempo perdido y evitarlo por completo suele reducir, no aumentar, el rendimiento general a mediano plazo.</p>
+                <ol>
+                    <li>Incluir descansos cortos dentro de cada sesión de estudio, no solo al final del día.</li>
+                    <li>Reservar tiempo de descanso más amplio al menos una vez por semana.</li>
+                    <li>Evitar sustituir el descanso por otra pantalla que mantenga la mente activa.</li>
+                    <li>Observar si el rendimiento mejora al respetar estos descansos con constancia.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cuándo buscar apoyo adicional más allá de estas recomendaciones</h2>
+                <p>Estas recomendaciones generales ayudan a la mayoría de los estudiantes a mejorar su organización del tiempo, pero no sustituyen una valoración específica cuando hay dificultades más profundas de atención, comprensión o motivación que persisten a pesar de aplicar estos principios con constancia. En esos casos, especialistas recomiendan buscar orientación psicopedagógica o tutoría específica en lugar de insistir únicamente en ajustes de organización general.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Diferencias según la etapa escolar al aplicar estas recomendaciones</h2>
+                <p>Los cuatro principios se sostienen en cualquier nivel educativo, pero su forma de aplicación cambia según la edad. En primaria, el entorno y la planificación dependen en gran medida de un adulto acompañante, mientras que la autorregulación apenas empieza a desarrollarse y requiere modelado explícito por parte del adulto.</p>
+                <p>En secundaria y bachillerato, el estudiante puede asumir más responsabilidad directa sobre los cuatro principios, aunque el acompañamiento sigue siendo útil para revisar si la autorregulación se está desarrollando de forma adecuada. En estudios universitarios, la expectativa es que los cuatro principios operen con autonomía casi completa, con acompañamiento puntual solo ante dificultades específicas.</p>
+                <p>Independientemente del nivel escolar, el punto en común es que ningún principio se sostiene de forma aislada durante mucho tiempo si los demás fallan de manera constante: un entorno bien preparado pierde utilidad si nunca hay planificación previa, y la planificación pierde sentido si no queda espacio para el descanso que permite sostenerla.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De las recomendaciones generales a un acompañamiento específico</h2>
+                    <p>Si necesitas aplicar estos principios en materias concretas donde vas atrasado, nuestro programa de Regularización Express combina esta estructura general con contenido específico de tus materias pendientes.</p>
+                    <a href="/regularizacion-express" class="btn-primary">
+                        Regularización de primaria y secundaria <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-como-lograrlo-sin-estres">
+                            <span>Cómo lograr productividad estudiantil sin estrés</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-que-esperar-el-primer-mes">
+                            <span>Qué esperar el primer mes al mejorar tu productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Estas recomendaciones vienen de un estudio científico específico?</h3>
+                    <p>Son principios generales ampliamente compartidos entre especialistas en hábitos de estudio y orientación educativa, más que resultado de un único estudio. Su valor está en la consistencia con la que se repiten en distintos contextos educativos.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo aplicar las cuatro recomendaciones al mismo tiempo?</h3>
+                    <p>No es necesario ni recomendable. Introducirlas de forma escalonada, dando tiempo a que cada una se vuelva hábito antes de sumar la siguiente, suele rendir mejor que intentar los cuatro cambios en la misma semana.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Estas recomendaciones aplican igual en todos los niveles educativos?</h3>
+                    <p>Los principios generales se sostienen desde primaria hasta universidad, aunque la forma de aplicarlos cambia: en primaria el acompañamiento de un adulto es más necesario que en niveles superiores.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si la autorregulación me cuesta mucho más que las otras recomendaciones?</h3>
+                    <p>Es la más difícil de desarrollar para la mayoría, porque requiere reconocer señales internas en lugar de solo seguir una estructura externa. Practicarla de forma consciente durante varias semanas, anotando cuándo se detecta cansancio real, ayuda a desarrollarla con el tiempo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si aplico todo esto y aun así no mejora mi rendimiento?</h3>
+                    <p>Considera que puede haber un factor adicional —dificultad específica con el contenido, problemas de comprensión lectora, ansiedad— que estas recomendaciones generales no resuelven por sí solas, y busca apoyo específico para identificarlo. Es preferible detectar ese factor a tiempo que repetir las mismas recomendaciones generales durante meses sin ningún avance.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -526,8 +619,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Preparar el entorno antes de empezar a estudiar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Planificar con anticipación en lugar de decidir sobre la marcha
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Autorregulación: reconocer cuándo bajar el ritmo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: aplicar las cuatro recomendaciones en conjunto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>El descanso como parte del proceso de aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuándo buscar apoyo adicional más allá de estas recomendaciones
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Diferencias según la etapa escolar al aplicar estas recomendaciones
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

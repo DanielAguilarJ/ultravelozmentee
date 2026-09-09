@@ -354,149 +354,231 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="5">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-robot"></i> Robotics Code
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Primer proyecto de robótica en casa: semáforo de papel paso a paso</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 5 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Robotics Code</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Primer proyecto de robótica en casa: semáforo de papel paso a paso</h1>
+                <p class="blog-post-dek">Proyecto paso a paso para construir un semáforo con LED y cartón en casa: materiales, código, seguridad y reflexión para niños desde 8 años.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Robotics Code</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>5 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/robotics-curso-programacion-arduino-ninos.webp" alt="Primer proyecto de robótica en casa: semáforo de papel paso a paso" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Antes de inscribir a un niño en un curso de robótica, muchas familias quieren probar en casa si el tema realmente le interesa. Un proyecto sencillo, con materiales accesibles y resultado inmediato, es la mejor forma de descubrirlo.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Materiales necesarios y dónde conseguirlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Seguridad antes de empezar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Armado paso a paso de la estructura
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Conexión eléctrica en la protoboard
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Código básico: secuencia de semáforo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Variaciones para seguir aprendiendo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Reflexión: qué observar en el niño después del proyecto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Antes de inscribir a un niño en un curso de robótica, muchas familias quieren probar en casa si el tema realmente le interesa. Un proyecto sencillo, con materiales accesibles y resultado inmediato, es la mejor forma de descubrirlo.</p>
             <p>Este semáforo de papel con LEDs se completa en una tarde, cuesta menos de cien pesos en componentes y enseña los fundamentos de la programación secuencial sin necesidad de experiencia previa por parte del adulto que acompaña.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Un semáforo de papel con tres LEDs de colores y una placa Arduino o micro:bit es un primer proyecto de robótica accesible, seguro y educativo para niños desde 8 años. Requiere materiales de bajo costo y permite practicar secuencias, tiempos y condicionales con resultado físico visible en minutos.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Un semáforo de papel con tres LEDs de colores y una placa Arduino o micro:bit es un primer proyecto de robótica accesible, seguro y educativo para niños desde 8 años. Requiere materiales de bajo costo y permite practicar secuencias, tiempos y condicionales con resultado físico visible en minutos.</p>
+                </aside>
 
-            <h2>Materiales necesarios y dónde conseguirlos</h2>
-            <p>Todo lo necesario se encuentra en tiendas de electrónica locales o en línea. No hace falta comprar un kit completo si ya se tiene una placa de desarrollo.</p>
-            <ul>
-                <li>Una placa Arduino Uno, micro:bit o compatible (se reutiliza en futuros proyectos).</li>
-                <li>Tres LEDs de colores: rojo, amarillo y verde.</li>
-                <li>Tres resistencias de 220 ohmios para proteger los LEDs.</li>
-                <li>Cables jumper macho–macho (6 unidades mínimo).</li>
-                <li>Protoboard (placa de pruebas sin soldadura).</li>
-                <li>Cartón reciclado, tijeras, pegamento y pintura negra para la estructura.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Materiales necesarios y dónde conseguirlos</h2>
+                <p>Todo lo necesario se encuentra en tiendas de electrónica locales o en línea. No hace falta comprar un kit completo si ya se tiene una placa de desarrollo.</p>
+                <ul>
+                    <li>Una placa Arduino Uno, micro:bit o compatible (se reutiliza en futuros proyectos).</li>
+                    <li>Tres LEDs de colores: rojo, amarillo y verde.</li>
+                    <li>Tres resistencias de 220 ohmios para proteger los LEDs.</li>
+                    <li>Cables jumper macho–macho (6 unidades mínimo).</li>
+                    <li>Protoboard (placa de pruebas sin soldadura).</li>
+                    <li>Cartón reciclado, tijeras, pegamento y pintura negra para la estructura.</li>
+                </ul>
+            </section>
 
-            <h2>Seguridad antes de empezar</h2>
-            <p>Arduino y micro:bit trabajan con 5 voltios o menos, alimentados por USB. No hay riesgo de descarga eléctrica significativa, pero conviene establecer reglas claras desde el primer proyecto para crear hábitos seguros.</p>
-            <ul>
-                <li>Nunca conectar la placa a la corriente de pared directamente; solo usar el cable USB.</li>
-                <li>Supervisión adulta al usar tijeras para cortar cartón.</li>
-                <li>No tocar componentes con las manos mojadas.</li>
-                <li>Desconectar el USB antes de modificar cualquier cable en la protoboard.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Seguridad antes de empezar</h2>
+                <p>Arduino y micro:bit trabajan con 5 voltios o menos, alimentados por USB. No hay riesgo de descarga eléctrica significativa, pero conviene establecer reglas claras desde el primer proyecto para crear hábitos seguros.</p>
+                <ul>
+                    <li>Nunca conectar la placa a la corriente de pared directamente; solo usar el cable USB.</li>
+                    <li>Supervisión adulta al usar tijeras para cortar cartón.</li>
+                    <li>No tocar componentes con las manos mojadas.</li>
+                    <li>Desconectar el USB antes de modificar cualquier cable en la protoboard.</li>
+                </ul>
+            </section>
 
-            <h2>Armado paso a paso de la estructura</h2>
-            <ol>
-                <li>Recortar un rectángulo de cartón de 8×25 cm y pintarlo de negro por un lado.</li>
-                <li>Marcar tres círculos de 3 cm de diámetro: uno arriba (rojo), uno al centro (amarillo) y uno abajo (verde).</li>
-                <li>Perforar cada círculo para que pase la cabeza del LED.</li>
-                <li>Insertar los LEDs desde adentro; la pata larga (ánodo) queda hacia el mismo lado en los tres.</li>
-                <li>Doblar el cartón en forma de prisma triangular para que se sostenga de pie.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Armado paso a paso de la estructura</h2>
+                <ol>
+                    <li>Recortar un rectángulo de cartón de 8×25 cm y pintarlo de negro por un lado.</li>
+                    <li>Marcar tres círculos de 3 cm de diámetro: uno arriba (rojo), uno al centro (amarillo) y uno abajo (verde).</li>
+                    <li>Perforar cada círculo para que pase la cabeza del LED.</li>
+                    <li>Insertar los LEDs desde adentro; la pata larga (ánodo) queda hacia el mismo lado en los tres.</li>
+                    <li>Doblar el cartón en forma de prisma triangular para que se sostenga de pie.</li>
+                </ol>
+            </section>
 
-            <h2>Conexión eléctrica en la protoboard</h2>
-            <p>Cada LED necesita dos conexiones: la pata larga va a un pin digital de la placa a través de una resistencia, y la pata corta (cátodo) va al GND (tierra) de la placa.</p>
-            <ol>
-                <li>Conectar la pata corta de cada LED a la fila de GND de la protoboard con un cable.</li>
-                <li>Conectar una resistencia de 220Ω entre la pata larga del LED rojo y un cable que irá al pin digital 8.</li>
-                <li>Repetir con el LED amarillo hacia el pin 9 y el LED verde hacia el pin 10.</li>
-                <li>Conectar la fila de GND de la protoboard al pin GND de la placa Arduino con un cable.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Conexión eléctrica en la protoboard</h2>
+                <p>Cada LED necesita dos conexiones: la pata larga va a un pin digital de la placa a través de una resistencia, y la pata corta (cátodo) va al GND (tierra) de la placa.</p>
+                <ol>
+                    <li>Conectar la pata corta de cada LED a la fila de GND de la protoboard con un cable.</li>
+                    <li>Conectar una resistencia de 220Ω entre la pata larga del LED rojo y un cable que irá al pin digital 8.</li>
+                    <li>Repetir con el LED amarillo hacia el pin 9 y el LED verde hacia el pin 10.</li>
+                    <li>Conectar la fila de GND de la protoboard al pin GND de la placa Arduino con un cable.</li>
+                </ol>
+            </section>
 
-            <h2>Código básico: secuencia de semáforo</h2>
-            <p>El programa enciende cada LED por un tiempo determinado, igual que un semáforo real. En Arduino IDE, el código ocupa menos de 20 líneas y solo usa tres funciones: pinMode, digitalWrite y delay.</p>
-            <p>Antes de cargar el código, pregunta al niño: '¿Cuánto tiempo crees que debe durar cada luz y por qué?'. Esa decisión convierte el ejercicio de copia en diseño con criterio.</p>
-            <ul>
-                <li>Rojo encendido 5 segundos → apagar rojo.</li>
-                <li>Verde encendido 5 segundos → apagar verde.</li>
-                <li>Amarillo encendido 2 segundos → apagar amarillo.</li>
-                <li>Repetir el ciclo indefinidamente con la función loop().</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Código básico: secuencia de semáforo</h2>
+                <p>El programa enciende cada LED por un tiempo determinado, igual que un semáforo real. En Arduino IDE, el código ocupa menos de 20 líneas y solo usa tres funciones: pinMode, digitalWrite y delay.</p>
+                <p>Antes de cargar el código, pregunta al niño: '¿Cuánto tiempo crees que debe durar cada luz y por qué?'. Esa decisión convierte el ejercicio de copia en diseño con criterio.</p>
+                <ul>
+                    <li>Rojo encendido 5 segundos → apagar rojo.</li>
+                    <li>Verde encendido 5 segundos → apagar verde.</li>
+                    <li>Amarillo encendido 2 segundos → apagar amarillo.</li>
+                    <li>Repetir el ciclo indefinidamente con la función loop().</li>
+                </ul>
+            </section>
 
-            <h2>Variaciones para seguir aprendiendo</h2>
-            <p>Una vez que el semáforo básico funciona, el proyecto se puede extender sin comprar nada nuevo. Cada variación introduce un concepto distinto.</p>
-            <ul>
-                <li>Añadir un botón de peatón que interrumpa el ciclo (introduce condicionales).</li>
-                <li>Cambiar los tiempos con un potenciómetro (introduce lectura analógica).</li>
-                <li>Añadir un segundo semáforo para un cruce (introduce coordinación entre secuencias).</li>
-                <li>Hacer que el amarillo parpadee antes de rojo (introduce bucles dentro de bucles).</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Variaciones para seguir aprendiendo</h2>
+                <p>Una vez que el semáforo básico funciona, el proyecto se puede extender sin comprar nada nuevo. Cada variación introduce un concepto distinto.</p>
+                <ul>
+                    <li>Añadir un botón de peatón que interrumpa el ciclo (introduce condicionales).</li>
+                    <li>Cambiar los tiempos con un potenciómetro (introduce lectura analógica).</li>
+                    <li>Añadir un segundo semáforo para un cruce (introduce coordinación entre secuencias).</li>
+                    <li>Hacer que el amarillo parpadee antes de rojo (introduce bucles dentro de bucles).</li>
+                </ul>
+            </section>
 
-            <h2>Reflexión: qué observar en el niño después del proyecto</h2>
-            <p>El producto final importa menos que el proceso. Si el niño puede explicar por qué el amarillo dura menos que el rojo, o qué pasaría si quitara una resistencia, está construyendo comprensión. Si solo copió y no puede responder, conviene repetir con más calma antes de avanzar.</p>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Reflexión: qué observar en el niño después del proyecto</h2>
+                <p>El producto final importa menos que el proceso. Si el niño puede explicar por qué el amarillo dura menos que el rojo, o qué pasaría si quitara una resistencia, está construyendo comprensión. Si solo copió y no puede responder, conviene repetir con más calma antes de avanzar.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Del semáforo a proyectos más complejos</h3>
-                <p>Si este primer proyecto despertó interés, en Robotics Code cada sesión propone un reto de complejidad progresiva con acompañamiento docente. El semáforo es solo el primer paso de una ruta que llega hasta robots autónomos.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el taller de robótica para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Del semáforo a proyectos más complejos</h2>
+                    <p>Si este primer proyecto despertó interés, en Robotics Code cada sesión propone un reto de complejidad progresiva con acompañamiento docente. El semáforo es solo el primer paso de una ruta que llega hasta robots autónomos.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Ver el taller de robótica para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo hacer este proyecto sin Arduino, con micro:bit?</h3>
-                <p>Sí. micro:bit tiene pines de salida digital compatibles. El circuito es idéntico; solo cambia el entorno de programación a MakeCode, que permite usar bloques visuales en vez de texto.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué pasa si el LED no enciende?</h3>
-                <p>Lo más común es que esté invertido (pata larga y corta al revés) o que el cable no haga buen contacto en la protoboard. Revisar con calma esas dos causas resuelve el problema en la mayoría de los casos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito saber programar para ayudar a mi hijo?</h3>
-                <p>No. El código del semáforo básico se encuentra en la documentación de Arduino y en tutoriales libres. Tu rol es preguntar, no programar: '¿qué crees que hace esta línea?' es más valioso que explicar tú la respuesta.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Este proyecto sirve para la escuela?</h3>
-                <p>Puede presentarse como proyecto de tecnología o ciencias si se acompaña de una breve explicación escrita del circuito y el código. Consulta con el docente los criterios de evaluación antes de adaptarlo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://docs.arduino.cc/" target="_blank" rel="noopener noreferrer">Arduino – Documentación oficial</a> — Referencia de funciones pinMode, digitalWrite y delay.</li>
-                <li><a href="https://makecode.microbit.org/" target="_blank" rel="noopener noreferrer">MakeCode micro:bit</a> — Alternativa con bloques visuales para el mismo circuito.</li>
-                <li><a href="https://www.tinkercad.com/circuits" target="_blank" rel="noopener noreferrer">Tinkercad Circuits</a> — Simulador gratuito para probar el circuito virtualmente antes de armarlo.</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo hacer este proyecto sin Arduino, con micro:bit?</h3>
+                    <p>Sí. micro:bit tiene pines de salida digital compatibles. El circuito es idéntico; solo cambia el entorno de programación a MakeCode, que permite usar bloques visuales en vez de texto.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué pasa si el LED no enciende?</h3>
+                    <p>Lo más común es que esté invertido (pata larga y corta al revés) o que el cable no haga buen contacto en la protoboard. Revisar con calma esas dos causas resuelve el problema en la mayoría de los casos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito saber programar para ayudar a mi hijo?</h3>
+                    <p>No. El código del semáforo básico se encuentra en la documentación de Arduino y en tutoriales libres. Tu rol es preguntar, no programar: '¿qué crees que hace esta línea?' es más valioso que explicar tú la respuesta.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Este proyecto sirve para la escuela?</h3>
+                    <p>Puede presentarse como proyecto de tecnología o ciencias si se acompaña de una breve explicación escrita del circuito y el código. Consulta con el docente los criterios de evaluación antes de adaptarlo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://docs.arduino.cc/" target="_blank" rel="noopener noreferrer">Arduino – Documentación oficial</a> — Referencia de funciones pinMode, digitalWrite y delay.</li>
+                    <li><a href="https://makecode.microbit.org/" target="_blank" rel="noopener noreferrer">MakeCode micro:bit</a> — Alternativa con bloques visuales para el mismo circuito.</li>
+                    <li><a href="https://www.tinkercad.com/circuits" target="_blank" rel="noopener noreferrer">Tinkercad Circuits</a> — Simulador gratuito para probar el circuito virtualmente antes de armarlo.</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -526,8 +608,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Materiales necesarios y dónde conseguirlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Seguridad antes de empezar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Armado paso a paso de la estructura
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Conexión eléctrica en la protoboard
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Código básico: secuencia de semáforo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Variaciones para seguir aprendiendo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Reflexión: qué observar en el niño después del proyecto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>5 min restantes</span>
+                        <span>Lectura estimada: 5 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

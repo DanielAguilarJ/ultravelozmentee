@@ -346,128 +346,210 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="4">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-language"></i> FastKids
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo aprender vocabulario en inglés con frases y repetición espaciada</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 4 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">FastKids</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo aprender vocabulario en inglés con frases y repetición espaciada</h1>
+                <p class="blog-post-dek">Aprende vocabulario en inglés con frases en contexto y repetición espaciada para recordar palabras a largo plazo.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">FastKids</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>4 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fastkids-curso-ingles-ninos-flashcards.webp" alt="Cómo aprender vocabulario en inglés con frases y repetición espaciada" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Memorizar listas de palabras sueltas es el método más común y también uno de los menos efectivos a largo plazo. Las palabras se olvidan porque se almacenaron sin contexto, sin emoción y sin práctica de recuperación.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué las listas aisladas no funcionan a largo plazo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Aprender palabras dentro de frases con significado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo funciona la repetición espaciada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Herramientas simples para organizar el repaso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuántas palabras nuevas incorporar por semana
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Complementar con producción real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores comunes que sabotean la retención de vocabulario
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Memorizar listas de palabras sueltas es el método más común y también uno de los menos efectivos a largo plazo. Las palabras se olvidan porque se almacenaron sin contexto, sin emoción y sin práctica de recuperación.</p>
             <p>Este artículo explica cómo combinar dos estrategias respaldadas por investigación cognitiva —aprender en contexto y revisar con intervalos crecientes— para construir vocabulario que realmente puedas usar cuando lo necesites.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para retener vocabulario en inglés a largo plazo, estudia palabras dentro de frases con significado personal, repásalas en intervalos crecientes y practica recuperándolas activamente en lugar de solo releerlas. Este método aprovecha cómo funciona la memoria y reduce el olvido.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para retener vocabulario en inglés a largo plazo, estudia palabras dentro de frases con significado personal, repásalas en intervalos crecientes y practica recuperándolas activamente en lugar de solo releerlas. Este método aprovecha cómo funciona la memoria y reduce el olvido.</p>
+                </aside>
 
-            <h2>Por qué las listas aisladas no funcionan a largo plazo</h2>
-            <p>Cuando memorizas 'apple = manzana' sin conexión a una situación, el cerebro tiene pocas rutas para recuperar esa información después. El vocabulario se consolida mejor cuando se asocia a imágenes, experiencias o frases completas que le dan sentido.</p>
-            <p>Además, repasar la misma lista el mismo día no fortalece la memoria tanto como repasar después de un intervalo donde empiezas a olvidar. El esfuerzo de recordar es lo que genera retención duradera.</p>
-            <p>La investigación en ciencia cognitiva muestra consistentemente que la dificultad deseable —ese esfuerzo al intentar recordar algo que casi olvidaste— es el mecanismo que fortalece la huella de memoria. Las listas revisadas sin ese esfuerzo crean familiaridad superficial, no dominio real.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué las listas aisladas no funcionan a largo plazo</h2>
+                <p>Cuando memorizas 'apple = manzana' sin conexión a una situación, el cerebro tiene pocas rutas para recuperar esa información después. El vocabulario se consolida mejor cuando se asocia a imágenes, experiencias o frases completas que le dan sentido.</p>
+                <p>Además, repasar la misma lista el mismo día no fortalece la memoria tanto como repasar después de un intervalo donde empiezas a olvidar. El esfuerzo de recordar es lo que genera retención duradera.</p>
+                <p>La investigación en ciencia cognitiva muestra consistentemente que la dificultad deseable —ese esfuerzo al intentar recordar algo que casi olvidaste— es el mecanismo que fortalece la huella de memoria. Las listas revisadas sin ese esfuerzo crean familiaridad superficial, no dominio real.</p>
+            </section>
 
-            <h2>Aprender palabras dentro de frases con significado</h2>
-            <p>En lugar de anotar palabras sueltas, escribe una oración corta que refleje tu vida o intereses. Por ejemplo, en vez de 'commute = trayecto', escribe 'My commute takes 40 minutes by bus'. Así la palabra se ancla a una imagen concreta y a una estructura gramatical.</p>
-            <ol>
-                <li>Elige la palabra nueva que encontraste al leer o escuchar.</li>
-                <li>Busca un ejemplo de uso real (diccionario, artículo, serie).</li>
-                <li>Escribe tu propia oración conectada a tu experiencia.</li>
-                <li>Lee la oración en voz alta para activar memoria auditiva.</li>
-                <li>Anota en el reverso de la tarjeta solo la oración con un hueco donde va la palabra.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Aprender palabras dentro de frases con significado</h2>
+                <p>En lugar de anotar palabras sueltas, escribe una oración corta que refleje tu vida o intereses. Por ejemplo, en vez de 'commute = trayecto', escribe 'My commute takes 40 minutes by bus'. Así la palabra se ancla a una imagen concreta y a una estructura gramatical.</p>
+                <ol>
+                    <li>Elige la palabra nueva que encontraste al leer o escuchar.</li>
+                    <li>Busca un ejemplo de uso real (diccionario, artículo, serie).</li>
+                    <li>Escribe tu propia oración conectada a tu experiencia.</li>
+                    <li>Lee la oración en voz alta para activar memoria auditiva.</li>
+                    <li>Anota en el reverso de la tarjeta solo la oración con un hueco donde va la palabra.</li>
+                </ol>
+            </section>
 
-            <h2>Cómo funciona la repetición espaciada</h2>
-            <p>La repetición espaciada consiste en revisar la información justo antes de olvidarla, en intervalos que se alargan progresivamente: primero al día siguiente, luego a los 3 días, luego a la semana, luego a las dos semanas. Cada repaso exitoso alarga el siguiente intervalo.</p>
-            <p>No necesitas un algoritmo complejo. Puedes usar tres cajones o carpetas: 'Revisar hoy', 'Revisar en 3 días', 'Revisar en una semana'. Si fallas una palabra, regresa al primer cajón.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo funciona la repetición espaciada</h2>
+                <p>La repetición espaciada consiste en revisar la información justo antes de olvidarla, en intervalos que se alargan progresivamente: primero al día siguiente, luego a los 3 días, luego a la semana, luego a las dos semanas. Cada repaso exitoso alarga el siguiente intervalo.</p>
+                <p>No necesitas un algoritmo complejo. Puedes usar tres cajones o carpetas: 'Revisar hoy', 'Revisar en 3 días', 'Revisar en una semana'. Si fallas una palabra, regresa al primer cajón.</p>
+            </section>
 
-            <h2>Herramientas simples para organizar el repaso</h2>
-            <p>Puedes usar tarjetas físicas, una hoja de cálculo con fechas de repaso o aplicaciones gratuitas diseñadas para repetición espaciada. Lo importante es que el sistema te muestre la palabra y tú intentes recordarla antes de ver la respuesta.</p>
-            <ul>
-                <li>Tarjetas físicas con tres cajones (método Leitner simplificado).</li>
-                <li>Hoja de cálculo con columnas: palabra, oración, fecha de próximo repaso.</li>
-                <li>Apps de flashcards con algoritmo de espaciado integrado.</li>
-                <li>Un cuaderno con secciones semanales donde mueves las palabras dominadas.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Herramientas simples para organizar el repaso</h2>
+                <p>Puedes usar tarjetas físicas, una hoja de cálculo con fechas de repaso o aplicaciones gratuitas diseñadas para repetición espaciada. Lo importante es que el sistema te muestre la palabra y tú intentes recordarla antes de ver la respuesta.</p>
+                <ul>
+                    <li>Tarjetas físicas con tres cajones (método Leitner simplificado).</li>
+                    <li>Hoja de cálculo con columnas: palabra, oración, fecha de próximo repaso.</li>
+                    <li>Apps de flashcards con algoritmo de espaciado integrado.</li>
+                    <li>Un cuaderno con secciones semanales donde mueves las palabras dominadas.</li>
+                </ul>
+            </section>
 
-            <h2>Cuántas palabras nuevas incorporar por semana</h2>
-            <p>Agregar 5 a 10 palabras nuevas por semana es sostenible para la mayoría de los estudiantes. Más importante que la cantidad es que cada palabra se repase en los intervalos correctos. Acumular 50 palabras sin repaso equivale a no haberlas estudiado.</p>
-            <p>Si notas que el repaso diario supera los 15 minutos, reduce las palabras nuevas hasta que el volumen sea manejable.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cuántas palabras nuevas incorporar por semana</h2>
+                <p>Agregar 5 a 10 palabras nuevas por semana es sostenible para la mayoría de los estudiantes. Más importante que la cantidad es que cada palabra se repase en los intervalos correctos. Acumular 50 palabras sin repaso equivale a no haberlas estudiado.</p>
+                <p>Si notas que el repaso diario supera los 15 minutos, reduce las palabras nuevas hasta que el volumen sea manejable.</p>
+            </section>
 
-            <h2>Complementar con producción real</h2>
-            <p>El repaso con tarjetas es reconocimiento; el uso real es producción. Intenta usar al menos 2-3 palabras nuevas en una conversación, un texto o una grabación durante la semana. Eso cierra el ciclo entre memorización y comunicación.</p>
-            <p>Puedes escribir un diario breve en inglés, grabar un audio de un minuto o mandar un mensaje a un compañero de práctica usando el vocabulario reciente.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Complementar con producción real</h2>
+                <p>El repaso con tarjetas es reconocimiento; el uso real es producción. Intenta usar al menos 2-3 palabras nuevas en una conversación, un texto o una grabación durante la semana. Eso cierra el ciclo entre memorización y comunicación.</p>
+                <p>Puedes escribir un diario breve en inglés, grabar un audio de un minuto o mandar un mensaje a un compañero de práctica usando el vocabulario reciente.</p>
+            </section>
 
-            <h2>Errores comunes que sabotean la retención de vocabulario</h2>
-            <p>Algunos hábitos de estudio parecen productivos pero generan una ilusión de aprendizaje sin retención real a largo plazo.</p>
-            <ul>
-                <li>Releer la lista sin intentar recordar primero (reconocimiento pasivo, no recuperación activa).</li>
-                <li>Agregar demasiadas palabras nuevas sin consolidar las anteriores.</li>
-                <li>Estudiar sinónimos o palabras muy similares juntas, generando interferencia.</li>
-                <li>No incluir la palabra en una oración propia, dejándola sin contexto.</li>
-                <li>Abandonar el sistema después de una semana porque no se ven resultados inmediatos.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Errores comunes que sabotean la retención de vocabulario</h2>
+                <p>Algunos hábitos de estudio parecen productivos pero generan una ilusión de aprendizaje sin retención real a largo plazo.</p>
+                <ul>
+                    <li>Releer la lista sin intentar recordar primero (reconocimiento pasivo, no recuperación activa).</li>
+                    <li>Agregar demasiadas palabras nuevas sin consolidar las anteriores.</li>
+                    <li>Estudiar sinónimos o palabras muy similares juntas, generando interferencia.</li>
+                    <li>No incluir la palabra en una oración propia, dejándola sin contexto.</li>
+                    <li>Abandonar el sistema después de una semana porque no se ven resultados inmediatos.</li>
+                </ul>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Vocabulario que se queda porque se usa</h3>
-                <p>Si buscas un programa donde el vocabulario se introduce en contexto comunicativo y se refuerza con práctica guiada en sesiones posteriores, conocer un enfoque estructurado puede complementar tu repaso independiente.</p>
-                <a href="/fastkids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de inglés para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Vocabulario que se queda porque se usa</h2>
+                    <p>Si buscas un programa donde el vocabulario se introduce en contexto comunicativo y se refuerza con práctica guiada en sesiones posteriores, conocer un enfoque estructurado puede complementar tu repaso independiente.</p>
+                    <a href="/fastkids" class="btn-primary">
+                        Ver el curso de inglés para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Sirve la repetición espaciada para niños pequeños?</h3>
-                <p>Sí, pero adaptada. Para niños de 6 a 9 años, las tarjetas pueden ser visuales con dibujos y la revisión se convierte en un juego de memoria corto. El principio de espaciar los repasos funciona a cualquier edad.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo diario necesito para mantener el sistema?</h3>
-                <p>Entre 5 y 15 minutos diarios suele ser suficiente para repasar tarjetas pendientes y agregar una o dos palabras nuevas. La brevedad es parte del diseño: sesiones cortas pero frecuentes.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es mejor estudiar vocabulario por temas o conforme aparece?</h3>
-                <p>Ambas estrategias funcionan. Estudiar por temas ayuda a crear campos semánticos, pero agrupar palabras demasiado similares puede generar confusión. Mezclar temas en el repaso fortalece la recuperación.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.pimsleur.com/c/pimsleur-method" target="_blank" rel="noopener noreferrer">Pimsleur – Graduated Interval Recall</a> — Explicación del principio de intervalos graduados en aprendizaje de idiomas.</li>
-                <li><a href="https://www.cambridgeenglish.org/learning-english/" target="_blank" rel="noopener noreferrer">Cambridge – Vocabulary learning strategies</a> — Recursos sobre estrategias de vocabulario con niveles de referencia.</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Sirve la repetición espaciada para niños pequeños?</h3>
+                    <p>Sí, pero adaptada. Para niños de 6 a 9 años, las tarjetas pueden ser visuales con dibujos y la revisión se convierte en un juego de memoria corto. El principio de espaciar los repasos funciona a cualquier edad.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo diario necesito para mantener el sistema?</h3>
+                    <p>Entre 5 y 15 minutos diarios suele ser suficiente para repasar tarjetas pendientes y agregar una o dos palabras nuevas. La brevedad es parte del diseño: sesiones cortas pero frecuentes.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es mejor estudiar vocabulario por temas o conforme aparece?</h3>
+                    <p>Ambas estrategias funcionan. Estudiar por temas ayuda a crear campos semánticos, pero agrupar palabras demasiado similares puede generar confusión. Mezclar temas en el repaso fortalece la recuperación.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.pimsleur.com/c/pimsleur-method" target="_blank" rel="noopener noreferrer">Pimsleur – Graduated Interval Recall</a> — Explicación del principio de intervalos graduados en aprendizaje de idiomas.</li>
+                    <li><a href="https://www.cambridgeenglish.org/learning-english/" target="_blank" rel="noopener noreferrer">Cambridge – Vocabulary learning strategies</a> — Recursos sobre estrategias de vocabulario con niveles de referencia.</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -497,8 +579,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué las listas aisladas no funcionan a largo plazo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Aprender palabras dentro de frases con significado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo funciona la repetición espaciada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Herramientas simples para organizar el repaso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuántas palabras nuevas incorporar por semana
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Complementar con producción real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores comunes que sabotean la retención de vocabulario
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>4 min restantes</span>
+                        <span>Lectura estimada: 4 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

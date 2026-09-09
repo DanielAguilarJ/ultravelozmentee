@@ -362,154 +362,252 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="9">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Tecnología educativa para adolescentes: herramientas y límites razonables</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 9 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Tecnología educativa para adolescentes: herramientas y límites razonables</h1>
+                <p class="blog-post-dek">Guía práctica de tecnología educativa para adolescentes: cómo usar IA, apps de estudio y gamificación sin que reemplacen el esfuerzo de pensar.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>9 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Tecnología educativa para adolescentes: herramientas y límites razonables" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">En la adolescencia la relación con la pantalla ya está formada. El dispositivo no llega como novedad escolar, sino como el lugar donde el estudiante conversa, se entretiene y también estudia. Por eso las decisiones sobre tecnología educativa a esta edad se parecen menos a instalar una aplicación y más a negociar cómo se usa un espacio que el adolescente ya considera propio.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué cambia cuando el usuario es un adolescente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Inteligencia artificial en el aula: usos que ayudan y usos que sustituyen el pensamiento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Apps de estudio: cómo distinguir una herramienta de un pasatiempo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Gamificación sin dependencia de recompensas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Seguridad digital y privacidad en la etapa adolescente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: dos semanas de estudio con apoyo tecnológico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes y cómo corregirlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">En la adolescencia la relación con la pantalla ya está formada. El dispositivo no llega como novedad escolar, sino como el lugar donde el estudiante conversa, se entretiene y también estudia. Por eso las decisiones sobre tecnología educativa a esta edad se parecen menos a instalar una aplicación y más a negociar cómo se usa un espacio que el adolescente ya considera propio.</p>
             <p>Esa diferencia cambia el criterio de selección. A los ocho años el adulto decide qué se abre y cuándo; a los quince, una herramienta que se siente impuesta se abandona en una semana. Lo que sigue es un marco para elegir y acompañar el uso de inteligencia artificial, aplicaciones de estudio y dinámicas de gamificación en secundaria y preparatoria, con foco en que el esfuerzo mental siga estando del lado del estudiante.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La tecnología educativa funciona con adolescentes cuando resuelve un problema concreto de estudio y deja el trabajo cognitivo en manos del estudiante. En la práctica eso significa usar la inteligencia artificial para explicar y preguntar, no para entregar respuestas terminadas; elegir aplicaciones que midan práctica activa y no solo tiempo de uso; y acordar reglas de privacidad y horarios antes de instalar cualquier herramienta.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La tecnología educativa funciona con adolescentes cuando resuelve un problema concreto de estudio y deja el trabajo cognitivo en manos del estudiante. En la práctica eso significa usar la inteligencia artificial para explicar y preguntar, no para entregar respuestas terminadas; elegir aplicaciones que midan práctica activa y no solo tiempo de uso; y acordar reglas de privacidad y horarios antes de instalar cualquier herramienta.</p>
+                </aside>
 
-            <h2>Qué cambia cuando el usuario es un adolescente</h2>
-            <p>El adolescente tiene autonomía técnica: sabe instalar, desinstalar, silenciar notificaciones y buscar alternativas. Cualquier control que dependa solo de la restricción se vuelve un juego de evasión. Lo que sí sostiene el uso es que la herramienta le ahorre trabajo aburrido y le devuelva algo visible, como saber con precisión qué temas ya domina antes de un examen.</p>
-            <p>También cambia el motivo para estudiar. En primaria el motor suele ser la aprobación del adulto; en secundaria y preparatoria aparecen metas propias, aunque sean de corto plazo: pasar la materia, entrar a cierta escuela, no reprobar el semestre. Conectar la herramienta con esa meta declarada, y no con el discurso general de 'aprender más', es lo que hace que se abra sin recordatorios.</p>
-            <p>La consecuencia práctica es que el adulto pasa de operador a interlocutor. Su papel no es configurar la aplicación, sino revisar con el estudiante si está funcionando: qué se retuvo, qué no, y si vale la pena seguir usándola el mes siguiente.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué cambia cuando el usuario es un adolescente</h2>
+                <p>El adolescente tiene autonomía técnica: sabe instalar, desinstalar, silenciar notificaciones y buscar alternativas. Cualquier control que dependa solo de la restricción se vuelve un juego de evasión. Lo que sí sostiene el uso es que la herramienta le ahorre trabajo aburrido y le devuelva algo visible, como saber con precisión qué temas ya domina antes de un examen.</p>
+                <p>También cambia el motivo para estudiar. En primaria el motor suele ser la aprobación del adulto; en secundaria y preparatoria aparecen metas propias, aunque sean de corto plazo: pasar la materia, entrar a cierta escuela, no reprobar el semestre. Conectar la herramienta con esa meta declarada, y no con el discurso general de 'aprender más', es lo que hace que se abra sin recordatorios.</p>
+                <p>La consecuencia práctica es que el adulto pasa de operador a interlocutor. Su papel no es configurar la aplicación, sino revisar con el estudiante si está funcionando: qué se retuvo, qué no, y si vale la pena seguir usándola el mes siguiente.</p>
+            </section>
 
-            <h2>Inteligencia artificial en el aula: usos que ayudan y usos que sustituyen el pensamiento</h2>
-            <p>El riesgo con la inteligencia artificial generativa no es que dé información incorrecta, algo que se detecta al verificar. El riesgo es que entregue un producto terminado y elimine la parte del proceso donde ocurre el aprendizaje: organizar ideas, decidir qué es importante y ponerlo en palabras propias. Un resumen recibido no deja el mismo rastro que un resumen escrito.</p>
-            <p>La distinción útil es entre pedirle que produzca y pedirle que interrogue. Si el estudiante le solicita cinco preguntas difíciles sobre el tema que acaba de leer, y luego responde sin ver el texto, la herramienta amplifica el estudio activo. Si le solicita el ensayo, lo reemplaza. La misma tecnología, resultados opuestos.</p>
-            <ul>
-                <li>Pedir preguntas de examen sobre el material leído, y responder de memoria antes de comparar.</li>
-                <li>Pedir que explique un concepto con otra analogía cuando la del libro no se entendió.</li>
-                <li>Pedir contraejemplos para poner a prueba una conclusión propia.</li>
-                <li>Evitar delegar el borrador inicial de un texto: ahí está el trabajo que se evalúa.</li>
-                <li>Verificar en el libro o material de clase cualquier dato, fecha o fórmula antes de usarla.</li>
-            </ul>
-
-            <h2>Apps de estudio: cómo distinguir una herramienta de un pasatiempo</h2>
-            <p>Muchas aplicaciones educativas están diseñadas para maximizar tiempo de uso, no aprendizaje. Se reconocen porque premian la constancia sin dificultad creciente: se puede mantener una racha larga respondiendo siempre lo fácil. Una herramienta de estudio real se siente incómoda en algún punto, porque introduce lo que todavía no se domina.</p>
-            <p>El indicador más honesto es si la aplicación pide recuperar información de memoria o solo reconocerla entre opciones. Reconocer una respuesta correcta en una lista es mucho más sencillo que producirla en blanco, y el examen escolar casi siempre pide lo segundo. Una app que solo entrena reconocimiento genera una sensación de dominio que no se sostiene el día de la prueba.</p>
-
-            <h2>Gamificación sin dependencia de recompensas</h2>
-            <p>La gamificación funciona cuando el juego está en la tarea y no alrededor de ella. Un desafío de resolver problemas contra el reloj usa el mecanismo del juego para provocar práctica intensa; un sistema de monedas virtuales por abrir la aplicación premia la asistencia, no el esfuerzo. El segundo modelo se agota en cuanto la novedad de la recompensa baja.</p>
-            <p>Con adolescentes hay un efecto adicional: detectan rápido cuando el premio es simbólico y decorativo. Sostienen mejor una dinámica de progreso donde ven que el nivel sube porque ahora resuelven cosas que antes no podían. Ese es el tipo de retroalimentación que conviene buscar al revisar una plataforma.</p>
-            <p>Si en casa se agrega un incentivo externo, conviene ligarlo a la conducta de estudio y no al resultado del examen, y retirarlo de forma gradual cuando el hábito ya se sostiene solo. El objetivo es que la herramienta deje de necesitar un premio para abrirse.</p>
-
-            <h2>Seguridad digital y privacidad en la etapa adolescente</h2>
-            <p>Una aplicación educativa recoge datos: correo, escuela, desempeño, a veces contactos y ubicación. Conviene revisar qué pide antes de instalar y qué permisos puede negarse sin perder la función principal. Si una herramienta de matemáticas solicita acceso a la cámara, el micrófono y la lista de contactos, la pregunta razonable es para qué.</p>
-            <p>El otro frente es el contenido dentro de la plataforma. Las aplicaciones con foros abiertos, mensajería o perfiles públicos añaden una superficie de contacto con desconocidos que la parte educativa no requiere. Cuando esa función existe, revisar juntos cómo se restringe es más eficaz que prohibir la aplicación completa.</p>
-            <ol>
-                <li>Leer qué datos pide la aplicación en la tienda antes de instalarla.</li>
-                <li>Crear la cuenta con un correo destinado a herramientas escolares, no el personal principal.</li>
-                <li>Negar los permisos que no sean necesarios para la función educativa.</li>
-                <li>Desactivar perfiles públicos, mensajería directa y foros abiertos si existen.</li>
-                <li>Acordar con el estudiante qué hacer si un desconocido le escribe dentro de la plataforma.</li>
-            </ol>
-
-            <h2>Ejemplo aplicado: dos semanas de estudio con apoyo tecnológico</h2>
-            <p>Un estudiante de tercero de secundaria reprueba el primer examen de álgebra. La reacción común es instalar tres aplicaciones y aumentar las horas frente a la pantalla. Un arranque más sobrio consiste en definir primero qué falló: no eran las operaciones básicas, sino el paso de un problema en palabras a una ecuación. Ese diagnóstico define la herramienta, y no al revés.</p>
-            <p>En la primera semana el trabajo se concentra en una sola cosa: veinte minutos diarios traduciendo enunciados a ecuaciones, sin resolverlas. Aquí la inteligencia artificial se usa para generar enunciados nuevos del mismo tipo cuando se agotan los del libro, y para revisar si la ecuación planteada corresponde al enunciado. El estudiante escribe, la herramienta comenta. No al contrario.</p>
-            <p>En la segunda semana entra la resolución y la práctica cronometrada, que es donde una plataforma con dinámica de juego aporta algo real: series cortas de problemas con dificultad que sube y un registro visible de qué tipo de ejercicio sigue fallando. El registro importa más que el puntaje, porque señala dónde volver.</p>
-            <p>El cierre de las dos semanas es una revisión de diez minutos entre el estudiante y un adulto o el propio maestro: qué tipo de problema ya sale sin ayuda, cuál sigue costando y si la herramienta usada aportó algo o solo ocupó tiempo. Si no aportó, se retira sin drama. Ese ciclo corto de prueba y revisión es la parte que sostiene el proceso, no la aplicación en sí.</p>
-
-            <h2>Errores frecuentes y cómo corregirlos</h2>
-            <p>El error más costoso es acumular herramientas. Cuatro aplicaciones abiertas fragmentan la atención y ninguna llega al punto en que empieza a rendir. Con una sola, usada durante algunas semanas, sí se puede juzgar si sirve.</p>
-            <p>El segundo error es confundir tiempo de pantalla con estudio. Cuarenta minutos deslizando tarjetas fáciles no equivalen a quince minutos respondiendo de memoria lo que todavía no se domina. Conviene medir cuánto se recupera sin ver el material, no cuánto tiempo estuvo abierta la aplicación.</p>
-            <ul>
-                <li>Elegir una herramienta por objetivo concreto y sostenerla varias semanas antes de cambiarla.</li>
-                <li>Medir aprendizaje por lo que se recuerda sin apoyo, no por minutos de uso.</li>
-                <li>Mantener papel y lápiz para el trabajo que exige escribir a mano, como desarrollos matemáticos.</li>
-                <li>Revisar cada cierto tiempo si la herramienta sigue siendo necesaria y retirarla si ya no aporta.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Si el punto flojo es matemáticas, conviene atacarlo directo</h3>
-                <p>Cuando el diagnóstico apunta a matemáticas, la tecnología ayuda más si acompaña un método claro de práctica en lugar de sumar aplicaciones sueltas. El curso de MatheKids trabaja el razonamiento numérico con ejercicios de dificultad progresiva, que es el tipo de práctica que sostiene lo revisado en este artículo.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer las clases de matemáticas <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Inteligencia artificial en el aula: usos que ayudan y usos que sustituyen el pensamiento</h2>
+                <p>El riesgo con la inteligencia artificial generativa no es que dé información incorrecta, algo que se detecta al verificar. El riesgo es que entregue un producto terminado y elimine la parte del proceso donde ocurre el aprendizaje: organizar ideas, decidir qué es importante y ponerlo en palabras propias. Un resumen recibido no deja el mismo rastro que un resumen escrito.</p>
+                <p>La distinción útil es entre pedirle que produzca y pedirle que interrogue. Si el estudiante le solicita cinco preguntas difíciles sobre el tema que acaba de leer, y luego responde sin ver el texto, la herramienta amplifica el estudio activo. Si le solicita el ensayo, lo reemplaza. La misma tecnología, resultados opuestos.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-como-elegir">Cómo elegir tecnología educativa según tu necesidad</a></li>
-                <li><a href="/blog-tecnologia-educativa-recursos-gratuitos">Recursos gratuitos de tecnología educativa que sí funcionan</a></li>
-                <li><a href="/blog-tecnologia-educativa-errores-de-los-padres">Errores de los padres al elegir tecnología educativa</a></li>
+                    <li>Pedir preguntas de examen sobre el material leído, y responder de memoria antes de comparar.</li>
+                    <li>Pedir que explique un concepto con otra analogía cuando la del libro no se entendió.</li>
+                    <li>Pedir contraejemplos para poner a prueba una conclusión propia.</li>
+                    <li>Evitar delegar el borrador inicial de un texto: ahí está el trabajo que se evalúa.</li>
+                    <li>Verificar en el libro o material de clase cualquier dato, fecha o fórmula antes de usarla.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad conviene que un adolescente use inteligencia artificial para estudiar?</h3>
-                <p>Más que la edad, importa que ya distinga entre entender un tema y tener un texto sobre el tema. Cuando el estudiante puede explicar con palabras propias lo que leyó, está en condiciones de usar la inteligencia artificial como interlocutor. Si todavía no llega ahí, la herramienta tiende a sustituir el trabajo en lugar de apoyarlo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si una aplicación educativa realmente está ayudando?</h3>
-                <p>Con una prueba sencilla: pedirle al estudiante que explique o resuelva algo del tema sin abrir la aplicación ni el libro. Si puede hacerlo con más soltura que hace dos semanas, la herramienta aportó. Si solo mejoró dentro de la aplicación, lo que se entrenó fue el uso de esa interfaz.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es mejor una aplicación de paga que una gratuita?</h3>
-                <p>El precio no predice la calidad pedagógica. Hay herramientas gratuitas con práctica activa bien diseñada y opciones de paga que solo agregan funciones cosméticas. El criterio útil es si obliga a recuperar información de memoria, si sube la dificultad y si muestra con claridad qué se falla.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi hijo usa inteligencia artificial para hacer sus tareas completas?</h3>
-                <p>Conviene tratarlo como un problema de método antes que de conducta. Pedirle que explique de viva voz el trabajo entregado deja claro qué tanto lo hizo suyo. A partir de ahí se puede acordar un uso distinto: que la herramienta genere preguntas y revise, mientras el borrador y las decisiones quedan de su lado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo diario de estudio con pantalla es razonable?</h3>
-                <p>No hay una cifra única, porque depende de la carga escolar y del tipo de tarea. Un criterio operativo es que el trabajo con pantalla no desplace lo que se aprende mejor escribiendo a mano ni el descanso. Bloques cortos con revisión al final rinden más que sesiones largas y continuas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Apps de estudio: cómo distinguir una herramienta de un pasatiempo</h2>
+                <p>Muchas aplicaciones educativas están diseñadas para maximizar tiempo de uso, no aprendizaje. Se reconocen porque premian la constancia sin dificultad creciente: se puede mantener una racha larga respondiendo siempre lo fácil. Una herramienta de estudio real se siente incómoda en algún punto, porque introduce lo que todavía no se domina.</p>
+                <p>El indicador más honesto es si la aplicación pide recuperar información de memoria o solo reconocerla entre opciones. Reconocer una respuesta correcta en una lista es mucho más sencillo que producirla en blanco, y el examen escolar casi siempre pide lo segundo. Una app que solo entrena reconocimiento genera una sensación de dominio que no se sostiene el día de la prueba.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Gamificación sin dependencia de recompensas</h2>
+                <p>La gamificación funciona cuando el juego está en la tarea y no alrededor de ella. Un desafío de resolver problemas contra el reloj usa el mecanismo del juego para provocar práctica intensa; un sistema de monedas virtuales por abrir la aplicación premia la asistencia, no el esfuerzo. El segundo modelo se agota en cuanto la novedad de la recompensa baja.</p>
+                <p>Con adolescentes hay un efecto adicional: detectan rápido cuando el premio es simbólico y decorativo. Sostienen mejor una dinámica de progreso donde ven que el nivel sube porque ahora resuelven cosas que antes no podían. Ese es el tipo de retroalimentación que conviene buscar al revisar una plataforma.</p>
+                <p>Si en casa se agrega un incentivo externo, conviene ligarlo a la conducta de estudio y no al resultado del examen, y retirarlo de forma gradual cuando el hábito ya se sostiene solo. El objetivo es que la herramienta deje de necesitar un premio para abrirse.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Seguridad digital y privacidad en la etapa adolescente</h2>
+                <p>Una aplicación educativa recoge datos: correo, escuela, desempeño, a veces contactos y ubicación. Conviene revisar qué pide antes de instalar y qué permisos puede negarse sin perder la función principal. Si una herramienta de matemáticas solicita acceso a la cámara, el micrófono y la lista de contactos, la pregunta razonable es para qué.</p>
+                <p>El otro frente es el contenido dentro de la plataforma. Las aplicaciones con foros abiertos, mensajería o perfiles públicos añaden una superficie de contacto con desconocidos que la parte educativa no requiere. Cuando esa función existe, revisar juntos cómo se restringe es más eficaz que prohibir la aplicación completa.</p>
+                <ol>
+                    <li>Leer qué datos pide la aplicación en la tienda antes de instalarla.</li>
+                    <li>Crear la cuenta con un correo destinado a herramientas escolares, no el personal principal.</li>
+                    <li>Negar los permisos que no sean necesarios para la función educativa.</li>
+                    <li>Desactivar perfiles públicos, mensajería directa y foros abiertos si existen.</li>
+                    <li>Acordar con el estudiante qué hacer si un desconocido le escribe dentro de la plataforma.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: dos semanas de estudio con apoyo tecnológico</h2>
+                <p>Un estudiante de tercero de secundaria reprueba el primer examen de álgebra. La reacción común es instalar tres aplicaciones y aumentar las horas frente a la pantalla. Un arranque más sobrio consiste en definir primero qué falló: no eran las operaciones básicas, sino el paso de un problema en palabras a una ecuación. Ese diagnóstico define la herramienta, y no al revés.</p>
+                <p>En la primera semana el trabajo se concentra en una sola cosa: veinte minutos diarios traduciendo enunciados a ecuaciones, sin resolverlas. Aquí la inteligencia artificial se usa para generar enunciados nuevos del mismo tipo cuando se agotan los del libro, y para revisar si la ecuación planteada corresponde al enunciado. El estudiante escribe, la herramienta comenta. No al contrario.</p>
+                <p>En la segunda semana entra la resolución y la práctica cronometrada, que es donde una plataforma con dinámica de juego aporta algo real: series cortas de problemas con dificultad que sube y un registro visible de qué tipo de ejercicio sigue fallando. El registro importa más que el puntaje, porque señala dónde volver.</p>
+                <p>El cierre de las dos semanas es una revisión de diez minutos entre el estudiante y un adulto o el propio maestro: qué tipo de problema ya sale sin ayuda, cuál sigue costando y si la herramienta usada aportó algo o solo ocupó tiempo. Si no aportó, se retira sin drama. Ese ciclo corto de prueba y revisión es la parte que sostiene el proceso, no la aplicación en sí.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Errores frecuentes y cómo corregirlos</h2>
+                <p>El error más costoso es acumular herramientas. Cuatro aplicaciones abiertas fragmentan la atención y ninguna llega al punto en que empieza a rendir. Con una sola, usada durante algunas semanas, sí se puede juzgar si sirve.</p>
+                <p>El segundo error es confundir tiempo de pantalla con estudio. Cuarenta minutos deslizando tarjetas fáciles no equivalen a quince minutos respondiendo de memoria lo que todavía no se domina. Conviene medir cuánto se recupera sin ver el material, no cuánto tiempo estuvo abierta la aplicación.</p>
+                <ul>
+                    <li>Elegir una herramienta por objetivo concreto y sostenerla varias semanas antes de cambiarla.</li>
+                    <li>Medir aprendizaje por lo que se recuerda sin apoyo, no por minutos de uso.</li>
+                    <li>Mantener papel y lápiz para el trabajo que exige escribir a mano, como desarrollos matemáticos.</li>
+                    <li>Revisar cada cierto tiempo si la herramienta sigue siendo necesaria y retirarla si ya no aporta.</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Si el punto flojo es matemáticas, conviene atacarlo directo</h2>
+                    <p>Cuando el diagnóstico apunta a matemáticas, la tecnología ayuda más si acompaña un método claro de práctica en lugar de sumar aplicaciones sueltas. El curso de MatheKids trabaja el razonamiento numérico con ejercicios de dificultad progresiva, que es el tipo de práctica que sostiene lo revisado en este artículo.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Conocer las clases de matemáticas <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-como-elegir">
+                            <span>Cómo elegir tecnología educativa según tu necesidad</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-recursos-gratuitos">
+                            <span>Recursos gratuitos de tecnología educativa que sí funcionan</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-errores-de-los-padres">
+                            <span>Errores de los padres al elegir tecnología educativa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad conviene que un adolescente use inteligencia artificial para estudiar?</h3>
+                    <p>Más que la edad, importa que ya distinga entre entender un tema y tener un texto sobre el tema. Cuando el estudiante puede explicar con palabras propias lo que leyó, está en condiciones de usar la inteligencia artificial como interlocutor. Si todavía no llega ahí, la herramienta tiende a sustituir el trabajo en lugar de apoyarlo.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si una aplicación educativa realmente está ayudando?</h3>
+                    <p>Con una prueba sencilla: pedirle al estudiante que explique o resuelva algo del tema sin abrir la aplicación ni el libro. Si puede hacerlo con más soltura que hace dos semanas, la herramienta aportó. Si solo mejoró dentro de la aplicación, lo que se entrenó fue el uso de esa interfaz.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es mejor una aplicación de paga que una gratuita?</h3>
+                    <p>El precio no predice la calidad pedagógica. Hay herramientas gratuitas con práctica activa bien diseñada y opciones de paga que solo agregan funciones cosméticas. El criterio útil es si obliga a recuperar información de memoria, si sube la dificultad y si muestra con claridad qué se falla.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi hijo usa inteligencia artificial para hacer sus tareas completas?</h3>
+                    <p>Conviene tratarlo como un problema de método antes que de conducta. Pedirle que explique de viva voz el trabajo entregado deja claro qué tanto lo hizo suyo. A partir de ahí se puede acordar un uso distinto: que la herramienta genere preguntas y revise, mientras el borrador y las decisiones quedan de su lado.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo diario de estudio con pantalla es razonable?</h3>
+                    <p>No hay una cifra única, porque depende de la carga escolar y del tipo de tarea. Un criterio operativo es que el trabajo con pantalla no desplace lo que se aprende mejor escribiendo a mano ni el descanso. Bloques cortos con revisión al final rinden más que sesiones largas y continuas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -539,8 +637,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué cambia cuando el usuario es un adolescente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Inteligencia artificial en el aula: usos que ayudan y usos que sustituyen el pensamiento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Apps de estudio: cómo distinguir una herramienta de un pasatiempo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Gamificación sin dependencia de recompensas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Seguridad digital y privacidad en la etapa adolescente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: dos semanas de estudio con apoyo tecnológico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes y cómo corregirlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>9 min restantes</span>
+                        <span>Lectura estimada: 9 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

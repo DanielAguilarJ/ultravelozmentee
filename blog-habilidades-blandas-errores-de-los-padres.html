@@ -362,138 +362,231 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="5">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-comments"></i> Habilidades Blandas
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Errores comunes de los padres al apoyar habilidades blandas</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 5 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Habilidades Blandas</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Errores comunes de los padres al apoyar habilidades blandas</h1>
+                <p class="blog-post-dek">Errores comunes que cometen los padres al apoyar habilidades blandas en sus hijos: imponer, comparar, sobreproteger y no dar espacio al error.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Habilidades Blandas</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>5 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/neurocomunicacion-curso-hablar-en-publico-liderazgo.webp" alt="Errores comunes de los padres al apoyar habilidades blandas" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">El interés genuino de un padre por apoyar el desarrollo social de su hijo a veces se traduce, sin intención, en acercamientos que limitan más que ayudan. Este artículo describe los errores más frecuentes desde una perspectiva distinta a la de otros artículos de este cluster, centrada específicamente en el desarrollo de habilidades blandas.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Imponer soluciones específicas ante cualquier dificultad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Comparar el desempeño con hermanos o compañeros
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Intervenir demasiado rápido evitando el desafío
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: corregir estos errores en la práctica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>No permitir que el hijo cometa errores sociales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo saber si el propio acercamiento está limitando el desarrollo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo hacer la transición si has intervenido demasiado hasta ahora
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">El interés genuino de un padre por apoyar el desarrollo social de su hijo a veces se traduce, sin intención, en acercamientos que limitan más que ayudan. Este artículo describe los errores más frecuentes desde una perspectiva distinta a la de otros artículos de este cluster, centrada específicamente en el desarrollo de habilidades blandas.</p>
 
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Los errores más comunes de los padres al apoyar el desarrollo de habilidades blandas incluyen imponer soluciones específicas ante cualquier dificultad social del hijo, comparar su desempeño con el de hermanos o compañeros, intervenir demasiado rápido evitando que el hijo enfrente el desafío por sí mismo, y no permitir que cometa errores sociales como parte natural del aprendizaje.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Los errores más comunes de los padres al apoyar el desarrollo de habilidades blandas incluyen imponer soluciones específicas ante cualquier dificultad social del hijo, comparar su desempeño con el de hermanos o compañeros, intervenir demasiado rápido evitando que el hijo enfrente el desafío por sí mismo, y no permitir que cometa errores sociales como parte natural del aprendizaje.</p>
+                </aside>
 
-            <h2>Imponer soluciones específicas ante cualquier dificultad</h2>
-            <p>Decir directamente al hijo qué debió decir o hacer en una situación social específica, en lugar de guiarlo a encontrar su propia solución mediante preguntas abiertas, reduce las oportunidades de que desarrolle su propio criterio para situaciones futuras similares, generando dependencia de la solución externa en lugar de capacidad propia de resolución.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Imponer soluciones específicas ante cualquier dificultad</h2>
+                <p>Decir directamente al hijo qué debió decir o hacer en una situación social específica, en lugar de guiarlo a encontrar su propia solución mediante preguntas abiertas, reduce las oportunidades de que desarrolle su propio criterio para situaciones futuras similares, generando dependencia de la solución externa en lugar de capacidad propia de resolución.</p>
+            </section>
 
-            <h2>Comparar el desempeño con hermanos o compañeros</h2>
-            <p>Mencionar que un hermano o compañero maneja cierta situación social con más facilidad genera presión adicional que rara vez motiva; con más frecuencia genera frustración, resentimiento hacia la comparación, o incluso hacia el hermano mencionado, sin aportar ninguna guía útil sobre cómo mejorar en la situación específica.</p>
-            <ul>
-                <li>Evitar mencionar el desempeño social de hermanos o compañeros como comparación.</li>
-                <li>Enfocar la conversación en el propio progreso comparado con el punto de partida del hijo.</li>
-                <li>Reconocer que cada persona desarrolla habilidades sociales a su propio ritmo.</li>
-                <li>Redirigir hacia qué específicamente resultó difícil para el hijo en la situación particular.</li>
-            </ul>
-
-            <h2>Intervenir demasiado rápido evitando el desafío</h2>
-            <p>Resolver inmediatamente cualquier conflicto social del hijo con otros niños, sin darle la oportunidad de intentar resolverlo primero por sí mismo, aunque bien intencionado, elimina la oportunidad de desarrollo que representa enfrentar y superar ese desafío específico con su propio esfuerzo.</p>
-
-            <h2>Ejemplo aplicado: corregir estos errores en la práctica</h2>
-            <p>Un padre que solía intervenir de inmediato cada vez que su hijo tenía un desacuerdo con otro niño en el parque, resolviendo la situación directamente con el otro padre o negociando por él, notó que su hijo nunca desarrollaba confianza para manejar este tipo de situaciones por su cuenta.</p>
-            <p>Decidió cambiar su acercamiento: la siguiente vez que surgió un desacuerdo menor entre su hijo y otro niño sobre turnos en un juego, en lugar de intervenir de inmediato, observó desde cierta distancia, listo para actuar solo si la situación escalaba a un riesgo real, pero dando espacio para que los niños intentaran resolverlo primero.</p>
-            <p>Los niños, sin la intervención inmediata del adulto, negociaron por sí mismos una solución de turnos que ambos aceptaron, algo que el padre nunca había visto ocurrir cuando intervenía directamente en cada ocasión similar anterior.</p>
-            <p>Con el tiempo, y aplicando este mismo acercamiento de dar espacio primero, notó que su hijo desarrollaba mayor confianza e iniciativa propia para manejar desacuerdos menores, recurriendo a él solo en situaciones donde realmente necesitaba apoyo adicional, en lugar de esperar la intervención inmediata como patrón habitual.</p>
-
-            <h2>No permitir que el hijo cometa errores sociales</h2>
-            <p>Corregir cada pequeño error social del hijo en el momento, frente a otras personas, o intentar prevenir cualquier posible error social mediante instrucciones excesivamente detalladas antes de cada interacción, no permite el aprendizaje natural que ocurre al experimentar las consecuencias de un error social menor y ajustar el comportamiento la siguiente vez.</p>
-            <ol>
-                <li>Permitir que ocurran errores sociales menores sin corrección inmediata frente a otros.</li>
-                <li>Conversar sobre el error en privado después de la situación, no durante.</li>
-                <li>Preguntar qué aprendió el hijo de esa experiencia, en lugar de solo señalar el error.</li>
-                <li>Confiar en que el hijo puede ajustar su comportamiento con base en su propia experiencia.</li>
-            </ol>
-
-            <h2>Cómo saber si el propio acercamiento está limitando el desarrollo</h2>
-            <p>Una señal de que el acercamiento como padre puede estar limitando el desarrollo social del hijo es que este muestre poca iniciativa propia para resolver situaciones sociales sin buscar inmediatamente la intervención del adulto, o que exprese frustración cuando se le pide intentar resolver algo por su cuenta antes de recibir ayuda directa.</p>
-
-            <h2>Cómo hacer la transición si has intervenido demasiado hasta ahora</h2>
-            <p>Cambiar de un patrón de intervención constante a uno de mayor observación no debe ser abrupto; empezar con situaciones de muy bajo riesgo, dando espacio solo unos minutos antes de intervenir si es necesario, y aumentando gradualmente ese margen conforme se gana confianza en la capacidad del hijo de manejar la situación, facilita esta transición sin generar ansiedad excesiva en ninguna de las dos partes.</p>
-            <p>Explicar al hijo, de forma apropiada para su edad, que se está intentando dar más espacio para que practique resolver situaciones por sí mismo, en lugar de simplemente dejar de intervenir sin ninguna explicación, ayuda a que entienda el cambio como una muestra de confianza y no como abandono repentino del acompañamiento habitual.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De corregir errores de acompañamiento a una comunicación bien fundamentada</h3>
-                <p>Si buscas apoyar a tu hijo con una metodología de comunicación que fomente su propia autonomía, nuestro programa de Neurocomunicación ofrece herramientas que reducen la necesidad de intervención constante.</p>
-                <a href="/neurocomunicacion" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conoce el programa de Neurocomunicación <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Comparar el desempeño con hermanos o compañeros</h2>
+                <p>Mencionar que un hermano o compañero maneja cierta situación social con más facilidad genera presión adicional que rara vez motiva; con más frecuencia genera frustración, resentimiento hacia la comparación, o incluso hacia el hermano mencionado, sin aportar ninguna guía útil sobre cómo mejorar en la situación específica.</p>
                 <ul>
-                <li><a href="/blog-habilidades-blandas-recursos-gratuitos">Recursos gratuitos para desarrollar habilidades blandas</a></li>
-                <li><a href="/blog-habilidades-blandas-como-elegir">Cómo elegir qué habilidad blanda desarrollar primero</a></li>
+                    <li>Evitar mencionar el desempeño social de hermanos o compañeros como comparación.</li>
+                    <li>Enfocar la conversación en el propio progreso comparado con el punto de partida del hijo.</li>
+                    <li>Reconocer que cada persona desarrolla habilidades sociales a su propio ritmo.</li>
+                    <li>Redirigir hacia qué específicamente resultó difícil para el hijo en la situación particular.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé cuándo debo intervenir en un conflicto social de mi hijo y cuándo dejar que lo resuelva solo?</h3>
-                <p>Reserva la intervención inmediata para situaciones con riesgo real de daño físico o emocional significativo; para desacuerdos menores, dar espacio inicial para que el hijo intente resolverlo suele ser más beneficioso a largo plazo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es normal que mi hijo cometa errores sociales frecuentes mientras desarrolla estas habilidades?</h3>
-                <p>Sí, es parte natural del proceso de aprendizaje social, similar a cómo cualquier habilidad nueva exige práctica con errores iniciales antes de consolidarse con mayor soltura.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si ya cometí varios de estos errores con mi hijo?</h3>
-                <p>Reconocerlo abiertamente y proponer un cambio gradual de acercamiento suele ser bien recibido; los niños y adolescentes valoran que se ajuste la dinámica en lugar de mantenerla sin cambios indefinidamente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es correcto dar espacio incluso si sé que mi hijo va a fallar en resolver la situación?</h3>
-                <p>Sí, siempre que el riesgo sea social y no físico o emocional grave; fallar en un intento de resolución social menor, con la oportunidad de reflexionar después, suele ser más valioso que la intervención preventiva constante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánta observación a distancia es apropiada antes de intervenir?</h3>
-                <p>Depende de la edad y la situación específica; para niños más pequeños, la observación cercana permite intervenir rápido si es necesario, mientras que con adolescentes suele ser apropiado dar más espacio antes de cualquier intervención.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Intervenir demasiado rápido evitando el desafío</h2>
+                <p>Resolver inmediatamente cualquier conflicto social del hijo con otros niños, sin darle la oportunidad de intentar resolverlo primero por sí mismo, aunque bien intencionado, elimina la oportunidad de desarrollo que representa enfrentar y superar ese desafío específico con su propio esfuerzo.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: corregir estos errores en la práctica</h2>
+                <p>Un padre que solía intervenir de inmediato cada vez que su hijo tenía un desacuerdo con otro niño en el parque, resolviendo la situación directamente con el otro padre o negociando por él, notó que su hijo nunca desarrollaba confianza para manejar este tipo de situaciones por su cuenta.</p>
+                <p>Decidió cambiar su acercamiento: la siguiente vez que surgió un desacuerdo menor entre su hijo y otro niño sobre turnos en un juego, en lugar de intervenir de inmediato, observó desde cierta distancia, listo para actuar solo si la situación escalaba a un riesgo real, pero dando espacio para que los niños intentaran resolverlo primero.</p>
+                <p>Los niños, sin la intervención inmediata del adulto, negociaron por sí mismos una solución de turnos que ambos aceptaron, algo que el padre nunca había visto ocurrir cuando intervenía directamente en cada ocasión similar anterior.</p>
+                <p>Con el tiempo, y aplicando este mismo acercamiento de dar espacio primero, notó que su hijo desarrollaba mayor confianza e iniciativa propia para manejar desacuerdos menores, recurriendo a él solo en situaciones donde realmente necesitaba apoyo adicional, en lugar de esperar la intervención inmediata como patrón habitual.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">No permitir que el hijo cometa errores sociales</h2>
+                <p>Corregir cada pequeño error social del hijo en el momento, frente a otras personas, o intentar prevenir cualquier posible error social mediante instrucciones excesivamente detalladas antes de cada interacción, no permite el aprendizaje natural que ocurre al experimentar las consecuencias de un error social menor y ajustar el comportamiento la siguiente vez.</p>
+                <ol>
+                    <li>Permitir que ocurran errores sociales menores sin corrección inmediata frente a otros.</li>
+                    <li>Conversar sobre el error en privado después de la situación, no durante.</li>
+                    <li>Preguntar qué aprendió el hijo de esa experiencia, en lugar de solo señalar el error.</li>
+                    <li>Confiar en que el hijo puede ajustar su comportamiento con base en su propia experiencia.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo saber si el propio acercamiento está limitando el desarrollo</h2>
+                <p>Una señal de que el acercamiento como padre puede estar limitando el desarrollo social del hijo es que este muestre poca iniciativa propia para resolver situaciones sociales sin buscar inmediatamente la intervención del adulto, o que exprese frustración cuando se le pide intentar resolver algo por su cuenta antes de recibir ayuda directa.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo hacer la transición si has intervenido demasiado hasta ahora</h2>
+                <p>Cambiar de un patrón de intervención constante a uno de mayor observación no debe ser abrupto; empezar con situaciones de muy bajo riesgo, dando espacio solo unos minutos antes de intervenir si es necesario, y aumentando gradualmente ese margen conforme se gana confianza en la capacidad del hijo de manejar la situación, facilita esta transición sin generar ansiedad excesiva en ninguna de las dos partes.</p>
+                <p>Explicar al hijo, de forma apropiada para su edad, que se está intentando dar más espacio para que practique resolver situaciones por sí mismo, en lugar de simplemente dejar de intervenir sin ninguna explicación, ayuda a que entienda el cambio como una muestra de confianza y no como abandono repentino del acompañamiento habitual.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De corregir errores de acompañamiento a una comunicación bien fundamentada</h2>
+                    <p>Si buscas apoyar a tu hijo con una metodología de comunicación que fomente su propia autonomía, nuestro programa de Neurocomunicación ofrece herramientas que reducen la necesidad de intervención constante.</p>
+                    <a href="/neurocomunicacion" class="btn-primary">
+                        Conoce el programa de Neurocomunicación <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-habilidades-blandas-recursos-gratuitos">
+                            <span>Recursos gratuitos para desarrollar habilidades blandas</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-habilidades-blandas-como-elegir">
+                            <span>Cómo elegir qué habilidad blanda desarrollar primero</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé cuándo debo intervenir en un conflicto social de mi hijo y cuándo dejar que lo resuelva solo?</h3>
+                    <p>Reserva la intervención inmediata para situaciones con riesgo real de daño físico o emocional significativo; para desacuerdos menores, dar espacio inicial para que el hijo intente resolverlo suele ser más beneficioso a largo plazo.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es normal que mi hijo cometa errores sociales frecuentes mientras desarrolla estas habilidades?</h3>
+                    <p>Sí, es parte natural del proceso de aprendizaje social, similar a cómo cualquier habilidad nueva exige práctica con errores iniciales antes de consolidarse con mayor soltura.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si ya cometí varios de estos errores con mi hijo?</h3>
+                    <p>Reconocerlo abiertamente y proponer un cambio gradual de acercamiento suele ser bien recibido; los niños y adolescentes valoran que se ajuste la dinámica en lugar de mantenerla sin cambios indefinidamente.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es correcto dar espacio incluso si sé que mi hijo va a fallar en resolver la situación?</h3>
+                    <p>Sí, siempre que el riesgo sea social y no físico o emocional grave; fallar en un intento de resolución social menor, con la oportunidad de reflexionar después, suele ser más valioso que la intervención preventiva constante.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánta observación a distancia es apropiada antes de intervenir?</h3>
+                    <p>Depende de la edad y la situación específica; para niños más pequeños, la observación cercana permite intervenir rápido si es necesario, mientras que con adolescentes suele ser apropiado dar más espacio antes de cualquier intervención.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -523,8 +616,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Imponer soluciones específicas ante cualquier dificultad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Comparar el desempeño con hermanos o compañeros
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Intervenir demasiado rápido evitando el desafío
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: corregir estos errores en la práctica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>No permitir que el hijo cometa errores sociales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo saber si el propio acercamiento está limitando el desarrollo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo hacer la transición si has intervenido demasiado hasta ahora
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>5 min restantes</span>
+                        <span>Lectura estimada: 5 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

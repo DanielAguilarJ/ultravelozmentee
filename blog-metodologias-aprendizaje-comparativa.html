@@ -362,139 +362,232 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Metodologías de Aprendizaje
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Comparativa de metodologías de aprendizaje activas</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Metodologías de Aprendizaje</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Comparativa de metodologías de aprendizaje activas</h1>
+                <p class="blog-post-dek">Comparativa de metodologías de aprendizaje: repaso espaciado, autoevaluación, elaboración propia y enseñanza simulada, y cuándo usar cada una.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Metodologías de Aprendizaje</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Comparativa de metodologías de aprendizaje activas" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Cuatro metodologías de aprendizaje aparecen con frecuencia en la literatura sobre hábitos de estudio efectivos: repaso espaciado, autoevaluación, elaboración propia y enseñanza simulada. Aunque comparten el principio de exigir procesamiento activo del contenido, cada una atiende un tipo de dificultad distinto.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Repaso espaciado: retención a lo largo del tiempo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Autoevaluación: revelar el dominio real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Elaboración propia: comprender relaciones conceptuales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: elegir entre las cuatro según la materia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Enseñanza simulada: exponer vacíos en procesos complejos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo combinar varias de estas técnicas según la materia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué tienen en común las cuatro metodologías
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Cuatro metodologías de aprendizaje aparecen con frecuencia en la literatura sobre hábitos de estudio efectivos: repaso espaciado, autoevaluación, elaboración propia y enseñanza simulada. Aunque comparten el principio de exigir procesamiento activo del contenido, cada una atiende un tipo de dificultad distinto.</p>
             <p>Esta comparativa describe qué problema resuelve cada técnica, en qué tipo de contenido rinde mejor, y cómo se diferencian entre sí para ayudar a elegir la más adecuada según la necesidad específica.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Comparando las metodologías de aprendizaje más comunes: el repaso espaciado rinde mejor para retener información concreta a lo largo del tiempo, la autoevaluación revela con precisión qué se domina realmente, la elaboración propia ayuda a comprender relaciones conceptuales complejas, y la enseñanza simulada expone vacíos de comprensión en procesos con varios pasos. Ninguna sustituye a las demás por completo; se complementan según el tipo de contenido.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Comparando las metodologías de aprendizaje más comunes: el repaso espaciado rinde mejor para retener información concreta a lo largo del tiempo, la autoevaluación revela con precisión qué se domina realmente, la elaboración propia ayuda a comprender relaciones conceptuales complejas, y la enseñanza simulada expone vacíos de comprensión en procesos con varios pasos. Ninguna sustituye a las demás por completo; se complementan según el tipo de contenido.</p>
+                </aside>
 
-            <h2>Repaso espaciado: retención a lo largo del tiempo</h2>
-            <p>El repaso espaciado consiste en distribuir la revisión de un mismo contenido en sesiones separadas por días, en lugar de concentrarla en una sola sesión intensiva. Su fortaleza principal es la retención a mediano y largo plazo, especialmente útil para información concreta como vocabulario, fórmulas o datos específicos que se necesitan recordar durante mucho tiempo.</p>
-            <p>Su principal limitación es que exige planeación anticipada: no puede improvisarse la noche anterior a un examen, porque su efectividad depende precisamente de distribuir las sesiones en el tiempo. Quien empieza a repasar de esta forma solo cuando ya está cerca la evaluación no obtiene el mismo beneficio que quien lo aplica desde el inicio del periodo de estudio.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Repaso espaciado: retención a lo largo del tiempo</h2>
+                <p>El repaso espaciado consiste en distribuir la revisión de un mismo contenido en sesiones separadas por días, en lugar de concentrarla en una sola sesión intensiva. Su fortaleza principal es la retención a mediano y largo plazo, especialmente útil para información concreta como vocabulario, fórmulas o datos específicos que se necesitan recordar durante mucho tiempo.</p>
+                <p>Su principal limitación es que exige planeación anticipada: no puede improvisarse la noche anterior a un examen, porque su efectividad depende precisamente de distribuir las sesiones en el tiempo. Quien empieza a repasar de esta forma solo cuando ya está cerca la evaluación no obtiene el mismo beneficio que quien lo aplica desde el inicio del periodo de estudio.</p>
+            </section>
 
-            <h2>Autoevaluación: revelar el dominio real</h2>
-            <p>La autoevaluación consiste en intentar recordar o resolver contenido sin consultar el material de apoyo, comparando después con la fuente original. Su fortaleza es revelar con precisión qué se domina realmente, en lugar de la falsa sensación de familiaridad que genera la relectura pasiva. Funciona bien tanto para datos concretos como para procedimientos que exigen práctica repetida.</p>
-            <ul>
-                <li>Ideal para revisar si un contenido ya estudiado realmente se domina.</li>
-                <li>Revela vacíos de comprensión antes del examen, no durante.</li>
-                <li>Funciona con casi cualquier tipo de contenido, desde vocabulario hasta procedimientos.</li>
-                <li>Requiere cerrar el material y evitar consultar antes del intento propio.</li>
-            </ul>
-
-            <h2>Elaboración propia: comprender relaciones conceptuales</h2>
-            <p>La elaboración propia consiste en explicar o resumir el contenido con palabras propias, en lugar de copiar o repetir el texto original. Su fortaleza está en materias con muchas relaciones entre conceptos —historia, biología, literatura— donde el reto no es solo recordar datos aislados sino entender cómo se conectan entre sí.</p>
-
-            <h2>Ejemplo aplicado: elegir entre las cuatro según la materia</h2>
-            <p>Un estudiante universitario con cuatro materias distintas —anatomía, historia del arte, programación y estadística— decidió aplicar una técnica distinta a cada una, según el tipo de contenido predominante. Para anatomía, con mucho vocabulario técnico y estructuras específicas que memorizar, eligió repaso espaciado con tarjetas.</p>
-            <p>Para historia del arte, donde el reto era conectar movimientos artísticos con su contexto histórico y entre sí, usó elaboración propia: escribía breves ensayos personales conectando cada movimiento con el anterior. Para programación, donde la práctica de resolver problemas sin ver la solución era lo más relevante, aplicó autoevaluación estricta, intentando resolver ejercicios completos antes de revisar cualquier solución de referencia.</p>
-            <p>Para estadística, una materia con procesos de varios pasos que debía dominar para aplicarlos correctamente en distintos contextos, usó enseñanza simulada: se grababa explicando cómo resolver cada tipo de problema, como si le enseñara a un compañero que nunca había visto ese tema.</p>
-            <p>Esta combinación, con una técnica distinta para cada materia según su naturaleza particular, le permitió aprovechar mejor su tiempo de estudio que si hubiera aplicado la misma técnica a las cuatro materias por igual, algo que había intentado en semestres anteriores sin el mismo nivel de resultado.</p>
-
-            <h2>Enseñanza simulada: exponer vacíos en procesos complejos</h2>
-            <p>La enseñanza simulada consiste en explicar en voz alta un tema o proceso completo, como si se enseñara a otra persona sin conocimiento previo del tema. Su fortaleza está en procesos con varios pasos relacionados entre sí, donde titubear, quedarse callado o repetir la misma idea sin avanzar revela con claridad en qué parte del proceso hay una comprensión incompleta.</p>
-            <ol>
-                <li>Elegir un tema con varios pasos relacionados entre sí, no un dato aislado.</li>
-                <li>Explicar el proceso completo en voz alta, idealmente grabándose.</li>
-                <li>Escuchar la grabación notando dónde hubo titubeos o repeticiones.</li>
-                <li>Consultar el material solo para resolver esas dudas específicas identificadas.</li>
-            </ol>
-
-            <h2>Cómo combinar varias de estas técnicas según la materia</h2>
-            <p>Ninguna técnica excluye a las demás; de hecho, combinarlas según el tipo de contenido de cada materia suele rendir mejor que depender de una sola técnica para todo el estudio. Materias con datos concretos se benefician más de repaso espaciado y autoevaluación; materias con relaciones conceptuales se benefician más de elaboración propia y enseñanza simulada.</p>
-
-            <h2>Qué tienen en común las cuatro metodologías</h2>
-            <p>A pesar de sus diferencias, las cuatro comparten un principio central: todas exigen procesamiento activo del contenido en lugar de reconocimiento pasivo mediante lectura repetida. Ese procesamiento adicional, aunque exige más esfuerzo inicial, es lo que produce el beneficio de comprensión y retención que ninguna de las cuatro logra si se aplica de forma superficial o apresurada.</p>
-            <p>Reconocer este principio común ayuda a entender por qué, más allá de cuál técnica específica se elija, cualquiera de las cuatro rendirá poco beneficio si se aplica sin el esfuerzo consciente de procesar realmente el contenido, en lugar de solo seguir los pasos mecánicos de la técnica sin comprometerse con el trabajo mental que exige.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De comparar técnicas a mejorar tu velocidad de lectura</h3>
-                <p>Si tu reto principal es el tiempo que toma procesar contenido extenso antes de aplicar cualquiera de estas técnicas, nuestro programa de Fotolectura te ayuda a leer con más eficiencia sin perder comprensión.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso de lectura rápida <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Autoevaluación: revelar el dominio real</h2>
+                <p>La autoevaluación consiste en intentar recordar o resolver contenido sin consultar el material de apoyo, comparando después con la fuente original. Su fortaleza es revelar con precisión qué se domina realmente, en lugar de la falsa sensación de familiaridad que genera la relectura pasiva. Funciona bien tanto para datos concretos como para procedimientos que exigen práctica repetida.</p>
                 <ul>
-                <li><a href="/blog-metodologias-aprendizaje-preguntas-frecuentes">Preguntas frecuentes sobre metodologías de aprendizaje</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-plan-de-30-dias">Plan de 30 días para adoptar una metodología de aprendizaje</a></li>
+                    <li>Ideal para revisar si un contenido ya estudiado realmente se domina.</li>
+                    <li>Revela vacíos de comprensión antes del examen, no durante.</li>
+                    <li>Funciona con casi cualquier tipo de contenido, desde vocabulario hasta procedimientos.</li>
+                    <li>Requiere cerrar el material y evitar consultar antes del intento propio.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo usar más de una técnica para la misma materia?</h3>
-                <p>Sí, especialmente en materias que combinan distintos tipos de contenido, como física, que puede beneficiarse de autoevaluación para ejercicios y de enseñanza simulada para explicar los conceptos teóricos detrás de ellos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuál de estas cuatro técnicas es la más fácil de empezar?</h3>
-                <p>La autoevaluación básica suele ser la más sencilla de introducir sin materiales especiales, porque solo requiere cerrar el libro e intentar recordar el contenido sin apoyo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El repaso espaciado sirve para contenido conceptual, no solo datos?</h3>
-                <p>Puede aplicarse, aunque rinde más beneficio con datos concretos. Para contenido conceptual, combinarlo con elaboración propia suele dar mejores resultados que el repaso espaciado por sí solo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La enseñanza simulada requiere que alguien más escuche la explicación?</h3>
-                <p>No es indispensable; grabarse y escuchar la propia explicación después cumple una función similar, aunque explicar a otra persona real puede añadir el beneficio de recibir preguntas que revelen más vacíos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo decido cuál técnica probar primero si tengo varias dificultades a la vez?</h3>
-                <p>Prioriza la dificultad que más esté afectando tu desempeño actual, y aplica el proceso de diagnóstico, prueba y ajuste con la técnica correspondiente a esa dificultad antes de atender las demás. Intentar resolver varias dificultades con distintas técnicas al mismo tiempo suele dificultar identificar qué está funcionando realmente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Elaboración propia: comprender relaciones conceptuales</h2>
+                <p>La elaboración propia consiste en explicar o resumir el contenido con palabras propias, en lugar de copiar o repetir el texto original. Su fortaleza está en materias con muchas relaciones entre conceptos —historia, biología, literatura— donde el reto no es solo recordar datos aislados sino entender cómo se conectan entre sí.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: elegir entre las cuatro según la materia</h2>
+                <p>Un estudiante universitario con cuatro materias distintas —anatomía, historia del arte, programación y estadística— decidió aplicar una técnica distinta a cada una, según el tipo de contenido predominante. Para anatomía, con mucho vocabulario técnico y estructuras específicas que memorizar, eligió repaso espaciado con tarjetas.</p>
+                <p>Para historia del arte, donde el reto era conectar movimientos artísticos con su contexto histórico y entre sí, usó elaboración propia: escribía breves ensayos personales conectando cada movimiento con el anterior. Para programación, donde la práctica de resolver problemas sin ver la solución era lo más relevante, aplicó autoevaluación estricta, intentando resolver ejercicios completos antes de revisar cualquier solución de referencia.</p>
+                <p>Para estadística, una materia con procesos de varios pasos que debía dominar para aplicarlos correctamente en distintos contextos, usó enseñanza simulada: se grababa explicando cómo resolver cada tipo de problema, como si le enseñara a un compañero que nunca había visto ese tema.</p>
+                <p>Esta combinación, con una técnica distinta para cada materia según su naturaleza particular, le permitió aprovechar mejor su tiempo de estudio que si hubiera aplicado la misma técnica a las cuatro materias por igual, algo que había intentado en semestres anteriores sin el mismo nivel de resultado.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Enseñanza simulada: exponer vacíos en procesos complejos</h2>
+                <p>La enseñanza simulada consiste en explicar en voz alta un tema o proceso completo, como si se enseñara a otra persona sin conocimiento previo del tema. Su fortaleza está en procesos con varios pasos relacionados entre sí, donde titubear, quedarse callado o repetir la misma idea sin avanzar revela con claridad en qué parte del proceso hay una comprensión incompleta.</p>
+                <ol>
+                    <li>Elegir un tema con varios pasos relacionados entre sí, no un dato aislado.</li>
+                    <li>Explicar el proceso completo en voz alta, idealmente grabándose.</li>
+                    <li>Escuchar la grabación notando dónde hubo titubeos o repeticiones.</li>
+                    <li>Consultar el material solo para resolver esas dudas específicas identificadas.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo combinar varias de estas técnicas según la materia</h2>
+                <p>Ninguna técnica excluye a las demás; de hecho, combinarlas según el tipo de contenido de cada materia suele rendir mejor que depender de una sola técnica para todo el estudio. Materias con datos concretos se benefician más de repaso espaciado y autoevaluación; materias con relaciones conceptuales se benefician más de elaboración propia y enseñanza simulada.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Qué tienen en común las cuatro metodologías</h2>
+                <p>A pesar de sus diferencias, las cuatro comparten un principio central: todas exigen procesamiento activo del contenido en lugar de reconocimiento pasivo mediante lectura repetida. Ese procesamiento adicional, aunque exige más esfuerzo inicial, es lo que produce el beneficio de comprensión y retención que ninguna de las cuatro logra si se aplica de forma superficial o apresurada.</p>
+                <p>Reconocer este principio común ayuda a entender por qué, más allá de cuál técnica específica se elija, cualquiera de las cuatro rendirá poco beneficio si se aplica sin el esfuerzo consciente de procesar realmente el contenido, en lugar de solo seguir los pasos mecánicos de la técnica sin comprometerse con el trabajo mental que exige.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De comparar técnicas a mejorar tu velocidad de lectura</h2>
+                    <p>Si tu reto principal es el tiempo que toma procesar contenido extenso antes de aplicar cualquiera de estas técnicas, nuestro programa de Fotolectura te ayuda a leer con más eficiencia sin perder comprensión.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Conocer el curso de lectura rápida <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-preguntas-frecuentes">
+                            <span>Preguntas frecuentes sobre metodologías de aprendizaje</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-plan-de-30-dias">
+                            <span>Plan de 30 días para adoptar una metodología de aprendizaje</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo usar más de una técnica para la misma materia?</h3>
+                    <p>Sí, especialmente en materias que combinan distintos tipos de contenido, como física, que puede beneficiarse de autoevaluación para ejercicios y de enseñanza simulada para explicar los conceptos teóricos detrás de ellos.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuál de estas cuatro técnicas es la más fácil de empezar?</h3>
+                    <p>La autoevaluación básica suele ser la más sencilla de introducir sin materiales especiales, porque solo requiere cerrar el libro e intentar recordar el contenido sin apoyo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El repaso espaciado sirve para contenido conceptual, no solo datos?</h3>
+                    <p>Puede aplicarse, aunque rinde más beneficio con datos concretos. Para contenido conceptual, combinarlo con elaboración propia suele dar mejores resultados que el repaso espaciado por sí solo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La enseñanza simulada requiere que alguien más escuche la explicación?</h3>
+                    <p>No es indispensable; grabarse y escuchar la propia explicación después cumple una función similar, aunque explicar a otra persona real puede añadir el beneficio de recibir preguntas que revelen más vacíos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo decido cuál técnica probar primero si tengo varias dificultades a la vez?</h3>
+                    <p>Prioriza la dificultad que más esté afectando tu desempeño actual, y aplica el proceso de diagnóstico, prueba y ajuste con la técnica correspondiente a esa dificultad antes de atender las demás. Intentar resolver varias dificultades con distintas técnicas al mismo tiempo suele dificultar identificar qué está funcionando realmente.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -524,8 +617,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Repaso espaciado: retención a lo largo del tiempo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Autoevaluación: revelar el dominio real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Elaboración propia: comprender relaciones conceptuales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: elegir entre las cuatro según la materia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Enseñanza simulada: exponer vacíos en procesos complejos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo combinar varias de estas técnicas según la materia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué tienen en común las cuatro metodologías
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

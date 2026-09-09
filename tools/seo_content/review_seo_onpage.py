@@ -56,9 +56,27 @@ def load_plan_index() -> dict[int, dict]:
 
 
 def visible_text(html: str) -> str:
-    """Texto aproximado del artículo, sin scripts/estilos ni etiquetas."""
-    body = re.sub(r"<script\b[^>]*>.*?</script>", " ", html, flags=re.S)
-    body = re.sub(r"<style\b[^>]*>.*?</style>", " ", body, flags=re.S)
+    """Texto editorial visible, sin chrome, índices responsivos ni scripts.
+
+    Cuando recibe una página completa limita el cálculo al cuerpo del artículo:
+    repetir los mismos H2 en una navegación de escritorio y otra móvil mejora la
+    orientación, pero no convierte la prosa en keyword stuffing. Los fragmentos
+    sueltos (title, H1, H2) conservan el comportamiento anterior.
+    """
+    article = re.search(
+        r'<article\b[^>]*class="[^"]*\bblog-content\b[^"]*"[^>]*>(.*?)</article>',
+        html,
+        flags=re.S | re.I,
+    )
+    body = article.group(1) if article else html
+    body = re.sub(
+        r'<details\b[^>]*class="[^"]*\bed-mobile-toc\b[^"]*"[^>]*>.*?</details>',
+        " ",
+        body,
+        flags=re.S | re.I,
+    )
+    body = re.sub(r"<script\b[^>]*>.*?</script>", " ", body, flags=re.S | re.I)
+    body = re.sub(r"<style\b[^>]*>.*?</style>", " ", body, flags=re.S | re.I)
     body = re.sub(r"<[^>]+>", " ", body)
     return re.sub(r"\s+", " ", html_lib.unescape(body)).strip()
 

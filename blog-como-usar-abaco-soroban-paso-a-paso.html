@@ -354,145 +354,236 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-calculator"></i> MatheKids
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo usar el ábaco soroban paso a paso</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 7 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">MatheKids</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo usar el ábaco soroban paso a paso</h1>
+                <p class="blog-post-dek">Aprende a usar el ábaco soroban paso a paso: sus partes, cómo dejarlo en cero y cómo representar y leer números, explicado para empezar desde cero.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">MatheKids</span>
+                    <span>Publicado <time datetime="2026-09-07">7 de Septiembre, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/mk-hero-kid.webp" alt="Cómo usar el ábaco soroban paso a paso" width="1024" height="1024" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">El ábaco soroban intimida al principio, y aprender cómo usar el ábaco soroban parece exigir memorizar muchas reglas. En realidad, empezar a usarlo es sencillo si se hace en orden: primero entender las partes y el valor de cada cuenta, después aprender a representar números, y solo entonces operar. Este artículo cubre justamente esos primeros pasos, los que muchas guías dan por sabidos y que son la base de todo lo demás.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Las partes del ábaco soroban y qué vale cada cuenta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Primer paso: dejar el ábaco en cero
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo usar el ábaco soroban: la regla de acercar y alejar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo formar los números del 0 al 9 en una varilla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo representar números de varias cifras
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo leer un número que ya está puesto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes al empezar a usar el ábaco
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">El ábaco soroban intimida al principio, y aprender cómo usar el ábaco soroban parece exigir memorizar muchas reglas. En realidad, empezar a usarlo es sencillo si se hace en orden: primero entender las partes y el valor de cada cuenta, después aprender a representar números, y solo entonces operar. Este artículo cubre justamente esos primeros pasos, los que muchas guías dan por sabidos y que son la base de todo lo demás.</p>
             <p>No necesitas experiencia previa ni ser bueno en matemáticas para seguir esta explicación. Al terminar sabrás poner el ábaco en cero, formar cualquier número del 0 al 9 en una varilla y representar cantidades de varias cifras. Sumar y restar vienen después; aquí construimos con calma la base sobre la que se apoya todo el aprendizaje posterior del cálculo mental.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Usar el ábaco soroban empieza por conocer sus partes: una barra horizontal separa una cuenta de arriba, que vale cinco, de cuatro cuentas de abajo, que valen uno cada una. Cada varilla es una posición: unidades, decenas, centenas. Para representar un número acercas cuentas a la barra y para volver a cero las alejas. Con eso ya puedes formar y leer cualquier número, antes incluso de aprender a sumar o restar, que es el paso siguiente.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Usar el ábaco soroban empieza por conocer sus partes: una barra horizontal separa una cuenta de arriba, que vale cinco, de cuatro cuentas de abajo, que valen uno cada una. Cada varilla es una posición: unidades, decenas, centenas. Para representar un número acercas cuentas a la barra y para volver a cero las alejas. Con eso ya puedes formar y leer cualquier número, antes incluso de aprender a sumar o restar, que es el paso siguiente.</p>
+                </aside>
 
-            <h2>Las partes del ábaco soroban y qué vale cada cuenta</h2>
-            <p>El ábaco soroban es un marco rectangular con varillas verticales, y cada varilla lleva cuentas que se deslizan de arriba abajo. Una barra horizontal, llamada barra separadora, cruza el ábaco y divide cada varilla en dos zonas. Arriba de la barra hay una sola cuenta por varilla; abajo hay cuatro. Esa distribución, una arriba y cuatro abajo, es la marca del ábaco japonés y lo distingue de otros ábacos.</p>
-            <p>El valor de cada cuenta depende de su zona. La cuenta de arriba vale cinco. Cada una de las cuatro cuentas de abajo vale uno. Y hay una regla que lo gobierna todo: una cuenta solo suma su valor cuando toca la barra separadora; mientras está lejos de la barra, no cuenta. Entender esta idea, que tocar la barra es lo que hace contar a una cuenta, es la llave de todo lo que sigue.</p>
-            <ul>
-                <li>Marco: la estructura que sostiene todo el instrumento.</li>
-                <li>Varillas verticales: cada una es una posición (unidades, decenas, centenas).</li>
-                <li>Barra separadora: divide la cuenta de arriba de las cuatro de abajo.</li>
-                <li>Cuenta de arriba: vale cinco cuando toca la barra.</li>
-                <li>Cuentas de abajo: valen uno cada una cuando tocan la barra.</li>
-            </ul>
-
-            <h2>Primer paso: dejar el ábaco en cero</h2>
-            <p>Antes de representar cualquier número, el ábaco debe estar en cero. Eso significa alejar todas las cuentas de la barra separadora: las de arriba se suben hasta el borde superior y las de abajo se bajan hasta el borde inferior. Cuando ninguna cuenta toca la barra, todas las varillas marcan cero y el ábaco está listo para empezar limpio.</p>
-            <p>Este gesto parece trivial, pero es un hábito importante. Toda operación empieza, y muchas veces termina, volviendo a cero, así que conviene practicarlo hasta que salga solo. Un ábaco que no se dejó en cero antes de empezar arrastra un número anterior y produce errores que confunden mucho a quien está aprendiendo, porque el resultado no cuadra sin una causa visible.</p>
-
-            <h2>Cómo usar el ábaco soroban: la regla de acercar y alejar</h2>
-            <p>Toda la mecánica del ábaco se reduce a un solo movimiento: acercar cuentas a la barra o alejarlas. Acercar una cuenta a la barra suma su valor; alejarla lo quita. No hay más misterio en el nivel básico. Representar un número es simplemente acercar a la barra las cuentas necesarias para que sumen ese número en cada varilla.</p>
-            <p>Lo notable es que esa única regla escala hacia todo lo demás. Sumar será acercar cuentas; restar será alejarlas; y cuando una varilla se queda sin cuentas suficientes, entran en juego los intercambios entre varillas que se aprenden más adelante. Pero la base no cambia nunca: acercar suma, alejar quita. Dominar este movimiento con soltura es lo que hace fácil todo lo que viene después.</p>
-            <p>Por convención, las cuentas de abajo se suben con el pulgar y se bajan con el índice, y la cuenta de arriba se mueve con el índice. No es una regla rígida para el primer contacto, pero adoptarla temprano ayuda a ganar velocidad. Lo esencial ahora es que el movimiento sea limpio: una cuenta a la vez, sin empujar varias con toda la mano.</p>
-
-            <h2>Cómo formar los números del 0 al 9 en una varilla</h2>
-            <p>Con una sola varilla ya se pueden formar todos los dígitos, y practicarlo es un buen punto de partida. Los números del uno al cuatro se hacen subiendo esa cantidad de cuentas de abajo hasta la barra. El cinco se hace bajando la cuenta de arriba hasta la barra y dejando las de abajo en su sitio. Del seis al nueve se combina la cuenta de arriba, que aporta cinco, con las cuentas de abajo que hagan falta.</p>
-            <ol>
-                <li>0: ninguna cuenta toca la barra.</li>
-                <li>1 a 4: sube hacia la barra esa cantidad de cuentas de abajo.</li>
-                <li>5: baja la cuenta de arriba hasta la barra, sin cuentas de abajo.</li>
-                <li>6 a 9: baja la cuenta de arriba (cinco) y sube las cuentas de abajo que falten (1 a 4).</li>
-                <li>Vuelve a cero alejando todo de la barra antes de formar el siguiente número.</li>
-            </ol>
-
-            <h2>Cómo representar números de varias cifras</h2>
-            <p>Los números de varias cifras usan varias varillas, una por posición, igual que se escriben en papel. Se elige una varilla como unidades (los ábacos traen un punto marcado en la barra para señalarla), la varilla de su izquierda son las decenas, la siguiente las centenas, y así sucesivamente. Cada varilla guarda un dígito y no interfiere con las demás.</p>
-            <p>Por ejemplo, para representar 128 se pone un 1 en la varilla de las centenas, un 2 en la de las decenas y un 8 en la de las unidades, cada dígito con la regla que ya vimos. No se opera nada: solo se coloca cada cifra en su lugar. Practicar esto con números al azar es un puente natural hacia las operaciones, porque acostumbra la mano y la vista a las posiciones antes de tener que calcular con ellas.</p>
-
-            <h2>Cómo leer un número que ya está puesto</h2>
-            <p>Leer es el proceso inverso de representar. Se mira cada varilla de izquierda a derecha y se suma lo que aporta: la cuenta de arriba, si toca la barra, vale cinco, más las cuentas de abajo que estén subidas tocando la barra. Ese resultado es el dígito de esa posición. Juntando los dígitos de todas las varillas se obtiene el número completo.</p>
-            <p>Al principio conviene leer en voz alta varilla por varilla, sobre todo con números de varias cifras, para no confundir posiciones. Con la práctica, la lectura se vuelve casi instantánea, y esa es justamente la habilidad que después permite imaginar el ábaco y calcular de memoria: quien lee un ábaco físico sin esfuerzo está a un paso de leer el ábaco que tiene en la mente.</p>
-
-            <h2>Errores frecuentes al empezar a usar el ábaco</h2>
-            <p>Casi todos los tropiezos del inicio vienen de descuidar lo básico, no de que el método sea difícil. Repasar estos errores ahorra frustración y ayuda a que la práctica avance sin vicios que luego cuesta corregir.</p>
-            <ul>
-                <li>No dejar el ábaco en cero antes de empezar, así que arrastra un número anterior.</li>
-                <li>Olvidar que la cuenta de arriba vale cinco y contarla como uno.</li>
-                <li>Mover varias cuentas de golpe con toda la mano en vez de una a una.</li>
-                <li>Confundir qué varilla son las unidades: hay que fijarse en el punto marcado.</li>
-                <li>Querer sumar antes de representar y leer números con soltura.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Aprende a usar el ábaco con acompañamiento en MatheKids</h3>
-                <p>MatheKids enseña a niños de 6 a 12 años a usar el ábaco soroban desde cero y a llegar al cálculo mental, con grupos presenciales en Cuautitlán Izcalli y en línea en vivo. En una clase muestra gratuita puedes ver cómo se acompaña cada paso.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso de cálculo mental con ábaco <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Las partes del ábaco soroban y qué vale cada cuenta</h2>
+                <p>El ábaco soroban es un marco rectangular con varillas verticales, y cada varilla lleva cuentas que se deslizan de arriba abajo. Una barra horizontal, llamada barra separadora, cruza el ábaco y divide cada varilla en dos zonas. Arriba de la barra hay una sola cuenta por varilla; abajo hay cuatro. Esa distribución, una arriba y cuatro abajo, es la marca del ábaco japonés y lo distingue de otros ábacos.</p>
+                <p>El valor de cada cuenta depende de su zona. La cuenta de arriba vale cinco. Cada una de las cuatro cuentas de abajo vale uno. Y hay una regla que lo gobierna todo: una cuenta solo suma su valor cuando toca la barra separadora; mientras está lejos de la barra, no cuenta. Entender esta idea, que tocar la barra es lo que hace contar a una cuenta, es la llave de todo lo que sigue.</p>
                 <ul>
-                <li><a href="/blog-abaco-soroban-que-es">Ábaco soroban: qué es y cómo ayuda a comprender el cálculo</a></li>
-                <li><a href="/blog-ejercicios-soroban-principiantes">Ejercicios de soroban para principiantes: suma y resta paso a paso</a></li>
-                <li><a href="/blog-metodo-abaco-soroban-como-funciona">Cómo funciona el método del ábaco soroban</a></li>
-                <li><a href="/blog-que-abaco-soroban-comprar-ninos">Qué ábaco soroban comprar para un niño: guía práctica</a></li>
+                    <li>Marco: la estructura que sostiene todo el instrumento.</li>
+                    <li>Varillas verticales: cada una es una posición (unidades, decenas, centenas).</li>
+                    <li>Barra separadora: divide la cuenta de arriba de las cuatro de abajo.</li>
+                    <li>Cuenta de arriba: vale cinco cuando toca la barra.</li>
+                    <li>Cuentas de abajo: valen uno cada una cuando tocan la barra.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito saber sumar en el ábaco para empezar a usarlo?</h3>
-                <p>No. El primer paso es representar y leer números, sin operar. Sumar y restar vienen después y se apoyan en esa base. Intentar operar antes de formar y leer números con soltura es la causa más común de frustración al empezar, así que conviene dedicar tiempo a esta etapa previa sin prisa.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué varilla uso como unidades?</h3>
-                <p>La que tiene un punto marcado en la barra separadora. Los ábacos soroban traen marcada cada tercera varilla para orientarse; se elige una de esas como unidades y a su izquierda quedan decenas, centenas y así sucesivamente. Usar siempre la misma referencia evita confundir las posiciones al leer un número.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Da igual con qué dedo mover las cuentas?</h3>
-                <p>Para el primer contacto no es crítico, pero conviene adoptar pronto la convención: subir las cuentas de abajo con el pulgar, bajarlas con el índice, y mover la cuenta de arriba con el índice. Ese hábito ayuda a ganar velocidad más adelante y evita movimientos torpes que empujan varias cuentas a la vez.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto se tarda en aprender a representar números?</h3>
-                <p>Representar y leer números suele aprenderse en poco tiempo, porque es mecánico y visual. La soltura llega con la práctica repetida, no con una sola sesión. No hay una cifra universal: depende de la edad y de cuánto se practique, pero es la parte más rápida de todo el aprendizaje del ábaco.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Primer paso: dejar el ábaco en cero</h2>
+                <p>Antes de representar cualquier número, el ábaco debe estar en cero. Eso significa alejar todas las cuentas de la barra separadora: las de arriba se suben hasta el borde superior y las de abajo se bajan hasta el borde inferior. Cuando ninguna cuenta toca la barra, todas las varillas marcan cero y el ábaco está listo para empezar limpio.</p>
+                <p>Este gesto parece trivial, pero es un hábito importante. Toda operación empieza, y muchas veces termina, volviendo a cero, así que conviene practicarlo hasta que salga solo. Un ábaco que no se dejó en cero antes de empezar arrastra un número anterior y produce errores que confunden mucho a quien está aprendiendo, porque el resultado no cuadra sin una causa visible.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo usar el ábaco soroban: la regla de acercar y alejar</h2>
+                <p>Toda la mecánica del ábaco se reduce a un solo movimiento: acercar cuentas a la barra o alejarlas. Acercar una cuenta a la barra suma su valor; alejarla lo quita. No hay más misterio en el nivel básico. Representar un número es simplemente acercar a la barra las cuentas necesarias para que sumen ese número en cada varilla.</p>
+                <p>Lo notable es que esa única regla escala hacia todo lo demás. Sumar será acercar cuentas; restar será alejarlas; y cuando una varilla se queda sin cuentas suficientes, entran en juego los intercambios entre varillas que se aprenden más adelante. Pero la base no cambia nunca: acercar suma, alejar quita. Dominar este movimiento con soltura es lo que hace fácil todo lo que viene después.</p>
+                <p>Por convención, las cuentas de abajo se suben con el pulgar y se bajan con el índice, y la cuenta de arriba se mueve con el índice. No es una regla rígida para el primer contacto, pero adoptarla temprano ayuda a ganar velocidad. Lo esencial ahora es que el movimiento sea limpio: una cuenta a la vez, sin empujar varias con toda la mano.</p>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Cómo formar los números del 0 al 9 en una varilla</h2>
+                <p>Con una sola varilla ya se pueden formar todos los dígitos, y practicarlo es un buen punto de partida. Los números del uno al cuatro se hacen subiendo esa cantidad de cuentas de abajo hasta la barra. El cinco se hace bajando la cuenta de arriba hasta la barra y dejando las de abajo en su sitio. Del seis al nueve se combina la cuenta de arriba, que aporta cinco, con las cuentas de abajo que hagan falta.</p>
+                <ol>
+                    <li>0: ninguna cuenta toca la barra.</li>
+                    <li>1 a 4: sube hacia la barra esa cantidad de cuentas de abajo.</li>
+                    <li>5: baja la cuenta de arriba hasta la barra, sin cuentas de abajo.</li>
+                    <li>6 a 9: baja la cuenta de arriba (cinco) y sube las cuentas de abajo que falten (1 a 4).</li>
+                    <li>Vuelve a cero alejando todo de la barra antes de formar el siguiente número.</li>
+                </ol>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cómo representar números de varias cifras</h2>
+                <p>Los números de varias cifras usan varias varillas, una por posición, igual que se escriben en papel. Se elige una varilla como unidades (los ábacos traen un punto marcado en la barra para señalarla), la varilla de su izquierda son las decenas, la siguiente las centenas, y así sucesivamente. Cada varilla guarda un dígito y no interfiere con las demás.</p>
+                <p>Por ejemplo, para representar 128 se pone un 1 en la varilla de las centenas, un 2 en la de las decenas y un 8 en la de las unidades, cada dígito con la regla que ya vimos. No se opera nada: solo se coloca cada cifra en su lugar. Practicar esto con números al azar es un puente natural hacia las operaciones, porque acostumbra la mano y la vista a las posiciones antes de tener que calcular con ellas.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo leer un número que ya está puesto</h2>
+                <p>Leer es el proceso inverso de representar. Se mira cada varilla de izquierda a derecha y se suma lo que aporta: la cuenta de arriba, si toca la barra, vale cinco, más las cuentas de abajo que estén subidas tocando la barra. Ese resultado es el dígito de esa posición. Juntando los dígitos de todas las varillas se obtiene el número completo.</p>
+                <p>Al principio conviene leer en voz alta varilla por varilla, sobre todo con números de varias cifras, para no confundir posiciones. Con la práctica, la lectura se vuelve casi instantánea, y esa es justamente la habilidad que después permite imaginar el ábaco y calcular de memoria: quien lee un ábaco físico sin esfuerzo está a un paso de leer el ábaco que tiene en la mente.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Errores frecuentes al empezar a usar el ábaco</h2>
+                <p>Casi todos los tropiezos del inicio vienen de descuidar lo básico, no de que el método sea difícil. Repasar estos errores ahorra frustración y ayuda a que la práctica avance sin vicios que luego cuesta corregir.</p>
+                <ul>
+                    <li>No dejar el ábaco en cero antes de empezar, así que arrastra un número anterior.</li>
+                    <li>Olvidar que la cuenta de arriba vale cinco y contarla como uno.</li>
+                    <li>Mover varias cuentas de golpe con toda la mano en vez de una a una.</li>
+                    <li>Confundir qué varilla son las unidades: hay que fijarse en el punto marcado.</li>
+                    <li>Querer sumar antes de representar y leer números con soltura.</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Aprende a usar el ábaco con acompañamiento en MatheKids</h2>
+                    <p>MatheKids enseña a niños de 6 a 12 años a usar el ábaco soroban desde cero y a llegar al cálculo mental, con grupos presenciales en Cuautitlán Izcalli y en línea en vivo. En una clase muestra gratuita puedes ver cómo se acompaña cada paso.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Conocer el curso de cálculo mental con ábaco <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-abaco-soroban-que-es">
+                            <span>Ábaco soroban: qué es y cómo ayuda a comprender el cálculo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-ejercicios-soroban-principiantes">
+                            <span>Ejercicios de soroban para principiantes: suma y resta paso a paso</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodo-abaco-soroban-como-funciona">
+                            <span>Cómo funciona el método del ábaco soroban</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-que-abaco-soroban-comprar-ninos">
+                            <span>Qué ábaco soroban comprar para un niño: guía práctica</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito saber sumar en el ábaco para empezar a usarlo?</h3>
+                    <p>No. El primer paso es representar y leer números, sin operar. Sumar y restar vienen después y se apoyan en esa base. Intentar operar antes de formar y leer números con soltura es la causa más común de frustración al empezar, así que conviene dedicar tiempo a esta etapa previa sin prisa.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué varilla uso como unidades?</h3>
+                    <p>La que tiene un punto marcado en la barra separadora. Los ábacos soroban traen marcada cada tercera varilla para orientarse; se elige una de esas como unidades y a su izquierda quedan decenas, centenas y así sucesivamente. Usar siempre la misma referencia evita confundir las posiciones al leer un número.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Da igual con qué dedo mover las cuentas?</h3>
+                    <p>Para el primer contacto no es crítico, pero conviene adoptar pronto la convención: subir las cuentas de abajo con el pulgar, bajarlas con el índice, y mover la cuenta de arriba con el índice. Ese hábito ayuda a ganar velocidad más adelante y evita movimientos torpes que empujan varias cuentas a la vez.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto se tarda en aprender a representar números?</h3>
+                    <p>Representar y leer números suele aprenderse en poco tiempo, porque es mecánico y visual. La soltura llega con la práctica repetida, no con una sola sesión. No hay una cifra universal: depende de la edad y de cuánto se practique, pero es la parte más rápida de todo el aprendizaje del ábaco.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -522,8 +613,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Las partes del ábaco soroban y qué vale cada cuenta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Primer paso: dejar el ábaco en cero
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo usar el ábaco soroban: la regla de acercar y alejar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo formar los números del 0 al 9 en una varilla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo representar números de varias cifras
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo leer un número que ya está puesto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes al empezar a usar el ábaco
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

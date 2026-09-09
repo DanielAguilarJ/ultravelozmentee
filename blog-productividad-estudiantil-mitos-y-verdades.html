@@ -362,144 +362,242 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Mitos y verdades sobre organizar el estudio</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Mitos y verdades sobre organizar el estudio</h1>
+                <p class="blog-post-dek">Siete creencias comunes sobre organizar el estudio: cuáles se sostienen, cuáles son verdades a medias y cuáles conviene descartar por completo.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Mitos y verdades sobre organizar el estudio" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">El terreno de los consejos de estudio está lleno de afirmaciones que se repiten sin revisar. Algunas vienen de generalizar una experiencia personal; otras, de simplificar hallazgos sobre memoria y atención hasta volverlos inexactos.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Mito: más horas de estudio siempre producen más aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Mito: existe un método de estudio que funciona para todos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Mito: se puede estudiar y atender el teléfono al mismo tiempo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Verdad a medias: los descansos programados siempre ayudan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: cuando el mito de las horas frena una preparación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Verdad a medias: estudiar en grupo mejora el aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Se sostienen: autoevaluarse rinde más que releer, y el sueño es parte del estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">El terreno de los consejos de estudio está lleno de afirmaciones que se repiten sin revisar. Algunas vienen de generalizar una experiencia personal; otras, de simplificar hallazgos sobre memoria y atención hasta volverlos inexactos.</p>
             <p>Este repaso clasifica siete creencias frecuentes en tres categorías: mito, verdad a medias y afirmación sostenida. Interesa sobre todo la segunda categoría, porque es donde se toman las peores decisiones: aplicar una recomendación válida en el contexto equivocado.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Entre las creencias más difundidas, tres son falsas: que más horas siempre rinden más, que existe un método universal y que la multitarea ahorra tiempo. Dos son verdades a medias: los descansos programados y el estudio en grupo, que dependen del tipo de tarea. Y dos se sostienen: la autoevaluación rinde más que releer, y el sueño forma parte del proceso de aprender.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Entre las creencias más difundidas, tres son falsas: que más horas siempre rinden más, que existe un método universal y que la multitarea ahorra tiempo. Dos son verdades a medias: los descansos programados y el estudio en grupo, que dependen del tipo de tarea. Y dos se sostienen: la autoevaluación rinde más que releer, y el sueño forma parte del proceso de aprender.</p>
+                </aside>
 
-            <h2>Mito: más horas de estudio siempre producen más aprendizaje</h2>
-            <p>Esta es la creencia con más consecuencias prácticas, porque orienta el esfuerzo hacia la variable equivocada. La atención sostenida decae de forma notable después de un tramo continuo relativamente corto, y el tiempo que sigue se ocupa en actividades de baja calidad: releer sin comprender, distraerse sin advertirlo, copiar sin procesar.</p>
-            <p>Esto no significa que el tiempo sea irrelevante. Significa que su rendimiento depende de cómo esté estructurado: dos bloques enfocados en momentos distintos del día suelen cubrir más que una sesión larga sin pausas, con el mismo total de minutos.</p>
-            <p>Conviene además distinguir entre horas de estudio y horas de contacto con el material. Una tarde con el libro abierto puede contener cuarenta minutos de trabajo real, y quien registra la tarde completa termina sacando conclusiones equivocadas sobre su propio rendimiento.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Mito: más horas de estudio siempre producen más aprendizaje</h2>
+                <p>Esta es la creencia con más consecuencias prácticas, porque orienta el esfuerzo hacia la variable equivocada. La atención sostenida decae de forma notable después de un tramo continuo relativamente corto, y el tiempo que sigue se ocupa en actividades de baja calidad: releer sin comprender, distraerse sin advertirlo, copiar sin procesar.</p>
+                <p>Esto no significa que el tiempo sea irrelevante. Significa que su rendimiento depende de cómo esté estructurado: dos bloques enfocados en momentos distintos del día suelen cubrir más que una sesión larga sin pausas, con el mismo total de minutos.</p>
+                <p>Conviene además distinguir entre horas de estudio y horas de contacto con el material. Una tarde con el libro abierto puede contener cuarenta minutos de trabajo real, y quien registra la tarde completa termina sacando conclusiones equivocadas sobre su propio rendimiento.</p>
+            </section>
 
-            <h2>Mito: existe un método de estudio que funciona para todos</h2>
-            <p>La búsqueda de un método universal consume mucho tiempo que no se dedica a estudiar. Lo que varía entre personas no es tanto la técnica óptima como las condiciones: en qué franja del día se concentra mejor, cuánto dura su bloque sostenible, si el entorno permite silencio, cuánto margen real tiene entre obligaciones.</p>
-            <p>Lo razonable es adoptar principios que aplican de forma amplia —practicar recuperación en lugar de releer, atacar lo difícil con atención fresca, distribuir el repaso— y calibrar los parámetros con la propia observación. El principio se toma prestado; la duración y el horario se averiguan.</p>
-            <ul>
-                <li>Principios transferibles: recuperación activa, repaso distribuido, orden por dificultad.</li>
-                <li>Parámetros personales: franja del día, duración del bloque, tolerancia al ruido.</li>
-                <li>Señal de alerta: probar un método nuevo cada semana sin sostener ninguno.</li>
-            </ul>
-
-            <h2>Mito: se puede estudiar y atender el teléfono al mismo tiempo</h2>
-            <p>La multitarea con contenido que exige comprensión no ocurre en paralelo, sino por alternancia rápida. Cada cambio de foco obliga a reconstruir el contexto mental de la tarea, y esa reconstrucción cuesta tiempo que no se percibe porque se reparte en fragmentos pequeños.</p>
-            <p>El costo es doble: la sesión se alarga y la calidad de lo estudiado baja, sobre todo en tareas que requieren mantener varios elementos en mente, como resolver un problema de varios pasos. Dejar el teléfono en otra habitación resulta más eficaz que confiar en resistir la notificación cuando llega.</p>
-
-            <h2>Verdad a medias: los descansos programados siempre ayudan</h2>
-            <p>Los esquemas de trabajo con pausas fijas ayudan a evitar sesiones interminables de baja calidad, y en tareas repetitivas o de lectura funcionan bien. El matiz importa cuando la pausa cae en medio de un problema complejo que ya estaba avanzando: interrumpir ahí obliga a reconstruir el razonamiento completo al volver.</p>
-            <p>El criterio útil es cerrar la unidad de trabajo antes de la pausa, no cortar por reloj. Si el temporizador suena y estás a dos pasos de terminar un problema, conviene terminarlo. La pausa sirve para no agotarse, no para partir el pensamiento a la mitad.</p>
-            <p>Hay un caso donde la pausa fija sí conviene sin excepción: cuando se detecta que la sesión ya entró en modo automático y se llevan varios minutos leyendo sin registrar nada. Ahí interrumpir no rompe ningún razonamiento, porque el razonamiento ya se había detenido antes.</p>
-
-            <h2>Ejemplo aplicado: cuando el mito de las horas frena una preparación</h2>
-            <p>Considera a un aspirante que se propone estudiar cinco horas diarias para un examen de admisión, convencido de que el volumen decide el resultado. Cumple durante seis días, con la última hora y media en un estado en que ya no distingue lo que lee, y el séptimo día no logra abrir la guía.</p>
-            <p>Su registro muestra el patrón con claridad: durante las primeras dos horas resolvía reactivos correctamente; a partir de la tercera empezaba a leer sin retener y a partir de la cuarta solo pasaba páginas. Las cinco horas eran reales en el reloj y equivalían a dos y media de trabajo aprovechable.</p>
-            <p>El ajuste consistió en fijar el tope en dos bloques de cincuenta minutos por la mañana y uno por la tarde, con un criterio de cierre por bloque. El total bajó de cinco horas a dos y media, casi exactamente el tiempo aprovechable que ya tenía.</p>
-            <p>El resultado en los simulacros no bajó y su constancia mejoró, porque un plan de dos horas y media se sostiene semanas y uno de cinco no. Lo que el mito le costaba no era tiempo sino continuidad: cada colapso lo dejaba tres o cuatro días sin estudiar.</p>
-
-            <h2>Verdad a medias: estudiar en grupo mejora el aprendizaje</h2>
-            <p>Depende de la tarea. Para explicar un tema en voz alta, detectar huecos propios al intentar transmitirlo y resolver dudas puntuales, el grupo aporta bastante y es difícil de sustituir con estudio individual.</p>
-            <p>Para el primer contacto con material nuevo, para resolver ejercicios que exigen concentración prolongada o cuando el grupo tiende a la conversación, suele restar. La solución práctica es decidir de antemano qué parte de la sesión es individual y qué parte es grupal, en lugar de convocar la reunión y ver qué pasa.</p>
-            <ul>
-                <li>Conviene en grupo: explicar temas, resolver dudas, revisar respuestas.</li>
-                <li>Conviene solo: primer contacto con el tema, ejercicios largos, autoevaluación.</li>
-                <li>Define antes de reunirse cuál de las dos cosas se va a hacer.</li>
-            </ul>
-
-            <h2>Se sostienen: autoevaluarse rinde más que releer, y el sueño es parte del estudio</h2>
-            <p>Recuperar información de memoria antes de consultar el material rinde más que releerlo, y la diferencia es notable en retención a mediano plazo. Tiene una desventaja que explica su impopularidad: se siente peor, porque hace evidente lo que no se sabe, mientras releer produce una sensación cómoda de dominio.</p>
-            <p>Sobre el sueño, recortarlo para estudiar más suele salir en pérdida: el descanso participa en consolidar lo aprendido durante el día y en sostener la atención de la jornada siguiente. Desvelarse la noche previa a un examen puede alcanzar para recordar datos sueltos, pero rara vez para razonar bien al día siguiente. Si el problema de sueño es sostenido y no depende de la carga académica, conviene consultarlo con un profesional de la salud.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Preparación sin depender de jornadas maratónicas</h3>
-                <p>Si el examen de admisión te parece un asunto de acumular horas, vale la pena ver otra estructura de trabajo. El curso de Admisión Universitaria organiza la preparación en práctica con reactivos y repaso distribuido, que es lo que sostiene la constancia durante varios meses.</p>
-                <a href="/admision-universitaria" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de Admisión Universitaria <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Mito: existe un método de estudio que funciona para todos</h2>
+                <p>La búsqueda de un método universal consume mucho tiempo que no se dedica a estudiar. Lo que varía entre personas no es tanto la técnica óptima como las condiciones: en qué franja del día se concentra mejor, cuánto dura su bloque sostenible, si el entorno permite silencio, cuánto margen real tiene entre obligaciones.</p>
+                <p>Lo razonable es adoptar principios que aplican de forma amplia —practicar recuperación en lugar de releer, atacar lo difícil con atención fresca, distribuir el repaso— y calibrar los parámetros con la propia observación. El principio se toma prestado; la duración y el horario se averiguan.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-vs-metodo-tradicional">Estudio tradicional vs enfoque de bloques con descansos</a></li>
-                <li><a href="/blog-productividad-estudiantil-errores-comunes">Errores comunes al organizar el tiempo de estudio</a></li>
-                <li><a href="/blog-productividad-estudiantil-beneficios-reales">Beneficios reales de organizar el tiempo de estudio</a></li>
+                    <li>Principios transferibles: recuperación activa, repaso distribuido, orden por dificultad.</li>
+                    <li>Parámetros personales: franja del día, duración del bloque, tolerancia al ruido.</li>
+                    <li>Señal de alerta: probar un método nuevo cada semana sin sostener ninguno.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Los estilos de aprendizaje visual o auditivo son un mito?</h3>
-                <p>La idea de que cada persona aprende solo por un canal no se sostiene como se divulga. Lo que sí ayuda es adaptar el formato al contenido: un proceso conviene en diagrama, una definición en texto, un procedimiento practicándolo. La elección la manda el material, no una etiqueta personal.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Escuchar música mientras estudio es mito o funciona?</h3>
-                <p>Depende de la tarea. En trabajo mecánico como pasar apuntes u operaciones repetidas, rara vez molesta. En lectura de comprensión o problemas nuevos, la música con letra compite por los mismos recursos de lenguaje y suele reducir el rendimiento sin que se note.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es cierto que estudiar en el mismo lugar siempre ayuda?</h3>
-                <p>Un lugar fijo reduce la fricción de inicio, lo cual es una ventaja real. En cambio, variar el entorno de repaso puede favorecer la recuperación posterior. Una combinación razonable es un lugar fijo para el estudio de fondo y algún cambio de espacio para los repasos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Los resúmenes escritos a mano rinden más que en computadora?</h3>
-                <p>Lo que rinde no es el soporte sino el nivel de procesamiento. Un resumen que reformula con palabras propias funciona en papel o en pantalla; una transcripción literal aporta poco en ambos casos. A mano suele forzarse más la síntesis porque es más lento escribir.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Sirve estudiar en los últimos minutos antes del examen?</h3>
-                <p>Puede ayudar a refrescar datos puntuales como fórmulas o listas, y ahí tiene sentido. Lo que no conviene es intentar aprender un tema nuevo en ese momento: el material sin trabajar previamente rara vez queda disponible y suele aumentar la sensación de no estar listo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Mito: se puede estudiar y atender el teléfono al mismo tiempo</h2>
+                <p>La multitarea con contenido que exige comprensión no ocurre en paralelo, sino por alternancia rápida. Cada cambio de foco obliga a reconstruir el contexto mental de la tarea, y esa reconstrucción cuesta tiempo que no se percibe porque se reparte en fragmentos pequeños.</p>
+                <p>El costo es doble: la sesión se alarga y la calidad de lo estudiado baja, sobre todo en tareas que requieren mantener varios elementos en mente, como resolver un problema de varios pasos. Dejar el teléfono en otra habitación resulta más eficaz que confiar en resistir la notificación cuando llega.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Verdad a medias: los descansos programados siempre ayudan</h2>
+                <p>Los esquemas de trabajo con pausas fijas ayudan a evitar sesiones interminables de baja calidad, y en tareas repetitivas o de lectura funcionan bien. El matiz importa cuando la pausa cae en medio de un problema complejo que ya estaba avanzando: interrumpir ahí obliga a reconstruir el razonamiento completo al volver.</p>
+                <p>El criterio útil es cerrar la unidad de trabajo antes de la pausa, no cortar por reloj. Si el temporizador suena y estás a dos pasos de terminar un problema, conviene terminarlo. La pausa sirve para no agotarse, no para partir el pensamiento a la mitad.</p>
+                <p>Hay un caso donde la pausa fija sí conviene sin excepción: cuando se detecta que la sesión ya entró en modo automático y se llevan varios minutos leyendo sin registrar nada. Ahí interrumpir no rompe ningún razonamiento, porque el razonamiento ya se había detenido antes.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Ejemplo aplicado: cuando el mito de las horas frena una preparación</h2>
+                <p>Considera a un aspirante que se propone estudiar cinco horas diarias para un examen de admisión, convencido de que el volumen decide el resultado. Cumple durante seis días, con la última hora y media en un estado en que ya no distingue lo que lee, y el séptimo día no logra abrir la guía.</p>
+                <p>Su registro muestra el patrón con claridad: durante las primeras dos horas resolvía reactivos correctamente; a partir de la tercera empezaba a leer sin retener y a partir de la cuarta solo pasaba páginas. Las cinco horas eran reales en el reloj y equivalían a dos y media de trabajo aprovechable.</p>
+                <p>El ajuste consistió en fijar el tope en dos bloques de cincuenta minutos por la mañana y uno por la tarde, con un criterio de cierre por bloque. El total bajó de cinco horas a dos y media, casi exactamente el tiempo aprovechable que ya tenía.</p>
+                <p>El resultado en los simulacros no bajó y su constancia mejoró, porque un plan de dos horas y media se sostiene semanas y uno de cinco no. Lo que el mito le costaba no era tiempo sino continuidad: cada colapso lo dejaba tres o cuatro días sin estudiar.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Verdad a medias: estudiar en grupo mejora el aprendizaje</h2>
+                <p>Depende de la tarea. Para explicar un tema en voz alta, detectar huecos propios al intentar transmitirlo y resolver dudas puntuales, el grupo aporta bastante y es difícil de sustituir con estudio individual.</p>
+                <p>Para el primer contacto con material nuevo, para resolver ejercicios que exigen concentración prolongada o cuando el grupo tiende a la conversación, suele restar. La solución práctica es decidir de antemano qué parte de la sesión es individual y qué parte es grupal, en lugar de convocar la reunión y ver qué pasa.</p>
+                <ul>
+                    <li>Conviene en grupo: explicar temas, resolver dudas, revisar respuestas.</li>
+                    <li>Conviene solo: primer contacto con el tema, ejercicios largos, autoevaluación.</li>
+                    <li>Define antes de reunirse cuál de las dos cosas se va a hacer.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Se sostienen: autoevaluarse rinde más que releer, y el sueño es parte del estudio</h2>
+                <p>Recuperar información de memoria antes de consultar el material rinde más que releerlo, y la diferencia es notable en retención a mediano plazo. Tiene una desventaja que explica su impopularidad: se siente peor, porque hace evidente lo que no se sabe, mientras releer produce una sensación cómoda de dominio.</p>
+                <p>Sobre el sueño, recortarlo para estudiar más suele salir en pérdida: el descanso participa en consolidar lo aprendido durante el día y en sostener la atención de la jornada siguiente. Desvelarse la noche previa a un examen puede alcanzar para recordar datos sueltos, pero rara vez para razonar bien al día siguiente. Si el problema de sueño es sostenido y no depende de la carga académica, conviene consultarlo con un profesional de la salud.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Preparación sin depender de jornadas maratónicas</h2>
+                    <p>Si el examen de admisión te parece un asunto de acumular horas, vale la pena ver otra estructura de trabajo. El curso de Admisión Universitaria organiza la preparación en práctica con reactivos y repaso distribuido, que es lo que sostiene la constancia durante varios meses.</p>
+                    <a href="/admision-universitaria" class="btn-primary">
+                        Ver el curso de Admisión Universitaria <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-vs-metodo-tradicional">
+                            <span>Estudio tradicional vs enfoque de bloques con descansos</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-errores-comunes">
+                            <span>Errores comunes al organizar el tiempo de estudio</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-beneficios-reales">
+                            <span>Beneficios reales de organizar el tiempo de estudio</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Los estilos de aprendizaje visual o auditivo son un mito?</h3>
+                    <p>La idea de que cada persona aprende solo por un canal no se sostiene como se divulga. Lo que sí ayuda es adaptar el formato al contenido: un proceso conviene en diagrama, una definición en texto, un procedimiento practicándolo. La elección la manda el material, no una etiqueta personal.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Escuchar música mientras estudio es mito o funciona?</h3>
+                    <p>Depende de la tarea. En trabajo mecánico como pasar apuntes u operaciones repetidas, rara vez molesta. En lectura de comprensión o problemas nuevos, la música con letra compite por los mismos recursos de lenguaje y suele reducir el rendimiento sin que se note.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es cierto que estudiar en el mismo lugar siempre ayuda?</h3>
+                    <p>Un lugar fijo reduce la fricción de inicio, lo cual es una ventaja real. En cambio, variar el entorno de repaso puede favorecer la recuperación posterior. Una combinación razonable es un lugar fijo para el estudio de fondo y algún cambio de espacio para los repasos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Los resúmenes escritos a mano rinden más que en computadora?</h3>
+                    <p>Lo que rinde no es el soporte sino el nivel de procesamiento. Un resumen que reformula con palabras propias funciona en papel o en pantalla; una transcripción literal aporta poco en ambos casos. A mano suele forzarse más la síntesis porque es más lento escribir.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Sirve estudiar en los últimos minutos antes del examen?</h3>
+                    <p>Puede ayudar a refrescar datos puntuales como fórmulas o listas, y ahí tiene sentido. Lo que no conviene es intentar aprender un tema nuevo en ese momento: el material sin trabajar previamente rara vez queda disponible y suele aumentar la sensación de no estar listo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -529,8 +627,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Mito: más horas de estudio siempre producen más aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Mito: existe un método de estudio que funciona para todos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Mito: se puede estudiar y atender el teléfono al mismo tiempo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Verdad a medias: los descansos programados siempre ayudan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: cuando el mito de las horas frena una preparación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Verdad a medias: estudiar en grupo mejora el aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Se sostienen: autoevaluarse rinde más que releer, y el sueño es parte del estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

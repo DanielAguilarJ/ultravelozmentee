@@ -346,123 +346,198 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-clipboard-check"></i> Regularización Express
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Reprobé una materia: qué hacer en las primeras 48 horas</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Regularización Express</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Reprobé una materia: qué hacer en las primeras 48 horas</h1>
+                <p class="blog-post-dek">Qué hacer en las primeras 48 horas después de reprobar una materia: acciones concretas para entender la causa y armar un plan, sin culpa ni soluciones mágicas.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Regularización Express</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/regularizacion-express-curso-recuperar-materias.webp" alt="Reprobé una materia: qué hacer en las primeras 48 horas" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Reprobar una materia genera una mezcla de frustración, preocupación y, a veces, pánico por saber qué sigue. En ese momento inicial es fácil tomar decisiones apresuradas: prohibir actividades, contratar el primer tutor disponible, o exigir al estudiante que "se esfuerce más" sin entender qué salió mal.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Primero: revisar el examen o trabajo específico, no solo la calificación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Segundo: hablar con el docente antes de sacar conclusiones
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Tercero: distinguir causa académica de causa emocional o de organización
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Qué evitar en las primeras 48 horas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Armar un plan de siguientes pasos, no solo reaccionar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuándo buscar apoyo externo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Reprobar una materia genera una mezcla de frustración, preocupación y, a veces, pánico por saber qué sigue. En ese momento inicial es fácil tomar decisiones apresuradas: prohibir actividades, contratar el primer tutor disponible, o exigir al estudiante que "se esfuerce más" sin entender qué salió mal.</p>
             <p>Esta guía ofrece un proceso concreto para las primeras 48 horas: qué revisar, qué preguntar y qué evitar antes de decidir los siguientes pasos.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>En las primeras 48 horas después de reprobar una materia, conviene revisar el examen o trabajo específico para identificar qué se falló, hablar con el docente para entender el criterio de evaluación, y evitar decisiones apresuradas sobre castigos o tutores antes de tener claridad sobre la causa real del resultado.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>En las primeras 48 horas después de reprobar una materia, conviene revisar el examen o trabajo específico para identificar qué se falló, hablar con el docente para entender el criterio de evaluación, y evitar decisiones apresuradas sobre castigos o tutores antes de tener claridad sobre la causa real del resultado.</p>
+                </aside>
 
-            <h2>Primero: revisar el examen o trabajo específico, no solo la calificación</h2>
-            <p>El número final —la calificación reprobatoria— dice poco sobre la causa. Revisar el examen o trabajo evaluado, pregunta por pregunta, permite distinguir entre varios escenarios distintos: errores de comprensión del tema, errores de lectura de la instrucción, presión de tiempo, o simplemente no haber estudiado el material correcto.</p>
-            <p>Esta revisión debe hacerse sin tono acusatorio. El objetivo es información, no reprimenda. Pedirle al estudiante que explique su razonamiento en cada respuesta —incluso las correctas— ayuda a identificar patrones que la calificación por sí sola no muestra.</p>
-            <p>Un patrón revelador: si los errores se concentran en las últimas preguntas del examen, la causa probable es manejo del tiempo, no comprensión del contenido. Si se distribuyen de forma pareja en todo el examen, es más probable que el tema en general no quedó claro.</p>
-            <ol>
-                <li>Pedir el examen o trabajo calificado completo, no solo el resultado.</li>
-                <li>Revisar juntos cada pregunta o sección, pidiendo que explique su razonamiento.</li>
-                <li>Identificar si el error fue de contenido, de lectura de instrucción, o de tiempo.</li>
-                <li>Anotar qué temas específicos aparecen con más errores repetidos.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Primero: revisar el examen o trabajo específico, no solo la calificación</h2>
+                <p>El número final —la calificación reprobatoria— dice poco sobre la causa. Revisar el examen o trabajo evaluado, pregunta por pregunta, permite distinguir entre varios escenarios distintos: errores de comprensión del tema, errores de lectura de la instrucción, presión de tiempo, o simplemente no haber estudiado el material correcto.</p>
+                <p>Esta revisión debe hacerse sin tono acusatorio. El objetivo es información, no reprimenda. Pedirle al estudiante que explique su razonamiento en cada respuesta —incluso las correctas— ayuda a identificar patrones que la calificación por sí sola no muestra.</p>
+                <p>Un patrón revelador: si los errores se concentran en las últimas preguntas del examen, la causa probable es manejo del tiempo, no comprensión del contenido. Si se distribuyen de forma pareja en todo el examen, es más probable que el tema en general no quedó claro.</p>
+                <ol>
+                    <li>Pedir el examen o trabajo calificado completo, no solo el resultado.</li>
+                    <li>Revisar juntos cada pregunta o sección, pidiendo que explique su razonamiento.</li>
+                    <li>Identificar si el error fue de contenido, de lectura de instrucción, o de tiempo.</li>
+                    <li>Anotar qué temas específicos aparecen con más errores repetidos.</li>
+                </ol>
+            </section>
 
-            <h2>Segundo: hablar con el docente antes de sacar conclusiones</h2>
-            <p>El docente tiene contexto que la familia no ve: cómo se comportó el estudiante en clase antes del examen, si hubo advertencias previas sobre el desempeño, y qué criterio específico se usó para calificar. Una conversación breve, sin tono defensivo, aporta información valiosa antes de decidir cualquier acción.</p>
-            <p>Preguntar directamente qué recomienda el docente para el estudiante en esa materia suele dar pistas más útiles que asumir la causa sin ese contexto.</p>
-            <p>Esta conversación también es una oportunidad para verificar si el resultado fue aislado o si el docente ya había detectado el patrón en clase antes del examen; esa diferencia orienta si la respuesta debe ser puntual o requiere seguimiento más largo.</p>
-            <ul>
-                <li>Preguntar si hubo señales previas de dificultad que no se comunicaron a tiempo.</li>
-                <li>Pedir el criterio de evaluación usado para entender el peso de cada error.</li>
-                <li>Consultar si existe la posibilidad de un examen de recuperación y sus requisitos.</li>
-                <li>Preguntar qué observa el docente sobre la actitud del estudiante en clase.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Segundo: hablar con el docente antes de sacar conclusiones</h2>
+                <p>El docente tiene contexto que la familia no ve: cómo se comportó el estudiante en clase antes del examen, si hubo advertencias previas sobre el desempeño, y qué criterio específico se usó para calificar. Una conversación breve, sin tono defensivo, aporta información valiosa antes de decidir cualquier acción.</p>
+                <p>Preguntar directamente qué recomienda el docente para el estudiante en esa materia suele dar pistas más útiles que asumir la causa sin ese contexto.</p>
+                <p>Esta conversación también es una oportunidad para verificar si el resultado fue aislado o si el docente ya había detectado el patrón en clase antes del examen; esa diferencia orienta si la respuesta debe ser puntual o requiere seguimiento más largo.</p>
+                <ul>
+                    <li>Preguntar si hubo señales previas de dificultad que no se comunicaron a tiempo.</li>
+                    <li>Pedir el criterio de evaluación usado para entender el peso de cada error.</li>
+                    <li>Consultar si existe la posibilidad de un examen de recuperación y sus requisitos.</li>
+                    <li>Preguntar qué observa el docente sobre la actitud del estudiante en clase.</li>
+                </ul>
+            </section>
 
-            <h2>Tercero: distinguir causa académica de causa emocional o de organización</h2>
-            <p>No toda reprobación tiene origen puramente académico. Antes de asumir que el estudiante necesita más clases de la materia, vale la pena descartar otras causas: problemas para dormir, ansiedad ante los exámenes, conflictos sociales que distraen la atención, o simplemente una mala organización del tiempo de estudio esa semana en particular.</p>
-            <p>Preguntar abiertamente —sin acusar— cómo se sintió antes y durante el examen, y si algo fuera de lo académico estaba pasando esos días, puede revelar una causa que ningún tutor de contenido resolvería.</p>
-            <p>Si la causa parece emocional o social, la prioridad debe ser esa área antes que el contenido académico. Un estudiante que reprobó por ansiedad frente al examen no mejora necesariamente con más clases de la materia; mejora cuando se aborda la ansiedad de forma específica, con apoyo adecuado.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Tercero: distinguir causa académica de causa emocional o de organización</h2>
+                <p>No toda reprobación tiene origen puramente académico. Antes de asumir que el estudiante necesita más clases de la materia, vale la pena descartar otras causas: problemas para dormir, ansiedad ante los exámenes, conflictos sociales que distraen la atención, o simplemente una mala organización del tiempo de estudio esa semana en particular.</p>
+                <p>Preguntar abiertamente —sin acusar— cómo se sintió antes y durante el examen, y si algo fuera de lo académico estaba pasando esos días, puede revelar una causa que ningún tutor de contenido resolvería.</p>
+                <p>Si la causa parece emocional o social, la prioridad debe ser esa área antes que el contenido académico. Un estudiante que reprobó por ansiedad frente al examen no mejora necesariamente con más clases de la materia; mejora cuando se aborda la ansiedad de forma específica, con apoyo adecuado.</p>
+            </section>
 
-            <h2>Qué evitar en las primeras 48 horas</h2>
-            <p>Evitar decisiones definitivas tomadas en el calor del momento: prohibir actividades extracurriculares de forma indefinida, contratar el primer tutor que aparece en una búsqueda sin verificar su enfoque, o etiquetar al estudiante ("eres flojo", "no te importa la escuela") con base en un solo resultado.</p>
-            <p>Estas reacciones suelen generar más ansiedad y resistencia que soluciones. Una consecuencia razonable y temporal —por ejemplo, reducir tiempo de pantalla mientras se resuelve el examen de recuperación— es distinta de un castigo desproporcionado sin relación clara con el problema.</p>
-            <p>También conviene evitar comparar al estudiante con hermanos o compañeros que no tuvieron el mismo resultado. La comparación no aporta información útil sobre la causa y suele dañar la disposición del estudiante a hablar abiertamente sobre lo que pasó.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Qué evitar en las primeras 48 horas</h2>
+                <p>Evitar decisiones definitivas tomadas en el calor del momento: prohibir actividades extracurriculares de forma indefinida, contratar el primer tutor que aparece en una búsqueda sin verificar su enfoque, o etiquetar al estudiante ("eres flojo", "no te importa la escuela") con base en un solo resultado.</p>
+                <p>Estas reacciones suelen generar más ansiedad y resistencia que soluciones. Una consecuencia razonable y temporal —por ejemplo, reducir tiempo de pantalla mientras se resuelve el examen de recuperación— es distinta de un castigo desproporcionado sin relación clara con el problema.</p>
+                <p>También conviene evitar comparar al estudiante con hermanos o compañeros que no tuvieron el mismo resultado. La comparación no aporta información útil sobre la causa y suele dañar la disposición del estudiante a hablar abiertamente sobre lo que pasó.</p>
+            </section>
 
-            <h2>Armar un plan de siguientes pasos, no solo reaccionar</h2>
-            <p>Una vez revisado el examen y conversado con el docente, el siguiente paso es un plan concreto: si existe examen de recuperación, cuándo es y qué temas cubre; si el patrón de errores apunta a una brecha específica, si conviene buscar apoyo focalizado; y si la causa fue de organización, qué ajuste de rutina se necesita.</p>
-            <p>Este plan debe comunicarse al estudiante como una ruta hacia adelante, no como una consecuencia adicional al mal resultado. La diferencia de tono afecta directamente su disposición a colaborar.</p>
-            <p>Incluir al estudiante en la construcción del plan —preguntarle qué cree que necesita, no solo decírselo— suele producir mayor compromiso que un plan impuesto sin su participación, incluso cuando el contenido del plan es similar.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Armar un plan de siguientes pasos, no solo reaccionar</h2>
+                <p>Una vez revisado el examen y conversado con el docente, el siguiente paso es un plan concreto: si existe examen de recuperación, cuándo es y qué temas cubre; si el patrón de errores apunta a una brecha específica, si conviene buscar apoyo focalizado; y si la causa fue de organización, qué ajuste de rutina se necesita.</p>
+                <p>Este plan debe comunicarse al estudiante como una ruta hacia adelante, no como una consecuencia adicional al mal resultado. La diferencia de tono afecta directamente su disposición a colaborar.</p>
+                <p>Incluir al estudiante en la construcción del plan —preguntarle qué cree que necesita, no solo decírselo— suele producir mayor compromiso que un plan impuesto sin su participación, incluso cuando el contenido del plan es similar.</p>
+            </section>
 
-            <h2>Cuándo buscar apoyo externo</h2>
-            <p>Si la revisión del examen y la conversación con el docente apuntan claramente a una brecha de contenido específica —no a organización ni a un factor emocional puntual—, buscar apoyo de regularización enfocado en ese tema exacto suele ser más efectivo que un repaso general de toda la materia.</p>
-            <p>Buscar ese apoyo con información clara del diagnóstico previo —qué preguntas específicas se fallaron, qué observó el docente— permite que el tutor externo enfoque su trabajo desde la primera sesión, en lugar de repetir el proceso de diagnóstico desde cero.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cuándo buscar apoyo externo</h2>
+                <p>Si la revisión del examen y la conversación con el docente apuntan claramente a una brecha de contenido específica —no a organización ni a un factor emocional puntual—, buscar apoyo de regularización enfocado en ese tema exacto suele ser más efectivo que un repaso general de toda la materia.</p>
+                <p>Buscar ese apoyo con información clara del diagnóstico previo —qué preguntas específicas se fallaron, qué observó el docente— permite que el tutor externo enfoque su trabajo desde la primera sesión, en lugar de repetir el proceso de diagnóstico desde cero.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Conoce Regularización Express de Ultravelozmente</h3>
-                <p>Si después de revisar el examen y hablar con el docente identificas una brecha de contenido específica, nuestro programa de regularización trabaja exactamente sobre ese tema, con diagnóstico y objetivo de cierre claro.</p>
-                <a href="/regularizacion-express" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de regularización escolar <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Conoce Regularización Express de Ultravelozmente</h2>
+                    <p>Si después de revisar el examen y hablar con el docente identificas una brecha de contenido específica, nuestro programa de regularización trabaja exactamente sobre ese tema, con diagnóstico y objetivo de cierre claro.</p>
+                    <a href="/regularizacion-express" class="btn-primary">
+                        Ver el curso de regularización escolar <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo castigar a mi hijo por reprobar una materia?</h3>
-                <p>Antes de cualquier consecuencia, conviene entender la causa real revisando el examen y hablando con el docente. Una consecuencia razonable y relacionada con el problema es distinta de un castigo desproporcionado basado solo en la calificación.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué debo revisar primero después de una calificación reprobatoria?</h3>
-                <p>El examen o trabajo específico, pregunta por pregunta, para identificar si el error fue de contenido, de lectura de instrucciones o de manejo del tiempo. La calificación sola no distingue entre estas causas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Siempre necesito contratar un tutor después de reprobar una materia?</h3>
-                <p>No necesariamente. Primero conviene identificar la causa; si es de organización o emocional, un tutor de contenido no la resuelve. Si es una brecha de contenido específica, el apoyo focalizado sí puede ayudar.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/sep" target="_blank" rel="noopener noreferrer">SEP – Calendario escolar oficial</a> — Verificar fechas y reglamento de exámenes de recuperación según ciclo escolar</li>
-                <li><a href="https://www.inee.edu.mx/" target="_blank" rel="noopener noreferrer">INEE – Directrices para mejorar la permanencia escolar</a> — Contexto sobre factores asociados a bajo desempeño puntual</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo castigar a mi hijo por reprobar una materia?</h3>
+                    <p>Antes de cualquier consecuencia, conviene entender la causa real revisando el examen y hablando con el docente. Una consecuencia razonable y relacionada con el problema es distinta de un castigo desproporcionado basado solo en la calificación.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué debo revisar primero después de una calificación reprobatoria?</h3>
+                    <p>El examen o trabajo específico, pregunta por pregunta, para identificar si el error fue de contenido, de lectura de instrucciones o de manejo del tiempo. La calificación sola no distingue entre estas causas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Siempre necesito contratar un tutor después de reprobar una materia?</h3>
+                    <p>No necesariamente. Primero conviene identificar la causa; si es de organización o emocional, un tutor de contenido no la resuelve. Si es una brecha de contenido específica, el apoyo focalizado sí puede ayudar.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/sep" target="_blank" rel="noopener noreferrer">SEP – Calendario escolar oficial</a> — Verificar fechas y reglamento de exámenes de recuperación según ciclo escolar</li>
+                    <li><a href="https://www.inee.edu.mx/" target="_blank" rel="noopener noreferrer">INEE – Directrices para mejorar la permanencia escolar</a> — Contexto sobre factores asociados a bajo desempeño puntual</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -492,8 +567,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Primero: revisar el examen o trabajo específico, no solo la calificación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Segundo: hablar con el docente antes de sacar conclusiones
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Tercero: distinguir causa académica de causa emocional o de organización
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Qué evitar en las primeras 48 horas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Armar un plan de siguientes pasos, no solo reaccionar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuándo buscar apoyo externo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

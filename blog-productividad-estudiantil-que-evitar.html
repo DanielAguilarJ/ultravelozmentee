@@ -362,173 +362,271 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="11">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Qué evitar para mejorar tu productividad estudiantil</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 11 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Qué evitar para mejorar tu productividad estudiantil</h1>
+                <p class="blog-post-dek">Qué evitar al estudiar: errores de planeación, método, entorno y descanso que consumen tu tiempo sin dejar aprendizaje, y cómo detectarlos.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>11 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Qué evitar para mejorar tu productividad estudiantil" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Cuando alguien quiere estudiar mejor, casi siempre busca qué agregar: una técnica, una aplicación, un horario más completo. Es la dirección menos productiva al inicio, porque el problema rara vez es la ausencia de un método. El problema suele ser que hay varias prácticas activas que anulan el efecto de todo lo demás, y agregar encima de ellas produce un sistema más complicado con el mismo resultado.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué quitar rinde más que agregar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Errores de planeación: el horario que nadie podría cumplir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Errores de método: trabajo que se parece al estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Errores de entorno: el costo real de cada interrupción
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: la misma semana, con tres cosas menos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores de descanso y gestión de energía
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Auditoría breve para encontrar lo que sobra en tu caso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Cuando alguien quiere estudiar mejor, casi siempre busca qué agregar: una técnica, una aplicación, un horario más completo. Es la dirección menos productiva al inicio, porque el problema rara vez es la ausencia de un método. El problema suele ser que hay varias prácticas activas que anulan el efecto de todo lo demás, y agregar encima de ellas produce un sistema más complicado con el mismo resultado.</p>
             <p>Este texto revisa los cuatro grupos de errores que aparecen con más frecuencia —planeación, método, entorno y descanso—, muestra en un caso concreto qué cambia al quitar tres de ellos y termina con una auditoría breve para identificar los tuyos. La lógica es la de un diagnóstico: primero se retira lo que estorba, y solo después tiene sentido probar técnicas nuevas.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Lo que más frena la productividad estudiantil no es la falta de técnicas, sino cuatro hábitos que consumen tiempo sin dejar aprendizaje: horarios imposibles de cumplir, tareas que parecen estudio pero solo organizan material, un entorno que fuerza a reanudar la concentración cada pocos minutos y dormir menos para estudiar más. Quitar estos cuatro suele rendir más que agregar cualquier método nuevo.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Lo que más frena la productividad estudiantil no es la falta de técnicas, sino cuatro hábitos que consumen tiempo sin dejar aprendizaje: horarios imposibles de cumplir, tareas que parecen estudio pero solo organizan material, un entorno que fuerza a reanudar la concentración cada pocos minutos y dormir menos para estudiar más. Quitar estos cuatro suele rendir más que agregar cualquier método nuevo.</p>
+                </aside>
 
-            <h2>Por qué quitar rinde más que agregar</h2>
-            <p>Un método de estudio nuevo compite con los hábitos que ya tienes, y los hábitos ganan casi siempre porque no requieren decisión. Si estudias con el celular al lado y agregas la técnica de recuperación, seguirás interrumpiéndote cada pocos minutos y concluirás que la técnica no sirve. La conclusión será errónea, pero el resultado será real: no funcionó en tus condiciones.</p>
-            <p>Retirar un obstáculo tiene además una ventaja práctica: no exige constancia, solo una decisión que se sostiene sola. Dejar el teléfono en otro cuarto se decide una vez al inicio de la sesión; recordar aplicar una técnica nueva se decide cada vez que estudias. Por eso conviene empezar por la resta, aunque se sienta menos productivo que aprender algo nuevo.</p>
-            <ul>
-                <li>Los obstáculos anulan métodos: con interrupciones constantes, ninguna técnica rinde lo que promete.</li>
-                <li>Quitar requiere una decisión inicial; agregar requiere disciplina repetida.</li>
-                <li>Empieza por el obstáculo más frecuente, no por el más grave: la frecuencia es la que define el costo total.</li>
-                <li>Después de retirar dos obstáculos, vuelve a evaluar si de verdad necesitas un método nuevo.</li>
-            </ul>
-
-            <h2>Errores de planeación: el horario que nadie podría cumplir</h2>
-            <p>El plan de estudio más común es también el más frágil: bloques consecutivos que ocupan cada hora libre, sin margen para traslados, imprevistos ni cansancio. Se hace con buena intención y falla el segundo día, porque un retraso de veinte minutos desplaza todo lo demás y el plan se vuelve una lista de incumplimientos. A la semana se abandona, y el estudiante concluye que le falta disciplina cuando en realidad el diseño era imposible.</p>
-            <p>El segundo error de planeación es planear por tiempo en lugar de por tarea. "Dos horas de historia" es un compromiso que se cumple estando sentado, sin que nada obligue a producir un resultado. "Responder de memoria las preguntas de la unidad tres" tiene un final identificable y hace visible si avanzaste. El primero premia la presencia; el segundo premia el trabajo.</p>
-            <ul>
-                <li>Evita llenar todas las horas libres: sin margen, un imprevisto tira el plan completo.</li>
-                <li>Evita bloques de más de una hora sin descanso; el rendimiento cae y no lo notas.</li>
-                <li>Evita planear por horas en lugar de por tareas con final identificable.</li>
-                <li>Evita replanear cada semana desde cero: rehacer el horario se siente productivo y no lo es.</li>
-                <li>Evita agendar las materias difíciles al final del día, cuando ya no queda atención fina.</li>
-            </ul>
-
-            <h2>Errores de método: trabajo que se parece al estudio</h2>
-            <p>Este grupo es el más difícil de abandonar porque las actividades involucradas son agradables, dejan evidencia visible y se parecen mucho a estudiar. Pasar apuntes en limpio, subrayar con tres colores, armar un mapa copiando del libro o buscar el video que explique mejor el tema producen material y sensación de avance, pero no exigen recuperar información ni resolver nada sin apoyo.</p>
-            <p>El criterio para detectarlos es preguntarte, al terminar, qué podrías responder ahora sin ver nada que no pudieras responder antes. Si la respuesta es "nada, pero ya tengo el material ordenado", esa hora fue de organización. Organizar es necesario a veces; el error está en que ocupe la mayor parte del tiempo de estudio y se contabilice como aprendizaje.</p>
-            <ul>
-                <li>Evita que la organización de material ocupe más de una cuarta parte de tu tiempo de estudio.</li>
-                <li>Evita releer como actividad principal: la familiaridad con el texto no es dominio del tema.</li>
-                <li>Evita revisar la respuesta antes de intentar el problema; después de verla, ya no puedes practicar con él.</li>
-                <li>Evita estudiar solo lo que ya te sale bien porque se siente cómodo y produce buenos ratos.</li>
-                <li>Evita acumular recursos —guías, videos, aplicaciones— sin haber usado los que ya tienes.</li>
-            </ul>
-
-            <h2>Errores de entorno: el costo real de cada interrupción</h2>
-            <p>Una interrupción no cuesta los segundos que dura. Cuesta además el tiempo de volver a cargar en la mente el problema que tenías a medias, y ese costo de reanudación es lo que hace tan caro estudiar con notificaciones activas. Con interrupciones frecuentes puedes pasar una hora entera sin llegar nunca al estado en que se resuelven los problemas difíciles, y con la sensación honesta de haber trabajado una hora.</p>
-            <p>El entorno también incluye a las personas y el lugar. Estudiar en el comedor donde pasa toda la familia, o en una sesión de grupo sin estructura donde la conversación deriva, tiene el mismo efecto que las notificaciones. No hace falta un espacio ideal: hace falta que sea previsible durante el tiempo que planeaste, y que quitar los disparadores de distracción sea parte del arranque de la sesión.</p>
-            <ul>
-                <li>Evita el celular al alcance de la mano, aunque esté en silencio: la tentación consume atención igual.</li>
-                <li>Evita tener abiertas pestañas de mensajería o redes mientras estudias en computadora.</li>
-                <li>Evita estudiar en zonas de paso de la casa durante las horas de mayor movimiento.</li>
-                <li>Evita las sesiones de grupo sin objetivo definido y sin tiempo de cierre acordado.</li>
-                <li>Evita cambiar de lugar cada día si eso implica quince minutos de acomodo antes de arrancar.</li>
-            </ul>
-
-            <h2>Ejemplo aplicado: la misma semana, con tres cosas menos</h2>
-            <p>Andrés estudiaba entre veinte y veinticinco horas por semana y sus resultados no correspondían a ese esfuerzo. Al describir su semana aparecieron tres prácticas concretas: pasaba a limpio los apuntes de tres materias los domingos, estudiaba en la mesa del comedor con el celular junto al cuaderno, y programaba bloques de dos horas seguidas para las materias que peor llevaba, casi siempre después de las nueve de la noche.</p>
-            <p>El primer cambio fue eliminar el pase a limpio, que le tomaba cerca de tres horas cada domingo. Esas tres horas se convirtieron en dos sesiones donde resolvía problemas con la solución tapada. La primera semana se sintió incómodo: el domingo terminaba sin nada bonito que mostrar y con la lista de sus errores enfrente, que es una forma menos agradable de cerrar la semana.</p>
-            <p>El segundo cambio fue dejar el celular en otro cuarto durante los bloques y estudiar en el escritorio de su recámara. Notó algo que no esperaba: sus bloques de dos horas nunca habían sido de dos horas, sino de muchos tramos de ocho o diez minutos. Con el teléfono fuera aguantó cuarenta minutos continuos el primer día y se sintió más cansado que después de las dos horas anteriores, porque por primera vez había estado concentrado todo el tiempo.</p>
-            <p>El tercer cambio fue mover las materias difíciles a la primera hora después de comer y dejar la noche para tareas mecánicas. Al final del mes su tiempo total bajó a unas dieciocho horas semanales y su registro de ejercicios resueltos sin ayuda se había duplicado. No agregó ninguna técnica nueva en ese mes: solo quitó tres cosas y movió una.</p>
-
-            <h2>Errores de descanso y gestión de energía</h2>
-            <p>Recortar sueño para estudiar más es la operación con peor rendimiento de todas, porque el material que ganas se estudia con menos atención y se consolida peor, además de que el día siguiente arranca degradado. El resultado típico es más horas invertidas y menos aprendizaje, con la agravante de que el cansancio empuja hacia las actividades pasivas: releer, subrayar, ver videos.</p>
-            <p>También conviene evitar los descansos que no descansan. Diez minutos revisando redes sociales mantienen la atención ocupada y no reponen nada; un descanso útil implica levantarse, moverse, mirar lejos, tomar agua. Y si el agotamiento se vuelve permanente, si duermes mal de forma sostenida o notas cambios marcados en tu ánimo o tu concentración, eso ya no se resuelve con ajustes de horario y conviene consultar a un profesional de salud.</p>
-            <ul>
-                <li>Evita desvelarte en la víspera de un examen: el costo en desempeño supera lo que alcanzas a cubrir.</li>
-                <li>Evita los descansos frente a una pantalla; no reponen atención aunque se sientan pausa.</li>
-                <li>Evita estudiar más de dos materias exigentes el mismo día si puedes distribuirlas.</li>
-                <li>Evita saltarte comidas para aprovechar el tiempo; el bajón posterior cuesta más que el bloque ganado.</li>
-                <li>Evita normalizar el agotamiento sostenido: si dura semanas, conviene consultarlo con un profesional.</li>
-            </ul>
-
-            <h2>Auditoría breve para encontrar lo que sobra en tu caso</h2>
-            <p>Los obstáculos son personales y no todos los de esta lista te aplican. Una auditoría de una semana basta para identificar los tuyos, y no requiere más que anotar unas cuantas cosas al terminar cada sesión. El objetivo es encontrar dos para eliminar, no diez: quitar dos obstáculos reales y sostener el cambio produce más que una lista de propósitos.</p>
-            <p>Al revisar tus notas, busca patrones en lugar de casos aislados. Un día en que no pudiste concentrarte no dice nada; cinco días en que la sesión arrancó después de veinte minutos apuntan a un obstáculo de entorno o de definición de tarea. Ese es el que conviene atacar primero, aunque parezca menor comparado con problemas más dramáticos.</p>
-            <ol>
-                <li>Durante una semana anota al terminar cada sesión: minutos hasta arrancar, cuántas veces te interrumpiste y qué hiciste realmente.</li>
-                <li>Clasifica cada sesión en producción —resolver, responder, explicar— u organización —copiar, subrayar, ordenar.</li>
-                <li>Suma el tiempo de cada categoría; si organización supera un cuarto del total, ahí está tu primer ajuste.</li>
-                <li>Identifica el obstáculo más frecuente, no el más grave, y elimínalo la semana siguiente.</li>
-                <li>Repite la medición dos semanas después y compara contra tu propio registro, no contra un ideal.</li>
-            </ol>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Cuando el obstáculo no es el método sino un hueco de base</h3>
-                <p>Hay un caso donde quitar obstáculos no alcanza: cuando el tema actual se apoya en algo que quedó incompleto ciclos atrás. Ahí la sesión falla no por distracción sino porque falta el prerrequisito, y ninguna técnica de estudio lo sustituye. Nuestro programa de regularización express trabaja precisamente ese escenario, con un diagnóstico que identifica qué falta de base y en qué orden conviene cerrarlo.</p>
-                <a href="/regularizacion-express" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Revisa el programa de regularización express <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué quitar rinde más que agregar</h2>
+                <p>Un método de estudio nuevo compite con los hábitos que ya tienes, y los hábitos ganan casi siempre porque no requieren decisión. Si estudias con el celular al lado y agregas la técnica de recuperación, seguirás interrumpiéndote cada pocos minutos y concluirás que la técnica no sirve. La conclusión será errónea, pero el resultado será real: no funcionó en tus condiciones.</p>
+                <p>Retirar un obstáculo tiene además una ventaja práctica: no exige constancia, solo una decisión que se sostiene sola. Dejar el teléfono en otro cuarto se decide una vez al inicio de la sesión; recordar aplicar una técnica nueva se decide cada vez que estudias. Por eso conviene empezar por la resta, aunque se sienta menos productivo que aprender algo nuevo.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-estrategias-efectivas">Estrategias efectivas de productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-plan-de-emergencia">Plan de emergencia de productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-como-lograrlo-sin-estres">Cómo lograr productividad estudiantil sin estrés</a></li>
+                    <li>Los obstáculos anulan métodos: con interrupciones constantes, ninguna técnica rinde lo que promete.</li>
+                    <li>Quitar requiere una decisión inicial; agregar requiere disciplina repetida.</li>
+                    <li>Empieza por el obstáculo más frecuente, no por el más grave: la frecuencia es la que define el costo total.</li>
+                    <li>Después de retirar dos obstáculos, vuelve a evaluar si de verdad necesitas un método nuevo.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es malo subrayar o hacer resúmenes entonces?</h3>
-                <p>No son malos en sí; el problema es su lugar en el tiempo total. Subrayar ayuda a localizar contenido después y un resumen hecho de memoria es un ejercicio de recuperación válido. Lo que rinde poco es que estas actividades ocupen la mayor parte de la sesión y que el resumen se haga copiando del texto con el libro abierto al lado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántas horas debería estudiar al día para no caer en exceso?</h3>
-                <p>No hay una cifra que aplique a todos, porque depende de tu carga, tus materias y tu punto de partida. El criterio útil no es el total de horas sino qué proporción fue trabajo de producción y si pudiste sostener ese volumen una semana completa sin recortar sueño. Si para cumplir tu plan tienes que dormir menos, el plan es demasiado grande.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi casa no tiene un lugar tranquilo para estudiar?</h3>
-                <p>Busca previsibilidad más que silencio: un horario en que la zona común tenga menos movimiento suele funcionar mejor que un espacio ideal inexistente. Los audífonos con ruido constante sin letra ayudan, igual que acordar con la familia un tramo corto y concreto. La biblioteca de la escuela o un espacio público con horario fijo también son opciones válidas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Estudiar en grupo es un error?</h3>
-                <p>No, siempre que tenga estructura. Un grupo funciona bien para explicarse temas por turnos, resolver problemas por separado y comparar después, o revisar exámenes previos con reglas de tiempo. Se vuelve un obstáculo cuando no hay objetivo definido ni hora de cierre, porque entonces la sesión deriva en conversación y produce la sensación de haber estudiado tres horas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>Quité varios de estos hábitos y sigo sin ver mejoría. ¿Qué reviso?</h3>
-                <p>Revisa primero si los cambios llevan al menos dos o tres semanas y si estás midiendo señales conductuales en lugar de calificaciones, que tardan más en moverse. Si la fricción de arranque y los ejercicios resueltos sin ayuda tampoco cambiaron, puede que el problema sea de base: huecos de temas anteriores que ninguna técnica de estudio resuelve sin recuperarlos primero.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Errores de planeación: el horario que nadie podría cumplir</h2>
+                <p>El plan de estudio más común es también el más frágil: bloques consecutivos que ocupan cada hora libre, sin margen para traslados, imprevistos ni cansancio. Se hace con buena intención y falla el segundo día, porque un retraso de veinte minutos desplaza todo lo demás y el plan se vuelve una lista de incumplimientos. A la semana se abandona, y el estudiante concluye que le falta disciplina cuando en realidad el diseño era imposible.</p>
+                <p>El segundo error de planeación es planear por tiempo en lugar de por tarea. "Dos horas de historia" es un compromiso que se cumple estando sentado, sin que nada obligue a producir un resultado. "Responder de memoria las preguntas de la unidad tres" tiene un final identificable y hace visible si avanzaste. El primero premia la presencia; el segundo premia el trabajo.</p>
+                <ul>
+                    <li>Evita llenar todas las horas libres: sin margen, un imprevisto tira el plan completo.</li>
+                    <li>Evita bloques de más de una hora sin descanso; el rendimiento cae y no lo notas.</li>
+                    <li>Evita planear por horas en lugar de por tareas con final identificable.</li>
+                    <li>Evita replanear cada semana desde cero: rehacer el horario se siente productivo y no lo es.</li>
+                    <li>Evita agendar las materias difíciles al final del día, cuando ya no queda atención fina.</li>
+                </ul>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Errores de método: trabajo que se parece al estudio</h2>
+                <p>Este grupo es el más difícil de abandonar porque las actividades involucradas son agradables, dejan evidencia visible y se parecen mucho a estudiar. Pasar apuntes en limpio, subrayar con tres colores, armar un mapa copiando del libro o buscar el video que explique mejor el tema producen material y sensación de avance, pero no exigen recuperar información ni resolver nada sin apoyo.</p>
+                <p>El criterio para detectarlos es preguntarte, al terminar, qué podrías responder ahora sin ver nada que no pudieras responder antes. Si la respuesta es "nada, pero ya tengo el material ordenado", esa hora fue de organización. Organizar es necesario a veces; el error está en que ocupe la mayor parte del tiempo de estudio y se contabilice como aprendizaje.</p>
+                <ul>
+                    <li>Evita que la organización de material ocupe más de una cuarta parte de tu tiempo de estudio.</li>
+                    <li>Evita releer como actividad principal: la familiaridad con el texto no es dominio del tema.</li>
+                    <li>Evita revisar la respuesta antes de intentar el problema; después de verla, ya no puedes practicar con él.</li>
+                    <li>Evita estudiar solo lo que ya te sale bien porque se siente cómodo y produce buenos ratos.</li>
+                    <li>Evita acumular recursos —guías, videos, aplicaciones— sin haber usado los que ya tienes.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Errores de entorno: el costo real de cada interrupción</h2>
+                <p>Una interrupción no cuesta los segundos que dura. Cuesta además el tiempo de volver a cargar en la mente el problema que tenías a medias, y ese costo de reanudación es lo que hace tan caro estudiar con notificaciones activas. Con interrupciones frecuentes puedes pasar una hora entera sin llegar nunca al estado en que se resuelven los problemas difíciles, y con la sensación honesta de haber trabajado una hora.</p>
+                <p>El entorno también incluye a las personas y el lugar. Estudiar en el comedor donde pasa toda la familia, o en una sesión de grupo sin estructura donde la conversación deriva, tiene el mismo efecto que las notificaciones. No hace falta un espacio ideal: hace falta que sea previsible durante el tiempo que planeaste, y que quitar los disparadores de distracción sea parte del arranque de la sesión.</p>
+                <ul>
+                    <li>Evita el celular al alcance de la mano, aunque esté en silencio: la tentación consume atención igual.</li>
+                    <li>Evita tener abiertas pestañas de mensajería o redes mientras estudias en computadora.</li>
+                    <li>Evita estudiar en zonas de paso de la casa durante las horas de mayor movimiento.</li>
+                    <li>Evita las sesiones de grupo sin objetivo definido y sin tiempo de cierre acordado.</li>
+                    <li>Evita cambiar de lugar cada día si eso implica quince minutos de acomodo antes de arrancar.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Ejemplo aplicado: la misma semana, con tres cosas menos</h2>
+                <p>Andrés estudiaba entre veinte y veinticinco horas por semana y sus resultados no correspondían a ese esfuerzo. Al describir su semana aparecieron tres prácticas concretas: pasaba a limpio los apuntes de tres materias los domingos, estudiaba en la mesa del comedor con el celular junto al cuaderno, y programaba bloques de dos horas seguidas para las materias que peor llevaba, casi siempre después de las nueve de la noche.</p>
+                <p>El primer cambio fue eliminar el pase a limpio, que le tomaba cerca de tres horas cada domingo. Esas tres horas se convirtieron en dos sesiones donde resolvía problemas con la solución tapada. La primera semana se sintió incómodo: el domingo terminaba sin nada bonito que mostrar y con la lista de sus errores enfrente, que es una forma menos agradable de cerrar la semana.</p>
+                <p>El segundo cambio fue dejar el celular en otro cuarto durante los bloques y estudiar en el escritorio de su recámara. Notó algo que no esperaba: sus bloques de dos horas nunca habían sido de dos horas, sino de muchos tramos de ocho o diez minutos. Con el teléfono fuera aguantó cuarenta minutos continuos el primer día y se sintió más cansado que después de las dos horas anteriores, porque por primera vez había estado concentrado todo el tiempo.</p>
+                <p>El tercer cambio fue mover las materias difíciles a la primera hora después de comer y dejar la noche para tareas mecánicas. Al final del mes su tiempo total bajó a unas dieciocho horas semanales y su registro de ejercicios resueltos sin ayuda se había duplicado. No agregó ninguna técnica nueva en ese mes: solo quitó tres cosas y movió una.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Errores de descanso y gestión de energía</h2>
+                <p>Recortar sueño para estudiar más es la operación con peor rendimiento de todas, porque el material que ganas se estudia con menos atención y se consolida peor, además de que el día siguiente arranca degradado. El resultado típico es más horas invertidas y menos aprendizaje, con la agravante de que el cansancio empuja hacia las actividades pasivas: releer, subrayar, ver videos.</p>
+                <p>También conviene evitar los descansos que no descansan. Diez minutos revisando redes sociales mantienen la atención ocupada y no reponen nada; un descanso útil implica levantarse, moverse, mirar lejos, tomar agua. Y si el agotamiento se vuelve permanente, si duermes mal de forma sostenida o notas cambios marcados en tu ánimo o tu concentración, eso ya no se resuelve con ajustes de horario y conviene consultar a un profesional de salud.</p>
+                <ul>
+                    <li>Evita desvelarte en la víspera de un examen: el costo en desempeño supera lo que alcanzas a cubrir.</li>
+                    <li>Evita los descansos frente a una pantalla; no reponen atención aunque se sientan pausa.</li>
+                    <li>Evita estudiar más de dos materias exigentes el mismo día si puedes distribuirlas.</li>
+                    <li>Evita saltarte comidas para aprovechar el tiempo; el bajón posterior cuesta más que el bloque ganado.</li>
+                    <li>Evita normalizar el agotamiento sostenido: si dura semanas, conviene consultarlo con un profesional.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Auditoría breve para encontrar lo que sobra en tu caso</h2>
+                <p>Los obstáculos son personales y no todos los de esta lista te aplican. Una auditoría de una semana basta para identificar los tuyos, y no requiere más que anotar unas cuantas cosas al terminar cada sesión. El objetivo es encontrar dos para eliminar, no diez: quitar dos obstáculos reales y sostener el cambio produce más que una lista de propósitos.</p>
+                <p>Al revisar tus notas, busca patrones en lugar de casos aislados. Un día en que no pudiste concentrarte no dice nada; cinco días en que la sesión arrancó después de veinte minutos apuntan a un obstáculo de entorno o de definición de tarea. Ese es el que conviene atacar primero, aunque parezca menor comparado con problemas más dramáticos.</p>
+                <ol>
+                    <li>Durante una semana anota al terminar cada sesión: minutos hasta arrancar, cuántas veces te interrumpiste y qué hiciste realmente.</li>
+                    <li>Clasifica cada sesión en producción —resolver, responder, explicar— u organización —copiar, subrayar, ordenar.</li>
+                    <li>Suma el tiempo de cada categoría; si organización supera un cuarto del total, ahí está tu primer ajuste.</li>
+                    <li>Identifica el obstáculo más frecuente, no el más grave, y elimínalo la semana siguiente.</li>
+                    <li>Repite la medición dos semanas después y compara contra tu propio registro, no contra un ideal.</li>
+                </ol>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Cuando el obstáculo no es el método sino un hueco de base</h2>
+                    <p>Hay un caso donde quitar obstáculos no alcanza: cuando el tema actual se apoya en algo que quedó incompleto ciclos atrás. Ahí la sesión falla no por distracción sino porque falta el prerrequisito, y ninguna técnica de estudio lo sustituye. Nuestro programa de regularización express trabaja precisamente ese escenario, con un diagnóstico que identifica qué falta de base y en qué orden conviene cerrarlo.</p>
+                    <a href="/regularizacion-express" class="btn-primary">
+                        Revisa el programa de regularización express <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-estrategias-efectivas">
+                            <span>Estrategias efectivas de productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-plan-de-emergencia">
+                            <span>Plan de emergencia de productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-como-lograrlo-sin-estres">
+                            <span>Cómo lograr productividad estudiantil sin estrés</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es malo subrayar o hacer resúmenes entonces?</h3>
+                    <p>No son malos en sí; el problema es su lugar en el tiempo total. Subrayar ayuda a localizar contenido después y un resumen hecho de memoria es un ejercicio de recuperación válido. Lo que rinde poco es que estas actividades ocupen la mayor parte de la sesión y que el resumen se haga copiando del texto con el libro abierto al lado.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántas horas debería estudiar al día para no caer en exceso?</h3>
+                    <p>No hay una cifra que aplique a todos, porque depende de tu carga, tus materias y tu punto de partida. El criterio útil no es el total de horas sino qué proporción fue trabajo de producción y si pudiste sostener ese volumen una semana completa sin recortar sueño. Si para cumplir tu plan tienes que dormir menos, el plan es demasiado grande.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi casa no tiene un lugar tranquilo para estudiar?</h3>
+                    <p>Busca previsibilidad más que silencio: un horario en que la zona común tenga menos movimiento suele funcionar mejor que un espacio ideal inexistente. Los audífonos con ruido constante sin letra ayudan, igual que acordar con la familia un tramo corto y concreto. La biblioteca de la escuela o un espacio público con horario fijo también son opciones válidas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Estudiar en grupo es un error?</h3>
+                    <p>No, siempre que tenga estructura. Un grupo funciona bien para explicarse temas por turnos, resolver problemas por separado y comparar después, o revisar exámenes previos con reglas de tiempo. Se vuelve un obstáculo cuando no hay objetivo definido ni hora de cierre, porque entonces la sesión deriva en conversación y produce la sensación de haber estudiado tres horas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>Quité varios de estos hábitos y sigo sin ver mejoría. ¿Qué reviso?</h3>
+                    <p>Revisa primero si los cambios llevan al menos dos o tres semanas y si estás midiendo señales conductuales en lugar de calificaciones, que tardan más en moverse. Si la fricción de arranque y los ejercicios resueltos sin ayuda tampoco cambiaron, puede que el problema sea de base: huecos de temas anteriores que ninguna técnica de estudio resuelve sin recuperarlos primero.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -558,8 +656,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué quitar rinde más que agregar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Errores de planeación: el horario que nadie podría cumplir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Errores de método: trabajo que se parece al estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Errores de entorno: el costo real de cada interrupción
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: la misma semana, con tres cosas menos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores de descanso y gestión de energía
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Auditoría breve para encontrar lo que sobra en tu caso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>11 min restantes</span>
+                        <span>Lectura estimada: 11 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

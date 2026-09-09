@@ -354,129 +354,204 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="4">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-robot"></i> Robotics Code
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Curso de robótica para niños: qué aprenden realmente</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 4 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Robotics Code</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Curso de robótica para niños: qué aprenden realmente</h1>
+                <p class="blog-post-dek">Qué aprenden realmente los niños en un curso de robótica: diseño, programación, prueba y comunicación. Resultados observables más allá del entretenimiento.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Robotics Code</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>4 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/robotics-curso-programacion-arduino-ninos.webp" alt="Curso de robótica para niños: qué aprenden realmente" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La robótica para niños es mucho más que armar un carrito que se mueve. Cuando el programa está bien diseñado, cada proyecto obliga al niño a pensar antes de construir, a probar antes de dar por terminado y a explicar qué hizo y por qué.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Los cuatro aprendizajes reales de un curso de robótica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Pensamiento computacional sin pantalla obligatoria
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>El ciclo diseño-construcción-prueba-ajuste
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Diferencia entre seguir instrucciones y resolver problemas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Habilidades sociales y comunicación en proyectos grupales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Lo que un curso de robótica no reemplaza
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La robótica para niños es mucho más que armar un carrito que se mueve. Cuando el programa está bien diseñado, cada proyecto obliga al niño a pensar antes de construir, a probar antes de dar por terminado y a explicar qué hizo y por qué.</p>
             <p>Pero no todos los cursos logran eso. Algunos entregan kits prearmados con instrucciones paso a paso que el niño sigue sin entender. La diferencia entre un curso formativo y uno de entretenimiento está en qué hace el niño con su cabeza, no con sus manos.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>En un curso de robótica bien estructurado, los niños aprenden a diseñar soluciones, escribir instrucciones lógicas (código), probar y corregir errores, y explicar sus decisiones. El robot es el medio; las habilidades reales son pensamiento computacional, resolución de problemas y trabajo iterativo.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>En un curso de robótica bien estructurado, los niños aprenden a diseñar soluciones, escribir instrucciones lógicas (código), probar y corregir errores, y explicar sus decisiones. El robot es el medio; las habilidades reales son pensamiento computacional, resolución de problemas y trabajo iterativo.</p>
+                </aside>
 
-            <h2>Los cuatro aprendizajes reales de un curso de robótica</h2>
-            <p>Más allá del tema específico (sensores, motores, código), un curso de robótica bien estructurado desarrolla cuatro capacidades que trascienden la tecnología.</p>
-            <ul>
-                <li>Diseñar: definir qué quiere lograr antes de construir. Planificar es una habilidad, no un trámite.</li>
-                <li>Programar: escribir instrucciones precisas y secuenciales para que una máquina las ejecute.</li>
-                <li>Probar y depurar: encontrar por qué algo no funciona y corregirlo sin empezar de cero.</li>
-                <li>Comunicar: explicar sus decisiones, documentar el proceso y presentar resultados.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Los cuatro aprendizajes reales de un curso de robótica</h2>
+                <p>Más allá del tema específico (sensores, motores, código), un curso de robótica bien estructurado desarrolla cuatro capacidades que trascienden la tecnología.</p>
+                <ul>
+                    <li>Diseñar: definir qué quiere lograr antes de construir. Planificar es una habilidad, no un trámite.</li>
+                    <li>Programar: escribir instrucciones precisas y secuenciales para que una máquina las ejecute.</li>
+                    <li>Probar y depurar: encontrar por qué algo no funciona y corregirlo sin empezar de cero.</li>
+                    <li>Comunicar: explicar sus decisiones, documentar el proceso y presentar resultados.</li>
+                </ul>
+            </section>
 
-            <h2>Pensamiento computacional sin pantalla obligatoria</h2>
-            <p>El pensamiento computacional no es sinónimo de programación en computadora. Es una forma de abordar problemas: descomponerlos en partes manejables, identificar patrones, abstraer lo esencial e idear una secuencia de pasos para resolverlos.</p>
-            <p>En robótica, esto se practica cada vez que un niño divide un problema (el robot debe seguir una línea) en subproblemas (detectar el borde, girar, avanzar, repetir). El robot hace visible el resultado del pensamiento.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Pensamiento computacional sin pantalla obligatoria</h2>
+                <p>El pensamiento computacional no es sinónimo de programación en computadora. Es una forma de abordar problemas: descomponerlos en partes manejables, identificar patrones, abstraer lo esencial e idear una secuencia de pasos para resolverlos.</p>
+                <p>En robótica, esto se practica cada vez que un niño divide un problema (el robot debe seguir una línea) en subproblemas (detectar el borde, girar, avanzar, repetir). El robot hace visible el resultado del pensamiento.</p>
+            </section>
 
-            <h2>El ciclo diseño-construcción-prueba-ajuste</h2>
-            <p>Uno de los aprendizajes más valiosos de la robótica es que el primer intento casi nunca funciona, y eso está bien. Los niños aprenden que fallar es parte del proceso cuando el error no tiene consecuencias negativas y pueden corregir inmediatamente.</p>
-            <ol>
-                <li>El niño define qué debe hacer el robot (objetivo claro).</li>
-                <li>Diseña o selecciona las piezas y escribe el código inicial.</li>
-                <li>Prueba el robot y observa qué sucede realmente.</li>
-                <li>Compara el resultado con el objetivo: ¿se cumplió? ¿Parcialmente?</li>
-                <li>Identifica la causa del error y modifica una variable a la vez.</li>
-                <li>Vuelve a probar hasta que funcione o hasta entender la limitación.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">El ciclo diseño-construcción-prueba-ajuste</h2>
+                <p>Uno de los aprendizajes más valiosos de la robótica es que el primer intento casi nunca funciona, y eso está bien. Los niños aprenden que fallar es parte del proceso cuando el error no tiene consecuencias negativas y pueden corregir inmediatamente.</p>
+                <ol>
+                    <li>El niño define qué debe hacer el robot (objetivo claro).</li>
+                    <li>Diseña o selecciona las piezas y escribe el código inicial.</li>
+                    <li>Prueba el robot y observa qué sucede realmente.</li>
+                    <li>Compara el resultado con el objetivo: ¿se cumplió? ¿Parcialmente?</li>
+                    <li>Identifica la causa del error y modifica una variable a la vez.</li>
+                    <li>Vuelve a probar hasta que funcione o hasta entender la limitación.</li>
+                </ol>
+            </section>
 
-            <h2>Diferencia entre seguir instrucciones y resolver problemas</h2>
-            <p>Un curso que solo entrega manuales de armado paso a paso enseña a seguir instrucciones, no a pensar. Eso tiene valor limitado. El aprendizaje real ocurre cuando el niño enfrenta un reto sin solución dada y debe construir su propia respuesta.</p>
-            <p>Observa si en el curso hay momentos donde el niño toma decisiones genuinas: elegir entre opciones, ajustar parámetros, proponer soluciones alternativas. Si todo está predeterminado, el pensamiento se queda fuera.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Diferencia entre seguir instrucciones y resolver problemas</h2>
+                <p>Un curso que solo entrega manuales de armado paso a paso enseña a seguir instrucciones, no a pensar. Eso tiene valor limitado. El aprendizaje real ocurre cuando el niño enfrenta un reto sin solución dada y debe construir su propia respuesta.</p>
+                <p>Observa si en el curso hay momentos donde el niño toma decisiones genuinas: elegir entre opciones, ajustar parámetros, proponer soluciones alternativas. Si todo está predeterminado, el pensamiento se queda fuera.</p>
+            </section>
 
-            <h2>Habilidades sociales y comunicación en proyectos grupales</h2>
-            <p>Los proyectos de robótica en equipo requieren negociar roles, dividir tareas, integrar el trabajo de otros y resolver desacuerdos sobre el diseño. Estas habilidades sociales son tan valiosas como las técnicas.</p>
-            <p>Un buen programa incluye momentos de presentación donde cada equipo explica qué construyó, qué problemas enfrentó y cómo los resolvió. Esto desarrolla la capacidad de comunicar ideas técnicas con claridad.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Habilidades sociales y comunicación en proyectos grupales</h2>
+                <p>Los proyectos de robótica en equipo requieren negociar roles, dividir tareas, integrar el trabajo de otros y resolver desacuerdos sobre el diseño. Estas habilidades sociales son tan valiosas como las técnicas.</p>
+                <p>Un buen programa incluye momentos de presentación donde cada equipo explica qué construyó, qué problemas enfrentó y cómo los resolvió. Esto desarrolla la capacidad de comunicar ideas técnicas con claridad.</p>
+            </section>
 
-            <h2>Lo que un curso de robótica no reemplaza</h2>
-            <p>La robótica no sustituye la enseñanza formal de matemáticas, ciencias ni programación profunda. Es un contexto de aplicación donde esos conocimientos cobran sentido. Un niño que solo hace robótica sin reforzar bases numéricas o lectura tendrá un techo bajo en la complejidad de sus proyectos.</p>
-            <ul>
-                <li>No reemplaza la aritmética formal ni la comprensión lectora.</li>
-                <li>No garantiza una carrera en ingeniería ni en tecnología.</li>
-                <li>No es equivalente a un curso completo de programación.</li>
-                <li>Es un complemento poderoso, no un programa académico completo.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Lo que un curso de robótica no reemplaza</h2>
+                <p>La robótica no sustituye la enseñanza formal de matemáticas, ciencias ni programación profunda. Es un contexto de aplicación donde esos conocimientos cobran sentido. Un niño que solo hace robótica sin reforzar bases numéricas o lectura tendrá un techo bajo en la complejidad de sus proyectos.</p>
+                <ul>
+                    <li>No reemplaza la aritmética formal ni la comprensión lectora.</li>
+                    <li>No garantiza una carrera en ingeniería ni en tecnología.</li>
+                    <li>No es equivalente a un curso completo de programación.</li>
+                    <li>Es un complemento poderoso, no un programa académico completo.</li>
+                </ul>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Robótica con propósito educativo verificable</h3>
-                <p>En Robotics Code cada proyecto tiene un objetivo claro, un ciclo de prueba-error y una presentación final. El niño construye un portafolio que demuestra lo que aprendió, no solo lo que armó.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de robótica para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Robótica con propósito educativo verificable</h2>
+                    <p>En Robotics Code cada proyecto tiene un objetivo claro, un ciclo de prueba-error y una presentación final. El niño construye un portafolio que demuestra lo que aprendió, no solo lo que armó.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Ver el curso de robótica para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A partir de qué edad puede un niño tomar un curso de robótica?</h3>
-                <p>Depende del formato. Con bloques grandes y programación por iconos, desde los cinco o seis años. Con Arduino o micro:bit y texto, generalmente a partir de los nueve o diez. Lo relevante es que el nivel del curso coincida con las capacidades del niño.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es necesario tener conocimientos previos de programación?</h3>
-                <p>Para cursos iniciales, no. Un buen programa de robótica introductorio asume cero experiencia y construye desde los fundamentos. Si el curso exige prerrequisitos que tu hijo no tiene, probablemente no es el nivel adecuado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si mi hijo está aprendiendo y no solo jugando?</h3>
-                <p>Pregúntale qué problema resolvió, qué no funcionó la primera vez y cómo lo arregló. Si puede explicarlo con sus palabras, está aprendiendo. Si solo dice que fue divertido pero no articula qué hizo, el programa puede ser más entretenimiento que formación.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Los cursos en línea de robótica funcionan para niños?</h3>
-                <p>Pueden funcionar si el niño tiene el kit en casa y hay acompañamiento sincrónico o asincrónico. La manipulación física es importante en robótica, así que un curso puramente en pantalla sin componentes físicos pierde buena parte del valor educativo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://doi.org/10.1145/1118178.1118215" target="_blank" rel="noopener noreferrer">Wing, Jeannette — Computational Thinking (Communications of the ACM)</a> — Definición y alcance del pensamiento computacional</li>
-                <li><a href="https://doi.org/10.5195/jmla.2007.27" target="_blank" rel="noopener noreferrer">Barker & Ansorge — Robotics as Means to Increase Achievement Scores in an Informal Learning Environment</a> — Evidencia sobre robótica y aprendizaje en entornos no formales</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A partir de qué edad puede un niño tomar un curso de robótica?</h3>
+                    <p>Depende del formato. Con bloques grandes y programación por iconos, desde los cinco o seis años. Con Arduino o micro:bit y texto, generalmente a partir de los nueve o diez. Lo relevante es que el nivel del curso coincida con las capacidades del niño.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es necesario tener conocimientos previos de programación?</h3>
+                    <p>Para cursos iniciales, no. Un buen programa de robótica introductorio asume cero experiencia y construye desde los fundamentos. Si el curso exige prerrequisitos que tu hijo no tiene, probablemente no es el nivel adecuado.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si mi hijo está aprendiendo y no solo jugando?</h3>
+                    <p>Pregúntale qué problema resolvió, qué no funcionó la primera vez y cómo lo arregló. Si puede explicarlo con sus palabras, está aprendiendo. Si solo dice que fue divertido pero no articula qué hizo, el programa puede ser más entretenimiento que formación.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Los cursos en línea de robótica funcionan para niños?</h3>
+                    <p>Pueden funcionar si el niño tiene el kit en casa y hay acompañamiento sincrónico o asincrónico. La manipulación física es importante en robótica, así que un curso puramente en pantalla sin componentes físicos pierde buena parte del valor educativo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://doi.org/10.1145/1118178.1118215" target="_blank" rel="noopener noreferrer">Wing, Jeannette — Computational Thinking (Communications of the ACM)</a> — Definición y alcance del pensamiento computacional</li>
+                    <li><a href="https://doi.org/10.5195/jmla.2007.27" target="_blank" rel="noopener noreferrer">Barker & Ansorge — Robotics as Means to Increase Achievement Scores in an Informal Learning Environment</a> — Evidencia sobre robótica y aprendizaje en entornos no formales</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -506,8 +581,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Los cuatro aprendizajes reales de un curso de robótica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Pensamiento computacional sin pantalla obligatoria
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>El ciclo diseño-construcción-prueba-ajuste
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Diferencia entre seguir instrucciones y resolver problemas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Habilidades sociales y comunicación en proyectos grupales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Lo que un curso de robótica no reemplaza
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>4 min restantes</span>
+                        <span>Lectura estimada: 4 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

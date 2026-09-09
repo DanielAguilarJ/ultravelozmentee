@@ -354,129 +354,220 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="5">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-comments"></i> Habilidades Blandas
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Qué dice la ciencia sobre el liderazgo y las habilidades blandas</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 3 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 5 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Habilidades Blandas</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Qué dice la ciencia sobre el liderazgo y las habilidades blandas</h1>
+                <p class="blog-post-dek">Qué dice la evidencia científica sobre el desarrollo de liderazgo y habilidades blandas en niños y adolescentes, más allá de afirmaciones de marketing sin respaldo.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Habilidades Blandas</span>
+                    <span>Publicado <time datetime="2026-09-03">3 de Septiembre, 2026</time></span>
+                    <span>5 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/neurocomunicacion-curso-hablar-en-publico-liderazgo.webp" alt="Qué dice la ciencia sobre el liderazgo y las habilidades blandas" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">El término 'liderazgo infantil' se usa con frecuencia en marketing educativo sin distinguir entre programas con base pedagógica sólida y actividades que simplemente etiquetan cualquier dinámica grupal como desarrollo de liderazgo, aprovechando el atractivo comercial del término sin el contenido metodológico que debería respaldarlo.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué entiende la investigación por &#x27;habilidades de liderazgo&#x27; en la infancia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Evidencia sobre práctica estructurada frente a exposición pasiva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>El rol de la edad en el desarrollo de estas habilidades
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Qué variables predicen mejor el desarrollo efectivo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué afirmaciones de marketing carecen de respaldo sólido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo interpretar esta evidencia como padre
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">El término 'liderazgo infantil' se usa con frecuencia en marketing educativo sin distinguir entre programas con base pedagógica sólida y actividades que simplemente etiquetan cualquier dinámica grupal como desarrollo de liderazgo, aprovechando el atractivo comercial del término sin el contenido metodológico que debería respaldarlo.</p>
             <p>Este artículo revisa qué dice la evidencia disponible en psicología del desarrollo y educación sobre cómo se desarrollan efectivamente estas habilidades en niños y adolescentes, distinguiendo lo que la investigación respalda de lo que es simplemente lenguaje promocional atractivo.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La evidencia disponible en psicología del desarrollo sugiere que las habilidades de liderazgo y comunicación se desarrollan de forma más efectiva con práctica estructurada y retroalimentación específica, no solo con exposición pasiva a situaciones sociales. Programas con estas características muestran mejoras documentadas en autoconfianza comunicativa y capacidad de trabajo en equipo, aunque el tamaño del efecto varía según la calidad de implementación.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La evidencia disponible en psicología del desarrollo sugiere que las habilidades de liderazgo y comunicación se desarrollan de forma más efectiva con práctica estructurada y retroalimentación específica, no solo con exposición pasiva a situaciones sociales. Programas con estas características muestran mejoras documentadas en autoconfianza comunicativa y capacidad de trabajo en equipo, aunque el tamaño del efecto varía según la calidad de implementación.</p>
+                </aside>
 
-            <h2>Qué entiende la investigación por 'habilidades de liderazgo' en la infancia</h2>
-            <p>En la literatura de desarrollo infantil, el liderazgo no se refiere a autoridad jerárquica sobre otros, sino a un conjunto de habilidades específicas: comunicación clara de ideas, capacidad de coordinar esfuerzos grupales, toma de decisiones bajo incertidumbre, y gestión de conflictos interpersonales de forma constructiva.</p>
-            <p>Estas habilidades se pueden observar y medir de forma relativamente objetiva en contextos estructurados, como proyectos grupales con roles definidos, a diferencia de rasgos de personalidad más difusos como 'carisma' o 'don de mando' que son mucho más difíciles de operacionalizar en investigación.</p>
-            <p>Esta distinción es relevante porque muchos programas comerciales usan un concepto de liderazgo más cercano al carisma o al dominio social, que es precisamente el aspecto menos entrenable y menos respaldado por evidencia, en lugar de enfocarse en las habilidades concretas que sí se pueden desarrollar con práctica estructurada.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué entiende la investigación por 'habilidades de liderazgo' en la infancia</h2>
+                <p>En la literatura de desarrollo infantil, el liderazgo no se refiere a autoridad jerárquica sobre otros, sino a un conjunto de habilidades específicas: comunicación clara de ideas, capacidad de coordinar esfuerzos grupales, toma de decisiones bajo incertidumbre, y gestión de conflictos interpersonales de forma constructiva.</p>
+                <p>Estas habilidades se pueden observar y medir de forma relativamente objetiva en contextos estructurados, como proyectos grupales con roles definidos, a diferencia de rasgos de personalidad más difusos como 'carisma' o 'don de mando' que son mucho más difíciles de operacionalizar en investigación.</p>
+                <p>Esta distinción es relevante porque muchos programas comerciales usan un concepto de liderazgo más cercano al carisma o al dominio social, que es precisamente el aspecto menos entrenable y menos respaldado por evidencia, en lugar de enfocarse en las habilidades concretas que sí se pueden desarrollar con práctica estructurada.</p>
+            </section>
 
-            <h2>Evidencia sobre práctica estructurada frente a exposición pasiva</h2>
-            <p>Estudios en educación sobre desarrollo de habilidades socioemocionales sugieren consistentemente que la práctica estructurada con retroalimentación específica produce mejoras más medibles que simplemente exponer a un niño a más situaciones sociales sin guía intencional.</p>
-            <p>Esto tiene una implicación práctica directa: un programa que solo organiza actividades grupales sin retroalimentación explícita sobre comunicación y liderazgo probablemente desarrolla estas habilidades con menor eficiencia que uno diseñado específicamente con ese objetivo pedagógico explícito.</p>
-            <p>La diferencia entre ambos enfoques no siempre es visible para un padre que observa desde fuera; ambos tipos de programa pueden verse superficialmente similares (niños trabajando en grupo en un proyecto), pero la calidad de la retroalimentación recibida marca una diferencia sustancial en el desarrollo real de la habilidad.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Evidencia sobre práctica estructurada frente a exposición pasiva</h2>
+                <p>Estudios en educación sobre desarrollo de habilidades socioemocionales sugieren consistentemente que la práctica estructurada con retroalimentación específica produce mejoras más medibles que simplemente exponer a un niño a más situaciones sociales sin guía intencional.</p>
+                <p>Esto tiene una implicación práctica directa: un programa que solo organiza actividades grupales sin retroalimentación explícita sobre comunicación y liderazgo probablemente desarrolla estas habilidades con menor eficiencia que uno diseñado específicamente con ese objetivo pedagógico explícito.</p>
+                <p>La diferencia entre ambos enfoques no siempre es visible para un padre que observa desde fuera; ambos tipos de programa pueden verse superficialmente similares (niños trabajando en grupo en un proyecto), pero la calidad de la retroalimentación recibida marca una diferencia sustancial en el desarrollo real de la habilidad.</p>
+            </section>
 
-            <h2>El rol de la edad en el desarrollo de estas habilidades</h2>
-            <p>El desarrollo cognitivo y socioemocional relevante para habilidades de liderazgo avanzado (como negociación compleja o gestión de conflictos entre pares con posiciones opuestas) generalmente madura más hacia la adolescencia que en primaria, aunque las bases de comunicación clara y trabajo en equipo básico pueden practicarse desde edades más tempranas con expectativas apropiadamente ajustadas.</p>
-            <p>Esto sugiere que un programa de liderazgo para niños de primaria y uno para adolescentes de secundaria deberían diferenciarse considerablemente en complejidad y expectativas, en lugar de aplicar el mismo enfoque general con solo ajustes superficiales de vocabulario según la edad del grupo.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">El rol de la edad en el desarrollo de estas habilidades</h2>
+                <p>El desarrollo cognitivo y socioemocional relevante para habilidades de liderazgo avanzado (como negociación compleja o gestión de conflictos entre pares con posiciones opuestas) generalmente madura más hacia la adolescencia que en primaria, aunque las bases de comunicación clara y trabajo en equipo básico pueden practicarse desde edades más tempranas con expectativas apropiadamente ajustadas.</p>
+                <p>Esto sugiere que un programa de liderazgo para niños de primaria y uno para adolescentes de secundaria deberían diferenciarse considerablemente en complejidad y expectativas, en lugar de aplicar el mismo enfoque general con solo ajustes superficiales de vocabulario según la edad del grupo.</p>
+            </section>
 
-            <h2>Qué variables predicen mejor el desarrollo efectivo</h2>
-            <p>Más allá del programa específico elegido, ciertas variables predicen consistentemente mejor desarrollo de estas habilidades: consistencia en la práctica a lo largo del tiempo, calidad de la retroalimentación recibida, y oportunidades reales (no simuladas artificialmente) de asumir responsabilidad dentro de un grupo.</p>
-            <ul>
-                <li>Consistencia en la práctica a lo largo de varios meses, no sesiones aisladas.</li>
-                <li>Calidad y especificidad de la retroalimentación recibida.</li>
-                <li>Oportunidades reales de responsabilidad dentro de un grupo, no solo simulaciones.</li>
-                <li>Ambiente psicológicamente seguro para experimentar y equivocarse sin castigo social.</li>
-            </ul>
-
-            <h2>Qué afirmaciones de marketing carecen de respaldo sólido</h2>
-            <p>Afirmaciones sobre programas que prometen desarrollo de liderazgo asegurado en un plazo específico corto, o que atribuyen resultados de éxito profesional futuro directamente a un curso de liderazgo infantil, exceden considerablemente lo que la evidencia disponible puede respaldar con el rigor científico necesario.</p>
-            <p>El desarrollo de habilidades socioemocionales complejas depende de múltiples factores además de cualquier programa específico: contexto familiar, temperamento individual, y experiencias acumuladas a lo largo de años, no de una sola intervención puntual, sin importar cuán bien diseñada esté.</p>
-            <p>Esta cautela no significa que estos programas carezcan de valor; significa que las expectativas deberían calibrarse alrededor de mejoras graduales y observables en conductas específicas, en lugar de promesas de transformación integral de la personalidad del niño en pocas semanas.</p>
-
-            <h2>Cómo interpretar esta evidencia como padre</h2>
-            <p>Esta evidencia sugiere que vale la pena priorizar programas con metodología estructurada y retroalimentación específica sobre programas que solo ofrecen actividades grupales genéricas, pero sin caer en expectativas de transformación inmediata o asegurada en el desarrollo de estas habilidades complejas.</p>
-            <p>En la práctica, esto significa preguntar al programa qué mecanismo específico usan para dar retroalimentación individual a cada participante, y con qué frecuencia, en lugar de conformarse con descripciones generales de 'actividades de liderazgo' sin detalle pedagógico concreto detrás de esa etiqueta.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Metodología estructurada, no actividades grupales genéricas</h3>
-                <p>Grandes Líderes diseña cada sesión con retroalimentación específica y oportunidades reales de responsabilidad, siguiendo lo que la evidencia identifica como más efectivo para el desarrollo de estas habilidades.</p>
-                <a href="/grandes-lideres" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer Grandes Líderes <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Qué variables predicen mejor el desarrollo efectivo</h2>
+                <p>Más allá del programa específico elegido, ciertas variables predicen consistentemente mejor desarrollo de estas habilidades: consistencia en la práctica a lo largo del tiempo, calidad de la retroalimentación recibida, y oportunidades reales (no simuladas artificialmente) de asumir responsabilidad dentro de un grupo.</p>
                 <ul>
-                <li><a href="/blog-habilidades-blandas-en-mexico-2026">Habilidades blandas en México 2026: qué está cambiando</a></li>
-                <li><a href="/blog-habilidades-blandas-que-dice-la-evidencia">Qué dice la evidencia sobre el desarrollo de liderazgo en jóvenes</a></li>
-                <li><a href="/blog-habilidades-blandas-estrategias-efectivas">Estrategias efectivas para desarrollar liderazgo en adolescentes</a></li>
+                    <li>Consistencia en la práctica a lo largo de varios meses, no sesiones aisladas.</li>
+                    <li>Calidad y especificidad de la retroalimentación recibida.</li>
+                    <li>Oportunidades reales de responsabilidad dentro de un grupo, no solo simulaciones.</li>
+                    <li>Ambiente psicológicamente seguro para experimentar y equivocarse sin castigo social.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es real la ciencia detrás de los programas de liderazgo infantil?</h3>
-                <p>La psicología del desarrollo sí respalda que la práctica estructurada con retroalimentación específica mejora habilidades como comunicación y trabajo en equipo, pero el tamaño del efecto depende fuertemente de la calidad de implementación del programa específico, no es automático.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad se pueden practicar habilidades de liderazgo?</h3>
-                <p>Las bases (comunicación clara, trabajo en equipo básico) pueden practicarse desde primaria con expectativas ajustadas; habilidades más avanzadas como negociación compleja generalmente maduran mejor hacia la adolescencia.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Un curso corto puede transformar el liderazgo de mi hijo?</h3>
-                <p>No según la evidencia disponible. El desarrollo de habilidades socioemocionales complejas depende de consistencia a lo largo de meses y de múltiples factores además del programa, no de una intervención puntual sin importar su calidad.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si un programa de liderazgo infantil tiene base pedagógica real?</h3>
-                <p>Pregunta qué mecanismo específico usan para dar retroalimentación individual a cada participante y con qué frecuencia. Un programa serio puede describir esto en detalle; uno que solo repite el término 'liderazgo' sin especificar metodología probablemente carece de esa base.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Qué afirmaciones de marketing carecen de respaldo sólido</h2>
+                <p>Afirmaciones sobre programas que prometen desarrollo de liderazgo asegurado en un plazo específico corto, o que atribuyen resultados de éxito profesional futuro directamente a un curso de liderazgo infantil, exceden considerablemente lo que la evidencia disponible puede respaldar con el rigor científico necesario.</p>
+                <p>El desarrollo de habilidades socioemocionales complejas depende de múltiples factores además de cualquier programa específico: contexto familiar, temperamento individual, y experiencias acumuladas a lo largo de años, no de una sola intervención puntual, sin importar cuán bien diseñada esté.</p>
+                <p>Esta cautela no significa que estos programas carezcan de valor; significa que las expectativas deberían calibrarse alrededor de mejoras graduales y observables en conductas específicas, en lugar de promesas de transformación integral de la personalidad del niño en pocas semanas.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Referencia sobre desarrollo de habilidades socioemocionales en contextos educativos</li>
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto sobre metodologías de desarrollo infantil basadas en evidencia</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo interpretar esta evidencia como padre</h2>
+                <p>Esta evidencia sugiere que vale la pena priorizar programas con metodología estructurada y retroalimentación específica sobre programas que solo ofrecen actividades grupales genéricas, pero sin caer en expectativas de transformación inmediata o asegurada en el desarrollo de estas habilidades complejas.</p>
+                <p>En la práctica, esto significa preguntar al programa qué mecanismo específico usan para dar retroalimentación individual a cada participante, y con qué frecuencia, en lugar de conformarse con descripciones generales de 'actividades de liderazgo' sin detalle pedagógico concreto detrás de esa etiqueta.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Metodología estructurada, no actividades grupales genéricas</h2>
+                    <p>Grandes Líderes diseña cada sesión con retroalimentación específica y oportunidades reales de responsabilidad, siguiendo lo que la evidencia identifica como más efectivo para el desarrollo de estas habilidades.</p>
+                    <a href="/grandes-lideres" class="btn-primary">
+                        Conocer Grandes Líderes <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-habilidades-blandas-en-mexico-2026">
+                            <span>Habilidades blandas en México 2026: qué está cambiando</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-habilidades-blandas-que-dice-la-evidencia">
+                            <span>Qué dice la evidencia sobre el desarrollo de liderazgo en jóvenes</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-habilidades-blandas-estrategias-efectivas">
+                            <span>Estrategias efectivas para desarrollar liderazgo en adolescentes</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es real la ciencia detrás de los programas de liderazgo infantil?</h3>
+                    <p>La psicología del desarrollo sí respalda que la práctica estructurada con retroalimentación específica mejora habilidades como comunicación y trabajo en equipo, pero el tamaño del efecto depende fuertemente de la calidad de implementación del programa específico, no es automático.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad se pueden practicar habilidades de liderazgo?</h3>
+                    <p>Las bases (comunicación clara, trabajo en equipo básico) pueden practicarse desde primaria con expectativas ajustadas; habilidades más avanzadas como negociación compleja generalmente maduran mejor hacia la adolescencia.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Un curso corto puede transformar el liderazgo de mi hijo?</h3>
+                    <p>No según la evidencia disponible. El desarrollo de habilidades socioemocionales complejas depende de consistencia a lo largo de meses y de múltiples factores además del programa, no de una intervención puntual sin importar su calidad.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si un programa de liderazgo infantil tiene base pedagógica real?</h3>
+                    <p>Pregunta qué mecanismo específico usan para dar retroalimentación individual a cada participante y con qué frecuencia. Un programa serio puede describir esto en detalle; uno que solo repite el término 'liderazgo' sin especificar metodología probablemente carece de esa base.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Referencia sobre desarrollo de habilidades socioemocionales en contextos educativos</li>
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto sobre metodologías de desarrollo infantil basadas en evidencia</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -506,8 +597,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué entiende la investigación por &#x27;habilidades de liderazgo&#x27; en la infancia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Evidencia sobre práctica estructurada frente a exposición pasiva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>El rol de la edad en el desarrollo de estas habilidades
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Qué variables predicen mejor el desarrollo efectivo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué afirmaciones de marketing carecen de respaldo sólido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo interpretar esta evidencia como padre
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>5 min restantes</span>
+                        <span>Lectura estimada: 5 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

@@ -362,160 +362,258 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="9">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Tecnología educativa para principiantes: guía paso a paso</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 9 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Tecnología educativa para principiantes: guía paso a paso</h1>
+                <p class="blog-post-dek">Tecnología educativa para principiantes: qué instalar primero, cómo usar la IA sin hacer trampa, límites de tiempo y seguridad digital básica desde cero.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>9 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Tecnología educativa para principiantes: guía paso a paso" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Llegar por primera vez a la tecnología educativa suele empezar mal: alguien recomienda una app, la escuela pide otra plataforma, un video sugiere un asistente de inteligencia artificial, y en dos semanas hay seis cuentas abiertas que nadie usa. El problema no es la falta de herramientas, es la falta de un orden para adoptarlas.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es tecnología educativa y qué no lo es
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Tres preguntas antes de instalar tu primera herramienta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Las cuatro familias de herramientas que vas a encontrar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Inteligencia artificial en el estudio: cómo entrar sin que haga la tarea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Seguridad digital: el mínimo indispensable
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: el primer mes de una familia que parte de cero
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes de quien empieza
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Llegar por primera vez a la tecnología educativa suele empezar mal: alguien recomienda una app, la escuela pide otra plataforma, un video sugiere un asistente de inteligencia artificial, y en dos semanas hay seis cuentas abiertas que nadie usa. El problema no es la falta de herramientas, es la falta de un orden para adoptarlas.</p>
             <p>Esta guía está escrita para quien parte de cero: sin cuentas creadas, sin criterios de selección y sin experiencia distinguiendo una app que enseña de una que solo entretiene. Recorre lo mínimo indispensable en el orden en que conviene aprenderlo, y cierra con un mes de ejemplo y los tropiezos más comunes.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Si nunca has usado tecnología educativa, empieza con una sola herramienta que resuelva un problema concreto de estudio, úsala tres semanas antes de agregar otra, y define desde el primer día cuánto tiempo se ocupará y qué datos personales no se comparten. La secuencia importa más que la cantidad de apps instaladas.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Si nunca has usado tecnología educativa, empieza con una sola herramienta que resuelva un problema concreto de estudio, úsala tres semanas antes de agregar otra, y define desde el primer día cuánto tiempo se ocupará y qué datos personales no se comparten. La secuencia importa más que la cantidad de apps instaladas.</p>
+                </aside>
 
-            <h2>Qué es tecnología educativa y qué no lo es</h2>
-            <p>Tecnología educativa es cualquier recurso digital usado con una intención de aprendizaje declarada: la plataforma donde la escuela entrega tareas, una app de práctica de vocabulario, un procesador de texto para escribir un ensayo o un entorno donde se programa un robot. La etiqueta depende del uso concreto, no de la tienda de aplicaciones.</p>
-            <p>Por eso conviene separar dos cosas que suelen confundirse. Que una app se anuncie como educativa no la vuelve educativa en la práctica; y que una herramienta sea genérica —una hoja de cálculo, una cámara, un editor de audio— no la excluye. La pregunta útil no es '¿esta app es educativa?', sino '¿qué va a hacer el estudiante con ella que no podía hacer antes?'. Si la respuesta no aparece en una frase, todavía no hay razón para instalarla.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es tecnología educativa y qué no lo es</h2>
+                <p>Tecnología educativa es cualquier recurso digital usado con una intención de aprendizaje declarada: la plataforma donde la escuela entrega tareas, una app de práctica de vocabulario, un procesador de texto para escribir un ensayo o un entorno donde se programa un robot. La etiqueta depende del uso concreto, no de la tienda de aplicaciones.</p>
+                <p>Por eso conviene separar dos cosas que suelen confundirse. Que una app se anuncie como educativa no la vuelve educativa en la práctica; y que una herramienta sea genérica —una hoja de cálculo, una cámara, un editor de audio— no la excluye. La pregunta útil no es '¿esta app es educativa?', sino '¿qué va a hacer el estudiante con ella que no podía hacer antes?'. Si la respuesta no aparece en una frase, todavía no hay razón para instalarla.</p>
+            </section>
 
-            <h2>Tres preguntas antes de instalar tu primera herramienta</h2>
-            <p>Antes de crear cuentas, responde tres preguntas por escrito. Primero: qué problema específico quieres mover —tareas que se olvidan, errores repetidos en cierto tipo de operación, un tema que no quedó claro en clase. Segundo: cómo vas a saber en tres semanas si sirvió. Tercero: quién va a acompañar el uso, porque una herramienta sin supervisión inicial termina abandonada o desviada hacia el entretenimiento.</p>
-            <p>La segunda pregunta es la que más se salta y la más útil. Una señal observable puede ser 'entregó las cinco tareas de la semana sin recordatorio' o 'resolvió la hoja de ejercicios en la mitad del tiempo'. Sin eso, la evaluación se reduce a impresiones —'le gusta', 'la usa mucho'— que no dicen si hubo aprendizaje.</p>
-            <ol>
-                <li>Escribe en una frase el problema de estudio que quieres resolver.</li>
-                <li>Define la señal observable que revisarás en tres semanas.</li>
-                <li>Decide quién acompaña las primeras sesiones.</li>
-                <li>Instala una sola herramienta, no tres.</li>
-                <li>Anota la fecha de inicio para poder comparar.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Tres preguntas antes de instalar tu primera herramienta</h2>
+                <p>Antes de crear cuentas, responde tres preguntas por escrito. Primero: qué problema específico quieres mover —tareas que se olvidan, errores repetidos en cierto tipo de operación, un tema que no quedó claro en clase. Segundo: cómo vas a saber en tres semanas si sirvió. Tercero: quién va a acompañar el uso, porque una herramienta sin supervisión inicial termina abandonada o desviada hacia el entretenimiento.</p>
+                <p>La segunda pregunta es la que más se salta y la más útil. Una señal observable puede ser 'entregó las cinco tareas de la semana sin recordatorio' o 'resolvió la hoja de ejercicios en la mitad del tiempo'. Sin eso, la evaluación se reduce a impresiones —'le gusta', 'la usa mucho'— que no dicen si hubo aprendizaje.</p>
+                <ol>
+                    <li>Escribe en una frase el problema de estudio que quieres resolver.</li>
+                    <li>Define la señal observable que revisarás en tres semanas.</li>
+                    <li>Decide quién acompaña las primeras sesiones.</li>
+                    <li>Instala una sola herramienta, no tres.</li>
+                    <li>Anota la fecha de inicio para poder comparar.</li>
+                </ol>
+            </section>
 
-            <h2>Las cuatro familias de herramientas que vas a encontrar</h2>
-            <p>Casi todo lo que se ofrece como tecnología educativa cae en cuatro grupos, y saber en cuál estás parado ajusta lo que puedes esperar. Las de práctica dan ejercicios con retroalimentación y consolidan habilidades ya explicadas. Las de gestión organizan tareas y entregas, pero no enseñan. Las de explicación presentan temas nuevos. Las de creación piden que el estudiante produzca algo: un texto, un video, un programa.</p>
-            <p>Un principiante suele empezar por práctica o gestión, porque son las más inmediatas, con una advertencia: las de práctica no explican, así que si el tema nunca se entendió, más repeticiones solo consolidan la confusión. Cuando el error es de comprensión y no de distracción, hace falta explicación o el apoyo de un docente antes de seguir practicando.</p>
-            <ul>
-                <li>Práctica: repetición con retroalimentación; consolida lo ya explicado.</li>
-                <li>Gestión: orden de tareas y entregas; no enseña contenido.</li>
-                <li>Explicación: presenta temas nuevos; útil si el error es de comprensión.</li>
-                <li>Creación: el estudiante produce algo propio; más comprensión y más acompañamiento.</li>
-            </ul>
-
-            <h2>Inteligencia artificial en el estudio: cómo entrar sin que haga la tarea</h2>
-            <p>Los asistentes de inteligencia artificial son hoy la primera herramienta digital que muchos estudiantes prueban, y la que más fácil se usa mal. Si se le pide el trabajo terminado, el estudiante entrega algo que no entiende y pierde la parte donde ocurría el aprendizaje.</p>
-            <p>El uso que sí suma es el de interlocutor: pedirle que explique un concepto con otro ejemplo, que haga preguntas para detectar huecos, que señale qué párrafo de un texto propio no se entiende, o que proponga ejercicios adicionales. En esos casos el trabajo intelectual sigue del lado del estudiante.</p>
-            <p>Hay dos precauciones que enseñar desde la primera sesión. Una: estos sistemas pueden afirmar datos, fechas o citas incorrectas con total seguridad, así que toda información factual necesita verificarse. Dos: lo que se escribe en el chat se procesa en servidores externos, así que no deben ingresarse datos personales.</p>
-            <ul>
-                <li>Sí: pedir otra explicación, ejemplos, preguntas de repaso o revisión de un texto propio.</li>
-                <li>No: pedir la tarea terminada para entregarla tal cual.</li>
-                <li>Verifica datos, fechas y citas en una fuente confiable.</li>
-                <li>Nunca ingreses datos personales en el chat.</li>
-            </ul>
-
-            <h2>Seguridad digital: el mínimo indispensable</h2>
-            <p>La seguridad digital de un estudiante que empieza se sostiene en pocos hábitos, no en configuraciones complicadas. Antes de instalar, revisa qué permisos pide la aplicación —cámara, micrófono, ubicación, contactos— y si tienen sentido para lo que promete. Una app de práctica de tablas de multiplicar no necesita ubicación ni lista de contactos.</p>
-            <p>Luego vienen los hábitos de la cuenta: contraseña distinta para cada servicio escolar y nunca compartida, correo del estudiante separado de las cuentas personales de los adultos, y una conversación explícita sobre qué información nunca se publica: nombre completo con escuela, dirección, horarios o fotos del uniforme.</p>
-            <p>El último elemento es el más importante y el que menos depende de la tecnología: acordar que si algo en línea resulta incómodo, se avisa a un adulto sin miedo a perder el dispositivo. Cuando el aviso implica castigo, el estudiante deja de avisar, y ese silencio es el riesgo real.</p>
-            <ul>
-                <li>Revisa los permisos que pide cada app y descarta los que no correspondan.</li>
-                <li>Contraseñas distintas por servicio y nunca compartidas.</li>
-                <li>Define qué datos no se publican: escuela, dirección, horarios, uniforme.</li>
-                <li>Acuerda que avisar de algo incómodo no tiene consecuencia negativa.</li>
-            </ul>
-
-            <h2>Ejemplo aplicado: el primer mes de una familia que parte de cero</h2>
-            <p>Una madre nota que su hijo de once años olvida entregar tareas y que las operaciones con fracciones le toman mucho tiempo. Nunca han usado tecnología educativa más allá de la plataforma escolar. Siguiendo esta guía, elige atacar solo el primer problema: 'no entrega tareas que sí hizo'. La señal observable que fija es cuántas entregas se hacen en tres semanas sin que ella tenga que recordarlo.</p>
-            <p>Semana uno: instalan una sola herramienta de gestión de tareas. Cada tarde, durante diez minutos, el estudiante registra lo pendiente y ella acompaña sin hacerlo por él. No se agrega nada más. Al cierre hay dos entregas registradas y una olvidada porque no se anotó el mismo día; el ajuste es anotar al salir de clase.</p>
-            <p>Semana dos y tres: el registro ya no necesita recordatorio y la señal se cumple. Solo entonces abordan las fracciones. Antes de instalar una app de práctica revisan el tipo de error: le piden explicar en voz alta cómo suma fracciones con distinto denominador y descubren que el procedimiento no está claro. Como el error es de comprensión, buscan primero una herramienta de explicación y consultan con la maestra.</p>
-            <p>Semana cuatro: con el hábito instalado y un temporizador visible de veinte minutos por sesión, el estudiante muestra interés por programar. Aquí entra una herramienta de creación. El punto del ejemplo no es la elección de aplicaciones, sino el orden: un problema, una herramienta, una señal, y solo después el siguiente paso.</p>
-
-            <h2>Errores frecuentes de quien empieza</h2>
-            <p>El error más costoso es instalar varias herramientas a la vez. Cuando algo mejora o empeora, no hay manera de saber cuál fue la causa, y la atención se reparte entre interfaces que apenas se conocen. Una a la vez, con tres semanas de margen, permite atribuir resultados.</p>
-            <p>El segundo error es confundir tiempo de pantalla con tiempo de estudio: cuarenta minutos en una app con animaciones y puntos pueden producir mucha actividad y poco aprendizaje, sobre todo cuando la gamificación premia abrir la aplicación en lugar de resolver ejercicios.</p>
-            <p>El tercero es abandonar el acompañamiento demasiado pronto: la autonomía se construye por etapas, primero junto al estudiante, luego revisando al cierre de la sesión y después una vez por semana. El cuarto es no tener criterio de salida: si en tres semanas la señal no se movió, corresponde cambiar de herramienta o de enfoque.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Del uso de herramientas a construirlas</h3>
-                <p>Las herramientas de creación son el paso donde la tecnología deja de consumirse y empieza a producirse. Programar y armar un robot obliga a descomponer un problema, probar, encontrar el error y corregirlo: el mismo proceso que sostiene el estudio de cualquier materia. Si ya hay hábito de uso y límites claros, un programa guiado de robótica y programación es un buen lugar para dar ese salto con acompañamiento.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conoce el programa de robótica y programación <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Las cuatro familias de herramientas que vas a encontrar</h2>
+                <p>Casi todo lo que se ofrece como tecnología educativa cae en cuatro grupos, y saber en cuál estás parado ajusta lo que puedes esperar. Las de práctica dan ejercicios con retroalimentación y consolidan habilidades ya explicadas. Las de gestión organizan tareas y entregas, pero no enseñan. Las de explicación presentan temas nuevos. Las de creación piden que el estudiante produzca algo: un texto, un video, un programa.</p>
+                <p>Un principiante suele empezar por práctica o gestión, porque son las más inmediatas, con una advertencia: las de práctica no explican, así que si el tema nunca se entendió, más repeticiones solo consolidan la confusión. Cuando el error es de comprensión y no de distracción, hace falta explicación o el apoyo de un docente antes de seguir practicando.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-como-empezar">Cómo empezar con tecnología educativa esta semana</a></li>
-                <li><a href="/blog-tecnologia-educativa-errores-comunes">Errores comunes al usar tecnología educativa con niños</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-que-es">Qué son las metodologías de aprendizaje y cómo elegir la tuya</a></li>
+                    <li>Práctica: repetición con retroalimentación; consolida lo ya explicado.</li>
+                    <li>Gestión: orden de tareas y entregas; no enseña contenido.</li>
+                    <li>Explicación: presenta temas nuevos; útil si el error es de comprensión.</li>
+                    <li>Creación: el estudiante produce algo propio; más comprensión y más acompañamiento.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad conviene empezar a usar herramientas digitales para estudiar?</h3>
-                <p>No hay una edad única; pesa más la capacidad de sostener atención en una tarea y de aceptar límites de tiempo. En primaria funciona con acompañamiento directo y sesiones cortas. Lo determinante es que exista un problema de estudio concreto y un adulto presente en las primeras semanas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito pagar suscripciones para empezar?</h3>
-                <p>No para el arranque. La mayoría de necesidades iniciales —organizar tareas, revisar un texto, practicar un procedimiento— se cubren con versiones gratuitas o con lo que la escuela ya usa. Conviene probar sin pagar tres semanas y considerar una suscripción solo si la señal observable se movió.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si la escuela impone una plataforma que me parece confusa?</h3>
-                <p>Trátala como herramienta de gestión, no de aprendizaje: su función es entregar y recibir trabajos. Dedica una sesión a recorrerla junto al estudiante para ubicar tareas, calificaciones y avisos. Si algo falla de forma recurrente, repórtalo al docente con capturas de pantalla concretas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Usar inteligencia artificial para estudiar cuenta como copiar?</h3>
-                <p>Depende del uso. Pedir una explicación, ejemplos adicionales o retroalimentación sobre un texto propio es estudio asistido. Pedir el trabajo terminado y entregarlo como propio es copiar, y además impide aprender. Revisa el reglamento de tu escuela, porque cada institución define su política.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si una herramienta está funcionando o solo entreteniendo?</h3>
-                <p>Compárala contra la señal observable que definiste antes de instalarla: entregas sin recordatorio, menos errores en un tipo de ejercicio, menos tiempo por tarea. Si acumula puntos y rachas pero esa señal no se mueve en tres semanas, el sistema premia abrir la app, no aprender.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Inteligencia artificial en el estudio: cómo entrar sin que haga la tarea</h2>
+                <p>Los asistentes de inteligencia artificial son hoy la primera herramienta digital que muchos estudiantes prueban, y la que más fácil se usa mal. Si se le pide el trabajo terminado, el estudiante entrega algo que no entiende y pierde la parte donde ocurría el aprendizaje.</p>
+                <p>El uso que sí suma es el de interlocutor: pedirle que explique un concepto con otro ejemplo, que haga preguntas para detectar huecos, que señale qué párrafo de un texto propio no se entiende, o que proponga ejercicios adicionales. En esos casos el trabajo intelectual sigue del lado del estudiante.</p>
+                <p>Hay dos precauciones que enseñar desde la primera sesión. Una: estos sistemas pueden afirmar datos, fechas o citas incorrectas con total seguridad, así que toda información factual necesita verificarse. Dos: lo que se escribe en el chat se procesa en servidores externos, así que no deben ingresarse datos personales.</p>
+                <ul>
+                    <li>Sí: pedir otra explicación, ejemplos, preguntas de repaso o revisión de un texto propio.</li>
+                    <li>No: pedir la tarea terminada para entregarla tal cual.</li>
+                    <li>Verifica datos, fechas y citas en una fuente confiable.</li>
+                    <li>Nunca ingreses datos personales en el chat.</li>
+                </ul>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Seguridad digital: el mínimo indispensable</h2>
+                <p>La seguridad digital de un estudiante que empieza se sostiene en pocos hábitos, no en configuraciones complicadas. Antes de instalar, revisa qué permisos pide la aplicación —cámara, micrófono, ubicación, contactos— y si tienen sentido para lo que promete. Una app de práctica de tablas de multiplicar no necesita ubicación ni lista de contactos.</p>
+                <p>Luego vienen los hábitos de la cuenta: contraseña distinta para cada servicio escolar y nunca compartida, correo del estudiante separado de las cuentas personales de los adultos, y una conversación explícita sobre qué información nunca se publica: nombre completo con escuela, dirección, horarios o fotos del uniforme.</p>
+                <p>El último elemento es el más importante y el que menos depende de la tecnología: acordar que si algo en línea resulta incómodo, se avisa a un adulto sin miedo a perder el dispositivo. Cuando el aviso implica castigo, el estudiante deja de avisar, y ese silencio es el riesgo real.</p>
+                <ul>
+                    <li>Revisa los permisos que pide cada app y descarta los que no correspondan.</li>
+                    <li>Contraseñas distintas por servicio y nunca compartidas.</li>
+                    <li>Define qué datos no se publican: escuela, dirección, horarios, uniforme.</li>
+                    <li>Acuerda que avisar de algo incómodo no tiene consecuencia negativa.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: el primer mes de una familia que parte de cero</h2>
+                <p>Una madre nota que su hijo de once años olvida entregar tareas y que las operaciones con fracciones le toman mucho tiempo. Nunca han usado tecnología educativa más allá de la plataforma escolar. Siguiendo esta guía, elige atacar solo el primer problema: 'no entrega tareas que sí hizo'. La señal observable que fija es cuántas entregas se hacen en tres semanas sin que ella tenga que recordarlo.</p>
+                <p>Semana uno: instalan una sola herramienta de gestión de tareas. Cada tarde, durante diez minutos, el estudiante registra lo pendiente y ella acompaña sin hacerlo por él. No se agrega nada más. Al cierre hay dos entregas registradas y una olvidada porque no se anotó el mismo día; el ajuste es anotar al salir de clase.</p>
+                <p>Semana dos y tres: el registro ya no necesita recordatorio y la señal se cumple. Solo entonces abordan las fracciones. Antes de instalar una app de práctica revisan el tipo de error: le piden explicar en voz alta cómo suma fracciones con distinto denominador y descubren que el procedimiento no está claro. Como el error es de comprensión, buscan primero una herramienta de explicación y consultan con la maestra.</p>
+                <p>Semana cuatro: con el hábito instalado y un temporizador visible de veinte minutos por sesión, el estudiante muestra interés por programar. Aquí entra una herramienta de creación. El punto del ejemplo no es la elección de aplicaciones, sino el orden: un problema, una herramienta, una señal, y solo después el siguiente paso.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Errores frecuentes de quien empieza</h2>
+                <p>El error más costoso es instalar varias herramientas a la vez. Cuando algo mejora o empeora, no hay manera de saber cuál fue la causa, y la atención se reparte entre interfaces que apenas se conocen. Una a la vez, con tres semanas de margen, permite atribuir resultados.</p>
+                <p>El segundo error es confundir tiempo de pantalla con tiempo de estudio: cuarenta minutos en una app con animaciones y puntos pueden producir mucha actividad y poco aprendizaje, sobre todo cuando la gamificación premia abrir la aplicación en lugar de resolver ejercicios.</p>
+                <p>El tercero es abandonar el acompañamiento demasiado pronto: la autonomía se construye por etapas, primero junto al estudiante, luego revisando al cierre de la sesión y después una vez por semana. El cuarto es no tener criterio de salida: si en tres semanas la señal no se movió, corresponde cambiar de herramienta o de enfoque.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Del uso de herramientas a construirlas</h2>
+                    <p>Las herramientas de creación son el paso donde la tecnología deja de consumirse y empieza a producirse. Programar y armar un robot obliga a descomponer un problema, probar, encontrar el error y corregirlo: el mismo proceso que sostiene el estudio de cualquier materia. Si ya hay hábito de uso y límites claros, un programa guiado de robótica y programación es un buen lugar para dar ese salto con acompañamiento.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Conoce el programa de robótica y programación <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-como-empezar">
+                            <span>Cómo empezar con tecnología educativa esta semana</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-errores-comunes">
+                            <span>Errores comunes al usar tecnología educativa con niños</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-que-es">
+                            <span>Qué son las metodologías de aprendizaje y cómo elegir la tuya</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad conviene empezar a usar herramientas digitales para estudiar?</h3>
+                    <p>No hay una edad única; pesa más la capacidad de sostener atención en una tarea y de aceptar límites de tiempo. En primaria funciona con acompañamiento directo y sesiones cortas. Lo determinante es que exista un problema de estudio concreto y un adulto presente en las primeras semanas.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito pagar suscripciones para empezar?</h3>
+                    <p>No para el arranque. La mayoría de necesidades iniciales —organizar tareas, revisar un texto, practicar un procedimiento— se cubren con versiones gratuitas o con lo que la escuela ya usa. Conviene probar sin pagar tres semanas y considerar una suscripción solo si la señal observable se movió.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si la escuela impone una plataforma que me parece confusa?</h3>
+                    <p>Trátala como herramienta de gestión, no de aprendizaje: su función es entregar y recibir trabajos. Dedica una sesión a recorrerla junto al estudiante para ubicar tareas, calificaciones y avisos. Si algo falla de forma recurrente, repórtalo al docente con capturas de pantalla concretas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Usar inteligencia artificial para estudiar cuenta como copiar?</h3>
+                    <p>Depende del uso. Pedir una explicación, ejemplos adicionales o retroalimentación sobre un texto propio es estudio asistido. Pedir el trabajo terminado y entregarlo como propio es copiar, y además impide aprender. Revisa el reglamento de tu escuela, porque cada institución define su política.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si una herramienta está funcionando o solo entreteniendo?</h3>
+                    <p>Compárala contra la señal observable que definiste antes de instalarla: entregas sin recordatorio, menos errores en un tipo de ejercicio, menos tiempo por tarea. Si acumula puntos y rachas pero esa señal no se mueve en tres semanas, el sistema premia abrir la app, no aprender.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -545,8 +643,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es tecnología educativa y qué no lo es
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Tres preguntas antes de instalar tu primera herramienta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Las cuatro familias de herramientas que vas a encontrar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Inteligencia artificial en el estudio: cómo entrar sin que haga la tarea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Seguridad digital: el mínimo indispensable
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: el primer mes de una familia que parte de cero
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes de quien empieza
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>9 min restantes</span>
+                        <span>Lectura estimada: 9 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

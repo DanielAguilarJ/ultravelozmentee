@@ -362,150 +362,248 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo medir resultados reales de la tecnología educativa</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo medir resultados reales de la tecnología educativa</h1>
+                <p class="blog-post-dek">Cómo medir si la tecnología educativa realmente está funcionando: métricas útiles, señales de comprensión real y cuándo confiar en los datos de la app.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Cómo medir resultados reales de la tecnología educativa" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Es común adoptar una herramienta educativa y, semanas después, no tener claridad sobre si realmente está funcionando más allá de una sensación general de que 'parece que va bien'. Medir resultados de forma sistemática evita depender solo de esa impresión.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué miden realmente las métricas automáticas de una app
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo verificar comprensión más allá de las métricas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Señales de que la herramienta sí está funcionando
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Señales de que algo no está funcionando pese a las métricas positivas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Con qué frecuencia conviene medir resultados
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores comunes al medir resultados
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo aplicado: medición completa durante un bimestre
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Es común adoptar una herramienta educativa y, semanas después, no tener claridad sobre si realmente está funcionando más allá de una sensación general de que 'parece que va bien'. Medir resultados de forma sistemática evita depender solo de esa impresión.</p>
             <p>Este artículo explica qué métricas observar, cómo verificarlas de forma independiente, y qué señales indican que es momento de ajustar o cambiar de herramienta.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Medir resultados de tecnología educativa requiere combinar las métricas automáticas de la herramienta (progreso, tiempo, aciertos) con una verificación independiente de comprensión, como pedir al estudiante que explique en voz alta lo aprendido. Confiar solo en las métricas de la app puede mostrar progreso que en realidad es memorización superficial o acierto por adivinación.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Medir resultados de tecnología educativa requiere combinar las métricas automáticas de la herramienta (progreso, tiempo, aciertos) con una verificación independiente de comprensión, como pedir al estudiante que explique en voz alta lo aprendido. Confiar solo en las métricas de la app puede mostrar progreso que en realidad es memorización superficial o acierto por adivinación.</p>
+                </aside>
 
-            <h2>Qué miden realmente las métricas automáticas de una app</h2>
-            <p>La mayoría de las apps educativas muestran métricas de uso: tiempo dedicado, número de ejercicios completados, porcentaje de aciertos, racha de días consecutivos. Estas métricas son útiles para saber si el estudiante está usando la herramienta con consistencia, pero no confirman comprensión profunda por sí solas.</p>
-            <p>Un alto porcentaje de aciertos puede reflejar dominio real del tema, o puede reflejar que los ejercicios son demasiado fáciles, que el estudiante adivina con éxito en preguntas de opción múltiple, o que la app repite patrones predecibles que el estudiante aprendió a reconocer sin entender el contenido subyacente.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué miden realmente las métricas automáticas de una app</h2>
+                <p>La mayoría de las apps educativas muestran métricas de uso: tiempo dedicado, número de ejercicios completados, porcentaje de aciertos, racha de días consecutivos. Estas métricas son útiles para saber si el estudiante está usando la herramienta con consistencia, pero no confirman comprensión profunda por sí solas.</p>
+                <p>Un alto porcentaje de aciertos puede reflejar dominio real del tema, o puede reflejar que los ejercicios son demasiado fáciles, que el estudiante adivina con éxito en preguntas de opción múltiple, o que la app repite patrones predecibles que el estudiante aprendió a reconocer sin entender el contenido subyacente.</p>
+            </section>
 
-            <h2>Cómo verificar comprensión más allá de las métricas</h2>
-            <p>La verificación más simple y efectiva es pedir al estudiante que explique en voz alta, sin ver la pantalla, cómo llegó a la respuesta de un ejercicio reciente. Si puede reconstruir el razonamiento con sus propias palabras, hay comprensión real; si solo repite que 'la respuesta era esa' sin explicar el porqué, probablemente hubo acierto sin comprensión.</p>
-            <p>Otra verificación útil es cambiar ligeramente el formato del problema fuera de la app —una variación del mismo tipo de ejercicio en papel o en voz— y observar si el estudiante puede resolverlo igual de bien. Si el desempeño cae notablemente fuera del formato familiar de la app, la habilidad puede estar limitada a reconocer patrones de esa herramienta específica, no al concepto en sí.</p>
-            <ol>
-                <li>Elige un ejercicio reciente que la app marcó como correcto.</li>
-                <li>Pide al estudiante que explique en voz alta, sin ver la pantalla, cómo llegó a esa respuesta.</li>
-                <li>Presenta una variación del mismo problema en un formato distinto (papel, voz).</li>
-                <li>Compara el desempeño en ambos formatos para detectar si la comprensión es real o limitada al formato de la app.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Cómo verificar comprensión más allá de las métricas</h2>
+                <p>La verificación más simple y efectiva es pedir al estudiante que explique en voz alta, sin ver la pantalla, cómo llegó a la respuesta de un ejercicio reciente. Si puede reconstruir el razonamiento con sus propias palabras, hay comprensión real; si solo repite que 'la respuesta era esa' sin explicar el porqué, probablemente hubo acierto sin comprensión.</p>
+                <p>Otra verificación útil es cambiar ligeramente el formato del problema fuera de la app —una variación del mismo tipo de ejercicio en papel o en voz— y observar si el estudiante puede resolverlo igual de bien. Si el desempeño cae notablemente fuera del formato familiar de la app, la habilidad puede estar limitada a reconocer patrones de esa herramienta específica, no al concepto en sí.</p>
+                <ol>
+                    <li>Elige un ejercicio reciente que la app marcó como correcto.</li>
+                    <li>Pide al estudiante que explique en voz alta, sin ver la pantalla, cómo llegó a esa respuesta.</li>
+                    <li>Presenta una variación del mismo problema en un formato distinto (papel, voz).</li>
+                    <li>Compara el desempeño en ambos formatos para detectar si la comprensión es real o limitada al formato de la app.</li>
+                </ol>
+            </section>
 
-            <h2>Señales de que la herramienta sí está funcionando</h2>
-            <p>Más allá de las métricas de la app, algunas señales externas confiables incluyen: mejor desempeño en tareas escolares relacionadas con el objetivo de la herramienta, menor tiempo necesario para resolver un tipo de problema, y mayor disposición a intentar ejercicios sin pedir ayuda inmediata.</p>
-            <p>Estas señales, observadas fuera del contexto de la app, tienen más peso que cualquier métrica interna, porque confirman que el aprendizaje se transfiere a situaciones reales y no queda confinado a la herramienta específica.</p>
-            <ul>
-                <li>Mejor desempeño en tareas escolares relacionadas con el objetivo de la app.</li>
-                <li>Menor tiempo necesario para resolver el tipo de problema practicado.</li>
-                <li>Mayor disposición a intentar sin pedir ayuda inmediata.</li>
-                <li>Capacidad de explicar el razonamiento, no solo repetir la respuesta correcta.</li>
-            </ul>
-
-            <h2>Señales de que algo no está funcionando pese a las métricas positivas</h2>
-            <p>Si el porcentaje de aciertos es alto pero el estudiante no puede explicar su razonamiento, o si el desempeño cae marcadamente fuera del formato de la app, son señales de alerta que las métricas internas no capturan por sí solas.</p>
-            <p>Otra señal es la frustración o evasión persistente pese a métricas de progreso positivas: si el estudiante evita usar la herramienta o se frustra constantemente aunque 'avanza' según la app, algo en la experiencia no está alineado con el aprendizaje real, y merece revisión independientemente de lo que muestren los números.</p>
-
-            <h2>Con qué frecuencia conviene medir resultados</h2>
-            <p>Una revisión cada dos a tres semanas suele ser suficiente para detectar tendencias sin generar presión excesiva sobre el estudiante. Revisar todos los días genera ansiedad de desempeño; revisar solo cada varios meses permite que un problema se mantenga sin corregir demasiado tiempo.</p>
-            <p>Al hacer la revisión, compara con el objetivo original que motivó adoptar la herramienta, no con un estándar genérico de 'progreso'. Si el objetivo era dominar cierto tema antes de un examen, la medida relevante es el desempeño en ese tema específico, no el progreso general de la app.</p>
-
-            <h2>Errores comunes al medir resultados</h2>
-            <p>El error más frecuente es confiar exclusivamente en las métricas de la app sin ninguna verificación independiente, asumiendo que un alto porcentaje de aciertos siempre refleja comprensión real. Otro error es medir con demasiada frecuencia, generando ansiedad que afecta el desempeño real del estudiante.</p>
-            <p>Un tercer error es cambiar el criterio de éxito a mitad del proceso: si originalmente el objetivo era dominar vocabulario para un examen y, al no lograrlo, se redefine el éxito como 'usar la app con constancia', se pierde la capacidad de evaluar si la herramienta realmente resolvió el problema original.</p>
-            <ul>
-                <li>Confiar exclusivamente en las métricas automáticas sin verificación independiente.</li>
-                <li>Revisar resultados con tanta frecuencia que genera ansiedad de desempeño.</li>
-                <li>Cambiar el criterio de éxito a mitad del proceso para evitar reconocer que algo no funciona.</li>
-                <li>No comparar el desempeño dentro y fuera del formato de la app.</li>
-            </ul>
-
-            <h2>Ejemplo aplicado: medición completa durante un bimestre</h2>
-            <p>Un estudiante de secundaria usa una app de práctica de álgebra durante un bimestre, con el objetivo específico de mejorar su desempeño en el examen parcial. Sus padres revisan las métricas de la app cada dos semanas, notando un porcentaje de aciertos consistentemente alto desde la primera semana.</p>
-            <p>En la revisión de la semana 3, le piden que explique en voz alta cómo resolvió un ejercicio de factorización que la app marcó correcto. Descubren que reconoce el patrón visual del ejercicio pero no puede explicar el procedimiento matemático detrás, señal de que el alto porcentaje de aciertos no refleja comprensión completa.</p>
-            <p>Ajustan pidiéndole que resuelva ejercicios similares en papel, sin la app, verificando el procedimiento paso a paso en lugar de solo la respuesta final. Esta verificación revela qué pasos específicos domina y cuáles no, información que la métrica de porcentaje de aciertos de la app nunca hubiera mostrado por sí sola.</p>
-            <p>Al final del bimestre, el examen parcial confirma la mejora en los temas donde la verificación en papel mostró dominio real, mientras que el tema donde seguía dependiendo del patrón visual sin comprender el procedimiento resultó ser el área más débil del examen, exactamente coincidente con lo que la verificación independiente había detectado semanas antes que la métrica de la app por sí sola.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Domina fundamentos de robótica con verificación de comprensión real</h3>
-                <p>El curso Robotics Code combina proyectos prácticos con retroalimentación sobre el proceso, no solo el resultado final, facilitando verificar comprensión real más allá de si el proyecto funcionó por casualidad.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso Robotics Code <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Señales de que la herramienta sí está funcionando</h2>
+                <p>Más allá de las métricas de la app, algunas señales externas confiables incluyen: mejor desempeño en tareas escolares relacionadas con el objetivo de la herramienta, menor tiempo necesario para resolver un tipo de problema, y mayor disposición a intentar ejercicios sin pedir ayuda inmediata.</p>
+                <p>Estas señales, observadas fuera del contexto de la app, tienen más peso que cualquier métrica interna, porque confirman que el aprendizaje se transfiere a situaciones reales y no queda confinado a la herramienta específica.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-ejemplos-reales">Ejemplos reales de tecnología educativa bien aplicada</a></li>
-                <li><a href="/blog-tecnologia-educativa-plan-de-30-dias">Plan de 30 días para introducir tecnología educativa en casa</a></li>
-                <li><a href="/blog-tecnologia-educativa-checklist">Checklist para evaluar tecnología educativa antes de usarla</a></li>
+                    <li>Mejor desempeño en tareas escolares relacionadas con el objetivo de la app.</li>
+                    <li>Menor tiempo necesario para resolver el tipo de problema practicado.</li>
+                    <li>Mayor disposición a intentar sin pedir ayuda inmediata.</li>
+                    <li>Capacidad de explicar el razonamiento, no solo repetir la respuesta correcta.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Las apps con reportes detallados son más confiables que las simples?</h3>
-                <p>Un reporte detallado no garantiza que mida comprensión real; la verificación independiente sigue siendo necesaria sin importar cuán elaborado sea el reporte que ofrece la app.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debe pasar antes de considerar que una herramienta no funciona?</h3>
-                <p>Dos o tres revisiones consecutivas (cuatro a seis semanas aproximadamente) sin señales de comprensión real o transferencia fuera de la app son suficientes para considerar un cambio.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es normal que el desempeño caiga al cambiar de formato de la app al papel?</h3>
-                <p>Una caída leve es normal por el cambio de contexto; una caída marcada sugiere que el aprendizaje estaba limitado al reconocimiento de patrones específicos de la app, no al concepto general.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo compartir estos métodos de verificación con el docente de la escuela?</h3>
-                <p>Puede ser útil, especialmente si el objetivo de la herramienta se relaciona directamente con una materia escolar; el docente puede confirmar si la mejora observada en casa se refleja también en el aula.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi hijo se resiste a explicar en voz alta cómo resolvió algo?</h3>
-                <p>Empieza con preguntas simples y no evaluativas ('¿cómo se te ocurrió hacerlo así?') en lugar de un tono de examen; la resistencia suele disminuir cuando no se siente como una prueba adicional.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Señales de que algo no está funcionando pese a las métricas positivas</h2>
+                <p>Si el porcentaje de aciertos es alto pero el estudiante no puede explicar su razonamiento, o si el desempeño cae marcadamente fuera del formato de la app, son señales de alerta que las métricas internas no capturan por sí solas.</p>
+                <p>Otra señal es la frustración o evasión persistente pese a métricas de progreso positivas: si el estudiante evita usar la herramienta o se frustra constantemente aunque 'avanza' según la app, algo en la experiencia no está alineado con el aprendizaje real, y merece revisión independientemente de lo que muestren los números.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Con qué frecuencia conviene medir resultados</h2>
+                <p>Una revisión cada dos a tres semanas suele ser suficiente para detectar tendencias sin generar presión excesiva sobre el estudiante. Revisar todos los días genera ansiedad de desempeño; revisar solo cada varios meses permite que un problema se mantenga sin corregir demasiado tiempo.</p>
+                <p>Al hacer la revisión, compara con el objetivo original que motivó adoptar la herramienta, no con un estándar genérico de 'progreso'. Si el objetivo era dominar cierto tema antes de un examen, la medida relevante es el desempeño en ese tema específico, no el progreso general de la app.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Errores comunes al medir resultados</h2>
+                <p>El error más frecuente es confiar exclusivamente en las métricas de la app sin ninguna verificación independiente, asumiendo que un alto porcentaje de aciertos siempre refleja comprensión real. Otro error es medir con demasiada frecuencia, generando ansiedad que afecta el desempeño real del estudiante.</p>
+                <p>Un tercer error es cambiar el criterio de éxito a mitad del proceso: si originalmente el objetivo era dominar vocabulario para un examen y, al no lograrlo, se redefine el éxito como 'usar la app con constancia', se pierde la capacidad de evaluar si la herramienta realmente resolvió el problema original.</p>
+                <ul>
+                    <li>Confiar exclusivamente en las métricas automáticas sin verificación independiente.</li>
+                    <li>Revisar resultados con tanta frecuencia que genera ansiedad de desempeño.</li>
+                    <li>Cambiar el criterio de éxito a mitad del proceso para evitar reconocer que algo no funciona.</li>
+                    <li>No comparar el desempeño dentro y fuera del formato de la app.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Ejemplo aplicado: medición completa durante un bimestre</h2>
+                <p>Un estudiante de secundaria usa una app de práctica de álgebra durante un bimestre, con el objetivo específico de mejorar su desempeño en el examen parcial. Sus padres revisan las métricas de la app cada dos semanas, notando un porcentaje de aciertos consistentemente alto desde la primera semana.</p>
+                <p>En la revisión de la semana 3, le piden que explique en voz alta cómo resolvió un ejercicio de factorización que la app marcó correcto. Descubren que reconoce el patrón visual del ejercicio pero no puede explicar el procedimiento matemático detrás, señal de que el alto porcentaje de aciertos no refleja comprensión completa.</p>
+                <p>Ajustan pidiéndole que resuelva ejercicios similares en papel, sin la app, verificando el procedimiento paso a paso en lugar de solo la respuesta final. Esta verificación revela qué pasos específicos domina y cuáles no, información que la métrica de porcentaje de aciertos de la app nunca hubiera mostrado por sí sola.</p>
+                <p>Al final del bimestre, el examen parcial confirma la mejora en los temas donde la verificación en papel mostró dominio real, mientras que el tema donde seguía dependiendo del patrón visual sin comprender el procedimiento resultó ser el área más débil del examen, exactamente coincidente con lo que la verificación independiente había detectado semanas antes que la métrica de la app por sí sola.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Domina fundamentos de robótica con verificación de comprensión real</h2>
+                    <p>El curso Robotics Code combina proyectos prácticos con retroalimentación sobre el proceso, no solo el resultado final, facilitando verificar comprensión real más allá de si el proyecto funcionó por casualidad.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Conocer el curso Robotics Code <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-ejemplos-reales">
+                            <span>Ejemplos reales de tecnología educativa bien aplicada</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-plan-de-30-dias">
+                            <span>Plan de 30 días para introducir tecnología educativa en casa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-checklist">
+                            <span>Checklist para evaluar tecnología educativa antes de usarla</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Las apps con reportes detallados son más confiables que las simples?</h3>
+                    <p>Un reporte detallado no garantiza que mida comprensión real; la verificación independiente sigue siendo necesaria sin importar cuán elaborado sea el reporte que ofrece la app.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debe pasar antes de considerar que una herramienta no funciona?</h3>
+                    <p>Dos o tres revisiones consecutivas (cuatro a seis semanas aproximadamente) sin señales de comprensión real o transferencia fuera de la app son suficientes para considerar un cambio.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es normal que el desempeño caiga al cambiar de formato de la app al papel?</h3>
+                    <p>Una caída leve es normal por el cambio de contexto; una caída marcada sugiere que el aprendizaje estaba limitado al reconocimiento de patrones específicos de la app, no al concepto general.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo compartir estos métodos de verificación con el docente de la escuela?</h3>
+                    <p>Puede ser útil, especialmente si el objetivo de la herramienta se relaciona directamente con una materia escolar; el docente puede confirmar si la mejora observada en casa se refleja también en el aula.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi hijo se resiste a explicar en voz alta cómo resolvió algo?</h3>
+                    <p>Empieza con preguntas simples y no evaluativas ('¿cómo se te ocurrió hacerlo así?') en lugar de un tono de examen; la resistencia suele disminuir cuando no se siente como una prueba adicional.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -535,8 +633,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué miden realmente las métricas automáticas de una app
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo verificar comprensión más allá de las métricas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Señales de que la herramienta sí está funcionando
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Señales de que algo no está funcionando pese a las métricas positivas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Con qué frecuencia conviene medir resultados
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores comunes al medir resultados
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo aplicado: medición completa durante un bimestre
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

@@ -354,135 +354,233 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-child"></i> Fotolectura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Fotolectura por edades: a qué edad conviene y señales de preparación</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 2 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Fotolectura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Fotolectura por edades: a qué edad conviene y señales de preparación</h1>
+                <p class="blog-post-dek">A qué edad conviene tomar fotolectura, con criterios de preparación por vocabulario, comprensión lectora base y atención sostenida, en lugar de una edad rígida fija.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Fotolectura</span>
+                    <span>Publicado <time datetime="2026-09-02">2 de Septiembre, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fotolectura-curso-lectura-rapida-libro.webp" alt="Fotolectura por edades: a qué edad conviene y señales de preparación" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Preguntar 'a qué edad se puede tomar fotolectura' es razonable, pero la respuesta útil no es un número fijo, sino un conjunto de señales de preparación que varían de una persona a otra incluso dentro del mismo rango de edad.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué una edad fija no es el criterio correcto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Criterio 1: comprensión lectora base ya sólida
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Criterio 2: vocabulario suficiente para el tipo de texto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Criterio 3: capacidad de sostener atención concentrada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué es realista esperar en cada etapa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Por qué no hay límite superior de edad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué pasa si se fuerza el entrenamiento antes de estar preparado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Cómo evaluar los tres criterios en la práctica antes de inscribirse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Preguntar 'a qué edad se puede tomar fotolectura' es razonable, pero la respuesta útil no es un número fijo, sino un conjunto de señales de preparación que varían de una persona a otra incluso dentro del mismo rango de edad.</p>
             <p>Este artículo explica esos criterios de preparación, describe qué es realista esperar en distintas etapas (niños de primaria, adolescentes, adultos) y por qué forzar el entrenamiento antes de que esas señales estén presentes suele producir frustración en lugar de progreso.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>No hay una edad rígida universal para empezar fotolectura: lo determinante son criterios de preparación como tener ya una comprensión lectora base sólida, vocabulario suficiente para el tipo de texto que se practicará y capacidad de sostener atención en sesiones de 20-30 minutos. En la práctica, esto suele ubicarse a partir de los 9-10 años para niños que ya leen con fluidez, y sin límite superior de edad, con contenido y ritmo ajustados según la etapa.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>No hay una edad rígida universal para empezar fotolectura: lo determinante son criterios de preparación como tener ya una comprensión lectora base sólida, vocabulario suficiente para el tipo de texto que se practicará y capacidad de sostener atención en sesiones de 20-30 minutos. En la práctica, esto suele ubicarse a partir de los 9-10 años para niños que ya leen con fluidez, y sin límite superior de edad, con contenido y ritmo ajustados según la etapa.</p>
+                </aside>
 
-            <h2>Por qué una edad fija no es el criterio correcto</h2>
-            <p>Dos niños de la misma edad pueden tener niveles de comprensión lectora y vocabulario muy distintos, dependiendo de cuánto han leído hasta ese momento, del apoyo que han recibido en casa o en la escuela, y de su propio ritmo de desarrollo individual. Fijar una edad exacta ('a partir de los 10 años') ignora esta variación real y puede tanto excluir a un niño de 9 años ya preparado como incluir a uno de 11 que todavía no tiene las bases necesarias.</p>
-            <p>El criterio más útil no es la edad en sí, sino el nivel de preparación en tres áreas concretas: comprensión lectora base, vocabulario suficiente para el tipo de texto que se va a practicar, y capacidad de sostener atención concentrada durante el tiempo que dura una sesión de práctica.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué una edad fija no es el criterio correcto</h2>
+                <p>Dos niños de la misma edad pueden tener niveles de comprensión lectora y vocabulario muy distintos, dependiendo de cuánto han leído hasta ese momento, del apoyo que han recibido en casa o en la escuela, y de su propio ritmo de desarrollo individual. Fijar una edad exacta ('a partir de los 10 años') ignora esta variación real y puede tanto excluir a un niño de 9 años ya preparado como incluir a uno de 11 que todavía no tiene las bases necesarias.</p>
+                <p>El criterio más útil no es la edad en sí, sino el nivel de preparación en tres áreas concretas: comprensión lectora base, vocabulario suficiente para el tipo de texto que se va a practicar, y capacidad de sostener atención concentrada durante el tiempo que dura una sesión de práctica.</p>
+            </section>
 
-            <h2>Criterio 1: comprensión lectora base ya sólida</h2>
-            <p>La fotolectura entrena eficiencia de lectura -- velocidad y comprensión combinadas -- sobre una base de comprensión lectora que ya debe existir de antemano. Un niño que todavía está en proceso de aprender a decodificar palabras (reconocer qué sonido corresponde a cada letra y cómo se combinan) no está en el punto de entrenar eficiencia de lectura, porque su esfuerzo cognitivo todavía está concentrado en el proceso básico de leer, no en optimizar cómo lo hace.</p>
-            <p>La señal de preparación es que la persona ya lee de forma fluida textos apropiados para su edad, sin detenerse constantemente a decodificar palabra por palabra, y puede responder preguntas básicas de comprensión sobre lo que lee sin dificultad mayor. Antes de ese punto, el trabajo prioritario es fortalecer la lectoescritura básica, no la velocidad.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Criterio 1: comprensión lectora base ya sólida</h2>
+                <p>La fotolectura entrena eficiencia de lectura -- velocidad y comprensión combinadas -- sobre una base de comprensión lectora que ya debe existir de antemano. Un niño que todavía está en proceso de aprender a decodificar palabras (reconocer qué sonido corresponde a cada letra y cómo se combinan) no está en el punto de entrenar eficiencia de lectura, porque su esfuerzo cognitivo todavía está concentrado en el proceso básico de leer, no en optimizar cómo lo hace.</p>
+                <p>La señal de preparación es que la persona ya lee de forma fluida textos apropiados para su edad, sin detenerse constantemente a decodificar palabra por palabra, y puede responder preguntas básicas de comprensión sobre lo que lee sin dificultad mayor. Antes de ese punto, el trabajo prioritario es fortalecer la lectoescritura básica, no la velocidad.</p>
+            </section>
 
-            <h2>Criterio 2: vocabulario suficiente para el tipo de texto</h2>
-            <p>Parte de la eficiencia de lectura depende de reconocer palabras y anticipar contenido basándose en conocimiento previo del tema y del vocabulario. Practicar fotolectura con textos que contienen mucho vocabulario desconocido no permite entrenar eficiencia real, porque cada palabra nueva obliga a detenerse a procesarla, sin importar cuánto se haya entrenado la técnica visual.</p>
-            <p>Por eso el material de práctica debe ajustarse al nivel de vocabulario de quien practica: un niño de primaria debe practicar con textos de su nivel, no con material técnico de adultos, y un adulto que retoma la lectura después de mucho tiempo puede necesitar empezar con textos más sencillos de lo que su edad sugeriría, si su vocabulario de lectura se ha reducido por falta de práctica reciente.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Criterio 2: vocabulario suficiente para el tipo de texto</h2>
+                <p>Parte de la eficiencia de lectura depende de reconocer palabras y anticipar contenido basándose en conocimiento previo del tema y del vocabulario. Practicar fotolectura con textos que contienen mucho vocabulario desconocido no permite entrenar eficiencia real, porque cada palabra nueva obliga a detenerse a procesarla, sin importar cuánto se haya entrenado la técnica visual.</p>
+                <p>Por eso el material de práctica debe ajustarse al nivel de vocabulario de quien practica: un niño de primaria debe practicar con textos de su nivel, no con material técnico de adultos, y un adulto que retoma la lectura después de mucho tiempo puede necesitar empezar con textos más sencillos de lo que su edad sugeriría, si su vocabulario de lectura se ha reducido por falta de práctica reciente.</p>
+            </section>
 
-            <h2>Criterio 3: capacidad de sostener atención concentrada</h2>
-            <p>Los ejercicios de fotolectura exigen concentración sostenida durante bloques de tiempo determinados -- típicamente sesiones de 20 a 30 minutos en un entorno estructurado. Un niño muy pequeño, cuya capacidad de atención sostenida todavía es limitada por su etapa de desarrollo, no está preparado para este formato, sin importar qué tan bien lea para su edad.</p>
-            <p>La señal de preparación en este criterio es que la persona puede mantenerse concentrada en una tarea estructurada durante el tiempo que dura la sesión, con las pausas normales que cualquier sesión de aprendizaje incluye, sin que la atención se disperse de forma constante desde los primeros minutos.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Criterio 3: capacidad de sostener atención concentrada</h2>
+                <p>Los ejercicios de fotolectura exigen concentración sostenida durante bloques de tiempo determinados -- típicamente sesiones de 20 a 30 minutos en un entorno estructurado. Un niño muy pequeño, cuya capacidad de atención sostenida todavía es limitada por su etapa de desarrollo, no está preparado para este formato, sin importar qué tan bien lea para su edad.</p>
+                <p>La señal de preparación en este criterio es que la persona puede mantenerse concentrada en una tarea estructurada durante el tiempo que dura la sesión, con las pausas normales que cualquier sesión de aprendizaje incluye, sin que la atención se disperse de forma constante desde los primeros minutos.</p>
+            </section>
 
-            <h2>Qué es realista esperar en cada etapa</h2>
-            <p>Aplicando estos tres criterios, en la práctica suele ubicarse el punto de preparación a partir de los 9-10 años para niños que ya leen con fluidez y tienen vocabulario apropiado para su edad, aunque un niño individual puede estar listo antes o necesitar más tiempo, dependiendo de su desarrollo particular en las tres áreas descritas.</p>
-            <p>En adolescentes, el entrenamiento puede avanzar hacia textos más exigentes -- material escolar denso, lecturas de mayor complejidad -- porque su vocabulario y comprensión lectora suelen estar más desarrollados, permitiendo trabajar con el tipo de texto que efectivamente necesitan leer rápido para sus estudios.</p>
-            <ul>
-                <li>Niños de 9-10 años en adelante, con lectura fluida: práctica con textos apropiados para su nivel escolar.</li>
-                <li>Adolescentes: práctica con material escolar de mayor densidad, acercándose al tipo de texto real que necesitan leer para estudiar.</li>
-                <li>Adultos: sin límite superior de edad; el punto de partida depende de sus hábitos actuales de lectura, no de la edad en sí.</li>
-            </ul>
-
-            <h2>Por qué no hay límite superior de edad</h2>
-            <p>A diferencia del límite inferior (que depende de desarrollo cognitivo y de lectura básica todavía en formación), no existe un límite superior real: un adulto de cualquier edad con comprensión lectora y vocabulario ya consolidados puede entrenar eficiencia de lectura, y de hecho suele tener una ventaja sobre un niño en cuanto a vocabulario y conocimiento previo del mundo, lo cual facilita la anticipación de contenido durante la lectura.</p>
-            <p>La única consideración real para adultos mayores es ajustar el ritmo de progreso según su punto de partida individual, igual que con cualquier persona: no hay ninguna razón cognitiva para excluir a alguien de entrenar estas técnicas por tener una edad avanzada, siempre que cuente con la comprensión lectora y el vocabulario base necesarios.</p>
-
-            <h2>Qué pasa si se fuerza el entrenamiento antes de estar preparado</h2>
-            <p>Forzar ejercicios de eficiencia de lectura antes de que la comprensión lectora base o el vocabulario estén consolidados suele producir frustración en lugar de progreso: la persona no logra los resultados esperados porque el esfuerzo cognitivo todavía está ocupado en procesos más básicos, y puede desarrollar una asociación negativa con el entrenamiento de lectura en general, dificultando retomar el trabajo más adelante cuando sí esté preparada.</p>
-            <p>Por eso, ante la duda sobre si alguien -- especialmente un niño -- está listo para empezar, es más útil evaluar los tres criterios de preparación descritos que insistir con una edad calendario específica, sea esa edad más alta o más baja de lo que la persona necesita realmente.</p>
-
-            <h2>Cómo evaluar los tres criterios en la práctica antes de inscribirse</h2>
-            <p>Una forma sencilla de evaluar comprensión lectora base es pedirle a la persona que lea en voz alta un párrafo apropiado para su edad y observar si lo hace con fluidez (sin detenerse a decodificar cada palabra) y si puede responder después dos o tres preguntas simples sobre lo que acaba de leer sin dificultad notoria.</p>
-            <p>Para vocabulario, basta con observar si la persona entiende la mayoría de las palabras de textos típicos de su nivel escolar o de su vida cotidiana, sin necesitar explicación constante de términos que deberían ser familiares para su edad o contexto.</p>
-            <p>Para capacidad de atención sostenida, una señal práctica es observar si la persona puede completar sin gran dificultad una tarea escolar o de lectura que dure entre 20 y 30 minutos, con las pausas normales que cualquier actividad de ese tipo incluye, sin que la atención se disperse por completo desde los primeros minutos. Ninguno de estos tres criterios requiere una evaluación formal o especializada: son observaciones que cualquier padre, maestro o la propia persona interesada puede hacer con atención razonable antes de decidir si es el momento adecuado para empezar.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Evaluación de preparación antes de empezar el curso</h3>
-                <p>El curso de Fotolectura de WorldBrain México ajusta el ritmo y el material según el nivel real de cada alumno, con grupos presenciales en Cuautitlán Izcalli y Cuernavaca.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso de lectura rápida <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Qué es realista esperar en cada etapa</h2>
+                <p>Aplicando estos tres criterios, en la práctica suele ubicarse el punto de preparación a partir de los 9-10 años para niños que ya leen con fluidez y tienen vocabulario apropiado para su edad, aunque un niño individual puede estar listo antes o necesitar más tiempo, dependiendo de su desarrollo particular en las tres áreas descritas.</p>
+                <p>En adolescentes, el entrenamiento puede avanzar hacia textos más exigentes -- material escolar denso, lecturas de mayor complejidad -- porque su vocabulario y comprensión lectora suelen estar más desarrollados, permitiendo trabajar con el tipo de texto que efectivamente necesitan leer rápido para sus estudios.</p>
                 <ul>
-                <li><a href="/blog-senales-listo-para-aprender-a-leer">Señales de que tu hijo está listo para aprender a leer</a></li>
-                <li><a href="/blog-lectoescritura-vs-fotolectura-diferencias">Lectoescritura o Fotolectura: en qué se diferencian y cuál necesitas</a></li>
-                <li><a href="/blog-lectura-rapida-adultos-guia">Lectura rápida para adultos: guía práctica sin promesas irreales</a></li>
-                <li><a href="/blog-como-elegir-curso-lectura-rapida">Cómo elegir un curso de lectura rápida: 9 preguntas antes de inscribirte</a></li>
+                    <li>Niños de 9-10 años en adelante, con lectura fluida: práctica con textos apropiados para su nivel escolar.</li>
+                    <li>Adolescentes: práctica con material escolar de mayor densidad, acercándose al tipo de texto real que necesitan leer para estudiar.</li>
+                    <li>Adultos: sin límite superior de edad; el punto de partida depende de sus hábitos actuales de lectura, no de la edad en sí.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuál es la edad mínima para tomar fotolectura?</h3>
-                <p>No hay una edad mínima universal fija; lo determinante es que la persona ya lea con fluidez, tenga vocabulario apropiado para su nivel y pueda sostener atención concentrada en sesiones de 20-30 minutos. En la práctica esto suele ubicarse a partir de los 9-10 años, pero varía por desarrollo individual.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Hay una edad máxima para aprender fotolectura?</h3>
-                <p>No. Un adulto de cualquier edad con comprensión lectora y vocabulario consolidados puede entrenar estas técnicas. El punto de partida depende de los hábitos de lectura actuales de la persona, no de su edad.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué pasa si mi hijo todavía no lee con fluidez, pero quiero que aprenda fotolectura?</h3>
-                <p>Conviene primero fortalecer la lectoescritura básica -- decodificación fluida y comprensión de textos apropiados para su edad -- antes de introducir entrenamiento de eficiencia de lectura, porque forzarlo antes de esa base suele producir frustración en lugar de progreso.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si mi hijo o yo estamos preparados para empezar?</h3>
-                <p>Evalúa los tres criterios: comprensión lectora fluida en textos apropiados para la edad, vocabulario suficiente para ese tipo de material, y capacidad de sostener atención concentrada durante 20-30 minutos en una tarea estructurada.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Por qué no hay límite superior de edad</h2>
+                <p>A diferencia del límite inferior (que depende de desarrollo cognitivo y de lectura básica todavía en formación), no existe un límite superior real: un adulto de cualquier edad con comprensión lectora y vocabulario ya consolidados puede entrenar eficiencia de lectura, y de hecho suele tener una ventaja sobre un niño en cuanto a vocabulario y conocimiento previo del mundo, lo cual facilita la anticipación de contenido durante la lectura.</p>
+                <p>La única consideración real para adultos mayores es ajustar el ritmo de progreso según su punto de partida individual, igual que con cualquier persona: no hay ninguna razón cognitiva para excluir a alguien de entrenar estas técnicas por tener una edad avanzada, siempre que cuente con la comprensión lectora y el vocabulario base necesarios.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Qué pasa si se fuerza el entrenamiento antes de estar preparado</h2>
+                <p>Forzar ejercicios de eficiencia de lectura antes de que la comprensión lectora base o el vocabulario estén consolidados suele producir frustración en lugar de progreso: la persona no logra los resultados esperados porque el esfuerzo cognitivo todavía está ocupado en procesos más básicos, y puede desarrollar una asociación negativa con el entrenamiento de lectura en general, dificultando retomar el trabajo más adelante cuando sí esté preparada.</p>
+                <p>Por eso, ante la duda sobre si alguien -- especialmente un niño -- está listo para empezar, es más útil evaluar los tres criterios de preparación descritos que insistir con una edad calendario específica, sea esa edad más alta o más baja de lo que la persona necesita realmente.</p>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-8" aria-labelledby="seccion-8-titulo">
+                <h2 id="seccion-8-titulo">Cómo evaluar los tres criterios en la práctica antes de inscribirse</h2>
+                <p>Una forma sencilla de evaluar comprensión lectora base es pedirle a la persona que lea en voz alta un párrafo apropiado para su edad y observar si lo hace con fluidez (sin detenerse a decodificar cada palabra) y si puede responder después dos o tres preguntas simples sobre lo que acaba de leer sin dificultad notoria.</p>
+                <p>Para vocabulario, basta con observar si la persona entiende la mayoría de las palabras de textos típicos de su nivel escolar o de su vida cotidiana, sin necesitar explicación constante de términos que deberían ser familiares para su edad o contexto.</p>
+                <p>Para capacidad de atención sostenida, una señal práctica es observar si la persona puede completar sin gran dificultad una tarea escolar o de lectura que dure entre 20 y 30 minutos, con las pausas normales que cualquier actividad de ese tipo incluye, sin que la atención se disperse por completo desde los primeros minutos. Ninguno de estos tres criterios requiere una evaluación formal o especializada: son observaciones que cualquier padre, maestro o la propia persona interesada puede hacer con atención razonable antes de decidir si es el momento adecuado para empezar.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Evaluación de preparación antes de empezar el curso</h2>
+                    <p>El curso de Fotolectura de WorldBrain México ajusta el ritmo y el material según el nivel real de cada alumno, con grupos presenciales en Cuautitlán Izcalli y Cuernavaca.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Conocer el curso de lectura rápida <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-senales-listo-para-aprender-a-leer">
+                            <span>Señales de que tu hijo está listo para aprender a leer</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-lectoescritura-vs-fotolectura-diferencias">
+                            <span>Lectoescritura o Fotolectura: en qué se diferencian y cuál necesitas</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-lectura-rapida-adultos-guia">
+                            <span>Lectura rápida para adultos: guía práctica sin promesas irreales</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-elegir-curso-lectura-rapida">
+                            <span>Cómo elegir un curso de lectura rápida: 9 preguntas antes de inscribirte</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuál es la edad mínima para tomar fotolectura?</h3>
+                    <p>No hay una edad mínima universal fija; lo determinante es que la persona ya lea con fluidez, tenga vocabulario apropiado para su nivel y pueda sostener atención concentrada en sesiones de 20-30 minutos. En la práctica esto suele ubicarse a partir de los 9-10 años, pero varía por desarrollo individual.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Hay una edad máxima para aprender fotolectura?</h3>
+                    <p>No. Un adulto de cualquier edad con comprensión lectora y vocabulario consolidados puede entrenar estas técnicas. El punto de partida depende de los hábitos de lectura actuales de la persona, no de su edad.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué pasa si mi hijo todavía no lee con fluidez, pero quiero que aprenda fotolectura?</h3>
+                    <p>Conviene primero fortalecer la lectoescritura básica -- decodificación fluida y comprensión de textos apropiados para su edad -- antes de introducir entrenamiento de eficiencia de lectura, porque forzarlo antes de esa base suele producir frustración en lugar de progreso.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si mi hijo o yo estamos preparados para empezar?</h3>
+                    <p>Evalúa los tres criterios: comprensión lectora fluida en textos apropiados para la edad, vocabulario suficiente para ese tipo de material, y capacidad de sostener atención concentrada durante 20-30 minutos en una tarea estructurada.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -512,8 +610,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué una edad fija no es el criterio correcto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Criterio 1: comprensión lectora base ya sólida
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Criterio 2: vocabulario suficiente para el tipo de texto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Criterio 3: capacidad de sostener atención concentrada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué es realista esperar en cada etapa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Por qué no hay límite superior de edad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué pasa si se fuerza el entrenamiento antes de estar preparado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Cómo evaluar los tres criterios en la práctica antes de inscribirse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

@@ -362,150 +362,225 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-home"></i> Homeschool y Lectoescritura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Horario homeschool realista: bloques, pausas y autonomía</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Homeschool y Lectoescritura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Horario homeschool realista: bloques, pausas y autonomía</h1>
+                <p class="blog-post-dek">Cómo diseñar un horario de homeschool realista con bloques, pausas y autonomía progresiva, sin replicar la rigidez escolar en casa.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Homeschool y Lectoescritura</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/homeschool-educacion-en-casa-certificada-sep.webp" alt="Horario homeschool realista: bloques, pausas y autonomía" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Uno de los primeros impulsos al empezar a educar en casa es construir un horario que se parezca al de la escuela: seis horas, materias separadas, campana imaginaria cada cincuenta minutos. El resultado suele ser agotamiento a las dos semanas, porque la escuela necesita ese formato por logística de grupos, no porque sea la forma óptima de aprender.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué necesitas un horario aunque sea flexible
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Bloques por edad: cuánto tiempo de trabajo enfocado es realista
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Estructura de un día tipo: ejemplo adaptable
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Pausas activas: por qué no son tiempo perdido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Autonomía progresiva: del acompañamiento total al trabajo independiente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ajustar el horario cada mes: qué observar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Uno de los primeros impulsos al empezar a educar en casa es construir un horario que se parezca al de la escuela: seis horas, materias separadas, campana imaginaria cada cincuenta minutos. El resultado suele ser agotamiento a las dos semanas, porque la escuela necesita ese formato por logística de grupos, no porque sea la forma óptima de aprender.</p>
             <p>Un horario homeschool efectivo se basa en una premisa distinta: menos horas de silla, más evidencia de aprendizaje. Sin treinta alumnos esperando turnos ni traslados ni formaciones, el tiempo productivo real se comprime. La estructura existe para dar ritmo y previsibilidad, no para llenar un reloj.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Un horario homeschool realista no replica el horario escolar. Prioriza bloques cortos de trabajo enfocado (30–60 minutos según la edad), intercala pausas activas, dedica menos horas totales que la escuela porque elimina tiempos muertos, y se ajusta cada mes según lo que funciona y lo que no.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Un horario homeschool realista no replica el horario escolar. Prioriza bloques cortos de trabajo enfocado (30–60 minutos según la edad), intercala pausas activas, dedica menos horas totales que la escuela porque elimina tiempos muertos, y se ajusta cada mes según lo que funciona y lo que no.</p>
+                </aside>
 
-            <h2>Por qué necesitas un horario aunque sea flexible</h2>
-            <p>La ausencia total de estructura no es libertad educativa; es caos que agota tanto al niño como al facilitador. Sin un marco mínimo, los días se van en indecisiones ('¿qué hacemos hoy?'), se acumulan materias postergadas y la sensación de avance desaparece.</p>
-            <p>El horario no tiene que ser rígido ni idéntico cada día, pero sí predecible. El niño necesita saber qué esperar: cuándo empieza el trabajo, cuándo termina, qué viene después. Esa previsibilidad reduce ansiedad y resistencia.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué necesitas un horario aunque sea flexible</h2>
+                <p>La ausencia total de estructura no es libertad educativa; es caos que agota tanto al niño como al facilitador. Sin un marco mínimo, los días se van en indecisiones ('¿qué hacemos hoy?'), se acumulan materias postergadas y la sensación de avance desaparece.</p>
+                <p>El horario no tiene que ser rígido ni idéntico cada día, pero sí predecible. El niño necesita saber qué esperar: cuándo empieza el trabajo, cuándo termina, qué viene después. Esa previsibilidad reduce ansiedad y resistencia.</p>
+            </section>
 
-            <h2>Bloques por edad: cuánto tiempo de trabajo enfocado es realista</h2>
-            <p>La capacidad de atención sostenida varía enormemente por edad. Diseñar bloques que respeten esa capacidad evita la frustración de ambos lados y permite que el tiempo dedicado sea realmente productivo.</p>
-            <ul>
-                <li>4–6 años: bloques de 15–20 minutos con pausas de movimiento entre cada uno. Total diario: 1 a 1.5 horas de trabajo dirigido.</li>
-                <li>7–9 años: bloques de 25–35 minutos. Total diario: 2 a 2.5 horas de trabajo enfocado más actividades prácticas.</li>
-                <li>10–12 años: bloques de 40–50 minutos. Total diario: 3 a 3.5 horas de contenido académico formal.</li>
-                <li>13–15 años: bloques de 50–60 minutos. Total diario: 3.5 a 4.5 horas, incluyendo trabajo independiente.</li>
-                <li>Estos tiempos son de trabajo real, no de estar sentado. Si el niño completa un ejercicio en veinte minutos, no hay razón para retenerlo cuarenta solo por cumplir el bloque.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Bloques por edad: cuánto tiempo de trabajo enfocado es realista</h2>
+                <p>La capacidad de atención sostenida varía enormemente por edad. Diseñar bloques que respeten esa capacidad evita la frustración de ambos lados y permite que el tiempo dedicado sea realmente productivo.</p>
+                <ul>
+                    <li>4–6 años: bloques de 15–20 minutos con pausas de movimiento entre cada uno. Total diario: 1 a 1.5 horas de trabajo dirigido.</li>
+                    <li>7–9 años: bloques de 25–35 minutos. Total diario: 2 a 2.5 horas de trabajo enfocado más actividades prácticas.</li>
+                    <li>10–12 años: bloques de 40–50 minutos. Total diario: 3 a 3.5 horas de contenido académico formal.</li>
+                    <li>13–15 años: bloques de 50–60 minutos. Total diario: 3.5 a 4.5 horas, incluyendo trabajo independiente.</li>
+                    <li>Estos tiempos son de trabajo real, no de estar sentado. Si el niño completa un ejercicio en veinte minutos, no hay razón para retenerlo cuarenta solo por cumplir el bloque.</li>
+                </ul>
+            </section>
 
-            <h2>Estructura de un día tipo: ejemplo adaptable</h2>
-            <p>No existe un horario universal porque cada familia tiene ritmos distintos. Algunas trabajan mejor temprano; otras necesitan mañanas lentas. Lo que sí funciona es seguir un orden consistente de actividades, aunque la hora exacta varíe.</p>
-            <ol>
-                <li>Rutina de inicio: algo breve que señale 'empezamos' (lectura en voz alta, diario, revisión del plan del día).</li>
-                <li>Bloque fuerte: la materia que requiere más concentración (matemáticas, lectura comprensiva, escritura) cuando la energía mental está alta.</li>
-                <li>Pausa activa: movimiento físico, merienda, juego libre (10–20 minutos).</li>
-                <li>Segundo bloque: materia complementaria o proyecto en curso.</li>
-                <li>Actividad práctica: experimento, manualidad, cocina, huerto, construcción (aprendizaje sin silla).</li>
-                <li>Cierre: revisión breve de lo hecho, anticipación de lo que viene mañana.</li>
-                <li>Tarde libre: lectura por placer, juego, actividades extracurriculares o descanso.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Estructura de un día tipo: ejemplo adaptable</h2>
+                <p>No existe un horario universal porque cada familia tiene ritmos distintos. Algunas trabajan mejor temprano; otras necesitan mañanas lentas. Lo que sí funciona es seguir un orden consistente de actividades, aunque la hora exacta varíe.</p>
+                <ol>
+                    <li>Rutina de inicio: algo breve que señale 'empezamos' (lectura en voz alta, diario, revisión del plan del día).</li>
+                    <li>Bloque fuerte: la materia que requiere más concentración (matemáticas, lectura comprensiva, escritura) cuando la energía mental está alta.</li>
+                    <li>Pausa activa: movimiento físico, merienda, juego libre (10–20 minutos).</li>
+                    <li>Segundo bloque: materia complementaria o proyecto en curso.</li>
+                    <li>Actividad práctica: experimento, manualidad, cocina, huerto, construcción (aprendizaje sin silla).</li>
+                    <li>Cierre: revisión breve de lo hecho, anticipación de lo que viene mañana.</li>
+                    <li>Tarde libre: lectura por placer, juego, actividades extracurriculares o descanso.</li>
+                </ol>
+            </section>
 
-            <h2>Pausas activas: por qué no son tiempo perdido</h2>
-            <p>El cerebro no consolida información de forma continua. Necesita intervalos para procesar lo recién aprendido. Las pausas activas —movimiento, aire fresco, juego— no interrumpen el aprendizaje: lo hacen posible.</p>
-            <p>Una pausa efectiva implica cambio de actividad y de postura. No es sentarse a ver una pantalla; es saltar la cuerda, sacar al perro, bailar una canción o correr al parque diez minutos. Tras el movimiento, el niño regresa con mejor disposición que si lo hubieras mantenido sentado.</p>
-            <ul>
-                <li>Pausas de 5–10 minutos entre bloques cortos; de 15–20 entre bloques largos.</li>
-                <li>Priorizar movimiento físico sobre pantallas durante las pausas.</li>
-                <li>No castigar eliminando la pausa si el bloque anterior fue difícil; precisamente por eso la necesita más.</li>
-                <li>Observar si el niño vuelve mejor después de cierto tipo de pausa y repetir lo que funciona.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Pausas activas: por qué no son tiempo perdido</h2>
+                <p>El cerebro no consolida información de forma continua. Necesita intervalos para procesar lo recién aprendido. Las pausas activas —movimiento, aire fresco, juego— no interrumpen el aprendizaje: lo hacen posible.</p>
+                <p>Una pausa efectiva implica cambio de actividad y de postura. No es sentarse a ver una pantalla; es saltar la cuerda, sacar al perro, bailar una canción o correr al parque diez minutos. Tras el movimiento, el niño regresa con mejor disposición que si lo hubieras mantenido sentado.</p>
+                <ul>
+                    <li>Pausas de 5–10 minutos entre bloques cortos; de 15–20 entre bloques largos.</li>
+                    <li>Priorizar movimiento físico sobre pantallas durante las pausas.</li>
+                    <li>No castigar eliminando la pausa si el bloque anterior fue difícil; precisamente por eso la necesita más.</li>
+                    <li>Observar si el niño vuelve mejor después de cierto tipo de pausa y repetir lo que funciona.</li>
+                </ul>
+            </section>
 
-            <h2>Autonomía progresiva: del acompañamiento total al trabajo independiente</h2>
-            <p>Un niño de seis años necesita acompañamiento constante durante el trabajo dirigido. Un adolescente de catorce debería poder completar tareas asignadas sin supervisión continua. La transición entre ambos extremos es gradual y deliberada.</p>
-            <p>Introducir autonomía significa empezar con tareas cortas y claras que el niño pueda resolver solo ('lee estas dos páginas y responde estas tres preguntas') e ir aumentando la complejidad y la duración del trabajo independiente a medida que demuestra capacidad de autorregulación.</p>
-            <ul>
-                <li>Empezar con 5–10 minutos de trabajo independiente e ir aumentando según la madurez.</li>
-                <li>Dar instrucciones por escrito además de verbales para que el niño pueda releerlas sin preguntar.</li>
-                <li>Revisar el trabajo terminado, no supervisar cada paso en tiempo real.</li>
-                <li>Celebrar la autonomía lograda sin castigar los errores cometidos al intentar resolver solo.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Autonomía progresiva: del acompañamiento total al trabajo independiente</h2>
+                <p>Un niño de seis años necesita acompañamiento constante durante el trabajo dirigido. Un adolescente de catorce debería poder completar tareas asignadas sin supervisión continua. La transición entre ambos extremos es gradual y deliberada.</p>
+                <p>Introducir autonomía significa empezar con tareas cortas y claras que el niño pueda resolver solo ('lee estas dos páginas y responde estas tres preguntas') e ir aumentando la complejidad y la duración del trabajo independiente a medida que demuestra capacidad de autorregulación.</p>
+                <ul>
+                    <li>Empezar con 5–10 minutos de trabajo independiente e ir aumentando según la madurez.</li>
+                    <li>Dar instrucciones por escrito además de verbales para que el niño pueda releerlas sin preguntar.</li>
+                    <li>Revisar el trabajo terminado, no supervisar cada paso en tiempo real.</li>
+                    <li>Celebrar la autonomía lograda sin castigar los errores cometidos al intentar resolver solo.</li>
+                </ul>
+            </section>
 
-            <h2>Ajustar el horario cada mes: qué observar</h2>
-            <p>Ningún horario debería durar todo el año sin modificaciones. Los niños crecen, las estaciones cambian, los intereses evolucionan y lo que funcionaba en septiembre puede no servir en febrero. Reserva un momento mensual para evaluar y ajustar.</p>
-            <p>No se trata de cambiar todo cada mes, sino de afinar: ¿este bloque es muy largo o muy corto? ¿La materia difícil está en el momento adecuado del día? ¿Las pausas son suficientes? ¿El niño termina el día agotado o con energía?</p>
-            <ul>
-                <li>Preguntarle al niño qué parte del día disfruta más y cuál se le hace pesada.</li>
-                <li>Observar a qué hora del día muestra mayor concentración natural.</li>
-                <li>Reducir si hay señales de saturación (resistencia creciente, llanto, evasión constante).</li>
-                <li>Aumentar si el niño termina rápido y pide más actividad.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ajustar el horario cada mes: qué observar</h2>
+                <p>Ningún horario debería durar todo el año sin modificaciones. Los niños crecen, las estaciones cambian, los intereses evolucionan y lo que funcionaba en septiembre puede no servir en febrero. Reserva un momento mensual para evaluar y ajustar.</p>
+                <p>No se trata de cambiar todo cada mes, sino de afinar: ¿este bloque es muy largo o muy corto? ¿La materia difícil está en el momento adecuado del día? ¿Las pausas son suficientes? ¿El niño termina el día agotado o con energía?</p>
+                <ul>
+                    <li>Preguntarle al niño qué parte del día disfruta más y cuál se le hace pesada.</li>
+                    <li>Observar a qué hora del día muestra mayor concentración natural.</li>
+                    <li>Reducir si hay señales de saturación (resistencia creciente, llanto, evasión constante).</li>
+                    <li>Aumentar si el niño termina rápido y pide más actividad.</li>
+                </ul>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Un plan de contenidos listo para estructurar tu semana</h3>
-                <p>Si prefieres no partir de cero, el programa Homeschool organiza contenidos por grado con distribución semanal sugerida y materiales incluidos. Puedes usarlo como estructura base y adaptarlo a los ritmos de tu familia.</p>
-                <a href="/homeschool" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el programa de homeschool <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Un plan de contenidos listo para estructurar tu semana</h2>
+                    <p>Si prefieres no partir de cero, el programa Homeschool organiza contenidos por grado con distribución semanal sugerida y materiales incluidos. Puedes usarlo como estructura base y adaptarlo a los ritmos de tu familia.</p>
+                    <a href="/homeschool" class="btn-primary">
+                        Ver el programa de homeschool <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántas horas al día debería durar el homeschool?</h3>
-                <p>Depende de la edad: entre 1 y 1.5 horas para niños de 4 a 6 años, hasta 3.5–4.5 horas para adolescentes. Estos son tiempos de trabajo enfocado real, sin contar pausas ni actividades prácticas libres. Menos tiempo que la escuela, pero más concentrado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Hay que seguir el mismo horario todos los días?</h3>
-                <p>No necesariamente. Muchas familias varían ciertos días (lunes y miércoles enfocados en escritura, martes y jueves en ciencias, viernes en proyectos). Lo que conviene mantener constante es la rutina de inicio y los bloques principales para dar previsibilidad.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi hijo se resiste al horario?</h3>
-                <p>Primero descarta que el horario sea excesivo para su edad. Luego involúcralo en la planificación: que elija el orden de las materias o la actividad de cierre. La resistencia suele reducirse cuando el niño siente agencia sobre su día, aunque no controle todo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es necesario cubrir todas las materias todos los días?</h3>
-                <p>No. Rotar materias por día o por semana es perfectamente válido y reduce la sensación de saturación. Lo importante es que al cabo de una o dos semanas todas las áreas fundamentales hayan recibido atención suficiente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo manejar el horario si tengo más de un hijo en homeschool?</h3>
-                <p>Combina lo que se pueda (lectura en voz alta, salidas, proyectos de ciencias) y separa los bloques que requieren nivel específico (matemáticas, escritura). Mientras uno trabaja con acompañamiento, el otro hace actividad independiente o práctica libre.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.nheri.org/" target="_blank" rel="noopener noreferrer">National Home Education Research Institute (NHERI)</a> — Investigación sobre prácticas y resultados del homeschooling; referencia internacional.</li>
-                <li><a href="https://www.planyprogramasdestudio.sep.gob.mx/" target="_blank" rel="noopener noreferrer">SEP – Aprendizajes Clave (Plan de estudios)</a> — Contenidos esperados por grado para orientar qué cubrir en cada nivel.</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántas horas al día debería durar el homeschool?</h3>
+                    <p>Depende de la edad: entre 1 y 1.5 horas para niños de 4 a 6 años, hasta 3.5–4.5 horas para adolescentes. Estos son tiempos de trabajo enfocado real, sin contar pausas ni actividades prácticas libres. Menos tiempo que la escuela, pero más concentrado.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Hay que seguir el mismo horario todos los días?</h3>
+                    <p>No necesariamente. Muchas familias varían ciertos días (lunes y miércoles enfocados en escritura, martes y jueves en ciencias, viernes en proyectos). Lo que conviene mantener constante es la rutina de inicio y los bloques principales para dar previsibilidad.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi hijo se resiste al horario?</h3>
+                    <p>Primero descarta que el horario sea excesivo para su edad. Luego involúcralo en la planificación: que elija el orden de las materias o la actividad de cierre. La resistencia suele reducirse cuando el niño siente agencia sobre su día, aunque no controle todo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es necesario cubrir todas las materias todos los días?</h3>
+                    <p>No. Rotar materias por día o por semana es perfectamente válido y reduce la sensación de saturación. Lo importante es que al cabo de una o dos semanas todas las áreas fundamentales hayan recibido atención suficiente.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo manejar el horario si tengo más de un hijo en homeschool?</h3>
+                    <p>Combina lo que se pueda (lectura en voz alta, salidas, proyectos de ciencias) y separa los bloques que requieren nivel específico (matemáticas, escritura). Mientras uno trabaja con acompañamiento, el otro hace actividad independiente o práctica libre.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.nheri.org/" target="_blank" rel="noopener noreferrer">National Home Education Research Institute (NHERI)</a> — Investigación sobre prácticas y resultados del homeschooling; referencia internacional.</li>
+                    <li><a href="https://www.planyprogramasdestudio.sep.gob.mx/" target="_blank" rel="noopener noreferrer">SEP – Aprendizajes Clave (Plan de estudios)</a> — Contenidos esperados por grado para orientar qué cubrir en cada nivel.</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -535,8 +610,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué necesitas un horario aunque sea flexible
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Bloques por edad: cuánto tiempo de trabajo enfocado es realista
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Estructura de un día tipo: ejemplo adaptable
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Pausas activas: por qué no son tiempo perdido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Autonomía progresiva: del acompañamiento total al trabajo independiente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ajustar el horario cada mes: qué observar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

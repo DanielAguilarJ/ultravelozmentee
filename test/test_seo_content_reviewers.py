@@ -219,6 +219,14 @@ class SeoOnPageReviewTests(unittest.TestCase):
         self.assertEqual(score, 9)
         self.assertTrue(any("json-ld" in line.lower() and "[ ]" in line for line in lines))
 
+    def test_navigation_text_does_not_count_as_keyword_stuffing(self) -> None:
+        html = make_html(self.post, self.meta)
+        repeated_navigation = "<nav>" + ("prueba clara " * 20) + "</nav>"
+        html = html.replace("<body>", f'<body>{repeated_navigation}<article class="blog-content">')
+        html = html.replace("</body>", "</article></body>")
+        score, lines = self.review_html(html)
+        self.assertEqual(score, 10, "\n".join(lines))
+
     def test_cover_requires_alt_width_and_height(self) -> None:
         score, lines = self.review_html(make_html(self.post, self.meta, cover_dimensions=False))
         self.assertEqual(score, 9)

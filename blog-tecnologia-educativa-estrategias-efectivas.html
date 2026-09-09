@@ -346,126 +346,217 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Estrategias efectivas para enseñar programación a niños</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 27 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Estrategias efectivas para enseñar programación a niños</h1>
+                <p class="blog-post-dek">Estrategias efectivas para enseñar programación a niños en casa o como refuerzo del curso, basadas en principios pedagógicos con respaldo, no en trucos genéricos.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-27">27 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Estrategias efectivas para enseñar programación a niños" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Enseñar programación a un niño, ya sea en casa como refuerzo o como parte de un curso, no requiere que el adulto domine programación avanzada; requiere aplicar algunas estrategias pedagógicas específicas que facilitan la comprensión conceptual.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Empieza con bloques visuales, no con sintaxis escrita
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Prioriza proyectos con resultado visible e inmediato
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Fomenta la depuración guiada en lugar de dar la respuesta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Conecta conceptos con situaciones cotidianas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Practica con constancia corta en lugar de sesiones largas esporádicas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Evita corregir cada error menor de inmediato
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Enseñar programación a un niño, ya sea en casa como refuerzo o como parte de un curso, no requiere que el adulto domine programación avanzada; requiere aplicar algunas estrategias pedagógicas específicas que facilitan la comprensión conceptual.</p>
             <p>Este artículo describe esas estrategias con ejemplos concretos, distinguiendo lo que la evidencia respalda de trucos genéricos que circulan sin sustento claro.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Las estrategias más efectivas para enseñar programación a niños incluyen empezar con bloques visuales antes de código escrito, priorizar proyectos con resultado visible e inmediato, fomentar la depuración guiada en lugar de dar la respuesta directa, y conectar explícitamente los conceptos con situaciones cotidianas que el niño ya entiende.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Las estrategias más efectivas para enseñar programación a niños incluyen empezar con bloques visuales antes de código escrito, priorizar proyectos con resultado visible e inmediato, fomentar la depuración guiada en lugar de dar la respuesta directa, y conectar explícitamente los conceptos con situaciones cotidianas que el niño ya entiende.</p>
+                </aside>
 
-            <h2>Empieza con bloques visuales, no con sintaxis escrita</h2>
-            <p>Para niños que empiezan, los lenguajes de bloques visuales (donde se arrastran piezas que representan instrucciones) eliminan la barrera de memorizar sintaxis exacta, permitiendo que el niño se concentre en el concepto de secuencia y lógica sin la frustración adicional de errores de escritura.</p>
-            <p>La transición a código escrito real puede venir después, una vez que los conceptos fundamentales de secuencia, condicionales y bucles ya son familiares en el contexto visual. Saltar directo a sintaxis de texto con un niño sin experiencia previa suele generar más frustración por errores tipográficos que por errores conceptuales reales.</p>
-            <p>Esta progresión no es exclusiva de la programación educativa: es la misma lógica detrás de enseñar aritmética con objetos físicos antes de números abstractos, o enseñar lectura con imágenes antes de texto puro. El principio general es reducir la carga cognitiva no relacionada con el concepto central que se busca enseñar.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Empieza con bloques visuales, no con sintaxis escrita</h2>
+                <p>Para niños que empiezan, los lenguajes de bloques visuales (donde se arrastran piezas que representan instrucciones) eliminan la barrera de memorizar sintaxis exacta, permitiendo que el niño se concentre en el concepto de secuencia y lógica sin la frustración adicional de errores de escritura.</p>
+                <p>La transición a código escrito real puede venir después, una vez que los conceptos fundamentales de secuencia, condicionales y bucles ya son familiares en el contexto visual. Saltar directo a sintaxis de texto con un niño sin experiencia previa suele generar más frustración por errores tipográficos que por errores conceptuales reales.</p>
+                <p>Esta progresión no es exclusiva de la programación educativa: es la misma lógica detrás de enseñar aritmética con objetos físicos antes de números abstractos, o enseñar lectura con imágenes antes de texto puro. El principio general es reducir la carga cognitiva no relacionada con el concepto central que se busca enseñar.</p>
+            </section>
 
-            <h2>Prioriza proyectos con resultado visible e inmediato</h2>
-            <p>Los proyectos donde el resultado de una instrucción se ve o se escucha de inmediato (un robot que se mueve, un sonido que se reproduce, un dibujo que aparece en pantalla) sostienen mejor la atención y facilitan la comprensión de causa y efecto que ejercicios abstractos sin retroalimentación sensorial clara.</p>
-            <p>Este principio explica por qué la robótica funciona especialmente bien como introducción a la programación: el resultado de cada instrucción es físico y observable, lo cual hace el concepto de causa-efecto mucho más concreto que en un ejercicio puramente de pantalla.</p>
-            <p>Cuando la retroalimentación es inmediata, el niño puede formar hipótesis, probarlas y corregirlas en un ciclo rápido, sin tener que esperar mucho tiempo entre la acción y el resultado. Ese ciclo rápido de prueba y ajuste es precisamente el mecanismo mediante el cual se construye comprensión intuitiva de conceptos abstractos.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Prioriza proyectos con resultado visible e inmediato</h2>
+                <p>Los proyectos donde el resultado de una instrucción se ve o se escucha de inmediato (un robot que se mueve, un sonido que se reproduce, un dibujo que aparece en pantalla) sostienen mejor la atención y facilitan la comprensión de causa y efecto que ejercicios abstractos sin retroalimentación sensorial clara.</p>
+                <p>Este principio explica por qué la robótica funciona especialmente bien como introducción a la programación: el resultado de cada instrucción es físico y observable, lo cual hace el concepto de causa-efecto mucho más concreto que en un ejercicio puramente de pantalla.</p>
+                <p>Cuando la retroalimentación es inmediata, el niño puede formar hipótesis, probarlas y corregirlas en un ciclo rápido, sin tener que esperar mucho tiempo entre la acción y el resultado. Ese ciclo rápido de prueba y ajuste es precisamente el mecanismo mediante el cual se construye comprensión intuitiva de conceptos abstractos.</p>
+            </section>
 
-            <h2>Fomenta la depuración guiada en lugar de dar la respuesta</h2>
-            <p>Cuando algo no funciona, la tentación natural es decirle al niño exactamente qué está mal. Esto resuelve el problema inmediato pero no desarrolla la habilidad de depuración, que es tan importante como escribir el código correcto la primera vez.</p>
-            <p>Una estrategia más efectiva es hacer preguntas que guíen el proceso de búsqueda: '¿qué esperabas que pasara?', '¿en qué parte crees que está el problema?', '¿qué pasa si probamos cambiar solo esta parte?'. Esto mantiene al niño como responsable de encontrar la solución, con apoyo estructurado en lugar de respuestas directas.</p>
-            <p>El equilibrio correcto varía según el nivel de frustración del momento: si el niño lleva mucho tiempo sin avanzar y la frustración es alta, dar una pista más directa puede ser razonable para evitar que el ejercicio se vuelva contraproducente. La depuración guiada funciona mejor cuando el niño todavía tiene margen de tolerancia disponible, no cuando ya está al límite.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Fomenta la depuración guiada en lugar de dar la respuesta</h2>
+                <p>Cuando algo no funciona, la tentación natural es decirle al niño exactamente qué está mal. Esto resuelve el problema inmediato pero no desarrolla la habilidad de depuración, que es tan importante como escribir el código correcto la primera vez.</p>
+                <p>Una estrategia más efectiva es hacer preguntas que guíen el proceso de búsqueda: '¿qué esperabas que pasara?', '¿en qué parte crees que está el problema?', '¿qué pasa si probamos cambiar solo esta parte?'. Esto mantiene al niño como responsable de encontrar la solución, con apoyo estructurado en lugar de respuestas directas.</p>
+                <p>El equilibrio correcto varía según el nivel de frustración del momento: si el niño lleva mucho tiempo sin avanzar y la frustración es alta, dar una pista más directa puede ser razonable para evitar que el ejercicio se vuelva contraproducente. La depuración guiada funciona mejor cuando el niño todavía tiene margen de tolerancia disponible, no cuando ya está al límite.</p>
+            </section>
 
-            <h2>Conecta conceptos con situaciones cotidianas</h2>
-            <p>Los conceptos abstractos de programación se vuelven más accesibles cuando se conectan explícitamente con situaciones que el niño ya comprende. Un bucle (repetir una acción varias veces) se puede explicar comparándolo con lavarse los dientes: la misma secuencia de movimientos se repite un número determinado de veces.</p>
-            <p>Un condicional (si pasa esto, entonces haz esto otro) se conecta naturalmente con decisiones cotidianas: 'si llueve, entonces llevo sombrilla'. Estas analogías no sustituyen la práctica técnica, pero facilitan que el concepto abstracto tenga un ancla intuitiva antes de aplicarlo en el contexto de código o robótica.</p>
-            <p>Es útil invitar al propio niño a proponer sus propias analogías una vez que entiende el ejemplo inicial: pedirle que piense en otra situación cotidiana donde aplicaría un bucle o un condicional confirma si realmente comprendió el concepto general, o si solo memorizó el ejemplo específico que se le dio.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Conecta conceptos con situaciones cotidianas</h2>
+                <p>Los conceptos abstractos de programación se vuelven más accesibles cuando se conectan explícitamente con situaciones que el niño ya comprende. Un bucle (repetir una acción varias veces) se puede explicar comparándolo con lavarse los dientes: la misma secuencia de movimientos se repite un número determinado de veces.</p>
+                <p>Un condicional (si pasa esto, entonces haz esto otro) se conecta naturalmente con decisiones cotidianas: 'si llueve, entonces llevo sombrilla'. Estas analogías no sustituyen la práctica técnica, pero facilitan que el concepto abstracto tenga un ancla intuitiva antes de aplicarlo en el contexto de código o robótica.</p>
+                <p>Es útil invitar al propio niño a proponer sus propias analogías una vez que entiende el ejemplo inicial: pedirle que piense en otra situación cotidiana donde aplicaría un bucle o un condicional confirma si realmente comprendió el concepto general, o si solo memorizó el ejemplo específico que se le dio.</p>
+            </section>
 
-            <h2>Practica con constancia corta en lugar de sesiones largas esporádicas</h2>
-            <p>La investigación sobre adquisición de habilidades favorece sesiones cortas y frecuentes sobre sesiones largas y ocasionales. Quince a veinte minutos de práctica varias veces por semana suele consolidar mejor los conceptos que una sesión de dos horas una vez al mes.</p>
-            <p>Esto es particularmente relevante en programación porque los conceptos se construyen de forma acumulativa: cada sesión debería reforzar y ampliar lo aprendido en la anterior, algo que se dificulta si el tiempo transcurrido entre sesiones es tan largo que el niño olvida buena parte de lo trabajado previamente.</p>
-            <p>Esta preferencia por sesiones cortas y frecuentes coincide con el principio de repaso espaciado documentado en investigación de memoria general: la práctica distribuida en el tiempo produce retención más duradera que la práctica concentrada, un hallazgo consistente en múltiples áreas de aprendizaje, no exclusivo de la programación.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Practica con constancia corta en lugar de sesiones largas esporádicas</h2>
+                <p>La investigación sobre adquisición de habilidades favorece sesiones cortas y frecuentes sobre sesiones largas y ocasionales. Quince a veinte minutos de práctica varias veces por semana suele consolidar mejor los conceptos que una sesión de dos horas una vez al mes.</p>
+                <p>Esto es particularmente relevante en programación porque los conceptos se construyen de forma acumulativa: cada sesión debería reforzar y ampliar lo aprendido en la anterior, algo que se dificulta si el tiempo transcurrido entre sesiones es tan largo que el niño olvida buena parte de lo trabajado previamente.</p>
+                <p>Esta preferencia por sesiones cortas y frecuentes coincide con el principio de repaso espaciado documentado en investigación de memoria general: la práctica distribuida en el tiempo produce retención más duradera que la práctica concentrada, un hallazgo consistente en múltiples áreas de aprendizaje, no exclusivo de la programación.</p>
+            </section>
 
-            <h2>Evita corregir cada error menor de inmediato</h2>
-            <p>No todo error necesita corrección inmediata. Si un niño está trabajando en un problema y comete un error que no bloquea completamente su progreso, dejarlo continuar y descubrir el problema por sí mismo (cuando el resultado no salga como esperaba) suele generar más aprendizaje que interrumpir cada pequeño desliz en el momento en que ocurre.</p>
-            <p>Esta práctica requiere cierta tolerancia por parte del adulto acompañante: observar un error sin corregirlo de inmediato puede sentirse contraintuitivo, especialmente si se anticipa el resultado incorrecto con antelación. Sin embargo, ese momento de descubrimiento propio suele generar una comprensión más duradera que la corrección preventiva constante.</p>
-            <ul>
-                <li>Deja que errores no bloqueantes se manifiesten en el resultado antes de señalarlos.</li>
-                <li>Reserva la corrección inmediata para errores que impiden por completo continuar.</li>
-                <li>Pregunta qué observó el niño en el resultado antes de explicar tú qué salió mal.</li>
-                <li>Celebra cuando el niño identifica su propio error sin ayuda.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Estas estrategias aplicadas de forma estructurada en cada sesión</h3>
-                <p>Robotics Code integra estos principios pedagógicos —bloques visuales primero, resultado físico inmediato, depuración guiada— en la estructura misma de sus sesiones, no como recomendaciones sueltas para los padres.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de matemáticas para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Evita corregir cada error menor de inmediato</h2>
+                <p>No todo error necesita corrección inmediata. Si un niño está trabajando en un problema y comete un error que no bloquea completamente su progreso, dejarlo continuar y descubrir el problema por sí mismo (cuando el resultado no salga como esperaba) suele generar más aprendizaje que interrumpir cada pequeño desliz en el momento en que ocurre.</p>
+                <p>Esta práctica requiere cierta tolerancia por parte del adulto acompañante: observar un error sin corregirlo de inmediato puede sentirse contraintuitivo, especialmente si se anticipa el resultado incorrecto con antelación. Sin embargo, ese momento de descubrimiento propio suele generar una comprensión más duradera que la corrección preventiva constante.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-nivel-basico">Robótica educativa nivel básico: qué aprende tu hijo primero</a></li>
-                <li><a href="/blog-tecnologia-educativa-aplicacion-practica">Cómo aplicar la tecnología educativa en casa paso a paso</a></li>
-                <li><a href="/blog-tecnologia-educativa-que-evitar">Errores comunes al elegir un curso de robótica para niños</a></li>
+                    <li>Deja que errores no bloqueantes se manifiesten en el resultado antes de señalarlos.</li>
+                    <li>Reserva la corrección inmediata para errores que impiden por completo continuar.</li>
+                    <li>Pregunta qué observó el niño en el resultado antes de explicar tú qué salió mal.</li>
+                    <li>Celebra cuando el niño identifica su propio error sin ayuda.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo empezar a enseñar a mi hijo con un lenguaje de programación de texto real?</h3>
-                <p>Para principiantes, es preferible empezar con bloques visuales, que eliminan la barrera de la sintaxis exacta y permiten enfocarse en los conceptos de lógica y secuencia. La transición a código escrito puede venir después, cuando esos conceptos ya son familiares.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debería corregir a mi hijo cada vez que comete un error mientras programa?</h3>
-                <p>No necesariamente. Si el error no bloquea completamente el progreso, dejar que se manifieste en el resultado y que el niño lo descubra por sí mismo suele generar más aprendizaje que la corrección inmediata constante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debería practicar mi hijo programación por sesión?</h3>
-                <p>Sesiones cortas de quince a veinte minutos con frecuencia constante suelen consolidar mejor los conceptos que sesiones largas y esporádicas, porque la programación se construye de forma acumulativa entre una sesión y la siguiente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Estas estrategias aplicadas de forma estructurada en cada sesión</h2>
+                    <p>Robotics Code integra estos principios pedagógicos —bloques visuales primero, resultado físico inmediato, depuración guiada— en la estructura misma de sus sesiones, no como recomendaciones sueltas para los padres.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Ver el curso de matemáticas para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Referencia sobre pedagogía de pensamiento computacional en la infancia</li>
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto sobre metodologías de enseñanza en habilidades STEM</li>
-            </ul>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-nivel-basico">
+                            <span>Robótica educativa nivel básico: qué aprende tu hijo primero</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-aplicacion-practica">
+                            <span>Cómo aplicar la tecnología educativa en casa paso a paso</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-que-evitar">
+                            <span>Errores comunes al elegir un curso de robótica para niños</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo empezar a enseñar a mi hijo con un lenguaje de programación de texto real?</h3>
+                    <p>Para principiantes, es preferible empezar con bloques visuales, que eliminan la barrera de la sintaxis exacta y permiten enfocarse en los conceptos de lógica y secuencia. La transición a código escrito puede venir después, cuando esos conceptos ya son familiares.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debería corregir a mi hijo cada vez que comete un error mientras programa?</h3>
+                    <p>No necesariamente. Si el error no bloquea completamente el progreso, dejar que se manifieste en el resultado y que el niño lo descubra por sí mismo suele generar más aprendizaje que la corrección inmediata constante.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debería practicar mi hijo programación por sesión?</h3>
+                    <p>Sesiones cortas de quince a veinte minutos con frecuencia constante suelen consolidar mejor los conceptos que sesiones largas y esporádicas, porque la programación se construye de forma acumulativa entre una sesión y la siguiente.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Referencia sobre pedagogía de pensamiento computacional en la infancia</li>
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto sobre metodologías de enseñanza en habilidades STEM</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -495,8 +586,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Empieza con bloques visuales, no con sintaxis escrita
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Prioriza proyectos con resultado visible e inmediato
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Fomenta la depuración guiada en lugar de dar la respuesta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Conecta conceptos con situaciones cotidianas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Practica con constancia corta en lugar de sesiones largas esporádicas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Evita corregir cada error menor de inmediato
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

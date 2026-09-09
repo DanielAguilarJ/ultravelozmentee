@@ -346,112 +346,187 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="4">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Memoria Prodigiosa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Recuerdo activo: cómo estudiar preguntándote en vez de releer</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 4 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Memoria Prodigiosa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Recuerdo activo: cómo estudiar preguntándote en vez de releer</h1>
+                <p class="blog-post-dek">Cómo aplicar el recuerdo activo para estudiar preguntándote en vez de releer, con ejemplos concretos y control de dificultad.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Memoria Prodigiosa</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>4 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/memoria-prodigiosa-curso-memorizar-mnemotecnia.webp" alt="Recuerdo activo: cómo estudiar preguntándote en vez de releer" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">"Ya lo leí, ya lo sé" es una trampa común al estudiar: reconocer información al verla de nuevo se confunde con poder recordarla sin apoyo cuando realmente importa, en un examen. El recuerdo activo cierra esa brecha entre reconocimiento y recuperación real.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es el recuerdo activo y por qué funciona
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo crear preguntas propias antes de estudiar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo responder sin apoyo de forma efectiva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado a una materia escolar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo ajustar la dificultad conforme mejora el dominio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores frecuentes al aplicar recuerdo activo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">"Ya lo leí, ya lo sé" es una trampa común al estudiar: reconocer información al verla de nuevo se confunde con poder recordarla sin apoyo cuando realmente importa, en un examen. El recuerdo activo cierra esa brecha entre reconocimiento y recuperación real.</p>
             <p>Este artículo explica con ejemplos concretos cómo crear y usar preguntas propias para estudiar, y cómo ajustar su dificultad conforme el dominio del tema avanza.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>El recuerdo activo consiste en intentar responder preguntas sobre el material sin verlo, en lugar de simplemente releerlo. Se aplica creando preguntas propias antes de estudiar, respondiéndolas sin apoyo, y ajustando la dificultad de las preguntas conforme mejora el dominio del tema. Es más efectivo que la relectura pasiva, aunque se sienta menos cómodo al inicio.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>El recuerdo activo consiste en intentar responder preguntas sobre el material sin verlo, en lugar de simplemente releerlo. Se aplica creando preguntas propias antes de estudiar, respondiéndolas sin apoyo, y ajustando la dificultad de las preguntas conforme mejora el dominio del tema. Es más efectivo que la relectura pasiva, aunque se sienta menos cómodo al inicio.</p>
+                </aside>
 
-            <h2>Qué es el recuerdo activo y por qué funciona</h2>
-            <p>El recuerdo activo es el proceso de intentar traer a la mente información aprendida, sin consultar el material original, en lugar de simplemente reconocerla al volver a leerla. Ese esfuerzo de recuperación —incluso cuando resulta incompleto— fortalece la conexión neuronal asociada al recuerdo de forma más duradera que la exposición pasiva repetida.</p>
-            <p>La diferencia clave frente a releer es el tipo de esfuerzo cognitivo: reconocer información ya vista requiere poco esfuerzo mental, mientras que reconstruirla desde cero exige que el cerebro busque activamente la conexión, lo cual consolida mejor el aprendizaje a largo plazo.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es el recuerdo activo y por qué funciona</h2>
+                <p>El recuerdo activo es el proceso de intentar traer a la mente información aprendida, sin consultar el material original, en lugar de simplemente reconocerla al volver a leerla. Ese esfuerzo de recuperación —incluso cuando resulta incompleto— fortalece la conexión neuronal asociada al recuerdo de forma más duradera que la exposición pasiva repetida.</p>
+                <p>La diferencia clave frente a releer es el tipo de esfuerzo cognitivo: reconocer información ya vista requiere poco esfuerzo mental, mientras que reconstruirla desde cero exige que el cerebro busque activamente la conexión, lo cual consolida mejor el aprendizaje a largo plazo.</p>
+            </section>
 
-            <h2>Cómo crear preguntas propias antes de estudiar</h2>
-            <p>Antes de empezar a leer un tema, formular dos o tres preguntas sobre lo que se espera aprender orienta la lectura hacia buscar esas respuestas de forma activa, en lugar de leer de forma pasiva sin un objetivo claro.</p>
-            <p>Después de leer, convertir los subtítulos o encabezados del material en preguntas —"¿Cuáles son las causas de...?", "¿Cómo funciona...?"— genera un banco de preguntas de práctica sin necesitar materiales adicionales.</p>
-            <ol>
-                <li>Antes de leer, escribir dos o tres preguntas sobre lo que se espera aprender.</li>
-                <li>Convertir encabezados y subtítulos del material en preguntas de práctica.</li>
-                <li>Guardar estas preguntas para responderlas sin apoyo en sesiones posteriores.</li>
-                <li>Comparar la respuesta dada con el material original para verificar exactitud.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Cómo crear preguntas propias antes de estudiar</h2>
+                <p>Antes de empezar a leer un tema, formular dos o tres preguntas sobre lo que se espera aprender orienta la lectura hacia buscar esas respuestas de forma activa, en lugar de leer de forma pasiva sin un objetivo claro.</p>
+                <p>Después de leer, convertir los subtítulos o encabezados del material en preguntas —"¿Cuáles son las causas de...?", "¿Cómo funciona...?"— genera un banco de preguntas de práctica sin necesitar materiales adicionales.</p>
+                <ol>
+                    <li>Antes de leer, escribir dos o tres preguntas sobre lo que se espera aprender.</li>
+                    <li>Convertir encabezados y subtítulos del material en preguntas de práctica.</li>
+                    <li>Guardar estas preguntas para responderlas sin apoyo en sesiones posteriores.</li>
+                    <li>Comparar la respuesta dada con el material original para verificar exactitud.</li>
+                </ol>
+            </section>
 
-            <h2>Cómo responder sin apoyo de forma efectiva</h2>
-            <p>Al responder una pregunta de práctica, es importante dar el intento completo antes de revisar la respuesta correcta, incluso si genera incertidumbre. Revisar demasiado pronto —apenas surge la primera duda— reduce el beneficio del ejercicio, porque el cerebro no llega a hacer el esfuerzo completo de recuperación.</p>
-            <p>Responder en voz alta o por escrito, en lugar de solo pensarlo mentalmente, ayuda a notar con más claridad qué partes de la respuesta son sólidas y cuáles son vagas o inciertas.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo responder sin apoyo de forma efectiva</h2>
+                <p>Al responder una pregunta de práctica, es importante dar el intento completo antes de revisar la respuesta correcta, incluso si genera incertidumbre. Revisar demasiado pronto —apenas surge la primera duda— reduce el beneficio del ejercicio, porque el cerebro no llega a hacer el esfuerzo completo de recuperación.</p>
+                <p>Responder en voz alta o por escrito, en lugar de solo pensarlo mentalmente, ayuda a notar con más claridad qué partes de la respuesta son sólidas y cuáles son vagas o inciertas.</p>
+            </section>
 
-            <h2>Ejemplo aplicado a una materia escolar</h2>
-            <p>En historia, en lugar de releer el capítulo sobre un periodo específico, se puede escribir la pregunta "¿Cuáles fueron las tres causas principales de este evento y cómo se relacionan entre sí?" y responderla de memoria antes de verificar con el libro.</p>
-            <p>En matemáticas, el equivalente es resolver un problema similar al ya estudiado sin ver el ejemplo resuelto, y solo después comparar el procedimiento propio con el correcto para identificar en qué paso específico surgió la dificultad, si la hubo.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado a una materia escolar</h2>
+                <p>En historia, en lugar de releer el capítulo sobre un periodo específico, se puede escribir la pregunta "¿Cuáles fueron las tres causas principales de este evento y cómo se relacionan entre sí?" y responderla de memoria antes de verificar con el libro.</p>
+                <p>En matemáticas, el equivalente es resolver un problema similar al ya estudiado sin ver el ejemplo resuelto, y solo después comparar el procedimiento propio con el correcto para identificar en qué paso específico surgió la dificultad, si la hubo.</p>
+            </section>
 
-            <h2>Cómo ajustar la dificultad conforme mejora el dominio</h2>
-            <p>Si las preguntas de práctica se responden con facilidad de forma consistente, es momento de aumentar la dificultad: preguntas que exijan comparar conceptos, aplicar el conocimiento a una situación nueva, o explicar relaciones entre temas distintos, en lugar de solo repetir información memorizada.</p>
-            <p>Este ajuste evita que el recuerdo activo se convierta en una rutina mecánica de bajo esfuerzo, que perdería buena parte de su beneficio si las preguntas dejan de representar un reto genuino.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cómo ajustar la dificultad conforme mejora el dominio</h2>
+                <p>Si las preguntas de práctica se responden con facilidad de forma consistente, es momento de aumentar la dificultad: preguntas que exijan comparar conceptos, aplicar el conocimiento a una situación nueva, o explicar relaciones entre temas distintos, en lugar de solo repetir información memorizada.</p>
+                <p>Este ajuste evita que el recuerdo activo se convierta en una rutina mecánica de bajo esfuerzo, que perdería buena parte de su beneficio si las preguntas dejan de representar un reto genuino.</p>
+            </section>
 
-            <h2>Errores frecuentes al aplicar recuerdo activo</h2>
-            <p>El error más común es revisar la respuesta correcta demasiado pronto, antes de completar el esfuerzo de recuperación. Otro error es crear preguntas demasiado simples que solo piden repetir una definición textual, sin exigir comprensión real del concepto.</p>
-            <p>También es un error abandonar la técnica tras una o dos sesiones porque se siente incómoda; el beneficio del recuerdo activo se nota especialmente al comparar el desempeño en un examen real frente a estudiar solo con relectura, no necesariamente en la sensación inmediata de la sesión de estudio.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Errores frecuentes al aplicar recuerdo activo</h2>
+                <p>El error más común es revisar la respuesta correcta demasiado pronto, antes de completar el esfuerzo de recuperación. Otro error es crear preguntas demasiado simples que solo piden repetir una definición textual, sin exigir comprensión real del concepto.</p>
+                <p>También es un error abandonar la técnica tras una o dos sesiones porque se siente incómoda; el beneficio del recuerdo activo se nota especialmente al comparar el desempeño en un examen real frente a estudiar solo con relectura, no necesariamente en la sensación inmediata de la sesión de estudio.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Conoce Memoria Prodigiosa de Ultravelozmente</h3>
-                <p>Si buscas un método estructurado para aplicar recuerdo activo en tus materias, nuestro programa enseña a construir y usar preguntas de práctica de forma sistemática.</p>
-                <a href="/memoria-prodigiosa" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver programa de Memoria Prodigiosa <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Conoce Memoria Prodigiosa de Ultravelozmente</h2>
+                    <p>Si buscas un método estructurado para aplicar recuerdo activo en tus materias, nuestro programa enseña a construir y usar preguntas de práctica de forma sistemática.</p>
+                    <a href="/memoria-prodigiosa" class="btn-primary">
+                        Ver programa de Memoria Prodigiosa <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántas preguntas debo crear por tema de estudio?</h3>
-                <p>No hay un número fijo, pero dos o tres preguntas centrales por subtema suelen ser suficientes para cubrir las ideas principales sin volver el proceso demasiado extenso.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si no puedo responder ninguna pregunta sin apoyo?</h3>
-                <p>Es una señal de que el material aún no se ha comprendido lo suficiente. Vuelve a leer esa sección con atención, y después intenta de nuevo la pregunta antes de avanzar a un tema nuevo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El recuerdo activo sirve para cualquier materia?</h3>
-                <p>Sí, se adapta a distintos tipos de contenido: en materias con conceptos se usan preguntas de explicación; en materias con procedimientos, como matemáticas, se usa resolver problemas sin ver el ejemplo resuelto.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunlosky.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. — Improving Students' Learning With Effective Learning Techniques</a> — Referencia sobre la práctica de recuperación como técnica de alto impacto</li>
-                <li><a href="https://www.cambridgeinternational.org/support-and-training-for-schools/teaching-cambridge-at-your-school/study-skills/" target="_blank" rel="noopener noreferrer">Universidad de Cambridge — Study Skills</a> — Guía sobre estrategias de estudio activo por nivel educativo</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántas preguntas debo crear por tema de estudio?</h3>
+                    <p>No hay un número fijo, pero dos o tres preguntas centrales por subtema suelen ser suficientes para cubrir las ideas principales sin volver el proceso demasiado extenso.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si no puedo responder ninguna pregunta sin apoyo?</h3>
+                    <p>Es una señal de que el material aún no se ha comprendido lo suficiente. Vuelve a leer esa sección con atención, y después intenta de nuevo la pregunta antes de avanzar a un tema nuevo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El recuerdo activo sirve para cualquier materia?</h3>
+                    <p>Sí, se adapta a distintos tipos de contenido: en materias con conceptos se usan preguntas de explicación; en materias con procedimientos, como matemáticas, se usa resolver problemas sin ver el ejemplo resuelto.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunlosky.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. — Improving Students' Learning With Effective Learning Techniques</a> — Referencia sobre la práctica de recuperación como técnica de alto impacto</li>
+                    <li><a href="https://www.cambridgeinternational.org/support-and-training-for-schools/teaching-cambridge-at-your-school/study-skills/" target="_blank" rel="noopener noreferrer">Universidad de Cambridge — Study Skills</a> — Guía sobre estrategias de estudio activo por nivel educativo</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -481,8 +556,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es el recuerdo activo y por qué funciona
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo crear preguntas propias antes de estudiar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo responder sin apoyo de forma efectiva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado a una materia escolar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo ajustar la dificultad conforme mejora el dominio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores frecuentes al aplicar recuerdo activo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>4 min restantes</span>
+                        <span>Lectura estimada: 4 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

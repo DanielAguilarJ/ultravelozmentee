@@ -362,154 +362,252 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="9">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Tecnología educativa para padres: cómo acompañar sin ser experto</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 9 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Tecnología educativa para padres: cómo acompañar sin ser experto</h1>
+                <p class="blog-post-dek">Tecnología educativa para padres: cómo evaluar apps, acompañar el uso de inteligencia artificial y fijar límites claros sin necesidad de ser experto.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>9 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Tecnología educativa para padres: cómo acompañar sin ser experto" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Muchos padres sienten que la tecnología entró a la vida escolar de sus hijos más rápido de lo que ellos alcanzaron a entenderla. Aparecen plataformas que la escuela pide instalar, apps que los compañeros recomiendan y, desde hace poco, asistentes de inteligencia artificial capaces de resolver tareas completas en segundos.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué significa tecnología educativa cuando hablamos de la casa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Los cuatro tipos de herramienta que verás con más frecuencia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo evaluar una app antes de instalarla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Inteligencia artificial: la conversación que conviene tener temprano
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Privacidad y seguridad digital sin alarmismo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: una familia decide sobre una app de matemáticas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes al acompañar el uso de tecnología
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Muchos padres sienten que la tecnología entró a la vida escolar de sus hijos más rápido de lo que ellos alcanzaron a entenderla. Aparecen plataformas que la escuela pide instalar, apps que los compañeros recomiendan y, desde hace poco, asistentes de inteligencia artificial capaces de resolver tareas completas en segundos.</p>
             <p>Acompañar no significa dominar cada herramienta. Significa tener criterios estables para decidir qué entra a casa, qué se usa con supervisión y qué conviene posponer. Este artículo ofrece esos criterios en un lenguaje que no exige conocimientos técnicos previos ni comprar nada nuevo.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La tecnología educativa es el conjunto de herramientas digitales que apoyan el aprendizaje: apps de práctica, plataformas escolares, asistentes de inteligencia artificial y entornos de programación o robótica. Para un padre o madre, acompañarla no exige dominar cada aplicación, sino verificar tres cosas: qué objetivo de aprendizaje cumple, qué datos pide y cuánto tiempo desplaza de otras actividades importantes.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La tecnología educativa es el conjunto de herramientas digitales que apoyan el aprendizaje: apps de práctica, plataformas escolares, asistentes de inteligencia artificial y entornos de programación o robótica. Para un padre o madre, acompañarla no exige dominar cada aplicación, sino verificar tres cosas: qué objetivo de aprendizaje cumple, qué datos pide y cuánto tiempo desplaza de otras actividades importantes.</p>
+                </aside>
 
-            <h2>Qué significa tecnología educativa cuando hablamos de la casa</h2>
-            <p>Tecnología educativa es cualquier recurso digital que se usa con una intención de aprendizaje explícita. Esa palabra, intención, es la que separa una app de práctica de ortografía de un videojuego cualquiera: ambos ocupan una pantalla, pero solo uno está diseñado para que el estudiante mejore en algo concreto y para que un adulto pueda notar ese avance.</p>
-            <p>En casa la distinción importa porque el tiempo de pantalla no es una sola categoría. Media hora resolviendo retos de lógica y media hora viendo videos cortos tienen efectos distintos sobre la atención y sobre lo que el niño puede recordar al día siguiente. Conviene hablar de tipos de uso, no solo de minutos totales.</p>
-            <p>También conviene distinguir entre herramientas que la escuela exige y herramientas que la familia elige. Las primeras se negocian con el maestro; las segundas se evalúan en casa con calma, y ahí sí tienes control total sobre qué se instala y bajo qué reglas se usa.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué significa tecnología educativa cuando hablamos de la casa</h2>
+                <p>Tecnología educativa es cualquier recurso digital que se usa con una intención de aprendizaje explícita. Esa palabra, intención, es la que separa una app de práctica de ortografía de un videojuego cualquiera: ambos ocupan una pantalla, pero solo uno está diseñado para que el estudiante mejore en algo concreto y para que un adulto pueda notar ese avance.</p>
+                <p>En casa la distinción importa porque el tiempo de pantalla no es una sola categoría. Media hora resolviendo retos de lógica y media hora viendo videos cortos tienen efectos distintos sobre la atención y sobre lo que el niño puede recordar al día siguiente. Conviene hablar de tipos de uso, no solo de minutos totales.</p>
+                <p>También conviene distinguir entre herramientas que la escuela exige y herramientas que la familia elige. Las primeras se negocian con el maestro; las segundas se evalúan en casa con calma, y ahí sí tienes control total sobre qué se instala y bajo qué reglas se usa.</p>
+            </section>
 
-            <h2>Los cuatro tipos de herramienta que verás con más frecuencia</h2>
-            <p>Aunque el catálogo parece infinito, casi todo lo que llegará a tus manos cae en cuatro categorías. Reconocerlas ahorra tiempo, porque cada una se evalúa con preguntas distintas y ninguna sustituye a las otras.</p>
-            <p>Las plataformas institucionales las define la escuela y rara vez son opcionales; ahí tu tarea es verificar accesos y entender cómo se reportan calificaciones. Las apps de práctica, en cambio, sí son elección familiar, y su valor depende de que ofrezcan retroalimentación inmediata y no solo ejercicios repetidos sin explicación.</p>
-            <ul>
-                <li>Plataformas escolares: aulas virtuales, entrega de tareas y boletas. Verifica accesos y quién ve la información.</li>
-                <li>Apps de práctica: matemáticas, lectura, idiomas. Busca retroalimentación inmediata y niveles progresivos.</li>
-                <li>Asistentes de inteligencia artificial: útiles para explicar y repasar, riesgosos si sustituyen el trabajo del estudiante.</li>
-                <li>Entornos creativos: programación por bloques, robótica, edición de video. Producen algo, no solo consumen contenido.</li>
-            </ul>
-
-            <h2>Cómo evaluar una app antes de instalarla</h2>
-            <p>Antes de instalar cualquier cosa conviene dedicar diez minutos a revisarla tú mismo. No hace falta un análisis técnico: basta abrirla, avanzar dos o tres actividades y observar qué pasa cuando el usuario se equivoca. Una herramienta educativa decente explica el error; una mediocre solo marca la respuesta en rojo y avanza.</p>
-            <p>El segundo filtro es económico y de atención: revisa si hay publicidad dentro de la app, si aparecen compras que un niño podría activar solo y si el diseño empuja a abrirla varias veces al día con notificaciones. Esos elementos no la hacen inútil, pero cambian por completo las reglas con las que debe usarse.</p>
-            <ol>
-                <li>Ábrela tú primero y completa dos o tres actividades como si fueras el estudiante.</li>
-                <li>Equivócate a propósito y observa si la app explica el error o solo lo marca.</li>
-                <li>Revisa qué datos pide al registrarse: nombre completo, correo, edad, ubicación o cámara.</li>
-                <li>Busca publicidad, compras dentro de la app y notificaciones que empujen a volver.</li>
-                <li>Define antes de instalarla en qué momento del día y por cuánto tiempo se usará.</li>
-            </ol>
-
-            <h2>Inteligencia artificial: la conversación que conviene tener temprano</h2>
-            <p>Los asistentes de inteligencia artificial cambiaron la pregunta de fondo. Ya no es si el estudiante tiene acceso a respuestas, porque las tiene; es si aprende algo en el proceso de obtenerlas. Un mismo asistente puede servir para entender por qué un procedimiento funciona o para entregar una tarea que el estudiante no comprende.</p>
-            <p>La forma más simple de marcar la diferencia en casa es una regla clara: la IA puede explicar, revisar o dar ejemplos, pero no puede escribir el trabajo final. Si tu hijo no puede explicar con sus palabras lo que entregó, la herramienta hizo el trabajo en su lugar y el aprendizaje no ocurrió.</p>
-            <p>Vale decirlo sin dramatismo: prohibir por completo el acceso rara vez funciona, porque estas herramientas están integradas en buscadores, procesadores de texto y teléfonos. Es más realista enseñar a usarlas como se enseña a usar una calculadora, con momentos donde está permitida y momentos donde el punto es hacerlo a mano.</p>
-
-            <h2>Privacidad y seguridad digital sin alarmismo</h2>
-            <p>La mayoría de los riesgos que enfrenta un estudiante en línea no son ataques sofisticados: son contraseñas repetidas entre servicios, perfiles públicos sin querer y conversaciones con desconocidos dentro de juegos o plataformas escolares. Casi todos se reducen con hábitos simples y revisables en pocos minutos.</p>
-            <p>Conviene también acordar qué hacer cuando algo se sienta raro. Un estudiante que sabe que puede reportar un mensaje incómodo sin perder el dispositivo lo reportará; uno que teme el castigo, lo ocultará. Esa diferencia protege más que cualquier configuración técnica que puedas activar.</p>
-            <ul>
-                <li>Una contraseña distinta por servicio, guardada en un gestor o en un lugar físico seguro.</li>
-                <li>Perfiles en privado por defecto y revisión trimestral de quién puede escribir al estudiante.</li>
-                <li>Cámara y micrófono desactivados salvo cuando la actividad los requiera.</li>
-                <li>Acuerdo explícito: reportar un mensaje incómodo no implica perder el dispositivo.</li>
-            </ul>
-
-            <h2>Ejemplo aplicado: una familia decide sobre una app de matemáticas</h2>
-            <p>Imagina que un niño de nueve años pide instalar una app de matemáticas que usan sus compañeros. La madre la abre primero y resuelve seis ejercicios. Nota que, al equivocarse, la app muestra el procedimiento paso a paso y ofrece un ejercicio similar: buena señal, porque el error se convierte en enseñanza y no solo en pérdida de puntos.</p>
-            <p>Al registrarse, la app pide nombre completo, edad y correo. La madre crea el perfil con el primer nombre y un correo familiar en lugar del correo escolar, y desactiva las notificaciones. Con eso reduce la cantidad de datos asociados al niño y elimina el empuje a abrir la app en cualquier momento del día.</p>
-            <p>Luego aparece la parte de gamificación: rachas diarias, medallas y un ranking con otros usuarios. Deciden mantener las medallas, que refuerzan el esfuerzo propio, y ocultar el ranking, que en su caso generaba prisa por sumar puntos y no por entender el ejercicio. La gamificación no es buena ni mala; depende de qué conducta premia.</p>
-            <p>Finalmente fijan el uso: quince minutos después de la tarea, cuatro días a la semana, en la mesa del comedor y no en la recámara. A las tres semanas revisan si el niño resuelve más rápido las operaciones de la escuela. Si no hay señal de avance, la app sale, sin discusión y sin culpa.</p>
-
-            <h2>Errores frecuentes al acompañar el uso de tecnología</h2>
-            <p>El error más común es medir todo en minutos. Un límite de tiempo global trata igual a una app de práctica y a un feed de videos, y termina castigando el uso que sí aporta. Es más útil un acuerdo por tipo de actividad, aunque tome un poco más de trabajo definirlo la primera vez.</p>
-            <p>El segundo error es instalar muchas herramientas a la vez. Tres apps educativas compiten entre sí por el mismo rato disponible, ninguna alcanza continuidad y es imposible saber cuál ayudó. Una herramienta a la vez, sostenida algunas semanas, da información mucho más clara para decidir.</p>
-            <p>El tercero es usar el dispositivo como moneda permanente de premio y castigo. Cuando la tablet es el premio, la actividad educativa que ocurre dentro se vuelve secundaria frente al derecho de encenderla, y cualquier conversación sobre contenido queda en segundo plano.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Cuando la tecnología pasa de consumirse a construirse</h3>
-                <p>Si buscas que la tecnología deje de ser solo pantalla y se convierta en algo que tu hijo construye, la programación por bloques y la robótica son un buen punto de entrada: producen un resultado visible, se pueden acompañar sin saber programar y dan tema de conversación en casa. Revisa cómo está estructurado Robotics Code y qué requiere de tu parte antes de decidir.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el taller de robótica para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Los cuatro tipos de herramienta que verás con más frecuencia</h2>
+                <p>Aunque el catálogo parece infinito, casi todo lo que llegará a tus manos cae en cuatro categorías. Reconocerlas ahorra tiempo, porque cada una se evalúa con preguntas distintas y ninguna sustituye a las otras.</p>
+                <p>Las plataformas institucionales las define la escuela y rara vez son opcionales; ahí tu tarea es verificar accesos y entender cómo se reportan calificaciones. Las apps de práctica, en cambio, sí son elección familiar, y su valor depende de que ofrezcan retroalimentación inmediata y no solo ejercicios repetidos sin explicación.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-en-casa">Cómo organizar la tecnología educativa en casa</a></li>
-                <li><a href="/blog-tecnologia-educativa-senales-de-alerta">Señales de alerta en el uso de tecnología educativa</a></li>
-                <li><a href="/blog-tecnologia-educativa-edad-recomendada">Edad recomendada para cada tipo de tecnología educativa</a></li>
+                    <li>Plataformas escolares: aulas virtuales, entrega de tareas y boletas. Verifica accesos y quién ve la información.</li>
+                    <li>Apps de práctica: matemáticas, lectura, idiomas. Busca retroalimentación inmediata y niveles progresivos.</li>
+                    <li>Asistentes de inteligencia artificial: útiles para explicar y repasar, riesgosos si sustituyen el trabajo del estudiante.</li>
+                    <li>Entornos creativos: programación por bloques, robótica, edición de video. Producen algo, no solo consumen contenido.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito saber programar para acompañar a mi hijo en robótica?</h3>
-                <p>No. Acompañar significa preguntar qué está construyendo, pedirle que te explique cómo funciona y sostener un horario estable. Explicar en voz alta a alguien que no domina el tema es uno de los ejercicios que más consolida el aprendizaje, así que tu falta de conocimiento técnico puede convertirse en una ventaja pedagógica.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad conviene dar un dispositivo propio?</h3>
-                <p>No hay una edad única; depende de para qué se necesita y de qué acuerdos puede sostener el estudiante. Un criterio práctico es dar acceso compartido y supervisado antes que dispositivo propio, y revisar cada cierto tiempo si cumple los acuerdos sin recordatorios constantes de tu parte.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si una app educativa realmente sirve?</h3>
-                <p>Observa si el estudiante mejora en la tarea escolar equivalente después de tres o cuatro semanas de uso constante. Las medallas y rachas dentro de la app miden constancia, no aprendizaje. La prueba real está fuera: resolver más rápido, con menos errores o explicando mejor lo que hace.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo revisar los mensajes de mi hijo sin avisarle?</h3>
-                <p>La revisión anunciada suele funcionar mejor que la vigilancia oculta, porque conserva la confianza que hace posible que él te cuente cuando algo va mal. Acordar desde el inicio que perfiles y contactos se revisan juntos cada cierto tiempo evita la sensación de traición si un día encuentras algo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La gamificación distrae del aprendizaje?</h3>
-                <p>Depende de qué conducta premie. Si los puntos se ganan por resolver correctamente y por volver a intentar tras un error, refuerzan el esfuerzo. Si se ganan por velocidad o por acumular días seguidos, pueden empujar a completar sin comprender. Revisa qué mide el sistema de recompensas antes de confiar en él.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo evaluar una app antes de instalarla</h2>
+                <p>Antes de instalar cualquier cosa conviene dedicar diez minutos a revisarla tú mismo. No hace falta un análisis técnico: basta abrirla, avanzar dos o tres actividades y observar qué pasa cuando el usuario se equivoca. Una herramienta educativa decente explica el error; una mediocre solo marca la respuesta en rojo y avanza.</p>
+                <p>El segundo filtro es económico y de atención: revisa si hay publicidad dentro de la app, si aparecen compras que un niño podría activar solo y si el diseño empuja a abrirla varias veces al día con notificaciones. Esos elementos no la hacen inútil, pero cambian por completo las reglas con las que debe usarse.</p>
+                <ol>
+                    <li>Ábrela tú primero y completa dos o tres actividades como si fueras el estudiante.</li>
+                    <li>Equivócate a propósito y observa si la app explica el error o solo lo marca.</li>
+                    <li>Revisa qué datos pide al registrarse: nombre completo, correo, edad, ubicación o cámara.</li>
+                    <li>Busca publicidad, compras dentro de la app y notificaciones que empujen a volver.</li>
+                    <li>Define antes de instalarla en qué momento del día y por cuánto tiempo se usará.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/sep" target="_blank" rel="noopener noreferrer">Secretaría de Educación Pública (SEP)</a> — Programas y materiales educativos oficiales vigentes en México</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Inteligencia artificial: la conversación que conviene tener temprano</h2>
+                <p>Los asistentes de inteligencia artificial cambiaron la pregunta de fondo. Ya no es si el estudiante tiene acceso a respuestas, porque las tiene; es si aprende algo en el proceso de obtenerlas. Un mismo asistente puede servir para entender por qué un procedimiento funciona o para entregar una tarea que el estudiante no comprende.</p>
+                <p>La forma más simple de marcar la diferencia en casa es una regla clara: la IA puede explicar, revisar o dar ejemplos, pero no puede escribir el trabajo final. Si tu hijo no puede explicar con sus palabras lo que entregó, la herramienta hizo el trabajo en su lugar y el aprendizaje no ocurrió.</p>
+                <p>Vale decirlo sin dramatismo: prohibir por completo el acceso rara vez funciona, porque estas herramientas están integradas en buscadores, procesadores de texto y teléfonos. Es más realista enseñar a usarlas como se enseña a usar una calculadora, con momentos donde está permitida y momentos donde el punto es hacerlo a mano.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Privacidad y seguridad digital sin alarmismo</h2>
+                <p>La mayoría de los riesgos que enfrenta un estudiante en línea no son ataques sofisticados: son contraseñas repetidas entre servicios, perfiles públicos sin querer y conversaciones con desconocidos dentro de juegos o plataformas escolares. Casi todos se reducen con hábitos simples y revisables en pocos minutos.</p>
+                <p>Conviene también acordar qué hacer cuando algo se sienta raro. Un estudiante que sabe que puede reportar un mensaje incómodo sin perder el dispositivo lo reportará; uno que teme el castigo, lo ocultará. Esa diferencia protege más que cualquier configuración técnica que puedas activar.</p>
+                <ul>
+                    <li>Una contraseña distinta por servicio, guardada en un gestor o en un lugar físico seguro.</li>
+                    <li>Perfiles en privado por defecto y revisión trimestral de quién puede escribir al estudiante.</li>
+                    <li>Cámara y micrófono desactivados salvo cuando la actividad los requiera.</li>
+                    <li>Acuerdo explícito: reportar un mensaje incómodo no implica perder el dispositivo.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: una familia decide sobre una app de matemáticas</h2>
+                <p>Imagina que un niño de nueve años pide instalar una app de matemáticas que usan sus compañeros. La madre la abre primero y resuelve seis ejercicios. Nota que, al equivocarse, la app muestra el procedimiento paso a paso y ofrece un ejercicio similar: buena señal, porque el error se convierte en enseñanza y no solo en pérdida de puntos.</p>
+                <p>Al registrarse, la app pide nombre completo, edad y correo. La madre crea el perfil con el primer nombre y un correo familiar en lugar del correo escolar, y desactiva las notificaciones. Con eso reduce la cantidad de datos asociados al niño y elimina el empuje a abrir la app en cualquier momento del día.</p>
+                <p>Luego aparece la parte de gamificación: rachas diarias, medallas y un ranking con otros usuarios. Deciden mantener las medallas, que refuerzan el esfuerzo propio, y ocultar el ranking, que en su caso generaba prisa por sumar puntos y no por entender el ejercicio. La gamificación no es buena ni mala; depende de qué conducta premia.</p>
+                <p>Finalmente fijan el uso: quince minutos después de la tarea, cuatro días a la semana, en la mesa del comedor y no en la recámara. A las tres semanas revisan si el niño resuelve más rápido las operaciones de la escuela. Si no hay señal de avance, la app sale, sin discusión y sin culpa.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Errores frecuentes al acompañar el uso de tecnología</h2>
+                <p>El error más común es medir todo en minutos. Un límite de tiempo global trata igual a una app de práctica y a un feed de videos, y termina castigando el uso que sí aporta. Es más útil un acuerdo por tipo de actividad, aunque tome un poco más de trabajo definirlo la primera vez.</p>
+                <p>El segundo error es instalar muchas herramientas a la vez. Tres apps educativas compiten entre sí por el mismo rato disponible, ninguna alcanza continuidad y es imposible saber cuál ayudó. Una herramienta a la vez, sostenida algunas semanas, da información mucho más clara para decidir.</p>
+                <p>El tercero es usar el dispositivo como moneda permanente de premio y castigo. Cuando la tablet es el premio, la actividad educativa que ocurre dentro se vuelve secundaria frente al derecho de encenderla, y cualquier conversación sobre contenido queda en segundo plano.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Cuando la tecnología pasa de consumirse a construirse</h2>
+                    <p>Si buscas que la tecnología deje de ser solo pantalla y se convierta en algo que tu hijo construye, la programación por bloques y la robótica son un buen punto de entrada: producen un resultado visible, se pueden acompañar sin saber programar y dan tema de conversación en casa. Revisa cómo está estructurado Robotics Code y qué requiere de tu parte antes de decidir.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Ver el taller de robótica para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-en-casa">
+                            <span>Cómo organizar la tecnología educativa en casa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-senales-de-alerta">
+                            <span>Señales de alerta en el uso de tecnología educativa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-edad-recomendada">
+                            <span>Edad recomendada para cada tipo de tecnología educativa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito saber programar para acompañar a mi hijo en robótica?</h3>
+                    <p>No. Acompañar significa preguntar qué está construyendo, pedirle que te explique cómo funciona y sostener un horario estable. Explicar en voz alta a alguien que no domina el tema es uno de los ejercicios que más consolida el aprendizaje, así que tu falta de conocimiento técnico puede convertirse en una ventaja pedagógica.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad conviene dar un dispositivo propio?</h3>
+                    <p>No hay una edad única; depende de para qué se necesita y de qué acuerdos puede sostener el estudiante. Un criterio práctico es dar acceso compartido y supervisado antes que dispositivo propio, y revisar cada cierto tiempo si cumple los acuerdos sin recordatorios constantes de tu parte.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si una app educativa realmente sirve?</h3>
+                    <p>Observa si el estudiante mejora en la tarea escolar equivalente después de tres o cuatro semanas de uso constante. Las medallas y rachas dentro de la app miden constancia, no aprendizaje. La prueba real está fuera: resolver más rápido, con menos errores o explicando mejor lo que hace.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo revisar los mensajes de mi hijo sin avisarle?</h3>
+                    <p>La revisión anunciada suele funcionar mejor que la vigilancia oculta, porque conserva la confianza que hace posible que él te cuente cuando algo va mal. Acordar desde el inicio que perfiles y contactos se revisan juntos cada cierto tiempo evita la sensación de traición si un día encuentras algo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La gamificación distrae del aprendizaje?</h3>
+                    <p>Depende de qué conducta premie. Si los puntos se ganan por resolver correctamente y por volver a intentar tras un error, refuerzan el esfuerzo. Si se ganan por velocidad o por acumular días seguidos, pueden empujar a completar sin comprender. Revisa qué mide el sistema de recompensas antes de confiar en él.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/sep" target="_blank" rel="noopener noreferrer">Secretaría de Educación Pública (SEP)</a> — Programas y materiales educativos oficiales vigentes en México</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -539,8 +637,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué significa tecnología educativa cuando hablamos de la casa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Los cuatro tipos de herramienta que verás con más frecuencia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo evaluar una app antes de instalarla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Inteligencia artificial: la conversación que conviene tener temprano
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Privacidad y seguridad digital sin alarmismo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: una familia decide sobre una app de matemáticas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes al acompañar el uso de tecnología
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>9 min restantes</span>
+                        <span>Lectura estimada: 9 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

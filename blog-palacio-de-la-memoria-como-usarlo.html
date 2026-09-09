@@ -354,135 +354,219 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Memoria Prodigiosa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">El palacio de la memoria: cómo usarlo</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 8 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Memoria Prodigiosa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">El palacio de la memoria: cómo usarlo</h1>
+                <p class="blog-post-dek">El palacio de la memoria: qué es, por qué funciona y cómo usarlo para memorizar listas, discursos y secuencias colocándolos en lugares que conoces.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Memoria Prodigiosa</span>
+                    <span>Publicado <time datetime="2026-09-08">8 de Septiembre, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/memoria-prodigiosa-curso-memorizar-mnemotecnia.webp" alt="El palacio de la memoria: cómo usarlo" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">El palacio de la memoria es la técnica que usan los campeones de memoria para recordar cientos de datos en orden, y aunque suene a magia, se basa en algo que todos hacemos sin darnos cuenta: recordar perfectamente la distribución de nuestra casa. Aprovechar esa memoria espacial es su secreto.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>7 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es el palacio de la memoria
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Por qué funciona tan bien
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo construir tu primer palacio, paso a paso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Un ejemplo concreto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Para qué sirve y para qué no
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Consejos para que tu palacio no falle
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">El palacio de la memoria es la técnica que usan los campeones de memoria para recordar cientos de datos en orden, y aunque suene a magia, se basa en algo que todos hacemos sin darnos cuenta: recordar perfectamente la distribución de nuestra casa. Aprovechar esa memoria espacial es su secreto.</p>
             <p>En esta guía verás qué es el palacio de la memoria, por qué funciona tan bien y cómo construir y usar el tuyo paso a paso. Es una técnica que parece avanzada pero se aprende en una tarde, y una vez que la dominas, memorizar listas o discursos deja de ser un problema.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>El palacio de la memoria es una técnica que consiste en colocar mentalmente lo que quieres recordar en lugares de un sitio que conoces bien, como tu casa, y luego recorrerlo en orden para recuperarlo. Funciona porque aprovecha la memoria espacial, que es muy potente: recordamos sin esfuerzo dónde están las cosas en un lugar familiar. Sirve para memorizar listas, discursos y secuencias, y con práctica permite retener cantidades sorprendentes de información en orden.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>El palacio de la memoria es una técnica que consiste en colocar mentalmente lo que quieres recordar en lugares de un sitio que conoces bien, como tu casa, y luego recorrerlo en orden para recuperarlo. Funciona porque aprovecha la memoria espacial, que es muy potente: recordamos sin esfuerzo dónde están las cosas en un lugar familiar. Sirve para memorizar listas, discursos y secuencias, y con práctica permite retener cantidades sorprendentes de información en orden.</p>
+                </aside>
 
-            <h2>Qué es el palacio de la memoria</h2>
-            <p>El palacio de la memoria, también llamado método de loci (lugares, en latín), es una técnica milenaria para memorizar en orden. La idea es sencilla: eliges un lugar que conozcas muy bien, como tu casa, y colocas mentalmente cada cosa que quieres recordar en un punto concreto de ese lugar. Para recuperarla, solo tienes que recorrer el lugar en tu mente e ir viendo lo que dejaste en cada sitio.</p>
-            <p>Se le llama palacio, pero no hace falta un palacio: sirve tu casa, tu camino al trabajo o tu escuela, cualquier espacio que puedas recorrer mentalmente sin dudar. Los oradores de la antigüedad la usaban para recordar discursos largos, y hoy sigue siendo la técnica más potente para memorizar secuencias, porque combina el orden del recorrido con la fuerza de la memoria visual.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es el palacio de la memoria</h2>
+                <p>El palacio de la memoria, también llamado método de loci (lugares, en latín), es una técnica milenaria para memorizar en orden. La idea es sencilla: eliges un lugar que conozcas muy bien, como tu casa, y colocas mentalmente cada cosa que quieres recordar en un punto concreto de ese lugar. Para recuperarla, solo tienes que recorrer el lugar en tu mente e ir viendo lo que dejaste en cada sitio.</p>
+                <p>Se le llama palacio, pero no hace falta un palacio: sirve tu casa, tu camino al trabajo o tu escuela, cualquier espacio que puedas recorrer mentalmente sin dudar. Los oradores de la antigüedad la usaban para recordar discursos largos, y hoy sigue siendo la técnica más potente para memorizar secuencias, porque combina el orden del recorrido con la fuerza de la memoria visual.</p>
+            </section>
 
-            <h2>Por qué funciona tan bien</h2>
-            <p>El palacio funciona porque aprovecha una de las memorias más fuertes que tenemos: la espacial. Sin esfuerzo recuerdas cómo está distribuida tu casa, qué hay al entrar, qué viene después. Esa memoria de los lugares es enorme y muy estable, y el palacio la usa como estantería donde colgar la información nueva.</p>
-            <p>Además, combina esa memoria espacial con la visual: no solo colocas los datos en lugares, sino que los conviertes en imágenes llamativas dentro de esos lugares. Así, cada punto del recorrido te devuelve una escena vívida que representa lo que memorizaste. Orden espacial más imágenes potentes: por eso retiene tanto y en secuencia, algo que la repetición nunca logra.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Por qué funciona tan bien</h2>
+                <p>El palacio funciona porque aprovecha una de las memorias más fuertes que tenemos: la espacial. Sin esfuerzo recuerdas cómo está distribuida tu casa, qué hay al entrar, qué viene después. Esa memoria de los lugares es enorme y muy estable, y el palacio la usa como estantería donde colgar la información nueva.</p>
+                <p>Además, combina esa memoria espacial con la visual: no solo colocas los datos en lugares, sino que los conviertes en imágenes llamativas dentro de esos lugares. Así, cada punto del recorrido te devuelve una escena vívida que representa lo que memorizaste. Orden espacial más imágenes potentes: por eso retiene tanto y en secuencia, algo que la repetición nunca logra.</p>
+            </section>
 
-            <h2>Cómo construir tu primer palacio, paso a paso</h2>
-            <p>Construir un palacio es fácil si sigues un orden. La primera vez conviene empezar con un lugar muy conocido y pocos datos, para agarrarle el modo.</p>
-            <ol>
-                <li>Elige un lugar que conozcas de memoria, como tu casa, y un recorrido fijo por él.</li>
-                <li>Define puntos en orden (la puerta, el sofá, la cocina, la cama...); siempre el mismo camino.</li>
-                <li>Convierte cada cosa que quieres recordar en una imagen llamativa.</li>
-                <li>Coloca cada imagen en un punto del recorrido, interactuando con el lugar de forma absurda.</li>
-                <li>Para recordar, recorre mentalmente el lugar en orden y ve leyendo lo que dejaste en cada punto.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo construir tu primer palacio, paso a paso</h2>
+                <p>Construir un palacio es fácil si sigues un orden. La primera vez conviene empezar con un lugar muy conocido y pocos datos, para agarrarle el modo.</p>
+                <ol>
+                    <li>Elige un lugar que conozcas de memoria, como tu casa, y un recorrido fijo por él.</li>
+                    <li>Define puntos en orden (la puerta, el sofá, la cocina, la cama...); siempre el mismo camino.</li>
+                    <li>Convierte cada cosa que quieres recordar en una imagen llamativa.</li>
+                    <li>Coloca cada imagen en un punto del recorrido, interactuando con el lugar de forma absurda.</li>
+                    <li>Para recordar, recorre mentalmente el lugar en orden y ve leyendo lo que dejaste en cada punto.</li>
+                </ol>
+            </section>
 
-            <h2>Un ejemplo concreto</h2>
-            <p>Imagina que quieres recordar una lista para el súper: pan, huevos, jabón, manzanas. Recorres tu casa: en la puerta, un pan gigante que tienes que empujar para entrar; en el sofá, huevos que rebotan como pelotas; en la cocina, una barra de jabón haciendo espuma por todos lados; en tu cama, manzanas rodando por la almohada.</p>
-            <p>Cuando llegues al súper, cierras los ojos, recorres tu casa en orden y cada punto te devuelve su imagen: pan, huevos, jabón, manzanas. No hace falta repetir la lista ni apuntarla. Con cuatro objetos parece exagerado, pero con veinte o con los puntos de un discurso, el palacio marca la diferencia entre recordarlo todo o quedarte en blanco.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Un ejemplo concreto</h2>
+                <p>Imagina que quieres recordar una lista para el súper: pan, huevos, jabón, manzanas. Recorres tu casa: en la puerta, un pan gigante que tienes que empujar para entrar; en el sofá, huevos que rebotan como pelotas; en la cocina, una barra de jabón haciendo espuma por todos lados; en tu cama, manzanas rodando por la almohada.</p>
+                <p>Cuando llegues al súper, cierras los ojos, recorres tu casa en orden y cada punto te devuelve su imagen: pan, huevos, jabón, manzanas. No hace falta repetir la lista ni apuntarla. Con cuatro objetos parece exagerado, pero con veinte o con los puntos de un discurso, el palacio marca la diferencia entre recordarlo todo o quedarte en blanco.</p>
+            </section>
 
-            <h2>Para qué sirve y para qué no</h2>
-            <p>El palacio brilla con información que hay que recordar en orden: listas, los puntos de una exposición o discurso, pasos de un proceso, fechas de una línea de tiempo, vocabulario. En todos esos casos, el recorrido ordenado del lugar mantiene la secuencia y evita que te saltes o cambies cosas.</p>
-            <p>No es la herramienta ideal, en cambio, para comprender conceptos complejos ni para información que cambia todo el tiempo: eso se trabaja entendiendo, no colocando en un palacio. Tampoco sustituye repasar, aunque lo memorizado en un palacio bien hecho dura mucho. Es una técnica específica y muy potente para su terreno: memorizar cosas concretas en orden.</p>
-            <p>Un punto que sorprende a quien empieza es cuánto se puede llegar a memorizar con esta técnica. Un solo palacio con veinte o treinta puntos permite retener una lista larga completa, y como puedes tener muchos palacios distintos, la capacidad es prácticamente ilimitada. Los competidores de memoria usan varios palacios enormes y muy practicados para recordar barajas enteras o largas series de números; no tienen una memoria distinta a la tuya, solo han entrenado esta técnica hasta hacerla veloz, y la sensación de recordarlo todo sin esfuerzo engancha y motiva a seguir usándola. Para el uso cotidiano no hace falta llegar tan lejos: con uno o dos palacios sencillos ya cubres la mayoría de las necesidades de aprendizaje o trabajo.</p>
-            <p>También ayuda entender por qué el palacio se recuerda tan bien pasado el tiempo. Al recorrer un lugar conocido, cada punto actúa como una pista que dispara la imagen que dejaste ahí, y esas pistas espaciales son de las más estables que tenemos. Aun así, como todo, se refuerza con el uso: si vas a necesitar la información durante semanas, recorre el palacio de vez en cuando para mantenerlo fresco. Y cuando ya no lo necesites, con el tiempo esas imágenes se desvanecen solas y puedes reutilizar el lugar para algo nuevo, así que el mismo palacio te sirve una y otra vez a lo largo de la vida. Es una herramienta que, una vez aprendida, ya no se pierde. Por eso vale la pena dedicar una tarde a montar tu primer palacio con calma: es una inversión que rinde durante años al aprender y trabajar.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Para qué sirve y para qué no</h2>
+                <p>El palacio brilla con información que hay que recordar en orden: listas, los puntos de una exposición o discurso, pasos de un proceso, fechas de una línea de tiempo, vocabulario. En todos esos casos, el recorrido ordenado del lugar mantiene la secuencia y evita que te saltes o cambies cosas.</p>
+                <p>No es la herramienta ideal, en cambio, para comprender conceptos complejos ni para información que cambia todo el tiempo: eso se trabaja entendiendo, no colocando en un palacio. Tampoco sustituye repasar, aunque lo memorizado en un palacio bien hecho dura mucho. Es una técnica específica y muy potente para su terreno: memorizar cosas concretas en orden.</p>
+                <p>Un punto que sorprende a quien empieza es cuánto se puede llegar a memorizar con esta técnica. Un solo palacio con veinte o treinta puntos permite retener una lista larga completa, y como puedes tener muchos palacios distintos, la capacidad es prácticamente ilimitada. Los competidores de memoria usan varios palacios enormes y muy practicados para recordar barajas enteras o largas series de números; no tienen una memoria distinta a la tuya, solo han entrenado esta técnica hasta hacerla veloz, y la sensación de recordarlo todo sin esfuerzo engancha y motiva a seguir usándola. Para el uso cotidiano no hace falta llegar tan lejos: con uno o dos palacios sencillos ya cubres la mayoría de las necesidades de aprendizaje o trabajo.</p>
+                <p>También ayuda entender por qué el palacio se recuerda tan bien pasado el tiempo. Al recorrer un lugar conocido, cada punto actúa como una pista que dispara la imagen que dejaste ahí, y esas pistas espaciales son de las más estables que tenemos. Aun así, como todo, se refuerza con el uso: si vas a necesitar la información durante semanas, recorre el palacio de vez en cuando para mantenerlo fresco. Y cuando ya no lo necesites, con el tiempo esas imágenes se desvanecen solas y puedes reutilizar el lugar para algo nuevo, así que el mismo palacio te sirve una y otra vez a lo largo de la vida. Es una herramienta que, una vez aprendida, ya no se pierde. Por eso vale la pena dedicar una tarde a montar tu primer palacio con calma: es una inversión que rinde durante años al aprender y trabajar.</p>
+            </section>
 
-            <h2>Consejos para que tu palacio no falle</h2>
-            <p>Con la práctica, el palacio de la memoria se vuelve casi automático, pero estos cuidados evitan los tropiezos típicos de quien empieza.</p>
-            <ul>
-                <li>Usa siempre el mismo recorrido en el mismo orden, para no perderte al recuperar.</li>
-                <li>Deja espacio entre puntos: si están muy juntos, las imágenes se confunden.</li>
-                <li>Haz las imágenes exageradas y en movimiento; las sosas se olvidan.</li>
-                <li>Ten varios palacios para temas distintos, así no mezclas informaciones.</li>
-                <li>Recorre el palacio una o dos veces al terminar, para fijar el orden.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Construye tus palacios con acompañamiento</h3>
-                <p>El curso Memoria Prodigiosa de WorldBrain enseña el palacio y otras técnicas de memoria de forma guiada, con práctica aplicada al aprendizaje. Escríbenos por WhatsApp para conocer edades, modalidad, horarios y la próxima fecha de inicio.</p>
-                <a href="/memoria-prodigiosa" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso de memoria para estudiantes <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Consejos para que tu palacio no falle</h2>
+                <p>Con la práctica, el palacio de la memoria se vuelve casi automático, pero estos cuidados evitan los tropiezos típicos de quien empieza.</p>
                 <ul>
-                <li><a href="/blog-tecnicas-de-mnemotecnia-ejemplos">Técnicas de mnemotecnia con ejemplos</a></li>
-                <li><a href="/blog-como-memorizar-rapido">Cómo memorizar rápido: técnicas que funcionan</a></li>
-                <li><a href="/blog-como-memorizar-para-un-examen">Cómo memorizar para un examen</a></li>
-                <li><a href="/blog-como-mejorar-la-memoria-ninos">Cómo mejorar la memoria en niños</a></li>
+                    <li>Usa siempre el mismo recorrido en el mismo orden, para no perderte al recuperar.</li>
+                    <li>Deja espacio entre puntos: si están muy juntos, las imágenes se confunden.</li>
+                    <li>Haz las imágenes exageradas y en movimiento; las sosas se olvidan.</li>
+                    <li>Ten varios palacios para temas distintos, así no mezclas informaciones.</li>
+                    <li>Recorre el palacio una o dos veces al terminar, para fijar el orden.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El palacio de la memoria sirve para cualquier persona?</h3>
-                <p>Sí. Todos tenemos memoria espacial fuerte (recordamos la distribución de los lugares conocidos), y el palacio solo la aprovecha. No hace falta una memoria especial ni talento; es una técnica que se aprende y mejora con la práctica. Los campeones de memoria la usan, pero cualquiera obtiene resultados desde el primer intento.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo reutilizar el mismo palacio para cosas distintas?</h3>
-                <p>Sí, pero conviene tener cuidado: si reutilizas el mismo lugar demasiado seguido para cosas distintas, las imágenes viejas pueden interferir. Lo práctico es tener varios palacios (tu casa, tu escuela, un camino conocido) y asignar cada uno a un tema. Con el tiempo puedes reciclar un palacio cuando ya no necesites lo que guardaste en él.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es lo mismo que la mnemotecnia?</h3>
-                <p>El palacio es una técnica de mnemotecnia, quizá la más potente para memorizar en orden. La mnemotecnia es el conjunto de todos estos trucos (acrónimos, asociación por imágenes, historias); el palacio es uno de ellos, especializado en secuencias, y combina la memoria espacial con la visual.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad se puede enseñar a un niño?</h3>
-                <p>Desde la primaria, empezando con un lugar muy conocido y pocos elementos, en tono de juego. A los niños les encanta imaginar escenas absurdas en su casa, así que suelen tomarle el gusto rápido. Se empieza sencillo y se amplía con la edad, como cualquier otra técnica de memoria.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Construye tus palacios con acompañamiento</h2>
+                    <p>El curso Memoria Prodigiosa de WorldBrain enseña el palacio y otras técnicas de memoria de forma guiada, con práctica aplicada al aprendizaje. Escríbenos por WhatsApp para conocer edades, modalidad, horarios y la próxima fecha de inicio.</p>
+                    <a href="/memoria-prodigiosa" class="btn-primary">
+                        Curso de memoria para estudiantes <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
 
-            </ul>
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnicas-de-mnemotecnia-ejemplos">
+                            <span>Técnicas de mnemotecnia con ejemplos</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-memorizar-rapido">
+                            <span>Cómo memorizar rápido: técnicas que funcionan</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-memorizar-para-un-examen">
+                            <span>Cómo memorizar para un examen</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-mejorar-la-memoria-ninos">
+                            <span>Cómo mejorar la memoria en niños</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El palacio de la memoria sirve para cualquier persona?</h3>
+                    <p>Sí. Todos tenemos memoria espacial fuerte (recordamos la distribución de los lugares conocidos), y el palacio solo la aprovecha. No hace falta una memoria especial ni talento; es una técnica que se aprende y mejora con la práctica. Los campeones de memoria la usan, pero cualquiera obtiene resultados desde el primer intento.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo reutilizar el mismo palacio para cosas distintas?</h3>
+                    <p>Sí, pero conviene tener cuidado: si reutilizas el mismo lugar demasiado seguido para cosas distintas, las imágenes viejas pueden interferir. Lo práctico es tener varios palacios (tu casa, tu escuela, un camino conocido) y asignar cada uno a un tema. Con el tiempo puedes reciclar un palacio cuando ya no necesites lo que guardaste en él.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es lo mismo que la mnemotecnia?</h3>
+                    <p>El palacio es una técnica de mnemotecnia, quizá la más potente para memorizar en orden. La mnemotecnia es el conjunto de todos estos trucos (acrónimos, asociación por imágenes, historias); el palacio es uno de ellos, especializado en secuencias, y combina la memoria espacial con la visual.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad se puede enseñar a un niño?</h3>
+                    <p>Desde la primaria, empezando con un lugar muy conocido y pocos elementos, en tono de juego. A los niños les encanta imaginar escenas absurdas en su casa, así que suelen tomarle el gusto rápido. Se empieza sencillo y se amplía con la edad, como cualquier otra técnica de memoria.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -512,8 +596,57 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es el palacio de la memoria
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Por qué funciona tan bien
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo construir tu primer palacio, paso a paso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Un ejemplo concreto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Para qué sirve y para qué no
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Consejos para que tu palacio no falle
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

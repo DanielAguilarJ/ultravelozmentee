@@ -362,138 +362,231 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="5">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-comments"></i> Habilidades Blandas
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo empezar a desarrollar habilidades blandas desde cero</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 5 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Habilidades Blandas</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo empezar a desarrollar habilidades blandas desde cero</h1>
+                <p class="blog-post-dek">Cómo empezar a desarrollar habilidades blandas desde cero: primeros pasos concretos sin necesidad de dominar toda la teoría antes de practicar.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Habilidades Blandas</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>5 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/neurocomunicacion-curso-hablar-en-publico-liderazgo.webp" alt="Cómo empezar a desarrollar habilidades blandas desde cero" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">El interés por mejorar habilidades blandas suele surgir tras una situación incómoda: una conversación que salió mal, un conflicto mal manejado, una presentación que no conectó con la audiencia. Ese momento, sin embargo, no siempre es el ideal para empezar a trabajar en la habilidad, porque combina la presión de la situación real con el reto de aprender algo nuevo.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué no conviene aprender bajo la presión del momento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Elegir una situación de baja presión para empezar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Elegir un ajuste pequeño y específico, no una meta general
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: los primeros pasos de alguien sin experiencia previa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Pedir retroalimentación breve antes de avanzar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué evitar durante estos primeros pasos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo avanzar después de estos primeros pasos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">El interés por mejorar habilidades blandas suele surgir tras una situación incómoda: una conversación que salió mal, un conflicto mal manejado, una presentación que no conectó con la audiencia. Ese momento, sin embargo, no siempre es el ideal para empezar a trabajar en la habilidad, porque combina la presión de la situación real con el reto de aprender algo nuevo.</p>
 
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para empezar a desarrollar habilidades blandas sin experiencia previa, lo más práctico es elegir una situación reciente de baja presión donde se identificó una dificultad concreta, aplicar un ajuste pequeño y específico en la siguiente situación similar, y pedir retroalimentación breve a alguien de confianza antes de considerar el siguiente paso.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para empezar a desarrollar habilidades blandas sin experiencia previa, lo más práctico es elegir una situación reciente de baja presión donde se identificó una dificultad concreta, aplicar un ajuste pequeño y específico en la siguiente situación similar, y pedir retroalimentación breve a alguien de confianza antes de considerar el siguiente paso.</p>
+                </aside>
 
-            <h2>Por qué no conviene aprender bajo la presión del momento</h2>
-            <p>Cualquier habilidad blanda nueva exige un periodo de adaptación durante el cual el desempeño puede sentirse más torpe que con el patrón habitual. Si ese periodo de adaptación coincide con una situación de alta presión, el riesgo de sentirse abrumado y abandonar el intento aumenta considerablemente.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué no conviene aprender bajo la presión del momento</h2>
+                <p>Cualquier habilidad blanda nueva exige un periodo de adaptación durante el cual el desempeño puede sentirse más torpe que con el patrón habitual. Si ese periodo de adaptación coincide con una situación de alta presión, el riesgo de sentirse abrumado y abandonar el intento aumenta considerablemente.</p>
+            </section>
 
-            <h2>Elegir una situación de baja presión para empezar</h2>
-            <p>Conversaciones informales con amigos o familiares, actividades extracurriculares de bajo riesgo, o situaciones donde el resultado no tiene consecuencias importantes ofrecen un contexto ideal para practicar un ajuste nuevo sin la presión de un resultado crítico en juego.</p>
-            <ul>
-                <li>Elegir contextos donde el resultado no tenga consecuencias importantes.</li>
-                <li>Practicar el ajuste específico varias veces antes de aplicarlo en situaciones más exigentes.</li>
-                <li>Aceptar que los primeros intentos se sentirán forzados y poco naturales.</li>
-                <li>Dar al menos dos o tres semanas antes de evaluar si el ajuste realmente ayuda.</li>
-            </ul>
-
-            <h2>Elegir un ajuste pequeño y específico, no una meta general</h2>
-            <p>En lugar de proponerse 'ser mejor comunicador', un objetivo demasiado abstracto para practicar de forma concreta, elegir un ajuste pequeño y específico —hacer una pausa antes de responder, resumir lo que la otra persona dijo antes de dar tu opinión— ofrece algo concreto que se puede practicar y verificar.</p>
-
-            <h2>Ejemplo aplicado: los primeros pasos de alguien sin experiencia previa</h2>
-            <p>Una persona que notó, después de una reunión de trabajo incómoda, que solía hablar sin escuchar completamente lo que otros decían, decidió empezar a trabajar en esto pero sin hacerlo directamente en el contexto laboral donde la presión era alta.</p>
-            <p>Eligió practicar primero en conversaciones con su familia durante las cenas, proponiéndose un ajuste muy concreto: antes de responder cualquier comentario, resumir brevemente lo que la otra persona acababa de decir, para confirmar que realmente lo había escuchado antes de agregar su propia opinión.</p>
-            <p>Durante la primera semana, este ajuste se sintió forzado y artificial, notando que a veces olvidaba aplicarlo por completo en medio de la conversación natural. Sin exigirse perfección inmediata, continuó practicando durante las siguientes dos semanas, notando que gradualmente el resumen se volvía menos forzado y más parte natural de su forma de conversar.</p>
-            <p>Después de casi un mes de práctica en este contexto familiar de bajo riesgo, decidió aplicar el mismo ajuste en su siguiente reunión de trabajo, notando que, aunque todavía requería algo de esfuerzo consciente, ya no se sentía como una técnica completamente ajena, sino como algo que ya había practicado suficiente para aplicarlo con cierta confianza en un contexto más exigente.</p>
-
-            <h2>Pedir retroalimentación breve antes de avanzar</h2>
-            <p>Preguntar a alguien de confianza —¿notas algo distinto en cómo converso contigo?— después de algunas semanas de práctica ofrece confirmación externa de si el ajuste realmente se percibe, información que la propia impresión subjetiva no siempre captura con precisión.</p>
-            <ol>
-                <li>Practicar el ajuste específico durante al menos dos o tres semanas en bajo riesgo.</li>
-                <li>Pedir retroalimentación breve a alguien de confianza sobre si nota algún cambio.</li>
-                <li>Ajustar la práctica según esa retroalimentación antes de aplicarla en contexto exigente.</li>
-                <li>Aplicar finalmente el ajuste en la situación original que motivó el interés inicial.</li>
-            </ol>
-
-            <h2>Qué evitar durante estos primeros pasos</h2>
-            <p>Quien empieza desde cero suele sentir la tentación de intentar mejorar varias habilidades a la vez, motivado por el entusiasmo inicial tras una situación incómoda que reveló múltiples áreas de mejora. Esa ambición suele terminar en dispersión sin avance claro en ninguna área específica.</p>
-
-            <h2>Cómo avanzar después de estos primeros pasos</h2>
-            <p>Una vez que el primer ajuste se sienta natural y confirmado por retroalimentación externa, es momento de considerar el siguiente paso: aplicar el proceso de cuatro pasos descrito en otro artículo de este cluster con una situación distinta, o profundizar en la misma habilidad con un ajuste adicional más avanzado.</p>
-            <p>No es necesario tener un plan detallado de todas las habilidades que se quieren desarrollar a largo plazo; basta con avanzar de forma incremental, un ajuste a la vez, permitiendo que cada nuevo paso se construya sobre la confianza y experiencia adquirida en el anterior.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De los primeros pasos a un liderazgo estructurado</h3>
-                <p>Si ya diste tus primeros pasos y buscas algo más estructurado para desarrollar liderazgo, nuestro programa de Grandes Líderes ofrece un método guiado con práctica progresiva desde el primer día.</p>
-                <a href="/grandes-lideres" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso de liderazgo juvenil <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Elegir una situación de baja presión para empezar</h2>
+                <p>Conversaciones informales con amigos o familiares, actividades extracurriculares de bajo riesgo, o situaciones donde el resultado no tiene consecuencias importantes ofrecen un contexto ideal para practicar un ajuste nuevo sin la presión de un resultado crítico en juego.</p>
                 <ul>
-                <li><a href="/blog-habilidades-blandas-paso-a-paso">Guía paso a paso para desarrollar una habilidad blanda</a></li>
-                <li><a href="/blog-habilidades-blandas-casos-practicos">Casos prácticos de desarrollo de habilidades blandas</a></li>
+                    <li>Elegir contextos donde el resultado no tenga consecuencias importantes.</li>
+                    <li>Practicar el ajuste específico varias veces antes de aplicarlo en situaciones más exigentes.</li>
+                    <li>Aceptar que los primeros intentos se sentirán forzados y poco naturales.</li>
+                    <li>Dar al menos dos o tres semanas antes de evaluar si el ajuste realmente ayuda.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debería practicar en bajo riesgo antes de usar la habilidad en algo importante?</h3>
-                <p>Dos a cuatro semanas de práctica consistente suele ser un periodo razonable para sentir cierta soltura básica, aunque el dominio completo puede tomar más tiempo según la habilidad y la persona.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si no tengo ningún contexto de bajo riesgo disponible para practicar?</h3>
-                <p>Considera situaciones cotidianas simples como conversaciones con vendedores, compañeros de transporte público, o incluso practicar frente a un espejo si la habilidad lo permite, buscando siempre el contexto de menor consecuencia posible.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es necesario elegir siempre un ajuste tan pequeño como en el ejemplo?</h3>
-                <p>Sí, especialmente al principio; un ajuste pequeño y específico es más fácil de practicar y verificar que un cambio general y abstracto, lo que aumenta la probabilidad de sostener la práctica el tiempo suficiente para consolidarla.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi ajuste se siente cómodo mucho antes de las semanas sugeridas?</h3>
-                <p>Puedes avanzar antes si notas que ya lo aplicas con soltura y sin esfuerzo consciente excesivo; el plazo sugerido es una guía general, no una regla estricta para todos los casos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo abandonar mi patrón habitual mientras practico el ajuste nuevo?</h3>
-                <p>No es necesario abandonarlo por completo durante la fase de práctica en bajo riesgo; puedes mantener tu patrón habitual en situaciones exigentes mientras practicas el ajuste nuevo en paralelo con situaciones de menor riesgo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Elegir un ajuste pequeño y específico, no una meta general</h2>
+                <p>En lugar de proponerse 'ser mejor comunicador', un objetivo demasiado abstracto para practicar de forma concreta, elegir un ajuste pequeño y específico —hacer una pausa antes de responder, resumir lo que la otra persona dijo antes de dar tu opinión— ofrece algo concreto que se puede practicar y verificar.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: los primeros pasos de alguien sin experiencia previa</h2>
+                <p>Una persona que notó, después de una reunión de trabajo incómoda, que solía hablar sin escuchar completamente lo que otros decían, decidió empezar a trabajar en esto pero sin hacerlo directamente en el contexto laboral donde la presión era alta.</p>
+                <p>Eligió practicar primero en conversaciones con su familia durante las cenas, proponiéndose un ajuste muy concreto: antes de responder cualquier comentario, resumir brevemente lo que la otra persona acababa de decir, para confirmar que realmente lo había escuchado antes de agregar su propia opinión.</p>
+                <p>Durante la primera semana, este ajuste se sintió forzado y artificial, notando que a veces olvidaba aplicarlo por completo en medio de la conversación natural. Sin exigirse perfección inmediata, continuó practicando durante las siguientes dos semanas, notando que gradualmente el resumen se volvía menos forzado y más parte natural de su forma de conversar.</p>
+                <p>Después de casi un mes de práctica en este contexto familiar de bajo riesgo, decidió aplicar el mismo ajuste en su siguiente reunión de trabajo, notando que, aunque todavía requería algo de esfuerzo consciente, ya no se sentía como una técnica completamente ajena, sino como algo que ya había practicado suficiente para aplicarlo con cierta confianza en un contexto más exigente.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Pedir retroalimentación breve antes de avanzar</h2>
+                <p>Preguntar a alguien de confianza —¿notas algo distinto en cómo converso contigo?— después de algunas semanas de práctica ofrece confirmación externa de si el ajuste realmente se percibe, información que la propia impresión subjetiva no siempre captura con precisión.</p>
+                <ol>
+                    <li>Practicar el ajuste específico durante al menos dos o tres semanas en bajo riesgo.</li>
+                    <li>Pedir retroalimentación breve a alguien de confianza sobre si nota algún cambio.</li>
+                    <li>Ajustar la práctica según esa retroalimentación antes de aplicarla en contexto exigente.</li>
+                    <li>Aplicar finalmente el ajuste en la situación original que motivó el interés inicial.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Qué evitar durante estos primeros pasos</h2>
+                <p>Quien empieza desde cero suele sentir la tentación de intentar mejorar varias habilidades a la vez, motivado por el entusiasmo inicial tras una situación incómoda que reveló múltiples áreas de mejora. Esa ambición suele terminar en dispersión sin avance claro en ninguna área específica.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo avanzar después de estos primeros pasos</h2>
+                <p>Una vez que el primer ajuste se sienta natural y confirmado por retroalimentación externa, es momento de considerar el siguiente paso: aplicar el proceso de cuatro pasos descrito en otro artículo de este cluster con una situación distinta, o profundizar en la misma habilidad con un ajuste adicional más avanzado.</p>
+                <p>No es necesario tener un plan detallado de todas las habilidades que se quieren desarrollar a largo plazo; basta con avanzar de forma incremental, un ajuste a la vez, permitiendo que cada nuevo paso se construya sobre la confianza y experiencia adquirida en el anterior.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De los primeros pasos a un liderazgo estructurado</h2>
+                    <p>Si ya diste tus primeros pasos y buscas algo más estructurado para desarrollar liderazgo, nuestro programa de Grandes Líderes ofrece un método guiado con práctica progresiva desde el primer día.</p>
+                    <a href="/grandes-lideres" class="btn-primary">
+                        Curso de liderazgo juvenil <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-habilidades-blandas-paso-a-paso">
+                            <span>Guía paso a paso para desarrollar una habilidad blanda</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-habilidades-blandas-casos-practicos">
+                            <span>Casos prácticos de desarrollo de habilidades blandas</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debería practicar en bajo riesgo antes de usar la habilidad en algo importante?</h3>
+                    <p>Dos a cuatro semanas de práctica consistente suele ser un periodo razonable para sentir cierta soltura básica, aunque el dominio completo puede tomar más tiempo según la habilidad y la persona.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si no tengo ningún contexto de bajo riesgo disponible para practicar?</h3>
+                    <p>Considera situaciones cotidianas simples como conversaciones con vendedores, compañeros de transporte público, o incluso practicar frente a un espejo si la habilidad lo permite, buscando siempre el contexto de menor consecuencia posible.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es necesario elegir siempre un ajuste tan pequeño como en el ejemplo?</h3>
+                    <p>Sí, especialmente al principio; un ajuste pequeño y específico es más fácil de practicar y verificar que un cambio general y abstracto, lo que aumenta la probabilidad de sostener la práctica el tiempo suficiente para consolidarla.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi ajuste se siente cómodo mucho antes de las semanas sugeridas?</h3>
+                    <p>Puedes avanzar antes si notas que ya lo aplicas con soltura y sin esfuerzo consciente excesivo; el plazo sugerido es una guía general, no una regla estricta para todos los casos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo abandonar mi patrón habitual mientras practico el ajuste nuevo?</h3>
+                    <p>No es necesario abandonarlo por completo durante la fase de práctica en bajo riesgo; puedes mantener tu patrón habitual en situaciones exigentes mientras practicas el ajuste nuevo en paralelo con situaciones de menor riesgo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -523,8 +616,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué no conviene aprender bajo la presión del momento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Elegir una situación de baja presión para empezar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Elegir un ajuste pequeño y específico, no una meta general
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: los primeros pasos de alguien sin experiencia previa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Pedir retroalimentación breve antes de avanzar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué evitar durante estos primeros pasos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo avanzar después de estos primeros pasos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>5 min restantes</span>
+                        <span>Lectura estimada: 5 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

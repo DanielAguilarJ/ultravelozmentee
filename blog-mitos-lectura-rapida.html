@@ -354,139 +354,230 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-magnifying-glass"></i> Fotolectura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Mitos y verdades sobre la lectura rápida</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 2 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Fotolectura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Mitos y verdades sobre la lectura rápida</h1>
+                <p class="blog-post-dek">Los mitos más comunes sobre la lectura rápida -- leer una página por segundo, absorber libros con la vista fotográfica -- explicados y contrastados con lo que realmente se puede entrenar.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Fotolectura</span>
+                    <span>Publicado <time datetime="2026-09-02">2 de Septiembre, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fotolectura-curso-lectura-rapida-libro.webp" alt="Mitos y verdades sobre la lectura rápida" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La lectura rápida atrae promesas espectaculares desde hace décadas: cursos y aplicaciones que ofrecen leer un libro completo en minutos, 'fotografiar' páginas enteras con la vista, o multiplicar la velocidad de lectura por diez sin ningún límite aparente.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Mito 1: se puede leer una página completa por segundo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Mito 2: la &#x27;lectura fotográfica&#x27; permite absorber un libro sin leer cada palabra
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Mito 3: la velocidad de lectura se puede multiplicar sin ningún límite
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Mito 4: la lectura rápida funciona igual para cualquier tipo de texto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Por qué estos mitos persisten a pesar de no sostenerse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué es real y sí se puede entrenar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo distinguir marketing exagerado de un método honesto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La lectura rápida atrae promesas espectaculares desde hace décadas: cursos y aplicaciones que ofrecen leer un libro completo en minutos, 'fotografiar' páginas enteras con la vista, o multiplicar la velocidad de lectura por diez sin ningún límite aparente.</p>
             <p>Este artículo separa lo que es entrenamiento real y verificable de lo que es exageración de marketing, para que cualquier persona interesada en mejorar su lectura pueda distinguir un método honesto de una promesa que no se sostiene.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Los mitos más comunes de la lectura rápida (leer una página por segundo, 'fotografiar' páginas completas, entender libros sin leer cada palabra) no tienen sustento verificable y suelen usarse en marketing exagerado. Lo que sí es real y entrenable es reducir hábitos ineficientes (subvocalización excesiva, regresión ocular) y ampliar el tamaño de fijación visual, lo cual aumenta la velocidad de forma gradual sin sacrificar comprensión, no de forma instantánea ni ilimitada.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Los mitos más comunes de la lectura rápida (leer una página por segundo, 'fotografiar' páginas completas, entender libros sin leer cada palabra) no tienen sustento verificable y suelen usarse en marketing exagerado. Lo que sí es real y entrenable es reducir hábitos ineficientes (subvocalización excesiva, regresión ocular) y ampliar el tamaño de fijación visual, lo cual aumenta la velocidad de forma gradual sin sacrificar comprensión, no de forma instantánea ni ilimitada.</p>
+                </aside>
 
-            <h2>Mito 1: se puede leer una página completa por segundo</h2>
-            <p>Esta afirmación circula en programas que prometen velocidades extremas, y descansa en una confusión entre 'ver' una página y 'procesar' su contenido. El ojo humano puede recorrer una página en fracciones de segundo, pero el cerebro necesita tiempo de procesamiento para convertir esas formas visuales en significado -- reconocer palabras, relacionarlas entre sí, construir el sentido de una oración y de un párrafo.</p>
-            <p>Ese tiempo de procesamiento cognitivo no desaparece por entrenamiento visual, sin importar cuánto se optimicen los movimientos oculares. Lo que sí se puede entrenar es reducir el tiempo perdido en movimientos oculares ineficientes (regresiones innecesarias, fijaciones muy pequeñas), pero eso tiene un límite real que no llega a 'una página por segundo' con comprensión genuina del contenido.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Mito 1: se puede leer una página completa por segundo</h2>
+                <p>Esta afirmación circula en programas que prometen velocidades extremas, y descansa en una confusión entre 'ver' una página y 'procesar' su contenido. El ojo humano puede recorrer una página en fracciones de segundo, pero el cerebro necesita tiempo de procesamiento para convertir esas formas visuales en significado -- reconocer palabras, relacionarlas entre sí, construir el sentido de una oración y de un párrafo.</p>
+                <p>Ese tiempo de procesamiento cognitivo no desaparece por entrenamiento visual, sin importar cuánto se optimicen los movimientos oculares. Lo que sí se puede entrenar es reducir el tiempo perdido en movimientos oculares ineficientes (regresiones innecesarias, fijaciones muy pequeñas), pero eso tiene un límite real que no llega a 'una página por segundo' con comprensión genuina del contenido.</p>
+            </section>
 
-            <h2>Mito 2: la 'lectura fotográfica' permite absorber un libro sin leer cada palabra</h2>
-            <p>Algunos programas promocionan una técnica de 'fotografiar' mentalmente una página completa, afirmando que el cerebro procesa esa imagen de forma subconsciente sin necesidad de leer palabra por palabra. Esta afirmación no cuenta con sustento verificable en la forma en que se describe habitualmente en el marketing.</p>
-            <p>Lo que sí es una técnica real y útil es el escaneo previo (hojear un texto para identificar su estructura general -- títulos, subtítulos, palabras en negrita -- antes de leerlo completo), que ayuda a anticipar contenido y leer con más contexto después. Pero ese escaneo no sustituye la lectura completa del texto: es una preparación para leerlo mejor, no un atajo para no leerlo.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Mito 2: la 'lectura fotográfica' permite absorber un libro sin leer cada palabra</h2>
+                <p>Algunos programas promocionan una técnica de 'fotografiar' mentalmente una página completa, afirmando que el cerebro procesa esa imagen de forma subconsciente sin necesidad de leer palabra por palabra. Esta afirmación no cuenta con sustento verificable en la forma en que se describe habitualmente en el marketing.</p>
+                <p>Lo que sí es una técnica real y útil es el escaneo previo (hojear un texto para identificar su estructura general -- títulos, subtítulos, palabras en negrita -- antes de leerlo completo), que ayuda a anticipar contenido y leer con más contexto después. Pero ese escaneo no sustituye la lectura completa del texto: es una preparación para leerlo mejor, no un atajo para no leerlo.</p>
+            </section>
 
-            <h2>Mito 3: la velocidad de lectura se puede multiplicar sin ningún límite</h2>
-            <p>Es cierto que la mayoría de las personas leen por debajo de su capacidad real, con hábitos ineficientes como subvocalización excesiva y regresiones oculares involuntarias, y que corregir esos hábitos aumenta la velocidad de forma genuina. Pero presentar esa mejora como ilimitada -- 'multiplica tu velocidad por diez' o cifras similares sin contexto -- ignora que existe un límite real impuesto por el tiempo de procesamiento cognitivo necesario para comprender contenido nuevo y complejo.</p>
-            <p>El aumento de velocidad realista es sustancial para quien parte de hábitos muy ineficientes, pero no es infinito, y el límite real varía según la dificultad del texto: un texto muy familiar permite más velocidad que uno técnico o desconocido, sin importar cuánto se haya entrenado la persona.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Mito 3: la velocidad de lectura se puede multiplicar sin ningún límite</h2>
+                <p>Es cierto que la mayoría de las personas leen por debajo de su capacidad real, con hábitos ineficientes como subvocalización excesiva y regresiones oculares involuntarias, y que corregir esos hábitos aumenta la velocidad de forma genuina. Pero presentar esa mejora como ilimitada -- 'multiplica tu velocidad por diez' o cifras similares sin contexto -- ignora que existe un límite real impuesto por el tiempo de procesamiento cognitivo necesario para comprender contenido nuevo y complejo.</p>
+                <p>El aumento de velocidad realista es sustancial para quien parte de hábitos muy ineficientes, pero no es infinito, y el límite real varía según la dificultad del texto: un texto muy familiar permite más velocidad que uno técnico o desconocido, sin importar cuánto se haya entrenado la persona.</p>
+            </section>
 
-            <h2>Mito 4: la lectura rápida funciona igual para cualquier tipo de texto</h2>
-            <p>Un lector entrenado no lee a la misma velocidad un correo simple, una novela y un artículo técnico de su especialidad: la velocidad óptima varía según la familiaridad con el tema, la densidad de información y el propósito de la lectura (entretenimiento, estudio, revisión rápida).</p>
-            <p>Un mito derivado de este es que 'un buen lector rápido siempre lee a la máxima velocidad posible' -- en realidad, un lector entrenado ajusta deliberadamente su velocidad según el texto y el propósito, y sabe cuándo bajar el ritmo para un contenido que exige más atención, en lugar de aplicar siempre la misma velocidad sin importar la dificultad.</p>
-            <ul>
-                <li>Un texto muy familiar permite más velocidad que uno desconocido, sin que eso sea una falla del lector.</li>
-                <li>Un lector experimentado ajusta su ritmo según el propósito: no lee igual para entretenerse que para memorizar datos de un examen.</li>
-                <li>La 'velocidad máxima constante' no es el objetivo real; el objetivo es la velocidad adecuada según cada situación.</li>
-            </ul>
-
-            <h2>Por qué estos mitos persisten a pesar de no sostenerse</h2>
-            <p>Estos mitos sobreviven porque describen un resultado muy deseable -- ahorrar tiempo, sentirse capaz de leer todo lo pendiente sin esfuerzo -- y porque son difíciles de refutar desde la experiencia personal de quien los practica: alguien que 'fotografía' una página y luego recuerda algunas ideas generales puede atribuir ese recuerdo parcial a la técnica, sin comparar con lo que hubiera recordado leyendo el texto de la forma convencional.</p>
-            <p>También ayuda que la métrica más fácil de mostrar en un anuncio es la velocidad (una cifra grande y llamativa), mientras que la comprensión es más difícil de demostrar en un video corto de marketing. Esto crea un incentivo estructural para que las promesas se enfoquen en la variable más fácil de exagerar, no en la que realmente importa para que la lectura sea útil.</p>
-            <p>Reconocer este patrón ayuda a evaluar cualquier promesa nueva que aparezca: si la afirmación central es sobre velocidad extrema sin mencionar cómo se verifica la comprensión, es la misma estructura de exageración que los mitos ya descritos, aunque se presente con un nombre distinto o una técnica supuestamente nueva.</p>
-
-            <h2>Qué es real y sí se puede entrenar</h2>
-            <p>Detrás de estos mitos exagerados hay técnicas reales que sí funcionan, cuando se entrenan con expectativas honestas: reducir la subvocalización (pronunciar mentalmente cada palabra, que limita la velocidad al ritmo del habla interna), ampliar el tamaño de fijación (leer grupos de palabras en lugar de una a la vez), y eliminar regresiones oculares involuntarias que hacen releer fragmentos ya comprendidos.</p>
-            <p>Estas tres técnicas, entrenadas de forma gradual y verificando comprensión en cada etapa, producen mejoras reales y sostenibles en velocidad, sin necesidad de recurrir a afirmaciones sobre 'fotografiar' páginas ni promesas de velocidad ilimitada.</p>
-            <p>Por ejemplo, reducir la subvocalización no significa dejar de 'escuchar' el texto por completo de un día para otro: es un proceso gradual donde se practica con ejercicios de ritmo marcado (visual o sonoro) ligeramente más rápido que el habla interna habitual, forzando al cerebro a procesar visualmente sin depender tanto de la pronunciación mental de cada palabra. De forma similar, ampliar la fijación no significa intentar ver una línea completa de golpe desde el primer día: se practica primero con grupos de dos o tres palabras, verificando que la comprensión se mantenga, antes de intentar grupos más amplios.</p>
-            <ol>
-                <li>Reducir la subvocalización con ejercicios de ritmo visual guiado.</li>
-                <li>Ampliar el tamaño de fijación practicando con textos que fuerzan a capturar grupos de palabras.</li>
-                <li>Eliminar regresiones involuntarias con técnicas de guía visual (dedo, marcador o software de ritmo).</li>
-                <li>Verificar comprensión con preguntas concretas después de cada práctica, no solo la sensación subjetiva de haber entendido.</li>
-                <li>Ajustar la velocidad de forma deliberada según el tipo de texto, en vez de aplicar siempre la máxima velocidad posible.</li>
-            </ol>
-
-            <h2>Cómo distinguir marketing exagerado de un método honesto</h2>
-            <p>La señal más clara de una promesa exagerada es una cifra específica de velocidad presentada como resultado garantizado para cualquier persona, sin explicar el método detrás ni cómo se verifica la comprensión. Un método honesto explica qué técnicas entrena, cómo mide el progreso en ambas variables (velocidad y comprensión), y reconoce que el resultado depende del punto de partida individual.</p>
-            <p>Cuando un programa usa lenguaje como 'fotografiar páginas', 'absorber libros completos en segundos' o cifras de velocidad sin ningún límite aparente, conviene preguntar de forma directa cómo se mide y verifica eso, en lugar de aceptar la promesa por su atractivo.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Entrena las técnicas reales, no las promesas de marketing</h3>
-                <p>El curso de Fotolectura de WorldBrain México trabaja las técnicas verificables -- reducción de subvocalización, ampliación de fijación, eliminación de regresiones -- con seguimiento de comprensión en cada sesión, presencial en Cuautitlán Izcalli y Cuernavaca.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso de lectura rápida <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Mito 4: la lectura rápida funciona igual para cualquier tipo de texto</h2>
+                <p>Un lector entrenado no lee a la misma velocidad un correo simple, una novela y un artículo técnico de su especialidad: la velocidad óptima varía según la familiaridad con el tema, la densidad de información y el propósito de la lectura (entretenimiento, estudio, revisión rápida).</p>
+                <p>Un mito derivado de este es que 'un buen lector rápido siempre lee a la máxima velocidad posible' -- en realidad, un lector entrenado ajusta deliberadamente su velocidad según el texto y el propósito, y sabe cuándo bajar el ritmo para un contenido que exige más atención, en lugar de aplicar siempre la misma velocidad sin importar la dificultad.</p>
                 <ul>
-                <li><a href="/blog-comprension-veloz-que-es">Comprensión veloz: qué es y en qué se diferencia de solo leer rápido</a></li>
-                <li><a href="/blog-ejercicios-oculares-lectura-rapida">Ejercicios oculares para lectura rápida: fijaciones, regresiones y ritmo</a></li>
-                <li><a href="/blog-como-elegir-curso-lectura-rapida">Cómo elegir un curso de lectura rápida: 9 preguntas antes de inscribirte</a></li>
-                <li><a href="/blog-senales-necesitas-mejorar-lectura">10 señales de que necesitas mejorar tu velocidad o comprensión de lectura</a></li>
+                    <li>Un texto muy familiar permite más velocidad que uno desconocido, sin que eso sea una falla del lector.</li>
+                    <li>Un lector experimentado ajusta su ritmo según el propósito: no lee igual para entretenerse que para memorizar datos de un examen.</li>
+                    <li>La 'velocidad máxima constante' no es el objetivo real; el objetivo es la velocidad adecuada según cada situación.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es verdad que se puede leer un libro completo en minutos con lectura rápida?</h3>
-                <p>No de la forma en que se promociona habitualmente. El tiempo de procesamiento cognitivo necesario para comprender contenido nuevo impone un límite real a la velocidad, sin importar cuánto se entrenen los movimientos oculares. Un aumento sustancial de velocidad es real y posible, pero no ilimitado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Funciona la técnica de 'fotografiar' páginas completas?</h3>
-                <p>La forma en que se describe habitualmente en marketing (absorber el contenido de una página sin leer palabra por palabra) no cuenta con sustento verificable. Sí es útil el escaneo previo de la estructura de un texto antes de leerlo, pero eso es preparación para leer mejor, no un sustituto de la lectura.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto puedo aumentar mi velocidad de lectura de forma realista?</h3>
-                <p>Depende de tu punto de partida y de qué hábitos ineficientes tengas actualmente (subvocalización, regresión ocular). No hay una cifra universal honesta, pero el aumento es gradual y debe verificarse con comprensión en cada etapa, no ser instantáneo ni ilimitado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo leer siempre a la máxima velocidad que pueda entrenar?</h3>
-                <p>No. Un lector entrenado ajusta su velocidad según la dificultad y familiaridad del texto y el propósito de la lectura. Leer siempre al máximo sin ajustar el ritmo puede sacrificar comprensión en textos que exigen más atención.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Por qué estos mitos persisten a pesar de no sostenerse</h2>
+                <p>Estos mitos sobreviven porque describen un resultado muy deseable -- ahorrar tiempo, sentirse capaz de leer todo lo pendiente sin esfuerzo -- y porque son difíciles de refutar desde la experiencia personal de quien los practica: alguien que 'fotografía' una página y luego recuerda algunas ideas generales puede atribuir ese recuerdo parcial a la técnica, sin comparar con lo que hubiera recordado leyendo el texto de la forma convencional.</p>
+                <p>También ayuda que la métrica más fácil de mostrar en un anuncio es la velocidad (una cifra grande y llamativa), mientras que la comprensión es más difícil de demostrar en un video corto de marketing. Esto crea un incentivo estructural para que las promesas se enfoquen en la variable más fácil de exagerar, no en la que realmente importa para que la lectura sea útil.</p>
+                <p>Reconocer este patrón ayuda a evaluar cualquier promesa nueva que aparezca: si la afirmación central es sobre velocidad extrema sin mencionar cómo se verifica la comprensión, es la misma estructura de exageración que los mitos ya descritos, aunque se presente con un nombre distinto o una técnica supuestamente nueva.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Qué es real y sí se puede entrenar</h2>
+                <p>Detrás de estos mitos exagerados hay técnicas reales que sí funcionan, cuando se entrenan con expectativas honestas: reducir la subvocalización (pronunciar mentalmente cada palabra, que limita la velocidad al ritmo del habla interna), ampliar el tamaño de fijación (leer grupos de palabras en lugar de una a la vez), y eliminar regresiones oculares involuntarias que hacen releer fragmentos ya comprendidos.</p>
+                <p>Estas tres técnicas, entrenadas de forma gradual y verificando comprensión en cada etapa, producen mejoras reales y sostenibles en velocidad, sin necesidad de recurrir a afirmaciones sobre 'fotografiar' páginas ni promesas de velocidad ilimitada.</p>
+                <p>Por ejemplo, reducir la subvocalización no significa dejar de 'escuchar' el texto por completo de un día para otro: es un proceso gradual donde se practica con ejercicios de ritmo marcado (visual o sonoro) ligeramente más rápido que el habla interna habitual, forzando al cerebro a procesar visualmente sin depender tanto de la pronunciación mental de cada palabra. De forma similar, ampliar la fijación no significa intentar ver una línea completa de golpe desde el primer día: se practica primero con grupos de dos o tres palabras, verificando que la comprensión se mantenga, antes de intentar grupos más amplios.</p>
+                <ol>
+                    <li>Reducir la subvocalización con ejercicios de ritmo visual guiado.</li>
+                    <li>Ampliar el tamaño de fijación practicando con textos que fuerzan a capturar grupos de palabras.</li>
+                    <li>Eliminar regresiones involuntarias con técnicas de guía visual (dedo, marcador o software de ritmo).</li>
+                    <li>Verificar comprensión con preguntas concretas después de cada práctica, no solo la sensación subjetiva de haber entendido.</li>
+                    <li>Ajustar la velocidad de forma deliberada según el tipo de texto, en vez de aplicar siempre la máxima velocidad posible.</li>
+                </ol>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo distinguir marketing exagerado de un método honesto</h2>
+                <p>La señal más clara de una promesa exagerada es una cifra específica de velocidad presentada como resultado garantizado para cualquier persona, sin explicar el método detrás ni cómo se verifica la comprensión. Un método honesto explica qué técnicas entrena, cómo mide el progreso en ambas variables (velocidad y comprensión), y reconoce que el resultado depende del punto de partida individual.</p>
+                <p>Cuando un programa usa lenguaje como 'fotografiar páginas', 'absorber libros completos en segundos' o cifras de velocidad sin ningún límite aparente, conviene preguntar de forma directa cómo se mide y verifica eso, en lugar de aceptar la promesa por su atractivo.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Entrena las técnicas reales, no las promesas de marketing</h2>
+                    <p>El curso de Fotolectura de WorldBrain México trabaja las técnicas verificables -- reducción de subvocalización, ampliación de fijación, eliminación de regresiones -- con seguimiento de comprensión en cada sesión, presencial en Cuautitlán Izcalli y Cuernavaca.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Conocer el curso de lectura rápida <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-comprension-veloz-que-es">
+                            <span>Comprensión veloz: qué es y en qué se diferencia de solo leer rápido</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-ejercicios-oculares-lectura-rapida">
+                            <span>Ejercicios oculares para lectura rápida: fijaciones, regresiones y ritmo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-elegir-curso-lectura-rapida">
+                            <span>Cómo elegir un curso de lectura rápida: 9 preguntas antes de inscribirte</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-senales-necesitas-mejorar-lectura">
+                            <span>10 señales de que necesitas mejorar tu velocidad o comprensión de lectura</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es verdad que se puede leer un libro completo en minutos con lectura rápida?</h3>
+                    <p>No de la forma en que se promociona habitualmente. El tiempo de procesamiento cognitivo necesario para comprender contenido nuevo impone un límite real a la velocidad, sin importar cuánto se entrenen los movimientos oculares. Un aumento sustancial de velocidad es real y posible, pero no ilimitado.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Funciona la técnica de 'fotografiar' páginas completas?</h3>
+                    <p>La forma en que se describe habitualmente en marketing (absorber el contenido de una página sin leer palabra por palabra) no cuenta con sustento verificable. Sí es útil el escaneo previo de la estructura de un texto antes de leerlo, pero eso es preparación para leer mejor, no un sustituto de la lectura.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto puedo aumentar mi velocidad de lectura de forma realista?</h3>
+                    <p>Depende de tu punto de partida y de qué hábitos ineficientes tengas actualmente (subvocalización, regresión ocular). No hay una cifra universal honesta, pero el aumento es gradual y debe verificarse con comprensión en cada etapa, no ser instantáneo ni ilimitado.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo leer siempre a la máxima velocidad que pueda entrenar?</h3>
+                    <p>No. Un lector entrenado ajusta su velocidad según la dificultad y familiaridad del texto y el propósito de la lectura. Leer siempre al máximo sin ajustar el ritmo puede sacrificar comprensión en textos que exigen más atención.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -516,8 +607,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Mito 1: se puede leer una página completa por segundo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Mito 2: la &#x27;lectura fotográfica&#x27; permite absorber un libro sin leer cada palabra
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Mito 3: la velocidad de lectura se puede multiplicar sin ningún límite
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Mito 4: la lectura rápida funciona igual para cualquier tipo de texto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Por qué estos mitos persisten a pesar de no sostenerse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué es real y sí se puede entrenar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo distinguir marketing exagerado de un método honesto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

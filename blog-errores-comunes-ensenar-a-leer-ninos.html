@@ -362,136 +362,227 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-triangle-exclamation"></i> Lectoescritura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Errores comunes al enseñar a leer a un niño (y cómo evitarlos)</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 2 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Lectoescritura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Errores comunes al enseñar a leer a un niño (y cómo evitarlos)</h1>
+                <p class="blog-post-dek">Errores frecuentes que los padres cometen sin darse cuenta al enseñar a leer a un niño, y qué hacer en su lugar para no frenar el proceso.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Lectoescritura</span>
+                    <span>Publicado <time datetime="2026-09-02">2 de Septiembre, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/lectoescritura-curso-leer-escribir-ninos.webp" alt="Errores comunes al enseñar a leer a un niño (y cómo evitarlos)" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La mayoría de los padres que enseñan a leer a sus hijos, o que apoyan el proceso que la escuela ya empezó, cometen algunos de estos errores sin darse cuenta, porque parecen intuitivamente razonables o porque replican cómo a ellos mismos les enseñaron de niños.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Error 1: comparar el progreso con hermanos o compañeros
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Error 2: corregir cada error de forma inmediata, interrumpiendo el intento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Error 3: saltar etapas para acelerar el proceso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Error 4: convertir la práctica en una obligación tensa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Error 5: no leer en voz alta para el niño una vez que ya lee solo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Error 6: usar el mismo enfoque rígido sin ajustar al niño en particular
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo reconocer si ya estás cometiendo alguno de estos errores
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La mayoría de los padres que enseñan a leer a sus hijos, o que apoyan el proceso que la escuela ya empezó, cometen algunos de estos errores sin darse cuenta, porque parecen intuitivamente razonables o porque replican cómo a ellos mismos les enseñaron de niños.</p>
             <p>Esta guía describe los errores más frecuentes con detalle suficiente para reconocerlos en la práctica cotidiana, y explica qué hacer en su lugar sin necesidad de un enfoque radicalmente distinto.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Los errores más comunes al enseñar a leer a un niño incluyen presionarlo con comparaciones (con hermanos o compañeros), corregir cada error de forma inmediata e interrumpir su intento, saltar etapas (pasar a textos complejos antes de dominar la decodificación básica), y convertir la práctica en una obligación tensa en lugar de una actividad de exploración. Ninguno de estos errores es irreversible, pero corregirlos a tiempo hace el proceso más fluido para el niño.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Los errores más comunes al enseñar a leer a un niño incluyen presionarlo con comparaciones (con hermanos o compañeros), corregir cada error de forma inmediata e interrumpir su intento, saltar etapas (pasar a textos complejos antes de dominar la decodificación básica), y convertir la práctica en una obligación tensa en lugar de una actividad de exploración. Ninguno de estos errores es irreversible, pero corregirlos a tiempo hace el proceso más fluido para el niño.</p>
+                </aside>
 
-            <h2>Error 1: comparar el progreso con hermanos o compañeros</h2>
-            <p>Decir frases como 'tu hermano ya leía a tu edad' o 'tus compañeros ya van más avanzados' puede parecer una forma de motivar, pero suele producir el efecto contrario: el niño internaliza que está 'atrasado' o es 'menos capaz', lo cual genera ansiedad alrededor de una actividad que idealmente debería sentirse como exploración, no como competencia.</p>
-            <p>El ritmo de aprendizaje de la lectura varía de forma legítima entre niños, incluso dentro de la misma familia o el mismo salón de clase, por razones de desarrollo individual que no predicen nada sobre la capacidad futura del niño. En lugar de comparar, es más útil observar el progreso propio de ese niño en particular a lo largo del tiempo, celebrando avances relativos a su propio punto de partida.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Error 1: comparar el progreso con hermanos o compañeros</h2>
+                <p>Decir frases como 'tu hermano ya leía a tu edad' o 'tus compañeros ya van más avanzados' puede parecer una forma de motivar, pero suele producir el efecto contrario: el niño internaliza que está 'atrasado' o es 'menos capaz', lo cual genera ansiedad alrededor de una actividad que idealmente debería sentirse como exploración, no como competencia.</p>
+                <p>El ritmo de aprendizaje de la lectura varía de forma legítima entre niños, incluso dentro de la misma familia o el mismo salón de clase, por razones de desarrollo individual que no predicen nada sobre la capacidad futura del niño. En lugar de comparar, es más útil observar el progreso propio de ese niño en particular a lo largo del tiempo, celebrando avances relativos a su propio punto de partida.</p>
+            </section>
 
-            <h2>Error 2: corregir cada error de forma inmediata, interrumpiendo el intento</h2>
-            <p>Cuando un niño está leyendo en voz alta y comete un error, es común que un adulto lo corrija de inmediato, interrumpiendo el flujo de la lectura antes de que el niño termine de intentar la palabra por sí mismo. Esta interrupción constante puede minar la confianza del niño para seguir intentando, porque aprende que cualquier intento será cortado antes de completarse.</p>
-            <p>Una alternativa más útil es dar al niño un momento breve para autocorregirse -- muchos niños se dan cuenta de su propio error si se les da un segundo antes de intervenir -- y, si necesita ayuda, ofrecer una pista relacionada con el sonido de la letra en lugar de simplemente decir la palabra correcta de inmediato, lo cual le priva de la oportunidad de practicar la decodificación por sí mismo.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Error 2: corregir cada error de forma inmediata, interrumpiendo el intento</h2>
+                <p>Cuando un niño está leyendo en voz alta y comete un error, es común que un adulto lo corrija de inmediato, interrumpiendo el flujo de la lectura antes de que el niño termine de intentar la palabra por sí mismo. Esta interrupción constante puede minar la confianza del niño para seguir intentando, porque aprende que cualquier intento será cortado antes de completarse.</p>
+                <p>Una alternativa más útil es dar al niño un momento breve para autocorregirse -- muchos niños se dan cuenta de su propio error si se les da un segundo antes de intervenir -- y, si necesita ayuda, ofrecer una pista relacionada con el sonido de la letra en lugar de simplemente decir la palabra correcta de inmediato, lo cual le priva de la oportunidad de practicar la decodificación por sí mismo.</p>
+            </section>
 
-            <h2>Error 3: saltar etapas para acelerar el proceso</h2>
-            <p>Con la intención de que el niño avance más rápido, algunos padres introducen textos más complejos de los que el niño puede decodificar con fluidez, asumiendo que la exposición constante acelerará el aprendizaje. En la práctica, esto suele producir frustración: el niño se enfrenta a palabras que todavía no puede descifrar con las herramientas que ya domina, y el proceso se vuelve una lucha en lugar de una construcción progresiva de confianza.</p>
-            <p>El proceso de lectoescritura tiene una progresión lógica -- de sonidos aislados a sílabas, de sílabas a palabras, de palabras a oraciones, de oraciones a textos breves -- y saltarse pasos no acelera el dominio real, solo expone al niño a un nivel de dificultad para el que todavía no tiene las herramientas necesarias.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Error 3: saltar etapas para acelerar el proceso</h2>
+                <p>Con la intención de que el niño avance más rápido, algunos padres introducen textos más complejos de los que el niño puede decodificar con fluidez, asumiendo que la exposición constante acelerará el aprendizaje. En la práctica, esto suele producir frustración: el niño se enfrenta a palabras que todavía no puede descifrar con las herramientas que ya domina, y el proceso se vuelve una lucha en lugar de una construcción progresiva de confianza.</p>
+                <p>El proceso de lectoescritura tiene una progresión lógica -- de sonidos aislados a sílabas, de sílabas a palabras, de palabras a oraciones, de oraciones a textos breves -- y saltarse pasos no acelera el dominio real, solo expone al niño a un nivel de dificultad para el que todavía no tiene las herramientas necesarias.</p>
+            </section>
 
-            <h2>Error 4: convertir la práctica en una obligación tensa</h2>
-            <p>Programar sesiones de práctica largas, rígidas, o presentadas como 'tarea obligatoria' en lugar de actividad de exploración puede generar una asociación negativa con la lectura desde etapas muy tempranas. Un niño que asocia leer con tensión, presión de tiempo, o consecuencias por no lograrlo, tiene menos probabilidad de desarrollar el gusto genuino por la lectura que idealmente debería acompañar este proceso a largo plazo.</p>
-            <p>Sesiones breves (10-15 minutos), frecuentes, y presentadas con un tono de curiosidad compartida en lugar de examen, suelen sostener mejor el interés del niño que sesiones largas y poco frecuentes cargadas de expectativa de resultado inmediato.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Error 4: convertir la práctica en una obligación tensa</h2>
+                <p>Programar sesiones de práctica largas, rígidas, o presentadas como 'tarea obligatoria' en lugar de actividad de exploración puede generar una asociación negativa con la lectura desde etapas muy tempranas. Un niño que asocia leer con tensión, presión de tiempo, o consecuencias por no lograrlo, tiene menos probabilidad de desarrollar el gusto genuino por la lectura que idealmente debería acompañar este proceso a largo plazo.</p>
+                <p>Sesiones breves (10-15 minutos), frecuentes, y presentadas con un tono de curiosidad compartida en lugar de examen, suelen sostener mejor el interés del niño que sesiones largas y poco frecuentes cargadas de expectativa de resultado inmediato.</p>
+            </section>
 
-            <h2>Error 5: no leer en voz alta para el niño una vez que ya lee solo</h2>
-            <p>Algunos padres asumen que, una vez que el niño empieza a leer palabras por sí mismo, ya no es necesario seguir leyéndole en voz alta, cuando en realidad esta práctica sigue aportando valor durante bastante tiempo: expone al niño a vocabulario y estructuras de oración más complejas de las que puede leer solo todavía, y mantiene la asociación de la lectura con un momento compartido y agradable, no solo con el esfuerzo de decodificar.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Error 5: no leer en voz alta para el niño una vez que ya lee solo</h2>
+                <p>Algunos padres asumen que, una vez que el niño empieza a leer palabras por sí mismo, ya no es necesario seguir leyéndole en voz alta, cuando en realidad esta práctica sigue aportando valor durante bastante tiempo: expone al niño a vocabulario y estructuras de oración más complejas de las que puede leer solo todavía, y mantiene la asociación de la lectura con un momento compartido y agradable, no solo con el esfuerzo de decodificar.</p>
+            </section>
 
-            <h2>Error 6: usar el mismo enfoque rígido sin ajustar al niño en particular</h2>
-            <p>Aplicar exactamente el mismo método, ritmo y tipo de material a todos los hijos o alumnos sin ajustar según cómo responde cada uno en particular ignora que el perfil de aprendizaje varía de un niño a otro. Un niño puede responder mejor a juegos de sonidos, otro a reconocer palabras completas con significado inmediato, y forzar un enfoque único sin observar la respuesta real del niño puede hacer el proceso más lento de lo necesario para ese niño en particular.</p>
-            <p>Observar activamente qué tipo de actividad genera más entusiasmo y progreso en el niño concreto, y ajustar el énfasis relativo entre distintas técnicas según esa observación, suele ser más efectivo que insistir con un enfoque único independientemente de la respuesta individual.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Error 6: usar el mismo enfoque rígido sin ajustar al niño en particular</h2>
+                <p>Aplicar exactamente el mismo método, ritmo y tipo de material a todos los hijos o alumnos sin ajustar según cómo responde cada uno en particular ignora que el perfil de aprendizaje varía de un niño a otro. Un niño puede responder mejor a juegos de sonidos, otro a reconocer palabras completas con significado inmediato, y forzar un enfoque único sin observar la respuesta real del niño puede hacer el proceso más lento de lo necesario para ese niño en particular.</p>
+                <p>Observar activamente qué tipo de actividad genera más entusiasmo y progreso en el niño concreto, y ajustar el énfasis relativo entre distintas técnicas según esa observación, suele ser más efectivo que insistir con un enfoque único independientemente de la respuesta individual.</p>
+            </section>
 
-            <h2>Cómo reconocer si ya estás cometiendo alguno de estos errores</h2>
-            <p>Una forma sencilla de autoevaluar es prestar atención a la actitud del niño hacia las sesiones de práctica: si muestra evitación, ansiedad visible, o resistencia creciente en lugar de curiosidad o al menos disposición neutral, es una señal de que algo en el enfoque actual -- presión, comparación, rigidez, ritmo inadecuado -- podría estar generando esa reacción negativa.</p>
-            <p>Ante esa señal, no es necesario abandonar el proceso ni sentir que se ha fallado de forma irreversible: basta con identificar cuál de estos patrones podría estar presente, ajustarlo de forma consciente durante las siguientes semanas, y observar si la actitud del niño mejora en respuesta a ese ajuste concreto.</p>
-            <ol>
-                <li>Observa la actitud del niño hacia las sesiones de práctica: ¿muestra curiosidad, neutralidad, o resistencia creciente?</li>
-                <li>Si hay resistencia, revisa si estás comparando su progreso con otros, corrigiendo de forma muy inmediata, o exigiendo un nivel de dificultad superior al que domina con fluidez.</li>
-                <li>Ajusta un solo patrón a la vez -- por ejemplo, dar más tiempo para autocorregirse antes de intervenir -- y mantén el ajuste durante varias sesiones seguidas.</li>
-                <li>Observa si la actitud del niño mejora en respuesta a ese ajuste concreto antes de asumir que el problema era otra cosa.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo reconocer si ya estás cometiendo alguno de estos errores</h2>
+                <p>Una forma sencilla de autoevaluar es prestar atención a la actitud del niño hacia las sesiones de práctica: si muestra evitación, ansiedad visible, o resistencia creciente en lugar de curiosidad o al menos disposición neutral, es una señal de que algo en el enfoque actual -- presión, comparación, rigidez, ritmo inadecuado -- podría estar generando esa reacción negativa.</p>
+                <p>Ante esa señal, no es necesario abandonar el proceso ni sentir que se ha fallado de forma irreversible: basta con identificar cuál de estos patrones podría estar presente, ajustarlo de forma consciente durante las siguientes semanas, y observar si la actitud del niño mejora en respuesta a ese ajuste concreto.</p>
+                <ol>
+                    <li>Observa la actitud del niño hacia las sesiones de práctica: ¿muestra curiosidad, neutralidad, o resistencia creciente?</li>
+                    <li>Si hay resistencia, revisa si estás comparando su progreso con otros, corrigiendo de forma muy inmediata, o exigiendo un nivel de dificultad superior al que domina con fluidez.</li>
+                    <li>Ajusta un solo patrón a la vez -- por ejemplo, dar más tiempo para autocorregirse antes de intervenir -- y mantén el ajuste durante varias sesiones seguidas.</li>
+                    <li>Observa si la actitud del niño mejora en respuesta a ese ajuste concreto antes de asumir que el problema era otra cosa.</li>
+                </ol>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Un acompañamiento que respeta el ritmo de cada niño</h3>
-                <p>El curso de Lectoescritura de WorldBrain México evita la presión y la comparación, ajustando el ritmo y el enfoque al perfil de cada niño, presencial en Cuautitlán Izcalli y Cuernavaca.</p>
-                <a href="/lectoescritura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de lectoescritura <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Un acompañamiento que respeta el ritmo de cada niño</h2>
+                    <p>El curso de Lectoescritura de WorldBrain México evita la presión y la comparación, ajustando el ritmo y el enfoque al perfil de cada niño, presencial en Cuautitlán Izcalli y Cuernavaca.</p>
+                    <a href="/lectoescritura" class="btn-primary">
+                        Ver el curso de lectoescritura <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
                 <ul>
-                <li><a href="/blog-senales-listo-para-aprender-a-leer">Señales de que tu hijo está listo para aprender a leer</a></li>
-                <li><a href="/blog-metodo-fonetico-vs-global-lectoescritura">Método fonético o método global para enseñar a leer: cómo decidir</a></li>
-                <li><a href="/blog-escritura-a-mano-vs-teclado-ninos">Escribir a mano o en teclado: qué conviene enseñar primero a un niño</a></li>
-                <li><a href="/blog-cuentos-para-practicar-lectura-en-casa">Cuentos para practicar la lectura en casa: cómo elegirlos y usarlos</a></li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-senales-listo-para-aprender-a-leer">
+                            <span>Señales de que tu hijo está listo para aprender a leer</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodo-fonetico-vs-global-lectoescritura">
+                            <span>Método fonético o método global para enseñar a leer: cómo decidir</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-escritura-a-mano-vs-teclado-ninos">
+                            <span>Escribir a mano o en teclado: qué conviene enseñar primero a un niño</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-cuentos-para-practicar-lectura-en-casa">
+                            <span>Cuentos para practicar la lectura en casa: cómo elegirlos y usarlos</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es grave si ya he cometido varios de estos errores con mi hijo?</h3>
-                <p>No es irreversible. Identificar el patrón y ajustarlo de forma consciente durante las siguientes semanas suele mejorar la actitud del niño hacia la práctica. Ningún error aislado define el resultado final del proceso de aprendizaje.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo dejar de corregir a mi hijo por completo cuando lee mal una palabra?</h3>
-                <p>No, pero conviene dar un momento breve para que se autocorrija antes de intervenir, y ofrecer una pista relacionada con el sonido en lugar de decir la palabra completa de inmediato, para que practique la decodificación por sí mismo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo seguir leyéndole en voz alta aunque ya lea solo?</h3>
-                <p>Sí, sigue siendo valioso durante bastante tiempo: expone al niño a vocabulario y estructuras más complejas de las que puede leer solo, y mantiene la lectura asociada a un momento compartido agradable.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si estoy presionando demasiado a mi hijo con la lectura?</h3>
-                <p>Observa su actitud hacia las sesiones: evitación, ansiedad visible o resistencia creciente son señales de presión excesiva. Ajusta comparaciones, rigidez de horario, o nivel de dificultad, y observa si su actitud mejora.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo usar exactamente el mismo método con todos mis hijos?</h3>
-                <p>No es necesario. El perfil de aprendizaje varía de un niño a otro, incluso entre hermanos de la misma familia con crianza similar. Observa qué tipo de actividad genera más entusiasmo y progreso real en cada niño en particular a lo largo de varias semanas, y ajusta el énfasis relativo entre técnicas según esa respuesta individual observada, en lugar de asumir que lo que funcionó con uno funcionará igual con otro.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es grave si ya he cometido varios de estos errores con mi hijo?</h3>
+                    <p>No es irreversible. Identificar el patrón y ajustarlo de forma consciente durante las siguientes semanas suele mejorar la actitud del niño hacia la práctica. Ningún error aislado define el resultado final del proceso de aprendizaje.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo dejar de corregir a mi hijo por completo cuando lee mal una palabra?</h3>
+                    <p>No, pero conviene dar un momento breve para que se autocorrija antes de intervenir, y ofrecer una pista relacionada con el sonido en lugar de decir la palabra completa de inmediato, para que practique la decodificación por sí mismo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo seguir leyéndole en voz alta aunque ya lea solo?</h3>
+                    <p>Sí, sigue siendo valioso durante bastante tiempo: expone al niño a vocabulario y estructuras más complejas de las que puede leer solo, y mantiene la lectura asociada a un momento compartido agradable.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si estoy presionando demasiado a mi hijo con la lectura?</h3>
+                    <p>Observa su actitud hacia las sesiones: evitación, ansiedad visible o resistencia creciente son señales de presión excesiva. Ajusta comparaciones, rigidez de horario, o nivel de dificultad, y observa si su actitud mejora.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo usar exactamente el mismo método con todos mis hijos?</h3>
+                    <p>No es necesario. El perfil de aprendizaje varía de un niño a otro, incluso entre hermanos de la misma familia con crianza similar. Observa qué tipo de actividad genera más entusiasmo y progreso real en cada niño en particular a lo largo de varias semanas, y ajusta el énfasis relativo entre técnicas según esa respuesta individual observada, en lugar de asumir que lo que funcionó con uno funcionará igual con otro.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -521,8 +612,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Error 1: comparar el progreso con hermanos o compañeros
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Error 2: corregir cada error de forma inmediata, interrumpiendo el intento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Error 3: saltar etapas para acelerar el proceso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Error 4: convertir la práctica en una obligación tensa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Error 5: no leer en voz alta para el niño una vez que ya lee solo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Error 6: usar el mismo enfoque rígido sin ajustar al niño en particular
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo reconocer si ya estás cometiendo alguno de estos errores
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

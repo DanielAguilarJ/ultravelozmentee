@@ -362,141 +362,234 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Metodologías de Aprendizaje
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">A qué edad introducir cada metodología de aprendizaje</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Metodologías de Aprendizaje</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">A qué edad introducir cada metodología de aprendizaje</h1>
+                <p class="blog-post-dek">A qué edad conviene introducir distintas metodologías de aprendizaje, desde autoevaluación básica en primaria hasta técnicas avanzadas en bachillerato.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Metodologías de Aprendizaje</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="A qué edad introducir cada metodología de aprendizaje" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Una pregunta frecuente entre padres y educadores es a qué edad conviene introducir cierta metodología de aprendizaje, sobre todo cuando se trata de técnicas que parecen exigir cierta madurez cognitiva o capacidad de autorregulación. Este artículo ofrece una guía general, aclarando que se trata de rangos orientativos y no de límites estrictos.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Primaria: autoevaluación simple con acompañamiento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Secundaria: repaso espaciado y elaboración propia con más autonomía
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Bachillerato: mayor autonomía en la elección y ajuste de técnicas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: ajustar la introducción de una técnica según la edad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Universidad: autonomía casi completa con apoyo puntual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Por qué estos rangos son orientativos, no reglas estrictas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué hacer si un estudiante muestra dificultad fuera del rango esperado para su edad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Una pregunta frecuente entre padres y educadores es a qué edad conviene introducir cierta metodología de aprendizaje, sobre todo cuando se trata de técnicas que parecen exigir cierta madurez cognitiva o capacidad de autorregulación. Este artículo ofrece una guía general, aclarando que se trata de rangos orientativos y no de límites estrictos.</p>
             <p>El factor más determinante no es solo la edad cronológica, sino el nivel de desarrollo individual de cada estudiante, por lo que estas recomendaciones deben ajustarse según el caso particular más que aplicarse de forma rígida.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>No existe una edad estricta y universal para cada metodología de aprendizaje, pero en general la autoevaluación simple y la elaboración con palabras propias pueden introducirse desde primaria con acompañamiento de un adulto, técnicas como el repaso espaciado estructurado rinden mejor a partir de secundaria, y metodologías más complejas de organización personal se consolidan con más autonomía en bachillerato y universidad.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>No existe una edad estricta y universal para cada metodología de aprendizaje, pero en general la autoevaluación simple y la elaboración con palabras propias pueden introducirse desde primaria con acompañamiento de un adulto, técnicas como el repaso espaciado estructurado rinden mejor a partir de secundaria, y metodologías más complejas de organización personal se consolidan con más autonomía en bachillerato y universidad.</p>
+                </aside>
 
-            <h2>Primaria: autoevaluación simple con acompañamiento</h2>
-            <p>En primaria, los niños pueden empezar a practicar formas simples de autoevaluación, como intentar recordar en voz alta lo que acaban de leer o escuchar, con el acompañamiento cercano de un adulto que guíe el proceso y ayude a identificar qué se recordó bien y qué no.</p>
-            <p>Técnicas más complejas de organización personal, como planificar de forma independiente qué estudiar y cuándo, todavía requieren en esta etapa mucho apoyo externo, porque la capacidad de autorregulación necesaria para sostenerlas sin ayuda apenas se está desarrollando.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Primaria: autoevaluación simple con acompañamiento</h2>
+                <p>En primaria, los niños pueden empezar a practicar formas simples de autoevaluación, como intentar recordar en voz alta lo que acaban de leer o escuchar, con el acompañamiento cercano de un adulto que guíe el proceso y ayude a identificar qué se recordó bien y qué no.</p>
+                <p>Técnicas más complejas de organización personal, como planificar de forma independiente qué estudiar y cuándo, todavía requieren en esta etapa mucho apoyo externo, porque la capacidad de autorregulación necesaria para sostenerlas sin ayuda apenas se está desarrollando.</p>
+            </section>
 
-            <h2>Secundaria: repaso espaciado y elaboración propia con más autonomía</h2>
-            <p>En secundaria, los estudiantes suelen tener ya la capacidad de sostener un horario básico de repaso espaciado, aunque conviene ayudarles a estructurarlo al principio, por ejemplo con un calendario visible que marque cuándo corresponde cada repaso. La elaboración de contenido con palabras propias, como resúmenes o líneas de tiempo, también se consolida bien en esta etapa.</p>
-            <p>Esta es también la edad en la que suele tener sentido introducir técnicas de lectura más eficiente, dado que la carga de lectura académica empieza a crecer de forma notable comparado con primaria.</p>
-            <ul>
-                <li>Introducir calendarios visibles para estructurar el repaso espaciado.</li>
-                <li>Fomentar la elaboración de resúmenes y esquemas con palabras propias.</li>
-                <li>Empezar a practicar técnicas de lectura más eficiente ante el aumento de carga.</li>
-                <li>Mantener cierto acompañamiento para revisar si las técnicas se sostienen.</li>
-            </ul>
-
-            <h2>Bachillerato: mayor autonomía en la elección y ajuste de técnicas</h2>
-            <p>En bachillerato, la mayoría de los estudiantes puede asumir la responsabilidad de elegir, probar y ajustar sus propias metodologías con menos supervisión directa, aunque el apoyo puntual —revisar juntos si un método está funcionando, ofrecer sugerencias cuando se pide ayuda explícitamente— sigue siendo valioso.</p>
-            <p>Es también la etapa donde conviene empezar a combinar varias técnicas de forma más sofisticada según la materia, en lugar de depender de una sola metodología para todo el estudio.</p>
-
-            <h2>Ejemplo aplicado: ajustar la introducción de una técnica según la edad</h2>
-            <p>Una familia con dos hijos, uno en primaria y otro en secundaria, quería introducir la técnica de repaso espaciado en ambos casos, pero de forma distinta según la edad de cada uno. Para el hijo de primaria, el padre creó un calendario visual sencillo con dibujos que marcaban qué día tocaba repasar cada materia, y se sentaba junto a él durante esas breves sesiones de repaso para guiar el proceso.</p>
-            <p>Para la hija de secundaria, en cambio, el acompañamiento fue mucho más ligero: le explicaron el principio del repaso espaciado y le sugirieron una aplicación simple de calendario para que ella misma organizara sus repasos, revisando juntos solo cada dos semanas si el sistema se estaba sosteniendo, sin supervisar cada sesión individual.</p>
-            <p>Con el tiempo, el hijo de primaria fue asumiendo gradualmente más responsabilidad sobre su propio calendario, marcando él mismo los repasos completados, mientras que la hija de secundaria llegó a manejar el sistema de forma casi completamente autónoma, acudiendo a sus padres solo cuando algo no estaba funcionando como esperaba.</p>
-            <p>Este ajuste diferenciado, respetando el nivel de autonomía razonable para cada edad en lugar de aplicar el mismo grado de acompañamiento a ambos hijos, permitió que la misma técnica de repaso espaciado se consolidara de forma adecuada en cada caso, sin generar ni demasiada dependencia en la hija mayor ni demasiada exigencia de autonomía en el hijo menor.</p>
-
-            <h2>Universidad: autonomía casi completa con apoyo puntual</h2>
-            <p>En estudios universitarios, la expectativa general es que el estudiante maneje la elección y ajuste de sus propias metodologías con autonomía prácticamente completa, apoyándose en recursos institucionales —talleres de hábitos de estudio, tutorías académicas— solo cuando lo considere necesario, más que depender de un acompañamiento cercano y constante.</p>
-            <ol>
-                <li>Asumir la responsabilidad completa de diagnosticar las propias dificultades de estudio.</li>
-                <li>Elegir y probar metodologías sin depender de supervisión externa constante.</li>
-                <li>Buscar recursos institucionales de apoyo cuando se identifique una necesidad específica.</li>
-                <li>Ajustar el método según la exigencia particular de cada materia o programa.</li>
-            </ol>
-
-            <h2>Por qué estos rangos son orientativos, no reglas estrictas</h2>
-            <p>El desarrollo individual varía de forma considerable entre estudiantes de la misma edad, por lo que un niño de primaria particularmente maduro puede manejar más autonomía de la típica para su edad, mientras que un estudiante de bachillerato puede necesitar más acompañamiento del esperado si nunca ha tenido experiencia previa con ninguna metodología estructurada. Ajustar según el caso individual, en lugar de imponer un rango rígido, produce mejores resultados que seguir la guía de forma mecánica.</p>
-
-            <h2>Qué hacer si un estudiante muestra dificultad fuera del rango esperado para su edad</h2>
-            <p>Cuando un estudiante muestra una dificultad marcada y persistente para sostener metodologías que la mayoría de sus compañeros de la misma edad ya maneja con relativa soltura, conviene observar con más detalle antes de asumir simplemente que 'necesita más tiempo'. Puede tratarse de un ritmo de desarrollo distinto, que se resuelve con paciencia adicional, o de un factor específico —dificultad de atención, comprensión lectora, ansiedad— que amerita una valoración más puntual.</p>
-            <p>En cualquiera de los dos casos, forzar el ritmo esperado para la edad sin ajustar el acompañamiento suele generar más frustración que progreso. Observar durante varias semanas, documentar patrones concretos y, si la dificultad persiste, consultar con un profesional de orientación educativa permite tomar una decisión informada en lugar de solo esperar que la situación mejore con el tiempo.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De conocer los rangos de edad a elegir el programa adecuado</h3>
-                <p>Si buscas una metodología de lectura veloz adecuada según la edad de tu hijo, nuestro programa de Fotolectura se ajusta al nivel de desarrollo de cada estudiante con acompañamiento apropiado.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conoce el programa de Fotolectura <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Secundaria: repaso espaciado y elaboración propia con más autonomía</h2>
+                <p>En secundaria, los estudiantes suelen tener ya la capacidad de sostener un horario básico de repaso espaciado, aunque conviene ayudarles a estructurarlo al principio, por ejemplo con un calendario visible que marque cuándo corresponde cada repaso. La elaboración de contenido con palabras propias, como resúmenes o líneas de tiempo, también se consolida bien en esta etapa.</p>
+                <p>Esta es también la edad en la que suele tener sentido introducir técnicas de lectura más eficiente, dado que la carga de lectura académica empieza a crecer de forma notable comparado con primaria.</p>
                 <ul>
-                <li><a href="/blog-metodologias-aprendizaje-para-padres">Guía para padres sobre metodologías de aprendizaje</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-para-estudiantes">Cómo elegir tu propia metodología de aprendizaje como estudiante</a></li>
+                    <li>Introducir calendarios visibles para estructurar el repaso espaciado.</li>
+                    <li>Fomentar la elaboración de resúmenes y esquemas con palabras propias.</li>
+                    <li>Empezar a practicar técnicas de lectura más eficiente ante el aumento de carga.</li>
+                    <li>Mantener cierto acompañamiento para revisar si las técnicas se sostienen.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Mi hijo de primaria puede aprender técnicas de memorización avanzadas?</h3>
-                <p>Puede empezar con versiones simplificadas y mucho acompañamiento, pero técnicas más elaboradas suelen consolidarse mejor a partir de secundaria, cuando la capacidad de autorregulación está más desarrollada.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es tarde para introducir estas metodologías si mi hijo ya está en bachillerato y nunca las ha usado?</h3>
-                <p>No es tarde. El proceso de introducción puede acelerarse un poco respecto a alguien que empezó antes, pero los principios generales de diagnóstico, prueba y ajuste aplican igual, independientemente de si se empieza en primaria o en bachillerato.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo dar la misma autonomía a todos mis hijos sin importar su edad?</h3>
-                <p>No necesariamente; el nivel de autonomía razonable depende tanto de la edad como del desarrollo individual de cada hijo. Ajustar el acompañamiento según cada caso particular suele funcionar mejor que aplicar la misma regla a todos por igual.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué señales indican que mi hijo está listo para más autonomía en su método de estudio?</h3>
-                <p>Si empieza a mostrar iniciativa propia para ajustar su técnica sin que se le pida, o si cumple con la estructura acordada sin necesitar recordatorios constantes, son señales de que puede manejar más responsabilidad sobre su propio proceso.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Las universidades ofrecen apoyo para desarrollar estas metodologías?</h3>
-                <p>Muchas instituciones cuentan con talleres de hábitos de estudio o tutorías académicas disponibles para quien lo solicite, aunque el uso de estos recursos suele depender de la iniciativa del propio estudiante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Bachillerato: mayor autonomía en la elección y ajuste de técnicas</h2>
+                <p>En bachillerato, la mayoría de los estudiantes puede asumir la responsabilidad de elegir, probar y ajustar sus propias metodologías con menos supervisión directa, aunque el apoyo puntual —revisar juntos si un método está funcionando, ofrecer sugerencias cuando se pide ayuda explícitamente— sigue siendo valioso.</p>
+                <p>Es también la etapa donde conviene empezar a combinar varias técnicas de forma más sofisticada según la materia, en lugar de depender de una sola metodología para todo el estudio.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: ajustar la introducción de una técnica según la edad</h2>
+                <p>Una familia con dos hijos, uno en primaria y otro en secundaria, quería introducir la técnica de repaso espaciado en ambos casos, pero de forma distinta según la edad de cada uno. Para el hijo de primaria, el padre creó un calendario visual sencillo con dibujos que marcaban qué día tocaba repasar cada materia, y se sentaba junto a él durante esas breves sesiones de repaso para guiar el proceso.</p>
+                <p>Para la hija de secundaria, en cambio, el acompañamiento fue mucho más ligero: le explicaron el principio del repaso espaciado y le sugirieron una aplicación simple de calendario para que ella misma organizara sus repasos, revisando juntos solo cada dos semanas si el sistema se estaba sosteniendo, sin supervisar cada sesión individual.</p>
+                <p>Con el tiempo, el hijo de primaria fue asumiendo gradualmente más responsabilidad sobre su propio calendario, marcando él mismo los repasos completados, mientras que la hija de secundaria llegó a manejar el sistema de forma casi completamente autónoma, acudiendo a sus padres solo cuando algo no estaba funcionando como esperaba.</p>
+                <p>Este ajuste diferenciado, respetando el nivel de autonomía razonable para cada edad en lugar de aplicar el mismo grado de acompañamiento a ambos hijos, permitió que la misma técnica de repaso espaciado se consolidara de forma adecuada en cada caso, sin generar ni demasiada dependencia en la hija mayor ni demasiada exigencia de autonomía en el hijo menor.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Universidad: autonomía casi completa con apoyo puntual</h2>
+                <p>En estudios universitarios, la expectativa general es que el estudiante maneje la elección y ajuste de sus propias metodologías con autonomía prácticamente completa, apoyándose en recursos institucionales —talleres de hábitos de estudio, tutorías académicas— solo cuando lo considere necesario, más que depender de un acompañamiento cercano y constante.</p>
+                <ol>
+                    <li>Asumir la responsabilidad completa de diagnosticar las propias dificultades de estudio.</li>
+                    <li>Elegir y probar metodologías sin depender de supervisión externa constante.</li>
+                    <li>Buscar recursos institucionales de apoyo cuando se identifique una necesidad específica.</li>
+                    <li>Ajustar el método según la exigencia particular de cada materia o programa.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Por qué estos rangos son orientativos, no reglas estrictas</h2>
+                <p>El desarrollo individual varía de forma considerable entre estudiantes de la misma edad, por lo que un niño de primaria particularmente maduro puede manejar más autonomía de la típica para su edad, mientras que un estudiante de bachillerato puede necesitar más acompañamiento del esperado si nunca ha tenido experiencia previa con ninguna metodología estructurada. Ajustar según el caso individual, en lugar de imponer un rango rígido, produce mejores resultados que seguir la guía de forma mecánica.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Qué hacer si un estudiante muestra dificultad fuera del rango esperado para su edad</h2>
+                <p>Cuando un estudiante muestra una dificultad marcada y persistente para sostener metodologías que la mayoría de sus compañeros de la misma edad ya maneja con relativa soltura, conviene observar con más detalle antes de asumir simplemente que 'necesita más tiempo'. Puede tratarse de un ritmo de desarrollo distinto, que se resuelve con paciencia adicional, o de un factor específico —dificultad de atención, comprensión lectora, ansiedad— que amerita una valoración más puntual.</p>
+                <p>En cualquiera de los dos casos, forzar el ritmo esperado para la edad sin ajustar el acompañamiento suele generar más frustración que progreso. Observar durante varias semanas, documentar patrones concretos y, si la dificultad persiste, consultar con un profesional de orientación educativa permite tomar una decisión informada en lugar de solo esperar que la situación mejore con el tiempo.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De conocer los rangos de edad a elegir el programa adecuado</h2>
+                    <p>Si buscas una metodología de lectura veloz adecuada según la edad de tu hijo, nuestro programa de Fotolectura se ajusta al nivel de desarrollo de cada estudiante con acompañamiento apropiado.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Conoce el programa de Fotolectura <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-para-padres">
+                            <span>Guía para padres sobre metodologías de aprendizaje</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-para-estudiantes">
+                            <span>Cómo elegir tu propia metodología de aprendizaje como estudiante</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Mi hijo de primaria puede aprender técnicas de memorización avanzadas?</h3>
+                    <p>Puede empezar con versiones simplificadas y mucho acompañamiento, pero técnicas más elaboradas suelen consolidarse mejor a partir de secundaria, cuando la capacidad de autorregulación está más desarrollada.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es tarde para introducir estas metodologías si mi hijo ya está en bachillerato y nunca las ha usado?</h3>
+                    <p>No es tarde. El proceso de introducción puede acelerarse un poco respecto a alguien que empezó antes, pero los principios generales de diagnóstico, prueba y ajuste aplican igual, independientemente de si se empieza en primaria o en bachillerato.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo dar la misma autonomía a todos mis hijos sin importar su edad?</h3>
+                    <p>No necesariamente; el nivel de autonomía razonable depende tanto de la edad como del desarrollo individual de cada hijo. Ajustar el acompañamiento según cada caso particular suele funcionar mejor que aplicar la misma regla a todos por igual.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué señales indican que mi hijo está listo para más autonomía en su método de estudio?</h3>
+                    <p>Si empieza a mostrar iniciativa propia para ajustar su técnica sin que se le pida, o si cumple con la estructura acordada sin necesitar recordatorios constantes, son señales de que puede manejar más responsabilidad sobre su propio proceso.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Las universidades ofrecen apoyo para desarrollar estas metodologías?</h3>
+                    <p>Muchas instituciones cuentan con talleres de hábitos de estudio o tutorías académicas disponibles para quien lo solicite, aunque el uso de estos recursos suele depender de la iniciativa del propio estudiante.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -526,8 +619,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Primaria: autoevaluación simple con acompañamiento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Secundaria: repaso espaciado y elaboración propia con más autonomía
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Bachillerato: mayor autonomía en la elección y ajuste de técnicas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: ajustar la introducción de una técnica según la edad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Universidad: autonomía casi completa con apoyo puntual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Por qué estos rangos son orientativos, no reglas estrictas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué hacer si un estudiante muestra dificultad fuera del rango esperado para su edad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

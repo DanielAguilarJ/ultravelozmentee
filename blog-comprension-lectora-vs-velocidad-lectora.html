@@ -354,141 +354,239 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-scale-balanced"></i> Fotolectura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Comprensión lectora vs. velocidad lectora: cómo entrenar cada una</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 2 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Fotolectura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Comprensión lectora vs. velocidad lectora: cómo entrenar cada una</h1>
+                <p class="blog-post-dek">Comprensión lectora y velocidad lectora son dos habilidades distintas que se entrenan con ejercicios diferentes; esta guía explica cómo trabajar cada una por separado.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Fotolectura</span>
+                    <span>Publicado <time datetime="2026-09-02">2 de Septiembre, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fotolectura-curso-lectura-rapida-libro.webp" alt="Comprensión lectora vs. velocidad lectora: cómo entrenar cada una" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Es común buscar directamente 'comprensión lectora vs velocidad lectora' cuando se quiere entender si son la misma cosa, si una depende de la otra, o cómo se trabaja cada una sin sacrificar la contraria.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es cada una, en términos concretos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo se entrena la comprensión lectora, específicamente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo se entrena la velocidad lectora, específicamente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Por qué entrenar solo una sin la otra falla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo entrenar ambas en paralelo sin que una perjudique a la otra
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuál entrenar primero si solo se puede empezar con una
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo saber si tu entrenamiento está funcionando de verdad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Un ejemplo concreto de cómo se ve esta medición en la práctica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Es común buscar directamente 'comprensión lectora vs velocidad lectora' cuando se quiere entender si son la misma cosa, si una depende de la otra, o cómo se trabaja cada una sin sacrificar la contraria.</p>
             <p>Esta guía trata ambas habilidades como lo que son: dos capacidades distintas, cada una con su propio conjunto de ejercicios de entrenamiento, que conviene desarrollar en paralelo con verificación constante para que el avance en una no se logre a costa de la otra.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Comprensión lectora y velocidad lectora son dos habilidades separadas: la comprensión mide qué tanto se entiende de un texto (con preguntas sobre su contenido), y la velocidad mide cuántas palabras por minuto se procesan. Se entrenan con ejercicios distintos -- la comprensión con estrategias de identificación de idea principal, inferencia y resumen; la velocidad con técnicas de eficiencia visual como fijación amplia y reducción de subvocalización -- y ambas deben medirse juntas para saber si el entrenamiento está funcionando de verdad.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Comprensión lectora y velocidad lectora son dos habilidades separadas: la comprensión mide qué tanto se entiende de un texto (con preguntas sobre su contenido), y la velocidad mide cuántas palabras por minuto se procesan. Se entrenan con ejercicios distintos -- la comprensión con estrategias de identificación de idea principal, inferencia y resumen; la velocidad con técnicas de eficiencia visual como fijación amplia y reducción de subvocalización -- y ambas deben medirse juntas para saber si el entrenamiento está funcionando de verdad.</p>
+                </aside>
 
-            <h2>Qué es cada una, en términos concretos</h2>
-            <p>La velocidad lectora es una medida mecánica: cuántas palabras se leen por minuto en una lectura continua, calculada dividiendo el número de palabras del texto entre el tiempo que tomó leerlo completo. No dice nada por sí sola sobre si el contenido se entendió.</p>
-            <p>La comprensión lectora es una medida de procesamiento: qué tanto del contenido leído se puede reconstruir, explicar o usar después de leerlo, verificada típicamente con preguntas sobre datos concretos, relaciones entre ideas, inferencias razonables a partir del texto, y la identificación de la idea principal frente a detalles secundarios.</p>
-            <p>Son mensurables de forma completamente independiente: se puede tener velocidad alta con comprensión baja, velocidad baja con comprensión alta, o cualquier combinación intermedia, y solo midiendo ambas por separado se sabe en qué punto está realmente una persona.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es cada una, en términos concretos</h2>
+                <p>La velocidad lectora es una medida mecánica: cuántas palabras se leen por minuto en una lectura continua, calculada dividiendo el número de palabras del texto entre el tiempo que tomó leerlo completo. No dice nada por sí sola sobre si el contenido se entendió.</p>
+                <p>La comprensión lectora es una medida de procesamiento: qué tanto del contenido leído se puede reconstruir, explicar o usar después de leerlo, verificada típicamente con preguntas sobre datos concretos, relaciones entre ideas, inferencias razonables a partir del texto, y la identificación de la idea principal frente a detalles secundarios.</p>
+                <p>Son mensurables de forma completamente independiente: se puede tener velocidad alta con comprensión baja, velocidad baja con comprensión alta, o cualquier combinación intermedia, y solo midiendo ambas por separado se sabe en qué punto está realmente una persona.</p>
+            </section>
 
-            <h2>Cómo se entrena la comprensión lectora, específicamente</h2>
-            <p>El entrenamiento de comprensión no depende de leer más rápido o más lento: depende de estrategias activas de procesamiento mientras se lee o inmediatamente después. Tres estrategias centrales son identificar la idea principal de cada párrafo (distinguiéndola de los detalles que la apoyan), hacer inferencias razonables basadas en el texto (concluir algo que el texto no dice de forma literal pero que se deduce de la evidencia presentada), y resumir con las propias palabras lo leído sin volver a mirar el texto.</p>
-            <ul>
-                <li>Identificar la idea principal de cada párrafo antes de avanzar al siguiente.</li>
-                <li>Hacer una pausa breve cada cierto tramo para preguntarse '¿qué acabo de leer, en mis propias palabras?'</li>
-                <li>Distinguir de forma consciente un dato explícito (dicho de forma literal) de una inferencia (deducida a partir de varias pistas del texto).</li>
-                <li>Resumir el texto completo al terminar, sin mirarlo, y comparar ese resumen con el contenido real para identificar qué se perdió.</li>
-            </ul>
-
-            <h2>Cómo se entrena la velocidad lectora, específicamente</h2>
-            <p>El entrenamiento de velocidad trabaja variables mecánicas del proceso visual de lectura: el tamaño de la fijación ocular (cuántas palabras se capturan en cada parada de la mirada), la frecuencia de regresiones involuntarias (volver a un fragmento ya leído sin razón real), y el nivel de subvocalización (pronunciar mentalmente cada palabra, lo cual limita la velocidad al ritmo del habla interna).</p>
-            <p>Estos tres factores se trabajan con ejercicios prácticos concretos: ampliar de forma gradual el número de palabras capturadas por fijación, usar una guía visual externa (dedo o marcador) para reducir regresiones automáticas, y practicar con un ritmo ligeramente acelerado respecto al ritmo natural de la voz interna para reducir la dependencia de la subvocalización.</p>
-
-            <h2>Por qué entrenar solo una sin la otra falla</h2>
-            <p>Entrenar solo velocidad, sin verificar comprensión en paralelo, produce lectura mecánicamente más rápida pero potencialmente vacía: la persona termina el texto antes, pero no puede reconstruir su contenido con precisión, porque el entrenamiento se enfocó en el componente visual sin tocar el componente de procesamiento.</p>
-            <p>Entrenar solo comprensión, sin trabajar eficiencia visual, produce lectores que entienden bien pero a un ritmo mucho menor al que su comprensión permitiría, porque hábitos ineficientes como la subvocalización excesiva o las regresiones frecuentes limitan la velocidad sin ninguna necesidad real, dado que la comprensión ya es sólida a un ritmo más veloz si esos hábitos se corrigieran.</p>
-
-            <h2>Cómo entrenar ambas en paralelo sin que una perjudique a la otra</h2>
-            <p>La forma más efectiva es alternar el foco de la sesión de práctica, pero verificar ambas variables en cada sesión sin excepción, sin importar cuál sea el foco principal de esa práctica en particular.</p>
-            <ol>
-                <li>Definir el foco de la sesión: comprensión (estrategias de idea principal, inferencia, resumen) o velocidad (fijación, regresión, subvocalización).</li>
-                <li>Practicar el ejercicio correspondiente al foco elegido durante 10-15 minutos con un texto de dificultad apropiada.</li>
-                <li>Al terminar, medir SIEMPRE ambas variables: cronometrar la velocidad y responder preguntas de comprensión, sin importar cuál fue el foco de la sesión.</li>
-                <li>Registrar ambos resultados para ver la tendencia a lo largo de varias sesiones, no solo el resultado de una sesión aislada.</li>
-                <li>Si una de las dos variables baja de forma notoria mientras se entrena la otra, ajustar la dificultad o el ritmo del ejercicio antes de seguir avanzando.</li>
-            </ol>
-
-            <h2>Cuál entrenar primero si solo se puede empezar con una</h2>
-            <p>Si el tiempo disponible obliga a priorizar, suele ser más productivo empezar por comprensión antes que por velocidad, porque una base de comprensión sólida hace que el entrenamiento de velocidad posterior tenga algo real que verificar: si la comprensión ya es consistente, cualquier caída al aumentar la velocidad es una señal clara y atribuible al cambio de ritmo, no una duda sobre si la comprensión general era buena desde el principio.</p>
-            <p>Esto no significa que la velocidad no importe -- ambas son necesarias para una lectura eficiente en la vida real -- sino que establecer primero un punto de referencia confiable de comprensión facilita medir con precisión el efecto real de cualquier ajuste de velocidad que se practique después.</p>
-
-            <h2>Cómo saber si tu entrenamiento está funcionando de verdad</h2>
-            <p>La señal más clara de que un entrenamiento de lectura -- sea de comprensión, de velocidad, o de ambas -- está funcionando de verdad es que ambas variables mejoren o se mantengan estables a lo largo de varias sesiones medidas con el mismo protocolo, no solo la sensación subjetiva de sentirse más rápido o más seguro al leer.</p>
-            <p>Si solo una variable mejora mientras la otra se estanca o retrocede sin que nadie lo esté midiendo, es fácil pasar meses entrenando de forma desequilibrada sin darse cuenta, porque la experiencia subjetiva de 'ir mejorando' puede sentirse real incluso cuando solo una de las dos habilidades avanza de verdad.</p>
-
-            <h2>Un ejemplo concreto de cómo se ve esta medición en la práctica</h2>
-            <p>Supongamos que alguien mide su velocidad y comprensión de partida: 180 palabras por minuto con 70% de comprensión en un texto de dificultad media. Después de dos semanas entrenando principalmente fijación amplia y reducción de regresiones, vuelve a medir con un texto de dificultad similar: 240 palabras por minuto, pero la comprensión bajó a 55%. Esa cifra por sí sola no dice si el entrenamiento 'funcionó' o 'falló' -- dice que la velocidad mejoró a costa de la comprensión, y que el ajuste correcto no es abandonar el entrenamiento de velocidad, sino retroceder el ritmo un paso (por ejemplo, a 210 palabras por minuto) y volver a medir comprensión en ese punto intermedio.</p>
-            <p>Este mismo ejercicio de medir, ajustar y volver a medir es la diferencia entre un entrenamiento guiado por evidencia y uno guiado solo por la sensación de ir más rápido. Sin las dos cifras juntas -- velocidad y comprensión -- no hay forma de saber si el ajuste de ritmo fue el correcto o si se necesita retroceder más, y es exactamente el tipo de decisión que una sola métrica (solo velocidad, o solo la sensación de haber entendido) no puede tomar por sí sola.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Entrena ambas habilidades con seguimiento separado de cada una</h3>
-                <p>El curso de Fotolectura de WorldBrain México mide y trabaja comprensión y velocidad como variables independientes en cada sesión, presencial en Cuautitlán Izcalli y Cuernavaca.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de comprensión lectora <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Cómo se entrena la comprensión lectora, específicamente</h2>
+                <p>El entrenamiento de comprensión no depende de leer más rápido o más lento: depende de estrategias activas de procesamiento mientras se lee o inmediatamente después. Tres estrategias centrales son identificar la idea principal de cada párrafo (distinguiéndola de los detalles que la apoyan), hacer inferencias razonables basadas en el texto (concluir algo que el texto no dice de forma literal pero que se deduce de la evidencia presentada), y resumir con las propias palabras lo leído sin volver a mirar el texto.</p>
                 <ul>
-                <li><a href="/blog-comprension-veloz-que-es">Comprensión veloz: qué es y en qué se diferencia de solo leer rápido</a></li>
-                <li><a href="/blog-ejercicios-oculares-lectura-rapida">Ejercicios oculares para lectura rápida: fijaciones, regresiones y ritmo</a></li>
-                <li><a href="/blog-senales-necesitas-mejorar-lectura">10 señales de que necesitas mejorar tu velocidad o comprensión de lectura</a></li>
-                <li><a href="/blog-fotolectura-nino-dificultad-lectura">Fotolectura y dificultades de lectura: qué puede ayudar y qué no</a></li>
+                    <li>Identificar la idea principal de cada párrafo antes de avanzar al siguiente.</li>
+                    <li>Hacer una pausa breve cada cierto tramo para preguntarse '¿qué acabo de leer, en mis propias palabras?'</li>
+                    <li>Distinguir de forma consciente un dato explícito (dicho de forma literal) de una inferencia (deducida a partir de varias pistas del texto).</li>
+                    <li>Resumir el texto completo al terminar, sin mirarlo, y comparar ese resumen con el contenido real para identificar qué se perdió.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Comprensión lectora y velocidad lectora son la misma habilidad?</h3>
-                <p>No. Son dos habilidades distintas y medibles por separado: la velocidad es palabras por minuto, y la comprensión es qué tanto se entiende del contenido, verificado con preguntas. Se puede tener alta una sin la otra.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo entrenar primero comprensión o velocidad?</h3>
-                <p>Suele ser más productivo establecer primero una base sólida de comprensión, porque facilita medir con precisión el efecto de cualquier ajuste de velocidad que se practique después. Ambas son necesarias, pero un orden con base sólida ayuda a medir mejor el progreso.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué ejercicios entrenan comprensión específicamente?</h3>
-                <p>Identificar la idea principal de cada párrafo, hacer inferencias razonables basadas en el texto, distinguir datos explícitos de inferencias, y resumir con tus propias palabras sin volver a mirar el texto.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si mi entrenamiento de velocidad está afectando mi comprensión?</h3>
-                <p>Mide ambas en cada sesión de práctica, sin importar cuál sea tu foco principal: si la comprensión baja de forma notoria al aumentar la velocidad, es señal de que el ritmo se llevó demasiado rápido para tu nivel actual de entrenamiento.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo se entrena la velocidad lectora, específicamente</h2>
+                <p>El entrenamiento de velocidad trabaja variables mecánicas del proceso visual de lectura: el tamaño de la fijación ocular (cuántas palabras se capturan en cada parada de la mirada), la frecuencia de regresiones involuntarias (volver a un fragmento ya leído sin razón real), y el nivel de subvocalización (pronunciar mentalmente cada palabra, lo cual limita la velocidad al ritmo del habla interna).</p>
+                <p>Estos tres factores se trabajan con ejercicios prácticos concretos: ampliar de forma gradual el número de palabras capturadas por fijación, usar una guía visual externa (dedo o marcador) para reducir regresiones automáticas, y practicar con un ritmo ligeramente acelerado respecto al ritmo natural de la voz interna para reducir la dependencia de la subvocalización.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Por qué entrenar solo una sin la otra falla</h2>
+                <p>Entrenar solo velocidad, sin verificar comprensión en paralelo, produce lectura mecánicamente más rápida pero potencialmente vacía: la persona termina el texto antes, pero no puede reconstruir su contenido con precisión, porque el entrenamiento se enfocó en el componente visual sin tocar el componente de procesamiento.</p>
+                <p>Entrenar solo comprensión, sin trabajar eficiencia visual, produce lectores que entienden bien pero a un ritmo mucho menor al que su comprensión permitiría, porque hábitos ineficientes como la subvocalización excesiva o las regresiones frecuentes limitan la velocidad sin ninguna necesidad real, dado que la comprensión ya es sólida a un ritmo más veloz si esos hábitos se corrigieran.</p>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cómo entrenar ambas en paralelo sin que una perjudique a la otra</h2>
+                <p>La forma más efectiva es alternar el foco de la sesión de práctica, pero verificar ambas variables en cada sesión sin excepción, sin importar cuál sea el foco principal de esa práctica en particular.</p>
+                <ol>
+                    <li>Definir el foco de la sesión: comprensión (estrategias de idea principal, inferencia, resumen) o velocidad (fijación, regresión, subvocalización).</li>
+                    <li>Practicar el ejercicio correspondiente al foco elegido durante 10-15 minutos con un texto de dificultad apropiada.</li>
+                    <li>Al terminar, medir SIEMPRE ambas variables: cronometrar la velocidad y responder preguntas de comprensión, sin importar cuál fue el foco de la sesión.</li>
+                    <li>Registrar ambos resultados para ver la tendencia a lo largo de varias sesiones, no solo el resultado de una sesión aislada.</li>
+                    <li>Si una de las dos variables baja de forma notoria mientras se entrena la otra, ajustar la dificultad o el ritmo del ejercicio antes de seguir avanzando.</li>
+                </ol>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cuál entrenar primero si solo se puede empezar con una</h2>
+                <p>Si el tiempo disponible obliga a priorizar, suele ser más productivo empezar por comprensión antes que por velocidad, porque una base de comprensión sólida hace que el entrenamiento de velocidad posterior tenga algo real que verificar: si la comprensión ya es consistente, cualquier caída al aumentar la velocidad es una señal clara y atribuible al cambio de ritmo, no una duda sobre si la comprensión general era buena desde el principio.</p>
+                <p>Esto no significa que la velocidad no importe -- ambas son necesarias para una lectura eficiente en la vida real -- sino que establecer primero un punto de referencia confiable de comprensión facilita medir con precisión el efecto real de cualquier ajuste de velocidad que se practique después.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo saber si tu entrenamiento está funcionando de verdad</h2>
+                <p>La señal más clara de que un entrenamiento de lectura -- sea de comprensión, de velocidad, o de ambas -- está funcionando de verdad es que ambas variables mejoren o se mantengan estables a lo largo de varias sesiones medidas con el mismo protocolo, no solo la sensación subjetiva de sentirse más rápido o más seguro al leer.</p>
+                <p>Si solo una variable mejora mientras la otra se estanca o retrocede sin que nadie lo esté midiendo, es fácil pasar meses entrenando de forma desequilibrada sin darse cuenta, porque la experiencia subjetiva de 'ir mejorando' puede sentirse real incluso cuando solo una de las dos habilidades avanza de verdad.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-8" aria-labelledby="seccion-8-titulo">
+                <h2 id="seccion-8-titulo">Un ejemplo concreto de cómo se ve esta medición en la práctica</h2>
+                <p>Supongamos que alguien mide su velocidad y comprensión de partida: 180 palabras por minuto con 70% de comprensión en un texto de dificultad media. Después de dos semanas entrenando principalmente fijación amplia y reducción de regresiones, vuelve a medir con un texto de dificultad similar: 240 palabras por minuto, pero la comprensión bajó a 55%. Esa cifra por sí sola no dice si el entrenamiento 'funcionó' o 'falló' -- dice que la velocidad mejoró a costa de la comprensión, y que el ajuste correcto no es abandonar el entrenamiento de velocidad, sino retroceder el ritmo un paso (por ejemplo, a 210 palabras por minuto) y volver a medir comprensión en ese punto intermedio.</p>
+                <p>Este mismo ejercicio de medir, ajustar y volver a medir es la diferencia entre un entrenamiento guiado por evidencia y uno guiado solo por la sensación de ir más rápido. Sin las dos cifras juntas -- velocidad y comprensión -- no hay forma de saber si el ajuste de ritmo fue el correcto o si se necesita retroceder más, y es exactamente el tipo de decisión que una sola métrica (solo velocidad, o solo la sensación de haber entendido) no puede tomar por sí sola.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Entrena ambas habilidades con seguimiento separado de cada una</h2>
+                    <p>El curso de Fotolectura de WorldBrain México mide y trabaja comprensión y velocidad como variables independientes en cada sesión, presencial en Cuautitlán Izcalli y Cuernavaca.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Ver el curso de comprensión lectora <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-comprension-veloz-que-es">
+                            <span>Comprensión veloz: qué es y en qué se diferencia de solo leer rápido</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-ejercicios-oculares-lectura-rapida">
+                            <span>Ejercicios oculares para lectura rápida: fijaciones, regresiones y ritmo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-senales-necesitas-mejorar-lectura">
+                            <span>10 señales de que necesitas mejorar tu velocidad o comprensión de lectura</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-fotolectura-nino-dificultad-lectura">
+                            <span>Fotolectura y dificultades de lectura: qué puede ayudar y qué no</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Comprensión lectora y velocidad lectora son la misma habilidad?</h3>
+                    <p>No. Son dos habilidades distintas y medibles por separado: la velocidad es palabras por minuto, y la comprensión es qué tanto se entiende del contenido, verificado con preguntas. Se puede tener alta una sin la otra.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo entrenar primero comprensión o velocidad?</h3>
+                    <p>Suele ser más productivo establecer primero una base sólida de comprensión, porque facilita medir con precisión el efecto de cualquier ajuste de velocidad que se practique después. Ambas son necesarias, pero un orden con base sólida ayuda a medir mejor el progreso.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué ejercicios entrenan comprensión específicamente?</h3>
+                    <p>Identificar la idea principal de cada párrafo, hacer inferencias razonables basadas en el texto, distinguir datos explícitos de inferencias, y resumir con tus propias palabras sin volver a mirar el texto.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si mi entrenamiento de velocidad está afectando mi comprensión?</h3>
+                    <p>Mide ambas en cada sesión de práctica, sin importar cuál sea tu foco principal: si la comprensión baja de forma notoria al aumentar la velocidad, es señal de que el ritmo se llevó demasiado rápido para tu nivel actual de entrenamiento.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -518,8 +616,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es cada una, en términos concretos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo se entrena la comprensión lectora, específicamente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo se entrena la velocidad lectora, específicamente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Por qué entrenar solo una sin la otra falla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo entrenar ambas en paralelo sin que una perjudique a la otra
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuál entrenar primero si solo se puede empezar con una
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo saber si tu entrenamiento está funcionando de verdad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Un ejemplo concreto de cómo se ve esta medición en la práctica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

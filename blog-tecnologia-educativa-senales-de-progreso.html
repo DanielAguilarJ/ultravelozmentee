@@ -354,131 +354,222 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Señales de que tu hijo está progresando en robótica y programación</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 25 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Señales de que tu hijo está progresando en robótica y programación</h1>
+                <p class="blog-post-dek">Señales concretas de que tu hijo está progresando en robótica y programación, más allá de completar niveles o terminar proyectos vistosos.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-25">25 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Señales de que tu hijo está progresando en robótica y programación" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Muchos padres evalúan el progreso de sus hijos en robótica por lo impresionante que se ve el proyecto final, lo cual puede ser engañoso: un proyecto visualmente vistoso puede haberse copiado casi exacto de un ejemplo, mientras que uno más simple puede reflejar comprensión genuina y decisiones propias detrás de cada elemento.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué el proyecto final no basta como indicador
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Señal 1: predicción antes de la ejecución
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Señal 2: depuración con menos ayuda
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Señal 3: explicación en palabras propias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Señal 4: curiosidad espontánea por variantes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué hacer si no observas estas señales todavía
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Muchos padres evalúan el progreso de sus hijos en robótica por lo impresionante que se ve el proyecto final, lo cual puede ser engañoso: un proyecto visualmente vistoso puede haberse copiado casi exacto de un ejemplo, mientras que uno más simple puede reflejar comprensión genuina y decisiones propias detrás de cada elemento.</p>
             <p>Este artículo describe señales más confiables de progreso real, que puedes observar sin necesidad de entender técnicamente cada detalle del proyecto ni de comparar constantemente con lo que hacen otros niños del mismo grupo.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Las señales confiables de progreso en robótica no son la complejidad del proyecto final, sino conductas observables: predecir resultados antes de ejecutar el programa, depurar errores con menos ayuda que antes, explicar su razonamiento con palabras propias, y proponer variantes por curiosidad propia sin que se le pida.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Las señales confiables de progreso en robótica no son la complejidad del proyecto final, sino conductas observables: predecir resultados antes de ejecutar el programa, depurar errores con menos ayuda que antes, explicar su razonamiento con palabras propias, y proponer variantes por curiosidad propia sin que se le pida.</p>
+                </aside>
 
-            <h2>Por qué el proyecto final no basta como indicador</h2>
-            <p>Un proyecto que se ve sofisticado puede haberse construido siguiendo instrucciones paso a paso sin que el niño comprenda por qué cada paso produce ese efecto. En cambio, un proyecto sencillo donde el niño puede explicar cada decisión y anticipar qué pasaría si algo cambiara refleja comprensión más profunda, aunque visualmente sea menos impresionante.</p>
-            <p>Esta distinción es importante porque muchos padres, sin quererlo, presionan hacia proyectos más vistosos para 'mostrar avance', cuando el indicador real de progreso está en la comprensión detrás del proyecto, no en su apariencia final.</p>
-            <p>Esta presión suele intensificarse cuando se comparan fotos o videos de proyectos de otros niños en redes sociales, sin considerar que esas publicaciones muestran el resultado exitoso final, no el proceso de comprensión (o falta de ella) que llevó hasta ahí. Un proyecto visualmente atractivo dice poco sobre la calidad del aprendizaje detrás.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué el proyecto final no basta como indicador</h2>
+                <p>Un proyecto que se ve sofisticado puede haberse construido siguiendo instrucciones paso a paso sin que el niño comprenda por qué cada paso produce ese efecto. En cambio, un proyecto sencillo donde el niño puede explicar cada decisión y anticipar qué pasaría si algo cambiara refleja comprensión más profunda, aunque visualmente sea menos impresionante.</p>
+                <p>Esta distinción es importante porque muchos padres, sin quererlo, presionan hacia proyectos más vistosos para 'mostrar avance', cuando el indicador real de progreso está en la comprensión detrás del proyecto, no en su apariencia final.</p>
+                <p>Esta presión suele intensificarse cuando se comparan fotos o videos de proyectos de otros niños en redes sociales, sin considerar que esas publicaciones muestran el resultado exitoso final, no el proceso de comprensión (o falta de ella) que llevó hasta ahí. Un proyecto visualmente atractivo dice poco sobre la calidad del aprendizaje detrás.</p>
+            </section>
 
-            <h2>Señal 1: predicción antes de la ejecución</h2>
-            <p>Un niño que empieza a decir 'creo que el robot va a girar a la derecha' antes de ejecutar el programa está demostrando un modelo mental funcional de cómo se relacionan las instrucciones con el comportamiento resultante. Esa capacidad de predicción es una de las señales más confiables de comprensión conceptual real.</p>
-            <p>Al principio, esas predicciones suelen ser incorrectas con frecuencia, y eso es normal: lo relevante no es la exactitud de la predicción sino el hecho de que el niño esté formulando hipótesis activamente en lugar de solo ejecutar y observar pasivamente el resultado.</p>
-            <p>Puedes fomentar esta señal en casa simplemente preguntando '¿qué crees que va a pasar?' antes de que tu hijo ejecute algo, ya sea en el contexto de robótica o en cualquier otra actividad con resultado observable. La práctica de formular predicciones se transfiere entre contextos con relativa facilidad.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Señal 1: predicción antes de la ejecución</h2>
+                <p>Un niño que empieza a decir 'creo que el robot va a girar a la derecha' antes de ejecutar el programa está demostrando un modelo mental funcional de cómo se relacionan las instrucciones con el comportamiento resultante. Esa capacidad de predicción es una de las señales más confiables de comprensión conceptual real.</p>
+                <p>Al principio, esas predicciones suelen ser incorrectas con frecuencia, y eso es normal: lo relevante no es la exactitud de la predicción sino el hecho de que el niño esté formulando hipótesis activamente en lugar de solo ejecutar y observar pasivamente el resultado.</p>
+                <p>Puedes fomentar esta señal en casa simplemente preguntando '¿qué crees que va a pasar?' antes de que tu hijo ejecute algo, ya sea en el contexto de robótica o en cualquier otra actividad con resultado observable. La práctica de formular predicciones se transfiere entre contextos con relativa facilidad.</p>
+            </section>
 
-            <h2>Señal 2: depuración con menos ayuda</h2>
-            <p>Al principio, cuando algo no funciona, la mayoría de los niños necesita ayuda constante del instructor o del padre para identificar qué salió mal. El progreso se nota cuando ese niño empieza a revisar por sí mismo qué parte de la secuencia podría estar causando el problema antes de pedir ayuda.</p>
-            <p>Esto no significa que deba resolver todo solo desde el principio; significa que el proceso de búsqueda del error se vuelve más sistemático y menos aleatorio con el tiempo, un cambio observable incluso sin conocimientos técnicos por parte del adulto que acompaña.</p>
-            <p>Una forma práctica de notar este progreso es observar el orden en que el niño revisa las cosas cuando algo falla: al principio suele ser aleatorio o de pánico; con el tiempo se vuelve más metódico, revisando primero los cambios más recientes antes de cuestionar toda la secuencia desde cero.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Señal 2: depuración con menos ayuda</h2>
+                <p>Al principio, cuando algo no funciona, la mayoría de los niños necesita ayuda constante del instructor o del padre para identificar qué salió mal. El progreso se nota cuando ese niño empieza a revisar por sí mismo qué parte de la secuencia podría estar causando el problema antes de pedir ayuda.</p>
+                <p>Esto no significa que deba resolver todo solo desde el principio; significa que el proceso de búsqueda del error se vuelve más sistemático y menos aleatorio con el tiempo, un cambio observable incluso sin conocimientos técnicos por parte del adulto que acompaña.</p>
+                <p>Una forma práctica de notar este progreso es observar el orden en que el niño revisa las cosas cuando algo falla: al principio suele ser aleatorio o de pánico; con el tiempo se vuelve más metódico, revisando primero los cambios más recientes antes de cuestionar toda la secuencia desde cero.</p>
+            </section>
 
-            <h2>Señal 3: explicación en palabras propias</h2>
-            <p>Pedirle a tu hijo que explique qué hizo, sin la pantalla o el robot frente a él, es una prueba útil de comprensión real. Si puede describir el proceso con sus propias palabras —no repitiendo frases del instructor de memoria— es una señal fuerte de que internalizó el concepto, no solo la secuencia de acciones.</p>
-            <p>Si la respuesta se limita a 'no sé, solo hice lo que dijeron' incluso después de completar exitosamente el ejercicio, es una señal de que el éxito fue procedimental (seguir pasos) más que conceptual (entender por qué), y conviene reforzar esa comprensión antes de avanzar a contenido más complejo.</p>
-            <p>Esta señal es especialmente útil porque no requiere que tú entiendas técnicamente el proyecto de robótica; solo necesitas evaluar si la explicación de tu hijo tiene coherencia lógica interna, con causas y efectos claros, independientemente de si conoces el detalle técnico exacto de cómo se implementó.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Señal 3: explicación en palabras propias</h2>
+                <p>Pedirle a tu hijo que explique qué hizo, sin la pantalla o el robot frente a él, es una prueba útil de comprensión real. Si puede describir el proceso con sus propias palabras —no repitiendo frases del instructor de memoria— es una señal fuerte de que internalizó el concepto, no solo la secuencia de acciones.</p>
+                <p>Si la respuesta se limita a 'no sé, solo hice lo que dijeron' incluso después de completar exitosamente el ejercicio, es una señal de que el éxito fue procedimental (seguir pasos) más que conceptual (entender por qué), y conviene reforzar esa comprensión antes de avanzar a contenido más complejo.</p>
+                <p>Esta señal es especialmente útil porque no requiere que tú entiendas técnicamente el proyecto de robótica; solo necesitas evaluar si la explicación de tu hijo tiene coherencia lógica interna, con causas y efectos claros, independientemente de si conoces el detalle técnico exacto de cómo se implementó.</p>
+            </section>
 
-            <h2>Señal 4: curiosidad espontánea por variantes</h2>
-            <p>Cuando un niño empieza a preguntar '¿qué pasaría si...?' sin que se le indique explícitamente que explore esa variante, está demostrando el tipo de curiosidad activa que sostiene el aprendizaje autodirigido a largo plazo. Esta señal suele aparecer más tarde que las anteriores, después de que el niño se siente lo bastante cómodo con lo básico para arriesgarse a experimentar.</p>
-            <p>Vale la pena distinguir esta curiosidad genuina de la simple imitación de lo que hacen otros compañeros: la señal real está en que la pregunta surja de una observación propia sobre el proyecto en curso, no de copiar la idea de alguien más sin haber pensado por qué podría funcionar.</p>
-            <ul>
-                <li>Pregunta qué pasaría si cambia un valor sin que se le pida.</li>
-                <li>Propone probar una variante del proyecto asignado.</li>
-                <li>Busca aplicar lo aprendido a un contexto distinto del ejercicio original.</li>
-                <li>Muestra frustración productiva (sigue intentando) en lugar de abandono ante un obstáculo nuevo.</li>
-            </ul>
-
-            <h2>Qué hacer si no observas estas señales todavía</h2>
-            <p>La ausencia de estas señales en las primeras semanas no es motivo de alarma; suelen aparecer de forma gradual y en distinto orden según cada niño. Si después de varios meses de práctica constante ninguna de estas señales aparece, vale la pena conversar con el instructor sobre el ritmo, el tipo de acompañamiento en clase, o si el nivel actual está bien calibrado para las necesidades específicas de tu hijo.</p>
-            <p>También conviene revisar si en casa se están dando las condiciones para que estas señales emerjan: un ambiente donde predecir mal o cometer un error genera burla o frustración de un adulto tiende a inhibir la formulación de hipótesis y la curiosidad exploratoria, precisamente las conductas que estas señales buscan reconocer y reforzar.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Instructores que observan comprensión, no solo resultados</h3>
-                <p>En Robotics Code, la evaluación de progreso se basa en señales conductuales como estas, no solo en la complejidad visual del proyecto final. Puedes conocer cómo se estructura el seguimiento del avance de cada estudiante.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de matemáticas para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Señal 4: curiosidad espontánea por variantes</h2>
+                <p>Cuando un niño empieza a preguntar '¿qué pasaría si...?' sin que se le indique explícitamente que explore esa variante, está demostrando el tipo de curiosidad activa que sostiene el aprendizaje autodirigido a largo plazo. Esta señal suele aparecer más tarde que las anteriores, después de que el niño se siente lo bastante cómodo con lo básico para arriesgarse a experimentar.</p>
+                <p>Vale la pena distinguir esta curiosidad genuina de la simple imitación de lo que hacen otros compañeros: la señal real está en que la pregunta surja de una observación propia sobre el proyecto en curso, no de copiar la idea de alguien más sin haber pensado por qué podría funcionar.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-nivel-basico">Robótica educativa nivel básico: qué aprende tu hijo primero</a></li>
-                <li><a href="/blog-tecnologia-educativa-nivel-avanzado">Robótica educativa nivel avanzado: cuándo dar el siguiente paso</a></li>
-                <li><a href="/blog-tecnologia-educativa-como-mantener-la-motivacion">Cómo mantener la motivación de tu hijo en cursos de robótica</a></li>
+                    <li>Pregunta qué pasaría si cambia un valor sin que se le pida.</li>
+                    <li>Propone probar una variante del proyecto asignado.</li>
+                    <li>Busca aplicar lo aprendido a un contexto distinto del ejercicio original.</li>
+                    <li>Muestra frustración productiva (sigue intentando) en lugar de abandono ante un obstáculo nuevo.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Un proyecto sencillo puede indicar más progreso que uno complejo?</h3>
-                <p>Sí, si el niño puede explicar cada decisión del proyecto sencillo y anticipar variantes, mientras que el complejo se copió casi exacto de un ejemplo sin comprensión detrás. La comprensión conceptual es más importante que la apariencia final del proyecto.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es normal que las predicciones de mi hijo sobre el robot sean incorrectas al principio?</h3>
-                <p>Sí, es completamente normal. Lo relevante no es la exactitud inicial de la predicción sino que el niño esté formulando hipótesis activamente, un hábito que mejora con la práctica constante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi hijo no muestra estas señales después de varios meses?</h3>
-                <p>Conversa con el instructor sobre el ritmo del curso y el tipo de acompañamiento que recibe en clase. Puede ser necesario ajustar el nivel o el enfoque pedagógico según las necesidades específicas de tu hijo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo preocuparme si mi hijo casi nunca predice bien el comportamiento del robot?</h3>
-                <p>No necesariamente. Lo importante en las primeras etapas es que formule predicciones activamente, no que sean correctas. La precisión de esas predicciones mejora con la práctica constante, no es algo que se espere desde el inicio.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Qué hacer si no observas estas señales todavía</h2>
+                <p>La ausencia de estas señales en las primeras semanas no es motivo de alarma; suelen aparecer de forma gradual y en distinto orden según cada niño. Si después de varios meses de práctica constante ninguna de estas señales aparece, vale la pena conversar con el instructor sobre el ritmo, el tipo de acompañamiento en clase, o si el nivel actual está bien calibrado para las necesidades específicas de tu hijo.</p>
+                <p>También conviene revisar si en casa se están dando las condiciones para que estas señales emerjan: un ambiente donde predecir mal o cometer un error genera burla o frustración de un adulto tiende a inhibir la formulación de hipótesis y la curiosidad exploratoria, precisamente las conductas que estas señales buscan reconocer y reforzar.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Referencia sobre indicadores de comprensión en pensamiento computacional</li>
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto sobre evaluación de habilidades STEM en la infancia</li>
-            </ul>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Instructores que observan comprensión, no solo resultados</h2>
+                    <p>En Robotics Code, la evaluación de progreso se basa en señales conductuales como estas, no solo en la complejidad visual del proyecto final. Puedes conocer cómo se estructura el seguimiento del avance de cada estudiante.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Ver el curso de matemáticas para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-nivel-basico">
+                            <span>Robótica educativa nivel básico: qué aprende tu hijo primero</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-nivel-avanzado">
+                            <span>Robótica educativa nivel avanzado: cuándo dar el siguiente paso</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-como-mantener-la-motivacion">
+                            <span>Cómo mantener la motivación de tu hijo en cursos de robótica</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Un proyecto sencillo puede indicar más progreso que uno complejo?</h3>
+                    <p>Sí, si el niño puede explicar cada decisión del proyecto sencillo y anticipar variantes, mientras que el complejo se copió casi exacto de un ejemplo sin comprensión detrás. La comprensión conceptual es más importante que la apariencia final del proyecto.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es normal que las predicciones de mi hijo sobre el robot sean incorrectas al principio?</h3>
+                    <p>Sí, es completamente normal. Lo relevante no es la exactitud inicial de la predicción sino que el niño esté formulando hipótesis activamente, un hábito que mejora con la práctica constante.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi hijo no muestra estas señales después de varios meses?</h3>
+                    <p>Conversa con el instructor sobre el ritmo del curso y el tipo de acompañamiento que recibe en clase. Puede ser necesario ajustar el nivel o el enfoque pedagógico según las necesidades específicas de tu hijo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo preocuparme si mi hijo casi nunca predice bien el comportamiento del robot?</h3>
+                    <p>No necesariamente. Lo importante en las primeras etapas es que formule predicciones activamente, no que sean correctas. La precisión de esas predicciones mejora con la práctica constante, no es algo que se espere desde el inicio.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Referencia sobre indicadores de comprensión en pensamiento computacional</li>
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto sobre evaluación de habilidades STEM en la infancia</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -508,8 +599,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué el proyecto final no basta como indicador
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Señal 1: predicción antes de la ejecución
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Señal 2: depuración con menos ayuda
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Señal 3: explicación en palabras propias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Señal 4: curiosidad espontánea por variantes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué hacer si no observas estas señales todavía
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

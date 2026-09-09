@@ -362,138 +362,231 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="5">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-comments"></i> Habilidades Blandas
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Guía rápida de habilidades blandas según tu tiempo</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 5 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Habilidades Blandas</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Guía rápida de habilidades blandas según tu tiempo</h1>
+                <p class="blog-post-dek">Guía rápida de habilidades blandas según el tiempo disponible: desde un minuto de reflexión hasta un proceso completo de desarrollo deliberado.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Habilidades Blandas</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>5 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/neurocomunicacion-curso-hablar-en-publico-liderazgo.webp" alt="Guía rápida de habilidades blandas según tu tiempo" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">No siempre hay tiempo disponible para aplicar el proceso completo de desarrollo deliberado antes de una situación social específica. Esta guía rápida ofrece opciones concretas según el tiempo real disponible en cada momento.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Con un minuto disponible: reflexión breve
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Con quince minutos: registro semanal de situaciones
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Con una hora: conversación simulada estructurada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: usar la guía según distintos momentos disponibles
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Para desarrollo de largo plazo: el plan completo de 30 días
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuándo esta guía rápida no es suficiente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Adaptando la guía a tu propio horario fragmentado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">No siempre hay tiempo disponible para aplicar el proceso completo de desarrollo deliberado antes de una situación social específica. Esta guía rápida ofrece opciones concretas según el tiempo real disponible en cada momento.</p>
 
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Una guía rápida para desarrollar habilidades blandas según el tiempo disponible: con un minuto, reflexionar brevemente sobre la última interacción social relevante; con quince minutos, escribir un registro de situaciones de la semana; con una hora, practicar una conversación simulada estructurada; y para desarrollo de largo plazo, el plan de 30 días descrito en otro artículo de este cluster.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Una guía rápida para desarrollar habilidades blandas según el tiempo disponible: con un minuto, reflexionar brevemente sobre la última interacción social relevante; con quince minutos, escribir un registro de situaciones de la semana; con una hora, practicar una conversación simulada estructurada; y para desarrollo de largo plazo, el plan de 30 días descrito en otro artículo de este cluster.</p>
+                </aside>
 
-            <h2>Con un minuto disponible: reflexión breve</h2>
-            <p>Después de una interacción social relevante, dedicar solo un minuto a reflexionar brevemente —¿logré aplicar el ajuste que estaba practicando?, ¿qué se sintió distinto esta vez?— aprovecha momentos muy breves sin necesidad de ningún registro escrito extenso.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Con un minuto disponible: reflexión breve</h2>
+                <p>Después de una interacción social relevante, dedicar solo un minuto a reflexionar brevemente —¿logré aplicar el ajuste que estaba practicando?, ¿qué se sintió distinto esta vez?— aprovecha momentos muy breves sin necesidad de ningún registro escrito extenso.</p>
+            </section>
 
-            <h2>Con quince minutos: registro semanal de situaciones</h2>
-            <p>Quince minutos son suficientes para escribir un registro breve de las situaciones sociales relevantes de los últimos días, notando patrones sobre cuándo se logró aplicar el ajuste elegido y cuándo se olvidó, similar al proceso descrito en el artículo de rutina semanal de este cluster.</p>
-            <ul>
-                <li>Revisar las situaciones relevantes de los últimos días.</li>
-                <li>Anotar brevemente si se logró aplicar el ajuste específico en cada una.</li>
-                <li>Notar patrones sobre en qué contextos resulta más difícil aplicar el ajuste.</li>
-                <li>Usar esta información para ajustar el enfoque de la semana siguiente.</li>
-            </ul>
-
-            <h2>Con una hora: conversación simulada estructurada</h2>
-            <p>Una hora disponible permite practicar una conversación simulada completa con alguien de confianza, sobre una situación específica que se anticipa difícil, ensayando el ajuste elegido en un contexto seguro antes de aplicarlo en la situación real.</p>
-
-            <h2>Ejemplo aplicado: usar la guía según distintos momentos disponibles</h2>
-            <p>Una persona con una agenda muy ocupada decidió aprovechar esta guía rápida para su desarrollo de comunicación, adaptándose a los distintos bloques de tiempo disponibles durante su semana en lugar de esperar tener grandes espacios continuos que rara vez se presentaban.</p>
-            <p>Después de cada reunión de trabajo relevante, dedicaba literalmente un minuto, mientras caminaba de regreso a su escritorio, a reflexionar si había logrado estructurar sus ideas antes de hablar, el ajuste específico que estaba practicando.</p>
-            <p>Los viernes por la tarde, con quince minutos disponibles antes de terminar su jornada, escribía un registro breve de las reuniones de la semana, notando en qué tipo de reuniones le costaba más aplicar el ajuste, generalmente las que surgían de forma imprevista sin tiempo de preparación previa.</p>
-            <p>Cuando anticipaba una conversación particularmente difícil, como una negociación importante, aprovechaba una hora disponible el fin de semana anterior para practicar con su pareja una simulación de esa conversación, ajustando su enfoque según cómo se había sentido esa práctica antes de la situación real.</p>
-
-            <h2>Para desarrollo de largo plazo: el plan completo de 30 días</h2>
-            <p>Cuando se dispone de un periodo más amplio, conviene seguir el proceso más completo descrito en el artículo de plan de 30 días de este mismo cluster, que integra diagnóstico, práctica, retroalimentación y aplicación en lugar de solo momentos puntuales según el tiempo disponible en cada situación.</p>
-            <ol>
-                <li>Identificar cuánto tiempo total hay disponible antes de una situación importante.</li>
-                <li>Si hay al menos un mes disponible, aplicar el proceso completo de 30 días.</li>
-                <li>Si el tiempo es más corto, priorizar los momentos de esta guía según la urgencia.</li>
-                <li>Combinar momentos puntuales con el plan de largo plazo cuando ambos apliquen.</li>
-            </ol>
-
-            <h2>Cuándo esta guía rápida no es suficiente</h2>
-            <p>Esta guía funciona bien para sostener la práctica en momentos puntuales, pero no sustituye el proceso de diagnóstico previo sobre qué habilidad específica priorizar. Si nunca se ha hecho ese diagnóstico, conviene revisar primero el artículo sobre cómo elegir habilidad antes de aplicar esta guía de forma mecánica según solo el tiempo disponible.</p>
-
-            <h2>Adaptando la guía a tu propio horario fragmentado</h2>
-            <p>El principio detrás de esta guía —aprovechar cada bloque de tiempo con la actividad que mejor se ajusta a su duración— puede adaptarse a cualquier horario particular, identificando los bloques de tiempo recurrentes en la propia rutina y asignando a cada uno la actividad más apropiada según su duración típica.</p>
-            <p>Revisar la propia semana con este criterio suele revelar más bloques de tiempo aprovechables de lo que se piensa inicialmente: traslados, esperas entre actividades, momentos justo antes o después de reuniones que antes se consideraban tiempo muerto pueden convertirse en oportunidades reales de reflexión o registro si se identifican y planean con anticipación.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De aprovechar el tiempo disponible a un liderazgo estructurado</h3>
-                <p>Si buscas una metodología de liderazgo que se adapte a distintos bloques de tiempo disponibles, nuestro programa de Grandes Líderes ofrece flexibilidad de aplicación según tu horario real.</p>
-                <a href="/grandes-lideres" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de liderazgo para adolescentes <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Con quince minutos: registro semanal de situaciones</h2>
+                <p>Quince minutos son suficientes para escribir un registro breve de las situaciones sociales relevantes de los últimos días, notando patrones sobre cuándo se logró aplicar el ajuste elegido y cuándo se olvidó, similar al proceso descrito en el artículo de rutina semanal de este cluster.</p>
                 <ul>
-                <li><a href="/blog-habilidades-blandas-ventajas-y-desventajas">Ventajas y desventajas de desarrollar habilidades blandas</a></li>
-                <li><a href="/blog-habilidades-blandas-plan-de-30-dias">Plan de 30 días para desarrollar una habilidad blanda</a></li>
+                    <li>Revisar las situaciones relevantes de los últimos días.</li>
+                    <li>Anotar brevemente si se logró aplicar el ajuste específico en cada una.</li>
+                    <li>Notar patrones sobre en qué contextos resulta más difícil aplicar el ajuste.</li>
+                    <li>Usar esta información para ajustar el enfoque de la semana siguiente.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Estas sugerencias sustituyen el proceso de diagnóstico previo de dificultad?</h3>
-                <p>No, funcionan como opción práctica para sostener la práctica en momentos puntuales, pero conviene haber identificado antes qué habilidad priorizar para elegir con más precisión entre las opciones sugeridas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es efectivo reflexionar durante solo un minuto?</h3>
-                <p>Sí, especialmente para mantener consciencia continua sobre el ajuste que se está practicando; bloques breves y frecuentes pueden sumar un beneficio considerable de reflexión acumulada a lo largo del tiempo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi único tiempo disponible son bloques muy cortos y fragmentados?</h3>
-                <p>Aprovecha esos bloques con reflexión breve después de cada situación relevante, reservando el registro más extenso y la práctica simulada para los momentos, aunque escasos, donde consigas bloques más largos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo seguir exactamente estas duraciones de tiempo sugeridas?</h3>
-                <p>No es necesario seguirlas de forma rígida; son orientativas. Ajusta la actividad sugerida según la duración real de tus bloques de tiempo disponibles, que pueden variar de los ejemplos específicos usados en esta guía, según tu propia rutina y agenda personal.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La práctica simulada con alguien de confianza realmente ayuda para la situación real?</h3>
-                <p>Sí, especialmente para situaciones que generan ansiedad anticipada; la práctica simulada reduce la sensación de estar completamente sin preparación, aunque el contexto real siempre presenta variables adicionales.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Con una hora: conversación simulada estructurada</h2>
+                <p>Una hora disponible permite practicar una conversación simulada completa con alguien de confianza, sobre una situación específica que se anticipa difícil, ensayando el ajuste elegido en un contexto seguro antes de aplicarlo en la situación real.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: usar la guía según distintos momentos disponibles</h2>
+                <p>Una persona con una agenda muy ocupada decidió aprovechar esta guía rápida para su desarrollo de comunicación, adaptándose a los distintos bloques de tiempo disponibles durante su semana en lugar de esperar tener grandes espacios continuos que rara vez se presentaban.</p>
+                <p>Después de cada reunión de trabajo relevante, dedicaba literalmente un minuto, mientras caminaba de regreso a su escritorio, a reflexionar si había logrado estructurar sus ideas antes de hablar, el ajuste específico que estaba practicando.</p>
+                <p>Los viernes por la tarde, con quince minutos disponibles antes de terminar su jornada, escribía un registro breve de las reuniones de la semana, notando en qué tipo de reuniones le costaba más aplicar el ajuste, generalmente las que surgían de forma imprevista sin tiempo de preparación previa.</p>
+                <p>Cuando anticipaba una conversación particularmente difícil, como una negociación importante, aprovechaba una hora disponible el fin de semana anterior para practicar con su pareja una simulación de esa conversación, ajustando su enfoque según cómo se había sentido esa práctica antes de la situación real.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Para desarrollo de largo plazo: el plan completo de 30 días</h2>
+                <p>Cuando se dispone de un periodo más amplio, conviene seguir el proceso más completo descrito en el artículo de plan de 30 días de este mismo cluster, que integra diagnóstico, práctica, retroalimentación y aplicación en lugar de solo momentos puntuales según el tiempo disponible en cada situación.</p>
+                <ol>
+                    <li>Identificar cuánto tiempo total hay disponible antes de una situación importante.</li>
+                    <li>Si hay al menos un mes disponible, aplicar el proceso completo de 30 días.</li>
+                    <li>Si el tiempo es más corto, priorizar los momentos de esta guía según la urgencia.</li>
+                    <li>Combinar momentos puntuales con el plan de largo plazo cuando ambos apliquen.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cuándo esta guía rápida no es suficiente</h2>
+                <p>Esta guía funciona bien para sostener la práctica en momentos puntuales, pero no sustituye el proceso de diagnóstico previo sobre qué habilidad específica priorizar. Si nunca se ha hecho ese diagnóstico, conviene revisar primero el artículo sobre cómo elegir habilidad antes de aplicar esta guía de forma mecánica según solo el tiempo disponible.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Adaptando la guía a tu propio horario fragmentado</h2>
+                <p>El principio detrás de esta guía —aprovechar cada bloque de tiempo con la actividad que mejor se ajusta a su duración— puede adaptarse a cualquier horario particular, identificando los bloques de tiempo recurrentes en la propia rutina y asignando a cada uno la actividad más apropiada según su duración típica.</p>
+                <p>Revisar la propia semana con este criterio suele revelar más bloques de tiempo aprovechables de lo que se piensa inicialmente: traslados, esperas entre actividades, momentos justo antes o después de reuniones que antes se consideraban tiempo muerto pueden convertirse en oportunidades reales de reflexión o registro si se identifican y planean con anticipación.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De aprovechar el tiempo disponible a un liderazgo estructurado</h2>
+                    <p>Si buscas una metodología de liderazgo que se adapte a distintos bloques de tiempo disponibles, nuestro programa de Grandes Líderes ofrece flexibilidad de aplicación según tu horario real.</p>
+                    <a href="/grandes-lideres" class="btn-primary">
+                        Ver el curso de liderazgo para adolescentes <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-habilidades-blandas-ventajas-y-desventajas">
+                            <span>Ventajas y desventajas de desarrollar habilidades blandas</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-habilidades-blandas-plan-de-30-dias">
+                            <span>Plan de 30 días para desarrollar una habilidad blanda</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Estas sugerencias sustituyen el proceso de diagnóstico previo de dificultad?</h3>
+                    <p>No, funcionan como opción práctica para sostener la práctica en momentos puntuales, pero conviene haber identificado antes qué habilidad priorizar para elegir con más precisión entre las opciones sugeridas.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es efectivo reflexionar durante solo un minuto?</h3>
+                    <p>Sí, especialmente para mantener consciencia continua sobre el ajuste que se está practicando; bloques breves y frecuentes pueden sumar un beneficio considerable de reflexión acumulada a lo largo del tiempo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi único tiempo disponible son bloques muy cortos y fragmentados?</h3>
+                    <p>Aprovecha esos bloques con reflexión breve después de cada situación relevante, reservando el registro más extenso y la práctica simulada para los momentos, aunque escasos, donde consigas bloques más largos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo seguir exactamente estas duraciones de tiempo sugeridas?</h3>
+                    <p>No es necesario seguirlas de forma rígida; son orientativas. Ajusta la actividad sugerida según la duración real de tus bloques de tiempo disponibles, que pueden variar de los ejemplos específicos usados en esta guía, según tu propia rutina y agenda personal.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La práctica simulada con alguien de confianza realmente ayuda para la situación real?</h3>
+                    <p>Sí, especialmente para situaciones que generan ansiedad anticipada; la práctica simulada reduce la sensación de estar completamente sin preparación, aunque el contexto real siempre presenta variables adicionales.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -523,8 +616,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Con un minuto disponible: reflexión breve
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Con quince minutos: registro semanal de situaciones
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Con una hora: conversación simulada estructurada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: usar la guía según distintos momentos disponibles
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Para desarrollo de largo plazo: el plan completo de 30 días
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuándo esta guía rápida no es suficiente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Adaptando la guía a tu propio horario fragmentado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>5 min restantes</span>
+                        <span>Lectura estimada: 5 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

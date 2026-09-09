@@ -354,142 +354,233 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-rocket"></i> Ciencia y Astronomía
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Experimentos de ciencia para niños en casa</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 8 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Ciencia y Astronomía</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Experimentos de ciencia para niños en casa</h1>
+                <p class="blog-post-dek">Experimentos de ciencia para niños en casa, sencillos y seguros, con materiales caseros y la explicación de por qué funcionan para despertar su curiosidad.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Ciencia y Astronomía</span>
+                    <span>Publicado <time datetime="2026-09-08">8 de Septiembre, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/ciencia-astronomia-curso-ninos-telescopio.webp" alt="Experimentos de ciencia para niños en casa" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Buscar experimentos de ciencia para niños suele terminar en listas de trucos vistosos que se hacen una vez y se olvidan. Este artículo va un paso más allá: propone experimentos sencillos y seguros, sí, pero sobre todo explica cómo convertirlos en una experiencia que despierte de verdad la curiosidad del niño.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué hacen valiosos los experimentos de ciencia para niños
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Antes de empezar: seguridad y actitud
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Experimento 1: el volcán de bicarbonato
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Experimento 2: los colores que caminan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Experimento 3: la torre de líquidos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo convertir cualquier experimento en una lección
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué evitar para que la ciencia no se vuelva aburrida
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Buscar experimentos de ciencia para niños suele terminar en listas de trucos vistosos que se hacen una vez y se olvidan. Este artículo va un paso más allá: propone experimentos sencillos y seguros, sí, pero sobre todo explica cómo convertirlos en una experiencia que despierte de verdad la curiosidad del niño.</p>
             <p>Todos usan cosas que ya tienes en casa y no requieren conocimientos previos. La clave, que repetiremos, no está en el material sino en el acompañamiento: preguntar, observar y explicar. Con esa fórmula, un rato de cocina se convierte en la puerta de entrada a la ciencia.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Los mejores experimentos de ciencia para niños en casa son sencillos, seguros y se hacen con materiales que ya tienes: un volcán de bicarbonato y vinagre, colores que se mueven en el agua, una torre de líquidos que no se mezclan. Lo importante no es el espectáculo, sino preguntar antes qué creen que pasará y explicarles después por qué ocurrió. Así el experimento deja de ser un truco y se vuelve una primera lección de método científico.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Los mejores experimentos de ciencia para niños en casa son sencillos, seguros y se hacen con materiales que ya tienes: un volcán de bicarbonato y vinagre, colores que se mueven en el agua, una torre de líquidos que no se mezclan. Lo importante no es el espectáculo, sino preguntar antes qué creen que pasará y explicarles después por qué ocurrió. Así el experimento deja de ser un truco y se vuelve una primera lección de método científico.</p>
+                </aside>
 
-            <h2>Qué hacen valiosos los experimentos de ciencia para niños</h2>
-            <p>Un experimento no enseña ciencia por sí solo; enseña quien lo acompaña. La diferencia entre un truco y una lección está en tres momentos: antes, preguntar al niño qué cree que pasará (una hipótesis); durante, observar con atención qué ocurre de verdad; y después, explicar por qué pasó y comparar con lo que esperaba. Ese ciclo es, en pequeño, el método científico.</p>
-            <p>Por eso los mejores experimentos caseros no son los más espectaculares, sino los que dejan espacio para pensar. Uno sencillo, bien acompañado, vale más que diez trucos seguidos que el niño solo mira. El objetivo no es que diga qué bonito, sino que pregunte por qué, que es donde empieza la ciencia.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué hacen valiosos los experimentos de ciencia para niños</h2>
+                <p>Un experimento no enseña ciencia por sí solo; enseña quien lo acompaña. La diferencia entre un truco y una lección está en tres momentos: antes, preguntar al niño qué cree que pasará (una hipótesis); durante, observar con atención qué ocurre de verdad; y después, explicar por qué pasó y comparar con lo que esperaba. Ese ciclo es, en pequeño, el método científico.</p>
+                <p>Por eso los mejores experimentos caseros no son los más espectaculares, sino los que dejan espacio para pensar. Uno sencillo, bien acompañado, vale más que diez trucos seguidos que el niño solo mira. El objetivo no es que diga qué bonito, sino que pregunte por qué, que es donde empieza la ciencia.</p>
+            </section>
 
-            <h2>Antes de empezar: seguridad y actitud</h2>
-            <p>Todos los experimentos de esta guía son seguros, pero conviene un par de reglas básicas: un adulto acompaña siempre, se hacen sobre una superficie fácil de limpiar y no se prueban ni se mezclan sustancias que no sean claramente comestibles o de uso doméstico conocido. La ciencia en casa se disfruta con calma, no con prisa.</p>
-            <ul>
-                <li>Acompaña al niño; no lo dejes solo con líquidos o cosas que puedan mancharse o volcarse.</li>
-                <li>Prepara un espacio protegido (una charola, un mantel viejo) para experimentar sin miedo.</li>
-                <li>Deja que el niño haga con sus manos lo que pueda; el aprendizaje es hacer, no mirar.</li>
-                <li>No hay experimentos fallidos: si algo no sale como esperaban, eso también es un dato.</li>
-            </ul>
-
-            <h2>Experimento 1: el volcán de bicarbonato</h2>
-            <p>Es un clásico porque funciona y enseña de verdad. En un recipiente pon un poco de bicarbonato de sodio y, aparte, vinagre con unas gotas de colorante. Pregúntale al niño qué cree que pasará al juntarlos. Cuando vierta el vinagre sobre el bicarbonato, la mezcla burbujea y sube como espuma.</p>
-            <p>La explicación, en palabras de niño: el vinagre y el bicarbonato reaccionan y forman un gas, dióxido de carbono, que es el que hace las burbujas y empuja la espuma hacia arriba. Es el mismo gas que forma las burbujas de los refrescos. Preguntar después qué pasaría con más vinagre, o con agua en lugar de vinagre, convierte el truco en una investigación.</p>
-
-            <h2>Experimento 2: los colores que caminan</h2>
-            <p>Coloca varios vasos en fila, llena sí y no con agua y unas gotas de colorante en los que tienen agua. Conecta cada vaso con el siguiente usando una tira de papel doblada, como un puente. Con el tiempo, el agua de color sube por el papel y llena los vasos vacíos, mezclando colores en el camino.</p>
-            <p>Aquí el niño ve la capilaridad: el agua sube por los huequitos del papel, en contra de la gravedad, como cuando una servilleta absorbe un derrame. Es un experimento lento, ideal para enseñar que la ciencia también es paciencia: se prepara, se predice y se vuelve a mirar un rato después.</p>
-
-            <h2>Experimento 3: la torre de líquidos</h2>
-            <p>En un vaso transparente, vierte con cuidado miel, luego agua con colorante y por último aceite. Si se hace despacio, quedan en capas que no se mezclan, formando una torre de colores. Antes de empezar, pídele al niño que adivine cuál quedará abajo y cuál arriba.</p>
-            <p>La razón es la densidad: la miel pesa más para su tamaño que el agua, y el agua más que el aceite, así que cada líquido se acomoda según su densidad. Puedes cerrar preguntando qué pasaría si echan un objeto pequeño, como una uva o una tapa: ¿en qué capa se quedará? Predecir y comprobar es justo lo que hace un científico.</p>
-            <p>Un buen truco para profundizar es convertir cada experimento en una competencia de predicciones. Antes de empezar, que cada miembro de la familia anote qué cree que va a pasar y por qué; al terminar, comparan quién se acercó más y qué razonamiento siguió. Lo valioso no es acertar, sino atreverse a predecir y a explicar, porque eso es exactamente lo que hace un científico: adelantar una idea y ponerla a prueba. Guardar esas predicciones en una libreta tiene un premio extra: al hojearla semanas después, el niño ve cómo han madurado sus propias ideas, una forma preciosa de notar cuánto ha aprendido sin ningún examen. Y cuando un experimento le fascine, anímalo a repetirlo cambiando una sola cosa a la vez (más cantidad, otro material, otra temperatura) y a observar qué cambia. Esa variación controlada, modificar un elemento y comparar el resultado, es el corazón del descubrimiento, y aprenderla jugando en la cocina es una base enorme para toda su vida escolar.</p>
-
-            <h2>Cómo convertir cualquier experimento en una lección</h2>
-            <p>Más importante que la lista de experimentos es la forma de acompañarlos. Con estos cuatro pasos, casi cualquier actividad se vuelve una experiencia científica de verdad, no un simple espectáculo que se ve y se olvida.</p>
-            <ol>
-                <li>Pregunta antes: ¿qué crees que va a pasar y por qué? Deja que se moje aunque falle.</li>
-                <li>Observen juntos con atención lo que ocurre de verdad, sin adelantar el resultado.</li>
-                <li>Explica el porqué en palabras sencillas, conectándolo con algo que ya conoce.</li>
-                <li>Cambia una cosa y repitan: más cantidad, otro material, y comparen qué cambia.</li>
-                <li>Anímalo a contar o dibujar lo que vio, para fijar la idea con sus propias palabras.</li>
-            </ol>
-
-            <h2>Qué evitar para que la ciencia no se vuelva aburrida</h2>
-            <p>Aun con buena intención, es fácil apagar la curiosidad en lugar de encenderla. Tener presentes estos errores ayuda a que el niño quiera repetir en lugar de huir de la ciencia.</p>
-            <ul>
-                <li>Hacerlo todo tú y que el niño solo mire: el aprendizaje está en sus manos, literalmente.</li>
-                <li>Dar la respuesta antes de que él prediga o pregunte, que es lo que entrena su pensamiento.</li>
-                <li>Convertirlo en examen: si te equivocas no pasa nada, un dato inesperado también enseña.</li>
-                <li>Encadenar muchos trucos seguidos sin explicar ninguno; mejor pocos y bien entendidos.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Del experimento en casa al curso de Ciencia y Astronomía</h3>
-                <p>El curso de Ciencia y Astronomía de WorldBrain es para niños de 8 a 14 años, en grupos por edad y presencial; empieza observando y experimentando, sin conocimientos previos. Escríbenos por WhatsApp para conocer horarios, sede y la próxima fecha de inicio.</p>
-                <a href="/ciencia-astronomia" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso de ciencia y astronomía <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Antes de empezar: seguridad y actitud</h2>
+                <p>Todos los experimentos de esta guía son seguros, pero conviene un par de reglas básicas: un adulto acompaña siempre, se hacen sobre una superficie fácil de limpiar y no se prueban ni se mezclan sustancias que no sean claramente comestibles o de uso doméstico conocido. La ciencia en casa se disfruta con calma, no con prisa.</p>
                 <ul>
-                <li><a href="/blog-sistema-solar-para-ninos">El sistema solar para niños: guía sencilla</a></li>
-                <li><a href="/blog-astronomia-para-ninos-como-empezar">Astronomía para niños: cómo empezar</a></li>
-                <li><a href="/blog-como-despertar-curiosidad-cientifica-ninos">Cómo despertar la curiosidad científica en niños</a></li>
-                <li><a href="/blog-beneficios-ensenar-ciencia-ninos">Beneficios de enseñar ciencia a los niños</a></li>
+                    <li>Acompaña al niño; no lo dejes solo con líquidos o cosas que puedan mancharse o volcarse.</li>
+                    <li>Prepara un espacio protegido (una charola, un mantel viejo) para experimentar sin miedo.</li>
+                    <li>Deja que el niño haga con sus manos lo que pueda; el aprendizaje es hacer, no mirar.</li>
+                    <li>No hay experimentos fallidos: si algo no sale como esperaban, eso también es un dato.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad puedo empezar a hacer experimentos con mi hijo?</h3>
-                <p>Muy pronto: incluso a los cuatro o cinco años se puede observar y predecir con experimentos sencillos y seguros, acompañado de un adulto. Lo que cambia con la edad es la profundidad de la explicación. Para los más pequeños basta con mirar y preguntarse por qué; con los mayores se pueden medir y cambiar variables.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito comprar un kit de ciencia?</h3>
-                <p>No al principio. Los experimentos más valiosos se hacen con lo que ya tienes: bicarbonato, vinagre, agua, colorante, aceite, papel. Un kit puede sumar más adelante, pero no es necesario para empezar. Lo que de verdad importa es el acompañamiento: preguntar, observar y explicar, y eso no se compra.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Y si el experimento no sale como esperábamos?</h3>
-                <p>Es una oportunidad, no un fracaso. Que algo salga distinto de lo previsto es exactamente lo que le pasa a un científico, y abre una gran pregunta: ¿por qué habrá sido? Revisen juntos qué pudo cambiar y vuelvan a intentarlo ajustando una cosa. Esa actitud vale más que cualquier experimento perfecto.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si mi hijo está aprendiendo ciencia o solo jugando?</h3>
-                <p>Buenas señales son que haga preguntas, que prediga qué pasará y que quiera cambiar algo para ver qué ocurre. Si empieza a decir y si hacemos esto otro, está pensando como científico. El juego y el aprendizaje no se oponen aquí: la curiosidad que despierta jugando es la base de todo lo demás.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Experimento 1: el volcán de bicarbonato</h2>
+                <p>Es un clásico porque funciona y enseña de verdad. En un recipiente pon un poco de bicarbonato de sodio y, aparte, vinagre con unas gotas de colorante. Pregúntale al niño qué cree que pasará al juntarlos. Cuando vierta el vinagre sobre el bicarbonato, la mezcla burbujea y sube como espuma.</p>
+                <p>La explicación, en palabras de niño: el vinagre y el bicarbonato reaccionan y forman un gas, dióxido de carbono, que es el que hace las burbujas y empuja la espuma hacia arriba. Es el mismo gas que forma las burbujas de los refrescos. Preguntar después qué pasaría con más vinagre, o con agua en lugar de vinagre, convierte el truco en una investigación.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Experimento 2: los colores que caminan</h2>
+                <p>Coloca varios vasos en fila, llena sí y no con agua y unas gotas de colorante en los que tienen agua. Conecta cada vaso con el siguiente usando una tira de papel doblada, como un puente. Con el tiempo, el agua de color sube por el papel y llena los vasos vacíos, mezclando colores en el camino.</p>
+                <p>Aquí el niño ve la capilaridad: el agua sube por los huequitos del papel, en contra de la gravedad, como cuando una servilleta absorbe un derrame. Es un experimento lento, ideal para enseñar que la ciencia también es paciencia: se prepara, se predice y se vuelve a mirar un rato después.</p>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Experimento 3: la torre de líquidos</h2>
+                <p>En un vaso transparente, vierte con cuidado miel, luego agua con colorante y por último aceite. Si se hace despacio, quedan en capas que no se mezclan, formando una torre de colores. Antes de empezar, pídele al niño que adivine cuál quedará abajo y cuál arriba.</p>
+                <p>La razón es la densidad: la miel pesa más para su tamaño que el agua, y el agua más que el aceite, así que cada líquido se acomoda según su densidad. Puedes cerrar preguntando qué pasaría si echan un objeto pequeño, como una uva o una tapa: ¿en qué capa se quedará? Predecir y comprobar es justo lo que hace un científico.</p>
+                <p>Un buen truco para profundizar es convertir cada experimento en una competencia de predicciones. Antes de empezar, que cada miembro de la familia anote qué cree que va a pasar y por qué; al terminar, comparan quién se acercó más y qué razonamiento siguió. Lo valioso no es acertar, sino atreverse a predecir y a explicar, porque eso es exactamente lo que hace un científico: adelantar una idea y ponerla a prueba. Guardar esas predicciones en una libreta tiene un premio extra: al hojearla semanas después, el niño ve cómo han madurado sus propias ideas, una forma preciosa de notar cuánto ha aprendido sin ningún examen. Y cuando un experimento le fascine, anímalo a repetirlo cambiando una sola cosa a la vez (más cantidad, otro material, otra temperatura) y a observar qué cambia. Esa variación controlada, modificar un elemento y comparar el resultado, es el corazón del descubrimiento, y aprenderla jugando en la cocina es una base enorme para toda su vida escolar.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo convertir cualquier experimento en una lección</h2>
+                <p>Más importante que la lista de experimentos es la forma de acompañarlos. Con estos cuatro pasos, casi cualquier actividad se vuelve una experiencia científica de verdad, no un simple espectáculo que se ve y se olvida.</p>
+                <ol>
+                    <li>Pregunta antes: ¿qué crees que va a pasar y por qué? Deja que se moje aunque falle.</li>
+                    <li>Observen juntos con atención lo que ocurre de verdad, sin adelantar el resultado.</li>
+                    <li>Explica el porqué en palabras sencillas, conectándolo con algo que ya conoce.</li>
+                    <li>Cambia una cosa y repitan: más cantidad, otro material, y comparen qué cambia.</li>
+                    <li>Anímalo a contar o dibujar lo que vio, para fijar la idea con sus propias palabras.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Qué evitar para que la ciencia no se vuelva aburrida</h2>
+                <p>Aun con buena intención, es fácil apagar la curiosidad en lugar de encenderla. Tener presentes estos errores ayuda a que el niño quiera repetir en lugar de huir de la ciencia.</p>
+                <ul>
+                    <li>Hacerlo todo tú y que el niño solo mire: el aprendizaje está en sus manos, literalmente.</li>
+                    <li>Dar la respuesta antes de que él prediga o pregunte, que es lo que entrena su pensamiento.</li>
+                    <li>Convertirlo en examen: si te equivocas no pasa nada, un dato inesperado también enseña.</li>
+                    <li>Encadenar muchos trucos seguidos sin explicar ninguno; mejor pocos y bien entendidos.</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Del experimento en casa al curso de Ciencia y Astronomía</h2>
+                    <p>El curso de Ciencia y Astronomía de WorldBrain es para niños de 8 a 14 años, en grupos por edad y presencial; empieza observando y experimentando, sin conocimientos previos. Escríbenos por WhatsApp para conocer horarios, sede y la próxima fecha de inicio.</p>
+                    <a href="/ciencia-astronomia" class="btn-primary">
+                        Conocer el curso de ciencia y astronomía <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-sistema-solar-para-ninos">
+                            <span>El sistema solar para niños: guía sencilla</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-astronomia-para-ninos-como-empezar">
+                            <span>Astronomía para niños: cómo empezar</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-despertar-curiosidad-cientifica-ninos">
+                            <span>Cómo despertar la curiosidad científica en niños</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-beneficios-ensenar-ciencia-ninos">
+                            <span>Beneficios de enseñar ciencia a los niños</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad puedo empezar a hacer experimentos con mi hijo?</h3>
+                    <p>Muy pronto: incluso a los cuatro o cinco años se puede observar y predecir con experimentos sencillos y seguros, acompañado de un adulto. Lo que cambia con la edad es la profundidad de la explicación. Para los más pequeños basta con mirar y preguntarse por qué; con los mayores se pueden medir y cambiar variables.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito comprar un kit de ciencia?</h3>
+                    <p>No al principio. Los experimentos más valiosos se hacen con lo que ya tienes: bicarbonato, vinagre, agua, colorante, aceite, papel. Un kit puede sumar más adelante, pero no es necesario para empezar. Lo que de verdad importa es el acompañamiento: preguntar, observar y explicar, y eso no se compra.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Y si el experimento no sale como esperábamos?</h3>
+                    <p>Es una oportunidad, no un fracaso. Que algo salga distinto de lo previsto es exactamente lo que le pasa a un científico, y abre una gran pregunta: ¿por qué habrá sido? Revisen juntos qué pudo cambiar y vuelvan a intentarlo ajustando una cosa. Esa actitud vale más que cualquier experimento perfecto.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si mi hijo está aprendiendo ciencia o solo jugando?</h3>
+                    <p>Buenas señales son que haga preguntas, que prediga qué pasará y que quiera cambiar algo para ver qué ocurre. Si empieza a decir y si hacemos esto otro, está pensando como científico. El juego y el aprendizaje no se oponen aquí: la curiosidad que despierta jugando es la base de todo lo demás.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -519,8 +610,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué hacen valiosos los experimentos de ciencia para niños
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Antes de empezar: seguridad y actitud
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Experimento 1: el volcán de bicarbonato
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Experimento 2: los colores que caminan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Experimento 3: la torre de líquidos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo convertir cualquier experimento en una lección
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué evitar para que la ciencia no se vuelva aburrida
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

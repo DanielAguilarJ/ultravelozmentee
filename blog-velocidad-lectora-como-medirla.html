@@ -354,166 +354,255 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-book-open"></i> Fotolectura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Velocidad lectora: cómo medir palabras por minuto y comprensión</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Fotolectura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Velocidad lectora: cómo medir palabras por minuto y comprensión</h1>
+                <p class="blog-post-dek">Aprende a medir tu velocidad lectora en palabras por minuto y tu comprensión con un protocolo reproducible. Incluye método, fórmulas y criterios de evaluación.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Fotolectura</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fotolectura-curso-lectura-rapida-libro.webp" alt="Velocidad lectora: cómo medir palabras por minuto y comprensión" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">No puedes mejorar lo que no mides. Antes de intentar leer más rápido, necesitas un punto de partida confiable: cuántas palabras lees por minuto y cuánto de lo leído realmente comprendes. Sin ambas medidas, cualquier progreso es anecdótico.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>10 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué mide la velocidad lectora y por qué importa la comprensión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Materiales necesarios para la medición
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Protocolo paso a paso para medir palabras por minuto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo calcular tu velocidad lectora efectiva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Errores comunes al medir la velocidad lectora y cómo evitarlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Rangos de referencia para adultos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo repetir la medición para observar progreso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Qué hacer con tu línea base una vez que la tienes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">No puedes mejorar lo que no mides. Antes de intentar leer más rápido, necesitas un punto de partida confiable: cuántas palabras lees por minuto y cuánto de lo leído realmente comprendes. Sin ambas medidas, cualquier progreso es anecdótico.</p>
             <p>Este protocolo te permite medir tu velocidad lectora y comprensión con herramientas simples, obtener una línea base reproducible y repetir la medición para observar cambios reales.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para medir tu velocidad lectora, lee un texto durante un tiempo controlado, cuenta las palabras leídas y divide entre los minutos. Luego responde preguntas de comprensión sobre el texto. Tu velocidad efectiva es las palabras por minuto multiplicadas por tu porcentaje de comprensión. Un adulto promedio lee entre 200 y 300 palabras por minuto con comprensión aceptable.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para medir tu velocidad lectora, lee un texto durante un tiempo controlado, cuenta las palabras leídas y divide entre los minutos. Luego responde preguntas de comprensión sobre el texto. Tu velocidad efectiva es las palabras por minuto multiplicadas por tu porcentaje de comprensión. Un adulto promedio lee entre 200 y 300 palabras por minuto con comprensión aceptable.</p>
+                </aside>
 
-            <h2>Qué mide la velocidad lectora y por qué importa la comprensión</h2>
-            <p>La velocidad lectora se expresa en palabras por minuto (ppm). Es un indicador útil pero incompleto: leer rápido sin comprender no sirve para estudiar ni para trabajar. Por eso toda medición de velocidad debe acompañarse de una evaluación de comprensión.</p>
-            <p>La comprensión lectora se evalúa con preguntas sobre el contenido. Un estándar práctico es considerar aceptable un 70% o más de respuestas correctas. Por debajo de ese umbral, la velocidad reportada no refleja lectura real.</p>
-            <p>Otro indicador útil es la tasa de comprensión por tipo de texto. Tu velocidad en un artículo de divulgación será diferente a la de un texto legal o un capítulo de matemáticas. Medir con diferentes tipos de texto te da un perfil más completo de tus capacidades lectoras y te permite identificar dónde tienes más margen de mejora.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué mide la velocidad lectora y por qué importa la comprensión</h2>
+                <p>La velocidad lectora se expresa en palabras por minuto (ppm). Es un indicador útil pero incompleto: leer rápido sin comprender no sirve para estudiar ni para trabajar. Por eso toda medición de velocidad debe acompañarse de una evaluación de comprensión.</p>
+                <p>La comprensión lectora se evalúa con preguntas sobre el contenido. Un estándar práctico es considerar aceptable un 70% o más de respuestas correctas. Por debajo de ese umbral, la velocidad reportada no refleja lectura real.</p>
+                <p>Otro indicador útil es la tasa de comprensión por tipo de texto. Tu velocidad en un artículo de divulgación será diferente a la de un texto legal o un capítulo de matemáticas. Medir con diferentes tipos de texto te da un perfil más completo de tus capacidades lectoras y te permite identificar dónde tienes más margen de mejora.</p>
+            </section>
 
-            <h2>Materiales necesarios para la medición</h2>
-            <p>Necesitas tres cosas: un texto que no hayas leído antes, un cronómetro y cinco preguntas de comprensión sobre el texto. El texto debe tener entre 800 y 1,500 palabras, con dificultad apropiada a tu nivel y temática que conozcas parcialmente pero que no hayas memorizado.</p>
-            <p>Evita textos con muchos tecnicismos desconocidos o textos demasiado ligeros. Los textos informativos de dificultad media (artículos de divulgación, ensayos breves) son ideales porque representan lectura de estudio real.</p>
-            <ul>
-                <li>Texto informativo de 800-1,500 palabras que no hayas leído antes.</li>
-                <li>Cronómetro o temporizador (el del celular funciona).</li>
-                <li>Cinco preguntas de comprensión preparadas de antemano o por alguien más.</li>
-                <li>Lápiz y papel o documento para registrar resultados.</li>
-                <li>Ambiente sin distracciones: silencio, buena iluminación, postura cómoda.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Materiales necesarios para la medición</h2>
+                <p>Necesitas tres cosas: un texto que no hayas leído antes, un cronómetro y cinco preguntas de comprensión sobre el texto. El texto debe tener entre 800 y 1,500 palabras, con dificultad apropiada a tu nivel y temática que conozcas parcialmente pero que no hayas memorizado.</p>
+                <p>Evita textos con muchos tecnicismos desconocidos o textos demasiado ligeros. Los textos informativos de dificultad media (artículos de divulgación, ensayos breves) son ideales porque representan lectura de estudio real.</p>
+                <ul>
+                    <li>Texto informativo de 800-1,500 palabras que no hayas leído antes.</li>
+                    <li>Cronómetro o temporizador (el del celular funciona).</li>
+                    <li>Cinco preguntas de comprensión preparadas de antemano o por alguien más.</li>
+                    <li>Lápiz y papel o documento para registrar resultados.</li>
+                    <li>Ambiente sin distracciones: silencio, buena iluminación, postura cómoda.</li>
+                </ul>
+            </section>
 
-            <h2>Protocolo paso a paso para medir palabras por minuto</h2>
-            <p>Sigue estos pasos en orden. La consistencia del protocolo es lo que hace que las mediciones sean comparables entre sí. Si cambias las condiciones cada vez, no podrás saber si la mejora es real o resultado de un texto más fácil o un día con más energía.</p>
-            <p>Un error frecuente en la medición es leer con la presión de querer ir rápido. Esto distorsiona tu resultado real. La primera medición debe ser a tu velocidad natural, sin intentar impresionar ni superar ningún estándar. El propósito es obtener una línea base honesta, no un récord personal. Puedes repetir la medición en condiciones de velocidad forzada después, pero separa ambas.</p>
-            <ol>
-                <li>Prepara el texto con el conteo de palabras hecho de antemano (usa el contador de tu procesador de texto).</li>
-                <li>Siéntate en un lugar sin distracciones con buena iluminación.</li>
-                <li>Activa el cronómetro e inicia la lectura a tu velocidad natural, sin presionarte.</li>
-                <li>Lee hasta terminar el texto o hasta que suene un temporizador si usas tiempo fijo (3 minutos es un estándar útil).</li>
-                <li>Anota las palabras leídas. Si terminaste el texto, usa el total; si usaste temporizador, cuenta hasta donde llegaste.</li>
-                <li>Divide las palabras leídas entre los minutos empleados. Ese es tu resultado en ppm.</li>
-                <li>Inmediatamente después, responde las preguntas de comprensión sin releer el texto.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Protocolo paso a paso para medir palabras por minuto</h2>
+                <p>Sigue estos pasos en orden. La consistencia del protocolo es lo que hace que las mediciones sean comparables entre sí. Si cambias las condiciones cada vez, no podrás saber si la mejora es real o resultado de un texto más fácil o un día con más energía.</p>
+                <p>Un error frecuente en la medición es leer con la presión de querer ir rápido. Esto distorsiona tu resultado real. La primera medición debe ser a tu velocidad natural, sin intentar impresionar ni superar ningún estándar. El propósito es obtener una línea base honesta, no un récord personal. Puedes repetir la medición en condiciones de velocidad forzada después, pero separa ambas.</p>
+                <ol>
+                    <li>Prepara el texto con el conteo de palabras hecho de antemano (usa el contador de tu procesador de texto).</li>
+                    <li>Siéntate en un lugar sin distracciones con buena iluminación.</li>
+                    <li>Activa el cronómetro e inicia la lectura a tu velocidad natural, sin presionarte.</li>
+                    <li>Lee hasta terminar el texto o hasta que suene un temporizador si usas tiempo fijo (3 minutos es un estándar útil).</li>
+                    <li>Anota las palabras leídas. Si terminaste el texto, usa el total; si usaste temporizador, cuenta hasta donde llegaste.</li>
+                    <li>Divide las palabras leídas entre los minutos empleados. Ese es tu resultado en ppm.</li>
+                    <li>Inmediatamente después, responde las preguntas de comprensión sin releer el texto.</li>
+                </ol>
+            </section>
 
-            <h2>Cómo calcular tu velocidad lectora efectiva</h2>
-            <p>La velocidad lectora efectiva combina rapidez y comprensión en un solo número. La fórmula es simple: multiplica tus palabras por minuto por tu porcentaje de comprensión. Esto te da un indicador más útil que la velocidad bruta.</p>
-            <p>Por ejemplo: si lees a 280 ppm y respondes correctamente 4 de 5 preguntas (80% de comprensión), tu velocidad efectiva es 280 × 0.80 = 224 ppm efectivas. Este número es el que debes intentar mejorar, no la velocidad bruta por sí sola.</p>
-            <ul>
-                <li>Fórmula: Velocidad efectiva = ppm × (respuestas correctas / total de preguntas).</li>
-                <li>Ejemplo: 300 ppm × 0.60 comprensión = 180 ppm efectivas (comprensión insuficiente).</li>
-                <li>Ejemplo: 220 ppm × 0.90 comprensión = 198 ppm efectivas (velocidad baja pero comprensión alta).</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Cómo calcular tu velocidad lectora efectiva</h2>
+                <p>La velocidad lectora efectiva combina rapidez y comprensión en un solo número. La fórmula es simple: multiplica tus palabras por minuto por tu porcentaje de comprensión. Esto te da un indicador más útil que la velocidad bruta.</p>
+                <p>Por ejemplo: si lees a 280 ppm y respondes correctamente 4 de 5 preguntas (80% de comprensión), tu velocidad efectiva es 280 × 0.80 = 224 ppm efectivas. Este número es el que debes intentar mejorar, no la velocidad bruta por sí sola.</p>
+                <ul>
+                    <li>Fórmula: Velocidad efectiva = ppm × (respuestas correctas / total de preguntas).</li>
+                    <li>Ejemplo: 300 ppm × 0.60 comprensión = 180 ppm efectivas (comprensión insuficiente).</li>
+                    <li>Ejemplo: 220 ppm × 0.90 comprensión = 198 ppm efectivas (velocidad baja pero comprensión alta).</li>
+                </ul>
+            </section>
 
-            <h2>Errores comunes al medir la velocidad lectora y cómo evitarlos</h2>
-            <p>El error más frecuente es usar un texto que ya conoces parcialmente. Si el tema te es familiar, tu velocidad será artificialmente alta porque tu cerebro anticipa contenido. Siempre usa textos que no hayas leído antes y sobre temas donde tengas conocimiento parcial pero no dominio.</p>
-            <p>El segundo error es medir después de una jornada laboral larga. Tu velocidad y comprensión a las diez de la noche tras ocho horas de trabajo serán significativamente menores que a las nueve de la mañana descansado. Para que tu línea base sea representativa, mide en un momento donde estés razonablemente alerta, no en tu peor estado cognitivo del día.</p>
-            <ul>
-                <li>No uses textos que ya hayas leído o cuyo contenido conozcas bien.</li>
-                <li>No midas cuando estés exhausto: tu resultado será artificialmente bajo.</li>
-                <li>No cambies las condiciones entre mediciones (hora, lugar, tipo de texto).</li>
-                <li>No uses textos demasiado cortos (menos de 500 palabras): la variabilidad es alta.</li>
-                <li>No te presiones a ir rápido en la medición de línea base: lee a tu ritmo natural.</li>
-                <li>No hagas dos mediciones seguidas: la segunda siempre es más rápida por familiaridad con el formato.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Errores comunes al medir la velocidad lectora y cómo evitarlos</h2>
+                <p>El error más frecuente es usar un texto que ya conoces parcialmente. Si el tema te es familiar, tu velocidad será artificialmente alta porque tu cerebro anticipa contenido. Siempre usa textos que no hayas leído antes y sobre temas donde tengas conocimiento parcial pero no dominio.</p>
+                <p>El segundo error es medir después de una jornada laboral larga. Tu velocidad y comprensión a las diez de la noche tras ocho horas de trabajo serán significativamente menores que a las nueve de la mañana descansado. Para que tu línea base sea representativa, mide en un momento donde estés razonablemente alerta, no en tu peor estado cognitivo del día.</p>
+                <ul>
+                    <li>No uses textos que ya hayas leído o cuyo contenido conozcas bien.</li>
+                    <li>No midas cuando estés exhausto: tu resultado será artificialmente bajo.</li>
+                    <li>No cambies las condiciones entre mediciones (hora, lugar, tipo de texto).</li>
+                    <li>No uses textos demasiado cortos (menos de 500 palabras): la variabilidad es alta.</li>
+                    <li>No te presiones a ir rápido en la medición de línea base: lee a tu ritmo natural.</li>
+                    <li>No hagas dos mediciones seguidas: la segunda siempre es más rápida por familiaridad con el formato.</li>
+                </ul>
+            </section>
 
-            <h2>Rangos de referencia para adultos</h2>
-            <p>No existe un número universal de ppm correcto porque la velocidad varía según el tipo de texto, la familiaridad con el tema y el propósito de lectura. Sin embargo, los siguientes rangos sirven como referencia general para textos informativos de dificultad media en español.</p>
-            <p>Estos rangos no son metas ni estándares de calificación. Son puntos de referencia para ubicarte y observar tu progreso. Alguien que lee a 180 ppm con 90% de comprensión es un lector más efectivo que alguien que lee a 400 ppm con 40% de comprensión.</p>
-            <p>Un detalle importante: no compares tu velocidad con promedios internacionales publicados en inglés. La velocidad lectora varía según el idioma, y el español tiene una estructura morfológica y sintáctica diferente al inglés. Los rangos que ofrecemos aquí son específicos para lectura en español de textos informativos.</p>
-            <ul>
-                <li>Menos de 150 ppm: velocidad baja; puede indicar subvocalización excesiva o dificultades.</li>
-                <li>150-250 ppm: rango común en adultos con lectura ocasional.</li>
-                <li>250-350 ppm: lector habitual con buena fluidez.</li>
-                <li>350-500 ppm: lector entrenado o con mucha práctica.</li>
-                <li>Más de 500 ppm con alta comprensión: excepcional; verificar que la comprensión sea genuina.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Rangos de referencia para adultos</h2>
+                <p>No existe un número universal de ppm correcto porque la velocidad varía según el tipo de texto, la familiaridad con el tema y el propósito de lectura. Sin embargo, los siguientes rangos sirven como referencia general para textos informativos de dificultad media en español.</p>
+                <p>Estos rangos no son metas ni estándares de calificación. Son puntos de referencia para ubicarte y observar tu progreso. Alguien que lee a 180 ppm con 90% de comprensión es un lector más efectivo que alguien que lee a 400 ppm con 40% de comprensión.</p>
+                <p>Un detalle importante: no compares tu velocidad con promedios internacionales publicados en inglés. La velocidad lectora varía según el idioma, y el español tiene una estructura morfológica y sintáctica diferente al inglés. Los rangos que ofrecemos aquí son específicos para lectura en español de textos informativos.</p>
+                <ul>
+                    <li>Menos de 150 ppm: velocidad baja; puede indicar subvocalización excesiva o dificultades.</li>
+                    <li>150-250 ppm: rango común en adultos con lectura ocasional.</li>
+                    <li>250-350 ppm: lector habitual con buena fluidez.</li>
+                    <li>350-500 ppm: lector entrenado o con mucha práctica.</li>
+                    <li>Más de 500 ppm con alta comprensión: excepcional; verificar que la comprensión sea genuina.</li>
+                </ul>
+            </section>
 
-            <h2>Cómo repetir la medición para observar progreso</h2>
-            <p>Para que las mediciones sean comparables, mantén las condiciones lo más constantes posible: mismo momento del día, mismo tipo de texto (informativo, dificultad media), mismo número de preguntas y mismo ambiente. Cambia únicamente el texto específico.</p>
-            <p>Mide una vez por semana. Mediciones más frecuentes introducen demasiada variabilidad por factores como cansancio, estrés o familiaridad con el tema. Una medición semanal te da tendencias sin el ruido del día a día.</p>
-            <ol>
-                <li>Elige un día fijo de la semana para medir (siempre el mismo).</li>
-                <li>Prepara un texto nuevo cada semana con dificultad similar.</li>
-                <li>Realiza la medición en las mismas condiciones: hora, lugar, estado de descanso.</li>
-                <li>Registra los resultados en una tabla: fecha, ppm, comprensión, ppm efectivas.</li>
-                <li>Busca tendencias después de cuatro mediciones, no conclusiones de una sola.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo repetir la medición para observar progreso</h2>
+                <p>Para que las mediciones sean comparables, mantén las condiciones lo más constantes posible: mismo momento del día, mismo tipo de texto (informativo, dificultad media), mismo número de preguntas y mismo ambiente. Cambia únicamente el texto específico.</p>
+                <p>Mide una vez por semana. Mediciones más frecuentes introducen demasiada variabilidad por factores como cansancio, estrés o familiaridad con el tema. Una medición semanal te da tendencias sin el ruido del día a día.</p>
+                <ol>
+                    <li>Elige un día fijo de la semana para medir (siempre el mismo).</li>
+                    <li>Prepara un texto nuevo cada semana con dificultad similar.</li>
+                    <li>Realiza la medición en las mismas condiciones: hora, lugar, estado de descanso.</li>
+                    <li>Registra los resultados en una tabla: fecha, ppm, comprensión, ppm efectivas.</li>
+                    <li>Busca tendencias después de cuatro mediciones, no conclusiones de una sola.</li>
+                </ol>
+            </section>
 
-            <h2>Qué hacer con tu línea base una vez que la tienes</h2>
-            <p>Tu primera medición es tu punto de partida, no un veredicto. Si tu velocidad es baja, tienes espacio para mejorar con práctica. Si ya es alta, puedes enfocarte en comprensión o en textos más difíciles.</p>
-            <p>A partir de la línea base, puedes establecer una meta realista: mejorar un 10-15% en velocidad efectiva a lo largo de un mes manteniendo o mejorando la comprensión. Metas más agresivas suelen sacrificar comprensión, lo cual es contraproducente.</p>
-            <p>Si tu velocidad efectiva inicial es baja (menor a 150 ppm), no te desanimes. Esto es común en personas que leen poco de forma regular o que acaban de retomar hábitos de lectura después de años. La buena noticia es que el margen de mejora es grande: las primeras semanas de práctica deliberada suelen producir los saltos más notables precisamente en quienes parten de una base baja.</p>
+            <section class="ed-article-section" id="seccion-8" aria-labelledby="seccion-8-titulo">
+                <h2 id="seccion-8-titulo">Qué hacer con tu línea base una vez que la tienes</h2>
+                <p>Tu primera medición es tu punto de partida, no un veredicto. Si tu velocidad es baja, tienes espacio para mejorar con práctica. Si ya es alta, puedes enfocarte en comprensión o en textos más difíciles.</p>
+                <p>A partir de la línea base, puedes establecer una meta realista: mejorar un 10-15% en velocidad efectiva a lo largo de un mes manteniendo o mejorando la comprensión. Metas más agresivas suelen sacrificar comprensión, lo cual es contraproducente.</p>
+                <p>Si tu velocidad efectiva inicial es baja (menor a 150 ppm), no te desanimes. Esto es común en personas que leen poco de forma regular o que acaban de retomar hábitos de lectura después de años. La buena noticia es que el margen de mejora es grande: las primeras semanas de práctica deliberada suelen producir los saltos más notables precisamente en quienes parten de una base baja.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Mide tu velocidad y aprende a mejorarla con método</h3>
-                <p>En nuestro curso de Fotolectura realizamos una medición inicial de velocidad y comprensión para establecer tu línea base. A partir de ahí, trabajas con técnicas progresivas y mediciones semanales para observar tu mejora real. Consulta cómo funciona el programa.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso de lectura rápida <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Mide tu velocidad y aprende a mejorarla con método</h2>
+                    <p>En nuestro curso de Fotolectura realizamos una medición inicial de velocidad y comprensión para establecer tu línea base. A partir de ahí, trabajas con técnicas progresivas y mediciones semanales para observar tu mejora real. Consulta cómo funciona el programa.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Conocer el curso de lectura rápida <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es normal que mi velocidad varíe mucho entre mediciones?</h3>
-                <p>Sí. Factores como el cansancio, la familiaridad con el tema, la dificultad del texto y tu estado emocional afectan la velocidad. Por eso es importante medir en condiciones constantes y buscar tendencias en varias mediciones, no conclusiones de una sola.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo medir la velocidad en voz alta o en silencio?</h3>
-                <p>Mide en lectura silenciosa, que es como lees normalmente al estudiar. La lectura en voz alta tiene un límite de velocidad impuesto por la articulación y mide una habilidad diferente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo preparo buenas preguntas de comprensión?</h3>
-                <p>Incluye preguntas de diferentes niveles: una sobre un dato explícito, otra sobre la idea principal, otra sobre una relación entre conceptos y otra que requiera inferencia. Evita preguntas que se respondan por sentido común sin haber leído.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué ppm debo alcanzar para que la fotolectura me funcione?</h3>
-                <p>No hay un requisito mínimo de velocidad para practicar fotolectura. Sin embargo, tener una lectura convencional fluida (arriba de 200 ppm con buena comprensión) facilita las fases de activación y lectura selectiva del método.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://journals.sagepub.com/doi/10.1177/1529100615623267" target="_blank" rel="noopener noreferrer">Rayner, K. et al. – Eye Movements in Reading and Information Processing</a> — Datos sobre velocidad lectora promedio y límites cognitivos</li>
-                <li><a href="https://doi.org/10.1016/j.jml.2019.104047" target="_blank" rel="noopener noreferrer">Brysbaert, M. – How many words do we read per minute? A review</a> — Meta-análisis sobre velocidad lectora en adultos</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es normal que mi velocidad varíe mucho entre mediciones?</h3>
+                    <p>Sí. Factores como el cansancio, la familiaridad con el tema, la dificultad del texto y tu estado emocional afectan la velocidad. Por eso es importante medir en condiciones constantes y buscar tendencias en varias mediciones, no conclusiones de una sola.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo medir la velocidad en voz alta o en silencio?</h3>
+                    <p>Mide en lectura silenciosa, que es como lees normalmente al estudiar. La lectura en voz alta tiene un límite de velocidad impuesto por la articulación y mide una habilidad diferente.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo preparo buenas preguntas de comprensión?</h3>
+                    <p>Incluye preguntas de diferentes niveles: una sobre un dato explícito, otra sobre la idea principal, otra sobre una relación entre conceptos y otra que requiera inferencia. Evita preguntas que se respondan por sentido común sin haber leído.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué ppm debo alcanzar para que la fotolectura me funcione?</h3>
+                    <p>No hay un requisito mínimo de velocidad para practicar fotolectura. Sin embargo, tener una lectura convencional fluida (arriba de 200 ppm con buena comprensión) facilita las fases de activación y lectura selectiva del método.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://journals.sagepub.com/doi/10.1177/1529100615623267" target="_blank" rel="noopener noreferrer">Rayner, K. et al. – Eye Movements in Reading and Information Processing</a> — Datos sobre velocidad lectora promedio y límites cognitivos</li>
+                    <li><a href="https://doi.org/10.1016/j.jml.2019.104047" target="_blank" rel="noopener noreferrer">Brysbaert, M. – How many words do we read per minute? A review</a> — Meta-análisis sobre velocidad lectora en adultos</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -543,8 +632,72 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué mide la velocidad lectora y por qué importa la comprensión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Materiales necesarios para la medición
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Protocolo paso a paso para medir palabras por minuto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo calcular tu velocidad lectora efectiva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Errores comunes al medir la velocidad lectora y cómo evitarlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Rangos de referencia para adultos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo repetir la medición para observar progreso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Qué hacer con tu línea base una vez que la tienes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

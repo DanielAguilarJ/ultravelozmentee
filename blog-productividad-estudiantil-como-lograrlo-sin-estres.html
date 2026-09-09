@@ -362,172 +362,270 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="11">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo lograr productividad estudiantil sin estrés</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 11 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo lograr productividad estudiantil sin estrés</h1>
+                <p class="blog-post-dek">Cómo ser productivo al estudiar sin vivir estresado: carga sostenible, menos incertidumbre, descanso planeado y señales de cuándo pedir ayuda.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>11 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Cómo lograr productividad estudiantil sin estrés" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Buena parte del estrés que se siente al estudiar no viene del contenido, sino de no saber a qué distancia estás de terminar. Un temario sin inventario se percibe infinito, y un plan que ocupa cada hora libre garantiza que todos los días cierres con la sensación de deber algo. Ninguna de las dos cosas tiene relación con la dificultad de las materias: son problemas de diseño.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué significa estudiar sin estrés y qué no significa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>La incertidumbre pesa más que la carga
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Diseñar una carga que se pueda sostener
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: rediseño de una semana de preparación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Descanso planeado, no descanso residual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo hablar del avance con quien te acompaña
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cuándo el estrés deja de ser un asunto de método
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Buena parte del estrés que se siente al estudiar no viene del contenido, sino de no saber a qué distancia estás de terminar. Un temario sin inventario se percibe infinito, y un plan que ocupa cada hora libre garantiza que todos los días cierres con la sensación de deber algo. Ninguna de las dos cosas tiene relación con la dificultad de las materias: son problemas de diseño.</p>
             <p>Este texto separa el estrés que acompaña al esfuerzo del que solo desgasta, muestra cómo armar una carga sostenible y reducir la incertidumbre, incluye el rediseño concreto de una semana de preparación y termina con las señales que indican que lo que ocurre ya no se resuelve ajustando el horario. La meta no es un estudio cómodo, sino uno que puedas sostener durante meses sin quebrarte.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Estudiar sin estrés no consiste en exigirte menos, sino en quitar las tres fuentes que más presión generan sin aportar aprendizaje: la incertidumbre de no saber qué falta, los planes que no caben en tu semana real y la ausencia de un cierre claro del día. Con un inventario visible, una carga que puedas sostener y una hora fija de término, la misma cantidad de trabajo pesa notablemente menos.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Estudiar sin estrés no consiste en exigirte menos, sino en quitar las tres fuentes que más presión generan sin aportar aprendizaje: la incertidumbre de no saber qué falta, los planes que no caben en tu semana real y la ausencia de un cierre claro del día. Con un inventario visible, una carga que puedas sostener y una hora fija de término, la misma cantidad de trabajo pesa notablemente menos.</p>
+                </aside>
 
-            <h2>Qué significa estudiar sin estrés y qué no significa</h2>
-            <p>Sin estrés no quiere decir sin esfuerzo ni sin tensión. Preparar un examen importante implica cierta activación, y esa activación mejora el desempeño hasta un punto: te mantiene atento y te empuja a empezar. El problema aparece cuando la tensión ya no depende del trabajo sino de la sensación permanente de estar atrasado, porque entonces acompaña también los descansos, las comidas y las horas de sueño, y ahí deja de aportar algo.</p>
-            <p>La distinción práctica es qué se apaga y cuándo. Un estrés funcional baja cuando cierras la sesión, porque hiciste lo que tocaba y lo sabes. Un estrés desgastante no baja al terminar, porque nunca queda claro qué era suficiente. Ese es el que conviene atacar, y casi siempre se ataca cambiando el diseño del plan, no la actitud.</p>
-            <ul>
-                <li>Estrés funcional: aparece antes de trabajar, te activa, y baja al cerrar la sesión.</li>
-                <li>Estrés desgastante: no depende de la tarea, sino de no saber cuánto falta; no baja al terminar.</li>
-                <li>Si al cerrar el día no puedes decir qué avanzaste, el problema es de definición, no de esfuerzo.</li>
-                <li>Si la tensión te acompaña también en los descansos, revisa el diseño del plan antes que tu disciplina.</li>
-            </ul>
-
-            <h2>La incertidumbre pesa más que la carga</h2>
-            <p>Entre dos estudiantes con el mismo material pendiente, el que sabe exactamente qué le falta vive el proceso de forma muy distinta a quien lo intuye. Un temario sin inventario se percibe como una masa sin bordes, y la mente tiende a estimar ese tipo de pendientes por lo peor. Poner el pendiente en una hoja no reduce el trabajo, pero le da tamaño, y un pendiente con tamaño se puede repartir.</p>
-            <p>El mismo principio aplica al día. Sentarte a "estudiar química" deja abierta la pregunta de cuándo terminaste, así que cualquier hora de cierre se siente arbitraria y culposa. Sentarte a resolver una serie definida termina en un punto identificable. La diferencia en tensión percibida entre esas dos versiones del mismo trabajo es grande, y no cuesta nada obtenerla.</p>
-            <ol>
-                <li>Escribe el inventario completo de temas pendientes en una hoja, sin detallar de más.</li>
-                <li>Marca el estado de cada tema en tres niveles para saber cuánto es nuevo y cuánto es repaso.</li>
-                <li>Reparte los temas en las semanas disponibles y deja una semana de holgura al final.</li>
-                <li>Traduce cada bloque diario en una tarea con final identificable, no en una cantidad de horas.</li>
-                <li>Al cerrar el día, tacha lo hecho: ver el inventario reducirse es lo que quita peso a la incertidumbre.</li>
-            </ol>
-
-            <h2>Diseñar una carga que se pueda sostener</h2>
-            <p>Casi todos los planes de estudio se diseñan pensando en la mejor semana posible, y luego se juzgan contra semanas normales. Una carga sostenible se diseña al revés: para la semana promedio, con imprevistos incluidos y con margen. Si tu plan solo funciona cuando todo sale bien, va a fallar la mayoría de las semanas y cada falla va a sumar tensión que no corresponde a tu esfuerzo real.</p>
-            <p>El margen no es tiempo perdido: es lo que permite que un contratiempo no desmorone el resto. Un plan con dos bloques libres por semana absorbe una tarde perdida sin drama; uno lleno al tope convierte cualquier imprevisto en deuda acumulada. Y conviene fijar una hora de término del día, porque un día sin cierre se estira, roba sueño y degrada el siguiente.</p>
-            <ul>
-                <li>Diseña para tu semana promedio, no para la ideal; deja dos bloques de holgura.</li>
-                <li>Fija una hora de cierre y respétala aunque quede trabajo: el día siguiente depende de eso.</li>
-                <li>Prefiere bloques cortos diarios a sesiones largas concentradas en dos días.</li>
-                <li>Define de antemano qué recortas en una semana difícil, para no improvisarlo bajo presión.</li>
-                <li>Revisa el plan una vez por semana, no todos los días; replanear a diario genera su propia tensión.</li>
-            </ul>
-
-            <h2>Ejemplo aplicado: rediseño de una semana de preparación</h2>
-            <p>Paulina preparaba su examen de admisión con un plan que en el papel se veía sólido: cuatro horas diarias de lunes a viernes y seis los sábados, repartidas por área. En la práctica cumplía tres o cuatro días de la semana, terminaba cerca de la medianoche y arrastraba la sensación de estar siempre atrasada. Cuando revisó el plan contra su semana real apareció el problema: no había contado los traslados ni las tareas de la escuela, así que las cuatro horas diarias solo existían en teoría.</p>
-            <p>El primer ajuste fue construir el inventario que no tenía. Al escribir todos los temas del temario con su estado —los resuelvo, los reconozco, no los he visto— descubrió que dos terceras partes estaban en los dos primeros niveles. El pendiente real era más chico de lo que sentía, y eso solo lo pudo ver escrito. La cifra no cambió su carga, pero sí la percepción de distancia que traía cargando desde meses antes.</p>
-            <p>El segundo ajuste fue bajar a dos bloques diarios de cincuenta minutos, con una tarea definida cada uno y hora de cierre a las nueve y media de la noche. Perdió cerca de una hora y media diaria de plan teórico y ganó cinco días cumplidos en lugar de tres. En términos de trabajo efectivo, la semana rindió más, porque las horas anteriores incluían dos tramos nocturnos en los que apenas retenía nada.</p>
-            <p>El tercer ajuste fue dejar los sábados con un solo bloque de simulación y el domingo completamente libre, sin material a la vista. Le costó tres semanas dejar de sentir culpa los domingos. Al mes su registro mostraba más ejercicios resueltos sin ayuda que en el esquema anterior y, sobre todo, había dejado de terminar las semanas agotada, lo cual importaba porque su preparación aún tenía varios meses por delante.</p>
-
-            <h2>Descanso planeado, no descanso residual</h2>
-            <p>En la mayoría de los planes el descanso es lo que queda cuando ya no se puede más, y por eso llega tarde, mal y con culpa. Un descanso planeado hace dos cosas que el residual no: reduce la tensión de fondo porque sabes que existe, y permite recuperar atención antes de que el rendimiento caiga. La diferencia se nota más en preparaciones largas, donde el problema no es una semana intensa sino sostener cuatro meses.</p>
-            <p>Conviene distinguir descanso de distracción. Los intervalos entre bloques rinden más si implican moverse, mirar lejos, tomar agua o salir un momento, y rinden poco frente a una pantalla, porque la atención sigue ocupada. Y en la escala semanal, tener un tramo protegido sin material a la vista es lo que evita que la preparación se convierta en un estado permanente sin salida.</p>
-            <ul>
-                <li>Agenda el descanso al mismo tiempo que los bloques de estudio, no después.</li>
-                <li>En los intervalos, levántate del escritorio; diez minutos frente a una pantalla no reponen atención.</li>
-                <li>Protege un tramo semanal sin material a la vista, aunque sea medio día.</li>
-                <li>Cuida el sueño como parte del plan de estudio, no como lo que sobra al final del día.</li>
-                <li>Si el descanso te genera culpa, escríbelo en el plan: lo agendado se defiende mejor que lo improvisado.</li>
-            </ul>
-
-            <h2>Cómo hablar del avance con quien te acompaña</h2>
-            <p>Una parte del estrés no viene del estudio sino de las conversaciones alrededor. Las preguntas frecuentes sobre cómo vas, hechas con buena intención, suelen pedir un resumen imposible y terminan reforzando la sensación de atraso. Compartir el inventario y el plan con quien te acompaña cambia la conversación: en lugar de responder si vas bien, puedes mostrar qué temas ya están cerrados esta semana.</p>
-            <p>También ayuda acordar cuándo se revisa el avance. Si hay un momento fijo a la semana para hablar del tema, el resto de los días queda libre de esa revisión constante. Esto aplica igual con familia, con un tutor o con quien comparte la preparación: la previsibilidad reduce la tensión de la misma manera que la reduce un plan con bordes claros.</p>
-            <ul>
-                <li>Comparte el inventario, no una impresión general: es más fácil de conversar y más justo contigo.</li>
-                <li>Acuerda un momento fijo a la semana para revisar el avance y deja los otros días fuera del tema.</li>
-                <li>Si estudias con alguien más, comparen métodos y no calificaciones ni horas.</li>
-                <li>Pide ayuda concreta —revisar un tema, tomar tiempo en una simulación— en lugar de apoyo genérico.</li>
-            </ul>
-
-            <h2>Cuándo el estrés deja de ser un asunto de método</h2>
-            <p>Todo lo anterior corresponde al diseño del estudio, y con eso se resuelve una parte importante de la presión que sienten la mayoría de los estudiantes. Hay otra parte que no se arregla con horarios, y conviene reconocerla sin dramatizarla ni minimizarla. Cuando el malestar deja de aparecer solo alrededor del estudio y se instala en el sueño, el apetito, el ánimo o la capacidad de concentrarte en cualquier cosa, ya no estás frente a un problema de planeación.</p>
-            <p>En ese escenario lo indicado es consultar a un profesional de salud mental, y hacerlo temprano en lugar de esperar a que el ciclo termine. No es un paso extraordinario ni una señal de que algo está mal contigo; es el mismo criterio con que se atiende cualquier síntoma que persiste. Ajustar el plan sigue siendo útil en paralelo, pero no sustituye esa consulta.</p>
-            <ul>
-                <li>Señal de alerta: el malestar persiste semanas y aparece también fuera del contexto de estudio.</li>
-                <li>Señal de alerta: cambios sostenidos en sueño, apetito, ánimo o capacidad de concentración.</li>
-                <li>Señal de alerta: episodios de ansiedad marcada durante los exámenes que no ceden con preparación.</li>
-                <li>En cualquiera de esos casos, consulta a un profesional de salud mental; muchas escuelas ofrecen orientación.</li>
-                <li>Mientras tanto, reduce la carga a lo indispensable en lugar de sostener el plan completo.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Una preparación de admisión larga necesita ritmo, no arranques</h3>
-                <p>En un proceso de admisión la dificultad no está en una semana intensa sino en sostener varios meses sin desgastarte, y eso depende de tener el temario inventariado, la carga repartida y simulaciones espaciadas que te digan dónde estás sin tener que adivinarlo. Nuestro programa de admisión universitaria trabaja con esa estructura de ritmo y seguimiento, para que el avance no dependa de la energía que traigas cada semana.</p>
-                <a href="/admision-universitaria" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conoce el programa de admisión universitaria <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué significa estudiar sin estrés y qué no significa</h2>
+                <p>Sin estrés no quiere decir sin esfuerzo ni sin tensión. Preparar un examen importante implica cierta activación, y esa activación mejora el desempeño hasta un punto: te mantiene atento y te empuja a empezar. El problema aparece cuando la tensión ya no depende del trabajo sino de la sensación permanente de estar atrasado, porque entonces acompaña también los descansos, las comidas y las horas de sueño, y ahí deja de aportar algo.</p>
+                <p>La distinción práctica es qué se apaga y cuándo. Un estrés funcional baja cuando cierras la sesión, porque hiciste lo que tocaba y lo sabes. Un estrés desgastante no baja al terminar, porque nunca queda claro qué era suficiente. Ese es el que conviene atacar, y casi siempre se ataca cambiando el diseño del plan, no la actitud.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-senales-de-progreso">Señales de progreso en productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-estrategias-efectivas">Estrategias efectivas de productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-plan-de-emergencia">Plan de emergencia de productividad estudiantil</a></li>
+                    <li>Estrés funcional: aparece antes de trabajar, te activa, y baja al cerrar la sesión.</li>
+                    <li>Estrés desgastante: no depende de la tarea, sino de no saber cuánto falta; no baja al terminar.</li>
+                    <li>Si al cerrar el día no puedes decir qué avanzaste, el problema es de definición, no de esfuerzo.</li>
+                    <li>Si la tensión te acompaña también en los descansos, revisa el diseño del plan antes que tu disciplina.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Se puede preparar un examen exigente sin sentir presión en ningún momento?</h3>
-                <p>No, y tampoco sería deseable: cierta activación mejora la atención y ayuda a empezar. La diferencia está en que esa tensión aparezca alrededor del trabajo y baje al cerrar la sesión, en lugar de acompañarte todo el día. Cuando la presión no cede ni en los descansos, casi siempre hay un problema de diseño del plan o una señal que conviene revisar con un profesional.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si termino el día sin cumplir el plan y me siento mal por eso?</h3>
-                <p>Revisa si el plan era cumplible en una semana normal, con traslados, tareas e imprevistos contados. Si no lo era, la culpa está mal dirigida: el diseño falló, no tú. Reduce la carga diaria a lo que puedas sostener cinco días seguidos y agrega dos bloques de holgura semanal para absorber los contratiempos sin que se acumulen.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es contraproducente tomarse un día completo libre durante una preparación larga?</h3>
-                <p>En preparaciones de varios meses, un tramo semanal protegido suele ayudar a sostener el ritmo, porque el problema en esos plazos no es la intensidad de una semana sino el desgaste acumulado. Lo que conviene evitar es que el día libre se decida por agotamiento; agendado desde el inicio cumple su función y no genera la culpa del descanso improvisado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo manejo la presión de mi familia por los resultados?</h3>
-                <p>Cambia el objeto de la conversación: en lugar de responder si vas bien, muestra el inventario y qué temas cerraste esta semana. Es más fácil de conversar y más justo con tu avance real. Acordar un momento fijo semanal para revisar el tema también ayuda, porque libera el resto de los días de esa revisión constante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Sirve la meditación o la respiración para estudiar con menos tensión?</h3>
-                <p>Pueden ayudar a bajar la activación antes de una sesión o de un examen, y varias personas las encuentran útiles como rutina de arranque. Conviene tomarlas como complemento y no como sustituto de un plan bien diseñado: si la tensión proviene de un temario sin inventario y un horario imposible, ninguna técnica de relajación va a compensar eso de forma sostenida.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">La incertidumbre pesa más que la carga</h2>
+                <p>Entre dos estudiantes con el mismo material pendiente, el que sabe exactamente qué le falta vive el proceso de forma muy distinta a quien lo intuye. Un temario sin inventario se percibe como una masa sin bordes, y la mente tiende a estimar ese tipo de pendientes por lo peor. Poner el pendiente en una hoja no reduce el trabajo, pero le da tamaño, y un pendiente con tamaño se puede repartir.</p>
+                <p>El mismo principio aplica al día. Sentarte a "estudiar química" deja abierta la pregunta de cuándo terminaste, así que cualquier hora de cierre se siente arbitraria y culposa. Sentarte a resolver una serie definida termina en un punto identificable. La diferencia en tensión percibida entre esas dos versiones del mismo trabajo es grande, y no cuesta nada obtenerla.</p>
+                <ol>
+                    <li>Escribe el inventario completo de temas pendientes en una hoja, sin detallar de más.</li>
+                    <li>Marca el estado de cada tema en tres niveles para saber cuánto es nuevo y cuánto es repaso.</li>
+                    <li>Reparte los temas en las semanas disponibles y deja una semana de holgura al final.</li>
+                    <li>Traduce cada bloque diario en una tarea con final identificable, no en una cantidad de horas.</li>
+                    <li>Al cerrar el día, tacha lo hecho: ver el inventario reducirse es lo que quita peso a la incertidumbre.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Diseñar una carga que se pueda sostener</h2>
+                <p>Casi todos los planes de estudio se diseñan pensando en la mejor semana posible, y luego se juzgan contra semanas normales. Una carga sostenible se diseña al revés: para la semana promedio, con imprevistos incluidos y con margen. Si tu plan solo funciona cuando todo sale bien, va a fallar la mayoría de las semanas y cada falla va a sumar tensión que no corresponde a tu esfuerzo real.</p>
+                <p>El margen no es tiempo perdido: es lo que permite que un contratiempo no desmorone el resto. Un plan con dos bloques libres por semana absorbe una tarde perdida sin drama; uno lleno al tope convierte cualquier imprevisto en deuda acumulada. Y conviene fijar una hora de término del día, porque un día sin cierre se estira, roba sueño y degrada el siguiente.</p>
+                <ul>
+                    <li>Diseña para tu semana promedio, no para la ideal; deja dos bloques de holgura.</li>
+                    <li>Fija una hora de cierre y respétala aunque quede trabajo: el día siguiente depende de eso.</li>
+                    <li>Prefiere bloques cortos diarios a sesiones largas concentradas en dos días.</li>
+                    <li>Define de antemano qué recortas en una semana difícil, para no improvisarlo bajo presión.</li>
+                    <li>Revisa el plan una vez por semana, no todos los días; replanear a diario genera su propia tensión.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: rediseño de una semana de preparación</h2>
+                <p>Paulina preparaba su examen de admisión con un plan que en el papel se veía sólido: cuatro horas diarias de lunes a viernes y seis los sábados, repartidas por área. En la práctica cumplía tres o cuatro días de la semana, terminaba cerca de la medianoche y arrastraba la sensación de estar siempre atrasada. Cuando revisó el plan contra su semana real apareció el problema: no había contado los traslados ni las tareas de la escuela, así que las cuatro horas diarias solo existían en teoría.</p>
+                <p>El primer ajuste fue construir el inventario que no tenía. Al escribir todos los temas del temario con su estado —los resuelvo, los reconozco, no los he visto— descubrió que dos terceras partes estaban en los dos primeros niveles. El pendiente real era más chico de lo que sentía, y eso solo lo pudo ver escrito. La cifra no cambió su carga, pero sí la percepción de distancia que traía cargando desde meses antes.</p>
+                <p>El segundo ajuste fue bajar a dos bloques diarios de cincuenta minutos, con una tarea definida cada uno y hora de cierre a las nueve y media de la noche. Perdió cerca de una hora y media diaria de plan teórico y ganó cinco días cumplidos en lugar de tres. En términos de trabajo efectivo, la semana rindió más, porque las horas anteriores incluían dos tramos nocturnos en los que apenas retenía nada.</p>
+                <p>El tercer ajuste fue dejar los sábados con un solo bloque de simulación y el domingo completamente libre, sin material a la vista. Le costó tres semanas dejar de sentir culpa los domingos. Al mes su registro mostraba más ejercicios resueltos sin ayuda que en el esquema anterior y, sobre todo, había dejado de terminar las semanas agotada, lo cual importaba porque su preparación aún tenía varios meses por delante.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Descanso planeado, no descanso residual</h2>
+                <p>En la mayoría de los planes el descanso es lo que queda cuando ya no se puede más, y por eso llega tarde, mal y con culpa. Un descanso planeado hace dos cosas que el residual no: reduce la tensión de fondo porque sabes que existe, y permite recuperar atención antes de que el rendimiento caiga. La diferencia se nota más en preparaciones largas, donde el problema no es una semana intensa sino sostener cuatro meses.</p>
+                <p>Conviene distinguir descanso de distracción. Los intervalos entre bloques rinden más si implican moverse, mirar lejos, tomar agua o salir un momento, y rinden poco frente a una pantalla, porque la atención sigue ocupada. Y en la escala semanal, tener un tramo protegido sin material a la vista es lo que evita que la preparación se convierta en un estado permanente sin salida.</p>
+                <ul>
+                    <li>Agenda el descanso al mismo tiempo que los bloques de estudio, no después.</li>
+                    <li>En los intervalos, levántate del escritorio; diez minutos frente a una pantalla no reponen atención.</li>
+                    <li>Protege un tramo semanal sin material a la vista, aunque sea medio día.</li>
+                    <li>Cuida el sueño como parte del plan de estudio, no como lo que sobra al final del día.</li>
+                    <li>Si el descanso te genera culpa, escríbelo en el plan: lo agendado se defiende mejor que lo improvisado.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo hablar del avance con quien te acompaña</h2>
+                <p>Una parte del estrés no viene del estudio sino de las conversaciones alrededor. Las preguntas frecuentes sobre cómo vas, hechas con buena intención, suelen pedir un resumen imposible y terminan reforzando la sensación de atraso. Compartir el inventario y el plan con quien te acompaña cambia la conversación: en lugar de responder si vas bien, puedes mostrar qué temas ya están cerrados esta semana.</p>
+                <p>También ayuda acordar cuándo se revisa el avance. Si hay un momento fijo a la semana para hablar del tema, el resto de los días queda libre de esa revisión constante. Esto aplica igual con familia, con un tutor o con quien comparte la preparación: la previsibilidad reduce la tensión de la misma manera que la reduce un plan con bordes claros.</p>
+                <ul>
+                    <li>Comparte el inventario, no una impresión general: es más fácil de conversar y más justo contigo.</li>
+                    <li>Acuerda un momento fijo a la semana para revisar el avance y deja los otros días fuera del tema.</li>
+                    <li>Si estudias con alguien más, comparen métodos y no calificaciones ni horas.</li>
+                    <li>Pide ayuda concreta —revisar un tema, tomar tiempo en una simulación— en lugar de apoyo genérico.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cuándo el estrés deja de ser un asunto de método</h2>
+                <p>Todo lo anterior corresponde al diseño del estudio, y con eso se resuelve una parte importante de la presión que sienten la mayoría de los estudiantes. Hay otra parte que no se arregla con horarios, y conviene reconocerla sin dramatizarla ni minimizarla. Cuando el malestar deja de aparecer solo alrededor del estudio y se instala en el sueño, el apetito, el ánimo o la capacidad de concentrarte en cualquier cosa, ya no estás frente a un problema de planeación.</p>
+                <p>En ese escenario lo indicado es consultar a un profesional de salud mental, y hacerlo temprano en lugar de esperar a que el ciclo termine. No es un paso extraordinario ni una señal de que algo está mal contigo; es el mismo criterio con que se atiende cualquier síntoma que persiste. Ajustar el plan sigue siendo útil en paralelo, pero no sustituye esa consulta.</p>
+                <ul>
+                    <li>Señal de alerta: el malestar persiste semanas y aparece también fuera del contexto de estudio.</li>
+                    <li>Señal de alerta: cambios sostenidos en sueño, apetito, ánimo o capacidad de concentración.</li>
+                    <li>Señal de alerta: episodios de ansiedad marcada durante los exámenes que no ceden con preparación.</li>
+                    <li>En cualquiera de esos casos, consulta a un profesional de salud mental; muchas escuelas ofrecen orientación.</li>
+                    <li>Mientras tanto, reduce la carga a lo indispensable en lugar de sostener el plan completo.</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Una preparación de admisión larga necesita ritmo, no arranques</h2>
+                    <p>En un proceso de admisión la dificultad no está en una semana intensa sino en sostener varios meses sin desgastarte, y eso depende de tener el temario inventariado, la carga repartida y simulaciones espaciadas que te digan dónde estás sin tener que adivinarlo. Nuestro programa de admisión universitaria trabaja con esa estructura de ritmo y seguimiento, para que el avance no dependa de la energía que traigas cada semana.</p>
+                    <a href="/admision-universitaria" class="btn-primary">
+                        Conoce el programa de admisión universitaria <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-senales-de-progreso">
+                            <span>Señales de progreso en productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-estrategias-efectivas">
+                            <span>Estrategias efectivas de productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-plan-de-emergencia">
+                            <span>Plan de emergencia de productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Se puede preparar un examen exigente sin sentir presión en ningún momento?</h3>
+                    <p>No, y tampoco sería deseable: cierta activación mejora la atención y ayuda a empezar. La diferencia está en que esa tensión aparezca alrededor del trabajo y baje al cerrar la sesión, en lugar de acompañarte todo el día. Cuando la presión no cede ni en los descansos, casi siempre hay un problema de diseño del plan o una señal que conviene revisar con un profesional.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si termino el día sin cumplir el plan y me siento mal por eso?</h3>
+                    <p>Revisa si el plan era cumplible en una semana normal, con traslados, tareas e imprevistos contados. Si no lo era, la culpa está mal dirigida: el diseño falló, no tú. Reduce la carga diaria a lo que puedas sostener cinco días seguidos y agrega dos bloques de holgura semanal para absorber los contratiempos sin que se acumulen.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es contraproducente tomarse un día completo libre durante una preparación larga?</h3>
+                    <p>En preparaciones de varios meses, un tramo semanal protegido suele ayudar a sostener el ritmo, porque el problema en esos plazos no es la intensidad de una semana sino el desgaste acumulado. Lo que conviene evitar es que el día libre se decida por agotamiento; agendado desde el inicio cumple su función y no genera la culpa del descanso improvisado.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo manejo la presión de mi familia por los resultados?</h3>
+                    <p>Cambia el objeto de la conversación: en lugar de responder si vas bien, muestra el inventario y qué temas cerraste esta semana. Es más fácil de conversar y más justo con tu avance real. Acordar un momento fijo semanal para revisar el tema también ayuda, porque libera el resto de los días de esa revisión constante.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Sirve la meditación o la respiración para estudiar con menos tensión?</h3>
+                    <p>Pueden ayudar a bajar la activación antes de una sesión o de un examen, y varias personas las encuentran útiles como rutina de arranque. Conviene tomarlas como complemento y no como sustituto de un plan bien diseñado: si la tensión proviene de un temario sin inventario y un horario imposible, ninguna técnica de relajación va a compensar eso de forma sostenida.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -557,8 +655,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué significa estudiar sin estrés y qué no significa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>La incertidumbre pesa más que la carga
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Diseñar una carga que se pueda sostener
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: rediseño de una semana de preparación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Descanso planeado, no descanso residual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo hablar del avance con quien te acompaña
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cuándo el estrés deja de ser un asunto de método
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>11 min restantes</span>
+                        <span>Lectura estimada: 11 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

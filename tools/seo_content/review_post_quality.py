@@ -23,19 +23,11 @@ from pathlib import Path
 
 ROOT = Path(__file__).parents[2]
 POSTS_DIR = ROOT / "content" / "posts"
-PLANS = (
-    ROOT / "reports" / "seo" / "editorial-plan-60-posts.json",
-    ROOT / "reports" / "seo" / "editorial-plan-500-posts.json",
-    ROOT / "reports" / "seo" / "editorial-plan-national-international.json",
-    ROOT / "reports" / "seo" / "editorial-plan-lectura-2026-09.json",
-    ROOT / "reports" / "seo" / "editorial-plan-lectoescritura-2026-09.json",
-    ROOT / "reports" / "seo" / "editorial-plan-lectoescritura-secundaria-2026-09.json",
-    ROOT / "reports" / "seo" / "editorial-plan-mathekids-soroban-2026-09.json",
-    ROOT / "reports" / "seo" / "editorial-plan-mathekids-matematicas-2026-09.json",
-    ROOT / "reports" / "seo" / "editorial-plan-ciencia-astronomia-2026-09.json",
-    ROOT / "reports" / "seo" / "editorial-plan-memoria-2026-09.json",
-    ROOT / "reports" / "seo" / "editorial-plan-redaccion-ejecutiva-2026-09.json",
-)
+
+def plan_paths() -> tuple[Path, ...]:
+    """Descubre planes editoriales sin exigir registrar cada archivo a mano."""
+    return tuple(sorted((ROOT / "reports" / "seo").glob("editorial-plan-*.json")))
+
 
 # Superlativos / promesas prohibidas por el CONTENT_CONTRACT y el marketing
 # de humo típico del nicho. Se buscan como frase, no como palabra suelta,
@@ -96,10 +88,67 @@ def sentences(text: str) -> list[str]:
     return re.split(r"(?<=[\.\?\!])\s+", text)
 
 
+def validate_post_shape(post: object) -> list[str]:
+    """Valida el contrato mínimo antes de puntuar para evitar KeyError y falsos 10."""
+    if not isinstance(post, dict):
+        return ["el post no es un objeto JSON"]
+    errors: list[str] = []
+    scalar_fields = ("id", "slug", "description", "quick_answer")
+    for field in scalar_fields:
+        value = post.get(field)
+        if value is None or isinstance(value, (dict, list)) or str(value).strip() == "":
+            errors.append(f"campo {field} ausente o vacío")
+    if not isinstance(post.get("lead"), list) or not all(isinstance(x, str) for x in post.get("lead", [])):
+        errors.append("lead debe ser una lista de textos")
+    sections = post.get("sections")
+    if not isinstance(sections, list) or not sections:
+        errors.append("sections debe ser una lista no vacía")
+    else:
+        for index, section in enumerate(sections, 1):
+            if not isinstance(section, dict) or not str(section.get("heading", "")).strip():
+                errors.append(f"sections[{index}] sin heading")
+            if not isinstance(section.get("paragraphs"), list) or not section.get("paragraphs"):
+                errors.append(f"sections[{index}] sin paragraphs")
+    faq = post.get("faq")
+    if not isinstance(faq, list):
+        errors.append("faq debe ser una lista")
+    elif not all(isinstance(x, dict) and str(x.get("question", "")).strip()
+                 and str(x.get("answer", "")).strip() for x in faq):
+        errors.append("cada FAQ necesita question y answer")
+    cta = post.get("cta")
+    if not isinstance(cta, dict) or not all(str(cta.get(k, "")).strip() for k in ("heading", "text", "label")):
+        errors.append("cta necesita heading, text y label")
+    return errors
+
+
+def normalized_block(text: str) -> str:
+    return re.sub(r"\s+", " ", re.sub(r"[^a-z0-9 ]", " ", strip_accents(text))).strip()
+
+
+def duplicate_long_blocks(post: dict, min_words: int = 20) -> list[str]:
+    """Detecta relleno copiado dentro del mismo post, ignorando frases cortas."""
+    seen: dict[str, str] = {}
+    duplicates: list[str] = []
+    blocks: list[tuple[str, str]] = [(f"lead[{i}]", text) for i, text in enumerate(post["lead"], 1)]
+    for section_index, section in enumerate(post["sections"], 1):
+        for field in ("paragraphs", "bullets", "steps"):
+            blocks.extend((f"section[{section_index}].{field}[{i}]", text)
+                          for i, text in enumerate(section.get(field, []), 1))
+    for label, text in blocks:
+        normalized = normalized_block(text)
+        if len(normalized.split()) < min_words:
+            continue
+        if normalized in seen:
+            duplicates.append(f"{seen[normalized]}={label}")
+        else:
+            seen[normalized] = label
+    return duplicates
+
+
 def load_plan_index() -> tuple[dict[int, dict], set[str]]:
     metas: dict[int, dict] = {}
     slugs: set[str] = set()
-    for p in PLANS:
+    for p in plan_paths():
         if not p.exists():
             continue
         for m in json.loads(p.read_text(encoding="utf-8"))["posts"]:
@@ -136,17 +185,31 @@ def review(post: dict, plan_meta: dict, known_slugs: set[str],
     wc = word_count_of(post)
     checks.append(("Palabras 1400-1800", 1400 <= wc <= 1800, f"{wc} palabras"))
 
-    # 2. 5-7 secciones H2
+    # 2. 5-7 secciones, con encabezados únicos
     ns = len(post["sections"])
-    checks.append(("5-7 secciones H2", 5 <= ns <= 7, f"{ns} secciones"))
+    heading_norm = [normalized_block(section["heading"]) for section in post["sections"]]
+    duplicated_headings = len(heading_norm) != len(set(heading_norm))
+    checks.append(("5-7 secciones H2 únicas", 5 <= ns <= 7 and not duplicated_headings,
+                   f"{ns} secciones; duplicados={'sí' if duplicated_headings else 'no'}"))
 
-    # 3. 3-5 FAQ
+    # 3. 3-5 FAQ, preguntas únicas y respuestas sustanciales
     nf = len(post["faq"])
-    checks.append(("3-5 FAQ", 3 <= nf <= 5, f"{nf} FAQ"))
+    faq_questions = [normalized_block(item["question"]) for item in post["faq"]]
+    faq_words = [len(item["answer"].split()) for item in post["faq"]]
+    faq_answers_ok = bool(faq_words) and all(35 <= count <= 90 for count in faq_words)
+    faq_unique = len(faq_questions) == len(set(faq_questions))
+    checks.append(("3-5 FAQ únicas con respuestas de 35-90 palabras",
+                   3 <= nf <= 5 and faq_answers_ok and faq_unique,
+                   f"{nf} FAQ; respuestas={min(faq_words, default=0)}-{max(faq_words, default=0)} palabras; "
+                   f"duplicadas={'sí' if not faq_unique else 'no'}"))
 
-    # 4. quick_answer 45-80 palabras
+    # 4. quick_answer citable y dos párrafos de introducción sustanciales
     qw = len(post["quick_answer"].split())
-    checks.append(("quick_answer 45-80 palabras", 45 <= qw <= 80, f"{qw} palabras"))
+    lead_words = [len(paragraph.split()) for paragraph in post["lead"]]
+    lead_ok = len(lead_words) == 2 and all(35 <= count <= 100 for count in lead_words)
+    checks.append(("quick_answer 45-80 + lead 2x35-100 palabras",
+                   45 <= qw <= 80 and lead_ok,
+                   f"quick={qw}; lead={lead_words}"))
 
     # 5. description 140-158 caracteres
     dl = len(post["description"])
@@ -183,26 +246,47 @@ def review(post: dict, plan_meta: dict, known_slugs: set[str],
     checks.append(("Keyword en título/quick_answer + H2", in_title_or_qa and in_h2,
                    f"titulo/qa={in_title_or_qa} h2={in_h2}"))
 
-    # 8. >=4 related que resuelven a slugs reales del plan
+    # 8. >=4 related reales, únicos y sin enlazar al propio post
     related = post.get("related", [])
-    resolved = [s for s in related if s in known_slugs]
-    checks.append((">=4 related válidos", len(resolved) >= 4,
-                   f"{len(resolved)}/{len(related)} resuelven"))
+    related_is_list = isinstance(related, list) and all(isinstance(slug, str) for slug in related)
+    unique_related = list(dict.fromkeys(related)) if related_is_list else []
+    resolved = [slug for slug in unique_related if slug in known_slugs]
+    has_self_link = plan_meta["slug"] in unique_related
+    related_ok = (related_is_list and len(resolved) >= 4
+                  and len(unique_related) == len(related) and not has_self_link)
+    checks.append((">=4 related válidos, únicos y sin self-link", related_ok,
+                   f"{len(resolved)}/{len(related) if related_is_list else 0} resuelven; "
+                   f"duplicados={'sí' if related_is_list and len(unique_related) != len(related) else 'no'}; "
+                   f"self={'sí' if has_self_link else 'no'}"))
 
-    # 9. sources presente (lista) y sin cifras/estudios sin fuente en el cuerpo
+    # 9. sources presente, con estructura válida, y claims sensibles respaldados
     has_sources_field = isinstance(post.get("sources"), list)
+    sources = post.get("sources", []) if has_sources_field else []
+    sources_valid = all(
+        isinstance(source, dict)
+        and str(source.get("name", "")).strip()
+        and str(source.get("note", "")).strip()
+        and re.match(r"^https://[^\s]+$", str(source.get("url", "")))
+        for source in sources
+    )
     body_num = NUM_CLAIM.search(all_text(post))
-    ok_sources = has_sources_field and (post["sources"] or not body_num)
-    detail = "lista ok" if has_sources_field else "FALTA campo sources"
-    if has_sources_field and not post["sources"] and body_num:
+    ok_sources = has_sources_field and sources_valid and (sources or not body_num)
+    detail = "lista ok" if has_sources_field and sources_valid else "FALTA sources o fuente inválida"
+    if has_sources_field and sources_valid and not sources and body_num:
         detail = f"afirmacion numerica/estudio sin fuente: '{body_num.group()}'"
-    checks.append(("sources presente y sin cifras sin fuente", ok_sources, detail))
+    checks.append(("sources válidas y claims sensibles respaldados", ok_sources, detail))
 
-    # 10. Ángulo único: ningún H2 igual a un H2 ya publicado del mismo curso
+    # 10. Ángulo único y sin bloques largos copiados dentro del artículo
     my_h2 = {strip_accents(s["heading"].strip()) for s in post["sections"]}
-    dup = my_h2 & existing_h2
-    checks.append(("Ángulo único (H2 no duplicados)", not dup,
-                   "ok" if not dup else f"duplican: {list(dup)[:1]}"))
+    duplicated_h2 = my_h2 & existing_h2
+    duplicated_blocks = duplicate_long_blocks(post)
+    unique_ok = not duplicated_h2 and not duplicated_blocks
+    detail10 = "ok"
+    if duplicated_h2:
+        detail10 = f"H2 duplicado: {list(duplicated_h2)[:1]}"
+    elif duplicated_blocks:
+        detail10 = f"bloques duplicados: {duplicated_blocks[:2]}"
+    checks.append(("Ángulo único y sin bloques duplicados", unique_ok, detail10))
 
     score = sum(1 for _, ok, _ in checks if ok)
     lines = [f"    [{'x' if ok else ' '}] {name}: {detail}" for name, ok, detail in checks]
@@ -213,14 +297,29 @@ def main() -> None:
     batch = Path(sys.argv[1]) if len(sys.argv) > 1 else \
         POSTS_DIR / "batch-mathekids-soroban-2026-09.json"
     posts = json.loads(batch.read_text(encoding="utf-8"))
+    if not isinstance(posts, list):
+        print(f"ERROR: {batch.name} debe contener un arreglo JSON de posts.")
+        sys.exit(1)
     metas, known_slugs = load_plan_index()
 
     worst = 10
     print(f"== Revisión de calidad: {batch.name} ({len(posts)} posts) ==\n")
-    for post in posts:
+    for index, post in enumerate(posts, 1):
+        shape_errors = validate_post_shape(post)
+        if shape_errors:
+            print(f"post #{index} · id {post.get('id', '?')} → CONTRATO INVÁLIDO")
+            for error in shape_errors:
+                print(f"    [ ] {error}")
+            print()
+            worst = 0
+            continue
         meta = metas.get(post["id"])
         if not meta:
             print(f"id {post['id']}: SIN metadatos en el plan (no se puede revisar)\n")
+            worst = 0
+            continue
+        if post["slug"] != meta["slug"]:
+            print(f"id {post['id']}: slug del contenido '{post['slug']}' no coincide con el plan '{meta['slug']}'\n")
             worst = 0
             continue
         existing_h2 = existing_h2_by_course(meta["course_url"], {meta["slug"]})

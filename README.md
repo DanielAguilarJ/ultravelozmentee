@@ -23,11 +23,14 @@ fundacional y testimonios tienen una sola fuente de verdad. Corregir un dato
 chmod +x check.sh && ln -sf ../../check.sh .git/hooks/pre-commit
 ```
 
-## Los 7 gates (existen porque cada bug ya ocurrió una vez)
+## Los 10 gates (existen porque cada bug ya ocurrió una vez)
 1. Cero avatares falsos (pravatar/randomuser)
 2. Cero sedes no verificadas (Guadalajara)
 3. Cero secretos hardcodeados
 4. Script infectante sigue retirado
 5. Cero backups en raíz servible
 6. Un solo año fundacional en todo el sitio
-7. Solo teléfonos autorizados
+7. Solo teléfonos autorizados e identidad derivada de `src/_data/site.json`
+8. Dependencias de `server.js` declaradas en `package.json`
+9. Auditoría SEO estructural de todos los HTML servibles
+10. Posts modernos con calidad y SEO 10/10, HTML e índice sincronizados y revisores probados

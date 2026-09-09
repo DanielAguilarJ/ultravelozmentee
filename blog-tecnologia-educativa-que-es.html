@@ -362,155 +362,248 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="9">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Qué es la tecnología educativa y cómo aplicarla sin depender de ella</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 9 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Qué es la tecnología educativa y cómo aplicarla sin depender de ella</h1>
+                <p class="blog-post-dek">La tecnología educativa no es solo usar tabletas: es diseñar el aprendizaje con herramientas digitales. Te explicamos qué es, cómo funciona y cómo evaluarla.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>9 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Qué es la tecnología educativa y cómo aplicarla sin depender de ella" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Cuando una escuela compra pantallas interactivas y al año siguiente los maestros siguen dictando igual que antes, el problema no fue el equipo: fue que nadie definió qué debía cambiar en la clase. La tecnología educativa empieza en una decisión pedagógica, no en una compra.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es la tecnología educativa y qué no lo es
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Los cuatro componentes que la sostienen
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Inteligencia artificial en el aula: dónde ayuda y dónde estorba
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Gamificación: por qué los puntos solos no enseñan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: un grupo de secundaria y un semáforo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Seguridad digital: la parte que casi nadie planea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo evaluar una herramienta antes de adoptarla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Cuando una escuela compra pantallas interactivas y al año siguiente los maestros siguen dictando igual que antes, el problema no fue el equipo: fue que nadie definió qué debía cambiar en la clase. La tecnología educativa empieza en una decisión pedagógica, no en una compra.</p>
             <p>En este artículo revisamos qué abarca realmente el término, cuáles son sus componentes, cómo se ve aplicada en un salón concreto y qué criterios permiten distinguir una herramienta útil de una que solo agrega ruido.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La tecnología educativa es el uso planeado de herramientas digitales —plataformas, apps, sensores, inteligencia artificial— para lograr un objetivo de aprendizaje concreto. No consiste en repartir dispositivos, sino en decidir qué problema pedagógico resuelve cada herramienta: practicar, retroalimentar, medir avance o dar acceso a quien no lo tiene. Sin ese objetivo, la tecnología solo digitaliza la misma clase.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La tecnología educativa es el uso planeado de herramientas digitales —plataformas, apps, sensores, inteligencia artificial— para lograr un objetivo de aprendizaje concreto. No consiste en repartir dispositivos, sino en decidir qué problema pedagógico resuelve cada herramienta: practicar, retroalimentar, medir avance o dar acceso a quien no lo tiene. Sin ese objetivo, la tecnología solo digitaliza la misma clase.</p>
+                </aside>
 
-            <h2>Qué es la tecnología educativa y qué no lo es</h2>
-            <p>La tecnología educativa —también llamada EdTech— es la disciplina que estudia y aplica recursos digitales para mejorar procesos de enseñanza y aprendizaje. Su unidad de análisis no es el aparato, sino la interacción: qué hace el estudiante con la herramienta, qué información devuelve al docente y cómo eso modifica la siguiente clase.</p>
-            <p>Por eso una hoja de cálculo bien usada para que los alumnos modelen un fenómeno puede ser tecnología educativa, mientras que un pizarrón digital utilizado solo para proyectar el mismo texto que antes se escribía con gis no lo es. El criterio es si la herramienta habilita una actividad de aprendizaje que sin ella sería difícil o imposible.</p>
-            <p>Tampoco es sinónimo de educación en línea. Una clase presencial que usa simuladores, sensores o cuestionarios con retroalimentación inmediata aplica tecnología educativa sin ser remota; y un curso a distancia que solo sube archivos PDF apenas la aprovecha.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es la tecnología educativa y qué no lo es</h2>
+                <p>La tecnología educativa —también llamada EdTech— es la disciplina que estudia y aplica recursos digitales para mejorar procesos de enseñanza y aprendizaje. Su unidad de análisis no es el aparato, sino la interacción: qué hace el estudiante con la herramienta, qué información devuelve al docente y cómo eso modifica la siguiente clase.</p>
+                <p>Por eso una hoja de cálculo bien usada para que los alumnos modelen un fenómeno puede ser tecnología educativa, mientras que un pizarrón digital utilizado solo para proyectar el mismo texto que antes se escribía con gis no lo es. El criterio es si la herramienta habilita una actividad de aprendizaje que sin ella sería difícil o imposible.</p>
+                <p>Tampoco es sinónimo de educación en línea. Una clase presencial que usa simuladores, sensores o cuestionarios con retroalimentación inmediata aplica tecnología educativa sin ser remota; y un curso a distancia que solo sube archivos PDF apenas la aprovecha.</p>
+            </section>
 
-            <h2>Los cuatro componentes que la sostienen</h2>
-            <p>Aunque cada escuela adopta herramientas distintas, casi todas las implementaciones que funcionan combinan los mismos cuatro elementos. Cuando falta uno, el proyecto se cae: es el patrón más repetido en programas que se abandonan a mitad del ciclo escolar.</p>
-            <p>Conviene revisarlos antes de decidir cualquier compra, porque el gasto en dispositivos suele ser la parte menor del costo real frente a la formación docente y el soporte técnico sostenido.</p>
-            <ul>
-                <li>Infraestructura: conectividad estable, dispositivos suficientes y energía eléctrica confiable en el aula.</li>
-                <li>Contenido y software: recursos alineados al programa de estudios vigente, no material genérico traducido.</li>
-                <li>Formación docente: acompañamiento continuo, no un taller único al inicio del ciclo.</li>
-                <li>Datos y evaluación: evidencia de qué está aprendiendo el grupo, para ajustar la enseñanza y no solo calificar.</li>
-            </ul>
-
-            <h2>Inteligencia artificial en el aula: dónde ayuda y dónde estorba</h2>
-            <p>La incorporación de asistentes de IA cambió el tipo de tarea que tiene sentido dejar. Pedir un resumen de un texto ya no mide comprensión, porque el resumen se genera en segundos. Lo que sí mide comprensión es pedir al estudiante que evalúe ese resumen: qué omitió, qué afirmó sin sustento, qué habría que verificar.</p>
-            <p>Usada así, la IA funciona como generadora de material para practicar: variantes de un problema, contraejemplos, preguntas de repaso o explicaciones alternativas de un concepto que no quedó claro. El estudiante conserva el trabajo cognitivo, que es donde ocurre el aprendizaje.</p>
-            <p>El riesgo aparece cuando sustituye ese trabajo. Si el alumno entrega texto que no escribió ni revisó, no hay aprendizaje aunque el producto se vea correcto; y como los modelos pueden afirmar datos falsos con seguridad, entregar sin verificar también instala errores. La regla práctica es sencilla: la IA puede ayudar a preparar y a revisar, pero no a producir la parte que se está evaluando.</p>
-
-            <h2>Gamificación: por qué los puntos solos no enseñan</h2>
-            <p>Gamificar no es agregar insignias a una actividad aburrida. Los elementos que sostienen la motivación en un juego son la retroalimentación inmediata, la dificultad ajustada al nivel del jugador y el derecho a fallar sin castigo definitivo. Esos tres, aplicados a una materia, cambian la experiencia de estudio.</p>
-            <p>Cuando solo se copian los puntos y los tableros de posiciones, el efecto suele ser el contrario: los alumnos que ya iban bien acumulan recompensas y el resto deja de participar. La competencia visible desmotiva justamente a quien más necesita practicar.</p>
-            <p>Una alternativa razonable es medir progreso individual contra el propio punto de partida, no contra el grupo: cuántos ejercicios domina hoy frente a la semana pasada. La comparación sigue existiendo, pero es interna y accionable.</p>
-
-            <h2>Ejemplo aplicado: un grupo de secundaria y un semáforo</h2>
-            <p>Un grupo de tercero de secundaria trabaja el tema de circuitos eléctricos. La versión tradicional es leer el capítulo, copiar el diagrama y resolver un cuestionario. La versión con tecnología educativa parte del mismo contenido, pero cambia la actividad: los equipos deben construir un semáforo funcional que cambie de color en intervalos definidos.</p>
-            <p>El docente no empieza entregando la solución. Cada equipo arma el circuito con una placa programable, tres diodos y resistencias, y escribe el código que controla los tiempos. Cuando el semáforo no enciende, el error es observable: puede ser la polaridad de un diodo, una resistencia mal calculada o una instrucción en el orden equivocado. Ese diagnóstico es la clase.</p>
-            <p>La retroalimentación llega del propio circuito y es inmediata, así que el maestro deja de ser la única fuente de corrección y pasa a acompañar a los equipos atorados. Al cierre, cada equipo explica qué falló primero y cómo lo detectó, lo que obliga a verbalizar el razonamiento y no solo a mostrar el resultado.</p>
-            <p>El componente digital aquí no es un video ni una app: es la placa, el código y el ciclo de prueba y error. La evidencia de aprendizaje tampoco es una calificación aislada, sino el registro de las versiones del programa y las decisiones que el equipo tomó para llegar a la que funciona.</p>
-
-            <h2>Seguridad digital: la parte que casi nadie planea</h2>
-            <p>Toda herramienta que un menor usa en la escuela procesa datos suyos: nombre, correo, avance académico y, en algunos casos, grabaciones de voz o cámara. Antes de adoptarla conviene leer qué recopila, dónde lo almacena y con quién lo comparte, porque ese aviso de privacidad es el único compromiso verificable del proveedor.</p>
-            <p>La otra mitad es formativa. Un estudiante que no sabe reconocer un mensaje fraudulento o que reutiliza la misma contraseña en todas sus plataformas está expuesto sin importar qué tan bueno sea el software de la escuela. La seguridad digital se enseña, no se instala.</p>
-            <ul>
-                <li>Revisar el aviso de privacidad de cada plataforma y qué datos de menores solicita.</li>
-                <li>Usar contraseñas distintas por servicio y activar verificación en dos pasos donde exista.</li>
-                <li>Acordar con el grupo qué información personal nunca se comparte en foros o chats de clase.</li>
-                <li>Enseñar a verificar la fuente de un enlace antes de abrirlo o descargar un archivo.</li>
-                <li>Definir a quién avisar dentro de la escuela si algo sale mal, y hacerlo sin sanción para quien reporta.</li>
-            </ul>
-
-            <h2>Cómo evaluar una herramienta antes de adoptarla</h2>
-            <p>La mayoría de las decisiones de EdTech se toman al revés: primero se elige la plataforma y luego se busca en qué materia usarla. Invertir el orden reduce el desperdicio, porque obliga a nombrar el problema antes de comprar la solución.</p>
-            <p>Este recorrido sirve tanto para una escuela como para una familia que está considerando una app de estudio. Si un paso no se puede responder con evidencia, ese es justamente el punto que hay que resolver antes de escalar el uso.</p>
-            <ol>
-                <li>Nombra el problema concreto: qué tema no se está aprendiendo y cómo lo sabes.</li>
-                <li>Define qué evidencia mostraría mejora en cuatro a seis semanas.</li>
-                <li>Verifica que la herramienta se alinee al programa de estudios vigente, no a un currículo de otro país.</li>
-                <li>Prueba con un solo grupo antes de comprar licencias para toda la escuela.</li>
-                <li>Revisa el aviso de privacidad y qué datos de menores solicita.</li>
-                <li>Compara la evidencia recogida contra tu punto de partida y decide si continúa, se ajusta o se retira.</li>
-            </ol>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De la teoría al circuito que enciende</h3>
-                <p>La forma más directa de entender la tecnología educativa es usarla para construir algo que funcione o falle de manera visible. En un curso de robótica y programación, cada sesión combina un objetivo concreto —que el semáforo cambie, que el sensor responda— con la lectura del error cuando no ocurre. Ese ciclo de prueba, diagnóstico y ajuste es lo que traslada el aprendizaje a otros contextos, incluidas las materias que no involucran ningún dispositivo.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conoce el curso de robótica y programación <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Los cuatro componentes que la sostienen</h2>
+                <p>Aunque cada escuela adopta herramientas distintas, casi todas las implementaciones que funcionan combinan los mismos cuatro elementos. Cuando falta uno, el proyecto se cae: es el patrón más repetido en programas que se abandonan a mitad del ciclo escolar.</p>
+                <p>Conviene revisarlos antes de decidir cualquier compra, porque el gasto en dispositivos suele ser la parte menor del costo real frente a la formación docente y el soporte técnico sostenido.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-guia-completa">Guía completa de tecnología educativa: cómo elegir e integrar herramientas</a></li>
-                <li><a href="/blog-tecnologia-educativa-para-principiantes">Tecnología educativa para principiantes: guía paso a paso</a></li>
+                    <li>Infraestructura: conectividad estable, dispositivos suficientes y energía eléctrica confiable en el aula.</li>
+                    <li>Contenido y software: recursos alineados al programa de estudios vigente, no material genérico traducido.</li>
+                    <li>Formación docente: acompañamiento continuo, no un taller único al inicio del ciclo.</li>
+                    <li>Datos y evaluación: evidencia de qué está aprendiendo el grupo, para ajustar la enseñanza y no solo calificar.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La tecnología educativa reemplaza al docente?</h3>
-                <p>No. Cambia la parte del trabajo docente que ocupa más tiempo: calificar ejercicios repetitivos, generar variantes de problemas o detectar quién se quedó atrás. Lo que no delega es la decisión pedagógica —qué se enseña, en qué orden y cómo se acompaña a quien no entendió—, que sigue dependiendo del criterio de quien está frente al grupo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuál es la diferencia entre tecnología educativa y educación en línea?</h3>
-                <p>La educación en línea describe la modalidad: dónde ocurre la clase. La tecnología educativa describe las herramientas y el diseño de las actividades, sin importar la modalidad. Una clase presencial con sensores y simuladores aplica tecnología educativa; un curso remoto que solo comparte archivos para leer casi no la usa.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Desde qué edad conviene introducir herramientas digitales de estudio?</h3>
-                <p>Depende más del tipo de actividad que de la edad. En primaria menor funcionan mejor los usos guiados y de corta duración, con acompañamiento adulto presente. Conforme el estudiante gana autonomía lectora y hábitos de organización, tiene sentido darle herramientas que gestione solo. Si hay dudas sobre atención o aprendizaje, conviene consultar a un profesional de la educación o de la salud.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Se necesita internet rápido para aplicar tecnología educativa?</h3>
-                <p>No siempre. Buena parte de las actividades más formativas funciona sin conexión: programar una placa, usar sensores, trabajar con hojas de cálculo o aplicaciones que sincronizan después. La conectividad es indispensable para plataformas en la nube y videollamadas, pero no debería ser el filtro que decida si una escuela puede empezar.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si una app de estudio realmente está enseñando algo?</h3>
-                <p>Observa si el estudiante puede resolver el mismo tipo de problema fuera de la app, sin pistas ni opciones múltiples. Si solo acumula rachas y niveles pero no logra explicar el concepto ni aplicarlo en papel, la app está midiendo constancia de uso, no aprendizaje. La transferencia a otro contexto es la señal que importa.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Inteligencia artificial en el aula: dónde ayuda y dónde estorba</h2>
+                <p>La incorporación de asistentes de IA cambió el tipo de tarea que tiene sentido dejar. Pedir un resumen de un texto ya no mide comprensión, porque el resumen se genera en segundos. Lo que sí mide comprensión es pedir al estudiante que evalúe ese resumen: qué omitió, qué afirmó sin sustento, qué habría que verificar.</p>
+                <p>Usada así, la IA funciona como generadora de material para practicar: variantes de un problema, contraejemplos, preguntas de repaso o explicaciones alternativas de un concepto que no quedó claro. El estudiante conserva el trabajo cognitivo, que es donde ocurre el aprendizaje.</p>
+                <p>El riesgo aparece cuando sustituye ese trabajo. Si el alumno entrega texto que no escribió ni revisó, no hay aprendizaje aunque el producto se vea correcto; y como los modelos pueden afirmar datos falsos con seguridad, entregar sin verificar también instala errores. La regla práctica es sencilla: la IA puede ayudar a preparar y a revisar, pero no a producir la parte que se está evaluando.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Gamificación: por qué los puntos solos no enseñan</h2>
+                <p>Gamificar no es agregar insignias a una actividad aburrida. Los elementos que sostienen la motivación en un juego son la retroalimentación inmediata, la dificultad ajustada al nivel del jugador y el derecho a fallar sin castigo definitivo. Esos tres, aplicados a una materia, cambian la experiencia de estudio.</p>
+                <p>Cuando solo se copian los puntos y los tableros de posiciones, el efecto suele ser el contrario: los alumnos que ya iban bien acumulan recompensas y el resto deja de participar. La competencia visible desmotiva justamente a quien más necesita practicar.</p>
+                <p>Una alternativa razonable es medir progreso individual contra el propio punto de partida, no contra el grupo: cuántos ejercicios domina hoy frente a la semana pasada. La comparación sigue existiendo, pero es interna y accionable.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Ejemplo aplicado: un grupo de secundaria y un semáforo</h2>
+                <p>Un grupo de tercero de secundaria trabaja el tema de circuitos eléctricos. La versión tradicional es leer el capítulo, copiar el diagrama y resolver un cuestionario. La versión con tecnología educativa parte del mismo contenido, pero cambia la actividad: los equipos deben construir un semáforo funcional que cambie de color en intervalos definidos.</p>
+                <p>El docente no empieza entregando la solución. Cada equipo arma el circuito con una placa programable, tres diodos y resistencias, y escribe el código que controla los tiempos. Cuando el semáforo no enciende, el error es observable: puede ser la polaridad de un diodo, una resistencia mal calculada o una instrucción en el orden equivocado. Ese diagnóstico es la clase.</p>
+                <p>La retroalimentación llega del propio circuito y es inmediata, así que el maestro deja de ser la única fuente de corrección y pasa a acompañar a los equipos atorados. Al cierre, cada equipo explica qué falló primero y cómo lo detectó, lo que obliga a verbalizar el razonamiento y no solo a mostrar el resultado.</p>
+                <p>El componente digital aquí no es un video ni una app: es la placa, el código y el ciclo de prueba y error. La evidencia de aprendizaje tampoco es una calificación aislada, sino el registro de las versiones del programa y las decisiones que el equipo tomó para llegar a la que funciona.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Seguridad digital: la parte que casi nadie planea</h2>
+                <p>Toda herramienta que un menor usa en la escuela procesa datos suyos: nombre, correo, avance académico y, en algunos casos, grabaciones de voz o cámara. Antes de adoptarla conviene leer qué recopila, dónde lo almacena y con quién lo comparte, porque ese aviso de privacidad es el único compromiso verificable del proveedor.</p>
+                <p>La otra mitad es formativa. Un estudiante que no sabe reconocer un mensaje fraudulento o que reutiliza la misma contraseña en todas sus plataformas está expuesto sin importar qué tan bueno sea el software de la escuela. La seguridad digital se enseña, no se instala.</p>
+                <ul>
+                    <li>Revisar el aviso de privacidad de cada plataforma y qué datos de menores solicita.</li>
+                    <li>Usar contraseñas distintas por servicio y activar verificación en dos pasos donde exista.</li>
+                    <li>Acordar con el grupo qué información personal nunca se comparte en foros o chats de clase.</li>
+                    <li>Enseñar a verificar la fuente de un enlace antes de abrirlo o descargar un archivo.</li>
+                    <li>Definir a quién avisar dentro de la escuela si algo sale mal, y hacerlo sin sanción para quien reporta.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo evaluar una herramienta antes de adoptarla</h2>
+                <p>La mayoría de las decisiones de EdTech se toman al revés: primero se elige la plataforma y luego se busca en qué materia usarla. Invertir el orden reduce el desperdicio, porque obliga a nombrar el problema antes de comprar la solución.</p>
+                <p>Este recorrido sirve tanto para una escuela como para una familia que está considerando una app de estudio. Si un paso no se puede responder con evidencia, ese es justamente el punto que hay que resolver antes de escalar el uso.</p>
+                <ol>
+                    <li>Nombra el problema concreto: qué tema no se está aprendiendo y cómo lo sabes.</li>
+                    <li>Define qué evidencia mostraría mejora en cuatro a seis semanas.</li>
+                    <li>Verifica que la herramienta se alinee al programa de estudios vigente, no a un currículo de otro país.</li>
+                    <li>Prueba con un solo grupo antes de comprar licencias para toda la escuela.</li>
+                    <li>Revisa el aviso de privacidad y qué datos de menores solicita.</li>
+                    <li>Compara la evidencia recogida contra tu punto de partida y decide si continúa, se ajusta o se retira.</li>
+                </ol>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De la teoría al circuito que enciende</h2>
+                    <p>La forma más directa de entender la tecnología educativa es usarla para construir algo que funcione o falle de manera visible. En un curso de robótica y programación, cada sesión combina un objetivo concreto —que el semáforo cambie, que el sensor responda— con la lectura del error cuando no ocurre. Ese ciclo de prueba, diagnóstico y ajuste es lo que traslada el aprendizaje a otros contextos, incluidas las materias que no involucran ningún dispositivo.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Conoce el curso de robótica y programación <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-guia-completa">
+                            <span>Guía completa de tecnología educativa: cómo elegir e integrar herramientas</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-para-principiantes">
+                            <span>Tecnología educativa para principiantes: guía paso a paso</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La tecnología educativa reemplaza al docente?</h3>
+                    <p>No. Cambia la parte del trabajo docente que ocupa más tiempo: calificar ejercicios repetitivos, generar variantes de problemas o detectar quién se quedó atrás. Lo que no delega es la decisión pedagógica —qué se enseña, en qué orden y cómo se acompaña a quien no entendió—, que sigue dependiendo del criterio de quien está frente al grupo.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuál es la diferencia entre tecnología educativa y educación en línea?</h3>
+                    <p>La educación en línea describe la modalidad: dónde ocurre la clase. La tecnología educativa describe las herramientas y el diseño de las actividades, sin importar la modalidad. Una clase presencial con sensores y simuladores aplica tecnología educativa; un curso remoto que solo comparte archivos para leer casi no la usa.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Desde qué edad conviene introducir herramientas digitales de estudio?</h3>
+                    <p>Depende más del tipo de actividad que de la edad. En primaria menor funcionan mejor los usos guiados y de corta duración, con acompañamiento adulto presente. Conforme el estudiante gana autonomía lectora y hábitos de organización, tiene sentido darle herramientas que gestione solo. Si hay dudas sobre atención o aprendizaje, conviene consultar a un profesional de la educación o de la salud.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Se necesita internet rápido para aplicar tecnología educativa?</h3>
+                    <p>No siempre. Buena parte de las actividades más formativas funciona sin conexión: programar una placa, usar sensores, trabajar con hojas de cálculo o aplicaciones que sincronizan después. La conectividad es indispensable para plataformas en la nube y videollamadas, pero no debería ser el filtro que decida si una escuela puede empezar.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si una app de estudio realmente está enseñando algo?</h3>
+                    <p>Observa si el estudiante puede resolver el mismo tipo de problema fuera de la app, sin pistas ni opciones múltiples. Si solo acumula rachas y niveles pero no logra explicar el concepto ni aplicarlo en papel, la app está midiendo constancia de uso, no aprendizaje. La transferencia a otro contexto es la señal que importa.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -540,8 +633,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es la tecnología educativa y qué no lo es
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Los cuatro componentes que la sostienen
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Inteligencia artificial en el aula: dónde ayuda y dónde estorba
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Gamificación: por qué los puntos solos no enseñan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: un grupo de secundaria y un semáforo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Seguridad digital: la parte que casi nadie planea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo evaluar una herramienta antes de adoptarla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>9 min restantes</span>
+                        <span>Lectura estimada: 9 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

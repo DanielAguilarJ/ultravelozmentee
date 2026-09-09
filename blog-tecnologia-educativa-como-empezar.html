@@ -362,145 +362,243 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo empezar con tecnología educativa esta semana</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo empezar con tecnología educativa esta semana</h1>
+                <p class="blog-post-dek">Cómo empezar con tecnología educativa esta semana: una decisión, una herramienta, catorce días de prueba y una comprobación fuera de la pantalla.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Cómo empezar con tecnología educativa esta semana" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">El obstáculo más frecuente para empezar no es la falta de herramientas: es el exceso. Con decenas de recomendaciones disponibles, la decisión se posterga y el arranque nunca ocurre. La salida es reducir el arranque a algo tan pequeño que resulte difícil no hacerlo.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Antes del día 1: elige una sola dificultad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Día 1: decide cómo vas a comprobar el avance
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Día 2: elige una herramienta con una prueba de quince minutos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Día 2: revisa permisos y privacidad antes del primer uso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Días 3 al 16: quince minutos con horario fijo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: catorce días con un solo teléfono compartido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Día 17: la decisión y qué hacer con cada resultado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">El obstáculo más frecuente para empezar no es la falta de herramientas: es el exceso. Con decenas de recomendaciones disponibles, la decisión se posterga y el arranque nunca ocurre. La salida es reducir el arranque a algo tan pequeño que resulte difícil no hacerlo.</p>
             <p>Lo que sigue es un plan de catorce días con una sola herramienta y un compromiso de quince minutos. No pretende cubrir todas las materias ni resolver todo el año escolar. Su función es producir la primera evidencia real, que es lo que después permite decidir con criterio.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para empezar con tecnología educativa basta una decisión y catorce días: elige una sola dificultad concreta, una herramienta que la atienda, un horario fijo de quince minutos y una forma de comprobar el avance fuera de la aplicación. Al terminar los catorce días decides si conservas, ajustas o retiras. No hace falta comprar equipo ni instalar varias plataformas al mismo tiempo.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para empezar con tecnología educativa basta una decisión y catorce días: elige una sola dificultad concreta, una herramienta que la atienda, un horario fijo de quince minutos y una forma de comprobar el avance fuera de la aplicación. Al terminar los catorce días decides si conservas, ajustas o retiras. No hace falta comprar equipo ni instalar varias plataformas al mismo tiempo.</p>
+                </aside>
 
-            <h2>Antes del día 1: elige una sola dificultad</h2>
-            <p>Escribe en una frase qué cosa concreta quieres que cambie. Debe ser algo que puedas ver: "no recuerda las tablas del seis al nueve", "deja los problemas de dos operaciones a la mitad", "olvida el vocabulario de inglés de la semana anterior".</p>
-            <p>Si aparecen varias dificultades, elige la que más aparece en distintas materias. Las demás no se descartan, se posponen. Intentar atacar tres al mismo tiempo es la razón por la que la mayoría de los arranques se abandonan antes de la segunda semana.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Antes del día 1: elige una sola dificultad</h2>
+                <p>Escribe en una frase qué cosa concreta quieres que cambie. Debe ser algo que puedas ver: "no recuerda las tablas del seis al nueve", "deja los problemas de dos operaciones a la mitad", "olvida el vocabulario de inglés de la semana anterior".</p>
+                <p>Si aparecen varias dificultades, elige la que más aparece en distintas materias. Las demás no se descartan, se posponen. Intentar atacar tres al mismo tiempo es la razón por la que la mayoría de los arranques se abandonan antes de la segunda semana.</p>
+            </section>
 
-            <h2>Día 1: decide cómo vas a comprobar el avance</h2>
-            <p>Antes de instalar nada, define la comprobación. Debe ocurrir fuera de la aplicación y tomar menos de cinco minutos: cinco operaciones en papel, una explicación en voz alta, diez palabras dictadas. Anota el resultado de hoy, aunque sea bajo, porque es el punto de comparación.</p>
-            <p>Esta comprobación inicial es el paso que más se salta y el que más se extraña al final. Sin ella, en dos semanas solo tendrás la impresión de que algo mejoró, y la impresión no permite decidir si conservar o retirar la herramienta.</p>
-            <ul>
-                <li>Que sea corta: menos de cinco minutos</li>
-                <li>Que ocurra sin la aplicación abierta</li>
-                <li>Que pida producir la respuesta, no reconocerla</li>
-                <li>Que se repita idéntica al final de los catorce días</li>
-            </ul>
-
-            <h2>Día 2: elige una herramienta con una prueba de quince minutos</h2>
-            <p>Toma dos o tres candidatas y pruébalas tú, con contenido real del estudiante, no con el tutorial de bienvenida. Falla a propósito y observa qué hace la herramienta: si muestra la solución completa al primer error, no sirve para lo que necesitas.</p>
-            <p>Elige una sola y no instales la segunda "por si acaso". Tener dos abiertas fragmenta los quince minutos diarios y hace imposible saber cuál produjo el cambio. Guarda las descartadas en una nota, con una línea explicando por qué.</p>
-
-            <h2>Día 2: revisa permisos y privacidad antes del primer uso</h2>
-            <p>Diez minutos de configuración antes de que el estudiante entre resuelven lo que después ya no se puede deshacer. Revisa qué permisos pide la herramienta y niega los que no se expliquen por su función: una app de aritmética no necesita contactos ni cámara.</p>
-            <p>Si el usuario es menor de edad, desactiva la interacción con otras cuentas, revisa si el perfil es público por defecto y usa un correo destinado solo a plataformas de estudio. Cuando la herramienta no permite ninguna de esas tres cosas, eso mismo es un motivo para volver a la lista de descartadas.</p>
-
-            <h2>Días 3 al 16: quince minutos con horario fijo</h2>
-            <p>Fija la sesión a un momento que ya exista en el día: después de comer, antes de una actividad establecida, al llegar de la escuela. Los horarios que dependen de "cuando haya tiempo" desaparecen en la primera semana ocupada.</p>
-            <p>Quince minutos son suficientes y conviene no ampliarlos aunque los primeros días haya entusiasmo. El efecto de novedad dura entre cinco y diez días, y si la sesión se infló a cuarenta minutos durante ese periodo, la caída posterior se siente como fracaso. Registra en una nota los días que no hubo sesión: esa información también sirve.</p>
-            <ol>
-                <li>Marca el horario en un lugar visible para toda la casa</li>
-                <li>Mantén la duración en quince minutos durante los catorce días</li>
-                <li>No cambies de herramienta a media prueba, aunque aparezca una mejor</li>
-                <li>Anota con una marca los días cumplidos y los perdidos</li>
-                <li>Deja el domingo libre si eso ayuda a sostener el resto</li>
-            </ol>
-
-            <h2>Ejemplo aplicado: catorce días con un solo teléfono compartido</h2>
-            <p>Una familia con dos hijos en primaria tenía un teléfono disponible por las tardes y ninguna computadora. La dificultad elegida fue concreta: el mayor, de quinto, no recordaba las tablas del siete y el ocho, y eso lo frenaba en divisiones.</p>
-            <p>La comprobación inicial fueron diez productos escritos en papel, en un minuto y medio. Acertó cuatro. Ese número quedó anotado en la misma hoja, con la fecha. La herramienta elegida fue una app de práctica que pedía escribir el resultado y volvía sobre los productos fallados; se descartó otra que ofrecía opción múltiple y una tercera con publicidad cada dos ejercicios.</p>
-            <p>El horario quedó fijo a las seis de la tarde, después de la merienda, y el hermano menor usaba el teléfono a las seis y cuarto para otra cosa. Hubo tres días perdidos: un cumpleaños, una tarde de lluvia sin electricidad y un día de olvido. Los once restantes se cumplieron con quince minutos exactos.</p>
-            <p>El día quince se repitió la misma hoja de diez productos. Acertó nueve, con más lentitud en el ocho por siete. La decisión fue conservar la herramienta dos semanas más enfocada solo en el ocho, y añadir la comprobación en papel cada viernes. Nada de eso requirió comprar equipo ni suscribirse.</p>
-
-            <h2>Día 17: la decisión y qué hacer con cada resultado</h2>
-            <p>Repite la comprobación inicial en las mismas condiciones y compara los dos números. Hay tres salidas: conservar si hubo mejora clara fuera de la pantalla, ajustar si hubo señales parciales, retirar si no cambió nada aunque las sesiones se cumplieron.</p>
-            <p>Ajustar significa cambiar una sola variable: el horario, la duración o el tipo de ejercicio dentro de la misma herramienta. Cambiar dos a la vez devuelve al punto de partida. Retirar no es un fracaso: es la información que evita gastar tres meses en algo que no atacaba el problema, y deja libre el turno para la segunda candidata de tu lista.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Si la dificultad que elegiste está en las operaciones</h3>
-                <p>Cuando la primera dificultad observable tiene que ver con tablas, restas con transformación o cálculo lento, conviene acompañar la práctica digital con un método que trabaje el procedimiento sin apoyo visual. Un programa estructurado de cálculo mental atiende esa parte de forma ordenada y encaja bien con el plan de catorce días descrito arriba.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso de cálculo mental para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Día 1: decide cómo vas a comprobar el avance</h2>
+                <p>Antes de instalar nada, define la comprobación. Debe ocurrir fuera de la aplicación y tomar menos de cinco minutos: cinco operaciones en papel, una explicación en voz alta, diez palabras dictadas. Anota el resultado de hoy, aunque sea bajo, porque es el punto de comparación.</p>
+                <p>Esta comprobación inicial es el paso que más se salta y el que más se extraña al final. Sin ella, en dos semanas solo tendrás la impresión de que algo mejoró, y la impresión no permite decidir si conservar o retirar la herramienta.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-paso-a-paso">Cómo implementar tecnología educativa paso a paso</a></li>
-                <li><a href="/blog-tecnologia-educativa-errores-comunes">Errores comunes al usar tecnología educativa con niños</a></li>
-                <li><a href="/blog-productividad-estudiantil-que-es">Productividad estudiantil: qué es y por qué la mayoría la hace mal</a></li>
+                    <li>Que sea corta: menos de cinco minutos</li>
+                    <li>Que ocurra sin la aplicación abierta</li>
+                    <li>Que pida producir la respuesta, no reconocerla</li>
+                    <li>Que se repita idéntica al final de los catorce días</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Se puede empezar sin ningún dispositivo propio?</h3>
-                <p>Sí. Muchas escuelas y bibliotecas públicas ofrecen equipo con conexión durante horarios establecidos, y el plan de catorce días funciona con tres sesiones semanales en lugar de diarias. El punto crítico no es la frecuencia sino la constancia: sesiones cortas en días fijos rinden más que sesiones largas cuando se puede.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué edad es adecuada para empezar con herramientas digitales de estudio?</h3>
-                <p>Desde primaria funcionan bien las herramientas de práctica, siempre en sesiones cortas y acompañadas al inicio. En preescolar el beneficio es menor porque el aprendizaje depende más de manipular objetos y de la interacción con adultos. Si se usa a esa edad, conviene que sea muy breve y como complemento del juego con material concreto.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es mejor empezar con una herramienta gratuita?</h3>
-                <p>Empezar con la versión libre permite probar catorce días sin compromiso, y es la ruta recomendable. El límite aparece cuando la versión libre incluye publicidad frecuente o corta el ejercicio a los pocos minutos, porque eso interfiere con la práctica. En ese caso conviene evaluar el pago solo si desbloquea funciones de aprendizaje, no cosméticas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si el estudiante se resiste a la sesión diaria?</h3>
-                <p>Revisa primero el horario y la duración antes de discutir la herramienta. La resistencia suele venir del cansancio o de que la sesión compite con algo que el estudiante prefiere. Mover la sesión a otro momento del día y reducirla a diez minutos resuelve buena parte de los casos. Si persiste, conviene revisar si la dificultad elegida era la real.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Conviene avisarle al docente que se está usando una herramienta en casa?</h3>
-                <p>Sí, sobre todo si la dificultad elegida se observó en clase. El docente puede confirmar si el problema es el que se identificó y avisar si nota cambios. También evita duplicar trabajo cuando la escuela ya usa una plataforma para lo mismo, algo que ocurre con frecuencia y desperdicia el tiempo de estudio disponible.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Día 2: elige una herramienta con una prueba de quince minutos</h2>
+                <p>Toma dos o tres candidatas y pruébalas tú, con contenido real del estudiante, no con el tutorial de bienvenida. Falla a propósito y observa qué hace la herramienta: si muestra la solución completa al primer error, no sirve para lo que necesitas.</p>
+                <p>Elige una sola y no instales la segunda "por si acaso". Tener dos abiertas fragmenta los quince minutos diarios y hace imposible saber cuál produjo el cambio. Guarda las descartadas en una nota, con una línea explicando por qué.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Día 2: revisa permisos y privacidad antes del primer uso</h2>
+                <p>Diez minutos de configuración antes de que el estudiante entre resuelven lo que después ya no se puede deshacer. Revisa qué permisos pide la herramienta y niega los que no se expliquen por su función: una app de aritmética no necesita contactos ni cámara.</p>
+                <p>Si el usuario es menor de edad, desactiva la interacción con otras cuentas, revisa si el perfil es público por defecto y usa un correo destinado solo a plataformas de estudio. Cuando la herramienta no permite ninguna de esas tres cosas, eso mismo es un motivo para volver a la lista de descartadas.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Días 3 al 16: quince minutos con horario fijo</h2>
+                <p>Fija la sesión a un momento que ya exista en el día: después de comer, antes de una actividad establecida, al llegar de la escuela. Los horarios que dependen de "cuando haya tiempo" desaparecen en la primera semana ocupada.</p>
+                <p>Quince minutos son suficientes y conviene no ampliarlos aunque los primeros días haya entusiasmo. El efecto de novedad dura entre cinco y diez días, y si la sesión se infló a cuarenta minutos durante ese periodo, la caída posterior se siente como fracaso. Registra en una nota los días que no hubo sesión: esa información también sirve.</p>
+                <ol>
+                    <li>Marca el horario en un lugar visible para toda la casa</li>
+                    <li>Mantén la duración en quince minutos durante los catorce días</li>
+                    <li>No cambies de herramienta a media prueba, aunque aparezca una mejor</li>
+                    <li>Anota con una marca los días cumplidos y los perdidos</li>
+                    <li>Deja el domingo libre si eso ayuda a sostener el resto</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: catorce días con un solo teléfono compartido</h2>
+                <p>Una familia con dos hijos en primaria tenía un teléfono disponible por las tardes y ninguna computadora. La dificultad elegida fue concreta: el mayor, de quinto, no recordaba las tablas del siete y el ocho, y eso lo frenaba en divisiones.</p>
+                <p>La comprobación inicial fueron diez productos escritos en papel, en un minuto y medio. Acertó cuatro. Ese número quedó anotado en la misma hoja, con la fecha. La herramienta elegida fue una app de práctica que pedía escribir el resultado y volvía sobre los productos fallados; se descartó otra que ofrecía opción múltiple y una tercera con publicidad cada dos ejercicios.</p>
+                <p>El horario quedó fijo a las seis de la tarde, después de la merienda, y el hermano menor usaba el teléfono a las seis y cuarto para otra cosa. Hubo tres días perdidos: un cumpleaños, una tarde de lluvia sin electricidad y un día de olvido. Los once restantes se cumplieron con quince minutos exactos.</p>
+                <p>El día quince se repitió la misma hoja de diez productos. Acertó nueve, con más lentitud en el ocho por siete. La decisión fue conservar la herramienta dos semanas más enfocada solo en el ocho, y añadir la comprobación en papel cada viernes. Nada de eso requirió comprar equipo ni suscribirse.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Día 17: la decisión y qué hacer con cada resultado</h2>
+                <p>Repite la comprobación inicial en las mismas condiciones y compara los dos números. Hay tres salidas: conservar si hubo mejora clara fuera de la pantalla, ajustar si hubo señales parciales, retirar si no cambió nada aunque las sesiones se cumplieron.</p>
+                <p>Ajustar significa cambiar una sola variable: el horario, la duración o el tipo de ejercicio dentro de la misma herramienta. Cambiar dos a la vez devuelve al punto de partida. Retirar no es un fracaso: es la información que evita gastar tres meses en algo que no atacaba el problema, y deja libre el turno para la segunda candidata de tu lista.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Si la dificultad que elegiste está en las operaciones</h2>
+                    <p>Cuando la primera dificultad observable tiene que ver con tablas, restas con transformación o cálculo lento, conviene acompañar la práctica digital con un método que trabaje el procedimiento sin apoyo visual. Un programa estructurado de cálculo mental atiende esa parte de forma ordenada y encaja bien con el plan de catorce días descrito arriba.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Curso de cálculo mental para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-paso-a-paso">
+                            <span>Cómo implementar tecnología educativa paso a paso</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-errores-comunes">
+                            <span>Errores comunes al usar tecnología educativa con niños</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-que-es">
+                            <span>Productividad estudiantil: qué es y por qué la mayoría la hace mal</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Se puede empezar sin ningún dispositivo propio?</h3>
+                    <p>Sí. Muchas escuelas y bibliotecas públicas ofrecen equipo con conexión durante horarios establecidos, y el plan de catorce días funciona con tres sesiones semanales en lugar de diarias. El punto crítico no es la frecuencia sino la constancia: sesiones cortas en días fijos rinden más que sesiones largas cuando se puede.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué edad es adecuada para empezar con herramientas digitales de estudio?</h3>
+                    <p>Desde primaria funcionan bien las herramientas de práctica, siempre en sesiones cortas y acompañadas al inicio. En preescolar el beneficio es menor porque el aprendizaje depende más de manipular objetos y de la interacción con adultos. Si se usa a esa edad, conviene que sea muy breve y como complemento del juego con material concreto.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es mejor empezar con una herramienta gratuita?</h3>
+                    <p>Empezar con la versión libre permite probar catorce días sin compromiso, y es la ruta recomendable. El límite aparece cuando la versión libre incluye publicidad frecuente o corta el ejercicio a los pocos minutos, porque eso interfiere con la práctica. En ese caso conviene evaluar el pago solo si desbloquea funciones de aprendizaje, no cosméticas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si el estudiante se resiste a la sesión diaria?</h3>
+                    <p>Revisa primero el horario y la duración antes de discutir la herramienta. La resistencia suele venir del cansancio o de que la sesión compite con algo que el estudiante prefiere. Mover la sesión a otro momento del día y reducirla a diez minutos resuelve buena parte de los casos. Si persiste, conviene revisar si la dificultad elegida era la real.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Conviene avisarle al docente que se está usando una herramienta en casa?</h3>
+                    <p>Sí, sobre todo si la dificultad elegida se observó en clase. El docente puede confirmar si el problema es el que se identificó y avisar si nota cambios. También evita duplicar trabajo cuando la escuela ya usa una plataforma para lo mismo, algo que ocurre con frecuencia y desperdicia el tiempo de estudio disponible.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -530,8 +628,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Antes del día 1: elige una sola dificultad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Día 1: decide cómo vas a comprobar el avance
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Día 2: elige una herramienta con una prueba de quince minutos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Día 2: revisa permisos y privacidad antes del primer uso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Días 3 al 16: quince minutos con horario fijo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: catorce días con un solo teléfono compartido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Día 17: la decisión y qué hacer con cada resultado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

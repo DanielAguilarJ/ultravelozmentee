@@ -362,171 +362,269 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="10">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Estrategias efectivas de productividad estudiantil</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 10 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Estrategias efectivas de productividad estudiantil</h1>
+                <p class="blog-post-dek">Estrategias de estudio que sí cambian el resultado: práctica de recuperación, repaso distribuido, autoexplicación y cómo combinarlas en una semana.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>10 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Estrategias efectivas de productividad estudiantil" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Hay una asimetría curiosa en el estudio: las técnicas que se sienten mejor suelen ser las que menos dejan, y las que se sienten torpes son las que sostienen el aprendizaje semanas después. Releer un capítulo produce una sensación de dominio que se derrumba en el examen; intentar reconstruirlo de memoria produce incomodidad y resultados. Esa asimetría explica por qué tantos estudiantes trabajan mucho y avanzan poco.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>El criterio para juzgar cualquier estrategia de estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Práctica de recuperación: la estrategia con mejor retorno
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Repaso distribuido: el mismo tiempo, repartido distinto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Autoexplicación y enseñar a alguien más
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: una semana combinando las cuatro estrategias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Prácticas populares que rinden menos de lo que aparentan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo implementar dos estrategias sin abandonarlas en tres semanas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Hay una asimetría curiosa en el estudio: las técnicas que se sienten mejor suelen ser las que menos dejan, y las que se sienten torpes son las que sostienen el aprendizaje semanas después. Releer un capítulo produce una sensación de dominio que se derrumba en el examen; intentar reconstruirlo de memoria produce incomodidad y resultados. Esa asimetría explica por qué tantos estudiantes trabajan mucho y avanzan poco.</p>
             <p>Este texto reúne cuatro estrategias con respaldo amplio en la investigación sobre aprendizaje, explica el criterio para juzgar cualquier técnica nueva que te encuentres, muestra cómo se combinan en una semana concreta y aclara por qué algunas prácticas muy difundidas rinden menos de lo esperado. No son trucos: cambian el tipo de trabajo que haces con el mismo tiempo disponible.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Las estrategias de estudio más efectivas comparten un rasgo: te obligan a producir la información en lugar de reconocerla. Practicar recuperación de memoria, distribuir el mismo tiempo en varias sesiones, explicar el tema con tus palabras y mezclar tipos de problema rinden más que releer o subrayar. Se sienten más difíciles justamente porque están haciendo el trabajo que releer evita.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Las estrategias de estudio más efectivas comparten un rasgo: te obligan a producir la información en lugar de reconocerla. Practicar recuperación de memoria, distribuir el mismo tiempo en varias sesiones, explicar el tema con tus palabras y mezclar tipos de problema rinden más que releer o subrayar. Se sienten más difíciles justamente porque están haciendo el trabajo que releer evita.</p>
+                </aside>
 
-            <h2>El criterio para juzgar cualquier estrategia de estudio</h2>
-            <p>Antes de la lista conviene el criterio, porque así puedes evaluar por tu cuenta cualquier técnica que te recomienden. La pregunta es una sola: ¿la actividad te obliga a producir la información, o solo a reconocerla? Reconocer es leer, subrayar, ver un video, revisar apuntes. Producir es responder sin ver, resolver sin el ejemplo delante, explicar en voz alta, escribir de memoria. Las estrategias efectivas están casi todas en el segundo grupo.</p>
-            <p>El segundo filtro es la dificultad deseable. Una técnica que se siente fácil normalmente está trabajando sobre lo que ya sabes; una que se siente exigente está tocando el borde de tu conocimiento, que es donde ocurre el cambio. Esto no significa que más sufrimiento sea mejor: significa que la comodidad no es señal de eficacia y no debe ser el criterio con que eliges cómo estudiar.</p>
-            <ul>
-                <li>¿Produces la información o solo la reconoces? Producir deja huella; reconocer da familiaridad.</li>
-                <li>¿Sabes si acertaste? Sin corrección inmediata la práctica consolida errores.</li>
-                <li>¿Se parece a la evaluación? Si el examen es escrito y con tiempo, practica escrito y con tiempo.</li>
-                <li>¿Podrías sostenerla ocho semanas? Una técnica insostenible no es efectiva en la práctica.</li>
-            </ul>
-
-            <h2>Práctica de recuperación: la estrategia con mejor retorno</h2>
-            <p>Recuperar consiste en intentar traer la información a la mente sin tenerla enfrente, y es la práctica que más cambia el resultado por unidad de tiempo. El mecanismo es intuitivo cuando se ve así: el examen no te pide reconocer contenido, te pide producirlo, así que practicar reconocimiento entrena una habilidad distinta a la que se evalúa. Cada intento de recuperación, incluso fallido, fortalece la ruta de acceso a ese contenido.</p>
-            <p>La forma más simple de aplicarla no requiere materiales: al terminar de estudiar un tema, cierra todo y escribe en una hoja lo que recuerdes, con estructura. Después compara con el material y marca lo que faltó, lo que quedó impreciso y lo que estaba mal. Ese contraste señala exactamente dónde trabajar, algo que releer nunca te dice porque todo parece conocido.</p>
-            <ol>
-                <li>Estudia el tema una vez con atención, sin subrayar de más.</li>
-                <li>Cierra el material y escribe de memoria lo esencial: definiciones, condiciones de uso, procedimiento.</li>
-                <li>Compara contra la fuente y marca con tres colores lo faltante, lo impreciso y lo incorrecto.</li>
-                <li>Vuelve al material solo para lo marcado, no para todo el tema.</li>
-                <li>Repite el ejercicio al día siguiente antes de estudiar cualquier cosa nueva.</li>
-            </ol>
-
-            <h2>Repaso distribuido: el mismo tiempo, repartido distinto</h2>
-            <p>El repaso distribuido no pide más horas: pide que las mismas horas se separen en el tiempo. Cuatro sesiones de treinta minutos en cuatro días dejan más que una sesión de dos horas, y la diferencia no es marginal. Estudiar todo junto se siente eficiente porque el rendimiento dentro de la sesión es alto, pero ese rendimiento viene de tener el contenido fresco en la memoria de trabajo, no de haberlo consolidado.</p>
-            <p>El punto incómodo del método es que exige olvidar un poco entre sesiones, y ese olvido parcial es el que hace productivo el siguiente repaso. Si repasas cuando todavía recuerdas todo, el esfuerzo de recuperación es mínimo y la ganancia también. Por eso conviene separar las sesiones lo suficiente para que cueste, sin llegar al punto de tener que reaprender desde cero.</p>
-            <ul>
-                <li>Divide el tiempo total de un tema en tres o cuatro sesiones separadas por al menos un día.</li>
-                <li>Empieza cada sesión recuperando lo de la anterior antes de agregar material nuevo.</li>
-                <li>Si un repaso te sale fluido, alarga el intervalo siguiente; si falla, acórtalo.</li>
-                <li>Planea los repasos al agendar el estudio, no cuando te acuerdes: sin agenda no ocurren.</li>
-            </ul>
-
-            <h2>Autoexplicación y enseñar a alguien más</h2>
-            <p>Explicar un tema con tus palabras es una forma exigente de recuperación, porque además de traer la información a la mente te obliga a ordenarla y a conectar sus partes. Ahí se descubren los huecos que la lectura oculta: puedes reconocer todos los pasos de un procedimiento y no poder decir por qué el segundo paso es necesario. Ese "por qué" es lo que suelen medir las preguntas difíciles.</p>
-            <p>No hace falta un público real, aunque ayuda porque impide saltarse partes. Explicar en voz alta a una silla vacía funciona; escribir la explicación como si fuera para alguien que no cursó la materia funciona igual de bien y deja un registro revisable. La regla que hace efectivo el ejercicio es no consultar el material mientras explicas: cuando te atoras, anotas el punto y sigues, y solo al final revisas.</p>
-            <ul>
-                <li>Explica sin material a la vista; consultar mientras explicas anula casi todo el beneficio.</li>
-                <li>Incluye siempre el por qué, no solo la secuencia de pasos.</li>
-                <li>Anota los puntos donde titubeaste: esa lista es tu plan de estudio para el día siguiente.</li>
-                <li>Si puedes, explícale a alguien que no lleve la materia; sus preguntas encuentran huecos que tú no ves.</li>
-            </ul>
-
-            <h2>Ejemplo aplicado: una semana combinando las cuatro estrategias</h2>
-            <p>Mariana lleva cuatro materias y prepara su examen de admisión. Antes distribuía su semana por materias: lunes matemáticas, martes química, y así. El problema es que entre una sesión de matemáticas y la siguiente pasaba una semana completa, así que cada lunes empezaba reaprendiendo. Reorganizó sin agregar horas, solo cambiando cómo se reparten.</p>
-            <p>El lunes trabajó funciones con estudio atento durante media hora y después cerró el libro para escribir de memoria las definiciones y las condiciones de uso. Le faltaron dos casos y confundió dominio con rango en un ejemplo. Marcó ambos, revisó solo eso y cerró la sesión en cincuenta minutos. El martes empezó con quince minutos recuperando funciones antes de tocar química, y esos quince minutos le mostraron que el caso que había marcado seguía frágil.</p>
-            <p>El jueves hizo el ejercicio de explicación: le contó a su hermana, que va en secundaria, qué es una función y por qué no cualquier relación lo es. Se atoró al justificar por qué un valor de entrada no puede tener dos salidas y lo anotó. Ese titubeo era el mismo hueco que había aparecido el lunes, ahora visible con más claridad porque explicar exige más que recordar.</p>
-            <p>El sábado resolvió una serie de doce problemas mezclados de funciones, trigonometría y logaritmos, sin agrupar por tema y con un límite de tiempo. Falló cuatro, y tres de los cuatro fueron por elegir el método equivocado, no por ejecutar mal. Ese dato reorientó su semana siguiente: en lugar de repasar contenido, practicó identificar qué tipo de problema tenía enfrente antes de resolverlo. Las horas totales fueron casi las mismas que antes.</p>
-
-            <h2>Prácticas populares que rinden menos de lo que aparentan</h2>
-            <p>Varias técnicas muy difundidas no son inútiles, pero ocupan un lugar que no les corresponde: sirven para organizar material, no para aprenderlo, y se vuelven un problema cuando consumen la mayor parte del tiempo de estudio. Conviene identificarlas para reasignar ese tiempo, no para prohibirlas.</p>
-            <ul>
-                <li>Subrayar y resaltar: útil para localizar después, casi nulo como aprendizaje si no hay recuperación posterior.</li>
-                <li>Releer varias veces: produce familiaridad, que se confunde con dominio y falla bajo presión.</li>
-                <li>Copiar apuntes en limpio: actividad mecánica que tolera cansancio, no práctica de comprensión.</li>
-                <li>Mapas mentales elaborados: valen cuando los construyes de memoria, no cuando los copias del texto.</li>
-                <li>Escuchar clases grabadas en segundo plano: sin producción de información, la retención es baja.</li>
-                <li>Estudiar con música con letra durante tareas de lectura o resolución: compite por los mismos recursos de atención.</li>
-            </ul>
-
-            <h2>Cómo implementar dos estrategias sin abandonarlas en tres semanas</h2>
-            <p>El error de implementación más común es adoptar las cuatro a la vez, con registro nuevo, horario nuevo y aplicación nueva. Eso dura entre diez días y dos semanas. Es preferible instalar una sola práctica hasta que sea automática y luego agregar la segunda, aunque el avance parezca lento; un método parcial sostenido rinde más que un sistema completo abandonado.</p>
-            <p>El orden que suele funcionar es empezar por práctica de recuperación, porque no requiere planeación ni materiales y se pega a lo que ya haces: solo cambias los últimos diez minutos de cada sesión. Cuando eso ocurre sin pensarlo, agregas repaso distribuido, que sí exige agenda. La autoexplicación y la práctica mezclada llegan después, cuando ya hay contenido acumulado con qué trabajar.</p>
-            <ol>
-                <li>Semanas 1 y 2: cierra cada sesión escribiendo de memoria lo esencial y marca los huecos.</li>
-                <li>Semanas 3 y 4: agenda los repasos separados por al menos un día y empieza cada sesión recuperando.</li>
-                <li>Semana 5: agrega una explicación en voz alta por semana, del tema que sientas más frágil.</li>
-                <li>Semana 6: incorpora una serie de problemas mezclados con tiempo limitado, una vez por semana.</li>
-                <li>Revisa al final de cada dos semanas si la práctica se sostuvo; si no, simplifica antes de agregar.</li>
-            </ol>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Aplicar estas estrategias a una preparación de admisión</h3>
-                <p>En un examen de admisión la práctica mezclada y con tiempo limitado deja de ser un complemento y se vuelve el centro del entrenamiento, porque la prueba combina áreas sin avisar cuál viene. Si quieres aplicar estas estrategias con un temario ordenado, simulaciones periódicas y alguien que interprete tus errores contigo, nuestro programa de admisión universitaria está armado con esa estructura.</p>
-                <a href="/admision-universitaria" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de admisión universitaria <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">El criterio para juzgar cualquier estrategia de estudio</h2>
+                <p>Antes de la lista conviene el criterio, porque así puedes evaluar por tu cuenta cualquier técnica que te recomienden. La pregunta es una sola: ¿la actividad te obliga a producir la información, o solo a reconocerla? Reconocer es leer, subrayar, ver un video, revisar apuntes. Producir es responder sin ver, resolver sin el ejemplo delante, explicar en voz alta, escribir de memoria. Las estrategias efectivas están casi todas en el segundo grupo.</p>
+                <p>El segundo filtro es la dificultad deseable. Una técnica que se siente fácil normalmente está trabajando sobre lo que ya sabes; una que se siente exigente está tocando el borde de tu conocimiento, que es donde ocurre el cambio. Esto no significa que más sufrimiento sea mejor: significa que la comodidad no es señal de eficacia y no debe ser el criterio con que eliges cómo estudiar.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-senales-de-progreso">Señales de progreso en productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-como-lograrlo-sin-estres">Cómo lograr productividad estudiantil sin estrés</a></li>
-                <li><a href="/blog-productividad-estudiantil-que-evitar">Qué evitar para mejorar tu productividad estudiantil</a></li>
+                    <li>¿Produces la información o solo la reconoces? Producir deja huella; reconocer da familiaridad.</li>
+                    <li>¿Sabes si acertaste? Sin corrección inmediata la práctica consolida errores.</li>
+                    <li>¿Se parece a la evaluación? Si el examen es escrito y con tiempo, practica escrito y con tiempo.</li>
+                    <li>¿Podrías sostenerla ocho semanas? Una técnica insostenible no es efectiva en la práctica.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Por qué las técnicas efectivas se sienten más difíciles que releer?</h3>
-                <p>Porque exigen producir la información en lugar de reconocerla, y producir consume más esfuerzo mental. Releer da fluidez inmediata que se interpreta como dominio; recuperar de memoria muestra los huecos y por eso incomoda. Esa incomodidad no es señal de que estés estudiando mal: es la parte del trabajo que releer permite evitar y que el examen sí va a pedir.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debo dedicar a recuperar y cuánto a estudiar material nuevo?</h3>
-                <p>Una repartición razonable para empezar es dedicar cerca de un tercio de cada sesión a recuperar lo previo y el resto a material nuevo, ajustando según qué tan cerca esté la evaluación. A medida que se acumula contenido, la proporción de repaso crece de forma natural. Lo que conviene evitar es dejar la recuperación solo para los últimos días.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Estas estrategias funcionan igual en materias de memorizar que en materias de resolver?</h3>
-                <p>El principio es el mismo, cambia la forma. En materias de contenido conceptual, recuperar significa escribir de memoria y explicar; en materias de resolución, significa resolver problemas nuevos con la solución tapada. En ambas, el repaso distribuido y la práctica mezclada aplican igual, y en las de resolver la mezcla de tipos de problema es especialmente importante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo usar aplicaciones de tarjetas en lugar de escribir de memoria?</h3>
-                <p>Sí, y son una buena herramienta de recuperación siempre que las respondas antes de ver la respuesta y que las tarjetas exijan algo más que reconocer una palabra. El riesgo está en pasar el tiempo creando y ordenando tarjetas en lugar de responderlas. Para contenido de procedimiento, resolver problemas sigue rindiendo más que cualquier tarjeta.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si aplico estas estrategias y aun así me va mal en el examen?</h3>
-                <p>Revisa si tus condiciones de práctica se parecen a las del examen: tiempo limitado, sin apuntes, problemas mezclados y sin saber de antemano qué tema toca. Es común dominar el contenido y fallar por no haber practicado la decisión bajo presión. Si el problema es ansiedad marcada durante la prueba, conviene buscar apoyo con un profesional de salud mental.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Práctica de recuperación: la estrategia con mejor retorno</h2>
+                <p>Recuperar consiste en intentar traer la información a la mente sin tenerla enfrente, y es la práctica que más cambia el resultado por unidad de tiempo. El mecanismo es intuitivo cuando se ve así: el examen no te pide reconocer contenido, te pide producirlo, así que practicar reconocimiento entrena una habilidad distinta a la que se evalúa. Cada intento de recuperación, incluso fallido, fortalece la ruta de acceso a ese contenido.</p>
+                <p>La forma más simple de aplicarla no requiere materiales: al terminar de estudiar un tema, cierra todo y escribe en una hoja lo que recuerdes, con estructura. Después compara con el material y marca lo que faltó, lo que quedó impreciso y lo que estaba mal. Ese contraste señala exactamente dónde trabajar, algo que releer nunca te dice porque todo parece conocido.</p>
+                <ol>
+                    <li>Estudia el tema una vez con atención, sin subrayar de más.</li>
+                    <li>Cierra el material y escribe de memoria lo esencial: definiciones, condiciones de uso, procedimiento.</li>
+                    <li>Compara contra la fuente y marca con tres colores lo faltante, lo impreciso y lo incorrecto.</li>
+                    <li>Vuelve al material solo para lo marcado, no para todo el tema.</li>
+                    <li>Repite el ejercicio al día siguiente antes de estudiar cualquier cosa nueva.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Repaso distribuido: el mismo tiempo, repartido distinto</h2>
+                <p>El repaso distribuido no pide más horas: pide que las mismas horas se separen en el tiempo. Cuatro sesiones de treinta minutos en cuatro días dejan más que una sesión de dos horas, y la diferencia no es marginal. Estudiar todo junto se siente eficiente porque el rendimiento dentro de la sesión es alto, pero ese rendimiento viene de tener el contenido fresco en la memoria de trabajo, no de haberlo consolidado.</p>
+                <p>El punto incómodo del método es que exige olvidar un poco entre sesiones, y ese olvido parcial es el que hace productivo el siguiente repaso. Si repasas cuando todavía recuerdas todo, el esfuerzo de recuperación es mínimo y la ganancia también. Por eso conviene separar las sesiones lo suficiente para que cueste, sin llegar al punto de tener que reaprender desde cero.</p>
+                <ul>
+                    <li>Divide el tiempo total de un tema en tres o cuatro sesiones separadas por al menos un día.</li>
+                    <li>Empieza cada sesión recuperando lo de la anterior antes de agregar material nuevo.</li>
+                    <li>Si un repaso te sale fluido, alarga el intervalo siguiente; si falla, acórtalo.</li>
+                    <li>Planea los repasos al agendar el estudio, no cuando te acuerdes: sin agenda no ocurren.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Autoexplicación y enseñar a alguien más</h2>
+                <p>Explicar un tema con tus palabras es una forma exigente de recuperación, porque además de traer la información a la mente te obliga a ordenarla y a conectar sus partes. Ahí se descubren los huecos que la lectura oculta: puedes reconocer todos los pasos de un procedimiento y no poder decir por qué el segundo paso es necesario. Ese "por qué" es lo que suelen medir las preguntas difíciles.</p>
+                <p>No hace falta un público real, aunque ayuda porque impide saltarse partes. Explicar en voz alta a una silla vacía funciona; escribir la explicación como si fuera para alguien que no cursó la materia funciona igual de bien y deja un registro revisable. La regla que hace efectivo el ejercicio es no consultar el material mientras explicas: cuando te atoras, anotas el punto y sigues, y solo al final revisas.</p>
+                <ul>
+                    <li>Explica sin material a la vista; consultar mientras explicas anula casi todo el beneficio.</li>
+                    <li>Incluye siempre el por qué, no solo la secuencia de pasos.</li>
+                    <li>Anota los puntos donde titubeaste: esa lista es tu plan de estudio para el día siguiente.</li>
+                    <li>Si puedes, explícale a alguien que no lleve la materia; sus preguntas encuentran huecos que tú no ves.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Ejemplo aplicado: una semana combinando las cuatro estrategias</h2>
+                <p>Mariana lleva cuatro materias y prepara su examen de admisión. Antes distribuía su semana por materias: lunes matemáticas, martes química, y así. El problema es que entre una sesión de matemáticas y la siguiente pasaba una semana completa, así que cada lunes empezaba reaprendiendo. Reorganizó sin agregar horas, solo cambiando cómo se reparten.</p>
+                <p>El lunes trabajó funciones con estudio atento durante media hora y después cerró el libro para escribir de memoria las definiciones y las condiciones de uso. Le faltaron dos casos y confundió dominio con rango en un ejemplo. Marcó ambos, revisó solo eso y cerró la sesión en cincuenta minutos. El martes empezó con quince minutos recuperando funciones antes de tocar química, y esos quince minutos le mostraron que el caso que había marcado seguía frágil.</p>
+                <p>El jueves hizo el ejercicio de explicación: le contó a su hermana, que va en secundaria, qué es una función y por qué no cualquier relación lo es. Se atoró al justificar por qué un valor de entrada no puede tener dos salidas y lo anotó. Ese titubeo era el mismo hueco que había aparecido el lunes, ahora visible con más claridad porque explicar exige más que recordar.</p>
+                <p>El sábado resolvió una serie de doce problemas mezclados de funciones, trigonometría y logaritmos, sin agrupar por tema y con un límite de tiempo. Falló cuatro, y tres de los cuatro fueron por elegir el método equivocado, no por ejecutar mal. Ese dato reorientó su semana siguiente: en lugar de repasar contenido, practicó identificar qué tipo de problema tenía enfrente antes de resolverlo. Las horas totales fueron casi las mismas que antes.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Prácticas populares que rinden menos de lo que aparentan</h2>
+                <p>Varias técnicas muy difundidas no son inútiles, pero ocupan un lugar que no les corresponde: sirven para organizar material, no para aprenderlo, y se vuelven un problema cuando consumen la mayor parte del tiempo de estudio. Conviene identificarlas para reasignar ese tiempo, no para prohibirlas.</p>
+                <ul>
+                    <li>Subrayar y resaltar: útil para localizar después, casi nulo como aprendizaje si no hay recuperación posterior.</li>
+                    <li>Releer varias veces: produce familiaridad, que se confunde con dominio y falla bajo presión.</li>
+                    <li>Copiar apuntes en limpio: actividad mecánica que tolera cansancio, no práctica de comprensión.</li>
+                    <li>Mapas mentales elaborados: valen cuando los construyes de memoria, no cuando los copias del texto.</li>
+                    <li>Escuchar clases grabadas en segundo plano: sin producción de información, la retención es baja.</li>
+                    <li>Estudiar con música con letra durante tareas de lectura o resolución: compite por los mismos recursos de atención.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo implementar dos estrategias sin abandonarlas en tres semanas</h2>
+                <p>El error de implementación más común es adoptar las cuatro a la vez, con registro nuevo, horario nuevo y aplicación nueva. Eso dura entre diez días y dos semanas. Es preferible instalar una sola práctica hasta que sea automática y luego agregar la segunda, aunque el avance parezca lento; un método parcial sostenido rinde más que un sistema completo abandonado.</p>
+                <p>El orden que suele funcionar es empezar por práctica de recuperación, porque no requiere planeación ni materiales y se pega a lo que ya haces: solo cambias los últimos diez minutos de cada sesión. Cuando eso ocurre sin pensarlo, agregas repaso distribuido, que sí exige agenda. La autoexplicación y la práctica mezclada llegan después, cuando ya hay contenido acumulado con qué trabajar.</p>
+                <ol>
+                    <li>Semanas 1 y 2: cierra cada sesión escribiendo de memoria lo esencial y marca los huecos.</li>
+                    <li>Semanas 3 y 4: agenda los repasos separados por al menos un día y empieza cada sesión recuperando.</li>
+                    <li>Semana 5: agrega una explicación en voz alta por semana, del tema que sientas más frágil.</li>
+                    <li>Semana 6: incorpora una serie de problemas mezclados con tiempo limitado, una vez por semana.</li>
+                    <li>Revisa al final de cada dos semanas si la práctica se sostuvo; si no, simplifica antes de agregar.</li>
+                </ol>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Aplicar estas estrategias a una preparación de admisión</h2>
+                    <p>En un examen de admisión la práctica mezclada y con tiempo limitado deja de ser un complemento y se vuelve el centro del entrenamiento, porque la prueba combina áreas sin avisar cuál viene. Si quieres aplicar estas estrategias con un temario ordenado, simulaciones periódicas y alguien que interprete tus errores contigo, nuestro programa de admisión universitaria está armado con esa estructura.</p>
+                    <a href="/admision-universitaria" class="btn-primary">
+                        Ver el curso de admisión universitaria <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-senales-de-progreso">
+                            <span>Señales de progreso en productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-como-lograrlo-sin-estres">
+                            <span>Cómo lograr productividad estudiantil sin estrés</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-que-evitar">
+                            <span>Qué evitar para mejorar tu productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Por qué las técnicas efectivas se sienten más difíciles que releer?</h3>
+                    <p>Porque exigen producir la información en lugar de reconocerla, y producir consume más esfuerzo mental. Releer da fluidez inmediata que se interpreta como dominio; recuperar de memoria muestra los huecos y por eso incomoda. Esa incomodidad no es señal de que estés estudiando mal: es la parte del trabajo que releer permite evitar y que el examen sí va a pedir.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debo dedicar a recuperar y cuánto a estudiar material nuevo?</h3>
+                    <p>Una repartición razonable para empezar es dedicar cerca de un tercio de cada sesión a recuperar lo previo y el resto a material nuevo, ajustando según qué tan cerca esté la evaluación. A medida que se acumula contenido, la proporción de repaso crece de forma natural. Lo que conviene evitar es dejar la recuperación solo para los últimos días.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Estas estrategias funcionan igual en materias de memorizar que en materias de resolver?</h3>
+                    <p>El principio es el mismo, cambia la forma. En materias de contenido conceptual, recuperar significa escribir de memoria y explicar; en materias de resolución, significa resolver problemas nuevos con la solución tapada. En ambas, el repaso distribuido y la práctica mezclada aplican igual, y en las de resolver la mezcla de tipos de problema es especialmente importante.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo usar aplicaciones de tarjetas en lugar de escribir de memoria?</h3>
+                    <p>Sí, y son una buena herramienta de recuperación siempre que las respondas antes de ver la respuesta y que las tarjetas exijan algo más que reconocer una palabra. El riesgo está en pasar el tiempo creando y ordenando tarjetas en lugar de responderlas. Para contenido de procedimiento, resolver problemas sigue rindiendo más que cualquier tarjeta.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si aplico estas estrategias y aun así me va mal en el examen?</h3>
+                    <p>Revisa si tus condiciones de práctica se parecen a las del examen: tiempo limitado, sin apuntes, problemas mezclados y sin saber de antemano qué tema toca. Es común dominar el contenido y fallar por no haber practicado la decisión bajo presión. Si el problema es ansiedad marcada durante la prueba, conviene buscar apoyo con un profesional de salud mental.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -556,8 +654,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>El criterio para juzgar cualquier estrategia de estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Práctica de recuperación: la estrategia con mejor retorno
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Repaso distribuido: el mismo tiempo, repartido distinto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Autoexplicación y enseñar a alguien más
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: una semana combinando las cuatro estrategias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Prácticas populares que rinden menos de lo que aparentan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo implementar dos estrategias sin abandonarlas en tres semanas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>10 min restantes</span>
+                        <span>Lectura estimada: 10 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

@@ -362,151 +362,249 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Tecnología educativa vs método tradicional: comparación honesta</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Tecnología educativa vs método tradicional: comparación honesta</h1>
+                <p class="blog-post-dek">Comparación honesta entre tecnología educativa y método tradicional: qué resuelve mejor cada uno, dónde falla y cómo decidir según la tarea de aprendizaje.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Tecnología educativa vs método tradicional: comparación honesta" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La discusión suele plantearse como si hubiera que declarar un ganador, y esa forma de plantearla es la que impide decidir bien. Papel y pantalla no compiten por el mismo trabajo: hacen cosas distintas y fallan en cosas distintas.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué hace mejor la tecnología educativa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Qué hace mejor el método tradicional
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Dónde falla cada medio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>El falso empate: cuando se comparan cosas distintas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué condiciones necesita cada medio para funcionar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: dos rutas para las mismas multiplicaciones
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Criterio de asignación tarea por tarea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La discusión suele plantearse como si hubiera que declarar un ganador, y esa forma de plantearla es la que impide decidir bien. Papel y pantalla no compiten por el mismo trabajo: hacen cosas distintas y fallan en cosas distintas.</p>
             <p>Este artículo compara los dos medios tarea por tarea, sin defender ninguno. Al final hay un criterio de asignación que puede aplicarse el mismo día, tanto en casa como en un salón con recursos limitados.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La tecnología educativa supera al método tradicional en práctica personalizada, retroalimentación inmediata y repetición espaciada a escala. El método tradicional sigue siendo superior en escritura a mano, discusión argumentada, manipulación de objetos y atención sostenida sin interrupciones. La decisión no es elegir un bando, sino asignar cada tarea al medio que la sostiene mejor.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La tecnología educativa supera al método tradicional en práctica personalizada, retroalimentación inmediata y repetición espaciada a escala. El método tradicional sigue siendo superior en escritura a mano, discusión argumentada, manipulación de objetos y atención sostenida sin interrupciones. La decisión no es elegir un bando, sino asignar cada tarea al medio que la sostiene mejor.</p>
+                </aside>
 
-            <h2>Qué hace mejor la tecnología educativa</h2>
-            <p>La ventaja más clara es el ajuste de dificultad. Un cuaderno de ejercicios impreso ofrece la misma página a todo el grupo; una plataforma bien diseñada detecta dónde falla cada estudiante y le da más de eso. En un grupo numeroso, ese ajuste es prácticamente imposible de sostener a mano.</p>
-            <p>La segunda ventaja es la retroalimentación inmediata en tareas de procedimiento. Saber en el momento que una operación salió mal evita consolidar el error, algo que una tarea revisada tres días después ya no puede impedir. La tercera es la repetición espaciada: recordar al estudiante lo que estudió hace dos semanas, justo antes de olvidarlo, es una tarea de calendario que el software hace bien y las personas hacemos mal.</p>
-            <ul>
-                <li>Ajuste de dificultad individual sin trabajo manual del docente</li>
-                <li>Corrección inmediata en ejercicios de procedimiento</li>
-                <li>Repasos programados según el olvido previsible</li>
-                <li>Registro automático de qué se practicó y qué se falló</li>
-            </ul>
-
-            <h2>Qué hace mejor el método tradicional</h2>
-            <p>La escritura a mano sigue teniendo un lugar propio: obliga a organizar la idea antes de trazarla y no permite borrar sin costo, lo que hace más lento el proceso y por eso mismo más deliberado. Tomar apuntes en papel y resolver operaciones en libreta pertenecen a esta categoría.</p>
-            <p>La discusión argumentada es el otro terreno donde el medio tradicional no tiene sustituto cercano. Defender una postura frente a compañeros que replican en tiempo real exige escuchar, reformular y ceder, y ninguna interfaz reproduce esa presión social. Lo mismo ocurre con la manipulación de objetos físicos, especialmente en los primeros años: contar con fichas, medir con regla o construir con material concreto deja una huella que la simulación no iguala.</p>
-
-            <h2>Dónde falla cada medio</h2>
-            <p>La tecnología falla cuando sustituye el esfuerzo en lugar de dirigirlo. Un ejercicio que muestra la respuesta al primer titubeo, una interfaz que premia velocidad sobre precisión o un asistente que redacta el párrafo completo eliminan justamente la parte donde ocurría el aprendizaje.</p>
-            <p>El método tradicional falla en escala y en tiempo de respuesta. Treinta libretas revisadas una vez por semana significan que un error de procedimiento vive siete días antes de corregirse, y que el estudiante que ya dominaba el tema resolvió veinte ejercicios innecesarios mientras otro no alcanzó los que necesitaba.</p>
-
-            <h2>El falso empate: cuando se comparan cosas distintas</h2>
-            <p>Muchas comparaciones terminan en empate porque miden dos actividades diferentes con la misma vara. Practicar tablas de multiplicar en una app y practicarlas en papel son tareas comparables; escribir un ensayo con asistente de IA y escribirlo a mano no lo son, porque en el primer caso cambió quién hace el trabajo.</p>
-            <p>El criterio para saber si la comparación es válida es preguntar qué parte del esfuerzo cambió de dueño. Si el estudiante sigue produciendo la respuesta y solo cambió el soporte, la comparación tiene sentido. Si el medio empezó a producir parte de la respuesta, ya no se están comparando dos métodos sino dos actividades.</p>
-
-            <h2>Qué condiciones necesita cada medio para funcionar</h2>
-            <p>Ninguno de los dos medios rinde por sí solo. La tecnología educativa exige dispositivos suficientes, conexión estable en varias plataformas, cuentas administradas y un adulto que revise permisos. Cuando alguna de esas condiciones falta, el medio no da un resultado peor: da un resultado inconsistente, que es más difícil de interpretar.</p>
-            <p>El método tradicional exige tiempo de revisión y una relación cercana con el estudiante. Treinta libretas revisadas con comentarios útiles consumen horas reales, y sin ese trabajo el papel se queda en ejercicios contestados que nadie leyó. Antes de elegir medio conviene mirar cuál de las dos condiciones está más al alcance, porque un plan que ignora eso se abandona en semanas.</p>
-            <ul>
-                <li>Pantalla: dispositivo disponible, conexión, cuentas y permisos revisados</li>
-                <li>Papel: tiempo de revisión frecuente y retroalimentación escrita o hablada</li>
-                <li>Ambos: un horario fijo que no dependa de la disposición del día</li>
-                <li>Ambos: una forma acordada de saber si el estudiante avanzó</li>
-            </ul>
-
-            <h2>Ejemplo aplicado: dos rutas para las mismas multiplicaciones</h2>
-            <p>Un grupo de tercero de primaria necesitaba automatizar multiplicaciones hasta el diez. La escuela dividió el trabajo en dos rutas durante un bimestre, no para competir sino para ver dónde encajaba cada medio.</p>
-            <p>La ruta digital consistió en diez minutos diarios en una aplicación de práctica adaptativa que pedía escribir el resultado, no elegirlo. La aplicación insistía en los productos fallados y espaciaba los ya dominados. Lo que mostró fue velocidad: la recuperación de los productos practicados se volvió más rápida en pocas semanas.</p>
-            <p>La ruta tradicional fue una sesión semanal de cuarenta minutos con fichas y rectángulos dibujados en cuadrícula, donde los alumnos tenían que explicar por qué siete por ocho podía descomponerse en siete por cinco más siete por tres. Ahí no hubo ganancia de velocidad, pero sí algo distinto: los alumnos podían reconstruir un producto olvidado en lugar de quedarse en blanco.</p>
-            <p>La conclusión del docente no fue que una ruta fuera superior, sino que atendían funciones separadas. La app resolvió la automatización; las fichas resolvieron la recuperación cuando la automatización falla. Retirar cualquiera de las dos dejaba un hueco visible en los exámenes.</p>
-
-            <h2>Criterio de asignación tarea por tarea</h2>
-            <p>Con lo anterior se puede armar una regla operativa sin discutir posturas. La pregunta no es qué medio prefiere la escuela, sino qué exige la tarea: si exige repetición con corrección inmediata, va a pantalla; si exige elaboración lenta, argumentación o manipulación, va a papel u objeto físico.</p>
-            <p>Conviene revisar esta asignación al inicio de cada bimestre, porque las tareas cambian con el contenido. Un tema de geometría con construcción de figuras pide material concreto; el mismo grupo, dos temas después, con conversión de unidades, se beneficia más de práctica adaptativa.</p>
-            <ol>
-                <li>Enlista las tareas de aprendizaje del bimestre, no las materias</li>
-                <li>Marca cuáles piden repetición con corrección inmediata</li>
-                <li>Marca cuáles piden argumentar, escribir extenso o manipular objetos</li>
-                <li>Asigna medio a cada grupo y deja las mixtas al final</li>
-                <li>Revisa la asignación al cerrar el bimestre y ajusta lo que no funcionó</li>
-            </ol>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>El punto donde los dos medios se necesitan</h3>
-                <p>El cálculo mental es un buen ejemplo de tarea que no se resuelve eligiendo bando: necesita la repetición frecuente que una pantalla facilita y la comprensión del procedimiento que solo se consolida explicándolo sin apoyo. Si te interesa trabajar esa combinación de forma ordenada en aritmética, vale la pena revisar un método estructurado para operar sin calculadora.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer las clases de matemáticas <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué hace mejor la tecnología educativa</h2>
+                <p>La ventaja más clara es el ajuste de dificultad. Un cuaderno de ejercicios impreso ofrece la misma página a todo el grupo; una plataforma bien diseñada detecta dónde falla cada estudiante y le da más de eso. En un grupo numeroso, ese ajuste es prácticamente imposible de sostener a mano.</p>
+                <p>La segunda ventaja es la retroalimentación inmediata en tareas de procedimiento. Saber en el momento que una operación salió mal evita consolidar el error, algo que una tarea revisada tres días después ya no puede impedir. La tercera es la repetición espaciada: recordar al estudiante lo que estudió hace dos semanas, justo antes de olvidarlo, es una tarea de calendario que el software hace bien y las personas hacemos mal.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-beneficios-reales">Beneficios reales de la tecnología educativa: qué esperar</a></li>
-                <li><a href="/blog-tecnologia-educativa-mitos-y-verdades">Mitos y verdades sobre tecnología educativa</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-que-es">Qué son las metodologías de aprendizaje y cómo elegir la tuya</a></li>
+                    <li>Ajuste de dificultad individual sin trabajo manual del docente</li>
+                    <li>Corrección inmediata en ejercicios de procedimiento</li>
+                    <li>Repasos programados según el olvido previsible</li>
+                    <li>Registro automático de qué se practicó y qué se falló</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Un estudiante puede aprender bien sin ninguna herramienta digital?</h3>
-                <p>Sí. Ninguna herramienta digital es indispensable para aprender los contenidos básicos de educación obligatoria, y hay generaciones completas que lo demuestran. Lo que la tecnología aporta es eficiencia en tareas específicas, sobre todo práctica personalizada y repaso espaciado. Su ausencia se compensa con más tiempo de acompañamiento y revisión frecuente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Los exámenes en papel justifican practicar solo en papel?</h3>
-                <p>Justifican que parte de la práctica ocurra en el mismo formato del examen, sobre todo en las semanas previas. No justifican descartar la práctica digital, que puede sostener la fase de automatización. Una combinación razonable es practicar en pantalla durante el aprendizaje y trasladar a papel las últimas sesiones antes de la evaluación.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo evitar que la pantalla desplace la lectura en papel?</h3>
-                <p>Reservando un momento fijo para lectura en papel que no compita con el estudio digital, por ejemplo antes de dormir o en trayectos. El desplazamiento ocurre cuando ambos usos pelean por el mismo hueco del día. Separarlos en franjas distintas resuelve la mayor parte del problema sin necesidad de prohibiciones.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La caligrafía sigue siendo relevante si la mayoría escribe en teclado?</h3>
-                <p>Sigue siendo relevante en los primeros años porque el trazo manual apoya el reconocimiento de letras y la organización espacial de la escritura. Más adelante su peso disminuye frente a la claridad de la redacción. Lo que conviene conservar es la práctica de escribir a mano textos breves, no la búsqueda de una letra perfecta.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué medio conviene cuando el estudiante se frustra rápido?</h3>
-                <p>Suele funcionar mejor empezar en el medio donde el error tenga menos costo social. Una app permite fallar sin que nadie mire, lo que ayuda a construir tolerancia inicial. Una vez que hay tolerancia, conviene trasladar parte del trabajo a papel y a discusión con otros, porque ahí es donde el aprendizaje se vuelve transferible.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Qué hace mejor el método tradicional</h2>
+                <p>La escritura a mano sigue teniendo un lugar propio: obliga a organizar la idea antes de trazarla y no permite borrar sin costo, lo que hace más lento el proceso y por eso mismo más deliberado. Tomar apuntes en papel y resolver operaciones en libreta pertenecen a esta categoría.</p>
+                <p>La discusión argumentada es el otro terreno donde el medio tradicional no tiene sustituto cercano. Defender una postura frente a compañeros que replican en tiempo real exige escuchar, reformular y ceder, y ninguna interfaz reproduce esa presión social. Lo mismo ocurre con la manipulación de objetos físicos, especialmente en los primeros años: contar con fichas, medir con regla o construir con material concreto deja una huella que la simulación no iguala.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Dónde falla cada medio</h2>
+                <p>La tecnología falla cuando sustituye el esfuerzo en lugar de dirigirlo. Un ejercicio que muestra la respuesta al primer titubeo, una interfaz que premia velocidad sobre precisión o un asistente que redacta el párrafo completo eliminan justamente la parte donde ocurría el aprendizaje.</p>
+                <p>El método tradicional falla en escala y en tiempo de respuesta. Treinta libretas revisadas una vez por semana significan que un error de procedimiento vive siete días antes de corregirse, y que el estudiante que ya dominaba el tema resolvió veinte ejercicios innecesarios mientras otro no alcanzó los que necesitaba.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">El falso empate: cuando se comparan cosas distintas</h2>
+                <p>Muchas comparaciones terminan en empate porque miden dos actividades diferentes con la misma vara. Practicar tablas de multiplicar en una app y practicarlas en papel son tareas comparables; escribir un ensayo con asistente de IA y escribirlo a mano no lo son, porque en el primer caso cambió quién hace el trabajo.</p>
+                <p>El criterio para saber si la comparación es válida es preguntar qué parte del esfuerzo cambió de dueño. Si el estudiante sigue produciendo la respuesta y solo cambió el soporte, la comparación tiene sentido. Si el medio empezó a producir parte de la respuesta, ya no se están comparando dos métodos sino dos actividades.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Qué condiciones necesita cada medio para funcionar</h2>
+                <p>Ninguno de los dos medios rinde por sí solo. La tecnología educativa exige dispositivos suficientes, conexión estable en varias plataformas, cuentas administradas y un adulto que revise permisos. Cuando alguna de esas condiciones falta, el medio no da un resultado peor: da un resultado inconsistente, que es más difícil de interpretar.</p>
+                <p>El método tradicional exige tiempo de revisión y una relación cercana con el estudiante. Treinta libretas revisadas con comentarios útiles consumen horas reales, y sin ese trabajo el papel se queda en ejercicios contestados que nadie leyó. Antes de elegir medio conviene mirar cuál de las dos condiciones está más al alcance, porque un plan que ignora eso se abandona en semanas.</p>
+                <ul>
+                    <li>Pantalla: dispositivo disponible, conexión, cuentas y permisos revisados</li>
+                    <li>Papel: tiempo de revisión frecuente y retroalimentación escrita o hablada</li>
+                    <li>Ambos: un horario fijo que no dependa de la disposición del día</li>
+                    <li>Ambos: una forma acordada de saber si el estudiante avanzó</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: dos rutas para las mismas multiplicaciones</h2>
+                <p>Un grupo de tercero de primaria necesitaba automatizar multiplicaciones hasta el diez. La escuela dividió el trabajo en dos rutas durante un bimestre, no para competir sino para ver dónde encajaba cada medio.</p>
+                <p>La ruta digital consistió en diez minutos diarios en una aplicación de práctica adaptativa que pedía escribir el resultado, no elegirlo. La aplicación insistía en los productos fallados y espaciaba los ya dominados. Lo que mostró fue velocidad: la recuperación de los productos practicados se volvió más rápida en pocas semanas.</p>
+                <p>La ruta tradicional fue una sesión semanal de cuarenta minutos con fichas y rectángulos dibujados en cuadrícula, donde los alumnos tenían que explicar por qué siete por ocho podía descomponerse en siete por cinco más siete por tres. Ahí no hubo ganancia de velocidad, pero sí algo distinto: los alumnos podían reconstruir un producto olvidado en lugar de quedarse en blanco.</p>
+                <p>La conclusión del docente no fue que una ruta fuera superior, sino que atendían funciones separadas. La app resolvió la automatización; las fichas resolvieron la recuperación cuando la automatización falla. Retirar cualquiera de las dos dejaba un hueco visible en los exámenes.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Criterio de asignación tarea por tarea</h2>
+                <p>Con lo anterior se puede armar una regla operativa sin discutir posturas. La pregunta no es qué medio prefiere la escuela, sino qué exige la tarea: si exige repetición con corrección inmediata, va a pantalla; si exige elaboración lenta, argumentación o manipulación, va a papel u objeto físico.</p>
+                <p>Conviene revisar esta asignación al inicio de cada bimestre, porque las tareas cambian con el contenido. Un tema de geometría con construcción de figuras pide material concreto; el mismo grupo, dos temas después, con conversión de unidades, se beneficia más de práctica adaptativa.</p>
+                <ol>
+                    <li>Enlista las tareas de aprendizaje del bimestre, no las materias</li>
+                    <li>Marca cuáles piden repetición con corrección inmediata</li>
+                    <li>Marca cuáles piden argumentar, escribir extenso o manipular objetos</li>
+                    <li>Asigna medio a cada grupo y deja las mixtas al final</li>
+                    <li>Revisa la asignación al cerrar el bimestre y ajusta lo que no funcionó</li>
+                </ol>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">El punto donde los dos medios se necesitan</h2>
+                    <p>El cálculo mental es un buen ejemplo de tarea que no se resuelve eligiendo bando: necesita la repetición frecuente que una pantalla facilita y la comprensión del procedimiento que solo se consolida explicándolo sin apoyo. Si te interesa trabajar esa combinación de forma ordenada en aritmética, vale la pena revisar un método estructurado para operar sin calculadora.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Conocer las clases de matemáticas <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-beneficios-reales">
+                            <span>Beneficios reales de la tecnología educativa: qué esperar</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-mitos-y-verdades">
+                            <span>Mitos y verdades sobre tecnología educativa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-que-es">
+                            <span>Qué son las metodologías de aprendizaje y cómo elegir la tuya</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Un estudiante puede aprender bien sin ninguna herramienta digital?</h3>
+                    <p>Sí. Ninguna herramienta digital es indispensable para aprender los contenidos básicos de educación obligatoria, y hay generaciones completas que lo demuestran. Lo que la tecnología aporta es eficiencia en tareas específicas, sobre todo práctica personalizada y repaso espaciado. Su ausencia se compensa con más tiempo de acompañamiento y revisión frecuente.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Los exámenes en papel justifican practicar solo en papel?</h3>
+                    <p>Justifican que parte de la práctica ocurra en el mismo formato del examen, sobre todo en las semanas previas. No justifican descartar la práctica digital, que puede sostener la fase de automatización. Una combinación razonable es practicar en pantalla durante el aprendizaje y trasladar a papel las últimas sesiones antes de la evaluación.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo evitar que la pantalla desplace la lectura en papel?</h3>
+                    <p>Reservando un momento fijo para lectura en papel que no compita con el estudio digital, por ejemplo antes de dormir o en trayectos. El desplazamiento ocurre cuando ambos usos pelean por el mismo hueco del día. Separarlos en franjas distintas resuelve la mayor parte del problema sin necesidad de prohibiciones.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La caligrafía sigue siendo relevante si la mayoría escribe en teclado?</h3>
+                    <p>Sigue siendo relevante en los primeros años porque el trazo manual apoya el reconocimiento de letras y la organización espacial de la escritura. Más adelante su peso disminuye frente a la claridad de la redacción. Lo que conviene conservar es la práctica de escribir a mano textos breves, no la búsqueda de una letra perfecta.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué medio conviene cuando el estudiante se frustra rápido?</h3>
+                    <p>Suele funcionar mejor empezar en el medio donde el error tenga menos costo social. Una app permite fallar sin que nadie mire, lo que ayuda a construir tolerancia inicial. Una vez que hay tolerancia, conviene trasladar parte del trabajo a papel y a discusión con otros, porque ahí es donde el aprendizaje se vuelve transferible.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -536,8 +634,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué hace mejor la tecnología educativa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Qué hace mejor el método tradicional
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Dónde falla cada medio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>El falso empate: cuando se comparan cosas distintas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué condiciones necesita cada medio para funcionar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: dos rutas para las mismas multiplicaciones
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Criterio de asignación tarea por tarea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

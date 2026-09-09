@@ -362,166 +362,255 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-university"></i> Universidad Dominical
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Universidad dominical: qué es, cómo funciona y para quién conviene</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Universidad Dominical</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Universidad dominical: qué es, cómo funciona y para quién conviene</h1>
+                <p class="blog-post-dek">Descubre qué es una universidad dominical, cómo funciona su modelo de clases un día a la semana y para quién es una opción viable en México.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Universidad Dominical</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/hero-dominical.webp" alt="Universidad dominical: qué es, cómo funciona y para quién conviene" width="800" height="800" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Terminar una licenciatura mientras se mantiene un empleo de tiempo completo es uno de los retos más comunes entre adultos mexicanos que retoman sus estudios. La universidad dominical surge como respuesta directa a esa necesidad: ofrece sesiones presenciales concentradas en un solo día de la semana.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>10 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es exactamente una universidad dominical
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo funciona la semana de un estudiante dominical
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Para quién funciona y para quién no
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Qué verificar antes de inscribirte
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Errores frecuentes al iniciar en modalidad dominical
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Diferencia entre dominical, sabatina y en línea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo organizarte para sostener el ritmo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Expectativas realistas sobre resultados
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Terminar una licenciatura mientras se mantiene un empleo de tiempo completo es uno de los retos más comunes entre adultos mexicanos que retoman sus estudios. La universidad dominical surge como respuesta directa a esa necesidad: ofrece sesiones presenciales concentradas en un solo día de la semana.</p>
             <p>En este artículo explicamos qué implica realmente estudiar bajo este formato, cómo se estructura una semana típica y qué perfil de estudiante obtiene el mayor provecho. La idea no es vender una modalidad como perfecta, sino ayudarte a evaluar si encaja con tu situación real.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Una universidad dominical es una institución de educación superior que concentra sus sesiones presenciales los domingos, complementándolas con actividades en línea o trabajo autónomo entre semana. Está pensada para personas que trabajan de lunes a sábado y necesitan un formato compatible con su jornada laboral.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Una universidad dominical es una institución de educación superior que concentra sus sesiones presenciales los domingos, complementándolas con actividades en línea o trabajo autónomo entre semana. Está pensada para personas que trabajan de lunes a sábado y necesitan un formato compatible con su jornada laboral.</p>
+                </aside>
 
-            <h2>Qué es exactamente una universidad dominical</h2>
-            <p>El término universidad dominical se refiere a programas de licenciatura o posgrado que programan sus clases presenciales exclusivamente los domingos. Durante la semana, el estudiante realiza lecturas, trabajos y evaluaciones de forma autónoma o a través de una plataforma digital.</p>
-            <p>No se trata de un sistema abierto sin acompañamiento. La sesión dominical suele durar entre cinco y ocho horas, distribuidas en bloques con descansos, y cubre exposición del docente, ejercicios colaborativos y resolución de dudas.</p>
-            <p>A diferencia de un curso sabatino o nocturno, el modelo dominical concentra la experiencia académica grupal en un solo bloque semanal. Esto permite que el estudiante gestione su tiempo restante sin obligaciones presenciales adicionales, pero implica que cada sesión cubre el equivalente a tres o cuatro clases convencionales de una hora.</p>
-            <ul>
-                <li>Clases presenciales un día a la semana, generalmente de 8:00 a 15:00 o de 9:00 a 16:00.</li>
-                <li>Trabajo autónomo entre semana: lecturas, entregas y foros en plataforma.</li>
-                <li>Duración total de la licenciatura similar a programas tradicionales: entre tres y cuatro años según el plan.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es exactamente una universidad dominical</h2>
+                <p>El término universidad dominical se refiere a programas de licenciatura o posgrado que programan sus clases presenciales exclusivamente los domingos. Durante la semana, el estudiante realiza lecturas, trabajos y evaluaciones de forma autónoma o a través de una plataforma digital.</p>
+                <p>No se trata de un sistema abierto sin acompañamiento. La sesión dominical suele durar entre cinco y ocho horas, distribuidas en bloques con descansos, y cubre exposición del docente, ejercicios colaborativos y resolución de dudas.</p>
+                <p>A diferencia de un curso sabatino o nocturno, el modelo dominical concentra la experiencia académica grupal en un solo bloque semanal. Esto permite que el estudiante gestione su tiempo restante sin obligaciones presenciales adicionales, pero implica que cada sesión cubre el equivalente a tres o cuatro clases convencionales de una hora.</p>
+                <ul>
+                    <li>Clases presenciales un día a la semana, generalmente de 8:00 a 15:00 o de 9:00 a 16:00.</li>
+                    <li>Trabajo autónomo entre semana: lecturas, entregas y foros en plataforma.</li>
+                    <li>Duración total de la licenciatura similar a programas tradicionales: entre tres y cuatro años según el plan.</li>
+                </ul>
+            </section>
 
-            <h2>Cómo funciona la semana de un estudiante dominical</h2>
-            <p>La sesión del domingo combina teoría y práctica. El docente presenta los conceptos centrales del tema, se realizan ejercicios en equipo y se aclaran las dudas que surgieron durante la semana de estudio independiente.</p>
-            <p>De lunes a sábado, el estudiante dedica entre cinco y diez horas semanales a leer materiales, completar tareas y participar en foros o actividades digitales. La carga varía según la materia y el periodo del ciclo escolar, pero es importante entender que el domingo no sustituye toda la dedicación: la complementa.</p>
-            <p>Es común que los primeros domingos el estudiante llegue sin haber completado todas las lecturas. Esto no es irrecuperable, pero genera un efecto bola de nieve si se repite: la sesión presencial pierde valor cuando no tienes contexto de lo discutido. La recomendación es cubrir al menos el 70% del material asignado antes de cada sesión para poder participar de forma significativa.</p>
-            <ol>
-                <li>Revisar el material asignado para la semana antes del miércoles.</li>
-                <li>Completar lecturas y tomar notas con preguntas para la sesión presencial.</li>
-                <li>Entregar tareas o participaciones en plataforma antes de la fecha límite.</li>
-                <li>Asistir el domingo con dudas preparadas y material revisado.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Cómo funciona la semana de un estudiante dominical</h2>
+                <p>La sesión del domingo combina teoría y práctica. El docente presenta los conceptos centrales del tema, se realizan ejercicios en equipo y se aclaran las dudas que surgieron durante la semana de estudio independiente.</p>
+                <p>De lunes a sábado, el estudiante dedica entre cinco y diez horas semanales a leer materiales, completar tareas y participar en foros o actividades digitales. La carga varía según la materia y el periodo del ciclo escolar, pero es importante entender que el domingo no sustituye toda la dedicación: la complementa.</p>
+                <p>Es común que los primeros domingos el estudiante llegue sin haber completado todas las lecturas. Esto no es irrecuperable, pero genera un efecto bola de nieve si se repite: la sesión presencial pierde valor cuando no tienes contexto de lo discutido. La recomendación es cubrir al menos el 70% del material asignado antes de cada sesión para poder participar de forma significativa.</p>
+                <ol>
+                    <li>Revisar el material asignado para la semana antes del miércoles.</li>
+                    <li>Completar lecturas y tomar notas con preguntas para la sesión presencial.</li>
+                    <li>Entregar tareas o participaciones en plataforma antes de la fecha límite.</li>
+                    <li>Asistir el domingo con dudas preparadas y material revisado.</li>
+                </ol>
+            </section>
 
-            <h2>Para quién funciona y para quién no</h2>
-            <p>La modalidad dominical es compatible con personas que trabajan jornadas de lunes a sábado, madres o padres con responsabilidades familiares entre semana, o profesionales que viajan y solo están en su ciudad los fines de semana. También favorece a quienes aprenden mejor con estructura presencial pero no pueden asistir diario.</p>
-            <p>En cambio, no es la mejor opción si tu domingo es tu único día de descanso y no puedes redistribuir tareas domésticas, si necesitas supervisión constante para estudiar, o si tu trabajo tiene turnos rotativos que frecuentemente incluyen domingos.</p>
-            <p>Un error frecuente es inscribirse en modalidad dominical pensando que solo se estudia un día a la semana. En realidad, el domingo es la parte presencial de un sistema que exige constancia diaria. Quienes abandonan suelen hacerlo no por dificultad académica sino por subestimar la carga autónoma entre sesiones.</p>
-            <ul>
-                <li>Funciona bien si ya tienes hábito de estudio autónomo o estás dispuesto a desarrollarlo.</li>
-                <li>Funciona bien si puedes dedicar al menos una hora diaria entre semana a actividades académicas.</li>
-                <li>No es ideal si tu empleo incluye domingos con frecuencia.</li>
-                <li>No funciona si esperas que toda la carga académica se resuelva el domingo.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Para quién funciona y para quién no</h2>
+                <p>La modalidad dominical es compatible con personas que trabajan jornadas de lunes a sábado, madres o padres con responsabilidades familiares entre semana, o profesionales que viajan y solo están en su ciudad los fines de semana. También favorece a quienes aprenden mejor con estructura presencial pero no pueden asistir diario.</p>
+                <p>En cambio, no es la mejor opción si tu domingo es tu único día de descanso y no puedes redistribuir tareas domésticas, si necesitas supervisión constante para estudiar, o si tu trabajo tiene turnos rotativos que frecuentemente incluyen domingos.</p>
+                <p>Un error frecuente es inscribirse en modalidad dominical pensando que solo se estudia un día a la semana. En realidad, el domingo es la parte presencial de un sistema que exige constancia diaria. Quienes abandonan suelen hacerlo no por dificultad académica sino por subestimar la carga autónoma entre sesiones.</p>
+                <ul>
+                    <li>Funciona bien si ya tienes hábito de estudio autónomo o estás dispuesto a desarrollarlo.</li>
+                    <li>Funciona bien si puedes dedicar al menos una hora diaria entre semana a actividades académicas.</li>
+                    <li>No es ideal si tu empleo incluye domingos con frecuencia.</li>
+                    <li>No funciona si esperas que toda la carga académica se resuelva el domingo.</li>
+                </ul>
+            </section>
 
-            <h2>Qué verificar antes de inscribirte</h2>
-            <p>Antes de elegir cualquier programa dominical, confirma que cuente con Reconocimiento de Validez Oficial de Estudios (RVOE). Sin este registro, tu título no tendrá valor ante empleadores ni instituciones públicas. La verificación es gratuita y se realiza en línea.</p>
-            <p>También pregunta por la plataforma que usan entre semana, la disponibilidad real de docentes para resolver dudas fuera del domingo y las políticas de asistencia. Algunos programas permiten faltar un número limitado de sesiones sin perder la materia, pero otros no.</p>
-            <ul>
-                <li>Consulta el RVOE en el sitio oficial de la SEP: Sistema de Reconocimiento de Validez Oficial.</li>
-                <li>Pregunta cuántas materias cursas en paralelo y cuántas horas semanales implican.</li>
-                <li>Solicita acceso de prueba a la plataforma antes de inscribirte.</li>
-                <li>Verifica si hay sede alterna en caso de contingencia o si se pasa a formato virtual.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Qué verificar antes de inscribirte</h2>
+                <p>Antes de elegir cualquier programa dominical, confirma que cuente con Reconocimiento de Validez Oficial de Estudios (RVOE). Sin este registro, tu título no tendrá valor ante empleadores ni instituciones públicas. La verificación es gratuita y se realiza en línea.</p>
+                <p>También pregunta por la plataforma que usan entre semana, la disponibilidad real de docentes para resolver dudas fuera del domingo y las políticas de asistencia. Algunos programas permiten faltar un número limitado de sesiones sin perder la materia, pero otros no.</p>
+                <ul>
+                    <li>Consulta el RVOE en el sitio oficial de la SEP: Sistema de Reconocimiento de Validez Oficial.</li>
+                    <li>Pregunta cuántas materias cursas en paralelo y cuántas horas semanales implican.</li>
+                    <li>Solicita acceso de prueba a la plataforma antes de inscribirte.</li>
+                    <li>Verifica si hay sede alterna en caso de contingencia o si se pasa a formato virtual.</li>
+                </ul>
+            </section>
 
-            <h2>Errores frecuentes al iniciar en modalidad dominical</h2>
-            <p>El primer error es no establecer un horario de estudio entre semana durante las primeras dos semanas. Sin un hábito temprano, la acumulación de pendientes se vuelve inmanejable para la tercera sesión. El segundo error es comparar la experiencia con un programa escolarizado diario: la comunidad se construye diferente y los lazos con compañeros tardan más en formarse.</p>
-            <p>El tercer error, quizá el más costoso, es no preguntar sobre el formato de evaluación antes de inscribirse. Algunos programas evalúan con exámenes presenciales cada bimestre; otros califican participación en plataforma, entregas semanales y un proyecto integrador. Conocer el sistema de evaluación te permite planificar tu esfuerzo con anticipación.</p>
-            <ul>
-                <li>No fijar horario de estudio la primera semana y acumular pendientes.</li>
-                <li>Asumir que la comunidad se forma igual que en un programa diario.</li>
-                <li>Desconocer el sistema de evaluación hasta que llega el primer parcial.</li>
-                <li>No comunicarte con el docente cuando tienes dudas entre sesiones.</li>
-                <li>Inscribirte a carga completa sin haber cursado un ciclo previo como prueba.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Errores frecuentes al iniciar en modalidad dominical</h2>
+                <p>El primer error es no establecer un horario de estudio entre semana durante las primeras dos semanas. Sin un hábito temprano, la acumulación de pendientes se vuelve inmanejable para la tercera sesión. El segundo error es comparar la experiencia con un programa escolarizado diario: la comunidad se construye diferente y los lazos con compañeros tardan más en formarse.</p>
+                <p>El tercer error, quizá el más costoso, es no preguntar sobre el formato de evaluación antes de inscribirse. Algunos programas evalúan con exámenes presenciales cada bimestre; otros califican participación en plataforma, entregas semanales y un proyecto integrador. Conocer el sistema de evaluación te permite planificar tu esfuerzo con anticipación.</p>
+                <ul>
+                    <li>No fijar horario de estudio la primera semana y acumular pendientes.</li>
+                    <li>Asumir que la comunidad se forma igual que en un programa diario.</li>
+                    <li>Desconocer el sistema de evaluación hasta que llega el primer parcial.</li>
+                    <li>No comunicarte con el docente cuando tienes dudas entre sesiones.</li>
+                    <li>Inscribirte a carga completa sin haber cursado un ciclo previo como prueba.</li>
+                </ul>
+            </section>
 
-            <h2>Diferencia entre dominical, sabatina y en línea</h2>
-            <p>La dominical concentra todo en un día presencial. La sabatina hace lo mismo pero los sábados, y la modalidad en línea elimina la asistencia física por completo. Cada una tiene ventajas según tu estilo de aprendizaje y tus horarios.</p>
-            <p>Si valoras la interacción cara a cara y la rutina semanal fija, la dominical o sabatina funcionan. Si tu horario es muy variable o vives lejos de una sede, la modalidad en línea ofrece mayor flexibilidad geográfica y de horario, aunque exige mayor autodisciplina.</p>
-            <p>Algunos estudiantes encuentran útil formar un grupo de estudio con dos o tres compañeros del mismo ciclo. No es obligatorio, pero compartir dudas y materiales entre semana reduce la sensación de aislamiento y genera responsabilidad mutua. Un grupo pequeño que se comunica por mensajería puede resolver en cinco minutos lo que tardarías una hora investigando solo.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Diferencia entre dominical, sabatina y en línea</h2>
+                <p>La dominical concentra todo en un día presencial. La sabatina hace lo mismo pero los sábados, y la modalidad en línea elimina la asistencia física por completo. Cada una tiene ventajas según tu estilo de aprendizaje y tus horarios.</p>
+                <p>Si valoras la interacción cara a cara y la rutina semanal fija, la dominical o sabatina funcionan. Si tu horario es muy variable o vives lejos de una sede, la modalidad en línea ofrece mayor flexibilidad geográfica y de horario, aunque exige mayor autodisciplina.</p>
+                <p>Algunos estudiantes encuentran útil formar un grupo de estudio con dos o tres compañeros del mismo ciclo. No es obligatorio, pero compartir dudas y materiales entre semana reduce la sensación de aislamiento y genera responsabilidad mutua. Un grupo pequeño que se comunica por mensajería puede resolver en cinco minutos lo que tardarías una hora investigando solo.</p>
+            </section>
 
-            <h2>Cómo organizarte para sostener el ritmo</h2>
-            <p>El mayor riesgo de abandonar un programa dominical no es la dificultad académica, sino la acumulación de pendientes entre semana. La clave está en fijar bloques breves de estudio diarios en lugar de intentar hacerlo todo el sábado por la noche.</p>
-            <p>Usa un calendario visible donde registres las fechas de entrega. Dedica los primeros minutos de tu bloque a revisar qué se necesita esa semana y prioriza por fecha límite. Avanzar un poco cada día es más sostenible que sesiones maratónicas.</p>
-            <ol>
-                <li>Define un horario fijo de estudio diario, aunque sea de 45 minutos.</li>
-                <li>Registra todas las entregas en un solo lugar visible.</li>
-                <li>Avanza las tareas con más peso o dificultad a mitad de semana.</li>
-                <li>Reserva el sábado para repasar, no para empezar desde cero.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo organizarte para sostener el ritmo</h2>
+                <p>El mayor riesgo de abandonar un programa dominical no es la dificultad académica, sino la acumulación de pendientes entre semana. La clave está en fijar bloques breves de estudio diarios en lugar de intentar hacerlo todo el sábado por la noche.</p>
+                <p>Usa un calendario visible donde registres las fechas de entrega. Dedica los primeros minutos de tu bloque a revisar qué se necesita esa semana y prioriza por fecha límite. Avanzar un poco cada día es más sostenible que sesiones maratónicas.</p>
+                <ol>
+                    <li>Define un horario fijo de estudio diario, aunque sea de 45 minutos.</li>
+                    <li>Registra todas las entregas en un solo lugar visible.</li>
+                    <li>Avanza las tareas con más peso o dificultad a mitad de semana.</li>
+                    <li>Reserva el sábado para repasar, no para empezar desde cero.</li>
+                </ol>
+            </section>
 
-            <h2>Expectativas realistas sobre resultados</h2>
-            <p>Una universidad dominical con RVOE otorga un título con la misma validez legal que cualquier programa escolarizado. Lo que cambia es la experiencia: tendrás menos convivencia diaria con compañeros, menos acceso espontáneo a instalaciones y menos eventos extracurriculares entre semana.</p>
-            <p>A cambio, ganas compatibilidad con tu empleo y la posibilidad de aplicar inmediatamente lo que aprendes en tu trabajo. Muchos estudiantes de programas dominicales reportan que esta conexión teoría-práctica laboral acelera su comprensión de las materias.</p>
+            <section class="ed-article-section" id="seccion-8" aria-labelledby="seccion-8-titulo">
+                <h2 id="seccion-8-titulo">Expectativas realistas sobre resultados</h2>
+                <p>Una universidad dominical con RVOE otorga un título con la misma validez legal que cualquier programa escolarizado. Lo que cambia es la experiencia: tendrás menos convivencia diaria con compañeros, menos acceso espontáneo a instalaciones y menos eventos extracurriculares entre semana.</p>
+                <p>A cambio, ganas compatibilidad con tu empleo y la posibilidad de aplicar inmediatamente lo que aprendes en tu trabajo. Muchos estudiantes de programas dominicales reportan que esta conexión teoría-práctica laboral acelera su comprensión de las materias.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Conoce la Universidad Dominical de Ultravelozmente</h3>
-                <p>Si después de evaluar tu horario y estilo de aprendizaje concluyes que el formato dominical se ajusta a tu realidad, te invitamos a revisar nuestro programa. Incluye sesiones presenciales los domingos con docentes activos, plataforma de acompañamiento entre semana y RVOE verificable. Puedes consultar plan de estudios, costos y requisitos de inscripción sin compromiso.</p>
-                <a href="/universidad-dominical" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver programa de Universidad Dominical <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Conoce la Universidad Dominical de Ultravelozmente</h2>
+                    <p>Si después de evaluar tu horario y estilo de aprendizaje concluyes que el formato dominical se ajusta a tu realidad, te invitamos a revisar nuestro programa. Incluye sesiones presenciales los domingos con docentes activos, plataforma de acompañamiento entre semana y RVOE verificable. Puedes consultar plan de estudios, costos y requisitos de inscripción sin compromiso.</p>
+                    <a href="/universidad-dominical" class="btn-primary">
+                        Ver programa de Universidad Dominical <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El título de una universidad dominical tiene validez oficial?</h3>
-                <p>Sí, siempre que el programa cuente con RVOE vigente emitido por la SEP o la autoridad educativa estatal correspondiente. Puedes verificarlo gratuitamente en el portal del Sistema de Reconocimiento de Validez Oficial de Estudios.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántas horas a la semana debo dedicar además del domingo?</h3>
-                <p>La mayoría de los programas requieren entre cinco y diez horas semanales de trabajo autónomo para lecturas, tareas y participaciones en plataforma. Esto varía según el número de materias simultáneas y la etapa del ciclo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo trabajar de lunes a sábado y estudiar en dominical?</h3>
-                <p>Sí, el formato está diseñado precisamente para ese perfil. La condición es que puedas redistribuir esas horas de estudio autónomo en bloques breves entre semana, ya sea temprano por la mañana, en transporte o por la noche.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué pasa si falto un domingo?</h3>
-                <p>Depende de la institución. Algunas permiten un número limitado de inasistencias por materia; otras exigen asistencia mínima del 80%. Pregunta antes de inscribirte y planifica con anticipación si prevés ausencias.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es posible cursar doble turno: universidad dominical y empleo de lunes a sábado sin que baje mi rendimiento laboral?</h3>
-                <p>Es posible si organizas la carga autónoma en bloques breves diarios y proteges tus horas de sueño. La mayoría de estudiantes que reportan bajo rendimiento laboral están intentando estudiar de madrugada o están saturando sus fines de semana sin descanso real. Evalúa tu energía real, no solo tu tiempo disponible.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.sep.gob.mx/es/sep1/sep1_Reconocimiento_de_Validez_Oficial_de_Estudios" target="_blank" rel="noopener noreferrer">SEP – Sistema de Reconocimiento de Validez Oficial de Estudios</a> — Verificar si el programa específico tiene RVOE vigente</li>
-                <li><a href="https://www.gob.mx/sep/acciones-y-programas/direccion-general-de-acreditacion-incorporacion-y-revalidacion" target="_blank" rel="noopener noreferrer">Dirección General de Acreditación, Incorporación y Revalidación (DGAIR)</a> — Consultar requisitos de acreditación de estudios</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El título de una universidad dominical tiene validez oficial?</h3>
+                    <p>Sí, siempre que el programa cuente con RVOE vigente emitido por la SEP o la autoridad educativa estatal correspondiente. Puedes verificarlo gratuitamente en el portal del Sistema de Reconocimiento de Validez Oficial de Estudios.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántas horas a la semana debo dedicar además del domingo?</h3>
+                    <p>La mayoría de los programas requieren entre cinco y diez horas semanales de trabajo autónomo para lecturas, tareas y participaciones en plataforma. Esto varía según el número de materias simultáneas y la etapa del ciclo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo trabajar de lunes a sábado y estudiar en dominical?</h3>
+                    <p>Sí, el formato está diseñado precisamente para ese perfil. La condición es que puedas redistribuir esas horas de estudio autónomo en bloques breves entre semana, ya sea temprano por la mañana, en transporte o por la noche.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué pasa si falto un domingo?</h3>
+                    <p>Depende de la institución. Algunas permiten un número limitado de inasistencias por materia; otras exigen asistencia mínima del 80%. Pregunta antes de inscribirte y planifica con anticipación si prevés ausencias.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es posible cursar doble turno: universidad dominical y empleo de lunes a sábado sin que baje mi rendimiento laboral?</h3>
+                    <p>Es posible si organizas la carga autónoma en bloques breves diarios y proteges tus horas de sueño. La mayoría de estudiantes que reportan bajo rendimiento laboral están intentando estudiar de madrugada o están saturando sus fines de semana sin descanso real. Evalúa tu energía real, no solo tu tiempo disponible.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.sep.gob.mx/es/sep1/sep1_Reconocimiento_de_Validez_Oficial_de_Estudios" target="_blank" rel="noopener noreferrer">SEP – Sistema de Reconocimiento de Validez Oficial de Estudios</a> — Verificar si el programa específico tiene RVOE vigente</li>
+                    <li><a href="https://www.gob.mx/sep/acciones-y-programas/direccion-general-de-acreditacion-incorporacion-y-revalidacion" target="_blank" rel="noopener noreferrer">Dirección General de Acreditación, Incorporación y Revalidación (DGAIR)</a> — Consultar requisitos de acreditación de estudios</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -551,8 +640,72 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es exactamente una universidad dominical
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo funciona la semana de un estudiante dominical
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Para quién funciona y para quién no
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Qué verificar antes de inscribirte
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Errores frecuentes al iniciar en modalidad dominical
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Diferencia entre dominical, sabatina y en línea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo organizarte para sostener el ritmo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Expectativas realistas sobre resultados
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

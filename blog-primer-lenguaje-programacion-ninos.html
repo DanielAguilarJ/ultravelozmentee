@@ -362,196 +362,308 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-robot"></i> Robotics Code
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Primer lenguaje de programación para niños: Scratch, Python o JavaScript</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 14 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Robotics Code</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Primer lenguaje de programación para niños: Scratch, Python o JavaScript</h1>
+                <p class="blog-post-dek">Compara Scratch, Python, JavaScript y Arduino para elegir el primer lenguaje de programación de un niño según su lectura, intereses y proyecto inicial.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Robotics Code</span>
+                    <span>Publicado <time datetime="2026-08-14">14 de Agosto, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/robotics-curso-programacion-arduino-ninos.webp" alt="Primer lenguaje de programación para niños: Scratch, Python o JavaScript" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Preguntar cuál es el mejor lenguaje para un niño parece una decisión técnica, pero en realidad depende de tres factores humanos: qué puede leer y escribir, qué desea construir y cuánta ayuda tendrá cuando aparezca el primer error.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>11 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>La decisión empieza por el proyecto, no por el nombre del lenguaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Tres señales de preparación que importan más que la edad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>ScratchJr y Scratch: empezar con bloques y retroalimentación visual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Python: una entrada legible al código de texto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>JavaScript: útil cuando la meta es crear para la web
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Arduino y C/C++: cuando el interés está en el mundo físico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Comparación rápida para tomar una decisión razonable
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Prueba de cuatro semanas antes de comprometer una ruta larga
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-9">
+                                <span aria-hidden="true">09</span>Errores frecuentes al elegir el primer lenguaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">10</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">11</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Preguntar cuál es el mejor lenguaje para un niño parece una decisión técnica, pero en realidad depende de tres factores humanos: qué puede leer y escribir, qué desea construir y cuánta ayuda tendrá cuando aparezca el primer error.</p>
             <p>Esta comparación no ordena lenguajes de mejor a peor. Presenta rutas de entrada, señales de preparación y un proyecto de prueba para elegir sin comprar cursos o equipos antes de saber qué entorno mantiene la curiosidad y permite comprender cada paso.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>No existe un primer lenguaje universal. Scratch o ScratchJr funcionan bien cuando el niño necesita resultados visuales y todavía no escribe con fluidez; Python facilita pasar a código de texto; JavaScript conviene si quiere crear páginas interactivas; y Arduino usa C/C++ cuando el interés principal es controlar componentes físicos. El mejor inicio es el lenguaje que permite terminar un proyecto pequeño y explicarlo.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>No existe un primer lenguaje universal. Scratch o ScratchJr funcionan bien cuando el niño necesita resultados visuales y todavía no escribe con fluidez; Python facilita pasar a código de texto; JavaScript conviene si quiere crear páginas interactivas; y Arduino usa C/C++ cuando el interés principal es controlar componentes físicos. El mejor inicio es el lenguaje que permite terminar un proyecto pequeño y explicarlo.</p>
+                </aside>
 
-            <h2>La decisión empieza por el proyecto, no por el nombre del lenguaje</h2>
-            <p>Un niño que quiere animar personajes necesita herramientas distintas de quien desea controlar luces o publicar una página web. Define primero un resultado que pueda verse en una o dos sesiones: una historia con decisiones, un juego de preguntas, una calculadora sencilla o un semáforo con LEDs.</p>
-            <p>Después revisa si la herramienta permite construir ese resultado con el nivel actual de lectura y abstracción. Un lenguaje popular puede ser una mala puerta de entrada si el alumno pasa toda la sesión copiando símbolos que todavía no entiende.</p>
-            <ul>
-                <li>Historia o juego visual: bloques como Scratch o ScratchJr.</li>
-                <li>Automatizar cálculos o texto: Python con instrucciones guiadas.</li>
-                <li>Página web interactiva: HTML, CSS y JavaScript básico.</li>
-                <li>Sensores, luces o motores: bloques o C/C++ en Arduino y micro:bit.</li>
-            </ul>
-
-            <h2>Tres señales de preparación que importan más que la edad</h2>
-            <p>La edad orienta, pero no decide por sí sola. Observa si el niño sigue una secuencia, lee mensajes breves de error y tolera modificar un intento. Esas habilidades anticipan mejor la experiencia que cumplir un número exacto de años.</p>
-            <p>También importa la escritura en teclado. Un alumno puede razonar muy bien con bloques y frustrarse al buscar signos, paréntesis o mayúsculas. Eso no indica falta de capacidad: solo que la carga de escribir código compite con la lógica que intenta aprender.</p>
-            <ul>
-                <li>Puede explicar qué debería ocurrir antes de ejecutar.</li>
-                <li>Distingue entre una instrucción y el resultado que produce.</li>
-                <li>Acepta revisar un error sin borrar todo el proyecto.</li>
-                <li>Escribe frases cortas con suficiente autonomía para el entorno elegido.</li>
-            </ul>
-
-            <h2>ScratchJr y Scratch: empezar con bloques y retroalimentación visual</h2>
-            <p>ScratchJr está diseñado para niños pequeños y reduce la dependencia de lectura. Scratch amplía esa idea con variables, condicionales, eventos y comunidad de proyectos. En ambos, la forma de las piezas evita muchos errores de sintaxis y deja que la atención se concentre en secuencia y lógica.</p>
-            <p>Los bloques no son un juguete que deba abandonarse cuanto antes. Un proyecto con estados, mensajes y decisiones puede ser conceptualmente complejo. La transición a texto tiene sentido cuando escribir deja de ser la barrera principal y el alumno quiere herramientas que los bloques no ofrecen.</p>
-            <ol>
-                <li>Crea una escena con inicio claro y dos personajes.</li>
-                <li>Añade un evento que responda a clic o teclado.</li>
-                <li>Incluye una decisión con dos resultados distintos.</li>
-                <li>Pide al niño que explique la secuencia sin mirar cada bloque.</li>
-            </ol>
-
-            <h2>Python: una entrada legible al código de texto</h2>
-            <p>Python usa una sintaxis relativamente compacta y permite crear resultados con pocas líneas. Es una buena opción cuando el niño escribe con fluidez, comprende variables y quiere automatizar cálculos, procesar texto o avanzar hacia proyectos de datos.</p>
-            <p>Su aparente sencillez no elimina conceptos difíciles. Sangría, tipos de datos y mensajes de error requieren acompañamiento. El primer proyecto debería usar entrada, una decisión y salida visible, no instalar bibliotecas complejas ni copiar un programa largo.</p>
-            <ol>
-                <li>Pide un dato con input y guárdalo en una variable.</li>
-                <li>Usa una condición sencilla para elegir una respuesta.</li>
-                <li>Imprime un resultado que el niño pueda predecir.</li>
-                <li>Cambia una regla y comprueba cómo se modifica el comportamiento.</li>
-            </ol>
-
-            <h2>JavaScript: útil cuando la meta es crear para la web</h2>
-            <p>JavaScript resulta motivador si el proyecto es una página, un cuestionario o una animación en el navegador. El alumno ve el resultado sin fabricar hardware y aprende cómo una instrucción cambia un elemento que ya está en pantalla.</p>
-            <p>La ruta incluye también HTML y algo de CSS, por lo que puede introducir demasiadas piezas a la vez. Conviene entregar una página base segura y concentrarse primero en una interacción: cambiar un texto, contar puntos o mostrar una respuesta.</p>
-            <ul>
-                <li>Ventaja: resultado visible en cualquier navegador moderno.</li>
-                <li>Reto: conviven estructura, estilo y comportamiento.</li>
-                <li>Buen primer proyecto: cuestionario de tres preguntas.</li>
-                <li>Evita al inicio frameworks, gestores de paquetes y configuraciones extensas.</li>
-            </ul>
-
-            <h2>Arduino y C/C++: cuando el interés está en el mundo físico</h2>
-            <p>Para encender LEDs, leer sensores o mover un motor, Arduino ofrece una conexión clara entre código y objeto. La sintaxis de C/C++ es menos indulgente que Scratch o Python, pero la motivación de ver un circuito responder puede justificar esa dificultad para algunos estudiantes.</p>
-            <p>La seguridad y el acompañamiento importan. Empieza con placas alimentadas por USB y componentes de bajo voltaje, siguiendo diagramas revisados. El objetivo inicial no es memorizar C++, sino comprender entrada, procesamiento y salida en un sistema físico.</p>
-            <ol>
-                <li>Carga un ejemplo conocido y predice qué hará antes de ejecutarlo.</li>
-                <li>Cambia un único valor, como el tiempo de parpadeo.</li>
-                <li>Explica la relación entre línea de código y componente.</li>
-                <li>Documenta el circuito antes de añadir una segunda pieza.</li>
-            </ol>
-
-            <h2>Comparación rápida para tomar una decisión razonable</h2>
-            <p>Elige Scratch si la prioridad es lógica visual e historias; Python si busca código de texto legible; JavaScript si quiere publicar interacción web; y Arduino si la motivación es construir dispositivos. Ninguna elección cierra las demás rutas.</p>
-            <p>Evita empezar dos lenguajes al mismo tiempo. Los conceptos se transfieren mejor cuando el alumno puede reconocerlos con seguridad en un entorno. Después podrá comparar cómo cada lenguaje expresa una variable, una condición o una repetición.</p>
-            <ul>
-                <li>Menor carga de escritura: ScratchJr o Scratch.</li>
-                <li>Transición clara a texto: Python.</li>
-                <li>Resultado en navegador: JavaScript.</li>
-                <li>Resultado físico: Arduino o micro:bit.</li>
-                <li>Criterio de éxito: proyecto terminado y explicación propia, no cantidad de comandos.</li>
-            </ul>
-
-            <h2>Prueba de cuatro semanas antes de comprometer una ruta larga</h2>
-            <p>Dedica cuatro sesiones a un solo proyecto y observa la respuesta. En la primera, explora ejemplos; en la segunda, reproduce una versión mínima; en la tercera, cambia una regla; en la cuarta, presenta el resultado. Esta secuencia distingue curiosidad momentánea de interés por comprender y mejorar.</p>
-            <p>Registra cuánto apoyo requiere, qué errores puede explicar y si propone cambios propios. Si todo depende de copiar el tutorial, reduce el proyecto. Si termina rápido y pide más, aumenta una sola dimensión: más datos, una condición adicional o una interfaz mejor.</p>
-            <ol>
-                <li>Semana 1: explorar y elegir un resultado pequeño.</li>
-                <li>Semana 2: construir una versión mínima que funcione.</li>
-                <li>Semana 3: depurar y añadir una variación elegida por el niño.</li>
-                <li>Semana 4: explicar el proyecto y decidir el siguiente reto.</li>
-            </ol>
-
-            <h2>Errores frecuentes al elegir el primer lenguaje</h2>
-            <p>Elegir por salario futuro, moda o dificultad percibida suele ignorar el objetivo actual: aprender a pensar con instrucciones. También es un error cambiar de entorno cada vez que aparece frustración; depurar es parte de la programación y necesita tiempo para volverse familiar.</p>
-            <p>El extremo contrario es mantener una herramienta que ya no ofrece reto. Revisa el ajuste cuando el niño copia sin entender, se frustra con la escritura o completa proyectos sin tomar decisiones. Cambiar de nivel o de lenguaje es una decisión pedagógica, no un premio ni un castigo.</p>
-            <ul>
-                <li>No confundas lenguaje profesional con mejor lenguaje inicial.</li>
-                <li>No compres hardware antes de probar el tipo de proyecto.</li>
-                <li>No midas progreso por líneas de código.</li>
-                <li>No resuelvas todos los errores por el alumno; enséñale a describirlos.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Prueba una ruta con proyectos adecuados al nivel</h3>
-                <p>Robotics Code combina programación y construcción con proyectos graduados. Consulta las modalidades y el enfoque del curso para valorar si encaja con la edad, experiencia e intereses de tu hijo.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver programa Robotics Code <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">La decisión empieza por el proyecto, no por el nombre del lenguaje</h2>
+                <p>Un niño que quiere animar personajes necesita herramientas distintas de quien desea controlar luces o publicar una página web. Define primero un resultado que pueda verse en una o dos sesiones: una historia con decisiones, un juego de preguntas, una calculadora sencilla o un semáforo con LEDs.</p>
+                <p>Después revisa si la herramienta permite construir ese resultado con el nivel actual de lectura y abstracción. Un lenguaje popular puede ser una mala puerta de entrada si el alumno pasa toda la sesión copiando símbolos que todavía no entiende.</p>
                 <ul>
-                <li><a href="/blog-programacion-ninos-por-edades">Programación para niños por edades: ruta de 6 a 17 años</a></li>
-                <li><a href="/blog-arduino-microbit-scratch-cual-elegir">Arduino, micro:bit o Scratch: cuál elegir para empezar</a></li>
-                <li><a href="/blog-primer-proyecto-robotica-casa">Primer proyecto de robótica en casa: semáforo de papel paso a paso</a></li>
+                    <li>Historia o juego visual: bloques como Scratch o ScratchJr.</li>
+                    <li>Automatizar cálculos o texto: Python con instrucciones guiadas.</li>
+                    <li>Página web interactiva: HTML, CSS y JavaScript básico.</li>
+                    <li>Sensores, luces o motores: bloques o C/C++ en Arduino y micro:bit.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Scratch retrasa el aprendizaje de programación real?</h3>
-                <p>No. Scratch trabaja secuencias, eventos, variables, condiciones y repeticiones sin que la sintaxis bloquee el razonamiento. La transición a texto conviene cuando el alumno domina esos conceptos y tiene un proyecto que necesita otra herramienta.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad puede empezar un niño con Python?</h3>
-                <p>No hay una edad única. Suele ser más accesible cuando escribe con fluidez, sigue mensajes breves de error y ya entiende secuencias y variables. Algunos niños llegan antes mediante bloques; otros necesitan más tiempo sin que sea un problema.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿JavaScript o Python es mejor para un primer lenguaje?</h3>
-                <p>Depende del proyecto. Python reduce la cantidad de elementos necesarios para programas de texto y cálculo; JavaScript ofrece resultados directos en una página web. Elige el entorno que permita terminar un proyecto pequeño con comprensión.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito comprar un kit de robótica para empezar?</h3>
-                <p>No. Puedes probar lógica con Scratch, Python o herramientas de simulación. Compra hardware cuando el interés por sensores y componentes sea claro y exista acompañamiento para usarlo de forma segura.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuándo conviene cambiar al siguiente lenguaje?</h3>
-                <p>Cuando el alumno termina proyectos, explica variables y decisiones, depura errores básicos y encuentra una limitación real del entorno. Cambiar solo por novedad puede dispersar la práctica antes de consolidar conceptos transferibles.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Tres señales de preparación que importan más que la edad</h2>
+                <p>La edad orienta, pero no decide por sí sola. Observa si el niño sigue una secuencia, lee mensajes breves de error y tolera modificar un intento. Esas habilidades anticipan mejor la experiencia que cumplir un número exacto de años.</p>
+                <p>También importa la escritura en teclado. Un alumno puede razonar muy bien con bloques y frustrarse al buscar signos, paréntesis o mayúsculas. Eso no indica falta de capacidad: solo que la carga de escribir código compite con la lógica que intenta aprender.</p>
+                <ul>
+                    <li>Puede explicar qué debería ocurrir antes de ejecutar.</li>
+                    <li>Distingue entre una instrucción y el resultado que produce.</li>
+                    <li>Acepta revisar un error sin borrar todo el proyecto.</li>
+                    <li>Escribe frases cortas con suficiente autonomía para el entorno elegido.</li>
+                </ul>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer">Scratch — MIT Media Lab</a> — Entorno oficial, comunidad y recursos para programación con bloques.</li>
-                <li><a href="https://docs.python.org/es/3/tutorial/" target="_blank" rel="noopener noreferrer">Python.org — Tutorial oficial en español</a> — Referencia oficial de sintaxis y conceptos básicos de Python.</li>
-                <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">MDN Web Docs — JavaScript</a> — Documentación abierta para JavaScript y desarrollo web.</li>
-                <li><a href="https://docs.arduino.cc/language-reference/" target="_blank" rel="noopener noreferrer">Arduino — Language Reference</a> — Referencia oficial del lenguaje y funciones del entorno Arduino.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">ScratchJr y Scratch: empezar con bloques y retroalimentación visual</h2>
+                <p>ScratchJr está diseñado para niños pequeños y reduce la dependencia de lectura. Scratch amplía esa idea con variables, condicionales, eventos y comunidad de proyectos. En ambos, la forma de las piezas evita muchos errores de sintaxis y deja que la atención se concentre en secuencia y lógica.</p>
+                <p>Los bloques no son un juguete que deba abandonarse cuanto antes. Un proyecto con estados, mensajes y decisiones puede ser conceptualmente complejo. La transición a texto tiene sentido cuando escribir deja de ser la barrera principal y el alumno quiere herramientas que los bloques no ofrecen.</p>
+                <ol>
+                    <li>Crea una escena con inicio claro y dos personajes.</li>
+                    <li>Añade un evento que responda a clic o teclado.</li>
+                    <li>Incluye una decisión con dos resultados distintos.</li>
+                    <li>Pide al niño que explique la secuencia sin mirar cada bloque.</li>
+                </ol>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Python: una entrada legible al código de texto</h2>
+                <p>Python usa una sintaxis relativamente compacta y permite crear resultados con pocas líneas. Es una buena opción cuando el niño escribe con fluidez, comprende variables y quiere automatizar cálculos, procesar texto o avanzar hacia proyectos de datos.</p>
+                <p>Su aparente sencillez no elimina conceptos difíciles. Sangría, tipos de datos y mensajes de error requieren acompañamiento. El primer proyecto debería usar entrada, una decisión y salida visible, no instalar bibliotecas complejas ni copiar un programa largo.</p>
+                <ol>
+                    <li>Pide un dato con input y guárdalo en una variable.</li>
+                    <li>Usa una condición sencilla para elegir una respuesta.</li>
+                    <li>Imprime un resultado que el niño pueda predecir.</li>
+                    <li>Cambia una regla y comprueba cómo se modifica el comportamiento.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">JavaScript: útil cuando la meta es crear para la web</h2>
+                <p>JavaScript resulta motivador si el proyecto es una página, un cuestionario o una animación en el navegador. El alumno ve el resultado sin fabricar hardware y aprende cómo una instrucción cambia un elemento que ya está en pantalla.</p>
+                <p>La ruta incluye también HTML y algo de CSS, por lo que puede introducir demasiadas piezas a la vez. Conviene entregar una página base segura y concentrarse primero en una interacción: cambiar un texto, contar puntos o mostrar una respuesta.</p>
+                <ul>
+                    <li>Ventaja: resultado visible en cualquier navegador moderno.</li>
+                    <li>Reto: conviven estructura, estilo y comportamiento.</li>
+                    <li>Buen primer proyecto: cuestionario de tres preguntas.</li>
+                    <li>Evita al inicio frameworks, gestores de paquetes y configuraciones extensas.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Arduino y C/C++: cuando el interés está en el mundo físico</h2>
+                <p>Para encender LEDs, leer sensores o mover un motor, Arduino ofrece una conexión clara entre código y objeto. La sintaxis de C/C++ es menos indulgente que Scratch o Python, pero la motivación de ver un circuito responder puede justificar esa dificultad para algunos estudiantes.</p>
+                <p>La seguridad y el acompañamiento importan. Empieza con placas alimentadas por USB y componentes de bajo voltaje, siguiendo diagramas revisados. El objetivo inicial no es memorizar C++, sino comprender entrada, procesamiento y salida en un sistema físico.</p>
+                <ol>
+                    <li>Carga un ejemplo conocido y predice qué hará antes de ejecutarlo.</li>
+                    <li>Cambia un único valor, como el tiempo de parpadeo.</li>
+                    <li>Explica la relación entre línea de código y componente.</li>
+                    <li>Documenta el circuito antes de añadir una segunda pieza.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Comparación rápida para tomar una decisión razonable</h2>
+                <p>Elige Scratch si la prioridad es lógica visual e historias; Python si busca código de texto legible; JavaScript si quiere publicar interacción web; y Arduino si la motivación es construir dispositivos. Ninguna elección cierra las demás rutas.</p>
+                <p>Evita empezar dos lenguajes al mismo tiempo. Los conceptos se transfieren mejor cuando el alumno puede reconocerlos con seguridad en un entorno. Después podrá comparar cómo cada lenguaje expresa una variable, una condición o una repetición.</p>
+                <ul>
+                    <li>Menor carga de escritura: ScratchJr o Scratch.</li>
+                    <li>Transición clara a texto: Python.</li>
+                    <li>Resultado en navegador: JavaScript.</li>
+                    <li>Resultado físico: Arduino o micro:bit.</li>
+                    <li>Criterio de éxito: proyecto terminado y explicación propia, no cantidad de comandos.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-8" aria-labelledby="seccion-8-titulo">
+                <h2 id="seccion-8-titulo">Prueba de cuatro semanas antes de comprometer una ruta larga</h2>
+                <p>Dedica cuatro sesiones a un solo proyecto y observa la respuesta. En la primera, explora ejemplos; en la segunda, reproduce una versión mínima; en la tercera, cambia una regla; en la cuarta, presenta el resultado. Esta secuencia distingue curiosidad momentánea de interés por comprender y mejorar.</p>
+                <p>Registra cuánto apoyo requiere, qué errores puede explicar y si propone cambios propios. Si todo depende de copiar el tutorial, reduce el proyecto. Si termina rápido y pide más, aumenta una sola dimensión: más datos, una condición adicional o una interfaz mejor.</p>
+                <ol>
+                    <li>Semana 1: explorar y elegir un resultado pequeño.</li>
+                    <li>Semana 2: construir una versión mínima que funcione.</li>
+                    <li>Semana 3: depurar y añadir una variación elegida por el niño.</li>
+                    <li>Semana 4: explicar el proyecto y decidir el siguiente reto.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-9" aria-labelledby="seccion-9-titulo">
+                <h2 id="seccion-9-titulo">Errores frecuentes al elegir el primer lenguaje</h2>
+                <p>Elegir por salario futuro, moda o dificultad percibida suele ignorar el objetivo actual: aprender a pensar con instrucciones. También es un error cambiar de entorno cada vez que aparece frustración; depurar es parte de la programación y necesita tiempo para volverse familiar.</p>
+                <p>El extremo contrario es mantener una herramienta que ya no ofrece reto. Revisa el ajuste cuando el niño copia sin entender, se frustra con la escritura o completa proyectos sin tomar decisiones. Cambiar de nivel o de lenguaje es una decisión pedagógica, no un premio ni un castigo.</p>
+                <ul>
+                    <li>No confundas lenguaje profesional con mejor lenguaje inicial.</li>
+                    <li>No compres hardware antes de probar el tipo de proyecto.</li>
+                    <li>No midas progreso por líneas de código.</li>
+                    <li>No resuelvas todos los errores por el alumno; enséñale a describirlos.</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Prueba una ruta con proyectos adecuados al nivel</h2>
+                    <p>Robotics Code combina programación y construcción con proyectos graduados. Consulta las modalidades y el enfoque del curso para valorar si encaja con la edad, experiencia e intereses de tu hijo.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Ver programa Robotics Code <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-programacion-ninos-por-edades">
+                            <span>Programación para niños por edades: ruta de 6 a 17 años</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-arduino-microbit-scratch-cual-elegir">
+                            <span>Arduino, micro:bit o Scratch: cuál elegir para empezar</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-primer-proyecto-robotica-casa">
+                            <span>Primer proyecto de robótica en casa: semáforo de papel paso a paso</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Scratch retrasa el aprendizaje de programación real?</h3>
+                    <p>No. Scratch trabaja secuencias, eventos, variables, condiciones y repeticiones sin que la sintaxis bloquee el razonamiento. La transición a texto conviene cuando el alumno domina esos conceptos y tiene un proyecto que necesita otra herramienta.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad puede empezar un niño con Python?</h3>
+                    <p>No hay una edad única. Suele ser más accesible cuando escribe con fluidez, sigue mensajes breves de error y ya entiende secuencias y variables. Algunos niños llegan antes mediante bloques; otros necesitan más tiempo sin que sea un problema.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿JavaScript o Python es mejor para un primer lenguaje?</h3>
+                    <p>Depende del proyecto. Python reduce la cantidad de elementos necesarios para programas de texto y cálculo; JavaScript ofrece resultados directos en una página web. Elige el entorno que permita terminar un proyecto pequeño con comprensión.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito comprar un kit de robótica para empezar?</h3>
+                    <p>No. Puedes probar lógica con Scratch, Python o herramientas de simulación. Compra hardware cuando el interés por sensores y componentes sea claro y exista acompañamiento para usarlo de forma segura.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuándo conviene cambiar al siguiente lenguaje?</h3>
+                    <p>Cuando el alumno termina proyectos, explica variables y decisiones, depura errores básicos y encuentra una limitación real del entorno. Cambiar solo por novedad puede dispersar la práctica antes de consolidar conceptos transferibles.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer">Scratch — MIT Media Lab</a> — Entorno oficial, comunidad y recursos para programación con bloques.</li>
+                    <li><a href="https://docs.python.org/es/3/tutorial/" target="_blank" rel="noopener noreferrer">Python.org — Tutorial oficial en español</a> — Referencia oficial de sintaxis y conceptos básicos de Python.</li>
+                    <li><a href="https://developer.mozilla.org/es/docs/Web/JavaScript" target="_blank" rel="noopener noreferrer">MDN Web Docs — JavaScript</a> — Documentación abierta para JavaScript y desarrollo web.</li>
+                    <li><a href="https://docs.arduino.cc/language-reference/" target="_blank" rel="noopener noreferrer">Arduino — Language Reference</a> — Referencia oficial del lenguaje y funciones del entorno Arduino.</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -581,8 +693,77 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>La decisión empieza por el proyecto, no por el nombre del lenguaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Tres señales de preparación que importan más que la edad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>ScratchJr y Scratch: empezar con bloques y retroalimentación visual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Python: una entrada legible al código de texto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>JavaScript: útil cuando la meta es crear para la web
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Arduino y C/C++: cuando el interés está en el mundo físico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Comparación rápida para tomar una decisión razonable
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Prueba de cuatro semanas antes de comprometer una ruta larga
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-9">
+                                <span aria-hidden="true">09</span>Errores frecuentes al elegir el primer lenguaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">10</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">11</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

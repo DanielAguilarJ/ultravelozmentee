@@ -362,144 +362,237 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Metodologías de Aprendizaje
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Rutina semanal para integrar metodologías de aprendizaje</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Metodologías de Aprendizaje</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Rutina semanal para integrar metodologías de aprendizaje</h1>
+                <p class="blog-post-dek">Cómo estructurar una rutina semanal que integre distintas metodologías de aprendizaje: repaso espaciado, autoevaluación y organización por materia.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Metodologías de Aprendizaje</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Rutina semanal para integrar metodologías de aprendizaje" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Aplicar varias metodologías de aprendizaje al mismo tiempo puede sentirse desorganizado si no existe una estructura semanal clara que indique cuándo corresponde cada técnica. Esta guía propone una distribución semanal simple, adaptable a distintas cargas de materias, que integra las técnicas descritas en otros artículos de este cluster.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Inicio de semana: repaso espaciado de contenido previo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Mitad de semana: práctica activa de contenido nuevo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Ejemplo aplicado: una semana completa con distintas materias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Fin de semana: descanso y organización, no estudio intensivo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ajustar la rutina según la carga real de cada semana
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores comunes al estructurar la rutina semanal
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo empezar a construir tu propia rutina semanal
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Aplicar varias metodologías de aprendizaje al mismo tiempo puede sentirse desorganizado si no existe una estructura semanal clara que indique cuándo corresponde cada técnica. Esta guía propone una distribución semanal simple, adaptable a distintas cargas de materias, que integra las técnicas descritas en otros artículos de este cluster.</p>
             <p>La estructura propuesta es un punto de partida orientativo, no una fórmula rígida; cada estudiante puede ajustarla según su propio horario escolar y las exigencias particulares de sus materias. Lo importante es que exista algún tipo de estructura semanal reconocible, más que replicar exactamente el orden de días sugerido aquí.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Una rutina semanal que integra metodologías de aprendizaje distribuye distintas técnicas según el día: repaso espaciado de contenido previo al inicio de la semana, práctica activa de contenido nuevo a mitad de semana, y autoevaluación general los días previos a cualquier evaluación, dejando al menos un día de descanso completo sin actividades académicas planeadas.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Una rutina semanal que integra metodologías de aprendizaje distribuye distintas técnicas según el día: repaso espaciado de contenido previo al inicio de la semana, práctica activa de contenido nuevo a mitad de semana, y autoevaluación general los días previos a cualquier evaluación, dejando al menos un día de descanso completo sin actividades académicas planeadas.</p>
+                </aside>
 
-            <h2>Inicio de semana: repaso espaciado de contenido previo</h2>
-            <p>Los primeros días de la semana son un buen momento para repasar contenido de semanas anteriores mediante repaso espaciado, antes de que la carga de tareas nuevas empiece a acumularse. Revisar las tarjetas o notas de temas ya vistos, priorizando los que generaron más dudas en el repaso anterior, consolida ese contenido sin competir con la presión de tareas urgentes del momento.</p>
-            <ul>
-                <li>Revisar tarjetas o notas de contenido de semanas anteriores.</li>
-                <li>Priorizar los temas que generaron más dudas en el repaso previo.</li>
-                <li>Dedicar sesiones cortas, de veinte a treinta minutos, no bloques extensos.</li>
-                <li>Actualizar el registro de qué tan bien se recuerda cada tema repasado.</li>
-            </ul>
-
-            <h2>Mitad de semana: práctica activa de contenido nuevo</h2>
-            <p>Hacia la mitad de la semana, cuando ya se ha recibido la mayoría del contenido nuevo de las clases, conviene dedicar tiempo a procesarlo de forma activa: elaborar resúmenes con palabras propias, resolver ejercicios sin consultar la solución de inmediato, o explicar en voz alta los procesos más complejos, según el tipo de materia.</p>
-
-            <h2>Ejemplo aplicado: una semana completa con distintas materias</h2>
-            <p>Una estudiante de bachillerato con cinco materias distintas organizó su semana siguiendo esta estructura general, ajustándola a su horario particular de clases. Los lunes y martes dedicaba veinte minutos antes de empezar sus tareas del día a repasar tarjetas de vocabulario de inglés y fórmulas de física de semanas anteriores, priorizando las que le habían costado más trabajo en el repaso previo.</p>
-            <p>Los miércoles y jueves, con el contenido nuevo de la semana ya recibido en la mayoría de sus clases, dedicaba sus sesiones principales a procesarlo de forma activa: para física, resolvía ejercicios nuevos sin ver la solución hasta intentarlo al menos dos veces; para historia, escribía un resumen breve con sus propias palabras de lo visto en clase esa semana.</p>
-            <p>Los viernes, cuando tenía algún examen próximo la semana siguiente, dedicaba tiempo a autoevaluación general: cerraba sus apuntes e intentaba reproducir de memoria los puntos principales de la materia en cuestión, comparando después con sus notas para identificar qué había olvidado.</p>
-            <p>Reservaba los sábados como día de descanso académico completo, sin ninguna actividad de estudio planeada, y usaba los domingos por la tarde solo para organizar su lista de tareas de la semana siguiente, sin estudiar contenido nuevo ese día. Esta estructura, sostenida durante varios meses, le permitió distribuir de forma más equilibrada las distintas técnicas sin sentir que competían entre sí por el mismo tiempo.</p>
-
-            <h2>Fin de semana: descanso y organización, no estudio intensivo</h2>
-            <p>Reservar al menos un día completo sin actividades académicas planeadas, dentro de la semana, ayuda a sostener el ritmo de estudio a mediano plazo sin llegar al agotamiento. El tiempo dedicado a organizar la semana siguiente —revisar tareas pendientes, actualizar el calendario de repaso espaciado— puede hacerse en un momento breve, sin que se convierta en una sesión extensa de estudio disfrazada de organización.</p>
-            <ol>
-                <li>Reservar al menos un día sin actividades académicas planeadas.</li>
-                <li>Dedicar un momento breve, no extenso, a organizar la semana siguiente.</li>
-                <li>Evitar que la organización se convierta en estudio intensivo disfrazado.</li>
-                <li>Revisar si el día de descanso realmente se sostiene sin excepciones frecuentes.</li>
-            </ol>
-
-            <h2>Ajustar la rutina según la carga real de cada semana</h2>
-            <p>No todas las semanas tienen la misma carga académica; algunas incluyen exámenes o entregas importantes que exigen más tiempo de preparación. La estructura semanal propuesta debe entenderse como un punto de partida flexible, ajustable según la carga real, no como un horario rígido que debe cumplirse de forma idéntica todas las semanas del ciclo escolar.</p>
-
-            <h2>Errores comunes al estructurar la rutina semanal</h2>
-            <p>Algunos intentos de estructurar la semana fallan por exceso de rigidez o por intentar aplicar demasiadas técnicas distintas sin un orden claro entre ellas, lo que genera confusión sobre qué corresponde hacer cada día.</p>
-            <ul>
-                <li>Intentar aplicar todas las técnicas descritas en el cluster desde la primera semana.</li>
-                <li>No dejar ningún margen de ajuste para semanas con carga académica distinta.</li>
-                <li>Eliminar el día de descanso pensando que acelerará el progreso general.</li>
-                <li>No revisar ni ajustar la estructura después de las primeras semanas de prueba.</li>
-            </ul>
-
-            <h2>Cómo empezar a construir tu propia rutina semanal</h2>
-            <p>Si nunca has tenido una rutina estructurada, conviene empezar con una versión simplificada de esta propuesta —quizás solo repaso espaciado al inicio de semana y autoevaluación antes de exámenes— y agregar las demás piezas de forma gradual, en lugar de intentar implementar la estructura completa desde el primer día.</p>
-            <p>Con el tiempo, y a medida que cada pieza se vuelve un hábito que ya no requiere esfuerzo consciente para sostenerse, la rutina completa deja de sentirse como una carga de organización adicional y se convierte en parte natural del ritmo semanal, algo que suele tomar entre cuatro y seis semanas de aplicación constante para la mayoría de los estudiantes.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De estructurar tu semana a dominar una técnica de memoria</h3>
-                <p>Si tu rutina semanal incluye repaso constante de información específica, nuestro programa de Memoria Prodigiosa te ofrece un método estructurado que se integra fácilmente a los días de repaso espaciado.</p>
-                <a href="/memoria-prodigiosa" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conoce el programa de Memoria Prodigiosa <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Inicio de semana: repaso espaciado de contenido previo</h2>
+                <p>Los primeros días de la semana son un buen momento para repasar contenido de semanas anteriores mediante repaso espaciado, antes de que la carga de tareas nuevas empiece a acumularse. Revisar las tarjetas o notas de temas ya vistos, priorizando los que generaron más dudas en el repaso anterior, consolida ese contenido sin competir con la presión de tareas urgentes del momento.</p>
                 <ul>
-                <li><a href="/blog-metodologias-aprendizaje-senales-de-alerta">Señales de alerta al aplicar metodologías de aprendizaje</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-en-casa">Cómo aplicar metodologías de aprendizaje en casa</a></li>
+                    <li>Revisar tarjetas o notas de contenido de semanas anteriores.</li>
+                    <li>Priorizar los temas que generaron más dudas en el repaso previo.</li>
+                    <li>Dedicar sesiones cortas, de veinte a treinta minutos, no bloques extensos.</li>
+                    <li>Actualizar el registro de qué tan bien se recuerda cada tema repasado.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo seguir exactamente esta distribución de días para que funcione?</h3>
-                <p>No es necesario. La estructura es orientativa; puedes ajustar qué días corresponden a cada tipo de actividad según tu propio horario escolar y las exigencias particulares de tus materias.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago en semanas con varios exámenes a la vez?</h3>
-                <p>En esas semanas es razonable dedicar más tiempo a autoevaluación y menos a la práctica de contenido completamente nuevo, ajustando la distribución habitual según la exigencia particular de esa semana.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es necesario tener las cinco piezas de esta rutina desde el primer día?</h3>
-                <p>No, puedes empezar con una versión simplificada, como solo repaso espaciado y autoevaluación, y agregar las demás piezas de forma gradual conforme cada una se vuelva un hábito estable.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué pasa si no puedo respetar el día completo de descanso algunas semanas?</h3>
-                <p>Ocasionalmente puede ser inevitable por carga académica extraordinaria, pero conviene que sea la excepción y no la norma; eliminar el descanso de forma sistemática suele generar agotamiento a mediano plazo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Esta rutina sirve igual para estudiantes con actividades extracurriculares intensas?</h3>
-                <p>Sí, aunque puede requerir sesiones más cortas y una distribución más flexible entre los días disponibles, priorizando siempre que exista al menos algo de repaso espaciado y autoevaluación antes de exámenes importantes, incluso si el resto de la estructura se simplifica según el tiempo real disponible cada semana.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Mitad de semana: práctica activa de contenido nuevo</h2>
+                <p>Hacia la mitad de la semana, cuando ya se ha recibido la mayoría del contenido nuevo de las clases, conviene dedicar tiempo a procesarlo de forma activa: elaborar resúmenes con palabras propias, resolver ejercicios sin consultar la solución de inmediato, o explicar en voz alta los procesos más complejos, según el tipo de materia.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Ejemplo aplicado: una semana completa con distintas materias</h2>
+                <p>Una estudiante de bachillerato con cinco materias distintas organizó su semana siguiendo esta estructura general, ajustándola a su horario particular de clases. Los lunes y martes dedicaba veinte minutos antes de empezar sus tareas del día a repasar tarjetas de vocabulario de inglés y fórmulas de física de semanas anteriores, priorizando las que le habían costado más trabajo en el repaso previo.</p>
+                <p>Los miércoles y jueves, con el contenido nuevo de la semana ya recibido en la mayoría de sus clases, dedicaba sus sesiones principales a procesarlo de forma activa: para física, resolvía ejercicios nuevos sin ver la solución hasta intentarlo al menos dos veces; para historia, escribía un resumen breve con sus propias palabras de lo visto en clase esa semana.</p>
+                <p>Los viernes, cuando tenía algún examen próximo la semana siguiente, dedicaba tiempo a autoevaluación general: cerraba sus apuntes e intentaba reproducir de memoria los puntos principales de la materia en cuestión, comparando después con sus notas para identificar qué había olvidado.</p>
+                <p>Reservaba los sábados como día de descanso académico completo, sin ninguna actividad de estudio planeada, y usaba los domingos por la tarde solo para organizar su lista de tareas de la semana siguiente, sin estudiar contenido nuevo ese día. Esta estructura, sostenida durante varios meses, le permitió distribuir de forma más equilibrada las distintas técnicas sin sentir que competían entre sí por el mismo tiempo.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Fin de semana: descanso y organización, no estudio intensivo</h2>
+                <p>Reservar al menos un día completo sin actividades académicas planeadas, dentro de la semana, ayuda a sostener el ritmo de estudio a mediano plazo sin llegar al agotamiento. El tiempo dedicado a organizar la semana siguiente —revisar tareas pendientes, actualizar el calendario de repaso espaciado— puede hacerse en un momento breve, sin que se convierta en una sesión extensa de estudio disfrazada de organización.</p>
+                <ol>
+                    <li>Reservar al menos un día sin actividades académicas planeadas.</li>
+                    <li>Dedicar un momento breve, no extenso, a organizar la semana siguiente.</li>
+                    <li>Evitar que la organización se convierta en estudio intensivo disfrazado.</li>
+                    <li>Revisar si el día de descanso realmente se sostiene sin excepciones frecuentes.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Ajustar la rutina según la carga real de cada semana</h2>
+                <p>No todas las semanas tienen la misma carga académica; algunas incluyen exámenes o entregas importantes que exigen más tiempo de preparación. La estructura semanal propuesta debe entenderse como un punto de partida flexible, ajustable según la carga real, no como un horario rígido que debe cumplirse de forma idéntica todas las semanas del ciclo escolar.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Errores comunes al estructurar la rutina semanal</h2>
+                <p>Algunos intentos de estructurar la semana fallan por exceso de rigidez o por intentar aplicar demasiadas técnicas distintas sin un orden claro entre ellas, lo que genera confusión sobre qué corresponde hacer cada día.</p>
+                <ul>
+                    <li>Intentar aplicar todas las técnicas descritas en el cluster desde la primera semana.</li>
+                    <li>No dejar ningún margen de ajuste para semanas con carga académica distinta.</li>
+                    <li>Eliminar el día de descanso pensando que acelerará el progreso general.</li>
+                    <li>No revisar ni ajustar la estructura después de las primeras semanas de prueba.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo empezar a construir tu propia rutina semanal</h2>
+                <p>Si nunca has tenido una rutina estructurada, conviene empezar con una versión simplificada de esta propuesta —quizás solo repaso espaciado al inicio de semana y autoevaluación antes de exámenes— y agregar las demás piezas de forma gradual, en lugar de intentar implementar la estructura completa desde el primer día.</p>
+                <p>Con el tiempo, y a medida que cada pieza se vuelve un hábito que ya no requiere esfuerzo consciente para sostenerse, la rutina completa deja de sentirse como una carga de organización adicional y se convierte en parte natural del ritmo semanal, algo que suele tomar entre cuatro y seis semanas de aplicación constante para la mayoría de los estudiantes.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De estructurar tu semana a dominar una técnica de memoria</h2>
+                    <p>Si tu rutina semanal incluye repaso constante de información específica, nuestro programa de Memoria Prodigiosa te ofrece un método estructurado que se integra fácilmente a los días de repaso espaciado.</p>
+                    <a href="/memoria-prodigiosa" class="btn-primary">
+                        Conoce el programa de Memoria Prodigiosa <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-senales-de-alerta">
+                            <span>Señales de alerta al aplicar metodologías de aprendizaje</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-en-casa">
+                            <span>Cómo aplicar metodologías de aprendizaje en casa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo seguir exactamente esta distribución de días para que funcione?</h3>
+                    <p>No es necesario. La estructura es orientativa; puedes ajustar qué días corresponden a cada tipo de actividad según tu propio horario escolar y las exigencias particulares de tus materias.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago en semanas con varios exámenes a la vez?</h3>
+                    <p>En esas semanas es razonable dedicar más tiempo a autoevaluación y menos a la práctica de contenido completamente nuevo, ajustando la distribución habitual según la exigencia particular de esa semana.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es necesario tener las cinco piezas de esta rutina desde el primer día?</h3>
+                    <p>No, puedes empezar con una versión simplificada, como solo repaso espaciado y autoevaluación, y agregar las demás piezas de forma gradual conforme cada una se vuelva un hábito estable.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué pasa si no puedo respetar el día completo de descanso algunas semanas?</h3>
+                    <p>Ocasionalmente puede ser inevitable por carga académica extraordinaria, pero conviene que sea la excepción y no la norma; eliminar el descanso de forma sistemática suele generar agotamiento a mediano plazo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Esta rutina sirve igual para estudiantes con actividades extracurriculares intensas?</h3>
+                    <p>Sí, aunque puede requerir sesiones más cortas y una distribución más flexible entre los días disponibles, priorizando siempre que exista al menos algo de repaso espaciado y autoevaluación antes de exámenes importantes, incluso si el resto de la estructura se simplifica según el tiempo real disponible cada semana.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -529,8 +622,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Inicio de semana: repaso espaciado de contenido previo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Mitad de semana: práctica activa de contenido nuevo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Ejemplo aplicado: una semana completa con distintas materias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Fin de semana: descanso y organización, no estudio intensivo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ajustar la rutina según la carga real de cada semana
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores comunes al estructurar la rutina semanal
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo empezar a construir tu propia rutina semanal
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

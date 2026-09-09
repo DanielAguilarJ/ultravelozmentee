@@ -354,128 +354,219 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="5">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Tecnología educativa y robótica: resumen práctico para decidir</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 2 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 5 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Tecnología educativa y robótica: resumen práctico para decidir</h1>
+                <p class="blog-post-dek">Resumen práctico de tecnología educativa y robótica: los criterios más importantes para decidir, condensados en una guía de referencia rápida.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-09-02">2 de Septiembre, 2026</time></span>
+                    <span>5 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Tecnología educativa y robótica: resumen práctico para decidir" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Después de revisar en detalle ventajas, riesgos, niveles de progresión, motivación, errores comunes y recomendaciones de especialistas sobre tecnología educativa y robótica, este artículo condensa los puntos más importantes en una referencia rápida para consulta futura.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Los tres criterios más importantes al decidir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Expectativas realistas por etapa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Señales de progreso que sí importan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo sostener el interés a mediano plazo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué hacer cuando algo no funciona
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>El principio que resume todo lo demás
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Después de revisar en detalle ventajas, riesgos, niveles de progresión, motivación, errores comunes y recomendaciones de especialistas sobre tecnología educativa y robótica, este artículo condensa los puntos más importantes en una referencia rápida para consulta futura.</p>
             <p>No sustituye la profundidad de los artículos específicos sobre cada tema, pero ofrece un resumen práctico para quien necesita los criterios esenciales sin leer todo el desarrollo completo de cada uno de ellos por separado.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>El criterio más importante en tecnología educativa y robótica es priorizar calidad pedagógica del instructor y diseño del programa sobre marca del equipo, calibrar expectativas realistas por etapa, sostener exposición constante durante meses (no semanas), y evaluar progreso por señales de comprensión conceptual, no por complejidad visual del resultado final.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>El criterio más importante en tecnología educativa y robótica es priorizar calidad pedagógica del instructor y diseño del programa sobre marca del equipo, calibrar expectativas realistas por etapa, sostener exposición constante durante meses (no semanas), y evaluar progreso por señales de comprensión conceptual, no por complejidad visual del resultado final.</p>
+                </aside>
 
-            <h2>Los tres criterios más importantes al decidir</h2>
-            <p>Si solo puedes evaluar tres cosas antes de elegir un programa de tecnología educativa o robótica, estas son las de mayor peso según la evidencia disponible: la calidad pedagógica del instructor (más determinante que la marca del equipo), el tamaño del grupo (que condiciona la atención individual real), y la existencia de progresión clara por niveles basada en dominio, no solo en calendario.</p>
-            <p>Cada uno de estos criterios se puede verificar con preguntas concretas al programa que estés considerando, sin necesidad de conocimientos técnicos previos: formación del instructor, proporción de estudiantes por sesión, y mecanismo específico para decidir cuándo un estudiante avanza de nivel.</p>
-            <ul>
-                <li>Calidad del instructor y diseño pedagógico del programa.</li>
-                <li>Tamaño del grupo y proporción de atención individual real.</li>
-                <li>Progresión clara por niveles, verificada por dominio demostrado.</li>
-            </ul>
-
-            <h2>Expectativas realistas por etapa</h2>
-            <p>En el primer mes, espera familiarización y ejercicios guiados, no proyectos independientes complejos. En nivel básico, espera comprensión de secuencia y causa-efecto, no programación formal. En nivel avanzado, espera condicionales y sensores múltiples, aún con guía estructurada, no proyectos completamente originales sin referencia.</p>
-            <p>Estas expectativas calibradas evitan tanto la frustración de esperar demasiado demasiado pronto, como el riesgo contrario de subestimar el progreso real que sí está ocurriendo en cada etapa, aunque no se vea reflejado en un proyecto visualmente impresionante todavía.</p>
-            <p>Después del nivel avanzado, la progresión típica continúa hacia programación en lenguajes de texto simplificados aplicados a los mismos principios ya familiares, manteniendo en la medida de lo posible el contexto físico y tangible que caracteriza a la robótica frente a la programación puramente de pantalla.</p>
-
-            <h2>Señales de progreso que sí importan</h2>
-            <p>Prioriza observar si tu hijo predice resultados antes de ejecutar, depura errores con menos ayuda que antes, explica su razonamiento con palabras propias, y muestra curiosidad espontánea por variantes. Estas señales conductuales son más confiables que la complejidad visual del proyecto final, que puede reflejar solo seguimiento de instrucciones sin comprensión genuina detrás.</p>
-            <p>Ninguna de estas señales requiere que tú, como padre, entiendas técnicamente el proyecto de robótica en curso; todas se pueden evaluar observando la conducta y escuchando las explicaciones de tu hijo, sin necesidad de formación técnica previa de tu parte.</p>
-
-            <h2>Cómo sostener el interés a mediano plazo</h2>
-            <p>Celebra el proceso además del resultado, permite cierta elección dentro de la estructura del curso, evita comparar con otros niños, y separa la actividad de la presión de rendimiento escolar general. El entusiasmo inicial por novedad se desgasta naturalmente; la motivación sostenible se construye con estas prácticas concretas, no aparece por sí sola.</p>
-            <p>Estas prácticas no requieren inversión de tiempo adicional significativo; se trata más de un ajuste en cómo se conversa sobre la actividad en casa, que de agregar más tiempo o recursos a la rutina ya establecida.</p>
-
-            <h2>Qué hacer cuando algo no funciona</h2>
-            <p>Ante frustración intensa, pausa sin presión, identifica el punto exacto de bloqueo con preguntas guía, y considera reducir temporalmente la complejidad antes de retomar el reto original. Si la resistencia es constante y no una meseta normal, conversa con el instructor sobre ajustes de ritmo antes de considerar abandonar la actividad completamente.</p>
-            <p>Este proceso de cuatro pasos (pausar, identificar, simplificar, retomar) es aplicable a la mayoría de los momentos de frustración técnica que surgen durante el aprendizaje, sin requerir que el adulto acompañante tenga conocimiento técnico específico del proyecto en cuestión.</p>
-
-            <h2>El principio que resume todo lo demás</h2>
-            <p>Si hay un solo principio que resume la mayoría de las recomendaciones específicas cubiertas en este cluster de artículos, es este: la calidad de la implementación pedagógica y el ajuste al ritmo individual del niño importan más que cualquier variable técnica específica, sea la marca del robot, la edad exacta de inicio, o la complejidad del proyecto mostrado en redes sociales.</p>
-            <p>Este principio simplifica considerablemente la toma de decisiones: en lugar de intentar optimizar cada variable técnica posible, basta con verificar que el instructor sea competente, que el ritmo se ajuste a tu hijo específico, y que la actividad conserve su carácter exploratorio sin convertirse en fuente adicional de presión.</p>
-            <p>Con este marco general y los criterios específicos detallados en el resto de artículos de este cluster, cualquier familia sin experiencia previa en tecnología puede evaluar y acompañar el proceso de aprendizaje de su hijo con información suficiente, sin depender exclusivamente de lo que promete el material promocional de cada programa específico.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Un programa alineado con estos criterios desde su diseño</h3>
-                <p>Robotics Code estructura su progresión, tamaño de grupo y formación de instructores alrededor de los criterios que la evidencia identifica como más relevantes, no como elementos añadidos después del diseño comercial del programa.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer las clases de matemáticas <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Los tres criterios más importantes al decidir</h2>
+                <p>Si solo puedes evaluar tres cosas antes de elegir un programa de tecnología educativa o robótica, estas son las de mayor peso según la evidencia disponible: la calidad pedagógica del instructor (más determinante que la marca del equipo), el tamaño del grupo (que condiciona la atención individual real), y la existencia de progresión clara por niveles basada en dominio, no solo en calendario.</p>
+                <p>Cada uno de estos criterios se puede verificar con preguntas concretas al programa que estés considerando, sin necesidad de conocimientos técnicos previos: formación del instructor, proporción de estudiantes por sesión, y mecanismo específico para decidir cuándo un estudiante avanza de nivel.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-ventajas-y-desventajas">Tecnología educativa para niños: ventajas y desventajas reales</a></li>
-                <li><a href="/blog-tecnologia-educativa-segun-la-ciencia">Qué dice la ciencia sobre la tecnología educativa en niños</a></li>
-                <li><a href="/blog-tecnologia-educativa-guia-para-principiantes-2026">Guía para principiantes en robótica y programación infantil 2026</a></li>
+                    <li>Calidad del instructor y diseño pedagógico del programa.</li>
+                    <li>Tamaño del grupo y proporción de atención individual real.</li>
+                    <li>Progresión clara por niveles, verificada por dominio demostrado.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuál es el criterio más importante al elegir un programa de robótica?</h3>
-                <p>La calidad pedagógica del instructor y el diseño del programa, que predicen el resultado con más fuerza que la marca del equipo utilizado, según la evidencia disponible sobre implementación de tecnología educativa.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si mi hijo está progresando realmente en robótica?</h3>
-                <p>Observa señales conductuales como predicción de resultados antes de ejecutar, depuración con menos ayuda, explicación en palabras propias y curiosidad espontánea por variantes, más que la complejidad visual del proyecto final.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debo esperar para ver resultados de la robótica educativa?</h3>
-                <p>Los beneficios documentados requieren exposición sostenida durante varios meses, no semanas. Es razonable considerar la decisión como un compromiso de mediano plazo en lugar de evaluar resultados completos en las primeras semanas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué debo hacer si mi hijo se frustra con un proyecto y quiere abandonar?</h3>
-                <p>Pausa sin presión, identifica con preguntas guía en qué punto exacto se detuvo el progreso, y considera reducir temporalmente la complejidad del reto antes de retomar el proyecto original con la confianza ya recuperada.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Expectativas realistas por etapa</h2>
+                <p>En el primer mes, espera familiarización y ejercicios guiados, no proyectos independientes complejos. En nivel básico, espera comprensión de secuencia y causa-efecto, no programación formal. En nivel avanzado, espera condicionales y sensores múltiples, aún con guía estructurada, no proyectos completamente originales sin referencia.</p>
+                <p>Estas expectativas calibradas evitan tanto la frustración de esperar demasiado demasiado pronto, como el riesgo contrario de subestimar el progreso real que sí está ocurriendo en cada etapa, aunque no se vea reflejado en un proyecto visualmente impresionante todavía.</p>
+                <p>Después del nivel avanzado, la progresión típica continúa hacia programación en lenguajes de texto simplificados aplicados a los mismos principios ya familiares, manteniendo en la medida de lo posible el contexto físico y tangible que caracteriza a la robótica frente a la programación puramente de pantalla.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Síntesis de referencia sobre criterios de calidad en tecnología educativa</li>
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto general sobre desarrollo de habilidades STEM en la infancia</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Señales de progreso que sí importan</h2>
+                <p>Prioriza observar si tu hijo predice resultados antes de ejecutar, depura errores con menos ayuda que antes, explica su razonamiento con palabras propias, y muestra curiosidad espontánea por variantes. Estas señales conductuales son más confiables que la complejidad visual del proyecto final, que puede reflejar solo seguimiento de instrucciones sin comprensión genuina detrás.</p>
+                <p>Ninguna de estas señales requiere que tú, como padre, entiendas técnicamente el proyecto de robótica en curso; todas se pueden evaluar observando la conducta y escuchando las explicaciones de tu hijo, sin necesidad de formación técnica previa de tu parte.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Cómo sostener el interés a mediano plazo</h2>
+                <p>Celebra el proceso además del resultado, permite cierta elección dentro de la estructura del curso, evita comparar con otros niños, y separa la actividad de la presión de rendimiento escolar general. El entusiasmo inicial por novedad se desgasta naturalmente; la motivación sostenible se construye con estas prácticas concretas, no aparece por sí sola.</p>
+                <p>Estas prácticas no requieren inversión de tiempo adicional significativo; se trata más de un ajuste en cómo se conversa sobre la actividad en casa, que de agregar más tiempo o recursos a la rutina ya establecida.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Qué hacer cuando algo no funciona</h2>
+                <p>Ante frustración intensa, pausa sin presión, identifica el punto exacto de bloqueo con preguntas guía, y considera reducir temporalmente la complejidad antes de retomar el reto original. Si la resistencia es constante y no una meseta normal, conversa con el instructor sobre ajustes de ritmo antes de considerar abandonar la actividad completamente.</p>
+                <p>Este proceso de cuatro pasos (pausar, identificar, simplificar, retomar) es aplicable a la mayoría de los momentos de frustración técnica que surgen durante el aprendizaje, sin requerir que el adulto acompañante tenga conocimiento técnico específico del proyecto en cuestión.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">El principio que resume todo lo demás</h2>
+                <p>Si hay un solo principio que resume la mayoría de las recomendaciones específicas cubiertas en este cluster de artículos, es este: la calidad de la implementación pedagógica y el ajuste al ritmo individual del niño importan más que cualquier variable técnica específica, sea la marca del robot, la edad exacta de inicio, o la complejidad del proyecto mostrado en redes sociales.</p>
+                <p>Este principio simplifica considerablemente la toma de decisiones: en lugar de intentar optimizar cada variable técnica posible, basta con verificar que el instructor sea competente, que el ritmo se ajuste a tu hijo específico, y que la actividad conserve su carácter exploratorio sin convertirse en fuente adicional de presión.</p>
+                <p>Con este marco general y los criterios específicos detallados en el resto de artículos de este cluster, cualquier familia sin experiencia previa en tecnología puede evaluar y acompañar el proceso de aprendizaje de su hijo con información suficiente, sin depender exclusivamente de lo que promete el material promocional de cada programa específico.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Un programa alineado con estos criterios desde su diseño</h2>
+                    <p>Robotics Code estructura su progresión, tamaño de grupo y formación de instructores alrededor de los criterios que la evidencia identifica como más relevantes, no como elementos añadidos después del diseño comercial del programa.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Conocer las clases de matemáticas <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-ventajas-y-desventajas">
+                            <span>Tecnología educativa para niños: ventajas y desventajas reales</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-segun-la-ciencia">
+                            <span>Qué dice la ciencia sobre la tecnología educativa en niños</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-guia-para-principiantes-2026">
+                            <span>Guía para principiantes en robótica y programación infantil 2026</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuál es el criterio más importante al elegir un programa de robótica?</h3>
+                    <p>La calidad pedagógica del instructor y el diseño del programa, que predicen el resultado con más fuerza que la marca del equipo utilizado, según la evidencia disponible sobre implementación de tecnología educativa.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si mi hijo está progresando realmente en robótica?</h3>
+                    <p>Observa señales conductuales como predicción de resultados antes de ejecutar, depuración con menos ayuda, explicación en palabras propias y curiosidad espontánea por variantes, más que la complejidad visual del proyecto final.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debo esperar para ver resultados de la robótica educativa?</h3>
+                    <p>Los beneficios documentados requieren exposición sostenida durante varios meses, no semanas. Es razonable considerar la decisión como un compromiso de mediano plazo en lugar de evaluar resultados completos en las primeras semanas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué debo hacer si mi hijo se frustra con un proyecto y quiere abandonar?</h3>
+                    <p>Pausa sin presión, identifica con preguntas guía en qué punto exacto se detuvo el progreso, y considera reducir temporalmente la complejidad del reto antes de retomar el proyecto original con la confianza ya recuperada.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Síntesis de referencia sobre criterios de calidad en tecnología educativa</li>
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto general sobre desarrollo de habilidades STEM en la infancia</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -505,8 +596,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Los tres criterios más importantes al decidir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Expectativas realistas por etapa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Señales de progreso que sí importan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo sostener el interés a mediano plazo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué hacer cuando algo no funciona
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>El principio que resume todo lo demás
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>5 min restantes</span>
+                        <span>Lectura estimada: 5 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

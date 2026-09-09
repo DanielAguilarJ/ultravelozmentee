@@ -354,130 +354,205 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="4">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-robot"></i> Robotics Code
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Robótica educativa: beneficios, límites y cómo evaluar el aprendizaje</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 4 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Robotics Code</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Robótica educativa: beneficios, límites y cómo evaluar el aprendizaje</h1>
+                <p class="blog-post-dek">Beneficios reales de la robótica educativa, sus límites pedagógicos y criterios para evaluar si un niño está aprendiendo o solo armando kits.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Robotics Code</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>4 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/robotics-curso-programacion-arduino-ninos.webp" alt="Robótica educativa: beneficios, límites y cómo evaluar el aprendizaje" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La robótica educativa aparece en cada vez más escuelas y centros extraescolares. Las promesas incluyen desde creatividad hasta pensamiento computacional. Pero no todo curso con robots enseña lo mismo ni con la misma profundidad.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es realmente la robótica educativa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Beneficios con respaldo pedagógico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Límites que conviene reconocer
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo saber si tu hijo está aprendiendo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Diferencia entre entretenimiento y pensamiento ingenieril
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Preguntas para evaluar un programa de robótica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La robótica educativa aparece en cada vez más escuelas y centros extraescolares. Las promesas incluyen desde creatividad hasta pensamiento computacional. Pero no todo curso con robots enseña lo mismo ni con la misma profundidad.</p>
             <p>Este artículo distingue los beneficios respaldados por la práctica pedagógica de las exageraciones de marketing, y ofrece criterios para que madres y padres evalúen si su hijo realmente está aprendiendo.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La robótica educativa desarrolla pensamiento ingenieril, capacidad de resolución de problemas y trabajo colaborativo cuando el alumno diseña, programa, prueba y explica su proyecto de forma autónoma. Si solo sigue instrucciones de armado sin reflexión, variación ni explicación propia, el beneficio pedagógico se reduce a entretenimiento.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La robótica educativa desarrolla pensamiento ingenieril, capacidad de resolución de problemas y trabajo colaborativo cuando el alumno diseña, programa, prueba y explica su proyecto de forma autónoma. Si solo sigue instrucciones de armado sin reflexión, variación ni explicación propia, el beneficio pedagógico se reduce a entretenimiento.</p>
+                </aside>
 
-            <h2>Qué es realmente la robótica educativa</h2>
-            <p>Es un enfoque pedagógico que utiliza el diseño, la construcción y la programación de dispositivos físicos como vehículo para desarrollar habilidades cognitivas y socioemocionales. No se trata solo de armar un kit: el valor está en el ciclo completo de diseñar, probar, fallar, ajustar y explicar.</p>
-            <p>Un robot educativo puede ser tan simple como un semáforo con LEDs o tan complejo como un brazo articulado con sensores. Lo que determina el aprendizaje no es la sofisticación del dispositivo, sino la calidad de las preguntas que el alumno se hace durante el proceso.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es realmente la robótica educativa</h2>
+                <p>Es un enfoque pedagógico que utiliza el diseño, la construcción y la programación de dispositivos físicos como vehículo para desarrollar habilidades cognitivas y socioemocionales. No se trata solo de armar un kit: el valor está en el ciclo completo de diseñar, probar, fallar, ajustar y explicar.</p>
+                <p>Un robot educativo puede ser tan simple como un semáforo con LEDs o tan complejo como un brazo articulado con sensores. Lo que determina el aprendizaje no es la sofisticación del dispositivo, sino la calidad de las preguntas que el alumno se hace durante el proceso.</p>
+            </section>
 
-            <h2>Beneficios con respaldo pedagógico</h2>
-            <p>Cuando la robótica se implementa con intención didáctica clara, puede aportar habilidades transferibles a otras áreas. Estos beneficios no son automáticos: dependen de la mediación del instructor y del diseño de las actividades.</p>
-            <ul>
-                <li>Pensamiento secuencial: descomponer un problema en pasos ordenados.</li>
-                <li>Depuración lógica: identificar dónde falla un sistema y proponer hipótesis.</li>
-                <li>Integración de disciplinas: un proyecto puede involucrar física, matemáticas y expresión oral.</li>
-                <li>Tolerancia al error: el robot no funciona a la primera y eso es parte del método.</li>
-                <li>Comunicación técnica: explicar a otros qué hace el proyecto y por qué funciona así.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Beneficios con respaldo pedagógico</h2>
+                <p>Cuando la robótica se implementa con intención didáctica clara, puede aportar habilidades transferibles a otras áreas. Estos beneficios no son automáticos: dependen de la mediación del instructor y del diseño de las actividades.</p>
+                <ul>
+                    <li>Pensamiento secuencial: descomponer un problema en pasos ordenados.</li>
+                    <li>Depuración lógica: identificar dónde falla un sistema y proponer hipótesis.</li>
+                    <li>Integración de disciplinas: un proyecto puede involucrar física, matemáticas y expresión oral.</li>
+                    <li>Tolerancia al error: el robot no funciona a la primera y eso es parte del método.</li>
+                    <li>Comunicación técnica: explicar a otros qué hace el proyecto y por qué funciona así.</li>
+                </ul>
+            </section>
 
-            <h2>Límites que conviene reconocer</h2>
-            <p>La robótica educativa no sustituye la enseñanza formal de matemáticas ni de ciencias. Tampoco garantiza que un niño se convierta en ingeniero. Y si el curso se limita a seguir manuales paso a paso sin variación, el aprendizaje se queda en el nivel de reproducción.</p>
-            <p>Otro límite frecuente: equipos de trabajo donde un solo alumno programa y los demás observan. Sin roles rotativos ni reflexión individual, el beneficio se concentra en quien ya tenía ventaja.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Límites que conviene reconocer</h2>
+                <p>La robótica educativa no sustituye la enseñanza formal de matemáticas ni de ciencias. Tampoco garantiza que un niño se convierta en ingeniero. Y si el curso se limita a seguir manuales paso a paso sin variación, el aprendizaje se queda en el nivel de reproducción.</p>
+                <p>Otro límite frecuente: equipos de trabajo donde un solo alumno programa y los demás observan. Sin roles rotativos ni reflexión individual, el beneficio se concentra en quien ya tenía ventaja.</p>
+            </section>
 
-            <h2>Cómo saber si tu hijo está aprendiendo</h2>
-            <p>No basta con que el robot funcione al final de la clase. El aprendizaje se evidencia en la capacidad de explicar decisiones y de transferir lo aprendido a un problema nuevo.</p>
-            <ul>
-                <li>Pregunta: '¿Por qué elegiste ese sensor y no otro?' Si puede argumentar, hay comprensión.</li>
-                <li>Pide que modifique algo: si depende totalmente del manual, falta apropiación.</li>
-                <li>Observa si puede explicar el proyecto a alguien que no estuvo en clase.</li>
-                <li>Nota si aplica la lógica de secuencias fuera del contexto del robot (cocina, juegos, organización).</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Cómo saber si tu hijo está aprendiendo</h2>
+                <p>No basta con que el robot funcione al final de la clase. El aprendizaje se evidencia en la capacidad de explicar decisiones y de transferir lo aprendido a un problema nuevo.</p>
+                <ul>
+                    <li>Pregunta: '¿Por qué elegiste ese sensor y no otro?' Si puede argumentar, hay comprensión.</li>
+                    <li>Pide que modifique algo: si depende totalmente del manual, falta apropiación.</li>
+                    <li>Observa si puede explicar el proyecto a alguien que no estuvo en clase.</li>
+                    <li>Nota si aplica la lógica de secuencias fuera del contexto del robot (cocina, juegos, organización).</li>
+                </ul>
+            </section>
 
-            <h2>Diferencia entre entretenimiento y pensamiento ingenieril</h2>
-            <p>Un curso de entretenimiento tecnológico tiene su valor: divierte, socializa y familiariza con componentes. Pero no debe confundirse con formación en ingeniería básica. El pensamiento ingenieril requiere que el alumno defina un problema, proponga una solución, la construya, la pruebe y la mejore con criterios explícitos.</p>
-            <p>Si al final de un ciclo el niño solo puede armar el modelo del manual pero no inventar uno propio, el curso fue recreativo. No está mal, pero conviene saberlo al momento de elegir y pagar.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Diferencia entre entretenimiento y pensamiento ingenieril</h2>
+                <p>Un curso de entretenimiento tecnológico tiene su valor: divierte, socializa y familiariza con componentes. Pero no debe confundirse con formación en ingeniería básica. El pensamiento ingenieril requiere que el alumno defina un problema, proponga una solución, la construya, la pruebe y la mejore con criterios explícitos.</p>
+                <p>Si al final de un ciclo el niño solo puede armar el modelo del manual pero no inventar uno propio, el curso fue recreativo. No está mal, pero conviene saberlo al momento de elegir y pagar.</p>
+            </section>
 
-            <h2>Preguntas para evaluar un programa de robótica</h2>
-            <p>Antes de inscribir, estas preguntas ayudan a distinguir un programa formativo de uno puramente recreativo.</p>
-            <ul>
-                <li>¿Los alumnos diseñan sus propios proyectos o solo replican modelos?</li>
-                <li>¿Hay momentos de reflexión grupal donde explican qué aprendieron?</li>
-                <li>¿Se rotan roles dentro del equipo (programador, constructor, documentador)?</li>
-                <li>¿El instructor hace preguntas abiertas o solo da instrucciones?</li>
-                <li>¿Existe un portafolio o bitácora donde quede registro del proceso?</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Preguntas para evaluar un programa de robótica</h2>
+                <p>Antes de inscribir, estas preguntas ayudan a distinguir un programa formativo de uno puramente recreativo.</p>
+                <ul>
+                    <li>¿Los alumnos diseñan sus propios proyectos o solo replican modelos?</li>
+                    <li>¿Hay momentos de reflexión grupal donde explican qué aprendieron?</li>
+                    <li>¿Se rotan roles dentro del equipo (programador, constructor, documentador)?</li>
+                    <li>¿El instructor hace preguntas abiertas o solo da instrucciones?</li>
+                    <li>¿Existe un portafolio o bitácora donde quede registro del proceso?</li>
+                </ul>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Robótica con ciclo completo de diseño</h3>
-                <p>En Robotics Code cada alumno pasa por diseño, programación, prueba y explicación en cada proyecto. No se trata solo de que el robot funcione, sino de que el estudiante pueda decir por qué funciona y qué cambiaría. Conoce la metodología.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el taller de robótica para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Robótica con ciclo completo de diseño</h2>
+                    <p>En Robotics Code cada alumno pasa por diseño, programación, prueba y explicación en cada proyecto. No se trata solo de que el robot funcione, sino de que el estudiante pueda decir por qué funciona y qué cambiaría. Conoce la metodología.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Ver el taller de robótica para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La robótica educativa es lo mismo que la programación?</h3>
-                <p>No exactamente. La robótica incluye programación pero también diseño mecánico, electrónica básica y pruebas físicas. La programación puede existir sin hardware. Ambas desarrollan pensamiento lógico, pero la robótica añade la dimensión tangible.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué edad mínima se recomienda para robótica educativa?</h3>
-                <p>Desde los 6 años con kits de ensamble simple y programación por bloques. Lo importante es que el niño pueda seguir instrucciones de tres o cuatro pasos y tenga motricidad fina suficiente para manipular piezas pequeñas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Un niño necesita saber matemáticas avanzadas para robótica?</h3>
-                <p>No. Los proyectos iniciales usan conteo, secuencias y comparaciones simples. Conforme avanza, las matemáticas se integran naturalmente: ángulos, proporciones y lógica condicional aparecen como necesidad del proyecto, no como requisito previo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo se necesita para ver resultados?</h3>
-                <p>Los primeros indicios de razonamiento estructurado suelen notarse tras 8–12 sesiones regulares. Resultados como autonomía en proyectos propios pueden tomar un ciclo escolar completo con práctica semanal consistente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer">Scratch – MIT Media Lab</a> — Referencia de programación visual usada en muchos programas de robótica educativa.</li>
-                <li><a href="https://www.arduino.cc/education" target="_blank" rel="noopener noreferrer">Arduino Education</a> — Plataforma abierta de electrónica educativa con recursos para docentes.</li>
-                <li><a href="https://education.lego.com/" target="_blank" rel="noopener noreferrer">LEGO Education</a> — Kits y currículo de robótica educativa por niveles.</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La robótica educativa es lo mismo que la programación?</h3>
+                    <p>No exactamente. La robótica incluye programación pero también diseño mecánico, electrónica básica y pruebas físicas. La programación puede existir sin hardware. Ambas desarrollan pensamiento lógico, pero la robótica añade la dimensión tangible.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué edad mínima se recomienda para robótica educativa?</h3>
+                    <p>Desde los 6 años con kits de ensamble simple y programación por bloques. Lo importante es que el niño pueda seguir instrucciones de tres o cuatro pasos y tenga motricidad fina suficiente para manipular piezas pequeñas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Un niño necesita saber matemáticas avanzadas para robótica?</h3>
+                    <p>No. Los proyectos iniciales usan conteo, secuencias y comparaciones simples. Conforme avanza, las matemáticas se integran naturalmente: ángulos, proporciones y lógica condicional aparecen como necesidad del proyecto, no como requisito previo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo se necesita para ver resultados?</h3>
+                    <p>Los primeros indicios de razonamiento estructurado suelen notarse tras 8–12 sesiones regulares. Resultados como autonomía en proyectos propios pueden tomar un ciclo escolar completo con práctica semanal consistente.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://scratch.mit.edu/" target="_blank" rel="noopener noreferrer">Scratch – MIT Media Lab</a> — Referencia de programación visual usada en muchos programas de robótica educativa.</li>
+                    <li><a href="https://www.arduino.cc/education" target="_blank" rel="noopener noreferrer">Arduino Education</a> — Plataforma abierta de electrónica educativa con recursos para docentes.</li>
+                    <li><a href="https://education.lego.com/" target="_blank" rel="noopener noreferrer">LEGO Education</a> — Kits y currículo de robótica educativa por niveles.</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -507,8 +582,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es realmente la robótica educativa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Beneficios con respaldo pedagógico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Límites que conviene reconocer
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo saber si tu hijo está aprendiendo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Diferencia entre entretenimiento y pensamiento ingenieril
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Preguntas para evaluar un programa de robótica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>4 min restantes</span>
+                        <span>Lectura estimada: 4 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

@@ -362,140 +362,233 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Metodologías de Aprendizaje
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Casos prácticos de metodologías de aprendizaje por materia</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Metodologías de Aprendizaje</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Casos prácticos de metodologías de aprendizaje por materia</h1>
+                <p class="blog-post-dek">Casos prácticos de aplicación de metodologías de aprendizaje en distintas materias: matemáticas, historia, idiomas y ciencias naturales.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Metodologías de Aprendizaje</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Casos prácticos de metodologías de aprendizaje por materia" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Explicar una metodología de aprendizaje en abstracto rara vez resuelve la duda más común de quien quiere aplicarla: cómo se ve en la práctica con una materia específica. Este artículo reúne cuatro casos concretos, uno por área de estudio, describiendo qué técnica se usó, cómo se aplicó y qué resultado produjo.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Caso de matemáticas: práctica sin consultar la solución
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Caso de historia: líneas de tiempo elaboradas con palabras propias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Caso de idiomas: asociación visual para vocabulario
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: el caso más completo, ciencias naturales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué tienen en común estos cuatro casos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo adaptar estos casos a otras materias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué esperar al aplicar estas técnicas por primera vez
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Explicar una metodología de aprendizaje en abstracto rara vez resuelve la duda más común de quien quiere aplicarla: cómo se ve en la práctica con una materia específica. Este artículo reúne cuatro casos concretos, uno por área de estudio, describiendo qué técnica se usó, cómo se aplicó y qué resultado produjo.</p>
             <p>Ninguno de los casos requiere condiciones especiales ni materiales costosos; todos parten de ajustes sencillos que cualquier estudiante puede replicar adaptándolos a su propia materia y nivel.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Los casos prácticos de metodologías de aprendizaje muestran que la técnica adecuada cambia según la materia: en matemáticas rinde mejor la práctica de ejercicios sin consultar la solución, en historia la elaboración de líneas de tiempo propias, en idiomas la asociación visual de vocabulario, y en ciencias naturales la explicación de procesos en voz alta como si se enseñara a otra persona.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Los casos prácticos de metodologías de aprendizaje muestran que la técnica adecuada cambia según la materia: en matemáticas rinde mejor la práctica de ejercicios sin consultar la solución, en historia la elaboración de líneas de tiempo propias, en idiomas la asociación visual de vocabulario, y en ciencias naturales la explicación de procesos en voz alta como si se enseñara a otra persona.</p>
+                </aside>
 
-            <h2>Caso de matemáticas: práctica sin consultar la solución</h2>
-            <p>Un estudiante de secundaria que resolvía ejercicios de álgebra tenía la costumbre de revisar la solución en cuanto se atoraba en un paso, lo que le daba una falsa sensación de dominio: entendía la solución al verla, pero no lograba resolver un ejercicio similar por su cuenta en el examen.</p>
-            <p>Cambió su método: al atorarse, en lugar de consultar la solución de inmediato, intentaba dos o tres estrategias distintas por su cuenta durante varios minutos antes de revisar la respuesta. Si fallaba, anotaba en qué paso se había equivocado y resolvía un ejercicio parecido al día siguiente sin ver la solución previa. En unas semanas, su capacidad de resolver ejercicios nuevos sin ayuda mejoró de forma notable.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Caso de matemáticas: práctica sin consultar la solución</h2>
+                <p>Un estudiante de secundaria que resolvía ejercicios de álgebra tenía la costumbre de revisar la solución en cuanto se atoraba en un paso, lo que le daba una falsa sensación de dominio: entendía la solución al verla, pero no lograba resolver un ejercicio similar por su cuenta en el examen.</p>
+                <p>Cambió su método: al atorarse, en lugar de consultar la solución de inmediato, intentaba dos o tres estrategias distintas por su cuenta durante varios minutos antes de revisar la respuesta. Si fallaba, anotaba en qué paso se había equivocado y resolvía un ejercicio parecido al día siguiente sin ver la solución previa. En unas semanas, su capacidad de resolver ejercicios nuevos sin ayuda mejoró de forma notable.</p>
+            </section>
 
-            <h2>Caso de historia: líneas de tiempo elaboradas con palabras propias</h2>
-            <p>Una estudiante de bachillerato que memorizaba fechas y eventos de historia mediante lectura repetida notaba que confundía el orden de los sucesos al llegar al examen, aunque los había leído varias veces. Cambió a construir sus propias líneas de tiempo, escribiendo cada evento con sus propias palabras en lugar de copiar el texto del libro, y agregando una breve nota sobre por qué ese evento llevaba al siguiente.</p>
-            <p>El proceso de construir la línea de tiempo, más que la línea en sí como producto final, fue lo que mejoró su comprensión: al tener que decidir cómo resumir cada evento con sus propias palabras, notaba con claridad qué partes no entendía del todo, algo que la lectura pasiva no le había revelado.</p>
-            <ul>
-                <li>Escribir cada evento con palabras propias, no copiar el texto original.</li>
-                <li>Agregar una breve nota de causa-efecto entre eventos consecutivos.</li>
-                <li>Revisar la línea de tiempo con el libro después de construirla, no antes.</li>
-                <li>Corregir solo las partes donde la propia versión difería de la fuente original.</li>
-            </ul>
-
-            <h2>Caso de idiomas: asociación visual para vocabulario</h2>
-            <p>Un estudiante universitario que preparaba un examen de certificación de inglés tenía dificultad para retener listas largas de vocabulario mediante repetición simple. Adoptó una técnica de asociación visual: para cada palabra nueva, creaba mentalmente una imagen que conectara el sonido de la palabra con su significado, por ejemplo relacionando visualmente una palabra con un objeto o escena memorable.</p>
-            <p>Al principio el proceso de crear cada imagen le tomaba más tiempo que simplemente repetir la palabra varias veces, pero notó que recordaba con más facilidad el vocabulario trabajado de esta forma, incluso semanas después, comparado con palabras que había memorizado solo por repetición.</p>
-
-            <h2>Ejemplo aplicado: el caso más completo, ciencias naturales</h2>
-            <p>Un estudiante de secundaria que estudiaba biología para un examen sobre el sistema circulatorio solía leer el capítulo del libro varias veces, con la sensación de que ya lo entendía bien. Al hacer un examen de práctica con preguntas de desarrollo, notó que no podía explicar con claridad cómo se conectaban las distintas partes del proceso, aunque reconocía cada término por separado.</p>
-            <p>Decidió cambiar su método aplicando la técnica de enseñanza simulada: después de leer el capítulo una vez, se grababa a sí mismo explicando el proceso completo del sistema circulatorio en voz alta, como si le estuviera enseñando el tema a un compañero que no sabía nada del tema. Al escuchar su propia grabación, notaba con claridad en qué partes se quedaba callado, dudaba o repetía la misma idea sin avanzar, lo que revelaba exactamente qué partes no comprendía del todo.</p>
-            <p>Repitió este proceso tres veces en distintos días, corrigiendo cada vez las partes donde había notado dudas en la grabación anterior, y consultando el libro solo para resolver esas dudas específicas en lugar de releer el capítulo completo cada vez.</p>
-            <p>Al llegar al examen real, pudo explicar el proceso completo con la misma fluidez que había logrado en su tercera grabación, un resultado que no había alcanzado nunca con su método anterior de solo releer el capítulo varias veces sin ninguna verificación activa de su comprensión.</p>
-
-            <h2>Qué tienen en común estos cuatro casos</h2>
-            <p>En los cuatro casos, el cambio central no fue una herramienta especial ni una técnica exótica, sino sustituir el reconocimiento pasivo del contenido —leer, repetir, ver la solución— por un proceso activo que exigía producir algo propio: resolver sin ayuda, escribir con palabras propias, crear una imagen mental, explicar en voz alta. Ese esfuerzo adicional, aunque incómodo al principio, fue lo que reveló los vacíos de comprensión que el método pasivo dejaba ocultos hasta el examen.</p>
-            <ol>
-                <li>Identificar el método pasivo actual: leer, repetir, ver soluciones antes de intentar.</li>
-                <li>Sustituirlo por una versión activa: resolver, escribir, asociar, explicar sin apoyo.</li>
-                <li>Revisar contra la fuente original solo después del intento propio, no antes.</li>
-                <li>Repetir el proceso corrigiendo las dudas específicas identificadas cada vez.</li>
-            </ol>
-
-            <h2>Cómo adaptar estos casos a otras materias</h2>
-            <p>Ninguna de estas técnicas está limitada a la materia del ejemplo: la práctica sin consultar la solución sirve para física o química además de matemáticas; la elaboración con palabras propias sirve para literatura además de historia; la asociación visual sirve para terminología médica o legal además de idiomas; y la enseñanza simulada sirve para cualquier proceso o sistema que involucre varios pasos relacionados entre sí.</p>
-
-            <h2>Qué esperar al aplicar estas técnicas por primera vez</h2>
-            <p>Como en cualquier metodología activa, el primer intento suele sentirse más lento y menos cómodo que el método pasivo habitual. Dar a la técnica al menos dos o tres intentos, en lugar de juzgarla por el primero, permite notar si realmente aporta el beneficio de comprensión que estos casos describen.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De los casos prácticos a una técnica de lectura veloz</h3>
-                <p>Si tu reto principal es el tiempo que toma procesar textos extensos antes de aplicar cualquier técnica activa, nuestro programa de Fotolectura te ayuda a leer con más velocidad sin perder comprensión del contenido.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de lectura veloz <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Caso de historia: líneas de tiempo elaboradas con palabras propias</h2>
+                <p>Una estudiante de bachillerato que memorizaba fechas y eventos de historia mediante lectura repetida notaba que confundía el orden de los sucesos al llegar al examen, aunque los había leído varias veces. Cambió a construir sus propias líneas de tiempo, escribiendo cada evento con sus propias palabras en lugar de copiar el texto del libro, y agregando una breve nota sobre por qué ese evento llevaba al siguiente.</p>
+                <p>El proceso de construir la línea de tiempo, más que la línea en sí como producto final, fue lo que mejoró su comprensión: al tener que decidir cómo resumir cada evento con sus propias palabras, notaba con claridad qué partes no entendía del todo, algo que la lectura pasiva no le había revelado.</p>
                 <ul>
-                <li><a href="/blog-metodologias-aprendizaje-beneficios-reales">Beneficios reales de las metodologías de aprendizaje activas</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-mitos-y-verdades">Mitos y verdades sobre metodologías de aprendizaje</a></li>
+                    <li>Escribir cada evento con palabras propias, no copiar el texto original.</li>
+                    <li>Agregar una breve nota de causa-efecto entre eventos consecutivos.</li>
+                    <li>Revisar la línea de tiempo con el libro después de construirla, no antes.</li>
+                    <li>Corregir solo las partes donde la propia versión difería de la fuente original.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo aplicar la técnica de enseñanza simulada sin grabarme?</h3>
-                <p>Sí, aunque grabarse ayuda a notar con más precisión las dudas y titubeos que de otra forma pasan desapercibidos. Explicar en voz alta frente a un espejo o a otra persona también funciona, aunque con menos capacidad de revisión posterior.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Estas técnicas funcionan igual en primaria que en niveles superiores?</h3>
-                <p>Los principios se sostienen, aunque en primaria conviene simplificar y contar con más acompañamiento de un adulto, especialmente para técnicas como la elaboración con palabras propias o la enseñanza simulada.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo adicional toman estas técnicas comparado con el método pasivo?</h3>
-                <p>Suelen tomar más tiempo por sesión al principio, pero reducen la necesidad de repasos posteriores, por lo que el tiempo total dedicado a dominar un tema puede ser similar o incluso menor a mediano plazo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo combinar varias de estas técnicas para la misma materia?</h3>
-                <p>Sí, por ejemplo usar práctica sin consultar solución para ejercicios y enseñanza simulada para explicar la teoría detrás de esos ejercicios, en materias como física que combinan ambos tipos de contenido.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si ninguna de estas técnicas encaja con mi materia específica?</h3>
-                <p>El principio general —sustituir el reconocimiento pasivo por producción activa propia— puede adaptarse a casi cualquier materia; identifica qué forma de producción activa tiene más sentido para el tipo de contenido que estudias.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Caso de idiomas: asociación visual para vocabulario</h2>
+                <p>Un estudiante universitario que preparaba un examen de certificación de inglés tenía dificultad para retener listas largas de vocabulario mediante repetición simple. Adoptó una técnica de asociación visual: para cada palabra nueva, creaba mentalmente una imagen que conectara el sonido de la palabra con su significado, por ejemplo relacionando visualmente una palabra con un objeto o escena memorable.</p>
+                <p>Al principio el proceso de crear cada imagen le tomaba más tiempo que simplemente repetir la palabra varias veces, pero notó que recordaba con más facilidad el vocabulario trabajado de esta forma, incluso semanas después, comparado con palabras que había memorizado solo por repetición.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: el caso más completo, ciencias naturales</h2>
+                <p>Un estudiante de secundaria que estudiaba biología para un examen sobre el sistema circulatorio solía leer el capítulo del libro varias veces, con la sensación de que ya lo entendía bien. Al hacer un examen de práctica con preguntas de desarrollo, notó que no podía explicar con claridad cómo se conectaban las distintas partes del proceso, aunque reconocía cada término por separado.</p>
+                <p>Decidió cambiar su método aplicando la técnica de enseñanza simulada: después de leer el capítulo una vez, se grababa a sí mismo explicando el proceso completo del sistema circulatorio en voz alta, como si le estuviera enseñando el tema a un compañero que no sabía nada del tema. Al escuchar su propia grabación, notaba con claridad en qué partes se quedaba callado, dudaba o repetía la misma idea sin avanzar, lo que revelaba exactamente qué partes no comprendía del todo.</p>
+                <p>Repitió este proceso tres veces en distintos días, corrigiendo cada vez las partes donde había notado dudas en la grabación anterior, y consultando el libro solo para resolver esas dudas específicas en lugar de releer el capítulo completo cada vez.</p>
+                <p>Al llegar al examen real, pudo explicar el proceso completo con la misma fluidez que había logrado en su tercera grabación, un resultado que no había alcanzado nunca con su método anterior de solo releer el capítulo varias veces sin ninguna verificación activa de su comprensión.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Qué tienen en común estos cuatro casos</h2>
+                <p>En los cuatro casos, el cambio central no fue una herramienta especial ni una técnica exótica, sino sustituir el reconocimiento pasivo del contenido —leer, repetir, ver la solución— por un proceso activo que exigía producir algo propio: resolver sin ayuda, escribir con palabras propias, crear una imagen mental, explicar en voz alta. Ese esfuerzo adicional, aunque incómodo al principio, fue lo que reveló los vacíos de comprensión que el método pasivo dejaba ocultos hasta el examen.</p>
+                <ol>
+                    <li>Identificar el método pasivo actual: leer, repetir, ver soluciones antes de intentar.</li>
+                    <li>Sustituirlo por una versión activa: resolver, escribir, asociar, explicar sin apoyo.</li>
+                    <li>Revisar contra la fuente original solo después del intento propio, no antes.</li>
+                    <li>Repetir el proceso corrigiendo las dudas específicas identificadas cada vez.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo adaptar estos casos a otras materias</h2>
+                <p>Ninguna de estas técnicas está limitada a la materia del ejemplo: la práctica sin consultar la solución sirve para física o química además de matemáticas; la elaboración con palabras propias sirve para literatura además de historia; la asociación visual sirve para terminología médica o legal además de idiomas; y la enseñanza simulada sirve para cualquier proceso o sistema que involucre varios pasos relacionados entre sí.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Qué esperar al aplicar estas técnicas por primera vez</h2>
+                <p>Como en cualquier metodología activa, el primer intento suele sentirse más lento y menos cómodo que el método pasivo habitual. Dar a la técnica al menos dos o tres intentos, en lugar de juzgarla por el primero, permite notar si realmente aporta el beneficio de comprensión que estos casos describen.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De los casos prácticos a una técnica de lectura veloz</h2>
+                    <p>Si tu reto principal es el tiempo que toma procesar textos extensos antes de aplicar cualquier técnica activa, nuestro programa de Fotolectura te ayuda a leer con más velocidad sin perder comprensión del contenido.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Ver el curso de lectura veloz <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-beneficios-reales">
+                            <span>Beneficios reales de las metodologías de aprendizaje activas</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-mitos-y-verdades">
+                            <span>Mitos y verdades sobre metodologías de aprendizaje</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo aplicar la técnica de enseñanza simulada sin grabarme?</h3>
+                    <p>Sí, aunque grabarse ayuda a notar con más precisión las dudas y titubeos que de otra forma pasan desapercibidos. Explicar en voz alta frente a un espejo o a otra persona también funciona, aunque con menos capacidad de revisión posterior.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Estas técnicas funcionan igual en primaria que en niveles superiores?</h3>
+                    <p>Los principios se sostienen, aunque en primaria conviene simplificar y contar con más acompañamiento de un adulto, especialmente para técnicas como la elaboración con palabras propias o la enseñanza simulada.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo adicional toman estas técnicas comparado con el método pasivo?</h3>
+                    <p>Suelen tomar más tiempo por sesión al principio, pero reducen la necesidad de repasos posteriores, por lo que el tiempo total dedicado a dominar un tema puede ser similar o incluso menor a mediano plazo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo combinar varias de estas técnicas para la misma materia?</h3>
+                    <p>Sí, por ejemplo usar práctica sin consultar solución para ejercicios y enseñanza simulada para explicar la teoría detrás de esos ejercicios, en materias como física que combinan ambos tipos de contenido.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si ninguna de estas técnicas encaja con mi materia específica?</h3>
+                    <p>El principio general —sustituir el reconocimiento pasivo por producción activa propia— puede adaptarse a casi cualquier materia; identifica qué forma de producción activa tiene más sentido para el tipo de contenido que estudias.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -525,8 +618,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Caso de matemáticas: práctica sin consultar la solución
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Caso de historia: líneas de tiempo elaboradas con palabras propias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Caso de idiomas: asociación visual para vocabulario
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: el caso más completo, ciencias naturales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué tienen en común estos cuatro casos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo adaptar estos casos a otras materias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué esperar al aplicar estas técnicas por primera vez
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

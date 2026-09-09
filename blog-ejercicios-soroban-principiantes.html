@@ -362,187 +362,299 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-calculator"></i> MatheKids
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Ejercicios de soroban para principiantes: suma y resta paso a paso</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 14 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">MatheKids</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Ejercicios de soroban para principiantes: suma y resta paso a paso</h1>
+                <p class="blog-post-dek">Aprende a practicar con soroban desde cero: lectura de cuentas, sumas directas, complementos de cinco y diez, restas y una rutina breve de autocorrección.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">MatheKids</span>
+                    <span>Publicado <time datetime="2026-08-14">14 de Agosto, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/mk-hero-kid.webp" alt="Ejercicios de soroban para principiantes: suma y resta paso a paso" width="1024" height="1024" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Un soroban puede parecer sencillo hasta que las cuentas dejan de alcanzar para una suma. En ese momento aparecen los complementos, el acarreo y la necesidad de entender el valor posicional. Practicar sin una secuencia clara suele producir movimientos memorizados que el niño no puede explicar.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>11 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Reconoce el instrumento y vuelve siempre a cero
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Ejercicio 1: representa y lee números sin operar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Ejercicio 2: sumas directas que no requieren complemento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejercicio 3: amigos de cinco para sumar sin cuentas libres
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejercicio 4: amigos de diez y cambio de varilla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejercicio 5: restas como recorrido inverso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Rutina de diez minutos para practicar sin saturación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Autocorrección: separar un error de concepto de uno de movimiento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-9">
+                                <span aria-hidden="true">09</span>Cuándo avanzar y cuándo pedir retroalimentación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">10</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">11</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Un soroban puede parecer sencillo hasta que las cuentas dejan de alcanzar para una suma. En ese momento aparecen los complementos, el acarreo y la necesidad de entender el valor posicional. Practicar sin una secuencia clara suele producir movimientos memorizados que el niño no puede explicar.</p>
             <p>Esta guía organiza ejercicios para principiantes desde la lectura del instrumento hasta sumas y restas con complementos. No sustituye la observación de un instructor, pero ofrece una rutina concreta para practicar despacio, comprobar respuestas y detectar cuándo conviene volver a un nivel anterior.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para empezar con soroban, domina primero la posición cero y la lectura de números. Continúa con sumas y restas directas; después practica complementos de cinco y diez. Haz sesiones de diez minutos con pocas operaciones, explica cada movimiento y avanza solo cuando puedas obtener y verificar resultados sin perder la posición de las cuentas.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para empezar con soroban, domina primero la posición cero y la lectura de números. Continúa con sumas y restas directas; después practica complementos de cinco y diez. Haz sesiones de diez minutos con pocas operaciones, explica cada movimiento y avanza solo cuando puedas obtener y verificar resultados sin perder la posición de las cuentas.</p>
+                </aside>
 
-            <h2>Reconoce el instrumento y vuelve siempre a cero</h2>
-            <p>En cada varilla, la cuenta superior vale cinco unidades de esa posición y cada cuenta inferior vale una. Solo cuentan las piezas que tocan la barra central. La varilla elegida como unidades determina el valor de todas las demás: a su izquierda quedan decenas, centenas y millares.</p>
-            <p>Antes de cada serie, separa todas las cuentas de la barra para representar cero. Pide al estudiante que señale unidades y decenas en vez de asumir que las reconoce. Perder esa referencia provoca resultados incorrectos aunque los movimientos individuales parezcan bien ejecutados.</p>
-            <ul>
-                <li>Cuenta superior separada de la barra: no suma cinco.</li>
-                <li>Cuenta inferior separada de la barra: no suma uno.</li>
-                <li>La misma figura cambia de valor según la varilla donde se coloque.</li>
-                <li>La mano puede moverse rápido solo después de leer la posición con seguridad.</li>
-            </ul>
-
-            <h2>Ejercicio 1: representa y lee números sin operar</h2>
-            <p>Empieza con números de una cifra. Representa 1, 3, 5, 7 y 9; vuelve a cero entre cada intento. Para formar 7, por ejemplo, acerca la cuenta superior de cinco y dos cuentas inferiores. El alumno debe decir no solo siete, sino cinco más dos.</p>
-            <p>Después pasa a dos y tres cifras: 14, 50, 72, 105 y 230. Alterna dos tareas: tú dictas el número para que el estudiante lo construya y tú colocas las cuentas para que lo lea. Esta inversión comprueba que entiende tanto la escritura como la interpretación.</p>
-            <ol>
-                <li>Coloca cinco números de una cifra y verbaliza su composición.</li>
-                <li>Construye cinco números de dos cifras sin realizar operaciones.</li>
-                <li>Incluye un cero intermedio, como 105, para revisar valor posicional.</li>
-                <li>Corrige primero la varilla equivocada y después el movimiento de cuentas.</li>
-            </ol>
-
-            <h2>Ejercicio 2: sumas directas que no requieren complemento</h2>
-            <p>Una suma es directa cuando hay cuentas disponibles para añadir el segundo número sin intercambios. Practica primero 1 + 2, 2 + 2, 5 + 3 y 6 + 2. El estudiante coloca el primer número, anuncia lo que añadirá y mueve las cuentas necesarias hacia la barra.</p>
-            <p>Continúa con operaciones de dos cifras en las que cada posición siga siendo directa, como 11 + 23 o 20 + 14. Trabaja de izquierda a derecha si ese es el método del programa que sigues y mantén el mismo orden; cambiarlo durante la práctica aumenta errores de posición.</p>
-            <ul>
-                <li>Di en voz alta el número inicial antes de sumar.</li>
-                <li>Nombra la varilla que vas a modificar.</li>
-                <li>Lee el resultado completo, no solo la última cifra.</li>
-                <li>Verifica con cálculo escrito después de terminar la serie.</li>
-            </ul>
-
-            <h2>Ejercicio 3: amigos de cinco para sumar sin cuentas libres</h2>
-            <p>Cuando necesitas añadir cuatro pero solo quedan pocas cuentas inferiores disponibles, puedes usar que cuatro es cinco menos uno. En vez de intentar mover cuatro piezas inexistentes, acercas la cuenta de cinco y retiras una inferior. La misma lógica usa parejas que completan cinco: 1 y 4, 2 y 3.</p>
-            <p>Practica cada complemento por separado antes de mezclarlos. Coloca 2 y suma 4 mediante más cinco, menos uno; coloca 3 y suma 3 mediante más cinco, menos dos. Haz que el estudiante explique la equivalencia antes de acelerar el movimiento.</p>
-            <ol>
-                <li>Memoriza las parejas que completan cinco: 1–4 y 2–3.</li>
-                <li>Resuelve una serie dedicada a sumar 4.</li>
-                <li>Continúa con series para sumar 3, 2 y 1 cuando no haya cuentas directas.</li>
-                <li>Mezcla operaciones solo después de explicar cada intercambio.</li>
-            </ol>
-
-            <h2>Ejercicio 4: amigos de diez y cambio de varilla</h2>
-            <p>Los complementos de diez aparecen cuando una operación rebasa la varilla de unidades. Para sumar 8 puedes sumar una decena y retirar 2 unidades; para sumar 7, añadir una decena y retirar 3. Las parejas son 1–9, 2–8, 3–7, 4–6 y 5–5.</p>
-            <p>Usa operaciones sencillas como 6 + 8 o 7 + 6 y señala cada cambio: primero aumenta una cuenta en decenas y después ajusta unidades. Si el estudiante pierde el orden, vuelve a representar ambos números con objetos o escritura para mostrar que el intercambio conserva el valor total.</p>
-            <ul>
-                <li>Trabaja una pareja de diez por sesión al principio.</li>
-                <li>Nombra el movimiento en decenas antes del ajuste en unidades.</li>
-                <li>Comprueba el resultado con una recta numérica o suma escrita.</li>
-                <li>No cronometres mientras el intercambio todavía requiere ayuda.</li>
-            </ul>
-
-            <h2>Ejercicio 5: restas como recorrido inverso</h2>
-            <p>Empieza con restas directas: 4 − 2, 8 − 3, 17 − 5. El estudiante coloca el minuendo y separa de la barra las cuentas del sustraendo. Después introduce amigos de cinco y diez como operación inversa, siempre conectando el movimiento con la equivalencia numérica.</p>
-            <p>Para restar 4 cuando no hay cuatro cuentas inferiores activas, puedes retirar cinco y devolver una. Para una resta que cruza decena, retira una decena y devuelve el complemento en unidades. Practica con apoyo escrito hasta que el alumno pueda anticipar qué pareja necesita.</p>
-            <ol>
-                <li>Resuelve diez restas directas de una cifra.</li>
-                <li>Practica restar 4 y 3 mediante complementos de cinco.</li>
-                <li>Introduce restas que cruzan una decena con material escrito al lado.</li>
-                <li>Pide una explicación completa antes de considerar correcta la respuesta.</li>
-            </ol>
-
-            <h2>Rutina de diez minutos para practicar sin saturación</h2>
-            <p>Divide la sesión en tres partes: dos minutos de lectura de números, seis minutos de una sola habilidad y dos minutos de verificación. Una práctica breve y frecuente permite observar el procedimiento sin convertir el soroban en una carrera.</p>
-            <p>Mantén una hoja de registro con el tipo de ejercicio, aciertos sin ayuda y errores de posición. Si aparecen varios errores consecutivos, reduce cifras o vuelve a sumas directas. Avanzar a operaciones más largas antes de estabilizar la base hace más difícil detectar dónde empezó el problema.</p>
-            <ol>
-                <li>Minutos 1–2: representa y lee cinco números.</li>
-                <li>Minutos 3–8: practica una sola familia de operaciones.</li>
-                <li>Minutos 9–10: verifica, corrige y explica dos ejercicios.</li>
-                <li>Termina con una operación que el estudiante pueda resolver con autonomía.</li>
-            </ol>
-
-            <h2>Autocorrección: separar un error de concepto de uno de movimiento</h2>
-            <p>Un resultado incorrecto puede venir de tres lugares: se colocó mal el número inicial, se eligió un complemento equivocado o un dedo movió una cuenta adicional. Para encontrar la causa, reconstruye la operación despacio y registra el primer punto donde el soroban ya no representa el valor escrito.</p>
-            <p>Pide al estudiante que dibuje o anote el estado después de cada paso en dos operaciones problemáticas. Esta pausa revela si entiende el intercambio aunque todavía no controle el movimiento. La precisión manual se entrena de forma distinta a la comprensión numérica y conviene no confundirlas.</p>
-            <ul>
-                <li>Error de posición: el número inicial está en la varilla equivocada.</li>
-                <li>Error de estrategia: el complemento no conserva la cantidad.</li>
-                <li>Error motor: se movió una cuenta extra pese a elegir bien la estrategia.</li>
-                <li>Error de lectura: las cuentas están bien, pero se interpreta mal el resultado.</li>
-            </ul>
-
-            <h2>Cuándo avanzar y cuándo pedir retroalimentación</h2>
-            <p>Avanza cuando el estudiante representa números, resuelve una serie corta y explica los complementos con pocos apoyos. La velocidad puede esperar. Si repite movimientos de memoria pero no sabe por qué sumó una decena y retiró unidades, conserva el mismo nivel y conecta el soroban con cálculo escrito.</p>
-            <p>Una guía experta resulta útil cuando la postura, el orden de dedos o una secuencia de complementos genera errores persistentes. El objetivo de la retroalimentación no es corregir cada movimiento desde fuera, sino ayudar a que el alumno detecte y explique su propio procedimiento.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Aprende el procedimiento con retroalimentación</h3>
-                <p>MatheKids integra soroban, cálculo mental y comprensión matemática en actividades graduadas. Revisa cómo se organiza el programa y conversa con el equipo para ubicar el punto de inicio adecuado.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso de cálculo mental para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Reconoce el instrumento y vuelve siempre a cero</h2>
+                <p>En cada varilla, la cuenta superior vale cinco unidades de esa posición y cada cuenta inferior vale una. Solo cuentan las piezas que tocan la barra central. La varilla elegida como unidades determina el valor de todas las demás: a su izquierda quedan decenas, centenas y millares.</p>
+                <p>Antes de cada serie, separa todas las cuentas de la barra para representar cero. Pide al estudiante que señale unidades y decenas en vez de asumir que las reconoce. Perder esa referencia provoca resultados incorrectos aunque los movimientos individuales parezcan bien ejecutados.</p>
                 <ul>
-                <li><a href="/blog-abaco-soroban-que-es">Ábaco soroban: qué es y cómo ayuda a comprender el cálculo</a></li>
-                <li><a href="/blog-calculo-mental-ninos-ejercicios">Cálculo mental para niños: ejercicios breves por nivel</a></li>
-                <li><a href="/blog-soroban-edad-ideal">¿A qué edad empezar con soroban? Señales de preparación por etapa</a></li>
+                    <li>Cuenta superior separada de la barra: no suma cinco.</li>
+                    <li>Cuenta inferior separada de la barra: no suma uno.</li>
+                    <li>La misma figura cambia de valor según la varilla donde se coloque.</li>
+                    <li>La mano puede moverse rápido solo después de leer la posición con seguridad.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué debe aprender primero un principiante en soroban?</h3>
-                <p>Primero debe reconocer qué cuentas tienen valor, volver a cero, elegir la varilla de unidades y representar números. Las operaciones llegan después; sin lectura posicional estable, los movimientos de suma y resta se vuelven difíciles de verificar.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo conviene practicar soroban al día?</h3>
-                <p>Una rutina de diez a quince minutos puede ser suficiente para principiantes si se practica con regularidad y una meta concreta. Detén la sesión cuando aumenten los errores por cansancio; más tiempo no siempre significa mejor aprendizaje.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuándo se introducen los complementos de cinco y diez?</h3>
-                <p>Después de dominar representación de números y operaciones directas. Empieza con una pareja de complementos a la vez y usa cálculo escrito para mostrar que el intercambio conserva el valor.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es necesario usar cronómetro en estos ejercicios?</h3>
-                <p>No al inicio. Primero busca movimientos correctos, lectura precisa y explicación del procedimiento. El cronómetro puede añadirse más adelante como referencia personal, nunca como presión o comparación entre niños.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El soroban reemplaza la práctica de matemáticas escolares?</h3>
-                <p>No. Es una representación útil para cálculo y valor posicional, pero debe complementarse con resolución de problemas, razonamiento, geometría y otras áreas matemáticas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Ejercicio 1: representa y lee números sin operar</h2>
+                <p>Empieza con números de una cifra. Representa 1, 3, 5, 7 y 9; vuelve a cero entre cada intento. Para formar 7, por ejemplo, acerca la cuenta superior de cinco y dos cuentas inferiores. El alumno debe decir no solo siete, sino cinco más dos.</p>
+                <p>Después pasa a dos y tres cifras: 14, 50, 72, 105 y 230. Alterna dos tareas: tú dictas el número para que el estudiante lo construya y tú colocas las cuentas para que lo lea. Esta inversión comprueba que entiende tanto la escritura como la interpretación.</p>
+                <ol>
+                    <li>Coloca cinco números de una cifra y verbaliza su composición.</li>
+                    <li>Construye cinco números de dos cifras sin realizar operaciones.</li>
+                    <li>Incluye un cero intermedio, como 105, para revisar valor posicional.</li>
+                    <li>Corrige primero la varilla equivocada y después el movimiento de cuentas.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.shuzan.jp/english/" target="_blank" rel="noopener noreferrer">Liga Japonesa de Ábaco — Soroban</a> — Fuente institucional sobre la estructura del soroban japonés y su sistema decimal.</li>
-                <li><a href="https://pubmed.ncbi.nlm.nih.gov/32982681/" target="_blank" rel="noopener noreferrer">Wang — A Review of the Effects of Abacus Training</a> — Revisión de la evidencia sobre posibles efectos cognitivos y neurales del entrenamiento con ábaco.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Ejercicio 2: sumas directas que no requieren complemento</h2>
+                <p>Una suma es directa cuando hay cuentas disponibles para añadir el segundo número sin intercambios. Practica primero 1 + 2, 2 + 2, 5 + 3 y 6 + 2. El estudiante coloca el primer número, anuncia lo que añadirá y mueve las cuentas necesarias hacia la barra.</p>
+                <p>Continúa con operaciones de dos cifras en las que cada posición siga siendo directa, como 11 + 23 o 20 + 14. Trabaja de izquierda a derecha si ese es el método del programa que sigues y mantén el mismo orden; cambiarlo durante la práctica aumenta errores de posición.</p>
+                <ul>
+                    <li>Di en voz alta el número inicial antes de sumar.</li>
+                    <li>Nombra la varilla que vas a modificar.</li>
+                    <li>Lee el resultado completo, no solo la última cifra.</li>
+                    <li>Verifica con cálculo escrito después de terminar la serie.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejercicio 3: amigos de cinco para sumar sin cuentas libres</h2>
+                <p>Cuando necesitas añadir cuatro pero solo quedan pocas cuentas inferiores disponibles, puedes usar que cuatro es cinco menos uno. En vez de intentar mover cuatro piezas inexistentes, acercas la cuenta de cinco y retiras una inferior. La misma lógica usa parejas que completan cinco: 1 y 4, 2 y 3.</p>
+                <p>Practica cada complemento por separado antes de mezclarlos. Coloca 2 y suma 4 mediante más cinco, menos uno; coloca 3 y suma 3 mediante más cinco, menos dos. Haz que el estudiante explique la equivalencia antes de acelerar el movimiento.</p>
+                <ol>
+                    <li>Memoriza las parejas que completan cinco: 1–4 y 2–3.</li>
+                    <li>Resuelve una serie dedicada a sumar 4.</li>
+                    <li>Continúa con series para sumar 3, 2 y 1 cuando no haya cuentas directas.</li>
+                    <li>Mezcla operaciones solo después de explicar cada intercambio.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Ejercicio 4: amigos de diez y cambio de varilla</h2>
+                <p>Los complementos de diez aparecen cuando una operación rebasa la varilla de unidades. Para sumar 8 puedes sumar una decena y retirar 2 unidades; para sumar 7, añadir una decena y retirar 3. Las parejas son 1–9, 2–8, 3–7, 4–6 y 5–5.</p>
+                <p>Usa operaciones sencillas como 6 + 8 o 7 + 6 y señala cada cambio: primero aumenta una cuenta en decenas y después ajusta unidades. Si el estudiante pierde el orden, vuelve a representar ambos números con objetos o escritura para mostrar que el intercambio conserva el valor total.</p>
+                <ul>
+                    <li>Trabaja una pareja de diez por sesión al principio.</li>
+                    <li>Nombra el movimiento en decenas antes del ajuste en unidades.</li>
+                    <li>Comprueba el resultado con una recta numérica o suma escrita.</li>
+                    <li>No cronometres mientras el intercambio todavía requiere ayuda.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejercicio 5: restas como recorrido inverso</h2>
+                <p>Empieza con restas directas: 4 − 2, 8 − 3, 17 − 5. El estudiante coloca el minuendo y separa de la barra las cuentas del sustraendo. Después introduce amigos de cinco y diez como operación inversa, siempre conectando el movimiento con la equivalencia numérica.</p>
+                <p>Para restar 4 cuando no hay cuatro cuentas inferiores activas, puedes retirar cinco y devolver una. Para una resta que cruza decena, retira una decena y devuelve el complemento en unidades. Practica con apoyo escrito hasta que el alumno pueda anticipar qué pareja necesita.</p>
+                <ol>
+                    <li>Resuelve diez restas directas de una cifra.</li>
+                    <li>Practica restar 4 y 3 mediante complementos de cinco.</li>
+                    <li>Introduce restas que cruzan una decena con material escrito al lado.</li>
+                    <li>Pide una explicación completa antes de considerar correcta la respuesta.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Rutina de diez minutos para practicar sin saturación</h2>
+                <p>Divide la sesión en tres partes: dos minutos de lectura de números, seis minutos de una sola habilidad y dos minutos de verificación. Una práctica breve y frecuente permite observar el procedimiento sin convertir el soroban en una carrera.</p>
+                <p>Mantén una hoja de registro con el tipo de ejercicio, aciertos sin ayuda y errores de posición. Si aparecen varios errores consecutivos, reduce cifras o vuelve a sumas directas. Avanzar a operaciones más largas antes de estabilizar la base hace más difícil detectar dónde empezó el problema.</p>
+                <ol>
+                    <li>Minutos 1–2: representa y lee cinco números.</li>
+                    <li>Minutos 3–8: practica una sola familia de operaciones.</li>
+                    <li>Minutos 9–10: verifica, corrige y explica dos ejercicios.</li>
+                    <li>Termina con una operación que el estudiante pueda resolver con autonomía.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-8" aria-labelledby="seccion-8-titulo">
+                <h2 id="seccion-8-titulo">Autocorrección: separar un error de concepto de uno de movimiento</h2>
+                <p>Un resultado incorrecto puede venir de tres lugares: se colocó mal el número inicial, se eligió un complemento equivocado o un dedo movió una cuenta adicional. Para encontrar la causa, reconstruye la operación despacio y registra el primer punto donde el soroban ya no representa el valor escrito.</p>
+                <p>Pide al estudiante que dibuje o anote el estado después de cada paso en dos operaciones problemáticas. Esta pausa revela si entiende el intercambio aunque todavía no controle el movimiento. La precisión manual se entrena de forma distinta a la comprensión numérica y conviene no confundirlas.</p>
+                <ul>
+                    <li>Error de posición: el número inicial está en la varilla equivocada.</li>
+                    <li>Error de estrategia: el complemento no conserva la cantidad.</li>
+                    <li>Error motor: se movió una cuenta extra pese a elegir bien la estrategia.</li>
+                    <li>Error de lectura: las cuentas están bien, pero se interpreta mal el resultado.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-9" aria-labelledby="seccion-9-titulo">
+                <h2 id="seccion-9-titulo">Cuándo avanzar y cuándo pedir retroalimentación</h2>
+                <p>Avanza cuando el estudiante representa números, resuelve una serie corta y explica los complementos con pocos apoyos. La velocidad puede esperar. Si repite movimientos de memoria pero no sabe por qué sumó una decena y retiró unidades, conserva el mismo nivel y conecta el soroban con cálculo escrito.</p>
+                <p>Una guía experta resulta útil cuando la postura, el orden de dedos o una secuencia de complementos genera errores persistentes. El objetivo de la retroalimentación no es corregir cada movimiento desde fuera, sino ayudar a que el alumno detecte y explique su propio procedimiento.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Aprende el procedimiento con retroalimentación</h2>
+                    <p>MatheKids integra soroban, cálculo mental y comprensión matemática en actividades graduadas. Revisa cómo se organiza el programa y conversa con el equipo para ubicar el punto de inicio adecuado.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Curso de cálculo mental para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-abaco-soroban-que-es">
+                            <span>Ábaco soroban: qué es y cómo ayuda a comprender el cálculo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-calculo-mental-ninos-ejercicios">
+                            <span>Cálculo mental para niños: ejercicios breves por nivel</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-soroban-edad-ideal">
+                            <span>¿A qué edad empezar con soroban? Señales de preparación por etapa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué debe aprender primero un principiante en soroban?</h3>
+                    <p>Primero debe reconocer qué cuentas tienen valor, volver a cero, elegir la varilla de unidades y representar números. Las operaciones llegan después; sin lectura posicional estable, los movimientos de suma y resta se vuelven difíciles de verificar.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo conviene practicar soroban al día?</h3>
+                    <p>Una rutina de diez a quince minutos puede ser suficiente para principiantes si se practica con regularidad y una meta concreta. Detén la sesión cuando aumenten los errores por cansancio; más tiempo no siempre significa mejor aprendizaje.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuándo se introducen los complementos de cinco y diez?</h3>
+                    <p>Después de dominar representación de números y operaciones directas. Empieza con una pareja de complementos a la vez y usa cálculo escrito para mostrar que el intercambio conserva el valor.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es necesario usar cronómetro en estos ejercicios?</h3>
+                    <p>No al inicio. Primero busca movimientos correctos, lectura precisa y explicación del procedimiento. El cronómetro puede añadirse más adelante como referencia personal, nunca como presión o comparación entre niños.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El soroban reemplaza la práctica de matemáticas escolares?</h3>
+                    <p>No. Es una representación útil para cálculo y valor posicional, pero debe complementarse con resolución de problemas, razonamiento, geometría y otras áreas matemáticas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.shuzan.jp/english/" target="_blank" rel="noopener noreferrer">Liga Japonesa de Ábaco — Soroban</a> — Fuente institucional sobre la estructura del soroban japonés y su sistema decimal.</li>
+                    <li><a href="https://pubmed.ncbi.nlm.nih.gov/32982681/" target="_blank" rel="noopener noreferrer">Wang — A Review of the Effects of Abacus Training</a> — Revisión de la evidencia sobre posibles efectos cognitivos y neurales del entrenamiento con ábaco.</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -572,8 +684,77 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Reconoce el instrumento y vuelve siempre a cero
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Ejercicio 1: representa y lee números sin operar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Ejercicio 2: sumas directas que no requieren complemento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejercicio 3: amigos de cinco para sumar sin cuentas libres
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejercicio 4: amigos de diez y cambio de varilla
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejercicio 5: restas como recorrido inverso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Rutina de diez minutos para practicar sin saturación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Autocorrección: separar un error de concepto de uno de movimiento
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-9">
+                                <span aria-hidden="true">09</span>Cuándo avanzar y cuándo pedir retroalimentación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">10</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">11</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

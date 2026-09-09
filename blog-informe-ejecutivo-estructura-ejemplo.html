@@ -362,152 +362,243 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-file-lines"></i> Redacción Ejecutiva
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Informe ejecutivo: estructura y ejemplo</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 9 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Redacción Ejecutiva</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Informe ejecutivo: estructura y ejemplo</h1>
+                <p class="blog-post-dek">Qué es un informe ejecutivo, cómo ordenar hallazgos, impacto, recomendaciones y próximos pasos, con estructura, ejemplo y lista de revisión práctica.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Redacción Ejecutiva</span>
+                    <span>Publicado <time datetime="2026-09-09">9 de Septiembre, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/redaccion-ejecutiva-curso-escritura-profesional.webp" alt="Informe ejecutivo: estructura y ejemplo" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Un informe puede contener datos correctos y aun así no servir a una dirección. Si comienza con páginas de antecedentes, mezcla hechos con opiniones y deja la recomendación para el final, la persona ocupada tendrá que reconstruir la conclusión. El problema no es la cantidad de información, sino su jerarquía.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es un informe ejecutivo y para qué sirve
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Definir lector, decisión y alcance antes de escribir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Estructura de un informe ejecutivo claro
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Convertir datos y antecedentes en hallazgos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo de un informe ejecutivo antes y después
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Dar formato para que el informe pueda recorrerse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Lista de revisión antes de entregar el informe
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Un informe puede contener datos correctos y aun así no servir a una dirección. Si comienza con páginas de antecedentes, mezcla hechos con opiniones y deja la recomendación para el final, la persona ocupada tendrá que reconstruir la conclusión. El problema no es la cantidad de información, sino su jerarquía.</p>
             <p>Este formato convierte análisis dispersos en una ruta de decisión. No elimina la evidencia ni simplifica hasta deformar; selecciona lo relevante, explica su impacto y muestra qué acción se propone. A continuación encontrarás una estructura adaptable, un ejemplo de transformación y un proceso de revisión para documentos de trabajo.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Un informe ejecutivo presenta la información que una persona necesita para comprender una situación y decidir sin recorrer todos los antecedentes. Debe indicar propósito, hallazgos relevantes, impacto, recomendación y próximos pasos, respaldados por datos identificables. Su estructura prioriza conclusiones y acciones; los detalles técnicos quedan después o en anexos. Su valor está en facilitar una decisión, no en demostrar cuánto material reunió quien escribe.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Un informe ejecutivo presenta la información que una persona necesita para comprender una situación y decidir sin recorrer todos los antecedentes. Debe indicar propósito, hallazgos relevantes, impacto, recomendación y próximos pasos, respaldados por datos identificables. Su estructura prioriza conclusiones y acciones; los detalles técnicos quedan después o en anexos. Su valor está en facilitar una decisión, no en demostrar cuánto material reunió quien escribe.</p>
+                </aside>
 
-            <h2>Qué es un informe ejecutivo y para qué sirve</h2>
-            <p>Un informe ejecutivo es un documento orientado a decisiones. Resume una situación de negocio, proyecto u operación y conecta los hallazgos con consecuencias y acciones. Su lector no necesita conocer cada paso del análisis para entender qué ocurre, por qué importa y qué debe resolverse. Por eso la selección y el orden pesan tanto como la corrección de los datos.</p>
-            <p>No todos los reportes necesitan formato ejecutivo. Un registro técnico puede documentar procedimientos completos; una bitácora conserva eventos; un tablero muestra indicadores. Este formato toma material de esas fuentes y construye una explicación. También se distingue del resumen ejecutivo de un plan comercial: ambos condensan información, pero el contexto, el lector y la decisión que apoyan pueden ser diferentes.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es un informe ejecutivo y para qué sirve</h2>
+                <p>Un informe ejecutivo es un documento orientado a decisiones. Resume una situación de negocio, proyecto u operación y conecta los hallazgos con consecuencias y acciones. Su lector no necesita conocer cada paso del análisis para entender qué ocurre, por qué importa y qué debe resolverse. Por eso la selección y el orden pesan tanto como la corrección de los datos.</p>
+                <p>No todos los reportes necesitan formato ejecutivo. Un registro técnico puede documentar procedimientos completos; una bitácora conserva eventos; un tablero muestra indicadores. Este formato toma material de esas fuentes y construye una explicación. También se distingue del resumen ejecutivo de un plan comercial: ambos condensan información, pero el contexto, el lector y la decisión que apoyan pueden ser diferentes.</p>
+            </section>
 
-            <h2>Definir lector, decisión y alcance antes de escribir</h2>
-            <p>Antes del borrador, identifica quién decidirá y qué autoridad tiene. Una dirección financiera necesita implicaciones distintas de las que requiere una coordinación operativa. Pregunta qué decisión está pendiente, qué información ya conoce la persona y qué duda podría impedirle actuar. Estas respuestas determinan vocabulario, profundidad y orden.</p>
-            <p>Delimita también el periodo, el área y las fuentes internas utilizadas. Un informe que analiza un trimestre no debe mezclar sin aviso cifras de otro intervalo. Si faltan datos, decláralo y explica cómo afecta la interpretación. Es preferible reconocer un límite que llenar el vacío con una afirmación incierta. Finalmente, formula en una oración el propósito del documento; esa oración servirá para excluir material interesante pero irrelevante.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Definir lector, decisión y alcance antes de escribir</h2>
+                <p>Antes del borrador, identifica quién decidirá y qué autoridad tiene. Una dirección financiera necesita implicaciones distintas de las que requiere una coordinación operativa. Pregunta qué decisión está pendiente, qué información ya conoce la persona y qué duda podría impedirle actuar. Estas respuestas determinan vocabulario, profundidad y orden.</p>
+                <p>Delimita también el periodo, el área y las fuentes internas utilizadas. Un informe que analiza un trimestre no debe mezclar sin aviso cifras de otro intervalo. Si faltan datos, decláralo y explica cómo afecta la interpretación. Es preferible reconocer un límite que llenar el vacío con una afirmación incierta. Finalmente, formula en una oración el propósito del documento; esa oración servirá para excluir material interesante pero irrelevante.</p>
+            </section>
 
-            <h2>Estructura de un informe ejecutivo claro</h2>
-            <p>La portada o encabezado identifica asunto, responsable y fecha. Después conviene abrir con una síntesis que entregue situación, hallazgo principal y recomendación. El cuerpo desarrolla evidencia y consecuencias, y el cierre convierte la recomendación en tareas. El orden puede adaptarse, pero el lector debería encontrar la conclusión antes de los detalles metodológicos.</p>
-            <p>Una estructura útil contiene propósito y alcance; síntesis ejecutiva; hallazgos priorizados; impacto o riesgo; opciones consideradas; recomendación; plan de acción; y anexos. No todos los apartados necesitan un título visible, especialmente en un documento breve. Lo esencial es que cada bloque responda una pregunta distinta y que la recomendación se derive de los hallazgos, no aparezca como una opinión aislada.</p>
-            <ul>
-                <li>Propósito: qué situación analiza y qué decisión apoya.</li>
-                <li>Hallazgos: hechos relevantes, ordenados por impacto y no por fecha de descubrimiento.</li>
-                <li>Interpretación: qué significan los datos para el objetivo del documento.</li>
-                <li>Recomendación: acción propuesta, alternativas y condiciones conocidas.</li>
-                <li>Próximos pasos: responsables, secuencia y criterios para dar seguimiento.</li>
-            </ul>
-
-            <h2>Convertir datos y antecedentes en hallazgos</h2>
-            <p>Un dato aislado no es todavía un hallazgo. «Aumentaron las solicitudes» describe un cambio, pero no indica periodo, comparación ni efecto. Un hallazgo útil conecta evidencia con contexto: qué cambió, frente a qué referencia, en qué parte del proceso y con qué consecuencia. Si la comparación no es válida o falta información, señálalo en lugar de presentar certeza artificial.</p>
-            <p>Agrupa hechos que respondan a la misma pregunta y asigna a cada grupo una idea principal. Luego ordena por impacto en la decisión, no por el orden en que recibiste archivos. Distingue datos, interpretación y recomendación mediante frases claras. Esta separación permite que el lector cuestione una inferencia sin perder de vista la evidencia y reduce el riesgo de que una preferencia personal parezca un hecho.</p>
-
-            <h2>Ejemplo de un informe ejecutivo antes y después</h2>
-            <p>Versión débil: «Durante el periodo hubo varios problemas con las entregas. Se habló con los equipos y se revisaron archivos. Es importante hacer cambios pronto». No sabemos qué ocurrió, qué impacto tuvo ni qué decisión se solicita. El texto cuenta actividades de quien redacta, pero no orienta al lector.</p>
-            <p>Versión ejecutiva: «Las entregas de dos líneas se concentraron después del corte porque la aprobación final depende de una sola persona. Esto retrasó la preparación del reporte y acumuló revisiones al cierre. Proponemos asignar una persona suplente y mover la validación al día anterior. Operaciones puede aplicar el cambio en el siguiente ciclo y comparar tiempos con el periodo actual». Ahora existen causa, efecto, propuesta y seguimiento.</p>
-            <ul>
-                <li>Título: Continuidad de aprobaciones en el cierre operativo.</li>
-                <li>Propósito: reducir la acumulación de revisiones antes del siguiente cierre.</li>
-                <li>Hallazgo: una sola ruta de autorización detiene dos líneas cuando la persona responsable no está disponible.</li>
-                <li>Recomendación: definir suplencia y anticipar la validación.</li>
-                <li>Seguimiento: comparar tiempos y registrar incidencias en el próximo ciclo.</li>
-            </ul>
-
-            <h2>Dar formato para que el informe pueda recorrerse</h2>
-            <p>La jerarquía visual debe reflejar la jerarquía de ideas. Usa títulos descriptivos, párrafos breves y tablas cuando ayuden a comparar elementos equivalentes. Una tabla no reemplaza la interpretación: acompáñala con una frase que explique qué debe observar el lector. Mantén nombres, unidades y periodos consistentes para evitar comparaciones falsas.</p>
-            <p>Evita decorar cada dato con colores, íconos o cajas. Demasiados recursos compiten por atención y vuelven invisible lo relevante. Resalta solo decisiones, cambios o riesgos que merezcan prioridad. Los anexos sirven para cálculos, definiciones y evidencia extensa que algunas personas necesitarán revisar, pero que interrumpiría el recorrido principal. Nombra cada anexo y menciona desde el cuerpo por qué podría consultarse.</p>
-
-            <h2>Lista de revisión antes de entregar el informe</h2>
-            <p>Haz primero una revisión ejecutiva: lee título, síntesis, encabezados y recomendación sin entrar en los detalles. ¿Se entiende la situación y la decisión? Después comprueba trazabilidad: cada afirmación importante debe poder relacionarse con un dato, una observación identificada o una limitación declarada. Revisa que cifras, nombres y periodos coincidan en texto, tablas y anexos.</p>
-            <p>En una segunda pasada, recorta repeticiones y lenguaje abstracto. Sustituye «se llevó a cabo una revisión» por «el equipo revisó» cuando conozcas al responsable. Comprueba que los siguientes pasos tengan personas o áreas asignadas y que no prometan algo fuera de su control. Termina con ortografía, numeración, permisos de archivos y formato de entrega.</p>
-            <ol>
-                <li>Leer solo la síntesis y verificar que contiene situación, impacto y propuesta.</li>
-                <li>Relacionar cada conclusión con evidencia identificable.</li>
-                <li>Confirmar consistencia de nombres, periodos, unidades y versiones.</li>
-                <li>Revisar que las acciones tengan responsables y una secuencia viable.</li>
-                <li>Corregir claridad, ortografía, anexos y acceso al archivo final.</li>
-            </ol>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Convierte análisis extensos en documentos para decidir</h3>
-                <p>El curso Redacción Ejecutiva de WorldBrain trabaja la estructura de informes, correos, minutas y propuestas profesionales, además de claridad y corrección ortográfica. Escríbenos por WhatsApp para conocer acceso, modalidad, horarios y costo vigente antes de elegir el programa.</p>
-                <a href="/redaccion-ejecutiva" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso de redacción ejecutiva <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Estructura de un informe ejecutivo claro</h2>
+                <p>La portada o encabezado identifica asunto, responsable y fecha. Después conviene abrir con una síntesis que entregue situación, hallazgo principal y recomendación. El cuerpo desarrolla evidencia y consecuencias, y el cierre convierte la recomendación en tareas. El orden puede adaptarse, pero el lector debería encontrar la conclusión antes de los detalles metodológicos.</p>
+                <p>Una estructura útil contiene propósito y alcance; síntesis ejecutiva; hallazgos priorizados; impacto o riesgo; opciones consideradas; recomendación; plan de acción; y anexos. No todos los apartados necesitan un título visible, especialmente en un documento breve. Lo esencial es que cada bloque responda una pregunta distinta y que la recomendación se derive de los hallazgos, no aparezca como una opinión aislada.</p>
                 <ul>
-                <li><a href="/blog-como-redactar-correo-profesional">Cómo redactar un correo profesional</a></li>
-                <li><a href="/blog-minuta-de-reunion-como-hacerla">Minuta de reunión: cómo hacerla</a></li>
-                <li><a href="/blog-como-mejorar-redaccion-profesional">Cómo mejorar la redacción profesional</a></li>
-                <li><a href="/blog-ortografia-en-el-trabajo-errores-comunes">Ortografía en el trabajo: errores comunes</a></li>
+                    <li>Propósito: qué situación analiza y qué decisión apoya.</li>
+                    <li>Hallazgos: hechos relevantes, ordenados por impacto y no por fecha de descubrimiento.</li>
+                    <li>Interpretación: qué significan los datos para el objetivo del documento.</li>
+                    <li>Recomendación: acción propuesta, alternativas y condiciones conocidas.</li>
+                    <li>Próximos pasos: responsables, secuencia y criterios para dar seguimiento.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuál es la diferencia entre informe ejecutivo y resumen ejecutivo?</h3>
-                <p>Los términos pueden usarse de manera distinta según la organización. Un informe ejecutivo suele analizar una situación y proponer acciones; un resumen ejecutivo condensa un documento más amplio, como una propuesta o plan. En ambos casos conviene definir lector y decisión. El nombre importa menos que entregar propósito, hallazgos, impacto y siguiente paso con claridad.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Este formato debe incluir todos los datos?</h3>
-                <p>Debe incluir los datos necesarios para comprender y evaluar la conclusión, no todo el material reunido. Los detalles técnicos, cálculos y registros extensos pueden quedar en anexos bien identificados. Ocultar una limitación relevante sería un error; separar información secundaria para proteger el recorrido principal es una decisión editorial útil.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Se escribe primero la síntesis del informe?</h3>
-                <p>Puedes bosquejarla al inicio para fijar el rumbo, pero conviene reescribirla cuando el análisis y la recomendación estén cerrados. Así reflejará el documento real y no una conclusión preliminar. Una práctica útil es redactar una síntesis provisional, completar hallazgos y acciones, y volver al principio para ajustar cada frase.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué tono debe tener un informe ejecutivo?</h3>
-                <p>Debe ser directo, sobrio y específico. Describe hechos sin dramatizar, distingue interpretación de evidencia y formula recomendaciones con condiciones claras. La voz activa ayuda a identificar responsables. Un tono ejecutivo no necesita palabras rebuscadas: necesita precisión, contexto suficiente y respeto por el tiempo del lector.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo usar una plantilla para todos mis informes?</h3>
-                <p>Una plantilla ayuda a no olvidar propósito, hallazgos, recomendación y acciones, pero debe adaptarse a la decisión y al lector. No conserves apartados vacíos ni fuerces información dentro de una estructura que no corresponde. La plantilla es un punto de partida; la lógica del caso determina el orden final.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Convertir datos y antecedentes en hallazgos</h2>
+                <p>Un dato aislado no es todavía un hallazgo. «Aumentaron las solicitudes» describe un cambio, pero no indica periodo, comparación ni efecto. Un hallazgo útil conecta evidencia con contexto: qué cambió, frente a qué referencia, en qué parte del proceso y con qué consecuencia. Si la comparación no es válida o falta información, señálalo en lugar de presentar certeza artificial.</p>
+                <p>Agrupa hechos que respondan a la misma pregunta y asigna a cada grupo una idea principal. Luego ordena por impacto en la decisión, no por el orden en que recibiste archivos. Distingue datos, interpretación y recomendación mediante frases claras. Esta separación permite que el lector cuestione una inferencia sin perder de vista la evidencia y reduce el riesgo de que una preferencia personal parezca un hecho.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Ejemplo de un informe ejecutivo antes y después</h2>
+                <p>Versión débil: «Durante el periodo hubo varios problemas con las entregas. Se habló con los equipos y se revisaron archivos. Es importante hacer cambios pronto». No sabemos qué ocurrió, qué impacto tuvo ni qué decisión se solicita. El texto cuenta actividades de quien redacta, pero no orienta al lector.</p>
+                <p>Versión ejecutiva: «Las entregas de dos líneas se concentraron después del corte porque la aprobación final depende de una sola persona. Esto retrasó la preparación del reporte y acumuló revisiones al cierre. Proponemos asignar una persona suplente y mover la validación al día anterior. Operaciones puede aplicar el cambio en el siguiente ciclo y comparar tiempos con el periodo actual». Ahora existen causa, efecto, propuesta y seguimiento.</p>
+                <ul>
+                    <li>Título: Continuidad de aprobaciones en el cierre operativo.</li>
+                    <li>Propósito: reducir la acumulación de revisiones antes del siguiente cierre.</li>
+                    <li>Hallazgo: una sola ruta de autorización detiene dos líneas cuando la persona responsable no está disponible.</li>
+                    <li>Recomendación: definir suplencia y anticipar la validación.</li>
+                    <li>Seguimiento: comparar tiempos y registrar incidencias en el próximo ciclo.</li>
+                </ul>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Dar formato para que el informe pueda recorrerse</h2>
+                <p>La jerarquía visual debe reflejar la jerarquía de ideas. Usa títulos descriptivos, párrafos breves y tablas cuando ayuden a comparar elementos equivalentes. Una tabla no reemplaza la interpretación: acompáñala con una frase que explique qué debe observar el lector. Mantén nombres, unidades y periodos consistentes para evitar comparaciones falsas.</p>
+                <p>Evita decorar cada dato con colores, íconos o cajas. Demasiados recursos compiten por atención y vuelven invisible lo relevante. Resalta solo decisiones, cambios o riesgos que merezcan prioridad. Los anexos sirven para cálculos, definiciones y evidencia extensa que algunas personas necesitarán revisar, pero que interrumpiría el recorrido principal. Nombra cada anexo y menciona desde el cuerpo por qué podría consultarse.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Lista de revisión antes de entregar el informe</h2>
+                <p>Haz primero una revisión ejecutiva: lee título, síntesis, encabezados y recomendación sin entrar en los detalles. ¿Se entiende la situación y la decisión? Después comprueba trazabilidad: cada afirmación importante debe poder relacionarse con un dato, una observación identificada o una limitación declarada. Revisa que cifras, nombres y periodos coincidan en texto, tablas y anexos.</p>
+                <p>En una segunda pasada, recorta repeticiones y lenguaje abstracto. Sustituye «se llevó a cabo una revisión» por «el equipo revisó» cuando conozcas al responsable. Comprueba que los siguientes pasos tengan personas o áreas asignadas y que no prometan algo fuera de su control. Termina con ortografía, numeración, permisos de archivos y formato de entrega.</p>
+                <ol>
+                    <li>Leer solo la síntesis y verificar que contiene situación, impacto y propuesta.</li>
+                    <li>Relacionar cada conclusión con evidencia identificable.</li>
+                    <li>Confirmar consistencia de nombres, periodos, unidades y versiones.</li>
+                    <li>Revisar que las acciones tengan responsables y una secuencia viable.</li>
+                    <li>Corregir claridad, ortografía, anexos y acceso al archivo final.</li>
+                </ol>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Convierte análisis extensos en documentos para decidir</h2>
+                    <p>El curso Redacción Ejecutiva de WorldBrain trabaja la estructura de informes, correos, minutas y propuestas profesionales, además de claridad y corrección ortográfica. Escríbenos por WhatsApp para conocer acceso, modalidad, horarios y costo vigente antes de elegir el programa.</p>
+                    <a href="/redaccion-ejecutiva" class="btn-primary">
+                        Conocer el curso de redacción ejecutiva <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-redactar-correo-profesional">
+                            <span>Cómo redactar un correo profesional</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-minuta-de-reunion-como-hacerla">
+                            <span>Minuta de reunión: cómo hacerla</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-mejorar-redaccion-profesional">
+                            <span>Cómo mejorar la redacción profesional</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-ortografia-en-el-trabajo-errores-comunes">
+                            <span>Ortografía en el trabajo: errores comunes</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuál es la diferencia entre informe ejecutivo y resumen ejecutivo?</h3>
+                    <p>Los términos pueden usarse de manera distinta según la organización. Un informe ejecutivo suele analizar una situación y proponer acciones; un resumen ejecutivo condensa un documento más amplio, como una propuesta o plan. En ambos casos conviene definir lector y decisión. El nombre importa menos que entregar propósito, hallazgos, impacto y siguiente paso con claridad.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Este formato debe incluir todos los datos?</h3>
+                    <p>Debe incluir los datos necesarios para comprender y evaluar la conclusión, no todo el material reunido. Los detalles técnicos, cálculos y registros extensos pueden quedar en anexos bien identificados. Ocultar una limitación relevante sería un error; separar información secundaria para proteger el recorrido principal es una decisión editorial útil.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Se escribe primero la síntesis del informe?</h3>
+                    <p>Puedes bosquejarla al inicio para fijar el rumbo, pero conviene reescribirla cuando el análisis y la recomendación estén cerrados. Así reflejará el documento real y no una conclusión preliminar. Una práctica útil es redactar una síntesis provisional, completar hallazgos y acciones, y volver al principio para ajustar cada frase.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué tono debe tener un informe ejecutivo?</h3>
+                    <p>Debe ser directo, sobrio y específico. Describe hechos sin dramatizar, distingue interpretación de evidencia y formula recomendaciones con condiciones claras. La voz activa ayuda a identificar responsables. Un tono ejecutivo no necesita palabras rebuscadas: necesita precisión, contexto suficiente y respeto por el tiempo del lector.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo usar una plantilla para todos mis informes?</h3>
+                    <p>Una plantilla ayuda a no olvidar propósito, hallazgos, recomendación y acciones, pero debe adaptarse a la decisión y al lector. No conserves apartados vacíos ni fuerces información dentro de una estructura que no corresponde. La plantilla es un punto de partida; la lógica del caso determina el orden final.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -537,8 +628,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es un informe ejecutivo y para qué sirve
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Definir lector, decisión y alcance antes de escribir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Estructura de un informe ejecutivo claro
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Convertir datos y antecedentes en hallazgos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo de un informe ejecutivo antes y después
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Dar formato para que el informe pueda recorrerse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Lista de revisión antes de entregar el informe
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

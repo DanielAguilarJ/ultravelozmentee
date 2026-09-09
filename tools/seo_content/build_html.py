@@ -137,7 +137,7 @@ def esc(text: str) -> str:
 
 def webp_size(rel_path: str) -> tuple[int, int] | None:
     """Lee el tamaño intrínseco de un .webp para poder emitir width/height
-    reales en el <img> y evitar reflow de layout (CLS). Devuelve None si el
+    reales en la etiqueta de imagen y evitar reflow de layout (CLS). Devuelve None si el
     archivo no existe o el formato no se reconoce."""
     path = ROOT / rel_path
     if not path.is_file():
@@ -834,123 +834,212 @@ def render_body(meta: dict, post: dict, wc: int, titles: dict[str, str] | None =
     cta_label = cta_anchor(post["slug"], course_href, post["cta"]["label"],
                            meta.get("course_name", ""))
     magnet_html = render_magnet(meta.get("cluster"), meta["slug"])
-    pub_date_es = fmt_date_es(meta["publication_date"])
-    modified_date = post.get("date_modified", meta["publication_date"])
+    pub_date = meta["publication_date"]
+    pub_date_es = fmt_date_es(pub_date)
+    modified_date = post.get("date_modified", pub_date)
     modified_date_es = fmt_date_es(modified_date)
-    date_label = pub_date_es if modified_date == meta["publication_date"] else (
-        f"Publicado: {pub_date_es} · Actualizado: {modified_date_es}"
-    )
     minutes = reading_minutes(wc)
+    title = html_escape(str(meta["title"]))
+    description = html_escape(str(post["description"]))
+    category = html_escape(str(meta["category"]))
     editorial_note = html_escape(str(post.get(
         "editorial_note",
         "Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.",
     )), quote=True)
     footer_html = render_footer(post)
 
-    sections_html = "\n\n".join(render_section_html(s) for s in post["sections"])
+    section_rows: list[tuple[str, str, str]] = []
+    for index, section in enumerate(post["sections"], 1):
+        section_id = f"seccion-{index}"
+        heading_id = f"{section_id}-titulo"
+        parts = [
+            f'            <section class="ed-article-section" id="{section_id}" aria-labelledby="{heading_id}">',
+            f'                <h2 id="{heading_id}">{section["heading"]}</h2>',
+        ]
+        parts.extend(f"                <p>{paragraph}</p>" for paragraph in section.get("paragraphs", []))
+        if section.get("bullets"):
+            parts.append("                <ul>")
+            parts.extend(f"                    <li>{item}</li>" for item in section["bullets"])
+            parts.append("                </ul>")
+        if section.get("steps"):
+            parts.append("                <ol>")
+            parts.extend(f"                    <li>{item}</li>" for item in section["steps"])
+            parts.append("                </ol>")
+        parts.append("            </section>")
+        section_rows.append((section_id, section["heading"], "\n".join(parts)))
+    sections_html = "\n\n".join(row[2] for row in section_rows)
 
     related_html = ""
-    related_slugs = [s for s in post.get("related", []) if titles and s in titles]
+    related_slugs = [slug for slug in post.get("related", []) if titles and slug in titles]
     if related_slugs:
         items = "\n".join(
-            f'                <li><a href="/blog-{slug}">{titles[slug]}</a></li>'
+            f'''                    <li>
+                        <a class="ed-related-link" href="/blog-{slug}">
+                            <span>{html_escape(titles[slug])}</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>'''
             for slug in related_slugs
         )
         related_html = f"""
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
                 <ul>
 {items}
                 </ul>
-            </div>
+            </section>
 """
 
     faq_items = "\n".join(
-        f"""            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>{qa['question']}</h3>
-                <p>{qa['answer']}</p>
-            </div>
-            <!-- SEO:FAQ:END -->"""
+        f"""                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>{qa['question']}</h3>
+                    <p>{qa['answer']}</p>
+                </div>
+                <!-- SEO:FAQ:END -->"""
         for qa in post["faq"]
     )
 
-    sources_items = "\n".join(
-        f'                <li><a href="{s["url"]}" target="_blank" rel="noopener noreferrer">{s["name"]}</a> — {s["note"]}</li>'
-        for s in post["sources"]
+    sources_section = ""
+    if post["sources"]:
+        sources_items = "\n".join(
+            f'                    <li><a href="{source["url"]}" target="_blank" rel="noopener noreferrer">{source["name"]}</a> — {source["note"]}</li>'
+            for source in post["sources"]
+        )
+        sources_section = f"""
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+{sources_items}
+                </ul>
+            </section>
+"""
+
+    toc_rows = [(section_id, heading) for section_id, heading, _ in section_rows]
+    toc_rows.append(("preguntas-frecuentes", "Preguntas frecuentes"))
+    if post["sources"]:
+        toc_rows.append(("fuentes-consultadas", "Fuentes consultadas"))
+    toc_items = "\n".join(
+        f'''                        <li>
+                            <a class="ed-toc-link" href="#{target}">
+                                <span aria-hidden="true">{index:02d}</span>{html_escape(label)}
+                            </a>
+                        </li>'''
+        for index, (target, label) in enumerate(toc_rows, 1)
     )
 
-    lead_paragraphs = "\n".join(f'            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">{p}</p>' for p in post["lead"][:1])
-    extra_lead = "\n".join(f"            <p>{p}</p>" for p in post["lead"][1:])
+    lead_paragraphs = "\n".join(
+        f'            <p class="lead">{paragraph}</p>' for paragraph in post["lead"][:1]
+    )
+    extra_lead = "\n".join(f"            <p>{paragraph}</p>" for paragraph in post["lead"][1:])
 
-    # width/height reales: reservan la caja antes de que cargue la imagen.
     dims = webp_size(meta["image"])
     dim_attrs = f' width="{dims[0]}" height="{dims[1]}"' if dims else ""
+    if modified_date == pub_date:
+        dates_html = f'<span>Publicado <time datetime="{pub_date}">{pub_date_es}</time></span>'
+    else:
+        dates_html = (
+            f'<span>Publicado <time datetime="{pub_date}">{pub_date_es}</time></span>'
+            f'<span>Actualizado <time datetime="{modified_date}">{modified_date_es}</time></span>'
+        )
 
     return f"""{NAVBAR}
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="{minutes}">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas {meta['icon']}"></i> {meta['category']}
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">{meta['title']}</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> {date_label}</span>
-                    <span><i class="far fa-clock"></i> {minutes} minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">{category}</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">{title}</h1>
+                <p class="blog-post-dek">{description}</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">{category}</span>
+                    {dates_html}
+                    <span>{minutes} minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="{meta['image']}" alt="{esc(meta['title'])}"{dim_attrs} fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>{len(toc_rows)} apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+{toc_items}
+                        </ol>
+                    </nav>
+                </details>
 {lead_paragraphs}
 {extra_lead}
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>{post['quick_answer']}</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>{post['quick_answer']}</p>
+                </aside>
 
 {sections_html}
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>{post['cta']['heading']}</h3>
-                <p>{post['cta']['text']}</p>
-                <a href="{course_href}" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    {cta_label} <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">{post['cta']['heading']}</h2>
+                    <p>{post['cta']['text']}</p>
+                    <a href="{course_href}" class="btn-primary">
+                        {cta_label} <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 {related_html}
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
 {faq_items}
-            </div>
+                    </div>
+                </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-{sources_items}
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>{editorial_note}</p>
-                </div>
-            </div>
+{sources_section}
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>{editorial_note}</p>
+                    </div>
+                </section>
 {magnet_html}
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+{toc_items}
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>{minutes} min restantes</span>
+                        <span>Lectura estimada: {minutes} min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
 {footer_html}"""

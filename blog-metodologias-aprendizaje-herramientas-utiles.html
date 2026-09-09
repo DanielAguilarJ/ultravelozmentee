@@ -362,139 +362,232 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Metodologías de Aprendizaje
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Herramientas útiles para aplicar metodologías de aprendizaje</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Metodologías de Aprendizaje</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Herramientas útiles para aplicar metodologías de aprendizaje</h1>
+                <p class="blog-post-dek">Herramientas útiles y sencillas para aplicar metodologías de aprendizaje: tarjetas, calendarios, cronómetros y aplicaciones básicas sin complicaciones.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Metodologías de Aprendizaje</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Herramientas útiles para aplicar metodologías de aprendizaje" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Es fácil asumir que aplicar metodologías de aprendizaje modernas requiere aplicaciones sofisticadas o dispositivos especiales. En la práctica, la mayoría de las técnicas con mejor respaldo funcionan igual de bien con herramientas simples, y en algunos casos incluso mejor, porque evitan la distracción adicional de una pantalla durante el estudio.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Tarjetas simples para autoevaluación y repaso espaciado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Un calendario visible para el repaso espaciado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Un cronómetro básico para bloques de concentración
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: un sistema completo con herramientas básicas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuándo una aplicación digital sí puede ayudar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Herramientas que conviene evitar por exceso de complejidad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo elegir entre herramientas físicas y digitales según tu situación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Es fácil asumir que aplicar metodologías de aprendizaje modernas requiere aplicaciones sofisticadas o dispositivos especiales. En la práctica, la mayoría de las técnicas con mejor respaldo funcionan igual de bien con herramientas simples, y en algunos casos incluso mejor, porque evitan la distracción adicional de una pantalla durante el estudio.</p>
             <p>Este artículo repasa las herramientas básicas más útiles para las metodologías descritas en otros artículos de este cluster, sin recomendar productos específicos ni asumir que se necesita gastar dinero para empezar.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Las herramientas más útiles para aplicar metodologías de aprendizaje no son necesariamente tecnológicas ni costosas: tarjetas simples para autoevaluación, un calendario visible para repaso espaciado, un cronómetro básico para bloques de concentración y hojas blancas para elaboración propia cubren la mayoría de las necesidades sin requerir ninguna aplicación especializada.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Las herramientas más útiles para aplicar metodologías de aprendizaje no son necesariamente tecnológicas ni costosas: tarjetas simples para autoevaluación, un calendario visible para repaso espaciado, un cronómetro básico para bloques de concentración y hojas blancas para elaboración propia cubren la mayoría de las necesidades sin requerir ninguna aplicación especializada.</p>
+                </aside>
 
-            <h2>Tarjetas simples para autoevaluación y repaso espaciado</h2>
-            <p>Un juego de tarjetas de papel, con una pregunta o concepto en un lado y la respuesta en el otro, sigue siendo una de las herramientas más efectivas para practicar autoevaluación y repaso espaciado. No requieren ninguna inversión más allá de papel cortado en pedazos pequeños, y su formato físico facilita revisarlas en cualquier momento libre, sin depender de un dispositivo.</p>
-            <ul>
-                <li>Escribir la pregunta o concepto en un lado, la respuesta completa en el otro.</li>
-                <li>Separar las tarjetas en grupos según qué tan bien se recuerdan.</li>
-                <li>Repasar con más frecuencia las tarjetas que generan más dudas.</li>
-                <li>Revisar periódicamente si alguna tarjeta ya se domina y puede retirarse del repaso activo.</li>
-            </ul>
-
-            <h2>Un calendario visible para el repaso espaciado</h2>
-            <p>Un calendario de papel pegado en la pared, o incluso una hoja con los días de la semana marcados a mano, cumple la misma función que una aplicación de recordatorios: mostrar de forma visible cuándo corresponde repasar cada tema, sin depender de notificaciones que se pueden ignorar o silenciar sin darse cuenta.</p>
-
-            <h2>Un cronómetro básico para bloques de concentración</h2>
-            <p>Cualquier cronómetro sencillo, incluido el de un reloj de cocina o el temporizador básico de un teléfono en modo avión, sirve para aplicar técnicas de bloques de tiempo como Pomodoro sin necesidad de una aplicación especializada. Lo importante es la disciplina de respetar los tiempos marcados, no la sofisticación del dispositivo que los mide.</p>
-
-            <h2>Ejemplo aplicado: un sistema completo con herramientas básicas</h2>
-            <p>Un estudiante universitario, con recursos limitados y sin interés en pagar por aplicaciones especializadas, armó un sistema completo de estudio usando solo materiales básicos. Para el repaso espaciado de vocabulario en un idioma extranjero, usó tarjetas de papel cortadas de hojas recicladas, organizadas en tres cajas de zapatos etiquetadas según qué tan bien recordaba cada palabra.</p>
-            <p>Para organizar su semana, dibujó a mano un calendario simple en una hoja grande pegada sobre su escritorio, marcando con colores distintos qué materia correspondía repasar cada día. Para sus bloques de concentración, usó el temporizador básico de un reloj despertador viejo que ya no usaba para despertarse, configurándolo en intervalos de treinta minutos.</p>
-            <p>Este sistema, construido enteramente con materiales que ya tenía en casa o que no costaban prácticamente nada, le permitió aplicar de forma consistente repaso espaciado, organización semanal y bloques de concentración durante todo un semestre, sin ninguna de las herramientas tecnológicas que muchas veces se asumen como necesarias para aplicar estas metodologías.</p>
-            <p>Su experiencia contradice la idea de que se necesita inversión significativa para empezar a aplicar metodologías de aprendizaje bien fundamentadas: lo esencial es la constancia en usar la herramienta elegida, no su sofisticación o costo.</p>
-
-            <h2>Cuándo una aplicación digital sí puede ayudar</h2>
-            <p>Esto no significa que las herramientas digitales no tengan ningún valor. Para quien ya tiene el hábito de usar su teléfono de forma organizada, una aplicación de tarjetas digitales con repetición espaciada automática puede ahorrar el trabajo de calcular manualmente cuándo repasar cada tarjeta. La clave es que la herramienta digital no se convierta en una fuente adicional de distracción durante el estudio.</p>
-            <p>Antes de adoptar cualquier herramienta digital, vale la pena preguntarse con honestidad si el propio historial de uso del celular durante otras actividades sugiere que ese mismo dispositivo será fuente de distracción también durante el estudio, o si realmente se puede usar de forma disciplinada solo para la función específica de la técnica.</p>
-            <ol>
-                <li>Evaluar si una herramienta digital realmente reduce trabajo o solo añade complejidad.</li>
-                <li>Configurar el dispositivo en modo de enfoque para evitar distracciones al usarla.</li>
-                <li>Probar la herramienta digital durante dos semanas antes de decidir si conviene mantenerla.</li>
-                <li>Volver a herramientas físicas si la digital genera más distracción que beneficio.</li>
-            </ol>
-
-            <h2>Herramientas que conviene evitar por exceso de complejidad</h2>
-            <p>Algunas aplicaciones o sistemas de organización, aunque tienen buena intención, resultan tan complejos de configurar y mantener que el tiempo dedicado a administrar la herramienta compite con el tiempo real de estudio. Si preparar o actualizar el sistema de organización toma más tiempo que la sesión de estudio misma, probablemente conviene simplificar.</p>
-
-            <h2>Cómo elegir entre herramientas físicas y digitales según tu situación</h2>
-            <p>No existe una respuesta universal; depende de qué tan cómodo se sienta cada estudiante con cada formato, y de si el dispositivo digital tiende a convertirse en fuente de distracción en su caso particular. Probar ambos formatos durante un periodo breve, y comparar honestamente cuál se sostiene mejor en la práctica, suele dar una respuesta más confiable que elegir de antemano por preferencia general.</p>
-            <p>Vale la pena recordar que combinar ambos formatos, según la técnica y el contexto, también es una opción válida: tarjetas físicas para repaso durante traslados o momentos sin acceso a pantalla, y una aplicación digital para el seguimiento general del calendario de repaso, por ejemplo, sin que ninguno de los dos formatos deba usarse de forma exclusiva.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De herramientas básicas a un sistema de memoria estructurado</h3>
-                <p>Si quieres una alternativa más estructurada al sistema de tarjetas hecho a mano, nuestro programa de Memoria Prodigiosa combina herramientas simples con un método guiado para memorizar información de forma más eficiente.</p>
-                <a href="/memoria-prodigiosa" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de memoria <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Tarjetas simples para autoevaluación y repaso espaciado</h2>
+                <p>Un juego de tarjetas de papel, con una pregunta o concepto en un lado y la respuesta en el otro, sigue siendo una de las herramientas más efectivas para practicar autoevaluación y repaso espaciado. No requieren ninguna inversión más allá de papel cortado en pedazos pequeños, y su formato físico facilita revisarlas en cualquier momento libre, sin depender de un dispositivo.</p>
                 <ul>
-                <li><a href="/blog-metodologias-aprendizaje-en-la-escuela">Cómo se aplican metodologías de aprendizaje en la escuela</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-senales-de-alerta">Señales de alerta al aplicar metodologías de aprendizaje</a></li>
+                    <li>Escribir la pregunta o concepto en un lado, la respuesta completa en el otro.</li>
+                    <li>Separar las tarjetas en grupos según qué tan bien se recuerdan.</li>
+                    <li>Repasar con más frecuencia las tarjetas que generan más dudas.</li>
+                    <li>Revisar periódicamente si alguna tarjeta ya se domina y puede retirarse del repaso activo.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito comprar materiales especiales para empezar con estas metodologías?</h3>
-                <p>No. La mayoría de las técnicas descritas en este cluster funcionan con materiales básicos como hojas de papel, tarjetas cortadas a mano y un cronómetro simple, sin necesidad de ninguna inversión adicional.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Las aplicaciones de repetición espaciada son mejores que las tarjetas de papel?</h3>
-                <p>No necesariamente mejores, aunque pueden ahorrar el trabajo de calcular manualmente los intervalos de repaso. La elección depende de qué formato se sostiene mejor en la práctica personal de cada estudiante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi celular se convierte en distracción al usarlo como herramienta de estudio?</h3>
-                <p>Considera volver a una herramienta física equivalente, como un cronómetro de cocina en lugar del temporizador del celular, para eliminar la tentación de revisar notificaciones durante el estudio.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántas tarjetas es razonable manejar para el repaso espaciado?</h3>
-                <p>No hay un número fijo; depende de la cantidad de contenido que se quiere repasar. Organizarlas en grupos según qué tan bien se dominan, en lugar de repasar todas por igual, ayuda a manejar cantidades grandes sin sentirse abrumado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es necesario dominar todas estas herramientas al mismo tiempo?</h3>
-                <p>No, conviene introducir una herramienta a la vez, según la técnica que se esté practicando en ese momento, en lugar de intentar armar todo el sistema completo desde el primer día. Empezar con la herramienta más simple, como tarjetas de papel, y sumar las demás gradualmente suele generar mejores resultados que un sistema completo desde el inicio.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Un calendario visible para el repaso espaciado</h2>
+                <p>Un calendario de papel pegado en la pared, o incluso una hoja con los días de la semana marcados a mano, cumple la misma función que una aplicación de recordatorios: mostrar de forma visible cuándo corresponde repasar cada tema, sin depender de notificaciones que se pueden ignorar o silenciar sin darse cuenta.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Un cronómetro básico para bloques de concentración</h2>
+                <p>Cualquier cronómetro sencillo, incluido el de un reloj de cocina o el temporizador básico de un teléfono en modo avión, sirve para aplicar técnicas de bloques de tiempo como Pomodoro sin necesidad de una aplicación especializada. Lo importante es la disciplina de respetar los tiempos marcados, no la sofisticación del dispositivo que los mide.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: un sistema completo con herramientas básicas</h2>
+                <p>Un estudiante universitario, con recursos limitados y sin interés en pagar por aplicaciones especializadas, armó un sistema completo de estudio usando solo materiales básicos. Para el repaso espaciado de vocabulario en un idioma extranjero, usó tarjetas de papel cortadas de hojas recicladas, organizadas en tres cajas de zapatos etiquetadas según qué tan bien recordaba cada palabra.</p>
+                <p>Para organizar su semana, dibujó a mano un calendario simple en una hoja grande pegada sobre su escritorio, marcando con colores distintos qué materia correspondía repasar cada día. Para sus bloques de concentración, usó el temporizador básico de un reloj despertador viejo que ya no usaba para despertarse, configurándolo en intervalos de treinta minutos.</p>
+                <p>Este sistema, construido enteramente con materiales que ya tenía en casa o que no costaban prácticamente nada, le permitió aplicar de forma consistente repaso espaciado, organización semanal y bloques de concentración durante todo un semestre, sin ninguna de las herramientas tecnológicas que muchas veces se asumen como necesarias para aplicar estas metodologías.</p>
+                <p>Su experiencia contradice la idea de que se necesita inversión significativa para empezar a aplicar metodologías de aprendizaje bien fundamentadas: lo esencial es la constancia en usar la herramienta elegida, no su sofisticación o costo.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cuándo una aplicación digital sí puede ayudar</h2>
+                <p>Esto no significa que las herramientas digitales no tengan ningún valor. Para quien ya tiene el hábito de usar su teléfono de forma organizada, una aplicación de tarjetas digitales con repetición espaciada automática puede ahorrar el trabajo de calcular manualmente cuándo repasar cada tarjeta. La clave es que la herramienta digital no se convierta en una fuente adicional de distracción durante el estudio.</p>
+                <p>Antes de adoptar cualquier herramienta digital, vale la pena preguntarse con honestidad si el propio historial de uso del celular durante otras actividades sugiere que ese mismo dispositivo será fuente de distracción también durante el estudio, o si realmente se puede usar de forma disciplinada solo para la función específica de la técnica.</p>
+                <ol>
+                    <li>Evaluar si una herramienta digital realmente reduce trabajo o solo añade complejidad.</li>
+                    <li>Configurar el dispositivo en modo de enfoque para evitar distracciones al usarla.</li>
+                    <li>Probar la herramienta digital durante dos semanas antes de decidir si conviene mantenerla.</li>
+                    <li>Volver a herramientas físicas si la digital genera más distracción que beneficio.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Herramientas que conviene evitar por exceso de complejidad</h2>
+                <p>Algunas aplicaciones o sistemas de organización, aunque tienen buena intención, resultan tan complejos de configurar y mantener que el tiempo dedicado a administrar la herramienta compite con el tiempo real de estudio. Si preparar o actualizar el sistema de organización toma más tiempo que la sesión de estudio misma, probablemente conviene simplificar.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo elegir entre herramientas físicas y digitales según tu situación</h2>
+                <p>No existe una respuesta universal; depende de qué tan cómodo se sienta cada estudiante con cada formato, y de si el dispositivo digital tiende a convertirse en fuente de distracción en su caso particular. Probar ambos formatos durante un periodo breve, y comparar honestamente cuál se sostiene mejor en la práctica, suele dar una respuesta más confiable que elegir de antemano por preferencia general.</p>
+                <p>Vale la pena recordar que combinar ambos formatos, según la técnica y el contexto, también es una opción válida: tarjetas físicas para repaso durante traslados o momentos sin acceso a pantalla, y una aplicación digital para el seguimiento general del calendario de repaso, por ejemplo, sin que ninguno de los dos formatos deba usarse de forma exclusiva.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De herramientas básicas a un sistema de memoria estructurado</h2>
+                    <p>Si quieres una alternativa más estructurada al sistema de tarjetas hecho a mano, nuestro programa de Memoria Prodigiosa combina herramientas simples con un método guiado para memorizar información de forma más eficiente.</p>
+                    <a href="/memoria-prodigiosa" class="btn-primary">
+                        Ver el curso de memoria <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-en-la-escuela">
+                            <span>Cómo se aplican metodologías de aprendizaje en la escuela</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-senales-de-alerta">
+                            <span>Señales de alerta al aplicar metodologías de aprendizaje</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito comprar materiales especiales para empezar con estas metodologías?</h3>
+                    <p>No. La mayoría de las técnicas descritas en este cluster funcionan con materiales básicos como hojas de papel, tarjetas cortadas a mano y un cronómetro simple, sin necesidad de ninguna inversión adicional.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Las aplicaciones de repetición espaciada son mejores que las tarjetas de papel?</h3>
+                    <p>No necesariamente mejores, aunque pueden ahorrar el trabajo de calcular manualmente los intervalos de repaso. La elección depende de qué formato se sostiene mejor en la práctica personal de cada estudiante.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi celular se convierte en distracción al usarlo como herramienta de estudio?</h3>
+                    <p>Considera volver a una herramienta física equivalente, como un cronómetro de cocina en lugar del temporizador del celular, para eliminar la tentación de revisar notificaciones durante el estudio.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántas tarjetas es razonable manejar para el repaso espaciado?</h3>
+                    <p>No hay un número fijo; depende de la cantidad de contenido que se quiere repasar. Organizarlas en grupos según qué tan bien se dominan, en lugar de repasar todas por igual, ayuda a manejar cantidades grandes sin sentirse abrumado.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es necesario dominar todas estas herramientas al mismo tiempo?</h3>
+                    <p>No, conviene introducir una herramienta a la vez, según la técnica que se esté practicando en ese momento, en lugar de intentar armar todo el sistema completo desde el primer día. Empezar con la herramienta más simple, como tarjetas de papel, y sumar las demás gradualmente suele generar mejores resultados que un sistema completo desde el inicio.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -524,8 +617,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Tarjetas simples para autoevaluación y repaso espaciado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Un calendario visible para el repaso espaciado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Un cronómetro básico para bloques de concentración
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: un sistema completo con herramientas básicas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuándo una aplicación digital sí puede ayudar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Herramientas que conviene evitar por exceso de complejidad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo elegir entre herramientas físicas y digitales según tu situación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

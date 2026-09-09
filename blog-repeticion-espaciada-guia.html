@@ -346,112 +346,187 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="4">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Memoria Prodigiosa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Repetición espaciada: guía práctica para no olvidar lo estudiado</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 4 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Memoria Prodigiosa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Repetición espaciada: guía práctica para no olvidar lo estudiado</h1>
+                <p class="blog-post-dek">Guía práctica de repetición espaciada para no olvidar lo estudiado, con un calendario adaptable en lugar de un algoritmo obligatorio.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Memoria Prodigiosa</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>4 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/memoria-prodigiosa-curso-memorizar-mnemotecnia.webp" alt="Repetición espaciada: guía práctica para no olvidar lo estudiado" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Estudiar algo una sola vez y olvidarlo semanas después es la experiencia más común y más frustrante de cualquier estudiante. La repetición espaciada existe precisamente para romper ese patrón, distribuyendo el repaso en el tiempo en lugar de concentrarlo todo antes del examen.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué el olvido es predecible y se puede anticipar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo armar un calendario de repaso simple
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo priorizar cuando hay muchas materias simultáneas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Repetición espaciada combinada con recuerdo activo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuándo usar una aplicación en lugar de un calendario manual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores frecuentes al intentar aplicar repetición espaciada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Estudiar algo una sola vez y olvidarlo semanas después es la experiencia más común y más frustrante de cualquier estudiante. La repetición espaciada existe precisamente para romper ese patrón, distribuyendo el repaso en el tiempo en lugar de concentrarlo todo antes del examen.</p>
             <p>Esta guía explica cómo armar un calendario de repaso espaciado sin depender de una aplicación específica ni memorizar un algoritmo matemático, adaptándolo a la carga real de materias de cada estudiante.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La repetición espaciada consiste en repasar un tema en intervalos crecientes de tiempo —por ejemplo, un día después, luego tres días, luego una semana— en lugar de repasarlo de forma continua o solo la noche anterior al examen. Un calendario simple con recordatorios funciona igual de bien que aplicaciones especializadas para la mayoría de los estudiantes.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La repetición espaciada consiste en repasar un tema en intervalos crecientes de tiempo —por ejemplo, un día después, luego tres días, luego una semana— en lugar de repasarlo de forma continua o solo la noche anterior al examen. Un calendario simple con recordatorios funciona igual de bien que aplicaciones especializadas para la mayoría de los estudiantes.</p>
+                </aside>
 
-            <h2>Por qué el olvido es predecible y se puede anticipar</h2>
-            <p>La memoria no se pierde de forma aleatoria: existe un patrón bastante consistente de olvido que ocurre más rápido en los primeros días después de aprender algo, y luego se estabiliza si hay repaso oportuno. Repasar justo antes de que el olvido se acelere consolida la información de forma más eficiente que repasar cuando ya se olvidó casi todo.</p>
-            <p>Esta lógica explica por qué estudiar todo la noche anterior al examen produce memoria de corto plazo suficiente para aprobar, pero se pierde rápidamente después: nunca hubo un repaso espaciado que consolidara la información a largo plazo.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué el olvido es predecible y se puede anticipar</h2>
+                <p>La memoria no se pierde de forma aleatoria: existe un patrón bastante consistente de olvido que ocurre más rápido en los primeros días después de aprender algo, y luego se estabiliza si hay repaso oportuno. Repasar justo antes de que el olvido se acelere consolida la información de forma más eficiente que repasar cuando ya se olvidó casi todo.</p>
+                <p>Esta lógica explica por qué estudiar todo la noche anterior al examen produce memoria de corto plazo suficiente para aprobar, pero se pierde rápidamente después: nunca hubo un repaso espaciado que consolidara la información a largo plazo.</p>
+            </section>
 
-            <h2>Cómo armar un calendario de repaso simple</h2>
-            <p>No es necesario un sistema complejo. Un esquema básico funcional es repasar un tema un día después de aprenderlo por primera vez, de nuevo a los tres días, y una vez más a la semana. Si en cualquiera de esos repasos el tema se recuerda con facilidad, el siguiente intervalo puede alargarse; si resulta difícil, conviene acortarlo.</p>
-            <p>Este calendario puede llevarse en una libreta, en el calendario del teléfono, o en una hoja de cálculo simple con columnas por tema y fecha de próximo repaso. La herramienta específica importa menos que la consistencia de seguirla.</p>
-            <ol>
-                <li>Primer repaso: un día después de estudiar el tema por primera vez.</li>
-                <li>Segundo repaso: tres días después del primer repaso.</li>
-                <li>Tercer repaso: una semana después del segundo repaso.</li>
-                <li>Ajustar los intervalos según qué tan fácil o difícil resultó recordar cada vez.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Cómo armar un calendario de repaso simple</h2>
+                <p>No es necesario un sistema complejo. Un esquema básico funcional es repasar un tema un día después de aprenderlo por primera vez, de nuevo a los tres días, y una vez más a la semana. Si en cualquiera de esos repasos el tema se recuerda con facilidad, el siguiente intervalo puede alargarse; si resulta difícil, conviene acortarlo.</p>
+                <p>Este calendario puede llevarse en una libreta, en el calendario del teléfono, o en una hoja de cálculo simple con columnas por tema y fecha de próximo repaso. La herramienta específica importa menos que la consistencia de seguirla.</p>
+                <ol>
+                    <li>Primer repaso: un día después de estudiar el tema por primera vez.</li>
+                    <li>Segundo repaso: tres días después del primer repaso.</li>
+                    <li>Tercer repaso: una semana después del segundo repaso.</li>
+                    <li>Ajustar los intervalos según qué tan fácil o difícil resultó recordar cada vez.</li>
+                </ol>
+            </section>
 
-            <h2>Cómo priorizar cuando hay muchas materias simultáneas</h2>
-            <p>Con varias materias activas al mismo tiempo, seguir un calendario de repaso espaciado para todo puede sentirse abrumador. Una solución práctica es priorizar los temas identificados como más difíciles o con mayor peso en la evaluación próxima, dejando temas ya dominados con intervalos más largos entre repasos.</p>
-            <p>Distribuir distintos temas en distintos días de la semana, en lugar de intentar repasar todo cada día, hace el sistema más manejable sin perder el principio central de espaciar el repaso en el tiempo.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo priorizar cuando hay muchas materias simultáneas</h2>
+                <p>Con varias materias activas al mismo tiempo, seguir un calendario de repaso espaciado para todo puede sentirse abrumador. Una solución práctica es priorizar los temas identificados como más difíciles o con mayor peso en la evaluación próxima, dejando temas ya dominados con intervalos más largos entre repasos.</p>
+                <p>Distribuir distintos temas en distintos días de la semana, en lugar de intentar repasar todo cada día, hace el sistema más manejable sin perder el principio central de espaciar el repaso en el tiempo.</p>
+            </section>
 
-            <h2>Repetición espaciada combinada con recuerdo activo</h2>
-            <p>La repetición espaciada funciona mejor cuando cada repaso incluye un intento de recuerdo activo —responder preguntas sin apoyo— en lugar de simplemente releer el material de nuevo. Espaciar en el tiempo una relectura pasiva ayuda menos que espaciar intentos genuinos de recordar sin ver el material.</p>
-            <p>Combinar ambas técnicas no requiere doble esfuerzo: cada sesión de repaso espaciado puede consistir simplemente en intentar responder las preguntas de práctica creadas previamente sobre ese tema.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Repetición espaciada combinada con recuerdo activo</h2>
+                <p>La repetición espaciada funciona mejor cuando cada repaso incluye un intento de recuerdo activo —responder preguntas sin apoyo— en lugar de simplemente releer el material de nuevo. Espaciar en el tiempo una relectura pasiva ayuda menos que espaciar intentos genuinos de recordar sin ver el material.</p>
+                <p>Combinar ambas técnicas no requiere doble esfuerzo: cada sesión de repaso espaciado puede consistir simplemente en intentar responder las preguntas de práctica creadas previamente sobre ese tema.</p>
+            </section>
 
-            <h2>Cuándo usar una aplicación en lugar de un calendario manual</h2>
-            <p>Para materias con mucho contenido memorístico —vocabulario de otro idioma, nomenclatura, fechas históricas— aplicaciones de repetición espaciada que calculan automáticamente el siguiente intervalo pueden ahorrar tiempo de planeación. Para contenido conceptual que requiere comprensión más que memorización pura, un calendario manual simple suele ser suficiente.</p>
-            <p>No hay necesidad de adoptar una herramienta compleja si el calendario manual ya se está siguiendo de forma consistente; el principal beneficio viene de espaciar el repaso, no de la sofisticación de la herramienta usada para organizarlo.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cuándo usar una aplicación en lugar de un calendario manual</h2>
+                <p>Para materias con mucho contenido memorístico —vocabulario de otro idioma, nomenclatura, fechas históricas— aplicaciones de repetición espaciada que calculan automáticamente el siguiente intervalo pueden ahorrar tiempo de planeación. Para contenido conceptual que requiere comprensión más que memorización pura, un calendario manual simple suele ser suficiente.</p>
+                <p>No hay necesidad de adoptar una herramienta compleja si el calendario manual ya se está siguiendo de forma consistente; el principal beneficio viene de espaciar el repaso, no de la sofisticación de la herramienta usada para organizarlo.</p>
+            </section>
 
-            <h2>Errores frecuentes al intentar aplicar repetición espaciada</h2>
-            <p>El error más común es empezar el sistema solo cuando ya se acerca el examen, sin tiempo suficiente para varios ciclos de repaso espaciado. Otro error es abandonar el calendario tras la primera o segunda semana por falta de constancia, perdiendo el beneficio acumulativo del sistema.</p>
-            <p>También es un error tratar cada repaso como una relectura pasiva en lugar de un intento activo de recordar; sin ese componente de recuperación, el espaciamiento por sí solo pierde buena parte de su efectividad.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Errores frecuentes al intentar aplicar repetición espaciada</h2>
+                <p>El error más común es empezar el sistema solo cuando ya se acerca el examen, sin tiempo suficiente para varios ciclos de repaso espaciado. Otro error es abandonar el calendario tras la primera o segunda semana por falta de constancia, perdiendo el beneficio acumulativo del sistema.</p>
+                <p>También es un error tratar cada repaso como una relectura pasiva en lugar de un intento activo de recordar; sin ese componente de recuperación, el espaciamiento por sí solo pierde buena parte de su efectividad.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Conoce Memoria Prodigiosa de Ultravelozmente</h3>
-                <p>Si quieres aprender a construir tu propio sistema de repetición espaciada adaptado a tus materias, nuestro programa te acompaña con ejercicios y seguimiento estructurado.</p>
-                <a href="/memoria-prodigiosa" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso de memoria para estudiantes <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Conoce Memoria Prodigiosa de Ultravelozmente</h2>
+                    <p>Si quieres aprender a construir tu propio sistema de repetición espaciada adaptado a tus materias, nuestro programa te acompaña con ejercicios y seguimiento estructurado.</p>
+                    <a href="/memoria-prodigiosa" class="btn-primary">
+                        Curso de memoria para estudiantes <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito una aplicación especial para repetición espaciada?</h3>
-                <p>No es obligatorio. Un calendario simple con fechas de repaso funciona bien para la mayoría de los temas escolares. Las aplicaciones son más útiles para contenido con mucha memorización pura, como vocabulario extenso.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo antes del examen debo empezar a espaciar el repaso?</h3>
-                <p>Idealmente, desde que se aprende el tema por primera vez, no solo cuando se acerca el examen. Empezar con suficiente anticipación permite completar varios ciclos de repaso espaciado antes de la evaluación.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si olvidé por completo un tema que ya había repasado antes?</h3>
-                <p>Vuelve a estudiarlo desde el inicio y reinicia el calendario de repaso para ese tema específico. Olvidar un tema no invalida el sistema; simplemente indica que ese contenido necesita más ciclos de repaso.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunloskyimprovinglearning.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. – Improving Students' Learning With Effective Learning Techniques</a> — Referencia sobre la repetición espaciada como técnica de alto impacto</li>
-                <li><a href="https://www.cambridgeinternational.org/support-and-training-for-schools/teaching-cambridge-at-your-school/study-skills/" target="_blank" rel="noopener noreferrer">Universidad de Cambridge — Study Skills</a> — Guía sobre organización del tiempo de estudio distribuido</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito una aplicación especial para repetición espaciada?</h3>
+                    <p>No es obligatorio. Un calendario simple con fechas de repaso funciona bien para la mayoría de los temas escolares. Las aplicaciones son más útiles para contenido con mucha memorización pura, como vocabulario extenso.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo antes del examen debo empezar a espaciar el repaso?</h3>
+                    <p>Idealmente, desde que se aprende el tema por primera vez, no solo cuando se acerca el examen. Empezar con suficiente anticipación permite completar varios ciclos de repaso espaciado antes de la evaluación.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si olvidé por completo un tema que ya había repasado antes?</h3>
+                    <p>Vuelve a estudiarlo desde el inicio y reinicia el calendario de repaso para ese tema específico. Olvidar un tema no invalida el sistema; simplemente indica que ese contenido necesita más ciclos de repaso.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunloskyimprovinglearning.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. – Improving Students' Learning With Effective Learning Techniques</a> — Referencia sobre la repetición espaciada como técnica de alto impacto</li>
+                    <li><a href="https://www.cambridgeinternational.org/support-and-training-for-schools/teaching-cambridge-at-your-school/study-skills/" target="_blank" rel="noopener noreferrer">Universidad de Cambridge — Study Skills</a> — Guía sobre organización del tiempo de estudio distribuido</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -481,8 +556,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué el olvido es predecible y se puede anticipar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cómo armar un calendario de repaso simple
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo priorizar cuando hay muchas materias simultáneas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Repetición espaciada combinada con recuerdo activo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuándo usar una aplicación en lugar de un calendario manual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores frecuentes al intentar aplicar repetición espaciada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>4 min restantes</span>
+                        <span>Lectura estimada: 4 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

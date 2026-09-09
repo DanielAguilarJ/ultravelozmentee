@@ -362,159 +362,257 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Ventajas y desventajas reales de los sistemas de productividad</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Ventajas y desventajas reales de los sistemas de productividad</h1>
+                <p class="blog-post-dek">Ventajas y desventajas reales de aplicar sistemas de productividad al estudio: qué aportan, qué riesgos traen y cómo equilibrarlos sin caer en la rigidez.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Ventajas y desventajas reales de los sistemas de productividad" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Los artículos sobre hábitos de estudio suelen presentar solo el lado positivo, y eso deja al estudiante sin herramientas cuando aparecen los efectos secundarios: la semana en que el plan se rompe, la hoja de registro que se vuelve una obligación más, la culpa de no haber cumplido.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Ventaja: reduce el trabajo de última hora
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Ventaja: convierte decisiones diarias en rutina
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Ventaja: produce evidencia de lo que se domina
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Desventaja: el sistema puede consumir el tiempo del estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Desventaja: rigidez frente a imprevistos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Desventaja: la culpa y la comparación con el plan ideal
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo aplicado: un sistema que se corrigió a la mitad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Los artículos sobre hábitos de estudio suelen presentar solo el lado positivo, y eso deja al estudiante sin herramientas cuando aparecen los efectos secundarios: la semana en que el plan se rompe, la hoja de registro que se vuelve una obligación más, la culpa de no haber cumplido.</p>
             <p>Conocer las desventajas no es un argumento para no organizarse; es lo que permite diseñar un sistema que resista una mala semana. Este artículo pone las dos columnas lado a lado y propone cómo equilibrarlas.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Las ventajas de trabajar la productividad estudiantil son claras: menos trabajo de última hora, decisiones más simples y evidencia de qué se domina. Las desventajas aparecen cuando el sistema se vuelve un fin en sí mismo: tiempo gastado en administrar en lugar de estudiar, rigidez frente a imprevistos y la sensación de fracaso cuando una semana no se cumple.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Las ventajas de trabajar la productividad estudiantil son claras: menos trabajo de última hora, decisiones más simples y evidencia de qué se domina. Las desventajas aparecen cuando el sistema se vuelve un fin en sí mismo: tiempo gastado en administrar en lugar de estudiar, rigidez frente a imprevistos y la sensación de fracaso cuando una semana no se cumple.</p>
+                </aside>
 
-            <h2>Ventaja: reduce el trabajo de última hora</h2>
-            <p>El beneficio más inmediato y más fácil de observar es la desaparición de las noches largas antes de una entrega. Cuando el temario se reparte con anticipación, el día previo se usa para revisar errores y no para conocer contenido por primera vez.</p>
-            <p>Este cambio tiene un efecto secundario poco comentado: mejora el sueño en periodos de exámenes, y el descanso afecta directamente la capacidad de recuperar información durante la prueba.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Ventaja: reduce el trabajo de última hora</h2>
+                <p>El beneficio más inmediato y más fácil de observar es la desaparición de las noches largas antes de una entrega. Cuando el temario se reparte con anticipación, el día previo se usa para revisar errores y no para conocer contenido por primera vez.</p>
+                <p>Este cambio tiene un efecto secundario poco comentado: mejora el sueño en periodos de exámenes, y el descanso afecta directamente la capacidad de recuperar información durante la prueba.</p>
+            </section>
 
-            <h2>Ventaja: convierte decisiones diarias en rutina</h2>
-            <p>Cada decisión consume energía mental. Si el horario, el lugar y el orden de las materias ya están definidos, el estudiante entra al bloque sin gastar nada en decidir por dónde empezar, y esa energía queda disponible para el contenido.</p>
-            <p>La rutina también reduce la negociación diaria en casa. Cuando el bloque de estudio es parte del día como la comida o el traslado, deja de ser un tema que se discute cada tarde.</p>
-            <ul>
-                <li>Menos energía gastada en decidir qué estudiar primero.</li>
-                <li>Menos negociación diaria con la familia sobre horarios.</li>
-                <li>Arranque más rápido del bloque porque el disparador ya es automático.</li>
-                <li>Menor dependencia de la motivación del día.</li>
-            </ul>
-
-            <h2>Ventaja: produce evidencia de lo que se domina</h2>
-            <p>Un sistema con registro deja información que la percepción no da. Saber qué temas se resolvieron en frío y cuáles fallaron permite decidir en qué invertir el último fin de semana antes de un examen, en lugar de repasar todo por igual.</p>
-            <p>Esa evidencia también cambia la conversación en casa: se discute sobre datos concretos —qué tema falló, qué día no se cumplió el bloque— y no sobre impresiones generales acerca del esfuerzo.</p>
-            <p>Hay una tercera consecuencia de tener evidencia: permite pedir ayuda con precisión. Un estudiante que llega con su docente diciendo que no entiende la materia recibe una explicación general; uno que llega señalando que falla los ejercicios de un tema específico cuando cambia el planteamiento recibe una respuesta directamente aplicable. La misma diferencia aplica al buscar apoyo externo.</p>
-            <ul>
-                <li>Saber qué temas se resolvieron sin apuntes y cuáles no.</li>
-                <li>Decidir el último repaso con datos en lugar de repasar todo por igual.</li>
-                <li>Pedir ayuda al docente sobre un punto concreto, no sobre la materia completa.</li>
-                <li>Distinguir un problema de método de un problema de base previa.</li>
-            </ul>
-
-            <h2>Desventaja: el sistema puede consumir el tiempo del estudio</h2>
-            <p>El riesgo más común es dedicar más atención a mantener el sistema que a estudiar. Rediseñar la plantilla, migrar a otra aplicación, colorear el calendario y actualizar registros produce la sensación de estar avanzando sin que se abra un libro.</p>
-            <p>El control práctico es un límite de tiempo: si la administración del sistema toma más de dos minutos al día, el sistema es demasiado complejo y hay que recortarlo, no perfeccionarlo.</p>
-            <ul>
-                <li>Señal de alarma: cambiar de herramienta más de una vez por mes.</li>
-                <li>Señal de alarma: registros muy detallados que nadie vuelve a leer.</li>
-                <li>Señal de alarma: dedicar el domingo a planear y no estudiar en la semana.</li>
-                <li>Control: límite de dos minutos diarios de administración.</li>
-            </ul>
-
-            <h2>Desventaja: rigidez frente a imprevistos</h2>
-            <p>Un plan calculado al minuto se rompe con una gripa, un cambio de fecha o un compromiso familiar. Si el sistema no tiene margen, el estudiante interpreta el imprevisto como fracaso propio y con frecuencia abandona todo el plan.</p>
-            <p>El antídoto es dejar holgura desde el diseño: bloques libres al final de cada semana, dos sesiones sin contenido asignado antes de cada examen y una regla explícita de qué hacer cuando se pierde un día. Un plan con margen sobrevive; un plan perfecto no.</p>
-            <ol>
-                <li>Al planear la semana, deja al menos un bloque sin contenido asignado.</li>
-                <li>Antes de un examen, reserva dos bloques finales solo para errores.</li>
-                <li>Define de antemano qué hacer si se pierde un día: recuperar, no duplicar.</li>
-                <li>Acepta el incumplimiento parcial como parte del plan, no como excepción.</li>
-                <li>Revisa el plan una vez por semana y ajusta el tamaño, no el número de bloques.</li>
-            </ol>
-
-            <h2>Desventaja: la culpa y la comparación con el plan ideal</h2>
-            <p>Medir tiene un costo emocional cuando el registro se lee como una calificación de la persona. Una semana con dos bloques cumplidos de cinco puede leerse como 'fallé' o como 'información sobre qué días no funcionan', y la lectura cambia la conducta de la semana siguiente.</p>
-            <p>Ayuda separar el registro de cualquier consecuencia disciplinaria y revisarlo siempre con la misma pregunta: qué dice esto sobre el diseño del plan, no sobre el carácter del estudiante. Cuando el registro se usa como evidencia para castigar, los datos se vuelven poco confiables de inmediato.</p>
-            <p>Si la organización del estudio se acompaña de ansiedad sostenida, insomnio o desánimo persistente durante varias semanas, conviene consultar a un profesional de salud mental o al área psicopedagógica de la escuela. Un sistema de estudio no es el instrumento adecuado para tratar esos casos.</p>
-
-            <h2>Ejemplo aplicado: un sistema que se corrigió a la mitad</h2>
-            <p>Un estudiante de preparatoria arma un sistema detallado para preparar sus exámenes finales: una hoja de cálculo con cada tema, cinco columnas de seguimiento, colores por materia y un plan de bloques por hora. Las primeras dos semanas funciona bien y siente que tiene todo bajo control.</p>
-            <p>En la tercera semana enferma dos días y el plan se descuadra por completo. Al intentar recuperar, tendría que duplicar bloques cinco días seguidos, algo que no es viable. Deja de llenar la hoja, y al dejar de llenarla también deja de estudiar en horario, porque las dos cosas estaban unidas.</p>
-            <p>El ajuste que lo saca del bache es recortar el sistema, no reconstruirlo. Cambia la hoja de cálculo por una hoja de papel con tres columnas, reduce el plan a un bloque diario con tema definido y agrega una regla explícita: los días perdidos no se recuperan, se retoma donde iba y los temas atrasados se acumulan en la lista de errores.</p>
-            <p>Termina el periodo con un sistema notablemente menos elegante y con mejores resultados que en semanas anteriores. La lección que se lleva no es que planear no sirva, sino que un plan debe estar diseñado para soportar los días en que no se cumple, porque esos días van a ocurrir.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Cuando el plan revela un tema que no avanza</h3>
-                <p>Una ventaja de registrar el estudio es que deja visible el tema que no mejora por más ajustes de horario que se hagan. El curso Regularización Express se enfoca justo ahí: ubicar el contenido pendiente y trabajarlo con ejercicios graduales hasta cerrarlo.</p>
-                <a href="/regularizacion-express" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer las clases de regularización <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Ventaja: convierte decisiones diarias en rutina</h2>
+                <p>Cada decisión consume energía mental. Si el horario, el lugar y el orden de las materias ya están definidos, el estudiante entra al bloque sin gastar nada en decidir por dónde empezar, y esa energía queda disponible para el contenido.</p>
+                <p>La rutina también reduce la negociación diaria en casa. Cuando el bloque de estudio es parte del día como la comida o el traslado, deja de ser un tema que se discute cada tarde.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-como-elegir">Cómo elegir un método de estudio según tu problema real</a></li>
-                <li><a href="/blog-productividad-estudiantil-como-medir-resultados">Cómo medir si un cambio en hábitos de estudio está funcionando</a></li>
-                <li><a href="/blog-productividad-estudiantil-errores-de-los-padres">Errores frecuentes de los padres al mejorar hábitos de estudio</a></li>
+                    <li>Menos energía gastada en decidir qué estudiar primero.</li>
+                    <li>Menos negociación diaria con la familia sobre horarios.</li>
+                    <li>Arranque más rápido del bloque porque el disparador ya es automático.</li>
+                    <li>Menor dependencia de la motivación del día.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Hay estudiantes a quienes no les conviene un sistema de organización?</h3>
-                <p>A casi todos les ayuda algún nivel de estructura, pero el nivel adecuado varía. Alguien que ya entrega con anticipación y retiene bien puede necesitar solo un calendario; imponerle un registro diario agrega costo sin beneficio.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si mi sistema se volvió demasiado complicado?</h3>
-                <p>Dos señales bastan: la administración toma más de dos minutos al día, o dejaste de llenarlo durante varios días sin darte cuenta. Cualquiera de las dos indica que conviene recortar el sistema a la mitad.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago cuando pierdo una semana completa?</h3>
-                <p>Retomar donde iba en lugar de intentar recuperar todo lo atrasado. Duplicar bloques para compensar suele terminar en abandono; es preferible mover los temas pendientes a la lista de repaso y ajustar el alcance del plan.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La organización quita espontaneidad al aprendizaje?</h3>
-                <p>Puede ocurrir si el plan ocupa todo el tiempo disponible. Conviene proteger espacio sin asignación para leer por curiosidad o profundizar en algo que llamó la atención, que es una parte legítima del aprendizaje.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Vale la pena organizarse si el periodo escolar ya está avanzado?</h3>
-                <p>Sí, aunque el alcance debe ajustarse. Con pocas semanas por delante conviene un plan mínimo: calendario de fechas, un bloque diario y lista de errores, en lugar de un sistema completo que tomaría más tiempo en montarse que en usarse.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Ventaja: produce evidencia de lo que se domina</h2>
+                <p>Un sistema con registro deja información que la percepción no da. Saber qué temas se resolvieron en frío y cuáles fallaron permite decidir en qué invertir el último fin de semana antes de un examen, en lugar de repasar todo por igual.</p>
+                <p>Esa evidencia también cambia la conversación en casa: se discute sobre datos concretos —qué tema falló, qué día no se cumplió el bloque— y no sobre impresiones generales acerca del esfuerzo.</p>
+                <p>Hay una tercera consecuencia de tener evidencia: permite pedir ayuda con precisión. Un estudiante que llega con su docente diciendo que no entiende la materia recibe una explicación general; uno que llega señalando que falla los ejercicios de un tema específico cuando cambia el planteamiento recibe una respuesta directamente aplicable. La misma diferencia aplica al buscar apoyo externo.</p>
+                <ul>
+                    <li>Saber qué temas se resolvieron sin apuntes y cuáles no.</li>
+                    <li>Decidir el último repaso con datos en lugar de repasar todo por igual.</li>
+                    <li>Pedir ayuda al docente sobre un punto concreto, no sobre la materia completa.</li>
+                    <li>Distinguir un problema de método de un problema de base previa.</li>
+                </ul>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Desventaja: el sistema puede consumir el tiempo del estudio</h2>
+                <p>El riesgo más común es dedicar más atención a mantener el sistema que a estudiar. Rediseñar la plantilla, migrar a otra aplicación, colorear el calendario y actualizar registros produce la sensación de estar avanzando sin que se abra un libro.</p>
+                <p>El control práctico es un límite de tiempo: si la administración del sistema toma más de dos minutos al día, el sistema es demasiado complejo y hay que recortarlo, no perfeccionarlo.</p>
+                <ul>
+                    <li>Señal de alarma: cambiar de herramienta más de una vez por mes.</li>
+                    <li>Señal de alarma: registros muy detallados que nadie vuelve a leer.</li>
+                    <li>Señal de alarma: dedicar el domingo a planear y no estudiar en la semana.</li>
+                    <li>Control: límite de dos minutos diarios de administración.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Desventaja: rigidez frente a imprevistos</h2>
+                <p>Un plan calculado al minuto se rompe con una gripa, un cambio de fecha o un compromiso familiar. Si el sistema no tiene margen, el estudiante interpreta el imprevisto como fracaso propio y con frecuencia abandona todo el plan.</p>
+                <p>El antídoto es dejar holgura desde el diseño: bloques libres al final de cada semana, dos sesiones sin contenido asignado antes de cada examen y una regla explícita de qué hacer cuando se pierde un día. Un plan con margen sobrevive; un plan perfecto no.</p>
+                <ol>
+                    <li>Al planear la semana, deja al menos un bloque sin contenido asignado.</li>
+                    <li>Antes de un examen, reserva dos bloques finales solo para errores.</li>
+                    <li>Define de antemano qué hacer si se pierde un día: recuperar, no duplicar.</li>
+                    <li>Acepta el incumplimiento parcial como parte del plan, no como excepción.</li>
+                    <li>Revisa el plan una vez por semana y ajusta el tamaño, no el número de bloques.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Desventaja: la culpa y la comparación con el plan ideal</h2>
+                <p>Medir tiene un costo emocional cuando el registro se lee como una calificación de la persona. Una semana con dos bloques cumplidos de cinco puede leerse como 'fallé' o como 'información sobre qué días no funcionan', y la lectura cambia la conducta de la semana siguiente.</p>
+                <p>Ayuda separar el registro de cualquier consecuencia disciplinaria y revisarlo siempre con la misma pregunta: qué dice esto sobre el diseño del plan, no sobre el carácter del estudiante. Cuando el registro se usa como evidencia para castigar, los datos se vuelven poco confiables de inmediato.</p>
+                <p>Si la organización del estudio se acompaña de ansiedad sostenida, insomnio o desánimo persistente durante varias semanas, conviene consultar a un profesional de salud mental o al área psicopedagógica de la escuela. Un sistema de estudio no es el instrumento adecuado para tratar esos casos.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Ejemplo aplicado: un sistema que se corrigió a la mitad</h2>
+                <p>Un estudiante de preparatoria arma un sistema detallado para preparar sus exámenes finales: una hoja de cálculo con cada tema, cinco columnas de seguimiento, colores por materia y un plan de bloques por hora. Las primeras dos semanas funciona bien y siente que tiene todo bajo control.</p>
+                <p>En la tercera semana enferma dos días y el plan se descuadra por completo. Al intentar recuperar, tendría que duplicar bloques cinco días seguidos, algo que no es viable. Deja de llenar la hoja, y al dejar de llenarla también deja de estudiar en horario, porque las dos cosas estaban unidas.</p>
+                <p>El ajuste que lo saca del bache es recortar el sistema, no reconstruirlo. Cambia la hoja de cálculo por una hoja de papel con tres columnas, reduce el plan a un bloque diario con tema definido y agrega una regla explícita: los días perdidos no se recuperan, se retoma donde iba y los temas atrasados se acumulan en la lista de errores.</p>
+                <p>Termina el periodo con un sistema notablemente menos elegante y con mejores resultados que en semanas anteriores. La lección que se lleva no es que planear no sirva, sino que un plan debe estar diseñado para soportar los días en que no se cumple, porque esos días van a ocurrir.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Cuando el plan revela un tema que no avanza</h2>
+                    <p>Una ventaja de registrar el estudio es que deja visible el tema que no mejora por más ajustes de horario que se hagan. El curso Regularización Express se enfoca justo ahí: ubicar el contenido pendiente y trabajarlo con ejercicios graduales hasta cerrarlo.</p>
+                    <a href="/regularizacion-express" class="btn-primary">
+                        Conocer las clases de regularización <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-como-elegir">
+                            <span>Cómo elegir un método de estudio según tu problema real</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-como-medir-resultados">
+                            <span>Cómo medir si un cambio en hábitos de estudio está funcionando</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-errores-de-los-padres">
+                            <span>Errores frecuentes de los padres al mejorar hábitos de estudio</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Hay estudiantes a quienes no les conviene un sistema de organización?</h3>
+                    <p>A casi todos les ayuda algún nivel de estructura, pero el nivel adecuado varía. Alguien que ya entrega con anticipación y retiene bien puede necesitar solo un calendario; imponerle un registro diario agrega costo sin beneficio.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si mi sistema se volvió demasiado complicado?</h3>
+                    <p>Dos señales bastan: la administración toma más de dos minutos al día, o dejaste de llenarlo durante varios días sin darte cuenta. Cualquiera de las dos indica que conviene recortar el sistema a la mitad.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago cuando pierdo una semana completa?</h3>
+                    <p>Retomar donde iba en lugar de intentar recuperar todo lo atrasado. Duplicar bloques para compensar suele terminar en abandono; es preferible mover los temas pendientes a la lista de repaso y ajustar el alcance del plan.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La organización quita espontaneidad al aprendizaje?</h3>
+                    <p>Puede ocurrir si el plan ocupa todo el tiempo disponible. Conviene proteger espacio sin asignación para leer por curiosidad o profundizar en algo que llamó la atención, que es una parte legítima del aprendizaje.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Vale la pena organizarse si el periodo escolar ya está avanzado?</h3>
+                    <p>Sí, aunque el alcance debe ajustarse. Con pocas semanas por delante conviene un plan mínimo: calendario de fechas, un bloque diario y lista de errores, en lugar de un sistema completo que tomaría más tiempo en montarse que en usarse.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -544,8 +642,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Ventaja: reduce el trabajo de última hora
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Ventaja: convierte decisiones diarias en rutina
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Ventaja: produce evidencia de lo que se domina
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Desventaja: el sistema puede consumir el tiempo del estudio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Desventaja: rigidez frente a imprevistos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Desventaja: la culpa y la comparación con el plan ideal
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo aplicado: un sistema que se corrigió a la mitad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

@@ -362,138 +362,231 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Metodologías de Aprendizaje
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo medir si una metodología de aprendizaje está funcionando</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Metodologías de Aprendizaje</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo medir si una metodología de aprendizaje está funcionando</h1>
+                <p class="blog-post-dek">Cómo medir si una metodología de aprendizaje está funcionando: indicadores más allá de la calificación, registro simple y comparación honesta.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Metodologías de Aprendizaje</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Cómo medir si una metodología de aprendizaje está funcionando" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Esperar exclusivamente a la siguiente calificación para saber si una metodología de aprendizaje está funcionando retrasa la respuesta semanas, y para entonces ya puede ser tarde para ajustar lo que no está rindiendo el beneficio esperado. Este artículo describe formas más inmediatas y confiables de medir el progreso mientras la técnica todavía está en marcha.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Medir mediante autoevaluación directa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Medir el tiempo que toma dominar un contenido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Medir la consistencia, no solo un resultado aislado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: construir un sistema de medición simple
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué hacer si la medición no muestra ninguna mejora
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Evitar indicadores que generan una falsa sensación de progreso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo comunicar este progreso a otros, si corresponde
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Esperar exclusivamente a la siguiente calificación para saber si una metodología de aprendizaje está funcionando retrasa la respuesta semanas, y para entonces ya puede ser tarde para ajustar lo que no está rindiendo el beneficio esperado. Este artículo describe formas más inmediatas y confiables de medir el progreso mientras la técnica todavía está en marcha.</p>
             <p>Ninguna de estas mediciones sustituye por completo a la calificación final, pero ofrecen una señal más temprana que permite ajustar el rumbo antes de que sea demasiado tarde.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Medir si una metodología de aprendizaje está funcionando requiere indicadores más inmediatos que la calificación final: cuánto se recuerda al autoevaluarse sin apoyo, cuánto tiempo toma dominar un contenido comparado con antes, y qué tan consistente es esa mejora a lo largo de varias semanas, no solo en un examen aislado.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Medir si una metodología de aprendizaje está funcionando requiere indicadores más inmediatos que la calificación final: cuánto se recuerda al autoevaluarse sin apoyo, cuánto tiempo toma dominar un contenido comparado con antes, y qué tan consistente es esa mejora a lo largo de varias semanas, no solo en un examen aislado.</p>
+                </aside>
 
-            <h2>Medir mediante autoevaluación directa</h2>
-            <p>La forma más directa de medir progreso es la autoevaluación misma: cerrar el material e intentar recordar o resolver contenido sin apoyo, registrando qué proporción se logra correctamente. Repetir esta medición cada semana, con el mismo tipo de ejercicio o pregunta, permite observar una tendencia clara de mejora o estancamiento.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Medir mediante autoevaluación directa</h2>
+                <p>La forma más directa de medir progreso es la autoevaluación misma: cerrar el material e intentar recordar o resolver contenido sin apoyo, registrando qué proporción se logra correctamente. Repetir esta medición cada semana, con el mismo tipo de ejercicio o pregunta, permite observar una tendencia clara de mejora o estancamiento.</p>
+            </section>
 
-            <h2>Medir el tiempo que toma dominar un contenido</h2>
-            <p>Otro indicador útil es comparar cuánto tiempo toma sentirse cómodo con un contenido nuevo, comparado con el tiempo que tomaba antes de aplicar la metodología actual. Si antes se necesitaban varias sesiones de repaso disperso para sentir dominio de un tema, y ahora se logra en menos sesiones con la nueva técnica, esa reducción de tiempo es una señal clara de mejora.</p>
-            <ul>
-                <li>Registrar cuántas sesiones toma sentirse cómodo con un contenido nuevo.</li>
-                <li>Comparar ese número con el tiempo que tomaba antes de la técnica actual.</li>
-                <li>Repetir la medición con distintos temas para confirmar el patrón.</li>
-                <li>Ajustar la técnica si el tiempo no muestra ninguna reducción después de varias semanas.</li>
-            </ul>
-
-            <h2>Medir la consistencia, no solo un resultado aislado</h2>
-            <p>Un solo examen con buen resultado no confirma que la metodología esté funcionando de forma consistente; puede deberse a un examen particularmente fácil o a un tema que ya se dominaba de antes. Medir la consistencia a lo largo de varias semanas o varias evaluaciones distintas ofrece evidencia más confiable que un solo dato aislado.</p>
-
-            <h2>Ejemplo aplicado: construir un sistema de medición simple</h2>
-            <p>Un estudiante de bachillerato que aplicaba enseñanza simulada para química decidió construir un sistema simple de medición para saber si la técnica realmente estaba funcionando. Cada semana, grababa una explicación de un tema distinto en voz alta y anotaba en una libreta cuántas veces titubeaba o se quedaba callado durante esa explicación, como indicador aproximado de comprensión.</p>
-            <p>En las primeras dos semanas, el número de titubeos era relativamente alto y consistente entre distintos temas. A partir de la tercera semana, notó una reducción gradual en ese número, especialmente en temas relacionados con conceptos que ya había explicado anteriormente, lo que sugería que la práctica repetida estaba mejorando su fluidez de comprensión.</p>
-            <p>Para confirmar que esta mejora no era casualidad, mantuvo el registro durante seis semanas completas, comparando el promedio de titubeos de las primeras dos semanas con el promedio de las últimas dos. La reducción consistente entre ambos periodos, más allá de la variación normal entre temas individuales, le dio evidencia razonable de que la técnica estaba rindiendo el beneficio esperado.</p>
-            <p>Este sistema de medición, simple y sin ninguna herramienta sofisticada, le permitió confirmar el progreso mucho antes de que llegara cualquier examen formal de química, y sostener su confianza en la técnica durante las semanas en que todavía no tenía una calificación que lo confirmara.</p>
-
-            <h2>Qué hacer si la medición no muestra ninguna mejora</h2>
-            <p>Si después de varias semanas de medición consistente no se observa ninguna tendencia de mejora, conviene revisar si la técnica se está aplicando correctamente, si el indicador elegido realmente refleja el tipo de progreso esperado, o si es momento de ajustar o cambiar de metodología.</p>
-            <ol>
-                <li>Revisar si la técnica se aplicó con la consistencia necesaria durante el periodo medido.</li>
-                <li>Confirmar que el indicador elegido realmente refleja el progreso esperado.</li>
-                <li>Considerar un ajuste a la técnica antes de descartarla por completo.</li>
-                <li>Si el ajuste tampoco produce mejora, considerar una metodología distinta.</li>
-            </ol>
-
-            <h2>Evitar indicadores que generan una falsa sensación de progreso</h2>
-            <p>Algunos indicadores, aunque parecen razonables, pueden generar una falsa sensación de mejora: por ejemplo, sentirse más cómodo con la técnica misma no equivale necesariamente a comprender mejor el contenido. Es importante distinguir entre comodidad con el proceso de estudio y dominio real del contenido, midiendo específicamente este último.</p>
-
-            <h2>Cómo comunicar este progreso a otros, si corresponde</h2>
-            <p>Si un padre, tutor o profesor está involucrado en el acompañamiento del estudio, compartir estos indicadores intermedios —no solo la calificación final— ayuda a que la conversación sobre el progreso se base en evidencia concreta observada durante el proceso, en lugar de depender únicamente del resultado de la siguiente evaluación formal.</p>
-            <p>Esta forma de comunicar el progreso también reduce la ansiedad asociada a las calificaciones, porque desplaza el foco de la conversación hacia el proceso de mejora observable semana a semana, en lugar de concentrar toda la evaluación del esfuerzo en un solo número que llega al final del periodo.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De medir tu progreso a mejorar tu velocidad de lectura</h3>
-                <p>Si buscas una técnica cuyo progreso puedas medir con claridad desde las primeras semanas, nuestro programa de Fotolectura incluye indicadores concretos de mejora en velocidad y comprensión de lectura.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso de lectura rápida <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Medir el tiempo que toma dominar un contenido</h2>
+                <p>Otro indicador útil es comparar cuánto tiempo toma sentirse cómodo con un contenido nuevo, comparado con el tiempo que tomaba antes de aplicar la metodología actual. Si antes se necesitaban varias sesiones de repaso disperso para sentir dominio de un tema, y ahora se logra en menos sesiones con la nueva técnica, esa reducción de tiempo es una señal clara de mejora.</p>
                 <ul>
-                <li><a href="/blog-metodologias-aprendizaje-por-que-importa">Por qué importa aplicar metodologías de aprendizaje conscientes</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-para-adolescentes">Metodologías de aprendizaje adaptadas a adolescentes</a></li>
+                    <li>Registrar cuántas sesiones toma sentirse cómodo con un contenido nuevo.</li>
+                    <li>Comparar ese número con el tiempo que tomaba antes de la técnica actual.</li>
+                    <li>Repetir la medición con distintos temas para confirmar el patrón.</li>
+                    <li>Ajustar la técnica si el tiempo no muestra ninguna reducción después de varias semanas.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Con qué frecuencia debería medir mi progreso?</h3>
-                <p>Una medición semanal suele ser suficiente para notar tendencias reales sin generar una carga adicional significativa al proceso de estudio. Medir todos los días puede generar ansiedad innecesaria por fluctuaciones normales de un día a otro.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito herramientas especiales para medir mi progreso?</h3>
-                <p>No, una libreta simple donde se registre el indicador elegido —proporción de aciertos en autoevaluación, número de sesiones para dominar un tema, titubeos en una explicación— es suficiente para la mayoría de los casos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi medición muestra mejora pero mi calificación no?</h3>
-                <p>Puede indicar que la organización mejoró pero hay otro factor —comprensión de un tipo específico de pregunta, ansiedad ante exámenes— que afecta la calificación de forma independiente al progreso medido. Vale la pena investigar esa discrepancia con más detalle.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo usar el mismo sistema de medición para distintas técnicas?</h3>
-                <p>Depende de la técnica; el indicador debe ajustarse a lo que realmente mide progreso en esa metodología específica. Para autoevaluación, la proporción de aciertos funciona bien; para enseñanza simulada, contar titubeos puede ser más relevante. Adaptar el indicador a cada técnica, en lugar de forzar el mismo criterio para todas, produce medidas más útiles.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debo medir antes de tomar una decisión sobre la técnica?</h3>
-                <p>Al menos cuatro a seis semanas de medición consistente ofrecen una base más confiable que decidir con solo una o dos semanas de datos, que pueden estar influidas por variaciones normales del proceso de adaptación inicial. Extender la medición más allá de ese plazo, si hay dudas, no hace daño y suele aclarar el panorama.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Medir la consistencia, no solo un resultado aislado</h2>
+                <p>Un solo examen con buen resultado no confirma que la metodología esté funcionando de forma consistente; puede deberse a un examen particularmente fácil o a un tema que ya se dominaba de antes. Medir la consistencia a lo largo de varias semanas o varias evaluaciones distintas ofrece evidencia más confiable que un solo dato aislado.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: construir un sistema de medición simple</h2>
+                <p>Un estudiante de bachillerato que aplicaba enseñanza simulada para química decidió construir un sistema simple de medición para saber si la técnica realmente estaba funcionando. Cada semana, grababa una explicación de un tema distinto en voz alta y anotaba en una libreta cuántas veces titubeaba o se quedaba callado durante esa explicación, como indicador aproximado de comprensión.</p>
+                <p>En las primeras dos semanas, el número de titubeos era relativamente alto y consistente entre distintos temas. A partir de la tercera semana, notó una reducción gradual en ese número, especialmente en temas relacionados con conceptos que ya había explicado anteriormente, lo que sugería que la práctica repetida estaba mejorando su fluidez de comprensión.</p>
+                <p>Para confirmar que esta mejora no era casualidad, mantuvo el registro durante seis semanas completas, comparando el promedio de titubeos de las primeras dos semanas con el promedio de las últimas dos. La reducción consistente entre ambos periodos, más allá de la variación normal entre temas individuales, le dio evidencia razonable de que la técnica estaba rindiendo el beneficio esperado.</p>
+                <p>Este sistema de medición, simple y sin ninguna herramienta sofisticada, le permitió confirmar el progreso mucho antes de que llegara cualquier examen formal de química, y sostener su confianza en la técnica durante las semanas en que todavía no tenía una calificación que lo confirmara.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Qué hacer si la medición no muestra ninguna mejora</h2>
+                <p>Si después de varias semanas de medición consistente no se observa ninguna tendencia de mejora, conviene revisar si la técnica se está aplicando correctamente, si el indicador elegido realmente refleja el tipo de progreso esperado, o si es momento de ajustar o cambiar de metodología.</p>
+                <ol>
+                    <li>Revisar si la técnica se aplicó con la consistencia necesaria durante el periodo medido.</li>
+                    <li>Confirmar que el indicador elegido realmente refleja el progreso esperado.</li>
+                    <li>Considerar un ajuste a la técnica antes de descartarla por completo.</li>
+                    <li>Si el ajuste tampoco produce mejora, considerar una metodología distinta.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Evitar indicadores que generan una falsa sensación de progreso</h2>
+                <p>Algunos indicadores, aunque parecen razonables, pueden generar una falsa sensación de mejora: por ejemplo, sentirse más cómodo con la técnica misma no equivale necesariamente a comprender mejor el contenido. Es importante distinguir entre comodidad con el proceso de estudio y dominio real del contenido, midiendo específicamente este último.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo comunicar este progreso a otros, si corresponde</h2>
+                <p>Si un padre, tutor o profesor está involucrado en el acompañamiento del estudio, compartir estos indicadores intermedios —no solo la calificación final— ayuda a que la conversación sobre el progreso se base en evidencia concreta observada durante el proceso, en lugar de depender únicamente del resultado de la siguiente evaluación formal.</p>
+                <p>Esta forma de comunicar el progreso también reduce la ansiedad asociada a las calificaciones, porque desplaza el foco de la conversación hacia el proceso de mejora observable semana a semana, en lugar de concentrar toda la evaluación del esfuerzo en un solo número que llega al final del periodo.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De medir tu progreso a mejorar tu velocidad de lectura</h2>
+                    <p>Si buscas una técnica cuyo progreso puedas medir con claridad desde las primeras semanas, nuestro programa de Fotolectura incluye indicadores concretos de mejora en velocidad y comprensión de lectura.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Conocer el curso de lectura rápida <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-por-que-importa">
+                            <span>Por qué importa aplicar metodologías de aprendizaje conscientes</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-para-adolescentes">
+                            <span>Metodologías de aprendizaje adaptadas a adolescentes</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Con qué frecuencia debería medir mi progreso?</h3>
+                    <p>Una medición semanal suele ser suficiente para notar tendencias reales sin generar una carga adicional significativa al proceso de estudio. Medir todos los días puede generar ansiedad innecesaria por fluctuaciones normales de un día a otro.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito herramientas especiales para medir mi progreso?</h3>
+                    <p>No, una libreta simple donde se registre el indicador elegido —proporción de aciertos en autoevaluación, número de sesiones para dominar un tema, titubeos en una explicación— es suficiente para la mayoría de los casos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi medición muestra mejora pero mi calificación no?</h3>
+                    <p>Puede indicar que la organización mejoró pero hay otro factor —comprensión de un tipo específico de pregunta, ansiedad ante exámenes— que afecta la calificación de forma independiente al progreso medido. Vale la pena investigar esa discrepancia con más detalle.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo usar el mismo sistema de medición para distintas técnicas?</h3>
+                    <p>Depende de la técnica; el indicador debe ajustarse a lo que realmente mide progreso en esa metodología específica. Para autoevaluación, la proporción de aciertos funciona bien; para enseñanza simulada, contar titubeos puede ser más relevante. Adaptar el indicador a cada técnica, en lugar de forzar el mismo criterio para todas, produce medidas más útiles.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debo medir antes de tomar una decisión sobre la técnica?</h3>
+                    <p>Al menos cuatro a seis semanas de medición consistente ofrecen una base más confiable que decidir con solo una o dos semanas de datos, que pueden estar influidas por variaciones normales del proceso de adaptación inicial. Extender la medición más allá de ese plazo, si hay dudas, no hace daño y suele aclarar el panorama.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -523,8 +616,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Medir mediante autoevaluación directa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Medir el tiempo que toma dominar un contenido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Medir la consistencia, no solo un resultado aislado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: construir un sistema de medición simple
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué hacer si la medición no muestra ninguna mejora
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Evitar indicadores que generan una falsa sensación de progreso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo comunicar este progreso a otros, si corresponde
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

@@ -362,149 +362,240 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-calculator"></i> MatheKids
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Qué es el sentido numérico y cómo desarrollarlo</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 8 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">MatheKids</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Qué es el sentido numérico y cómo desarrollarlo</h1>
+                <p class="blog-post-dek">Qué es el sentido del número en los niños y cómo desarrollarlo: la intuición de cantidad que permite estimar, comparar y detectar resultados absurdos.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">MatheKids</span>
+                    <span>Publicado <time datetime="2026-09-08">8 de Septiembre, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/mk-hero-kid.webp" alt="Qué es el sentido numérico y cómo desarrollarlo" width="1024" height="1024" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Hay niños que hacen las cuentas bien pero no notan cuando un resultado es absurdo, y otros que estiman con soltura aunque fallen algún cálculo. La diferencia se llama sentido del número, y entender qué es ayuda a ver por qué importa tanto y cómo desarrollarlo.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es el sentido numérico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Por qué el sentido del número es tan importante
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo se ve el sentido del número en un niño
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo desarrollar el sentido del número en casa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>La estimación, el corazón del sentido del número
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Sentido numérico y cálculo mental
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué evitar si quieres cultivar el sentido del número
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Hay niños que hacen las cuentas bien pero no notan cuando un resultado es absurdo, y otros que estiman con soltura aunque fallen algún cálculo. La diferencia se llama sentido del número, y entender qué es ayuda a ver por qué importa tanto y cómo desarrollarlo.</p>
             <p>Este artículo explica, sin tecnicismos, qué es el sentido del número, por qué es la base de casi todo en matemáticas y qué se puede hacer en casa para cultivarlo. No es un contenido que se estudie, sino una intuición que se construye con el tiempo y las experiencias adecuadas.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>El sentido numérico es la intuición sobre las cantidades: saber cuánto es mucho o poco, estimar sin calcular con exactitud, comparar números y darse cuenta de si un resultado es razonable. En los niños se desarrolla manipulando objetos, estimando, jugando con números y practicando cálculo mental, no memorizando. Es la base silenciosa de casi todo lo demás en matemáticas, porque quien lo tiene detecta errores y entiende lo que hace en vez de seguir pasos a ciegas.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>El sentido numérico es la intuición sobre las cantidades: saber cuánto es mucho o poco, estimar sin calcular con exactitud, comparar números y darse cuenta de si un resultado es razonable. En los niños se desarrolla manipulando objetos, estimando, jugando con números y practicando cálculo mental, no memorizando. Es la base silenciosa de casi todo lo demás en matemáticas, porque quien lo tiene detecta errores y entiende lo que hace en vez de seguir pasos a ciegas.</p>
+                </aside>
 
-            <h2>Qué es el sentido numérico</h2>
-            <p>El sentido del número es la comprensión intuitiva de los números y sus relaciones: saber que 98 está muy cerca de 100, que la mitad de 50 es 25 sin detenerse a calcular, o que sumar dos cantidades grandes no puede dar un número pequeño. Es una especie de sentido común numérico que funciona por debajo del cálculo formal.</p>
-            <p>No es lo mismo que saber operar. Un niño puede seguir correctamente los pasos de una resta y aun así no tener idea de si el resultado es razonable; ese niño tiene técnica pero le falta sentido del número. Al revés, un niño con buen sentido del número detecta que algo no cuadra aunque no recuerde el procedimiento exacto, y eso lo protege de errores grandes.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es el sentido numérico</h2>
+                <p>El sentido del número es la comprensión intuitiva de los números y sus relaciones: saber que 98 está muy cerca de 100, que la mitad de 50 es 25 sin detenerse a calcular, o que sumar dos cantidades grandes no puede dar un número pequeño. Es una especie de sentido común numérico que funciona por debajo del cálculo formal.</p>
+                <p>No es lo mismo que saber operar. Un niño puede seguir correctamente los pasos de una resta y aun así no tener idea de si el resultado es razonable; ese niño tiene técnica pero le falta sentido del número. Al revés, un niño con buen sentido del número detecta que algo no cuadra aunque no recuerde el procedimiento exacto, y eso lo protege de errores grandes.</p>
+            </section>
 
-            <h2>Por qué el sentido del número es tan importante</h2>
-            <p>El sentido del número es la base sobre la que se apoya casi todo lo demás en matemáticas. Un niño que entiende las cantidades aprende los procedimientos con significado, no como recetas sueltas, y por eso los recuerda mejor y los aplica en situaciones nuevas. Sin esa base, cada tema nuevo es un conjunto de pasos que hay que memorizar de cero.</p>
-            <p>También es una herramienta de verificación para toda la vida. Quien tiene sentido del número detecta cuándo una cuenta salió mal, cuándo un precio no cuadra o cuándo un resultado de la calculadora es imposible por un error de tecleo. Esa capacidad de darse cuenta es, en el mundo real, más útil que calcular rápido, y es justamente lo que una calculadora no puede dar.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Por qué el sentido del número es tan importante</h2>
+                <p>El sentido del número es la base sobre la que se apoya casi todo lo demás en matemáticas. Un niño que entiende las cantidades aprende los procedimientos con significado, no como recetas sueltas, y por eso los recuerda mejor y los aplica en situaciones nuevas. Sin esa base, cada tema nuevo es un conjunto de pasos que hay que memorizar de cero.</p>
+                <p>También es una herramienta de verificación para toda la vida. Quien tiene sentido del número detecta cuándo una cuenta salió mal, cuándo un precio no cuadra o cuándo un resultado de la calculadora es imposible por un error de tecleo. Esa capacidad de darse cuenta es, en el mundo real, más útil que calcular rápido, y es justamente lo que una calculadora no puede dar.</p>
+            </section>
 
-            <h2>Cómo se ve el sentido del número en un niño</h2>
-            <p>Reconocerlo ayuda a saber si se está desarrollando. Estas son señales de que un niño va construyendo sentido del número.</p>
-            <ul>
-                <li>Estima antes de calcular: dice más o menos cuánto será antes de operar.</li>
-                <li>Compara cantidades con soltura y sabe cuál es mayor y por cuánto, aproximadamente.</li>
-                <li>Descompone números con naturalidad: ve el 7 como 5 y 2, o el 100 como diez decenas.</li>
-                <li>Detecta resultados absurdos y dice esto no puede ser sin saber la respuesta exacta.</li>
-                <li>Usa varios caminos para una misma operación, no un solo procedimiento memorizado.</li>
-            </ul>
-
-            <h2>Cómo desarrollar el sentido del número en casa</h2>
-            <p>El sentido del número no se enseña con una lección, sino que se cultiva con experiencias frecuentes con cantidades. La buena noticia es que se hace con actividades cotidianas y sencillas, sin material especial.</p>
-            <ol>
-                <li>Anima a estimar antes de contar o calcular: cuántos crees que hay, y luego lo comprobamos.</li>
-                <li>Habla de los números en la vida diaria: distancias, precios, tiempos, repartos.</li>
-                <li>Juega a descomponer: de cuántas formas se puede formar el 10 con dos números.</li>
-                <li>Practica el cálculo mental corto y frecuente, que obliga a manejar las cantidades.</li>
-                <li>Comenta si un resultado es razonable en lugar de solo corregir si está bien o mal.</li>
-            </ol>
-
-            <h2>La estimación, el corazón del sentido del número</h2>
-            <p>Si hubiera que elegir una sola actividad para desarrollar el sentido del número, sería estimar. Estimar obliga al niño a manejar las cantidades de forma aproximada, a redondear y a razonar con órdenes de magnitud, que es exactamente el músculo del sentido del número. Y como no exige exactitud, quita la presión del acierto.</p>
-            <p>Se puede estimar casi todo: cuántas personas hay en una fila, cuánto costará el carrito, cuántos pasos hay hasta la puerta, cuánto tardará algo. Lo valioso no es acertar, sino el proceso de aproximar y luego comparar con la realidad. Con el tiempo, esas estimaciones se afinan y el niño desarrolla una intuición numérica cada vez más precisa.</p>
-
-            <h2>Sentido numérico y cálculo mental</h2>
-            <p>El sentido del número y el cálculo mental se alimentan mutuamente. El cálculo mental obliga a descomponer y recomponer números, lo que fortalece la intuición de cantidad; y a su vez, un buen sentido del número hace el cálculo mental más fácil, porque el niño elige caminos cortos en lugar de aplicar un solo procedimiento rígido.</p>
-            <p>Por eso, entrenar el cálculo mental es una de las vías más directas para desarrollar el sentido del número, siempre que se haga entendiendo y no memorizando. Métodos como el ábaco soroban trabajan justamente esa relación: el niño ve las cantidades, las manipula y aprende a operarlas con significado, construyendo intuición además de técnica.</p>
-            <p>Merece la pena insistir en un matiz: el orden importa. Si se empuja la velocidad del cálculo antes de que el niño entienda las cantidades, se corre el riesgo de fabricar rapidez sin sentido, es decir, un niño que opera veloz pero no nota cuando el resultado es imposible. Cuando, en cambio, el cálculo mental se construye sobre la comprensión de las cantidades, cada operación resuelta refuerza la intuición numérica, y cada mejora de la intuición hace el cálculo más ágil. Ese círculo, comprensión que alimenta agilidad y agilidad que devuelve comprensión, es exactamente lo que buscan los buenos métodos y lo que conviene cuidar en casa, resistiendo la tentación de premiar solo la prisa.</p>
-
-            <h2>Qué evitar si quieres cultivar el sentido del número</h2>
-            <p>Algunas prácticas comunes trabajan en contra del sentido del número sin que se note. Tenerlas presentes ayuda a no apagar justo lo que se quiere encender.</p>
-            <ul>
-                <li>Premiar solo la velocidad: la prisa empuja a memorizar en vez de entender.</li>
-                <li>Corregir únicamente si está bien o mal, sin preguntar si el resultado es razonable.</li>
-                <li>Enseñar procedimientos como recetas cerradas, sin conectar con el porqué.</li>
-                <li>Recurrir a la calculadora antes de que el niño estime y razone la cantidad.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Construye el sentido del número con método</h3>
-                <p>MatheKids desarrolla el sentido del número y el cálculo mental de niños de 6 a 12 años con el método del ábaco soroban, presencial en Cuautitlán Izcalli o en línea en vivo. Puedes conocerlo en una clase muestra gratuita.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer las clases de matemáticas <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo se ve el sentido del número en un niño</h2>
+                <p>Reconocerlo ayuda a saber si se está desarrollando. Estas son señales de que un niño va construyendo sentido del número.</p>
                 <ul>
-                <li><a href="/blog-beneficios-calculo-mental-ninos">Beneficios del cálculo mental para niños</a></li>
-                <li><a href="/blog-calculo-mental-ninos-ejercicios">Cálculo mental para niños: ejercicios breves por nivel</a></li>
-                <li><a href="/blog-juegos-matematicos-ninos-casa">Juegos de matemáticas para niños en casa</a></li>
-                <li><a href="/blog-abaco-soroban-que-es">Ábaco soroban: qué es y cómo ayuda a comprender el cálculo</a></li>
+                    <li>Estima antes de calcular: dice más o menos cuánto será antes de operar.</li>
+                    <li>Compara cantidades con soltura y sabe cuál es mayor y por cuánto, aproximadamente.</li>
+                    <li>Descompone números con naturalidad: ve el 7 como 5 y 2, o el 100 como diez decenas.</li>
+                    <li>Detecta resultados absurdos y dice esto no puede ser sin saber la respuesta exacta.</li>
+                    <li>Usa varios caminos para una misma operación, no un solo procedimiento memorizado.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El sentido del número se nace con él o se desarrolla?</h3>
-                <p>Se desarrolla. Todos los niños tienen una noción básica de cantidad muy temprano, pero el sentido del número maduro se construye con experiencias: manipular objetos, estimar, jugar con números y calcular entendiendo. No es un talento fijo, sino una intuición que crece con la práctica adecuada y el tiempo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿En qué se diferencia de saber calcular?</h3>
-                <p>Calcular es aplicar procedimientos para obtener un resultado exacto; el sentido del número es la intuición de si ese resultado es razonable y de cómo se relacionan las cantidades. Un niño puede calcular bien sin sentido del número, y entonces no detecta errores grandes. Lo ideal es desarrollar ambos, porque se apoyan mutuamente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad se desarrolla el sentido del número?</h3>
-                <p>Empieza muy pronto, con la noción de más y menos, y se afina durante toda la primaria y más allá. No hay una edad en la que se complete: cada etapa añade matices, de contar objetos a estimar con grandes números. Lo importante es alimentarlo de forma continua con actividades adecuadas a cada edad.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo desarrollo el sentido del número sin material especial?</h3>
-                <p>Con la vida diaria: estimar antes de contar, hablar de precios y repartos, descomponer números al jugar y comentar si un resultado es razonable. La estimación frecuente es la actividad más potente y no cuesta nada. Lo que importa es la constancia y el enfoque en entender, no un material concreto.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El cálculo mental ayuda al sentido del número?</h3>
-                <p>Sí, mucho, siempre que se practique entendiendo y no memorizando. El cálculo mental obliga a descomponer y recomponer cantidades, lo que fortalece la intuición numérica; y un buen sentido del número, a su vez, facilita el cálculo mental. Métodos como el ábaco trabajan esa relación de forma directa.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Cómo desarrollar el sentido del número en casa</h2>
+                <p>El sentido del número no se enseña con una lección, sino que se cultiva con experiencias frecuentes con cantidades. La buena noticia es que se hace con actividades cotidianas y sencillas, sin material especial.</p>
+                <ol>
+                    <li>Anima a estimar antes de contar o calcular: cuántos crees que hay, y luego lo comprobamos.</li>
+                    <li>Habla de los números en la vida diaria: distancias, precios, tiempos, repartos.</li>
+                    <li>Juega a descomponer: de cuántas formas se puede formar el 10 con dos números.</li>
+                    <li>Practica el cálculo mental corto y frecuente, que obliga a manejar las cantidades.</li>
+                    <li>Comenta si un resultado es razonable en lugar de solo corregir si está bien o mal.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">La estimación, el corazón del sentido del número</h2>
+                <p>Si hubiera que elegir una sola actividad para desarrollar el sentido del número, sería estimar. Estimar obliga al niño a manejar las cantidades de forma aproximada, a redondear y a razonar con órdenes de magnitud, que es exactamente el músculo del sentido del número. Y como no exige exactitud, quita la presión del acierto.</p>
+                <p>Se puede estimar casi todo: cuántas personas hay en una fila, cuánto costará el carrito, cuántos pasos hay hasta la puerta, cuánto tardará algo. Lo valioso no es acertar, sino el proceso de aproximar y luego comparar con la realidad. Con el tiempo, esas estimaciones se afinan y el niño desarrolla una intuición numérica cada vez más precisa.</p>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Sentido numérico y cálculo mental</h2>
+                <p>El sentido del número y el cálculo mental se alimentan mutuamente. El cálculo mental obliga a descomponer y recomponer números, lo que fortalece la intuición de cantidad; y a su vez, un buen sentido del número hace el cálculo mental más fácil, porque el niño elige caminos cortos en lugar de aplicar un solo procedimiento rígido.</p>
+                <p>Por eso, entrenar el cálculo mental es una de las vías más directas para desarrollar el sentido del número, siempre que se haga entendiendo y no memorizando. Métodos como el ábaco soroban trabajan justamente esa relación: el niño ve las cantidades, las manipula y aprende a operarlas con significado, construyendo intuición además de técnica.</p>
+                <p>Merece la pena insistir en un matiz: el orden importa. Si se empuja la velocidad del cálculo antes de que el niño entienda las cantidades, se corre el riesgo de fabricar rapidez sin sentido, es decir, un niño que opera veloz pero no nota cuando el resultado es imposible. Cuando, en cambio, el cálculo mental se construye sobre la comprensión de las cantidades, cada operación resuelta refuerza la intuición numérica, y cada mejora de la intuición hace el cálculo más ágil. Ese círculo, comprensión que alimenta agilidad y agilidad que devuelve comprensión, es exactamente lo que buscan los buenos métodos y lo que conviene cuidar en casa, resistiendo la tentación de premiar solo la prisa.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Qué evitar si quieres cultivar el sentido del número</h2>
+                <p>Algunas prácticas comunes trabajan en contra del sentido del número sin que se note. Tenerlas presentes ayuda a no apagar justo lo que se quiere encender.</p>
+                <ul>
+                    <li>Premiar solo la velocidad: la prisa empuja a memorizar en vez de entender.</li>
+                    <li>Corregir únicamente si está bien o mal, sin preguntar si el resultado es razonable.</li>
+                    <li>Enseñar procedimientos como recetas cerradas, sin conectar con el porqué.</li>
+                    <li>Recurrir a la calculadora antes de que el niño estime y razone la cantidad.</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Construye el sentido del número con método</h2>
+                    <p>MatheKids desarrolla el sentido del número y el cálculo mental de niños de 6 a 12 años con el método del ábaco soroban, presencial en Cuautitlán Izcalli o en línea en vivo. Puedes conocerlo en una clase muestra gratuita.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Conocer las clases de matemáticas <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-beneficios-calculo-mental-ninos">
+                            <span>Beneficios del cálculo mental para niños</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-calculo-mental-ninos-ejercicios">
+                            <span>Cálculo mental para niños: ejercicios breves por nivel</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-juegos-matematicos-ninos-casa">
+                            <span>Juegos de matemáticas para niños en casa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-abaco-soroban-que-es">
+                            <span>Ábaco soroban: qué es y cómo ayuda a comprender el cálculo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El sentido del número se nace con él o se desarrolla?</h3>
+                    <p>Se desarrolla. Todos los niños tienen una noción básica de cantidad muy temprano, pero el sentido del número maduro se construye con experiencias: manipular objetos, estimar, jugar con números y calcular entendiendo. No es un talento fijo, sino una intuición que crece con la práctica adecuada y el tiempo.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿En qué se diferencia de saber calcular?</h3>
+                    <p>Calcular es aplicar procedimientos para obtener un resultado exacto; el sentido del número es la intuición de si ese resultado es razonable y de cómo se relacionan las cantidades. Un niño puede calcular bien sin sentido del número, y entonces no detecta errores grandes. Lo ideal es desarrollar ambos, porque se apoyan mutuamente.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad se desarrolla el sentido del número?</h3>
+                    <p>Empieza muy pronto, con la noción de más y menos, y se afina durante toda la primaria y más allá. No hay una edad en la que se complete: cada etapa añade matices, de contar objetos a estimar con grandes números. Lo importante es alimentarlo de forma continua con actividades adecuadas a cada edad.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo desarrollo el sentido del número sin material especial?</h3>
+                    <p>Con la vida diaria: estimar antes de contar, hablar de precios y repartos, descomponer números al jugar y comentar si un resultado es razonable. La estimación frecuente es la actividad más potente y no cuesta nada. Lo que importa es la constancia y el enfoque en entender, no un material concreto.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El cálculo mental ayuda al sentido del número?</h3>
+                    <p>Sí, mucho, siempre que se practique entendiendo y no memorizando. El cálculo mental obliga a descomponer y recomponer cantidades, lo que fortalece la intuición numérica; y un buen sentido del número, a su vez, facilita el cálculo mental. Métodos como el ábaco trabajan esa relación de forma directa.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -534,8 +625,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es el sentido numérico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Por qué el sentido del número es tan importante
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo se ve el sentido del número en un niño
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo desarrollar el sentido del número en casa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>La estimación, el corazón del sentido del número
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Sentido numérico y cálculo mental
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué evitar si quieres cultivar el sentido del número
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

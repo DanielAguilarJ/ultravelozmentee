@@ -362,144 +362,235 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-calculator"></i> MatheKids
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Memorizar o entender matemáticas en primaria</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 8 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">MatheKids</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Memorizar o entender matemáticas en primaria</h1>
+                <p class="blog-post-dek">Memorizar o entender matemáticas en primaria: por qué la comprensión sostiene el aprendizaje, qué sí conviene automatizar y cómo combinar ambas cosas.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">MatheKids</span>
+                    <span>Publicado <time datetime="2026-09-08">8 de Septiembre, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/mk-hero-kid.webp" alt="Memorizar o entender matemáticas en primaria" width="1024" height="1024" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Pocas dudas dividen tanto a las familias como si un niño debe memorizar o entender las matemáticas. Unos recuerdan haber aprendido las tablas de memoria y funcionó; otros ven que su hijo repite procedimientos sin idea de lo que hace. La respuesta honesta matiza ambos extremos.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué significa memorizar y qué significa entender
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Por qué la comprensión debe ir primero
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Qué sí conviene automatizar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>El riesgo de memorizar sin entender
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Memorizar o entender: cómo combinar ambas en primaria
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Señales de que falta comprensión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué papel juega el cálculo mental
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Pocas dudas dividen tanto a las familias como si un niño debe memorizar o entender las matemáticas. Unos recuerdan haber aprendido las tablas de memoria y funcionó; otros ven que su hijo repite procedimientos sin idea de lo que hace. La respuesta honesta matiza ambos extremos.</p>
             <p>Este artículo explica por qué la comprensión es la base que sostiene el aprendizaje, qué sí vale la pena automatizar y cómo combinar ambas cosas en primaria sin caer ni en el repaso mecánico ni en el rechazo a toda memorización. El objetivo no es un bando, sino el orden correcto.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>En el debate de memorizar o entender matemáticas, la respuesta no es elegir uno: es entender primero y automatizar después. Comprender por qué funciona una operación hace que el niño la recuerde y la aplique en situaciones nuevas; memorizar sin entender produce un conocimiento frágil que se olvida y no se traslada. Aun así, algunas cosas conviene automatizarlas para liberar la mente, pero sobre una base de comprensión, nunca en su lugar.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>En el debate de memorizar o entender matemáticas, la respuesta no es elegir uno: es entender primero y automatizar después. Comprender por qué funciona una operación hace que el niño la recuerde y la aplique en situaciones nuevas; memorizar sin entender produce un conocimiento frágil que se olvida y no se traslada. Aun así, algunas cosas conviene automatizarlas para liberar la mente, pero sobre una base de comprensión, nunca en su lugar.</p>
+                </aside>
 
-            <h2>Qué significa memorizar y qué significa entender</h2>
-            <p>Memorizar en matemáticas es retener un dato o un procedimiento sin necesariamente comprender por qué funciona: recitar que siete por ocho es cincuenta y seis, o aplicar los pasos de una división sin saber qué representa cada uno. Entender es captar el porqué: qué significa multiplicar, por qué se lleva una cifra, qué pasa realmente con las cantidades.</p>
-            <p>No son opuestos, sino dos capas del aprendizaje. El problema aparece cuando se confunden y se pide memorizar lo que debería entenderse, o cuando se cree que basta con entender y no se automatiza nada. La clave está en saber qué corresponde a cada capa y en qué orden trabajarlas.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué significa memorizar y qué significa entender</h2>
+                <p>Memorizar en matemáticas es retener un dato o un procedimiento sin necesariamente comprender por qué funciona: recitar que siete por ocho es cincuenta y seis, o aplicar los pasos de una división sin saber qué representa cada uno. Entender es captar el porqué: qué significa multiplicar, por qué se lleva una cifra, qué pasa realmente con las cantidades.</p>
+                <p>No son opuestos, sino dos capas del aprendizaje. El problema aparece cuando se confunden y se pide memorizar lo que debería entenderse, o cuando se cree que basta con entender y no se automatiza nada. La clave está en saber qué corresponde a cada capa y en qué orden trabajarlas.</p>
+            </section>
 
-            <h2>Por qué la comprensión debe ir primero</h2>
-            <p>Cuando un niño entiende una operación, la aprende con significado, y eso tiene dos ventajas enormes: la recuerda mejor, porque está conectada con una idea y no colgando de la nada, y la puede aplicar en situaciones nuevas que no había visto antes. La comprensión es transferible; la memorización pura, no.</p>
-            <p>Lo contrario deja huellas conocidas: niños que en cuanto cambia el formato de un problema se pierden, porque solo memorizaron un caso; o que arrastran un procedimiento mal aprendido durante años sin detectar el error, porque nunca entendieron qué hacían. Un conocimiento sin comprensión es frágil: funciona hasta que la pregunta cambia un poco.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Por qué la comprensión debe ir primero</h2>
+                <p>Cuando un niño entiende una operación, la aprende con significado, y eso tiene dos ventajas enormes: la recuerda mejor, porque está conectada con una idea y no colgando de la nada, y la puede aplicar en situaciones nuevas que no había visto antes. La comprensión es transferible; la memorización pura, no.</p>
+                <p>Lo contrario deja huellas conocidas: niños que en cuanto cambia el formato de un problema se pierden, porque solo memorizaron un caso; o que arrastran un procedimiento mal aprendido durante años sin detectar el error, porque nunca entendieron qué hacían. Un conocimiento sin comprensión es frágil: funciona hasta que la pregunta cambia un poco.</p>
+            </section>
 
-            <h2>Qué sí conviene automatizar</h2>
-            <p>Decir que la comprensión va primero no significa que nunca haya que memorizar. Hay hechos básicos que conviene automatizar, como las sumas y restas pequeñas o las tablas de multiplicar, porque tenerlos disponibles al instante libera la mente para lo que de verdad exige pensar: el razonamiento y la resolución de problemas.</p>
-            <p>La diferencia está en el orden. Esos hechos se automatizan mucho mejor después de haberlos entendido: un niño que comprende qué es multiplicar aprende las tablas con más facilidad y, si olvida un dato, puede reconstruirlo. Automatizar sobre comprensión es sólido; automatizar en su lugar es construir sobre arena.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Qué sí conviene automatizar</h2>
+                <p>Decir que la comprensión va primero no significa que nunca haya que memorizar. Hay hechos básicos que conviene automatizar, como las sumas y restas pequeñas o las tablas de multiplicar, porque tenerlos disponibles al instante libera la mente para lo que de verdad exige pensar: el razonamiento y la resolución de problemas.</p>
+                <p>La diferencia está en el orden. Esos hechos se automatizan mucho mejor después de haberlos entendido: un niño que comprende qué es multiplicar aprende las tablas con más facilidad y, si olvida un dato, puede reconstruirlo. Automatizar sobre comprensión es sólido; automatizar en su lugar es construir sobre arena.</p>
+            </section>
 
-            <h2>El riesgo de memorizar sin entender</h2>
-            <p>El atajo de memorizar sin entender es tentador porque da resultados rápidos: el niño aprueba el examen de esta semana. Pero el costo llega después. Cada tema nuevo se vuelve una lista de pasos sueltos que hay que memorizar de cero, la carga crece sin parar y, tarde o temprano, la memoria no alcanza.</p>
-            <p>Ese es el punto en el que muchos niños empiezan a sentir que las matemáticas no son para ellos. No es falta de capacidad, sino un aprendizaje construido sin cimientos: cuando el edificio de procedimientos memorizados se vuelve demasiado alto, se derrumba. Y reconstruir la comprensión que faltó cuesta mucho más que haberla trabajado a tiempo.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">El riesgo de memorizar sin entender</h2>
+                <p>El atajo de memorizar sin entender es tentador porque da resultados rápidos: el niño aprueba el examen de esta semana. Pero el costo llega después. Cada tema nuevo se vuelve una lista de pasos sueltos que hay que memorizar de cero, la carga crece sin parar y, tarde o temprano, la memoria no alcanza.</p>
+                <p>Ese es el punto en el que muchos niños empiezan a sentir que las matemáticas no son para ellos. No es falta de capacidad, sino un aprendizaje construido sin cimientos: cuando el edificio de procedimientos memorizados se vuelve demasiado alto, se derrumba. Y reconstruir la comprensión que faltó cuesta mucho más que haberla trabajado a tiempo.</p>
+            </section>
 
-            <h2>Memorizar o entender: cómo combinar ambas en primaria</h2>
-            <p>En la práctica, comprensión y automatización se combinan en una secuencia clara. Estos pasos ayudan a que cada cosa ocupe su lugar sin que una ahogue a la otra.</p>
-            <ol>
-                <li>Empieza por entender: usa objetos, dibujos o ejemplos reales antes de los símbolos.</li>
-                <li>Comprueba la comprensión pidiendo al niño que explique por qué, no solo qué resultado dio.</li>
-                <li>Automatiza los hechos básicos con práctica corta y frecuente, una vez entendidos.</li>
-                <li>Vuelve al significado si el niño se equivoca de forma sistemática en un procedimiento.</li>
-                <li>Aplica lo aprendido a problemas y situaciones nuevas para afianzar la transferencia.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Memorizar o entender: cómo combinar ambas en primaria</h2>
+                <p>En la práctica, comprensión y automatización se combinan en una secuencia clara. Estos pasos ayudan a que cada cosa ocupe su lugar sin que una ahogue a la otra.</p>
+                <ol>
+                    <li>Empieza por entender: usa objetos, dibujos o ejemplos reales antes de los símbolos.</li>
+                    <li>Comprueba la comprensión pidiendo al niño que explique por qué, no solo qué resultado dio.</li>
+                    <li>Automatiza los hechos básicos con práctica corta y frecuente, una vez entendidos.</li>
+                    <li>Vuelve al significado si el niño se equivoca de forma sistemática en un procedimiento.</li>
+                    <li>Aplica lo aprendido a problemas y situaciones nuevas para afianzar la transferencia.</li>
+                </ol>
+            </section>
 
-            <h2>Señales de que falta comprensión</h2>
-            <p>A veces un niño parece ir bien porque aprueba, pero se apoya solo en la memoria. Reconocer las señales a tiempo evita que arrastre huecos.</p>
-            <ul>
-                <li>Se bloquea en cuanto un problema cambia de formato aunque sea la misma operación.</li>
-                <li>No puede explicar por qué hace un paso; solo dice que así se hace.</li>
-                <li>Comete errores absurdos sin darse cuenta de que el resultado es imposible.</li>
-                <li>Olvida rápido lo aprendido y hay que reenseñar el tema de cero cada vez.</li>
-                <li>Depende de recordar el caso exacto en vez de razonar uno parecido.</li>
-            </ul>
-
-            <h2>Qué papel juega el cálculo mental</h2>
-            <p>El cálculo mental, bien entendido, es un buen ejemplo de cómo se combinan comprensión y automatización. No se trata de memorizar resultados, sino de descomponer y recomponer números con estrategias que el niño entiende, y de tanto usarlas, algunas se vuelven automáticas. Así, la agilidad nace de la comprensión, no la reemplaza.</p>
-            <p>Por eso los métodos que trabajan el cálculo mental con significado, como el ábaco soroban, encajan bien con este equilibrio: el niño ve y manipula las cantidades, entiende lo que hace y, con la práctica, gana velocidad sin renunciar a la comprensión. Es la diferencia entre un niño que calcula rápido porque entiende y otro que solo repite lo memorizado.</p>
-            <p>Este equilibrio entre entender y automatizar no es exclusivo del cálculo: es la forma sana de aprender casi cualquier cosa en primaria. Primero se comprende una idea con ejemplos concretos, luego se practica hasta que ciertas partes se vuelven automáticas, y esa automatización libera la mente para el siguiente nivel de dificultad. Aplicado a las matemáticas, significa no tener que elegir de una vez y para siempre entre memorizar o entender, sino ir alternando ambas capas a lo largo del curso, según lo que cada contenido pida. Un niño que crece con ese ritmo llega a los temas difíciles con una base firme y con la costumbre de buscar el porqué, no solo el cómo.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Comprender y ganar soltura, en el orden correcto</h3>
-                <p>MatheKids desarrolla el cálculo mental de niños de 6 a 12 años con el método del ábaco soroban, con comprensión primero y agilidad después, presencial en Cuautitlán Izcalli o en línea en vivo. Puedes conocerlo en una clase muestra gratuita.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de matemáticas para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Señales de que falta comprensión</h2>
+                <p>A veces un niño parece ir bien porque aprueba, pero se apoya solo en la memoria. Reconocer las señales a tiempo evita que arrastre huecos.</p>
                 <ul>
-                <li><a href="/blog-tablas-multiplicar-sin-memorizar">Cómo aprender las tablas de multiplicar con patrones y práctica espaciada</a></li>
-                <li><a href="/blog-ansiedad-matematica-ninos">Ansiedad matemática en niños: señales y formas de recuperar confianza</a></li>
-                <li><a href="/blog-sentido-numerico-ninos-como-desarrollarlo">Qué es el sentido numérico y cómo desarrollarlo</a></li>
-                <li><a href="/blog-como-ayudar-nino-con-matematicas">Cómo ayudar a un niño con las matemáticas</a></li>
+                    <li>Se bloquea en cuanto un problema cambia de formato aunque sea la misma operación.</li>
+                    <li>No puede explicar por qué hace un paso; solo dice que así se hace.</li>
+                    <li>Comete errores absurdos sin darse cuenta de que el resultado es imposible.</li>
+                    <li>Olvida rápido lo aprendido y hay que reenseñar el tema de cero cada vez.</li>
+                    <li>Depende de recordar el caso exacto en vez de razonar uno parecido.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Entonces está mal que mi hijo memorice las tablas de multiplicar?</h3>
-                <p>No, siempre que primero entienda qué es multiplicar. Automatizar las tablas es útil porque libera la mente para razonar, pero conviene hacerlo después de la comprensión, no en su lugar. Así, si olvida un dato, puede reconstruirlo, y aprende las tablas con más facilidad porque tienen sentido para él.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si mi hijo entiende o solo memoriza?</h3>
-                <p>Pídele que explique por qué hace un paso o que resuelva un problema con el mismo contenido pero distinto formato. Si puede explicarlo y adaptarse, comprende; si se bloquea en cuanto cambia el enunciado o solo dice así se hace, se está apoyando en la memoria. Explicar con sus palabras es la prueba más clara de comprensión.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Memorizar no es más rápido para aprobar?</h3>
-                <p>A corto plazo sí, pero es un atajo caro. Memorizar sin entender da resultados esta semana y deudas después: cada tema nuevo se vuelve una lista de pasos sueltos, la carga crece y la memoria no alcanza. Entender es más lento al inicio, pero sostiene el aprendizaje a lo largo de toda la primaria y más allá.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi hijo ya aprendió todo de memoria?</h3>
-                <p>Vuelve al significado de lo que ya sabe hacer mecánicamente: usa objetos, dibujos y ejemplos reales para que entienda por qué funcionan esos pasos. No hace falta reiniciar, sino rellenar los huecos de comprensión bajo los procedimientos. Con paciencia, la técnica que ya tiene se vuelve más sólida y transferible.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El cálculo mental es memorizar o entender?</h3>
-                <p>Bien hecho, es entender. No consiste en memorizar resultados, sino en descomponer y recomponer números con estrategias que el niño comprende; algunas, de tanto usarlas, se automatizan. La agilidad nace de la comprensión. Métodos como el ábaco trabajan justo ese equilibrio entre entender las cantidades y ganar soltura.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Qué papel juega el cálculo mental</h2>
+                <p>El cálculo mental, bien entendido, es un buen ejemplo de cómo se combinan comprensión y automatización. No se trata de memorizar resultados, sino de descomponer y recomponer números con estrategias que el niño entiende, y de tanto usarlas, algunas se vuelven automáticas. Así, la agilidad nace de la comprensión, no la reemplaza.</p>
+                <p>Por eso los métodos que trabajan el cálculo mental con significado, como el ábaco soroban, encajan bien con este equilibrio: el niño ve y manipula las cantidades, entiende lo que hace y, con la práctica, gana velocidad sin renunciar a la comprensión. Es la diferencia entre un niño que calcula rápido porque entiende y otro que solo repite lo memorizado.</p>
+                <p>Este equilibrio entre entender y automatizar no es exclusivo del cálculo: es la forma sana de aprender casi cualquier cosa en primaria. Primero se comprende una idea con ejemplos concretos, luego se practica hasta que ciertas partes se vuelven automáticas, y esa automatización libera la mente para el siguiente nivel de dificultad. Aplicado a las matemáticas, significa no tener que elegir de una vez y para siempre entre memorizar o entender, sino ir alternando ambas capas a lo largo del curso, según lo que cada contenido pida. Un niño que crece con ese ritmo llega a los temas difíciles con una base firme y con la costumbre de buscar el porqué, no solo el cómo.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Comprender y ganar soltura, en el orden correcto</h2>
+                    <p>MatheKids desarrolla el cálculo mental de niños de 6 a 12 años con el método del ábaco soroban, con comprensión primero y agilidad después, presencial en Cuautitlán Izcalli o en línea en vivo. Puedes conocerlo en una clase muestra gratuita.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Ver el curso de matemáticas para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
-            </ul>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tablas-multiplicar-sin-memorizar">
+                            <span>Cómo aprender las tablas de multiplicar con patrones y práctica espaciada</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-ansiedad-matematica-ninos">
+                            <span>Ansiedad matemática en niños: señales y formas de recuperar confianza</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-sentido-numerico-ninos-como-desarrollarlo">
+                            <span>Qué es el sentido numérico y cómo desarrollarlo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-ayudar-nino-con-matematicas">
+                            <span>Cómo ayudar a un niño con las matemáticas</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Entonces está mal que mi hijo memorice las tablas de multiplicar?</h3>
+                    <p>No, siempre que primero entienda qué es multiplicar. Automatizar las tablas es útil porque libera la mente para razonar, pero conviene hacerlo después de la comprensión, no en su lugar. Así, si olvida un dato, puede reconstruirlo, y aprende las tablas con más facilidad porque tienen sentido para él.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si mi hijo entiende o solo memoriza?</h3>
+                    <p>Pídele que explique por qué hace un paso o que resuelva un problema con el mismo contenido pero distinto formato. Si puede explicarlo y adaptarse, comprende; si se bloquea en cuanto cambia el enunciado o solo dice así se hace, se está apoyando en la memoria. Explicar con sus palabras es la prueba más clara de comprensión.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Memorizar no es más rápido para aprobar?</h3>
+                    <p>A corto plazo sí, pero es un atajo caro. Memorizar sin entender da resultados esta semana y deudas después: cada tema nuevo se vuelve una lista de pasos sueltos, la carga crece y la memoria no alcanza. Entender es más lento al inicio, pero sostiene el aprendizaje a lo largo de toda la primaria y más allá.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi hijo ya aprendió todo de memoria?</h3>
+                    <p>Vuelve al significado de lo que ya sabe hacer mecánicamente: usa objetos, dibujos y ejemplos reales para que entienda por qué funcionan esos pasos. No hace falta reiniciar, sino rellenar los huecos de comprensión bajo los procedimientos. Con paciencia, la técnica que ya tiene se vuelve más sólida y transferible.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El cálculo mental es memorizar o entender?</h3>
+                    <p>Bien hecho, es entender. No consiste en memorizar resultados, sino en descomponer y recomponer números con estrategias que el niño comprende; algunas, de tanto usarlas, se automatizan. La agilidad nace de la comprensión. Métodos como el ábaco trabajan justo ese equilibrio entre entender las cantidades y ganar soltura.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -529,8 +620,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué significa memorizar y qué significa entender
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Por qué la comprensión debe ir primero
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Qué sí conviene automatizar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>El riesgo de memorizar sin entender
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Memorizar o entender: cómo combinar ambas en primaria
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Señales de que falta comprensión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué papel juega el cálculo mental
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

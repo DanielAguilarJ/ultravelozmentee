@@ -149,8 +149,16 @@ if [ -f tools/seo_content/review_strict_content.py ]; then
     say "❌ Gate 10: algún post moderno no alcanza calidad y SEO 10/10."
     fail=1
   fi
+  if ! python3 tools/seo_content/review_blog_experience.py; then
+    say "❌ Gate 10: la experiencia visual de algún post no alcanza 10/10."
+    fail=1
+  fi
   if ! python3 test/test_seo_content_reviewers.py; then
     say "❌ Gate 10: regresión en los revisores de contenido."
+    fail=1
+  fi
+  if ! python3 test/test_blog_article_experience.py; then
+    say "❌ Gate 10: regresión en la plantilla visual del blog."
     fail=1
   fi
 fi

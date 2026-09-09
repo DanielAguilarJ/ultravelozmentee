@@ -362,145 +362,243 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo implementar tecnología educativa paso a paso</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo implementar tecnología educativa paso a paso</h1>
+                <p class="blog-post-dek">Cómo implementar tecnología educativa paso a paso en casa o en el aula: diagnóstico, selección, pilotos cortos, seguridad digital y revisión de resultados.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Cómo implementar tecnología educativa paso a paso" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La diferencia entre una escuela donde la tecnología cambió algo y otra donde solo cambió el equipo casi nunca está en el presupuesto. Está en el orden: unas empezaron por el problema y otras por la compra. El orden se puede reconstruir en cualquier punto, incluso cuando ya hay tabletas guardadas en un armario.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Paso 1: describe la dificultad en términos observables
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Paso 2: define cómo vas a saber si mejoró
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Paso 3: elige una sola herramienta y descarta el resto por escrito
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Paso 4: configura seguridad y permisos antes del primer uso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Paso 5: corre un piloto de tres semanas con una sola variable
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: un piloto de robótica en un grupo de sexto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Paso 6: decide con la evidencia y documenta el cierre
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La diferencia entre una escuela donde la tecnología cambió algo y otra donde solo cambió el equipo casi nunca está en el presupuesto. Está en el orden: unas empezaron por el problema y otras por la compra. El orden se puede reconstruir en cualquier punto, incluso cuando ya hay tabletas guardadas en un armario.</p>
             <p>Lo que sigue es una secuencia de seis etapas que funciona igual para una familia con un teléfono compartido y para un grupo de treinta alumnos. Cada etapa termina en una decisión escrita, porque lo que no queda escrito se olvida cuando llega la siguiente recomendación.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Implementar tecnología educativa paso a paso significa recorrer seis etapas en orden: diagnosticar la dificultad concreta, definir cómo se medirá el avance, elegir una sola herramienta que atienda ese punto, configurar seguridad y permisos antes del primer uso, probarla en un piloto de tres semanas y decidir con evidencia si se conserva, se ajusta o se retira.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Implementar tecnología educativa paso a paso significa recorrer seis etapas en orden: diagnosticar la dificultad concreta, definir cómo se medirá el avance, elegir una sola herramienta que atienda ese punto, configurar seguridad y permisos antes del primer uso, probarla en un piloto de tres semanas y decidir con evidencia si se conserva, se ajusta o se retira.</p>
+                </aside>
 
-            <h2>Paso 1: describe la dificultad en términos observables</h2>
-            <p>Una dificultad sirve como punto de partida cuando puede observarse sin interpretar. "Se distrae" no es observable; "deja el ejercicio a la mitad cuando aparece más de una operación" sí lo es, porque cualquiera que mire la libreta puede confirmarlo.</p>
-            <p>Escribe una sola dificultad por implementación. Si hay tres, elige la que más bloquea el resto: normalmente la que aparece en varias materias a la vez. Las otras dos esperan, y esa espera es parte del método, no una concesión.</p>
-            <ul>
-                <li>Redáctala en presente y con un verbo de acción concreto</li>
-                <li>Incluye dónde se nota: en clase, en tareas o en exámenes</li>
-                <li>Evita etiquetas de diagnóstico; describe conductas</li>
-                <li>Guárdala por escrito para compararla al final del piloto</li>
-            </ul>
-
-            <h2>Paso 2: define cómo vas a saber si mejoró</h2>
-            <p>Antes de buscar herramientas, decide la evidencia. Puede ser tan simple como cinco operaciones en papel el viernes, una explicación en voz alta de dos minutos o el número de ejercicios terminados sin abandonar. Lo importante es que la evidencia viva fuera de la aplicación.</p>
-            <p>Las métricas internas de las plataformas —rachas, niveles, minutos acumulados— sirven para saber si la herramienta se usó, no si el estudiante aprendió. Sirven como control de uso, nunca como resultado. Definir esto en el paso dos evita discusiones en el paso seis.</p>
-
-            <h2>Paso 3: elige una sola herramienta y descarta el resto por escrito</h2>
-            <p>Con el problema y la evidencia definidos, la búsqueda se vuelve rápida porque la mayoría de las opciones se descartan solas. Compara dos o tres candidatas contra el problema escrito, no entre ellas: la pregunta no es cuál es mejor en general, sino cuál toca ese punto.</p>
-            <p>Anota por qué descartaste las otras. Ese registro de dos líneas ahorra semanas cuando alguien vuelva a recomendarlas, y también sirve si el piloto falla y hay que probar la segunda opción sin empezar de cero.</p>
-            <ol>
-                <li>Reduce a tres candidatas usando el problema escrito como filtro</li>
-                <li>Prueba cada una quince minutos con contenido real, no con el tutorial</li>
-                <li>Verifica que pida producir respuestas, no solo reconocerlas</li>
-                <li>Revisa qué datos solicita y si hay versión sin publicidad</li>
-                <li>Elige una, registra las descartadas y cierra la búsqueda</li>
-            </ol>
-
-            <h2>Paso 4: configura seguridad y permisos antes del primer uso</h2>
-            <p>Esta etapa toma menos de diez minutos y es la única que no se puede recuperar después: los datos que ya se enviaron no vuelven. Revisa permisos, desactiva lo que no explique su función y ajusta la configuración de privacidad antes de que el estudiante entre por primera vez.</p>
-            <p>En herramientas usadas por menores conviene además desactivar la interacción con otros usuarios, revisar si el perfil es público por defecto y usar un correo destinado solo al estudio. Si la plataforma no permite ninguna de estas tres cosas, es información relevante sobre la plataforma.</p>
-
-            <h2>Paso 5: corre un piloto de tres semanas con una sola variable</h2>
-            <p>Un piloto corto y acotado da más información que un despliegue amplio. Fija duración de sesión, horario y frecuencia, y no los cambies durante el piloto: si se mueven dos variables a la vez, el resultado deja de ser interpretable.</p>
-            <p>Tres semanas suelen bastar para que pase el efecto de novedad, que dura entre cinco y diez días. Antes de eso cualquier herramienta parece funcionar. Registra las ausencias también: los días que no se usó son parte del dato, porque una herramienta que no se abre no se puede evaluar.</p>
-
-            <h2>Ejemplo aplicado: un piloto de robótica en un grupo de sexto</h2>
-            <p>Una primaria pública recibió doce kits de robótica sin capacitación. La reacción inicial fue reservarlos para un club de veinte alumnos los viernes. Después del segundo mes el club seguía armando el mismo modelo del manual y nadie sabía qué se había aprendido.</p>
-            <p>El docente reinició la secuencia desde el paso uno. La dificultad observable que eligió no era técnica: los alumnos abandonaban cualquier tarea que fallara en el primer intento, en robótica y también en matemáticas. La evidencia definida fue el número de intentos antes de pedir ayuda, contado en una hoja simple.</p>
-            <p>El piloto duró tres semanas con una sola actividad: un robot que debía recorrer un metro en línea recta y detenerse. Sesiones de cuarenta minutos, dos veces por semana, sin cambiar el reto. La primera semana el promedio fue de un intento y medio antes de levantar la mano. La tercera semana llegó a cuatro, y varios equipos empezaron a documentar qué habían cambiado entre un intento y otro.</p>
-            <p>La decisión del paso seis fue conservar el enfoque y ampliarlo, pero no comprando más kits: extendiendo la misma lógica de intentos registrados a los ejercicios de matemáticas en papel. El equipo pasó a ser el pretexto y la conducta pasó a ser el objetivo.</p>
-
-            <h2>Paso 6: decide con la evidencia y documenta el cierre</h2>
-            <p>Al terminar el piloto solo hay tres salidas posibles: conservar, ajustar o retirar. Conservar exige evidencia fuera de la pantalla; ajustar aplica cuando hubo señales pero el formato no cuadró, y se cambia una sola variable; retirar es una decisión válida y frecuente, no un fracaso del proceso.</p>
-            <p>Escribe el cierre en cinco líneas: qué problema se atacó, qué herramienta se usó, qué evidencia hubo, qué se decidió y qué sigue. Ese registro es lo que permite que el siguiente ciclo no repita el mismo intento con otro nombre, y es especialmente útil cuando cambia el docente o el ciclo escolar.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Un terreno donde el paso a paso se vuelve visible</h3>
-                <p>La robótica educativa tiene una ventaja poco común: cada decisión se comprueba de inmediato porque el robot avanza o no avanza. Eso convierte la secuencia de diagnóstico, prueba y ajuste en algo que el estudiante practica sin que haya que explicárselo, y en un buen punto de entrada si buscas una actividad donde el error sea información y no un cierre.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conoce el curso de robótica y programación <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Paso 1: describe la dificultad en términos observables</h2>
+                <p>Una dificultad sirve como punto de partida cuando puede observarse sin interpretar. "Se distrae" no es observable; "deja el ejercicio a la mitad cuando aparece más de una operación" sí lo es, porque cualquiera que mire la libreta puede confirmarlo.</p>
+                <p>Escribe una sola dificultad por implementación. Si hay tres, elige la que más bloquea el resto: normalmente la que aparece en varias materias a la vez. Las otras dos esperan, y esa espera es parte del método, no una concesión.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-como-empezar">Cómo empezar con tecnología educativa esta semana</a></li>
-                <li><a href="/blog-tecnologia-educativa-casos-practicos">Casos prácticos de tecnología educativa en México</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-que-es">Qué son las metodologías de aprendizaje y cómo elegir la tuya</a></li>
+                    <li>Redáctala en presente y con un verbo de acción concreto</li>
+                    <li>Incluye dónde se nota: en clase, en tareas o en exámenes</li>
+                    <li>Evita etiquetas de diagnóstico; describe conductas</li>
+                    <li>Guárdala por escrito para compararla al final del piloto</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Se puede aplicar esta secuencia con un solo dispositivo compartido en casa?</h3>
-                <p>Sí, y de hecho un dispositivo compartido facilita el paso cinco porque obliga a definir horarios y duraciones concretas. El ajuste principal está en la frecuencia: en lugar de sesiones diarias, funciona mejor programar tres sesiones fijas por semana en momentos en que el dispositivo esté libre y el estudiante descansado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si el piloto muestra resultados mezclados?</h3>
-                <p>Resultados mezclados suelen indicar que la herramienta atiende parte del problema. En ese caso corresponde ajustar, no retirar: cambia una sola variable —duración, horario o el tipo de ejercicio dentro de la misma app— y corre dos semanas más. Si el resultado sigue mezclado tras el segundo ajuste, conviene volver al paso uno.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántas herramientas puede sostener un grupo escolar a la vez?</h3>
-                <p>En la práctica, una plataforma de gestión y una o dos herramientas de práctica son el límite razonable antes de que la carga administrativa consuma el tiempo de clase. Cada herramienta adicional exige altas de usuarios, contraseñas y seguimiento. Si hay más, conviene revisar cuáles se usan realmente cada semana.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es necesario que los padres conozcan la herramienta que usa la escuela?</h3>
-                <p>Es recomendable, sobre todo cuando la plataforma guarda datos de desempeño o requiere cuenta del menor. Basta con saber qué información recoge, quién puede ver el perfil y si hay interacción con otros usuarios. Los docentes pueden resolver esto con un aviso breve al inicio del ciclo, sin necesidad de una junta específica.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La secuencia sirve para introducir un asistente de inteligencia artificial?</h3>
-                <p>Sirve igual, y el paso dos se vuelve el más importante. La evidencia debe demostrar que el estudiante puede resolver sin el asistente lo que trabajó con él. Una forma sencilla es pedir la misma tarea sin conexión al día siguiente y comparar. Si no puede reproducirla, el asistente estuvo haciendo el trabajo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Paso 2: define cómo vas a saber si mejoró</h2>
+                <p>Antes de buscar herramientas, decide la evidencia. Puede ser tan simple como cinco operaciones en papel el viernes, una explicación en voz alta de dos minutos o el número de ejercicios terminados sin abandonar. Lo importante es que la evidencia viva fuera de la aplicación.</p>
+                <p>Las métricas internas de las plataformas —rachas, niveles, minutos acumulados— sirven para saber si la herramienta se usó, no si el estudiante aprendió. Sirven como control de uso, nunca como resultado. Definir esto en el paso dos evita discusiones en el paso seis.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Paso 3: elige una sola herramienta y descarta el resto por escrito</h2>
+                <p>Con el problema y la evidencia definidos, la búsqueda se vuelve rápida porque la mayoría de las opciones se descartan solas. Compara dos o tres candidatas contra el problema escrito, no entre ellas: la pregunta no es cuál es mejor en general, sino cuál toca ese punto.</p>
+                <p>Anota por qué descartaste las otras. Ese registro de dos líneas ahorra semanas cuando alguien vuelva a recomendarlas, y también sirve si el piloto falla y hay que probar la segunda opción sin empezar de cero.</p>
+                <ol>
+                    <li>Reduce a tres candidatas usando el problema escrito como filtro</li>
+                    <li>Prueba cada una quince minutos con contenido real, no con el tutorial</li>
+                    <li>Verifica que pida producir respuestas, no solo reconocerlas</li>
+                    <li>Revisa qué datos solicita y si hay versión sin publicidad</li>
+                    <li>Elige una, registra las descartadas y cierra la búsqueda</li>
+                </ol>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Paso 4: configura seguridad y permisos antes del primer uso</h2>
+                <p>Esta etapa toma menos de diez minutos y es la única que no se puede recuperar después: los datos que ya se enviaron no vuelven. Revisa permisos, desactiva lo que no explique su función y ajusta la configuración de privacidad antes de que el estudiante entre por primera vez.</p>
+                <p>En herramientas usadas por menores conviene además desactivar la interacción con otros usuarios, revisar si el perfil es público por defecto y usar un correo destinado solo al estudio. Si la plataforma no permite ninguna de estas tres cosas, es información relevante sobre la plataforma.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Paso 5: corre un piloto de tres semanas con una sola variable</h2>
+                <p>Un piloto corto y acotado da más información que un despliegue amplio. Fija duración de sesión, horario y frecuencia, y no los cambies durante el piloto: si se mueven dos variables a la vez, el resultado deja de ser interpretable.</p>
+                <p>Tres semanas suelen bastar para que pase el efecto de novedad, que dura entre cinco y diez días. Antes de eso cualquier herramienta parece funcionar. Registra las ausencias también: los días que no se usó son parte del dato, porque una herramienta que no se abre no se puede evaluar.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: un piloto de robótica en un grupo de sexto</h2>
+                <p>Una primaria pública recibió doce kits de robótica sin capacitación. La reacción inicial fue reservarlos para un club de veinte alumnos los viernes. Después del segundo mes el club seguía armando el mismo modelo del manual y nadie sabía qué se había aprendido.</p>
+                <p>El docente reinició la secuencia desde el paso uno. La dificultad observable que eligió no era técnica: los alumnos abandonaban cualquier tarea que fallara en el primer intento, en robótica y también en matemáticas. La evidencia definida fue el número de intentos antes de pedir ayuda, contado en una hoja simple.</p>
+                <p>El piloto duró tres semanas con una sola actividad: un robot que debía recorrer un metro en línea recta y detenerse. Sesiones de cuarenta minutos, dos veces por semana, sin cambiar el reto. La primera semana el promedio fue de un intento y medio antes de levantar la mano. La tercera semana llegó a cuatro, y varios equipos empezaron a documentar qué habían cambiado entre un intento y otro.</p>
+                <p>La decisión del paso seis fue conservar el enfoque y ampliarlo, pero no comprando más kits: extendiendo la misma lógica de intentos registrados a los ejercicios de matemáticas en papel. El equipo pasó a ser el pretexto y la conducta pasó a ser el objetivo.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Paso 6: decide con la evidencia y documenta el cierre</h2>
+                <p>Al terminar el piloto solo hay tres salidas posibles: conservar, ajustar o retirar. Conservar exige evidencia fuera de la pantalla; ajustar aplica cuando hubo señales pero el formato no cuadró, y se cambia una sola variable; retirar es una decisión válida y frecuente, no un fracaso del proceso.</p>
+                <p>Escribe el cierre en cinco líneas: qué problema se atacó, qué herramienta se usó, qué evidencia hubo, qué se decidió y qué sigue. Ese registro es lo que permite que el siguiente ciclo no repita el mismo intento con otro nombre, y es especialmente útil cuando cambia el docente o el ciclo escolar.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Un terreno donde el paso a paso se vuelve visible</h2>
+                    <p>La robótica educativa tiene una ventaja poco común: cada decisión se comprueba de inmediato porque el robot avanza o no avanza. Eso convierte la secuencia de diagnóstico, prueba y ajuste en algo que el estudiante practica sin que haya que explicárselo, y en un buen punto de entrada si buscas una actividad donde el error sea información y no un cierre.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Conoce el curso de robótica y programación <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-como-empezar">
+                            <span>Cómo empezar con tecnología educativa esta semana</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-casos-practicos">
+                            <span>Casos prácticos de tecnología educativa en México</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-que-es">
+                            <span>Qué son las metodologías de aprendizaje y cómo elegir la tuya</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Se puede aplicar esta secuencia con un solo dispositivo compartido en casa?</h3>
+                    <p>Sí, y de hecho un dispositivo compartido facilita el paso cinco porque obliga a definir horarios y duraciones concretas. El ajuste principal está en la frecuencia: en lugar de sesiones diarias, funciona mejor programar tres sesiones fijas por semana en momentos en que el dispositivo esté libre y el estudiante descansado.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si el piloto muestra resultados mezclados?</h3>
+                    <p>Resultados mezclados suelen indicar que la herramienta atiende parte del problema. En ese caso corresponde ajustar, no retirar: cambia una sola variable —duración, horario o el tipo de ejercicio dentro de la misma app— y corre dos semanas más. Si el resultado sigue mezclado tras el segundo ajuste, conviene volver al paso uno.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántas herramientas puede sostener un grupo escolar a la vez?</h3>
+                    <p>En la práctica, una plataforma de gestión y una o dos herramientas de práctica son el límite razonable antes de que la carga administrativa consuma el tiempo de clase. Cada herramienta adicional exige altas de usuarios, contraseñas y seguimiento. Si hay más, conviene revisar cuáles se usan realmente cada semana.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es necesario que los padres conozcan la herramienta que usa la escuela?</h3>
+                    <p>Es recomendable, sobre todo cuando la plataforma guarda datos de desempeño o requiere cuenta del menor. Basta con saber qué información recoge, quién puede ver el perfil y si hay interacción con otros usuarios. Los docentes pueden resolver esto con un aviso breve al inicio del ciclo, sin necesidad de una junta específica.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La secuencia sirve para introducir un asistente de inteligencia artificial?</h3>
+                    <p>Sirve igual, y el paso dos se vuelve el más importante. La evidencia debe demostrar que el estudiante puede resolver sin el asistente lo que trabajó con él. Una forma sencilla es pedir la misma tarea sin conexión al día siguiente y comparar. Si no puede reproducirla, el asistente estuvo haciendo el trabajo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -530,8 +628,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Paso 1: describe la dificultad en términos observables
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Paso 2: define cómo vas a saber si mejoró
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Paso 3: elige una sola herramienta y descarta el resto por escrito
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Paso 4: configura seguridad y permisos antes del primer uso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Paso 5: corre un piloto de tres semanas con una sola variable
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: un piloto de robótica en un grupo de sexto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Paso 6: decide con la evidencia y documenta el cierre
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

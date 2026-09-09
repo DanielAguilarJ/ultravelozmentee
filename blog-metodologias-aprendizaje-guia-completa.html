@@ -362,154 +362,252 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Metodologías de Aprendizaje
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Guía completa de metodologías de aprendizaje basadas en evidencia</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Metodologías de Aprendizaje</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Guía completa de metodologías de aprendizaje basadas en evidencia</h1>
+                <p class="blog-post-dek">Guía completa de metodologías de aprendizaje con respaldo científico: repetición espaciada, recuerdo activo, Cornell y Pomodoro explicadas paso a paso.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Metodologías de Aprendizaje</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Guía completa de metodologías de aprendizaje basadas en evidencia" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Existen decenas de técnicas de estudio circulando en redes sociales, pero solo un puñado tiene evidencia consistente detrás. Esta guía reúne las que sí funcionan, explica cómo aplicarlas correctamente y aclara en qué se diferencian entre sí.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Repetición espaciada: la base de la memoria a largo plazo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Recuerdo activo: el motor detrás de casi todas las técnicas efectivas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Método Cornell: organizar la información desde el momento en que llega
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Pomodoro: no es una técnica de memoria, es de concentración
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo combinar las cuatro metodologías en una rutina real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué metodología elegir según el tiempo disponible
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo de una semana completa combinando las cuatro metodologías
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Existen decenas de técnicas de estudio circulando en redes sociales, pero solo un puñado tiene evidencia consistente detrás. Esta guía reúne las que sí funcionan, explica cómo aplicarlas correctamente y aclara en qué se diferencian entre sí.</p>
             <p>El objetivo no es que adoptes las cuatro a la vez, sino que entiendas qué problema resuelve cada una para elegir según tu situación.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Las metodologías de aprendizaje con más respaldo son la repetición espaciada, el recuerdo activo, el método Cornell para tomar notas y el Pomodoro para gestionar el tiempo de estudio. Cada una resuelve un problema distinto: memoria a largo plazo, comprensión profunda, organización de la información y concentración sostenida.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Las metodologías de aprendizaje con más respaldo son la repetición espaciada, el recuerdo activo, el método Cornell para tomar notas y el Pomodoro para gestionar el tiempo de estudio. Cada una resuelve un problema distinto: memoria a largo plazo, comprensión profunda, organización de la información y concentración sostenida.</p>
+                </aside>
 
-            <h2>Repetición espaciada: la base de la memoria a largo plazo</h2>
-            <p>La repetición espaciada consiste en revisar la misma información en intervalos que se van alargando: el mismo día, a los tres días, a la semana, al mes. Cada vez que la memoria está a punto de debilitarse, se refuerza justo antes de perderse, lo que la consolida con menos repeticiones totales que revisar todos los días.</p>
-            <p>Funciona especialmente bien para información que no cambia de forma —vocabulario, fórmulas, fechas, nombres— porque el reto es puramente de memoria, no de comprensión de un proceso.</p>
-            <ul>
-                <li>Revisa el mismo día que aprendes algo nuevo.</li>
-                <li>Repite a los tres días, luego a la semana, luego al mes.</li>
-                <li>Si fallas en recordar, reinicia el intervalo desde el principio.</li>
-            </ul>
-
-            <h2>Recuerdo activo: el motor detrás de casi todas las técnicas efectivas</h2>
-            <p>El recuerdo activo es el acto de intentar recuperar información de la memoria sin verla enfrente, antes de comprobar si es correcta. Es lo que hace efectivas a las tarjetas de estudio, a escribir un resumen de memoria, o a resolver un examen de práctica sin apuntes.</p>
-            <p>La razón por la que funciona mejor que releer es que simula la condición real del examen: en un examen no tienes el libro abierto, así que practicar sin él entrena exactamente la habilidad que se evaluará.</p>
-            <ol>
-                <li>Cierra el material de estudio.</li>
-                <li>Escribe o di en voz alta todo lo que recuerdes sobre el tema.</li>
-                <li>Abre el material y compara: identifica qué faltó o qué estaba mal.</li>
-                <li>Enfoca la siguiente sesión en los huecos identificados, no en repasar todo de nuevo.</li>
-            </ol>
-
-            <h2>Método Cornell: organizar la información desde el momento en que llega</h2>
-            <p>El método Cornell divide la hoja en tres zonas: una columna angosta a la izquierda para palabras clave o preguntas, una columna ancha a la derecha para notas detalladas durante la clase, y un resumen al final de la página.</p>
-            <p>Su ventaja frente a tomar notas de forma libre es que ya viene preparado para el repaso: basta cubrir la columna de notas y usar las palabras clave de la izquierda como disparadores de recuerdo activo, sin necesidad de reescribir nada.</p>
-
-            <h2>Pomodoro: no es una técnica de memoria, es de concentración</h2>
-            <p>El método Pomodoro divide el estudio en bloques de 25 minutos de trabajo enfocado seguidos de un descanso de 5 minutos, con un descanso más largo cada cuatro bloques. Es útil cuando el problema no es olvidar lo que se estudia, sino no lograr sentarse a estudiar sin distraerse.</p>
-            <p>Combinar Pomodoro con recuerdo activo —usar los bloques de 25 minutos para practicar sin apuntes, no para releer— multiplica el beneficio de ambos métodos.</p>
-
-            <h2>Cómo combinar las cuatro metodologías en una rutina real</h2>
-            <p>Una rutina semanal razonable empieza tomando notas con Cornell durante las clases. Esa misma noche o al día siguiente, se hace un primer repaso con recuerdo activo cubriendo la columna de notas. El contenido que resultó difícil de recordar entra a un sistema de repetición espaciada con tarjetas. Y todo esto se ejecuta en bloques Pomodoro para mantener la concentración.</p>
-            <p>No es necesario aplicar las cuatro desde el primer día. La secuencia recomendada es empezar con recuerdo activo durante dos semanas, después añadir repetición espaciada para el contenido acumulado, y usar Cornell y Pomodoro como estructura de apoyo una vez que el hábito de recuerdo activo ya esté funcionando.</p>
-            <ul>
-                <li>Semana 1-2: solo recuerdo activo, sin apuntes al repasar.</li>
-                <li>Semana 3: añade repetición espaciada para vocabulario o datos aislados.</li>
-                <li>Semana 4: incorpora Cornell si tomas notas en clase de forma desordenada.</li>
-                <li>En cualquier momento: usa Pomodoro si el problema es empezar a estudiar, no recordar.</li>
-            </ul>
-
-            <h2>Qué metodología elegir según el tiempo disponible</h2>
-            <p>Con menos de 20 minutos diarios, el recuerdo activo puro —sin tarjetas ni sistemas— es la opción más eficiente: elige un tema y trata de explicarlo de memoria. Con 30 a 45 minutos, se puede añadir una ronda de tarjetas de repetición espaciada. Solo con una hora o más disponible vale la pena estructurar notas completas con Cornell.</p>
-
-            <h2>Ejemplo de una semana completa combinando las cuatro metodologías</h2>
-            <p>Lunes y miércoles hay clase de biología: durante la sesión se toman notas con el formato Cornell, dejando la columna izquierda en blanco para completarla después. Esa misma noche, en un bloque Pomodoro de 25 minutos, se cubre la columna de notas y se llenan las palabras clave de la izquierda intentando recordar el contenido —eso ya es recuerdo activo aplicado sobre Cornell.</p>
-            <p>El contenido que resultó más difícil de recordar —términos específicos, nombres de estructuras— se pasa a un mazo de tarjetas de repetición espaciada, programado para repasarse el viernes, el lunes siguiente y a las dos semanas. El fin de semana se usa un bloque Pomodoro adicional para practicar con un examen de práctica de biología sin apuntes, simulando la condición real de evaluación.</p>
-            <p>Esta secuencia —Cornell en clase, recuerdo activo el mismo día, repetición espaciada para lo difícil, práctica de examen antes de la evaluación— es replicable para cualquier materia con contenido teórico. Para materias de resolución de problemas como matemáticas o física, el Cornell se sustituye por practicar ejercicios variados sin ver la solución primero, pero el resto de la secuencia se mantiene igual.</p>
-            <p>El error más común al combinar varias metodologías es intentar aplicar las cuatro desde el primer día, lo que genera una carga de organización mayor que el beneficio que aporta al inicio. Es mejor dominar una —normalmente recuerdo activo, por ser la base de las demás— antes de sumar las otras. Otro error frecuente es tratar los intervalos de repetición espaciada como un calendario rígido: si un intervalo cae en un día de examen de otra materia, moverlo un día no invalida el método.</p>
-            <ul>
-                <li>Intentar adoptar las cuatro metodologías simultáneamente desde el día uno.</li>
-                <li>Tratar los intervalos de repetición espaciada como inamovibles.</li>
-                <li>Usar Cornell solo para copiar el pizarrón sin completar la columna de palabras clave después.</li>
-                <li>Convertir los descansos de Pomodoro en revisión de redes sociales, que dificulta volver a concentrarse.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Entrena tu memoria con un método estructurado</h3>
-                <p>Si el reto principal es recordar información con precisión —fechas, fórmulas, vocabulario—, el curso de Memoria Prodigiosa enseña técnicas de mnemotecnia que se combinan directamente con la repetición espaciada.</p>
-                <a href="/memoria-prodigiosa" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de memoria <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Repetición espaciada: la base de la memoria a largo plazo</h2>
+                <p>La repetición espaciada consiste en revisar la misma información en intervalos que se van alargando: el mismo día, a los tres días, a la semana, al mes. Cada vez que la memoria está a punto de debilitarse, se refuerza justo antes de perderse, lo que la consolida con menos repeticiones totales que revisar todos los días.</p>
+                <p>Funciona especialmente bien para información que no cambia de forma —vocabulario, fórmulas, fechas, nombres— porque el reto es puramente de memoria, no de comprensión de un proceso.</p>
                 <ul>
-                <li><a href="/blog-metodologias-aprendizaje-que-es">Qué son las metodologías de aprendizaje y cómo elegir la tuya</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-para-principiantes">Metodologías de aprendizaje para principiantes: por dónde empezar</a></li>
-                <li><a href="/blog-productividad-estudiantil-que-es">Productividad estudiantil: qué es y por qué la mayoría la hace mal</a></li>
+                    <li>Revisa el mismo día que aprendes algo nuevo.</li>
+                    <li>Repite a los tres días, luego a la semana, luego al mes.</li>
+                    <li>Si fallas en recordar, reinicia el intervalo desde el principio.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuál es la diferencia entre recuerdo activo y repetición espaciada?</h3>
-                <p>El recuerdo activo es la acción de intentar recordar sin ver el material; la repetición espaciada es el calendario de cuándo repetir esa acción. Se complementan: se usa recuerdo activo dentro de un sistema de repetición espaciada.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El método Cornell sirve si no tomo notas en clase presencial?</h3>
-                <p>Sí, funciona igual con videos o lecturas: se anota en la columna derecha mientras se avanza y se escriben palabras clave en la izquierda para repasar después.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántos bloques Pomodoro son razonables al día?</h3>
-                <p>Entre 4 y 8 bloques de 25 minutos por día suele ser sostenible sin agotar la concentración; más que eso normalmente indica que se necesitan descansos más largos, no más bloques.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Estas metodologías sirven para preparar exámenes de admisión?</h3>
-                <p>Sí, son especialmente útiles para admisión porque el formato de examen exige recordar sin apoyo bajo presión de tiempo, exactamente lo que entrena el recuerdo activo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si se me acumulan varias materias con repetición espaciada el mismo día?</h3>
-                <p>Prioriza el contenido con examen más próximo y mueve el repaso de las demás uno o dos días; un pequeño ajuste en el calendario no afecta la efectividad del método.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Recuerdo activo: el motor detrás de casi todas las técnicas efectivas</h2>
+                <p>El recuerdo activo es el acto de intentar recuperar información de la memoria sin verla enfrente, antes de comprobar si es correcta. Es lo que hace efectivas a las tarjetas de estudio, a escribir un resumen de memoria, o a resolver un examen de práctica sin apuntes.</p>
+                <p>La razón por la que funciona mejor que releer es que simula la condición real del examen: en un examen no tienes el libro abierto, así que practicar sin él entrena exactamente la habilidad que se evaluará.</p>
+                <ol>
+                    <li>Cierra el material de estudio.</li>
+                    <li>Escribe o di en voz alta todo lo que recuerdes sobre el tema.</li>
+                    <li>Abre el material y compara: identifica qué faltó o qué estaba mal.</li>
+                    <li>Enfoca la siguiente sesión en los huecos identificados, no en repasar todo de nuevo.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Método Cornell: organizar la información desde el momento en que llega</h2>
+                <p>El método Cornell divide la hoja en tres zonas: una columna angosta a la izquierda para palabras clave o preguntas, una columna ancha a la derecha para notas detalladas durante la clase, y un resumen al final de la página.</p>
+                <p>Su ventaja frente a tomar notas de forma libre es que ya viene preparado para el repaso: basta cubrir la columna de notas y usar las palabras clave de la izquierda como disparadores de recuerdo activo, sin necesidad de reescribir nada.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Pomodoro: no es una técnica de memoria, es de concentración</h2>
+                <p>El método Pomodoro divide el estudio en bloques de 25 minutos de trabajo enfocado seguidos de un descanso de 5 minutos, con un descanso más largo cada cuatro bloques. Es útil cuando el problema no es olvidar lo que se estudia, sino no lograr sentarse a estudiar sin distraerse.</p>
+                <p>Combinar Pomodoro con recuerdo activo —usar los bloques de 25 minutos para practicar sin apuntes, no para releer— multiplica el beneficio de ambos métodos.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cómo combinar las cuatro metodologías en una rutina real</h2>
+                <p>Una rutina semanal razonable empieza tomando notas con Cornell durante las clases. Esa misma noche o al día siguiente, se hace un primer repaso con recuerdo activo cubriendo la columna de notas. El contenido que resultó difícil de recordar entra a un sistema de repetición espaciada con tarjetas. Y todo esto se ejecuta en bloques Pomodoro para mantener la concentración.</p>
+                <p>No es necesario aplicar las cuatro desde el primer día. La secuencia recomendada es empezar con recuerdo activo durante dos semanas, después añadir repetición espaciada para el contenido acumulado, y usar Cornell y Pomodoro como estructura de apoyo una vez que el hábito de recuerdo activo ya esté funcionando.</p>
+                <ul>
+                    <li>Semana 1-2: solo recuerdo activo, sin apuntes al repasar.</li>
+                    <li>Semana 3: añade repetición espaciada para vocabulario o datos aislados.</li>
+                    <li>Semana 4: incorpora Cornell si tomas notas en clase de forma desordenada.</li>
+                    <li>En cualquier momento: usa Pomodoro si el problema es empezar a estudiar, no recordar.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Qué metodología elegir según el tiempo disponible</h2>
+                <p>Con menos de 20 minutos diarios, el recuerdo activo puro —sin tarjetas ni sistemas— es la opción más eficiente: elige un tema y trata de explicarlo de memoria. Con 30 a 45 minutos, se puede añadir una ronda de tarjetas de repetición espaciada. Solo con una hora o más disponible vale la pena estructurar notas completas con Cornell.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Ejemplo de una semana completa combinando las cuatro metodologías</h2>
+                <p>Lunes y miércoles hay clase de biología: durante la sesión se toman notas con el formato Cornell, dejando la columna izquierda en blanco para completarla después. Esa misma noche, en un bloque Pomodoro de 25 minutos, se cubre la columna de notas y se llenan las palabras clave de la izquierda intentando recordar el contenido —eso ya es recuerdo activo aplicado sobre Cornell.</p>
+                <p>El contenido que resultó más difícil de recordar —términos específicos, nombres de estructuras— se pasa a un mazo de tarjetas de repetición espaciada, programado para repasarse el viernes, el lunes siguiente y a las dos semanas. El fin de semana se usa un bloque Pomodoro adicional para practicar con un examen de práctica de biología sin apuntes, simulando la condición real de evaluación.</p>
+                <p>Esta secuencia —Cornell en clase, recuerdo activo el mismo día, repetición espaciada para lo difícil, práctica de examen antes de la evaluación— es replicable para cualquier materia con contenido teórico. Para materias de resolución de problemas como matemáticas o física, el Cornell se sustituye por practicar ejercicios variados sin ver la solución primero, pero el resto de la secuencia se mantiene igual.</p>
+                <p>El error más común al combinar varias metodologías es intentar aplicar las cuatro desde el primer día, lo que genera una carga de organización mayor que el beneficio que aporta al inicio. Es mejor dominar una —normalmente recuerdo activo, por ser la base de las demás— antes de sumar las otras. Otro error frecuente es tratar los intervalos de repetición espaciada como un calendario rígido: si un intervalo cae en un día de examen de otra materia, moverlo un día no invalida el método.</p>
+                <ul>
+                    <li>Intentar adoptar las cuatro metodologías simultáneamente desde el día uno.</li>
+                    <li>Tratar los intervalos de repetición espaciada como inamovibles.</li>
+                    <li>Usar Cornell solo para copiar el pizarrón sin completar la columna de palabras clave después.</li>
+                    <li>Convertir los descansos de Pomodoro en revisión de redes sociales, que dificulta volver a concentrarse.</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Entrena tu memoria con un método estructurado</h2>
+                    <p>Si el reto principal es recordar información con precisión —fechas, fórmulas, vocabulario—, el curso de Memoria Prodigiosa enseña técnicas de mnemotecnia que se combinan directamente con la repetición espaciada.</p>
+                    <a href="/memoria-prodigiosa" class="btn-primary">
+                        Ver el curso de memoria <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-que-es">
+                            <span>Qué son las metodologías de aprendizaje y cómo elegir la tuya</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-para-principiantes">
+                            <span>Metodologías de aprendizaje para principiantes: por dónde empezar</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-que-es">
+                            <span>Productividad estudiantil: qué es y por qué la mayoría la hace mal</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuál es la diferencia entre recuerdo activo y repetición espaciada?</h3>
+                    <p>El recuerdo activo es la acción de intentar recordar sin ver el material; la repetición espaciada es el calendario de cuándo repetir esa acción. Se complementan: se usa recuerdo activo dentro de un sistema de repetición espaciada.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El método Cornell sirve si no tomo notas en clase presencial?</h3>
+                    <p>Sí, funciona igual con videos o lecturas: se anota en la columna derecha mientras se avanza y se escriben palabras clave en la izquierda para repasar después.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántos bloques Pomodoro son razonables al día?</h3>
+                    <p>Entre 4 y 8 bloques de 25 minutos por día suele ser sostenible sin agotar la concentración; más que eso normalmente indica que se necesitan descansos más largos, no más bloques.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Estas metodologías sirven para preparar exámenes de admisión?</h3>
+                    <p>Sí, son especialmente útiles para admisión porque el formato de examen exige recordar sin apoyo bajo presión de tiempo, exactamente lo que entrena el recuerdo activo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si se me acumulan varias materias con repetición espaciada el mismo día?</h3>
+                    <p>Prioriza el contenido con examen más próximo y mueve el repaso de las demás uno o dos días; un pequeño ajuste en el calendario no afecta la efectividad del método.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -539,8 +637,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Repetición espaciada: la base de la memoria a largo plazo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Recuerdo activo: el motor detrás de casi todas las técnicas efectivas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Método Cornell: organizar la información desde el momento en que llega
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Pomodoro: no es una técnica de memoria, es de concentración
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo combinar las cuatro metodologías en una rutina real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué metodología elegir según el tiempo disponible
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo de una semana completa combinando las cuatro metodologías
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

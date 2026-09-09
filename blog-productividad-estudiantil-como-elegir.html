@@ -362,171 +362,269 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo elegir un método de estudio según tu problema real</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo elegir un método de estudio según tu problema real</h1>
+                <p class="blog-post-dek">Cómo elegir un método de estudio o una herramienta de organización según el problema real: atención, planeación, retención o falta de constancia.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Cómo elegir un método de estudio según tu problema real" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Buscar cuál es el método de estudio más recomendado produce listas interminables de técnicas que funcionan para problemas distintos. Aplicar una técnica de retención a un problema de atención no mejora nada, y el estudiante concluye que ningún método le sirve.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Primero el diagnóstico: cuatro problemas distintos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Si el problema es de atención
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Si el problema es de planeación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Si el problema es de retención
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Si el problema es de constancia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Criterios para descartar métodos sin probarlos todos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo aplicado: dos estudiantes, dos elecciones distintas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Buscar cuál es el método de estudio más recomendado produce listas interminables de técnicas que funcionan para problemas distintos. Aplicar una técnica de retención a un problema de atención no mejora nada, y el estudiante concluye que ningún método le sirve.</p>
             <p>La decisión útil empieza antes de elegir: identificar cuál de cuatro problemas está presente. Este artículo propone un diagnóstico corto, describe qué método corresponde a cada caso y ofrece criterios para descartar opciones sin probarlas todas.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para elegir un método de productividad estudiantil conviene primero nombrar el problema real, porque cada uno tiene una solución distinta: si la falla es de atención, el ajuste va en el entorno y la duración del bloque; si es de planeación, en el calendario; si es de retención, en la técnica de repaso; y si es de constancia, en el tamaño del compromiso diario.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para elegir un método de productividad estudiantil conviene primero nombrar el problema real, porque cada uno tiene una solución distinta: si la falla es de atención, el ajuste va en el entorno y la duración del bloque; si es de planeación, en el calendario; si es de retención, en la técnica de repaso; y si es de constancia, en el tamaño del compromiso diario.</p>
+                </aside>
 
-            <h2>Primero el diagnóstico: cuatro problemas distintos</h2>
-            <p>Casi todas las dificultades de estudio caen en cuatro categorías. Confundirlas es la causa más frecuente de que una técnica recomendada no funcione: no era mala técnica, era la respuesta a otra pregunta.</p>
-            <p>El diagnóstico se hace observando una semana normal, sin cambiar nada. Basta anotar cuándo se estudió, cuánto duró el bloque efectivo y si al día siguiente se recordaba el contenido.</p>
-            <ul>
-                <li>Atención: se sienta a estudiar pero el bloque se fragmenta en interrupciones.</li>
-                <li>Planeación: llega a las fechas sin margen y estudia todo el último día.</li>
-                <li>Retención: entiende en el momento y olvida al día siguiente.</li>
-                <li>Constancia: hace planes correctos que abandona en pocos días.</li>
-            </ul>
-
-            <h2>Si el problema es de atención</h2>
-            <p>Aquí el ajuste va en el entorno y en la duración, no en la técnica de estudio. Bloques más cortos con final claro, dispositivo fuera del cuarto y material completo antes de empezar resuelven la mayor parte de los casos.</p>
-            <p>Es un error frecuente responder a un problema de atención con más horas de estudio, porque el tiempo extra se fragmenta igual. Lo que cambia el resultado es la calidad del bloque, medida en minutos efectivos y no en minutos transcurridos.</p>
-            <ul>
-                <li>Reducir el bloque a lo que se sostiene sin interrupción, aunque sean veinte minutos.</li>
-                <li>Dejar el celular en otro cuarto, no en silencio sobre la mesa.</li>
-                <li>Reunir todo el material antes de iniciar el temporizador.</li>
-                <li>Anotar las distracciones que surjan en una hoja aparte y atenderlas después.</li>
-            </ul>
-
-            <h2>Si el problema es de planeación</h2>
-            <p>Cuando el estudiante entiende y retiene pero siempre llega apretado a las fechas, el problema es de calendario. La solución no es una técnica de estudio sino un procedimiento de registro y distribución.</p>
-            <p>El procedimiento siguiente se aplica una vez por cada examen o entrega y toma pocos minutos. Su valor está en hacerlo el día en que se anuncia la fecha, cuando todavía hay margen para distribuir.</p>
-            <ol>
-                <li>Anota la fecha en el calendario el mismo día en que se anuncia.</li>
-                <li>Cuenta los días hábiles disponibles y decide cuántos bloques caben.</li>
-                <li>Reparte el temario entre esos bloques y deja dos libres al final.</li>
-                <li>Marca cada bloque en el calendario como si fuera una cita fija.</li>
-                <li>Reserva los bloques finales para los temas que hayas fallado, no para releer todo.</li>
-            </ol>
-
-            <h2>Si el problema es de retención</h2>
-            <p>Entender en clase y olvidar al día siguiente indica que el estudio se está haciendo en modo de reconocimiento: releer y subrayar produce la sensación de saber sin producir la capacidad de recuperar la información sin ayuda.</p>
-            <p>El cambio de método consiste en pasar de leer a recuperar. Cerrar el cuaderno e intentar resolver o explicar es más incómodo que releer, y justamente por eso deja huella. Añadir separación en el tiempo entre repasos refuerza el efecto.</p>
-            <ul>
-                <li>Resolver dos ejercicios en frío del tema anterior antes de avanzar al nuevo.</li>
-                <li>Explicar el concepto en voz alta con un ejemplo propio, sin leer.</li>
-                <li>Escribir de memoria los pasos de un procedimiento y luego comparar.</li>
-                <li>Repasar el mismo tema con separación de días, no dos veces el mismo día.</li>
-            </ul>
-
-            <h2>Si el problema es de constancia</h2>
-            <p>El patrón típico es un plan excelente el domingo que se abandona el jueves. La causa casi siempre es el tamaño: el plan exigía un cambio de vida en lugar de un ajuste sostenible.</p>
-            <p>El criterio para elegir aquí es contraintuitivo: conviene escoger el compromiso más pequeño que aún signifique algo. Un bloque de veinte minutos cumplido cinco días vale más que un plan de dos horas diarias que dura tres días, porque lo que se está construyendo es el hábito de sentarse.</p>
-            <p>Otro criterio útil en este caso es anclar el bloque a algo que ya ocurre todos los días sin falta —después de comer, al llegar de la escuela, antes de la cena— en lugar de fijarlo a una hora del reloj. Los horarios exactos se rompen con cualquier retraso; los anclajes a rutinas existentes resisten mejor porque la señal de inicio ya está en el día.</p>
-            <ul>
-                <li>Elegir el compromiso más pequeño que todavía signifique algo.</li>
-                <li>Anclar el bloque a una rutina diaria existente, no solo a una hora del reloj.</li>
-                <li>Contar días cumplidos, no minutos acumulados, durante las primeras semanas.</li>
-                <li>Ampliar la duración solo después de dos semanas de cumplimiento estable.</li>
-            </ul>
-
-            <h2>Criterios para descartar métodos sin probarlos todos</h2>
-            <p>Probar cada técnica que aparece cuesta semanas y confunde el diagnóstico. Estos criterios permiten descartar la mayoría de opciones en pocos minutos y quedarse con dos o tres candidatas.</p>
-            <p>El criterio decisivo es el costo de mantenimiento. Cualquier método que exija más de dos minutos diarios de administración compite con el estudio mismo y termina abandonado, por buena que sea la idea detrás.</p>
-            <ul>
-                <li>Descartar lo que requiera más de dos minutos diarios de administración.</li>
-                <li>Descartar lo que no ataque el problema diagnosticado, aunque venga muy recomendado.</li>
-                <li>Descartar lo que dependa de motivación alta para funcionar.</li>
-                <li>Preferir lo que use herramientas que ya se tienen a mano.</li>
-                <li>Conservar solo un método por problema y sostenerlo tres semanas.</li>
-            </ul>
-
-            <h2>Ejemplo aplicado: dos estudiantes, dos elecciones distintas</h2>
-            <p>Dos compañeros de preparatoria tienen la misma calificación baja en matemáticas y buscan qué hacer. La tentación es que ambos adopten la misma técnica recomendada por un tercero, pero al registrar una semana normal aparecen dos problemas distintos.</p>
-            <p>El primero cumple sus bloques completos y sin interrupciones, pero al día siguiente no puede resolver lo que ayer entendía. Su registro muestra que estudia releyendo el cuaderno y subrayando. Su problema es de retención, así que su cambio es cerrar el cuaderno y resolver dos ejercicios en frío al inicio de cada sesión.</p>
-            <p>El segundo retiene bien lo que estudia, pero su registro muestra tres bloques cumplidos de cinco y siempre el mismo patrón: empieza a las once de la noche con el celular al lado. Su problema no es de método de repaso sino de atención y horario, así que su cambio es adelantar el bloque a las siete y dejar el teléfono en la cocina.</p>
-            <p>Un mes después ambos mejoran, con cambios distintos y ninguno de los dos habiendo probado la técnica del otro. Si hubieran intercambiado las soluciones, cada uno habría concluido que el método no sirve. El diagnóstico previo fue lo que hizo la diferencia, y tomó una semana de observación sin cambiar nada.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Elegir método cuando la meta es un examen de admisión</h3>
-                <p>En una preparación de admisión los cuatro problemas suelen aparecer juntos, porque el temario es amplio y el plazo fijo. El curso de Admisión Universitaria aporta el temario secuenciado y los repasos programados, de modo que la elección de método se concentre en la atención y la constancia.</p>
-                <a href="/admision-universitaria" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de Admisión Universitaria <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Primero el diagnóstico: cuatro problemas distintos</h2>
+                <p>Casi todas las dificultades de estudio caen en cuatro categorías. Confundirlas es la causa más frecuente de que una técnica recomendada no funcione: no era mala técnica, era la respuesta a otra pregunta.</p>
+                <p>El diagnóstico se hace observando una semana normal, sin cambiar nada. Basta anotar cuándo se estudió, cuánto duró el bloque efectivo y si al día siguiente se recordaba el contenido.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-como-medir-resultados">Cómo medir si un cambio en hábitos de estudio está funcionando</a></li>
-                <li><a href="/blog-productividad-estudiantil-ventajas-y-desventajas">Ventajas y desventajas reales de los sistemas de productividad</a></li>
-                <li><a href="/blog-productividad-estudiantil-recursos-gratuitos">Recursos gratuitos para organizar el estudio</a></li>
+                    <li>Atención: se sienta a estudiar pero el bloque se fragmenta en interrupciones.</li>
+                    <li>Planeación: llega a las fechas sin margen y estudia todo el último día.</li>
+                    <li>Retención: entiende en el momento y olvida al día siguiente.</li>
+                    <li>Constancia: hace planes correctos que abandona en pocos días.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puede haber más de un problema al mismo tiempo?</h3>
-                <p>Con frecuencia sí, y suelen estar encadenados: la falta de planeación provoca estudiar de madrugada, lo que reduce la atención y con ello la retención. En ese caso conviene atacar primero el eslabón más temprano, casi siempre la planeación o el horario.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debo probar un método antes de descartarlo?</h3>
-                <p>Tres semanas de aplicación sostenida es un plazo razonable. Menos tiempo no permite distinguir entre un método inadecuado y el periodo normal de adaptación a un hábito nuevo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Sirven las técnicas de memorización como los acrónimos o los mapas mentales?</h3>
-                <p>Sirven para problemas de retención de contenido estructurado, especialmente listas y clasificaciones. No ayudan si el problema es de atención o de planeación, y en materias de procedimiento suelen rendir menos que resolver ejercicios nuevos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Conviene elegir el método con ayuda de un docente?</h3>
-                <p>Sí, y aporta información que no se ve en casa: el docente observa cómo responde el estudiante en clase, en qué tipo de reactivo falla y si la dificultad es de comprensión o de ejecución. Conviene llevar el registro de la semana a esa conversación.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si ninguno de los cuatro problemas describe el caso?</h3>
-                <p>Vale la pena revisar factores fuera del método: sueño insuficiente, carga de actividades excesiva, dificultades de visión o audición, o una base previa incompleta en la materia. Si la dificultad persiste, conviene consultar al área psicopedagógica de la escuela.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Si el problema es de atención</h2>
+                <p>Aquí el ajuste va en el entorno y en la duración, no en la técnica de estudio. Bloques más cortos con final claro, dispositivo fuera del cuarto y material completo antes de empezar resuelven la mayor parte de los casos.</p>
+                <p>Es un error frecuente responder a un problema de atención con más horas de estudio, porque el tiempo extra se fragmenta igual. Lo que cambia el resultado es la calidad del bloque, medida en minutos efectivos y no en minutos transcurridos.</p>
+                <ul>
+                    <li>Reducir el bloque a lo que se sostiene sin interrupción, aunque sean veinte minutos.</li>
+                    <li>Dejar el celular en otro cuarto, no en silencio sobre la mesa.</li>
+                    <li>Reunir todo el material antes de iniciar el temporizador.</li>
+                    <li>Anotar las distracciones que surjan en una hoja aparte y atenderlas después.</li>
+                </ul>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Si el problema es de planeación</h2>
+                <p>Cuando el estudiante entiende y retiene pero siempre llega apretado a las fechas, el problema es de calendario. La solución no es una técnica de estudio sino un procedimiento de registro y distribución.</p>
+                <p>El procedimiento siguiente se aplica una vez por cada examen o entrega y toma pocos minutos. Su valor está en hacerlo el día en que se anuncia la fecha, cuando todavía hay margen para distribuir.</p>
+                <ol>
+                    <li>Anota la fecha en el calendario el mismo día en que se anuncia.</li>
+                    <li>Cuenta los días hábiles disponibles y decide cuántos bloques caben.</li>
+                    <li>Reparte el temario entre esos bloques y deja dos libres al final.</li>
+                    <li>Marca cada bloque en el calendario como si fuera una cita fija.</li>
+                    <li>Reserva los bloques finales para los temas que hayas fallado, no para releer todo.</li>
+                </ol>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Si el problema es de retención</h2>
+                <p>Entender en clase y olvidar al día siguiente indica que el estudio se está haciendo en modo de reconocimiento: releer y subrayar produce la sensación de saber sin producir la capacidad de recuperar la información sin ayuda.</p>
+                <p>El cambio de método consiste en pasar de leer a recuperar. Cerrar el cuaderno e intentar resolver o explicar es más incómodo que releer, y justamente por eso deja huella. Añadir separación en el tiempo entre repasos refuerza el efecto.</p>
+                <ul>
+                    <li>Resolver dos ejercicios en frío del tema anterior antes de avanzar al nuevo.</li>
+                    <li>Explicar el concepto en voz alta con un ejemplo propio, sin leer.</li>
+                    <li>Escribir de memoria los pasos de un procedimiento y luego comparar.</li>
+                    <li>Repasar el mismo tema con separación de días, no dos veces el mismo día.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Si el problema es de constancia</h2>
+                <p>El patrón típico es un plan excelente el domingo que se abandona el jueves. La causa casi siempre es el tamaño: el plan exigía un cambio de vida en lugar de un ajuste sostenible.</p>
+                <p>El criterio para elegir aquí es contraintuitivo: conviene escoger el compromiso más pequeño que aún signifique algo. Un bloque de veinte minutos cumplido cinco días vale más que un plan de dos horas diarias que dura tres días, porque lo que se está construyendo es el hábito de sentarse.</p>
+                <p>Otro criterio útil en este caso es anclar el bloque a algo que ya ocurre todos los días sin falta —después de comer, al llegar de la escuela, antes de la cena— en lugar de fijarlo a una hora del reloj. Los horarios exactos se rompen con cualquier retraso; los anclajes a rutinas existentes resisten mejor porque la señal de inicio ya está en el día.</p>
+                <ul>
+                    <li>Elegir el compromiso más pequeño que todavía signifique algo.</li>
+                    <li>Anclar el bloque a una rutina diaria existente, no solo a una hora del reloj.</li>
+                    <li>Contar días cumplidos, no minutos acumulados, durante las primeras semanas.</li>
+                    <li>Ampliar la duración solo después de dos semanas de cumplimiento estable.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Criterios para descartar métodos sin probarlos todos</h2>
+                <p>Probar cada técnica que aparece cuesta semanas y confunde el diagnóstico. Estos criterios permiten descartar la mayoría de opciones en pocos minutos y quedarse con dos o tres candidatas.</p>
+                <p>El criterio decisivo es el costo de mantenimiento. Cualquier método que exija más de dos minutos diarios de administración compite con el estudio mismo y termina abandonado, por buena que sea la idea detrás.</p>
+                <ul>
+                    <li>Descartar lo que requiera más de dos minutos diarios de administración.</li>
+                    <li>Descartar lo que no ataque el problema diagnosticado, aunque venga muy recomendado.</li>
+                    <li>Descartar lo que dependa de motivación alta para funcionar.</li>
+                    <li>Preferir lo que use herramientas que ya se tienen a mano.</li>
+                    <li>Conservar solo un método por problema y sostenerlo tres semanas.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Ejemplo aplicado: dos estudiantes, dos elecciones distintas</h2>
+                <p>Dos compañeros de preparatoria tienen la misma calificación baja en matemáticas y buscan qué hacer. La tentación es que ambos adopten la misma técnica recomendada por un tercero, pero al registrar una semana normal aparecen dos problemas distintos.</p>
+                <p>El primero cumple sus bloques completos y sin interrupciones, pero al día siguiente no puede resolver lo que ayer entendía. Su registro muestra que estudia releyendo el cuaderno y subrayando. Su problema es de retención, así que su cambio es cerrar el cuaderno y resolver dos ejercicios en frío al inicio de cada sesión.</p>
+                <p>El segundo retiene bien lo que estudia, pero su registro muestra tres bloques cumplidos de cinco y siempre el mismo patrón: empieza a las once de la noche con el celular al lado. Su problema no es de método de repaso sino de atención y horario, así que su cambio es adelantar el bloque a las siete y dejar el teléfono en la cocina.</p>
+                <p>Un mes después ambos mejoran, con cambios distintos y ninguno de los dos habiendo probado la técnica del otro. Si hubieran intercambiado las soluciones, cada uno habría concluido que el método no sirve. El diagnóstico previo fue lo que hizo la diferencia, y tomó una semana de observación sin cambiar nada.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Elegir método cuando la meta es un examen de admisión</h2>
+                    <p>En una preparación de admisión los cuatro problemas suelen aparecer juntos, porque el temario es amplio y el plazo fijo. El curso de Admisión Universitaria aporta el temario secuenciado y los repasos programados, de modo que la elección de método se concentre en la atención y la constancia.</p>
+                    <a href="/admision-universitaria" class="btn-primary">
+                        Ver el curso de Admisión Universitaria <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-como-medir-resultados">
+                            <span>Cómo medir si un cambio en hábitos de estudio está funcionando</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-ventajas-y-desventajas">
+                            <span>Ventajas y desventajas reales de los sistemas de productividad</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-recursos-gratuitos">
+                            <span>Recursos gratuitos para organizar el estudio</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puede haber más de un problema al mismo tiempo?</h3>
+                    <p>Con frecuencia sí, y suelen estar encadenados: la falta de planeación provoca estudiar de madrugada, lo que reduce la atención y con ello la retención. En ese caso conviene atacar primero el eslabón más temprano, casi siempre la planeación o el horario.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debo probar un método antes de descartarlo?</h3>
+                    <p>Tres semanas de aplicación sostenida es un plazo razonable. Menos tiempo no permite distinguir entre un método inadecuado y el periodo normal de adaptación a un hábito nuevo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Sirven las técnicas de memorización como los acrónimos o los mapas mentales?</h3>
+                    <p>Sirven para problemas de retención de contenido estructurado, especialmente listas y clasificaciones. No ayudan si el problema es de atención o de planeación, y en materias de procedimiento suelen rendir menos que resolver ejercicios nuevos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Conviene elegir el método con ayuda de un docente?</h3>
+                    <p>Sí, y aporta información que no se ve en casa: el docente observa cómo responde el estudiante en clase, en qué tipo de reactivo falla y si la dificultad es de comprensión o de ejecución. Conviene llevar el registro de la semana a esa conversación.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si ninguno de los cuatro problemas describe el caso?</h3>
+                    <p>Vale la pena revisar factores fuera del método: sueño insuficiente, carga de actividades excesiva, dificultades de visión o audición, o una base previa incompleta en la materia. Si la dificultad persiste, conviene consultar al área psicopedagógica de la escuela.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -556,8 +654,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Primero el diagnóstico: cuatro problemas distintos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Si el problema es de atención
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Si el problema es de planeación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Si el problema es de retención
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Si el problema es de constancia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Criterios para descartar métodos sin probarlos todos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo aplicado: dos estudiantes, dos elecciones distintas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

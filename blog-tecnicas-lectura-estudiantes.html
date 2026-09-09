@@ -354,137 +354,226 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="4">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-book-open"></i> Fotolectura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">7 técnicas de lectura para estudiar textos difíciles</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 4 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Fotolectura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">7 técnicas de lectura para estudiar textos difíciles</h1>
+                <p class="blog-post-dek">Descubre 7 técnicas de lectura para abordar textos académicos difíciles: exploración, lectura profunda, recuperación y más. Guía práctica para estudiantes.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Fotolectura</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>4 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fotolectura-curso-lectura-rapida-libro.webp" alt="7 técnicas de lectura para estudiar textos difíciles" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Abrir un texto académico denso y empezar a leer de la primera a la última línea rara vez funciona. El esfuerzo se dispersa, la atención cae y al final queda poco en la memoria.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>10 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué un solo modo de lectura no basta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Técnica 1 — Exploración rápida (skimming)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Técnica 2 — Escaneo selectivo (scanning)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Técnica 3 — Lectura profunda con anotación activa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Técnica 4 — Lectura en capas (varias pasadas)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Técnica 5 — Recuperación activa tras la lectura
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Técnica 6 — Lectura comparativa entre fuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Técnica 7 — Resumen progresivo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Abrir un texto académico denso y empezar a leer de la primera a la última línea rara vez funciona. El esfuerzo se dispersa, la atención cae y al final queda poco en la memoria.</p>
             <p>La diferencia no está en leer más rápido, sino en elegir la estrategia correcta según lo que necesitas obtener del texto. Aquí tienes siete técnicas concretas, con indicaciones de cuándo aplicar cada una.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Las técnicas de lectura más útiles para textos difíciles combinan exploración previa del material, lectura profunda con anotaciones y recuperación activa. Elegir la técnica adecuada depende del propósito: localizar datos, comprender argumentos o memorizar conceptos clave.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Las técnicas de lectura más útiles para textos difíciles combinan exploración previa del material, lectura profunda con anotaciones y recuperación activa. Elegir la técnica adecuada depende del propósito: localizar datos, comprender argumentos o memorizar conceptos clave.</p>
+                </aside>
 
-            <h2>Por qué un solo modo de lectura no basta</h2>
-            <p>Cada texto tiene una estructura, un nivel de dificultad y un propósito distinto para quien lo lee. Un capítulo de biología molecular exige atención diferente a un ensayo filosófico o a un manual de procedimientos. Si siempre lees del mismo modo, desperdicias energía en partes que no la necesitan y te quedas corto donde hace falta profundizar.</p>
-            <p>Las técnicas que siguen no son exclusivas entre sí: se combinan dentro de una misma sesión de estudio. La clave es identificar qué necesitas antes de empezar.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué un solo modo de lectura no basta</h2>
+                <p>Cada texto tiene una estructura, un nivel de dificultad y un propósito distinto para quien lo lee. Un capítulo de biología molecular exige atención diferente a un ensayo filosófico o a un manual de procedimientos. Si siempre lees del mismo modo, desperdicias energía en partes que no la necesitan y te quedas corto donde hace falta profundizar.</p>
+                <p>Las técnicas que siguen no son exclusivas entre sí: se combinan dentro de una misma sesión de estudio. La clave es identificar qué necesitas antes de empezar.</p>
+            </section>
 
-            <h2>Técnica 1 — Exploración rápida (skimming)</h2>
-            <p>Consiste en recorrer títulos, subtítulos, negritas, gráficas y conclusiones para construir un mapa mental del contenido antes de leer en detalle. No es lectura superficial por pereza; es reconocimiento deliberado del terreno.</p>
-            <ul>
-                <li>Lee el índice o la tabla de contenidos completa.</li>
-                <li>Revisa el primer y último párrafo de cada sección.</li>
-                <li>Identifica las palabras clave que se repiten.</li>
-                <li>Anota en una hoja las preguntas que te surjan.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Técnica 1 — Exploración rápida (skimming)</h2>
+                <p>Consiste en recorrer títulos, subtítulos, negritas, gráficas y conclusiones para construir un mapa mental del contenido antes de leer en detalle. No es lectura superficial por pereza; es reconocimiento deliberado del terreno.</p>
+                <ul>
+                    <li>Lee el índice o la tabla de contenidos completa.</li>
+                    <li>Revisa el primer y último párrafo de cada sección.</li>
+                    <li>Identifica las palabras clave que se repiten.</li>
+                    <li>Anota en una hoja las preguntas que te surjan.</li>
+                </ul>
+            </section>
 
-            <h2>Técnica 2 — Escaneo selectivo (scanning)</h2>
-            <p>Cuando ya sabes qué dato buscas —una fecha, una fórmula, un nombre—, el escaneo te lleva directo al punto sin procesar todo el texto. Es útil para resolver dudas puntuales o completar apuntes.</p>
-            <ul>
-                <li>Define con precisión qué estás buscando antes de abrir el texto.</li>
-                <li>Mueve la mirada en zigzag o por columnas, sin detenerte en oraciones completas.</li>
-                <li>Marca el hallazgo y regresa al contexto solo si necesitas verificarlo.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Técnica 2 — Escaneo selectivo (scanning)</h2>
+                <p>Cuando ya sabes qué dato buscas —una fecha, una fórmula, un nombre—, el escaneo te lleva directo al punto sin procesar todo el texto. Es útil para resolver dudas puntuales o completar apuntes.</p>
+                <ul>
+                    <li>Define con precisión qué estás buscando antes de abrir el texto.</li>
+                    <li>Mueve la mirada en zigzag o por columnas, sin detenerte en oraciones completas.</li>
+                    <li>Marca el hallazgo y regresa al contexto solo si necesitas verificarlo.</li>
+                </ul>
+            </section>
 
-            <h2>Técnica 3 — Lectura profunda con anotación activa</h2>
-            <p>Aquí sí lees cada oración, pero con lápiz en mano. Subrayas solo ideas que reformulas con tus palabras en el margen. La clave es convertir el texto en un diálogo: tú le haces preguntas, el autor te responde.</p>
-            <p>Evita subrayar todo; si más del 20 por ciento del texto queda marcado, la técnica pierde utilidad porque ya no distingues lo esencial.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Técnica 3 — Lectura profunda con anotación activa</h2>
+                <p>Aquí sí lees cada oración, pero con lápiz en mano. Subrayas solo ideas que reformulas con tus palabras en el margen. La clave es convertir el texto en un diálogo: tú le haces preguntas, el autor te responde.</p>
+                <p>Evita subrayar todo; si más del 20 por ciento del texto queda marcado, la técnica pierde utilidad porque ya no distingues lo esencial.</p>
+            </section>
 
-            <h2>Técnica 4 — Lectura en capas (varias pasadas)</h2>
-            <p>Para textos muy densos —artículos científicos, legislación, demostraciones matemáticas— una sola lectura rara vez alcanza. La lectura en capas divide el proceso: primera pasada para estructura, segunda para argumentos centrales, tercera para detalles y evidencia.</p>
-            <ol>
-                <li>Primera pasada: lee títulos, resumen y conclusiones; identifica la tesis.</li>
-                <li>Segunda pasada: lee los párrafos principales de cada sección; subraya argumentos.</li>
-                <li>Tercera pasada: revisa datos, notas al pie y ejemplos; verifica tu comprensión.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Técnica 4 — Lectura en capas (varias pasadas)</h2>
+                <p>Para textos muy densos —artículos científicos, legislación, demostraciones matemáticas— una sola lectura rara vez alcanza. La lectura en capas divide el proceso: primera pasada para estructura, segunda para argumentos centrales, tercera para detalles y evidencia.</p>
+                <ol>
+                    <li>Primera pasada: lee títulos, resumen y conclusiones; identifica la tesis.</li>
+                    <li>Segunda pasada: lee los párrafos principales de cada sección; subraya argumentos.</li>
+                    <li>Tercera pasada: revisa datos, notas al pie y ejemplos; verifica tu comprensión.</li>
+                </ol>
+            </section>
 
-            <h2>Técnica 5 — Recuperación activa tras la lectura</h2>
-            <p>Cerrar el libro y escribir de memoria lo que recuerdas es una de las estrategias de estudio con mayor respaldo en investigación cognitiva. No es un examen: es una forma de identificar lagunas mientras aún puedes volver al texto.</p>
-            <p>Después de cada sección, cierra el material y responde: ¿cuál era la idea principal? ¿Qué evidencia la sostiene? ¿Qué me queda confuso?</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Técnica 5 — Recuperación activa tras la lectura</h2>
+                <p>Cerrar el libro y escribir de memoria lo que recuerdas es una de las estrategias de estudio con mayor respaldo en investigación cognitiva. No es un examen: es una forma de identificar lagunas mientras aún puedes volver al texto.</p>
+                <p>Después de cada sección, cierra el material y responde: ¿cuál era la idea principal? ¿Qué evidencia la sostiene? ¿Qué me queda confuso?</p>
+            </section>
 
-            <h2>Técnica 6 — Lectura comparativa entre fuentes</h2>
-            <p>Cuando un tema es polémico o complejo, leer una sola fuente limita la comprensión. Toma dos o tres textos sobre el mismo tema y compara definiciones, datos y conclusiones. Las diferencias te obligan a pensar críticamente.</p>
-            <ul>
-                <li>Elige fuentes con perspectivas distintas pero de rigor similar.</li>
-                <li>Haz una tabla: concepto, fuente A dice, fuente B dice, coincidencias.</li>
-                <li>Formula tu propia síntesis después de contrastar.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Técnica 6 — Lectura comparativa entre fuentes</h2>
+                <p>Cuando un tema es polémico o complejo, leer una sola fuente limita la comprensión. Toma dos o tres textos sobre el mismo tema y compara definiciones, datos y conclusiones. Las diferencias te obligan a pensar críticamente.</p>
+                <ul>
+                    <li>Elige fuentes con perspectivas distintas pero de rigor similar.</li>
+                    <li>Haz una tabla: concepto, fuente A dice, fuente B dice, coincidencias.</li>
+                    <li>Formula tu propia síntesis después de contrastar.</li>
+                </ul>
+            </section>
 
-            <h2>Técnica 7 — Resumen progresivo</h2>
-            <p>Escribe un resumen de cada sección inmediatamente después de leerla, en tres o cuatro oraciones máximo. Al terminar el texto, construye un resumen del resumen. Este proceso de compresión obliga a distinguir lo esencial de lo accesorio.</p>
-            <p>El resumen progresivo funciona especialmente bien para preparar exposiciones o exámenes de desarrollo, donde necesitas articular ideas con tus propias palabras.</p>
+            <section class="ed-article-section" id="seccion-8" aria-labelledby="seccion-8-titulo">
+                <h2 id="seccion-8-titulo">Técnica 7 — Resumen progresivo</h2>
+                <p>Escribe un resumen de cada sección inmediatamente después de leerla, en tres o cuatro oraciones máximo. Al terminar el texto, construye un resumen del resumen. Este proceso de compresión obliga a distinguir lo esencial de lo accesorio.</p>
+                <p>El resumen progresivo funciona especialmente bien para preparar exposiciones o exámenes de desarrollo, donde necesitas articular ideas con tus propias palabras.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Lleva tu lectura al siguiente nivel con práctica guiada</h3>
-                <p>En el curso de Fotolectura trabajas estas técnicas de forma estructurada, con ejercicios progresivos que combinan velocidad y comprensión para que cada sesión de estudio rinda más.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de lectura veloz <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Lleva tu lectura al siguiente nivel con práctica guiada</h2>
+                    <p>En el curso de Fotolectura trabajas estas técnicas de forma estructurada, con ejercicios progresivos que combinan velocidad y comprensión para que cada sesión de estudio rinda más.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Ver el curso de lectura veloz <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo combinar varias técnicas en una misma sesión de estudio?</h3>
-                <p>Sí, de hecho es lo más efectivo. Empieza con exploración rápida para mapear el texto, luego aplica lectura profunda en las secciones clave y termina con recuperación activa para consolidar lo aprendido.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debería dedicar a la exploración antes de leer a fondo?</h3>
-                <p>Entre cinco y diez minutos por capítulo suele bastar. El objetivo es tener un marco de referencia, no memorizar. Si el texto es breve, con dos o tres minutos de revisión de estructura es suficiente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Subrayar mucho es un problema real o solo una preferencia?</h3>
-                <p>Subrayar en exceso elimina la función del subrayado: distinguir lo importante. Si todo está marcado, nada destaca y al repasar terminas releyendo. Limita las marcas a ideas que puedas parafrasear.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Estas técnicas sirven para textos digitales o solo impresos?</h3>
-                <p>Funcionan en ambos formatos. En digital puedes usar comentarios, marcadores y aplicaciones de notas. Lo importante es que la interacción con el texto sea activa, no pasiva, sin importar el soporte.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunlosky.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. — Improving Students' Learning With Effective Learning Techniques</a> — Revisión de eficacia de técnicas de estudio</li>
-                <li><a href="https://www.cambridgeinternational.org/support-and-training-for-schools/teaching-cambridge-at-your-school/study-skills/" target="_blank" rel="noopener noreferrer">Universidad de Cambridge — Study Skills</a> — Orientaciones sobre lectura activa y recuperación</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo combinar varias técnicas en una misma sesión de estudio?</h3>
+                    <p>Sí, de hecho es lo más efectivo. Empieza con exploración rápida para mapear el texto, luego aplica lectura profunda en las secciones clave y termina con recuperación activa para consolidar lo aprendido.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debería dedicar a la exploración antes de leer a fondo?</h3>
+                    <p>Entre cinco y diez minutos por capítulo suele bastar. El objetivo es tener un marco de referencia, no memorizar. Si el texto es breve, con dos o tres minutos de revisión de estructura es suficiente.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Subrayar mucho es un problema real o solo una preferencia?</h3>
+                    <p>Subrayar en exceso elimina la función del subrayado: distinguir lo importante. Si todo está marcado, nada destaca y al repasar terminas releyendo. Limita las marcas a ideas que puedas parafrasear.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Estas técnicas sirven para textos digitales o solo impresos?</h3>
+                    <p>Funcionan en ambos formatos. En digital puedes usar comentarios, marcadores y aplicaciones de notas. Lo importante es que la interacción con el texto sea activa, no pasiva, sin importar el soporte.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunlosky.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. — Improving Students' Learning With Effective Learning Techniques</a> — Revisión de eficacia de técnicas de estudio</li>
+                    <li><a href="https://www.cambridgeinternational.org/support-and-training-for-schools/teaching-cambridge-at-your-school/study-skills/" target="_blank" rel="noopener noreferrer">Universidad de Cambridge — Study Skills</a> — Orientaciones sobre lectura activa y recuperación</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -514,8 +603,72 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué un solo modo de lectura no basta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Técnica 1 — Exploración rápida (skimming)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Técnica 2 — Escaneo selectivo (scanning)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Técnica 3 — Lectura profunda con anotación activa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Técnica 4 — Lectura en capas (varias pasadas)
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Técnica 5 — Recuperación activa tras la lectura
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Técnica 6 — Lectura comparativa entre fuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Técnica 7 — Resumen progresivo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>4 min restantes</span>
+                        <span>Lectura estimada: 4 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

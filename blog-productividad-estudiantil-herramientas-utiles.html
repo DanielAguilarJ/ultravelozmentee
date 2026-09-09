@@ -362,143 +362,241 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Herramientas útiles de productividad estudiantil que sí funcionan</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Herramientas útiles de productividad estudiantil que sí funcionan</h1>
+                <p class="blog-post-dek">Herramientas útiles de productividad estudiantil que sí funcionan: listas simples, temporizadores, y por qué las apps complejas no siempre ayudan.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Herramientas útiles de productividad estudiantil que sí funcionan" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Existe una tendencia a buscar la app de productividad 'definitiva' que resuelva todo de una vez, cuando en realidad las herramientas más efectivas suelen ser simples y de bajo costo de aprendizaje.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>La lista de tres tareas: la herramienta más simple y efectiva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>El temporizador: proteger bloques de concentración
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Un calendario visible con fechas de examen
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Por qué las apps complejas no siempre ayudan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuándo sí conviene una herramienta más elaborada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores frecuentes al elegir herramientas de productividad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo aplicado: de una app compleja a un sistema simple
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Existe una tendencia a buscar la app de productividad 'definitiva' que resuelva todo de una vez, cuando en realidad las herramientas más efectivas suelen ser simples y de bajo costo de aprendizaje.</p>
             <p>Este artículo repasa las herramientas con mejor relación esfuerzo-resultado para productividad estudiantil, explicando por qué la simplicidad suele ganarle a la complejidad en este contexto específico.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Las herramientas de productividad estudiantil más útiles son las más simples: una lista de tres tareas diarias, un temporizador para bloques de estudio, y un calendario visible con fechas de examen. Las apps complejas con múltiples funciones rara vez superan a estas herramientas básicas, porque el tiempo de configuración y aprendizaje suele superar el beneficio que aportan.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Las herramientas de productividad estudiantil más útiles son las más simples: una lista de tres tareas diarias, un temporizador para bloques de estudio, y un calendario visible con fechas de examen. Las apps complejas con múltiples funciones rara vez superan a estas herramientas básicas, porque el tiempo de configuración y aprendizaje suele superar el beneficio que aportan.</p>
+                </aside>
 
-            <h2>La lista de tres tareas: la herramienta más simple y efectiva</h2>
-            <p>Una lista escrita a mano o en una nota simple, con las tres tareas académicas más importantes del día, elimina la mayor parte de la indecisión inicial sobre por dónde empezar a estudiar. No requiere ninguna app, ninguna configuración, y funciona igual de bien para un estudiante de primaria que para uno de universidad.</p>
-            <p>La razón por la que esta herramienta simple suele superar a sistemas más elaborados es que reduce la fricción de empezar: no hay que abrir una app, navegar menús o configurar categorías, solo mirar la lista y comenzar con la primera tarea.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">La lista de tres tareas: la herramienta más simple y efectiva</h2>
+                <p>Una lista escrita a mano o en una nota simple, con las tres tareas académicas más importantes del día, elimina la mayor parte de la indecisión inicial sobre por dónde empezar a estudiar. No requiere ninguna app, ninguna configuración, y funciona igual de bien para un estudiante de primaria que para uno de universidad.</p>
+                <p>La razón por la que esta herramienta simple suele superar a sistemas más elaborados es que reduce la fricción de empezar: no hay que abrir una app, navegar menús o configurar categorías, solo mirar la lista y comenzar con la primera tarea.</p>
+            </section>
 
-            <h2>El temporizador: proteger bloques de concentración</h2>
-            <p>Un temporizador simple —físico o en el teléfono en modo avión— ayuda a definir bloques de tiempo de concentración sin necesidad de ninguna app especializada. El método Pomodoro (25 minutos de trabajo, 5 de descanso) es popular precisamente porque no requiere herramienta sofisticada, solo un reloj.</p>
-            <p>El valor del temporizador no está en la app específica que se use, sino en la disciplina de respetar el bloque completo sin interrupciones y el descanso completo sin extenderlo. Cualquier temporizador —de cocina, del teléfono, una app dedicada— cumple la misma función básica.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">El temporizador: proteger bloques de concentración</h2>
+                <p>Un temporizador simple —físico o en el teléfono en modo avión— ayuda a definir bloques de tiempo de concentración sin necesidad de ninguna app especializada. El método Pomodoro (25 minutos de trabajo, 5 de descanso) es popular precisamente porque no requiere herramienta sofisticada, solo un reloj.</p>
+                <p>El valor del temporizador no está en la app específica que se use, sino en la disciplina de respetar el bloque completo sin interrupciones y el descanso completo sin extenderlo. Cualquier temporizador —de cocina, del teléfono, una app dedicada— cumple la misma función básica.</p>
+            </section>
 
-            <h2>Un calendario visible con fechas de examen</h2>
-            <p>Tener las fechas de examen y entrega visibles en un solo lugar —un calendario de pared, una app de calendario simple— evita el efecto de sorpresa de 'no sabía que el examen era esta semana'. No es necesario un sistema complejo de gestión de proyectos; un calendario mensual básico con las fechas marcadas es suficiente para la mayoría de los estudiantes.</p>
-            <p>La clave es que el calendario sea visible de forma pasiva —en la pared, en la pantalla de inicio del teléfono— para que la información llegue sin necesidad de buscarla activamente cada vez.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Un calendario visible con fechas de examen</h2>
+                <p>Tener las fechas de examen y entrega visibles en un solo lugar —un calendario de pared, una app de calendario simple— evita el efecto de sorpresa de 'no sabía que el examen era esta semana'. No es necesario un sistema complejo de gestión de proyectos; un calendario mensual básico con las fechas marcadas es suficiente para la mayoría de los estudiantes.</p>
+                <p>La clave es que el calendario sea visible de forma pasiva —en la pared, en la pantalla de inicio del teléfono— para que la información llegue sin necesidad de buscarla activamente cada vez.</p>
+            </section>
 
-            <h2>Por qué las apps complejas no siempre ayudan</h2>
-            <p>Muchas apps de productividad ofrecen categorización avanzada, integraciones múltiples y opciones de personalización extensas. Para un estudiante, esta complejidad rara vez se traduce en mejor rendimiento; con frecuencia genera el efecto contrario, porque el tiempo dedicado a configurar y mantener el sistema compite con el tiempo que debería dedicarse a estudiar.</p>
-            <p>Esto no significa que las apps complejas nunca funcionen; algunos estudiantes con necesidades de organización muy específicas pueden beneficiarse de ellas. Pero para la mayoría, empezar con herramientas simples y solo añadir complejidad si realmente se necesita es la estrategia más efectiva.</p>
-            <ul>
-                <li>El tiempo de configuración de una app compleja compite con el tiempo de estudio real.</li>
-                <li>La curva de aprendizaje de sistemas elaborados desmotiva el uso consistente.</li>
-                <li>La mayoría de las necesidades de organización estudiantil se resuelven con herramientas simples.</li>
-                <li>Añadir complejidad solo cuando una herramienta simple demuestra ser insuficiente.</li>
-            </ul>
-
-            <h2>Cuándo sí conviene una herramienta más elaborada</h2>
-            <p>Un estudiante con múltiples materias, proyectos de largo plazo y responsabilidades adicionales (trabajo, actividades extracurriculares intensas) puede beneficiarse de un sistema más estructurado que ayude a visualizar la carga completa, no solo el día a día. En estos casos, una app de gestión de tareas con categorías por materia puede aportar valor real.</p>
-            <p>La señal de que conviene escalar a una herramienta más elaborada no es 'la lista simple se siente aburrida', sino 'la lista simple ya no captura toda la complejidad real de mis responsabilidades'.</p>
-
-            <h2>Errores frecuentes al elegir herramientas de productividad</h2>
-            <p>El error más común es adoptar una herramienta compleja antes de haber probado si una simple resuelve el problema, generando frustración innecesaria con el tiempo de configuración. Otro error es cambiar de herramienta constantemente buscando la 'perfecta', sin dar tiempo suficiente a ninguna para demostrar si funciona.</p>
-            <p>Un tercer error es elegir una herramienta basándose en lo que usan otros estudiantes o influencers de estudio, sin considerar si esa herramienta específica encaja con las necesidades y el estilo de organización propios.</p>
-            <ul>
-                <li>Adoptar herramientas complejas sin probar primero opciones simples.</li>
-                <li>Cambiar de herramienta constantemente sin dar tiempo a que funcione.</li>
-                <li>Elegir herramientas por moda en lugar de por necesidad real.</li>
-                <li>No revisar periódicamente si la herramienta elegida sigue siendo la adecuada conforme cambian las responsabilidades.</li>
-            </ul>
-
-            <h2>Ejemplo aplicado: de una app compleja a un sistema simple</h2>
-            <p>Un estudiante universitario adoptó una app de gestión de proyectos con múltiples tableros y etiquetas, esperando que resolviera su desorganización. Después de dos semanas, notó que pasaba más tiempo organizando las tareas en el sistema que completándolas, y que frecuentemente olvidaba revisar la app porque el proceso de entrada de información era tedioso.</p>
-            <p>Decidió simplificar radicalmente: una lista de tres tareas diarias en una libreta física, y un calendario de pared con fechas de examen. El cambio redujo el tiempo dedicado a 'organizar' de quince minutos diarios a menos de dos, y notó que efectivamente revisaba la lista cada mañana porque el costo de hacerlo era mínimo.</p>
-            <p>Meses después, al asumir un proyecto de investigación de varios meses con múltiples entregables, reconoció que la lista simple ya no capturaba toda la complejidad de ese proyecto específico, y añadió una hoja de cálculo básica solo para ese proyecto, manteniendo la lista simple para el resto de sus materias regulares. Esta combinación —simple por defecto, elaborado solo cuando la complejidad real lo justifica— es el patrón que este artículo recomienda.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Prepárate para tu examen de admisión con un sistema simple y efectivo</h3>
-                <p>El curso de Admisión Universitaria organiza tu preparación con un plan claro, sin necesidad de herramientas complejas que compitan con el tiempo real de estudio.</p>
-                <a href="/admision-universitaria" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer Admisión Universitaria <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Por qué las apps complejas no siempre ayudan</h2>
+                <p>Muchas apps de productividad ofrecen categorización avanzada, integraciones múltiples y opciones de personalización extensas. Para un estudiante, esta complejidad rara vez se traduce en mejor rendimiento; con frecuencia genera el efecto contrario, porque el tiempo dedicado a configurar y mantener el sistema compite con el tiempo que debería dedicarse a estudiar.</p>
+                <p>Esto no significa que las apps complejas nunca funcionen; algunos estudiantes con necesidades de organización muy específicas pueden beneficiarse de ellas. Pero para la mayoría, empezar con herramientas simples y solo añadir complejidad si realmente se necesita es la estrategia más efectiva.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-checklist">Checklist de productividad estudiantil por momentos</a></li>
-                <li><a href="/blog-productividad-estudiantil-rutina-semanal">Cómo armar una rutina semanal de estudio que resista imprevistos</a></li>
-                <li><a href="/blog-productividad-estudiantil-en-casa">Cómo organizar la productividad estudiantil en casa</a></li>
+                    <li>El tiempo de configuración de una app compleja compite con el tiempo de estudio real.</li>
+                    <li>La curva de aprendizaje de sistemas elaborados desmotiva el uso consistente.</li>
+                    <li>La mayoría de las necesidades de organización estudiantil se resuelven con herramientas simples.</li>
+                    <li>Añadir complejidad solo cuando una herramienta simple demuestra ser insuficiente.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué app específica recomiendan para empezar con productividad estudiantil?</h3>
-                <p>No es necesaria ninguna app específica para empezar; una libreta o una nota simple en el teléfono cumplen la misma función que la mayoría de las apps de listas de tareas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Las apps de estudio con gamificación ayudan con la productividad?</h3>
-                <p>Pueden ayudar con la motivación inicial, pero no sustituyen a las herramientas básicas de organización; funcionan mejor como complemento, no como sistema principal de productividad.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuándo sé que necesito una herramienta más elaborada que una lista simple?</h3>
-                <p>Cuando la lista simple ya no logra capturar toda la complejidad de tus responsabilidades -- múltiples proyectos largos, materias con estructuras muy distintas entre sí -- es momento de considerar algo más estructurado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es mejor usar herramientas digitales o físicas (papel)?</h3>
-                <p>Ambas funcionan igual de bien si se usan consistentemente; la elección depende de la preferencia personal, no de que una sea inherentemente superior a la otra.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si ya probé varias herramientas y ninguna 'se me pega'?</h3>
-                <p>Revisa si el problema es la herramienta o la falta de un momento fijo del día para usarla; muchas veces el fallo no es la herramienta sino la ausencia de un hábito consistente alrededor de ella.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cuándo sí conviene una herramienta más elaborada</h2>
+                <p>Un estudiante con múltiples materias, proyectos de largo plazo y responsabilidades adicionales (trabajo, actividades extracurriculares intensas) puede beneficiarse de un sistema más estructurado que ayude a visualizar la carga completa, no solo el día a día. En estos casos, una app de gestión de tareas con categorías por materia puede aportar valor real.</p>
+                <p>La señal de que conviene escalar a una herramienta más elaborada no es 'la lista simple se siente aburrida', sino 'la lista simple ya no captura toda la complejidad real de mis responsabilidades'.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Errores frecuentes al elegir herramientas de productividad</h2>
+                <p>El error más común es adoptar una herramienta compleja antes de haber probado si una simple resuelve el problema, generando frustración innecesaria con el tiempo de configuración. Otro error es cambiar de herramienta constantemente buscando la 'perfecta', sin dar tiempo suficiente a ninguna para demostrar si funciona.</p>
+                <p>Un tercer error es elegir una herramienta basándose en lo que usan otros estudiantes o influencers de estudio, sin considerar si esa herramienta específica encaja con las necesidades y el estilo de organización propios.</p>
+                <ul>
+                    <li>Adoptar herramientas complejas sin probar primero opciones simples.</li>
+                    <li>Cambiar de herramienta constantemente sin dar tiempo a que funcione.</li>
+                    <li>Elegir herramientas por moda en lugar de por necesidad real.</li>
+                    <li>No revisar periódicamente si la herramienta elegida sigue siendo la adecuada conforme cambian las responsabilidades.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Ejemplo aplicado: de una app compleja a un sistema simple</h2>
+                <p>Un estudiante universitario adoptó una app de gestión de proyectos con múltiples tableros y etiquetas, esperando que resolviera su desorganización. Después de dos semanas, notó que pasaba más tiempo organizando las tareas en el sistema que completándolas, y que frecuentemente olvidaba revisar la app porque el proceso de entrada de información era tedioso.</p>
+                <p>Decidió simplificar radicalmente: una lista de tres tareas diarias en una libreta física, y un calendario de pared con fechas de examen. El cambio redujo el tiempo dedicado a 'organizar' de quince minutos diarios a menos de dos, y notó que efectivamente revisaba la lista cada mañana porque el costo de hacerlo era mínimo.</p>
+                <p>Meses después, al asumir un proyecto de investigación de varios meses con múltiples entregables, reconoció que la lista simple ya no capturaba toda la complejidad de ese proyecto específico, y añadió una hoja de cálculo básica solo para ese proyecto, manteniendo la lista simple para el resto de sus materias regulares. Esta combinación —simple por defecto, elaborado solo cuando la complejidad real lo justifica— es el patrón que este artículo recomienda.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Prepárate para tu examen de admisión con un sistema simple y efectivo</h2>
+                    <p>El curso de Admisión Universitaria organiza tu preparación con un plan claro, sin necesidad de herramientas complejas que compitan con el tiempo real de estudio.</p>
+                    <a href="/admision-universitaria" class="btn-primary">
+                        Conocer Admisión Universitaria <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-checklist">
+                            <span>Checklist de productividad estudiantil por momentos</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-rutina-semanal">
+                            <span>Cómo armar una rutina semanal de estudio que resista imprevistos</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-en-casa">
+                            <span>Cómo organizar la productividad estudiantil en casa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué app específica recomiendan para empezar con productividad estudiantil?</h3>
+                    <p>No es necesaria ninguna app específica para empezar; una libreta o una nota simple en el teléfono cumplen la misma función que la mayoría de las apps de listas de tareas.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Las apps de estudio con gamificación ayudan con la productividad?</h3>
+                    <p>Pueden ayudar con la motivación inicial, pero no sustituyen a las herramientas básicas de organización; funcionan mejor como complemento, no como sistema principal de productividad.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuándo sé que necesito una herramienta más elaborada que una lista simple?</h3>
+                    <p>Cuando la lista simple ya no logra capturar toda la complejidad de tus responsabilidades -- múltiples proyectos largos, materias con estructuras muy distintas entre sí -- es momento de considerar algo más estructurado.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es mejor usar herramientas digitales o físicas (papel)?</h3>
+                    <p>Ambas funcionan igual de bien si se usan consistentemente; la elección depende de la preferencia personal, no de que una sea inherentemente superior a la otra.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si ya probé varias herramientas y ninguna 'se me pega'?</h3>
+                    <p>Revisa si el problema es la herramienta o la falta de un momento fijo del día para usarla; muchas veces el fallo no es la herramienta sino la ausencia de un hábito consistente alrededor de ella.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -528,8 +626,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>La lista de tres tareas: la herramienta más simple y efectiva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>El temporizador: proteger bloques de concentración
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Un calendario visible con fechas de examen
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Por qué las apps complejas no siempre ayudan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuándo sí conviene una herramienta más elaborada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores frecuentes al elegir herramientas de productividad
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Ejemplo aplicado: de una app compleja a un sistema simple
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

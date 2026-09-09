@@ -362,173 +362,271 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Guía rápida de productividad estudiantil</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Guía rápida de productividad estudiantil</h1>
+                <p class="blog-post-dek">Guía rápida de productividad estudiantil: qué hacer hoy, esta semana y este mes para ordenar el estudio, con una lista de verificación al final.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Guía rápida de productividad estudiantil" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Esta guía está pensada para quien necesita empezar hoy y no tiene tiempo de leer sobre teoría del aprendizaje. Está ordenada por horizonte: lo que se puede hacer en los próximos veinte minutos, lo que corresponde a esta semana y lo que conviene revisar en un mes.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Hoy, en los próximos veinte minutos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Esta semana: el bloque mínimo que se cumple
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Esta semana: pasar todas las fechas al calendario
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Dentro del bloque: la regla de los primeros diez minutos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Este mes: la revisión semanal de quince minutos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: la primera semana completa de un estudiante
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Lista de verificación para tener a la vista
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Esta guía está pensada para quien necesita empezar hoy y no tiene tiempo de leer sobre teoría del aprendizaje. Está ordenada por horizonte: lo que se puede hacer en los próximos veinte minutos, lo que corresponde a esta semana y lo que conviene revisar en un mes.</p>
             <p>No hace falta aplicarla completa. Si solo se toma la primera sección y se sostiene diez días, ya habrá un cambio observable. Las secciones siguientes agregan precisión, pero la base está en las primeras acciones.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Una guía rápida de productividad estudiantil se resume en cinco acciones: fijar un horario y un lugar constantes, sacar el celular del espacio de estudio, registrar todas las fechas de entrega en un calendario, empezar cada sesión resolviendo algo del tema anterior sin apuntes y revisar una vez por semana qué funcionó. Todo lo demás es ajuste fino.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Una guía rápida de productividad estudiantil se resume en cinco acciones: fijar un horario y un lugar constantes, sacar el celular del espacio de estudio, registrar todas las fechas de entrega en un calendario, empezar cada sesión resolviendo algo del tema anterior sin apuntes y revisar una vez por semana qué funcionó. Todo lo demás es ajuste fino.</p>
+                </aside>
 
-            <h2>Hoy, en los próximos veinte minutos</h2>
-            <p>Las tres acciones de arranque no requieren material nuevo ni permiso de nadie. Su función es eliminar las decisiones que cada día retrasan el inicio del estudio: dónde, cuándo y con qué.</p>
-            <ol>
-                <li>Elige un lugar de estudio y déjalo despejado, aunque sea la mesa del comedor.</li>
-                <li>Elige una hora fija de inicio y anótala en un papel visible.</li>
-                <li>Reúne el material que usarás en una sola caja o bolsa.</li>
-                <li>Define hoy mismo dónde quedará el celular durante el bloque: otro cuarto.</li>
-                <li>Escribe en una línea qué vas a estudiar en el primer bloque de mañana.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Hoy, en los próximos veinte minutos</h2>
+                <p>Las tres acciones de arranque no requieren material nuevo ni permiso de nadie. Su función es eliminar las decisiones que cada día retrasan el inicio del estudio: dónde, cuándo y con qué.</p>
+                <ol>
+                    <li>Elige un lugar de estudio y déjalo despejado, aunque sea la mesa del comedor.</li>
+                    <li>Elige una hora fija de inicio y anótala en un papel visible.</li>
+                    <li>Reúne el material que usarás en una sola caja o bolsa.</li>
+                    <li>Define hoy mismo dónde quedará el celular durante el bloque: otro cuarto.</li>
+                    <li>Escribe en una línea qué vas a estudiar en el primer bloque de mañana.</li>
+                </ol>
+            </section>
 
-            <h2>Esta semana: el bloque mínimo que se cumple</h2>
-            <p>La meta de la primera semana no es avanzar temario, es probar que el bloque se cumple. Conviene elegir una duración claramente inferior a la que se cree posible, porque el objetivo es acumular días cumplidos y no minutos.</p>
-            <p>Al cierre de cada bloque basta una marca en un papel: cumplido o no cumplido, y una palabra sobre qué estorbó. Este registro toma menos de treinta segundos y es la base de la revisión semanal.</p>
-            <ul>
-                <li>Duración de arranque: entre veinte y cuarenta minutos según la edad y la atención.</li>
-                <li>Cinco días, no siete: el fin de semana queda como margen.</li>
-                <li>Un solo tema por bloque, definido antes de sentarse.</li>
-                <li>Marca de cierre: cumplido o no, y qué estorbó.</li>
-            </ul>
-
-            <h2>Esta semana: pasar todas las fechas al calendario</h2>
-            <p>La segunda tarea de la semana es capturar todas las fechas conocidas: entregas, exámenes, presentaciones. Mientras esa información vive en la memoria o en mensajes dispersos, la planeación es imposible.</p>
-            <p>Conviene además agregar un recordatorio tres días antes de cada fecha, no el día previo. Tres días es el margen mínimo para reaccionar si aparece un tema que requiere ayuda del docente.</p>
-            <p>Una vez capturadas las fechas, el paso que casi siempre se omite es marcar los bloques de repaso como si fueran citas. Anotar el examen sin anotar cuándo se va a estudiar deja la planeación a medias: la fecha queda registrada, pero el trabajo sigue sin lugar en la semana y termina concentrado en el último día.</p>
-            <p>El mantenimiento de esta parte es mínimo. Cada vez que un docente anuncia algo, se registra en ese momento; una vez por semana se revisa el calendario completo en el mismo día en que se hace la revisión del plan. Ninguna de las dos acciones toma más de un par de minutos.</p>
-            <ul>
-                <li>Registrar cada fecha el día en que se anuncia, sin postergarlo.</li>
-                <li>Poner aviso tres días antes, no la noche previa.</li>
-                <li>Marcar también los bloques de repaso, no solo la fecha del examen.</li>
-                <li>Revisar el calendario completo una vez por semana, el mismo día siempre.</li>
-            </ul>
-
-            <h2>Dentro del bloque: la regla de los primeros diez minutos</h2>
-            <p>El ajuste con mayor efecto sobre la retención es empezar cada sesión con el tema anterior en lugar del nuevo. Diez minutos resolviendo dos ejercicios sin abrir los apuntes indican con precisión qué quedó y qué no.</p>
-            <p>Si los ejercicios salen bien, el tema pasa a repaso espaciado y se avanza. Si fallan, ese tema regresa a la lista y ocupa parte del siguiente bloque. Así el plan se corrige con información y no con la impresión de haber entendido.</p>
-            <ul>
-                <li>Primeros diez minutos: dos ejercicios del tema anterior, sin apuntes.</li>
-                <li>Si fallan, anotar el tema en la lista de errores y repetirlo mañana.</li>
-                <li>Resto del bloque: tema nuevo, con un ejercicio de cierre.</li>
-                <li>Última acción del bloque: escribir en una línea qué se entendió.</li>
-            </ul>
-
-            <h2>Este mes: la revisión semanal de quince minutos</h2>
-            <p>La revisión semanal es lo que convierte el registro en decisiones. Mismo día, misma hora, quince minutos como máximo y tres preguntas siempre iguales: qué funcionó, qué no y qué se ajusta para la semana que empieza.</p>
-            <p>La regla que sostiene esta práctica es que en la revisión no se deciden consecuencias ni se discuten calificaciones. Es una junta de diseño del plan, y en cuanto se convierte en interrogatorio deja de aportar información confiable.</p>
-            <ol>
-                <li>Elige un día fijo de la semana y respétalo aunque la semana haya salido mal.</li>
-                <li>Revisa el registro completo antes de opinar.</li>
-                <li>Responde las tres preguntas por escrito, en una línea cada una.</li>
-                <li>Cambia una sola variable para la semana siguiente.</li>
-                <li>Guarda la hoja junto a las anteriores para comparar cuatro semanas.</li>
-            </ol>
-
-            <h2>Ejemplo aplicado: la primera semana completa de un estudiante</h2>
-            <p>Un estudiante de tercero de secundaria decide aplicar esta guía un domingo por la noche. Elige la mesa del comedor, fija el inicio a las siete, mete cuadernos y calculadora en una bolsa y acuerda con su familia que el celular se queda en la cocina durante el bloque.</p>
-            <p>El lunes y el martes cumple los treinta minutos sin problema. El miércoles tiene entrenamiento y llega cansado; cumple quince minutos y lo anota como no cumplido con la palabra 'cansancio'. El jueves y el viernes vuelve a cumplir. Cierra la semana con cuatro de cinco y un dato concreto sobre el miércoles.</p>
-            <p>En la revisión del domingo aplica las tres preguntas. Funcionó el lugar y la hora; no funcionó el miércoles por el entrenamiento; el ajuste es mover el bloque del miércoles a la mañana antes de la escuela, o reducirlo a quince minutos ese día en particular. Cambia solo esa variable.</p>
-            <p>También revisa su lista de errores, donde aparecen dos temas de matemáticas que falló en frío dos veces. Decide que los primeros diez minutos del lunes y del martes se dedican a esos dos temas antes de avanzar con lo nuevo. Todo el proceso de revisión le tomó doce minutos y salió con dos decisiones concretas para la semana siguiente.</p>
-
-            <h2>Lista de verificación para tener a la vista</h2>
-            <p>Esta lista funciona como recordatorio pegado en el lugar de estudio. Si en algún momento el sistema empieza a sentirse pesado, conviene volver a ella y descartar todo lo que no aparezca aquí.</p>
-            <ul>
-                <li>¿Tengo un lugar y una hora fijos, cinco días a la semana?</li>
-                <li>¿El celular está fuera del espacio durante el bloque?</li>
-                <li>¿Están todas las fechas conocidas en el calendario, con aviso tres días antes?</li>
-                <li>¿Empiezo cada sesión con el tema anterior, sin apuntes?</li>
-                <li>¿Llevo una lista de errores separada del cuaderno normal?</li>
-                <li>¿Hago una revisión semanal de quince minutos en un día fijo?</li>
-                <li>¿La administración del sistema me toma menos de dos minutos al día?</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Aplicar la guía a una meta con fecha</h3>
-                <p>Esta guía ordena el cómo, pero un examen de admisión también exige decidir qué estudiar y en qué orden. El curso de Admisión Universitaria aporta el temario secuenciado, práctica con reactivos y repasos programados, para que los bloques que ya sostienes tengan contenido definido cada día.</p>
-                <a href="/admision-universitaria" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso para el examen de admisión <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Esta semana: el bloque mínimo que se cumple</h2>
+                <p>La meta de la primera semana no es avanzar temario, es probar que el bloque se cumple. Conviene elegir una duración claramente inferior a la que se cree posible, porque el objetivo es acumular días cumplidos y no minutos.</p>
+                <p>Al cierre de cada bloque basta una marca en un papel: cumplido o no cumplido, y una palabra sobre qué estorbó. Este registro toma menos de treinta segundos y es la base de la revisión semanal.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-por-que-importa">Por qué importa la productividad estudiantil, no las horas</a></li>
-                <li><a href="/blog-productividad-estudiantil-como-medir-resultados">Cómo medir si un cambio en hábitos de estudio está funcionando</a></li>
-                <li><a href="/blog-productividad-estudiantil-recursos-gratuitos">Recursos gratuitos para organizar el estudio</a></li>
+                    <li>Duración de arranque: entre veinte y cuarenta minutos según la edad y la atención.</li>
+                    <li>Cinco días, no siete: el fin de semana queda como margen.</li>
+                    <li>Un solo tema por bloque, definido antes de sentarse.</li>
+                    <li>Marca de cierre: cumplido o no, y qué estorbó.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Por dónde empiezo si solo puedo cambiar una cosa?</h3>
-                <p>Por el horario y el lugar fijos. Es el cambio con menor costo y mayor efecto, porque elimina la decisión diaria de cuándo y dónde estudiar, que es donde se pierde la mayor parte de la energía antes de abrir un cuaderno.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si no cumplo el bloque varios días seguidos?</h3>
-                <p>Reducir la duración a la mitad antes de considerar abandonar el plan. Un bloque de quince minutos cumplido cinco días construye más hábito que uno de una hora incumplido cuatro veces, y siempre se puede ampliar después.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Esta guía sirve para preparar un examen de admisión?</h3>
-                <p>Sirve como estructura de trabajo, y encima hay que agregar la distribución del temario oficial a lo largo de las semanas disponibles y la práctica con reactivos del formato correspondiente, verificando el temario en el sitio de la institución convocante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito comprar una agenda o alguna aplicación?</h3>
-                <p>No. Un cuaderno cualquiera, el calendario del teléfono y un temporizador cubren todas las funciones descritas. Añadir herramientas antes de sostener la rutina básica suele desplazar el tiempo de estudio hacia la administración del sistema.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tarda en volverse automático?</h3>
-                <p>Varía entre personas y depende de qué tan estable sea el disparador diario. Con un mismo lugar y una misma hora, la resistencia a sentarse suele bajar de forma notable en dos o tres semanas de cumplimiento razonable.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Esta semana: pasar todas las fechas al calendario</h2>
+                <p>La segunda tarea de la semana es capturar todas las fechas conocidas: entregas, exámenes, presentaciones. Mientras esa información vive en la memoria o en mensajes dispersos, la planeación es imposible.</p>
+                <p>Conviene además agregar un recordatorio tres días antes de cada fecha, no el día previo. Tres días es el margen mínimo para reaccionar si aparece un tema que requiere ayuda del docente.</p>
+                <p>Una vez capturadas las fechas, el paso que casi siempre se omite es marcar los bloques de repaso como si fueran citas. Anotar el examen sin anotar cuándo se va a estudiar deja la planeación a medias: la fecha queda registrada, pero el trabajo sigue sin lugar en la semana y termina concentrado en el último día.</p>
+                <p>El mantenimiento de esta parte es mínimo. Cada vez que un docente anuncia algo, se registra en ese momento; una vez por semana se revisa el calendario completo en el mismo día en que se hace la revisión del plan. Ninguna de las dos acciones toma más de un par de minutos.</p>
+                <ul>
+                    <li>Registrar cada fecha el día en que se anuncia, sin postergarlo.</li>
+                    <li>Poner aviso tres días antes, no la noche previa.</li>
+                    <li>Marcar también los bloques de repaso, no solo la fecha del examen.</li>
+                    <li>Revisar el calendario completo una vez por semana, el mismo día siempre.</li>
+                </ul>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Dentro del bloque: la regla de los primeros diez minutos</h2>
+                <p>El ajuste con mayor efecto sobre la retención es empezar cada sesión con el tema anterior en lugar del nuevo. Diez minutos resolviendo dos ejercicios sin abrir los apuntes indican con precisión qué quedó y qué no.</p>
+                <p>Si los ejercicios salen bien, el tema pasa a repaso espaciado y se avanza. Si fallan, ese tema regresa a la lista y ocupa parte del siguiente bloque. Así el plan se corrige con información y no con la impresión de haber entendido.</p>
+                <ul>
+                    <li>Primeros diez minutos: dos ejercicios del tema anterior, sin apuntes.</li>
+                    <li>Si fallan, anotar el tema en la lista de errores y repetirlo mañana.</li>
+                    <li>Resto del bloque: tema nuevo, con un ejercicio de cierre.</li>
+                    <li>Última acción del bloque: escribir en una línea qué se entendió.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Este mes: la revisión semanal de quince minutos</h2>
+                <p>La revisión semanal es lo que convierte el registro en decisiones. Mismo día, misma hora, quince minutos como máximo y tres preguntas siempre iguales: qué funcionó, qué no y qué se ajusta para la semana que empieza.</p>
+                <p>La regla que sostiene esta práctica es que en la revisión no se deciden consecuencias ni se discuten calificaciones. Es una junta de diseño del plan, y en cuanto se convierte en interrogatorio deja de aportar información confiable.</p>
+                <ol>
+                    <li>Elige un día fijo de la semana y respétalo aunque la semana haya salido mal.</li>
+                    <li>Revisa el registro completo antes de opinar.</li>
+                    <li>Responde las tres preguntas por escrito, en una línea cada una.</li>
+                    <li>Cambia una sola variable para la semana siguiente.</li>
+                    <li>Guarda la hoja junto a las anteriores para comparar cuatro semanas.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: la primera semana completa de un estudiante</h2>
+                <p>Un estudiante de tercero de secundaria decide aplicar esta guía un domingo por la noche. Elige la mesa del comedor, fija el inicio a las siete, mete cuadernos y calculadora en una bolsa y acuerda con su familia que el celular se queda en la cocina durante el bloque.</p>
+                <p>El lunes y el martes cumple los treinta minutos sin problema. El miércoles tiene entrenamiento y llega cansado; cumple quince minutos y lo anota como no cumplido con la palabra 'cansancio'. El jueves y el viernes vuelve a cumplir. Cierra la semana con cuatro de cinco y un dato concreto sobre el miércoles.</p>
+                <p>En la revisión del domingo aplica las tres preguntas. Funcionó el lugar y la hora; no funcionó el miércoles por el entrenamiento; el ajuste es mover el bloque del miércoles a la mañana antes de la escuela, o reducirlo a quince minutos ese día en particular. Cambia solo esa variable.</p>
+                <p>También revisa su lista de errores, donde aparecen dos temas de matemáticas que falló en frío dos veces. Decide que los primeros diez minutos del lunes y del martes se dedican a esos dos temas antes de avanzar con lo nuevo. Todo el proceso de revisión le tomó doce minutos y salió con dos decisiones concretas para la semana siguiente.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Lista de verificación para tener a la vista</h2>
+                <p>Esta lista funciona como recordatorio pegado en el lugar de estudio. Si en algún momento el sistema empieza a sentirse pesado, conviene volver a ella y descartar todo lo que no aparezca aquí.</p>
+                <ul>
+                    <li>¿Tengo un lugar y una hora fijos, cinco días a la semana?</li>
+                    <li>¿El celular está fuera del espacio durante el bloque?</li>
+                    <li>¿Están todas las fechas conocidas en el calendario, con aviso tres días antes?</li>
+                    <li>¿Empiezo cada sesión con el tema anterior, sin apuntes?</li>
+                    <li>¿Llevo una lista de errores separada del cuaderno normal?</li>
+                    <li>¿Hago una revisión semanal de quince minutos en un día fijo?</li>
+                    <li>¿La administración del sistema me toma menos de dos minutos al día?</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Aplicar la guía a una meta con fecha</h2>
+                    <p>Esta guía ordena el cómo, pero un examen de admisión también exige decidir qué estudiar y en qué orden. El curso de Admisión Universitaria aporta el temario secuenciado, práctica con reactivos y repasos programados, para que los bloques que ya sostienes tengan contenido definido cada día.</p>
+                    <a href="/admision-universitaria" class="btn-primary">
+                        Curso para el examen de admisión <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-por-que-importa">
+                            <span>Por qué importa la productividad estudiantil, no las horas</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-como-medir-resultados">
+                            <span>Cómo medir si un cambio en hábitos de estudio está funcionando</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-recursos-gratuitos">
+                            <span>Recursos gratuitos para organizar el estudio</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Por dónde empiezo si solo puedo cambiar una cosa?</h3>
+                    <p>Por el horario y el lugar fijos. Es el cambio con menor costo y mayor efecto, porque elimina la decisión diaria de cuándo y dónde estudiar, que es donde se pierde la mayor parte de la energía antes de abrir un cuaderno.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si no cumplo el bloque varios días seguidos?</h3>
+                    <p>Reducir la duración a la mitad antes de considerar abandonar el plan. Un bloque de quince minutos cumplido cinco días construye más hábito que uno de una hora incumplido cuatro veces, y siempre se puede ampliar después.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Esta guía sirve para preparar un examen de admisión?</h3>
+                    <p>Sirve como estructura de trabajo, y encima hay que agregar la distribución del temario oficial a lo largo de las semanas disponibles y la práctica con reactivos del formato correspondiente, verificando el temario en el sitio de la institución convocante.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito comprar una agenda o alguna aplicación?</h3>
+                    <p>No. Un cuaderno cualquiera, el calendario del teléfono y un temporizador cubren todas las funciones descritas. Añadir herramientas antes de sostener la rutina básica suele desplazar el tiempo de estudio hacia la administración del sistema.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tarda en volverse automático?</h3>
+                    <p>Varía entre personas y depende de qué tan estable sea el disparador diario. Con un mismo lugar y una misma hora, la resistencia a sentarse suele bajar de forma notable en dos o tres semanas de cumplimiento razonable.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -558,8 +656,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Hoy, en los próximos veinte minutos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Esta semana: el bloque mínimo que se cumple
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Esta semana: pasar todas las fechas al calendario
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Dentro del bloque: la regla de los primeros diez minutos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Este mes: la revisión semanal de quince minutos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: la primera semana completa de un estudiante
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Lista de verificación para tener a la vista
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

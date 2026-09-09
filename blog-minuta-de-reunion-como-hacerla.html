@@ -362,152 +362,243 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-clipboard-list"></i> Redacción Ejecutiva
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Minuta de reunión: cómo hacerla</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 9 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Redacción Ejecutiva</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Minuta de reunión: cómo hacerla</h1>
+                <p class="blog-post-dek">Aprende cómo hacer una minuta de reunión que registre decisiones, acuerdos, responsables y fechas, con plantilla, ejemplo y revisión antes de compartirla.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Redacción Ejecutiva</span>
+                    <span>Publicado <time datetime="2026-09-09">9 de Septiembre, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/redaccion-ejecutiva-curso-escritura-profesional.webp" alt="Minuta de reunión: cómo hacerla" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Una reunión puede terminar con aparente acuerdo y producir versiones distintas al día siguiente. Alguien recuerda una fecha, otra persona entendió que la tarea era compartida y nadie sabe qué opción quedó descartada. La minuta evita esa pérdida cuando registra decisiones y compromisos de forma neutral.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es una minuta de reunión y qué no es
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Preparar la minuta antes de iniciar la reunión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo tomar notas sin transcribir la conversación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Confirmar decisiones, responsables y fechas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Redactar y enviar la minuta de reunión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Plantilla práctica de minuta de reunión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores que vuelven inútil una minuta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Una reunión puede terminar con aparente acuerdo y producir versiones distintas al día siguiente. Alguien recuerda una fecha, otra persona entendió que la tarea era compartida y nadie sabe qué opción quedó descartada. La minuta evita esa pérdida cuando registra decisiones y compromisos de forma neutral.</p>
             <p>Tomar minuta no significa escribir cada intervención. La habilidad está en separar conversación de resultado, conservar el contexto indispensable y convertir acuerdos en acciones verificables. Esta guía se concentra en minutas operativas de equipos y proyectos; también explica cuándo el documento requiere un tratamiento jurídico distinto.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Una minuta de reunión registra lo que el equipo necesitará ejecutar y consultar después: propósito, asistentes, decisiones, acuerdos, responsables, fechas y asuntos pendientes. No debe transcribir toda la conversación. Para hacerla, prepara una estructura antes de la junta, toma notas por tema, confirma acuerdos en el momento y envía una versión clara poco después. Si el documento tendrá efectos jurídicos, solicita revisión profesional adecuada.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Una minuta de reunión registra lo que el equipo necesitará ejecutar y consultar después: propósito, asistentes, decisiones, acuerdos, responsables, fechas y asuntos pendientes. No debe transcribir toda la conversación. Para hacerla, prepara una estructura antes de la junta, toma notas por tema, confirma acuerdos en el momento y envía una versión clara poco después. Si el documento tendrá efectos jurídicos, solicita revisión profesional adecuada.</p>
+                </aside>
 
-            <h2>Qué es una minuta de reunión y qué no es</h2>
-            <p>La minuta es un registro organizado de una reunión. Permite saber qué temas se trataron, qué decisiones se tomaron, quién realizará cada acción y qué quedó pendiente. Sirve como memoria compartida y punto de seguimiento. Una persona que no asistió debería poder comprender el resultado sin reconstruir cada comentario.</p>
-            <p>No es una transcripción literal ni una colección de opiniones sin cierre. Tampoco sustituye automáticamente un acta societaria, contrato u otro documento con requisitos legales. Si la reunión involucra obligaciones formales, órganos de gobierno, relaciones laborales sensibles o compromisos jurídicos, confirma con una persona profesional cuál es el formato, la aprobación y la conservación aplicables. Esta guía no reemplaza esa revisión.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es una minuta de reunión y qué no es</h2>
+                <p>La minuta es un registro organizado de una reunión. Permite saber qué temas se trataron, qué decisiones se tomaron, quién realizará cada acción y qué quedó pendiente. Sirve como memoria compartida y punto de seguimiento. Una persona que no asistió debería poder comprender el resultado sin reconstruir cada comentario.</p>
+                <p>No es una transcripción literal ni una colección de opiniones sin cierre. Tampoco sustituye automáticamente un acta societaria, contrato u otro documento con requisitos legales. Si la reunión involucra obligaciones formales, órganos de gobierno, relaciones laborales sensibles o compromisos jurídicos, confirma con una persona profesional cuál es el formato, la aprobación y la conservación aplicables. Esta guía no reemplaza esa revisión.</p>
+            </section>
 
-            <h2>Preparar la minuta antes de iniciar la reunión</h2>
-            <p>La calidad comienza antes de tomar notas. Copia el propósito y la agenda en una plantilla, añade fecha, horario, modalidad, participantes esperados y responsable de la minuta. Deja un espacio por tema para contexto breve, decisión, acción, responsable y fecha. Preparar estos campos reduce el impulso de escribir todo y dirige la atención hacia resultados.</p>
-            <p>Solicita con anticipación los documentos que se revisarán y usa nombres de archivo consistentes. Si hay decisiones previstas, redacta preguntas concretas: «¿Qué opción se aprueba?» o «¿Quién prepara la siguiente versión?». Aclara al iniciar que los acuerdos se confirmarán en voz alta. La persona que toma notas debe poder pedir precisión sin frenar la conversación: confirmar evita corregir interpretaciones después.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Preparar la minuta antes de iniciar la reunión</h2>
+                <p>La calidad comienza antes de tomar notas. Copia el propósito y la agenda en una plantilla, añade fecha, horario, modalidad, participantes esperados y responsable de la minuta. Deja un espacio por tema para contexto breve, decisión, acción, responsable y fecha. Preparar estos campos reduce el impulso de escribir todo y dirige la atención hacia resultados.</p>
+                <p>Solicita con anticipación los documentos que se revisarán y usa nombres de archivo consistentes. Si hay decisiones previstas, redacta preguntas concretas: «¿Qué opción se aprueba?» o «¿Quién prepara la siguiente versión?». Aclara al iniciar que los acuerdos se confirmarán en voz alta. La persona que toma notas debe poder pedir precisión sin frenar la conversación: confirmar evita corregir interpretaciones después.</p>
+            </section>
 
-            <h2>Cómo tomar notas sin transcribir la conversación</h2>
-            <p>Escucha por bloques de sentido. Registra el tema, los hechos necesarios, las opciones consideradas y el resultado. No atribuyas cada frase salvo que la autoría sea relevante para una acción o una postura que deba quedar documentada. Elimina comentarios laterales, repeticiones y ejemplos que no cambian la decisión.</p>
-            <p>Usa marcas temporales para distinguir estados: decisión, acción, pendiente y riesgo. Puedes escribir abreviaturas durante la reunión, siempre que las desarrolles al redactar. Si aparece un dato dudoso, márcalo como «por confirmar» en vez de completarlo de memoria. Mantén lenguaje neutral: «No se aprobó la propuesta por falta del costo actualizado» describe el resultado; una etiqueta sobre la actitud de alguien no aporta seguimiento.</p>
-            <ul>
-                <li>Decisión: opción elegida o asunto cerrado.</li>
-                <li>Acción: tarea concreta que debe realizarse.</li>
-                <li>Responsable: persona o área que coordina la tarea.</li>
-                <li>Fecha: momento acordado o condición que activa el siguiente paso.</li>
-                <li>Pendiente: pregunta que requiere información o decisión posterior.</li>
-            </ul>
-
-            <h2>Confirmar decisiones, responsables y fechas</h2>
-            <p>Una frase como «hay que revisar el presupuesto» no constituye un acuerdo accionable. Antes de cambiar de tema, reformula: «Queda acordado que Finanzas enviará la versión revisada el jueves y Operaciones confirmará su impacto el viernes». Pregunta si la formulación representa lo decidido. Esta lectura breve descubre diferencias mientras quienes participaron aún tienen el contexto presente.</p>
-            <p>Distingue a quien ejecuta de quien aprueba o recibe información. Si una tarea depende de otra, registra la secuencia. Cuando no existe fecha, puede quedar una condición: «después de recibir la cotización». No inventes precisión para llenar la plantilla; marca lo que falta y asigna la acción de definirlo. Una minuta honesta muestra pendientes reales en vez de presentar una certeza que la reunión no produjo.</p>
-
-            <h2>Redactar y enviar la minuta de reunión</h2>
-            <p>Redacta cuando la conversación todavía está fresca. Abre con identificación y propósito, sigue el orden de la agenda y coloca los acuerdos en una zona fácil de localizar. Usa oraciones breves con verbos de acción. Si hubo un análisis largo que no cambió el resultado, resume únicamente el criterio que explica la decisión.</p>
-            <p>Envía la minuta a participantes y personas que deban ejecutar o conocer los acuerdos. Indica cómo señalar correcciones y hasta cuándo, sin convertir el silencio en aprobación formal cuando no exista esa regla. Guarda la versión acordada en un lugar accesible y enlaza los documentos mencionados. Para la siguiente reunión, abre con las acciones pendientes de la minuta anterior; así el registro se convierte en seguimiento.</p>
-            <ol>
-                <li>Ordenar notas según la agenda y separar hechos de interpretaciones.</li>
-                <li>Convertir cada acuerdo en acción, responsable y fecha o condición.</li>
-                <li>Marcar información pendiente sin rellenarla por suposición.</li>
-                <li>Revisar nombres, fechas, enlaces y tono neutral.</li>
-                <li>Compartir, recibir correcciones y conservar la versión acordada.</li>
-            </ol>
-
-            <h2>Plantilla práctica de minuta de reunión</h2>
-            <p>Una plantilla puede comenzar con nombre de la reunión, propósito, fecha, horario, modalidad, participantes y ausencias relevantes. Después incluye un bloque por tema con contexto indispensable y decisión. Termina con una tabla o lista de acciones que contenga tarea, responsable, fecha y estado. Añade pendientes y fecha de la próxima revisión cuando exista.</p>
-            <p>Ejemplo: «Tema: actualización del manual. Contexto: la versión actual no incluye el proceso remoto. Decisión: incorporar el flujo remoto antes de publicar. Acción: Marta prepara el borrador el lunes; Seguridad revisa accesos el miércoles; Comunicación integra comentarios después de ambas entregas. Pendiente: confirmar ubicación del archivo final». El ejemplo permite seguir el trabajo sin reproducir toda la discusión.</p>
-            <ul>
-                <li>Encabezado: reunión, propósito, fecha, horario y modalidad.</li>
-                <li>Participantes: asistentes y personas invitadas que no acudieron, si es pertinente.</li>
-                <li>Temas: contexto mínimo, decisión y razón necesaria para comprenderla.</li>
-                <li>Acciones: tarea, responsable, fecha o condición y estado.</li>
-                <li>Cierre: pendientes, documentos relacionados y próxima revisión.</li>
-            </ul>
-
-            <h2>Errores que vuelven inútil una minuta</h2>
-            <p>El error más frecuente es registrar conversación sin decisiones. Otro es usar expresiones vagas como «se verá después», sin responsable ni condición. También perjudican la utilidad las opiniones presentadas como hechos, los nombres incorrectos, las fechas ambiguas y los acuerdos escondidos en párrafos largos. Una minuta extensa puede seguir siendo incompleta si no permite actuar.</p>
-            <p>Evita modificar el sentido para hacer que la reunión parezca más ordenada. Si no hubo decisión, escribe «pendiente» y registra qué información falta. No distribuyas material sensible a personas que no lo necesitan ni conserves versiones contradictorias sin identificar. Por último, no atribuyas a una minuta operativa validez jurídica que no has verificado: cuando el contexto exige formalidades, consulta el procedimiento correspondiente.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Escribe minutas que sí conduzcan al siguiente paso</h3>
-                <p>Redacción Ejecutiva de WorldBrain trabaja documentos profesionales como minutas, correos, informes y propuestas, con énfasis en claridad, estructura y ortografía. Escríbenos por WhatsApp para solicitar información vigente sobre acceso, modalidad, horarios y costo antes de inscribirte.</p>
-                <a href="/redaccion-ejecutiva" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de redacción <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo tomar notas sin transcribir la conversación</h2>
+                <p>Escucha por bloques de sentido. Registra el tema, los hechos necesarios, las opciones consideradas y el resultado. No atribuyas cada frase salvo que la autoría sea relevante para una acción o una postura que deba quedar documentada. Elimina comentarios laterales, repeticiones y ejemplos que no cambian la decisión.</p>
+                <p>Usa marcas temporales para distinguir estados: decisión, acción, pendiente y riesgo. Puedes escribir abreviaturas durante la reunión, siempre que las desarrolles al redactar. Si aparece un dato dudoso, márcalo como «por confirmar» en vez de completarlo de memoria. Mantén lenguaje neutral: «No se aprobó la propuesta por falta del costo actualizado» describe el resultado; una etiqueta sobre la actitud de alguien no aporta seguimiento.</p>
                 <ul>
-                <li><a href="/blog-como-redactar-correo-profesional">Cómo redactar un correo profesional</a></li>
-                <li><a href="/blog-informe-ejecutivo-estructura-ejemplo">Informe ejecutivo: estructura y ejemplo</a></li>
-                <li><a href="/blog-como-mejorar-redaccion-profesional">Cómo mejorar la redacción profesional</a></li>
-                <li><a href="/blog-ortografia-en-el-trabajo-errores-comunes">Ortografía en el trabajo: errores comunes</a></li>
+                    <li>Decisión: opción elegida o asunto cerrado.</li>
+                    <li>Acción: tarea concreta que debe realizarse.</li>
+                    <li>Responsable: persona o área que coordina la tarea.</li>
+                    <li>Fecha: momento acordado o condición que activa el siguiente paso.</li>
+                    <li>Pendiente: pregunta que requiere información o decisión posterior.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Quién debe hacer la minuta de una reunión?</h3>
-                <p>Conviene asignar a una persona antes de comenzar y evitar que sea quien debe facilitar una conversación muy compleja, si el equipo puede separarlo. La responsabilidad puede rotar, pero el formato y el lugar de archivo deberían ser consistentes. Quien redacta debe poder pedir aclaraciones y confirmar acuerdos sin interpretar intenciones.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La minuta debe incluir todo lo que dijo cada persona?</h3>
-                <p>No en una reunión operativa común. Registra contexto necesario, decisiones, acciones y pendientes. Atribuye una intervención cuando la responsabilidad, la aprobación o una postura formal lo requieran. Transcribir cada frase crea ruido y puede aumentar errores. Si el contexto exige registro literal o formal, verifica el procedimiento aplicable antes de la reunión.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuándo se debe enviar la minuta?</h3>
-                <p>Tan pronto como sea práctico mientras la conversación sigue fresca y antes de que comiencen tareas basadas en recuerdos distintos. La organización puede definir su propio plazo. Más importante que enviar con prisa es revisar decisiones, responsables, fechas, nombres y acceso a archivos para que el documento sea confiable.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Una minuta y un acta son lo mismo?</h3>
-                <p>El uso cambia entre países y organizaciones. En algunos contextos son sinónimos; en otros, la minuta es un registro operativo y el acta sigue requisitos formales. No asumas equivalencia si el documento se relaciona con una sociedad, obligación contractual, conflicto o autoridad. Consulta a una persona profesional para definir forma, aprobación y conservación.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo corregir una minuta ya enviada?</h3>
-                <p>Señala el punto exacto, explica la corrección y comparte una versión identificada para evitar que circulen dos documentos indistinguibles. Si la modificación cambia una decisión o responsabilidad, solicita confirmación de quienes corresponda. Conserva el historial cuando el procedimiento interno lo requiera y evita borrar silenciosamente el texto anterior.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Confirmar decisiones, responsables y fechas</h2>
+                <p>Una frase como «hay que revisar el presupuesto» no constituye un acuerdo accionable. Antes de cambiar de tema, reformula: «Queda acordado que Finanzas enviará la versión revisada el jueves y Operaciones confirmará su impacto el viernes». Pregunta si la formulación representa lo decidido. Esta lectura breve descubre diferencias mientras quienes participaron aún tienen el contexto presente.</p>
+                <p>Distingue a quien ejecuta de quien aprueba o recibe información. Si una tarea depende de otra, registra la secuencia. Cuando no existe fecha, puede quedar una condición: «después de recibir la cotización». No inventes precisión para llenar la plantilla; marca lo que falta y asigna la acción de definirlo. Una minuta honesta muestra pendientes reales en vez de presentar una certeza que la reunión no produjo.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Redactar y enviar la minuta de reunión</h2>
+                <p>Redacta cuando la conversación todavía está fresca. Abre con identificación y propósito, sigue el orden de la agenda y coloca los acuerdos en una zona fácil de localizar. Usa oraciones breves con verbos de acción. Si hubo un análisis largo que no cambió el resultado, resume únicamente el criterio que explica la decisión.</p>
+                <p>Envía la minuta a participantes y personas que deban ejecutar o conocer los acuerdos. Indica cómo señalar correcciones y hasta cuándo, sin convertir el silencio en aprobación formal cuando no exista esa regla. Guarda la versión acordada en un lugar accesible y enlaza los documentos mencionados. Para la siguiente reunión, abre con las acciones pendientes de la minuta anterior; así el registro se convierte en seguimiento.</p>
+                <ol>
+                    <li>Ordenar notas según la agenda y separar hechos de interpretaciones.</li>
+                    <li>Convertir cada acuerdo en acción, responsable y fecha o condición.</li>
+                    <li>Marcar información pendiente sin rellenarla por suposición.</li>
+                    <li>Revisar nombres, fechas, enlaces y tono neutral.</li>
+                    <li>Compartir, recibir correcciones y conservar la versión acordada.</li>
+                </ol>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Plantilla práctica de minuta de reunión</h2>
+                <p>Una plantilla puede comenzar con nombre de la reunión, propósito, fecha, horario, modalidad, participantes y ausencias relevantes. Después incluye un bloque por tema con contexto indispensable y decisión. Termina con una tabla o lista de acciones que contenga tarea, responsable, fecha y estado. Añade pendientes y fecha de la próxima revisión cuando exista.</p>
+                <p>Ejemplo: «Tema: actualización del manual. Contexto: la versión actual no incluye el proceso remoto. Decisión: incorporar el flujo remoto antes de publicar. Acción: Marta prepara el borrador el lunes; Seguridad revisa accesos el miércoles; Comunicación integra comentarios después de ambas entregas. Pendiente: confirmar ubicación del archivo final». El ejemplo permite seguir el trabajo sin reproducir toda la discusión.</p>
+                <ul>
+                    <li>Encabezado: reunión, propósito, fecha, horario y modalidad.</li>
+                    <li>Participantes: asistentes y personas invitadas que no acudieron, si es pertinente.</li>
+                    <li>Temas: contexto mínimo, decisión y razón necesaria para comprenderla.</li>
+                    <li>Acciones: tarea, responsable, fecha o condición y estado.</li>
+                    <li>Cierre: pendientes, documentos relacionados y próxima revisión.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Errores que vuelven inútil una minuta</h2>
+                <p>El error más frecuente es registrar conversación sin decisiones. Otro es usar expresiones vagas como «se verá después», sin responsable ni condición. También perjudican la utilidad las opiniones presentadas como hechos, los nombres incorrectos, las fechas ambiguas y los acuerdos escondidos en párrafos largos. Una minuta extensa puede seguir siendo incompleta si no permite actuar.</p>
+                <p>Evita modificar el sentido para hacer que la reunión parezca más ordenada. Si no hubo decisión, escribe «pendiente» y registra qué información falta. No distribuyas material sensible a personas que no lo necesitan ni conserves versiones contradictorias sin identificar. Por último, no atribuyas a una minuta operativa validez jurídica que no has verificado: cuando el contexto exige formalidades, consulta el procedimiento correspondiente.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Escribe minutas que sí conduzcan al siguiente paso</h2>
+                    <p>Redacción Ejecutiva de WorldBrain trabaja documentos profesionales como minutas, correos, informes y propuestas, con énfasis en claridad, estructura y ortografía. Escríbenos por WhatsApp para solicitar información vigente sobre acceso, modalidad, horarios y costo antes de inscribirte.</p>
+                    <a href="/redaccion-ejecutiva" class="btn-primary">
+                        Ver el curso de redacción <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-redactar-correo-profesional">
+                            <span>Cómo redactar un correo profesional</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-informe-ejecutivo-estructura-ejemplo">
+                            <span>Informe ejecutivo: estructura y ejemplo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-mejorar-redaccion-profesional">
+                            <span>Cómo mejorar la redacción profesional</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-ortografia-en-el-trabajo-errores-comunes">
+                            <span>Ortografía en el trabajo: errores comunes</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Quién debe hacer la minuta de una reunión?</h3>
+                    <p>Conviene asignar a una persona antes de comenzar y evitar que sea quien debe facilitar una conversación muy compleja, si el equipo puede separarlo. La responsabilidad puede rotar, pero el formato y el lugar de archivo deberían ser consistentes. Quien redacta debe poder pedir aclaraciones y confirmar acuerdos sin interpretar intenciones.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La minuta debe incluir todo lo que dijo cada persona?</h3>
+                    <p>No en una reunión operativa común. Registra contexto necesario, decisiones, acciones y pendientes. Atribuye una intervención cuando la responsabilidad, la aprobación o una postura formal lo requieran. Transcribir cada frase crea ruido y puede aumentar errores. Si el contexto exige registro literal o formal, verifica el procedimiento aplicable antes de la reunión.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuándo se debe enviar la minuta?</h3>
+                    <p>Tan pronto como sea práctico mientras la conversación sigue fresca y antes de que comiencen tareas basadas en recuerdos distintos. La organización puede definir su propio plazo. Más importante que enviar con prisa es revisar decisiones, responsables, fechas, nombres y acceso a archivos para que el documento sea confiable.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Una minuta y un acta son lo mismo?</h3>
+                    <p>El uso cambia entre países y organizaciones. En algunos contextos son sinónimos; en otros, la minuta es un registro operativo y el acta sigue requisitos formales. No asumas equivalencia si el documento se relaciona con una sociedad, obligación contractual, conflicto o autoridad. Consulta a una persona profesional para definir forma, aprobación y conservación.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo corregir una minuta ya enviada?</h3>
+                    <p>Señala el punto exacto, explica la corrección y comparte una versión identificada para evitar que circulen dos documentos indistinguibles. Si la modificación cambia una decisión o responsabilidad, solicita confirmación de quienes corresponda. Conserva el historial cuando el procedimiento interno lo requiera y evita borrar silenciosamente el texto anterior.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -537,8 +628,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es una minuta de reunión y qué no es
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Preparar la minuta antes de iniciar la reunión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo tomar notas sin transcribir la conversación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Confirmar decisiones, responsables y fechas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Redactar y enviar la minuta de reunión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Plantilla práctica de minuta de reunión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores que vuelven inútil una minuta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

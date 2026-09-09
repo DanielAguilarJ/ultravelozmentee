@@ -362,175 +362,273 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="11">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Plan de emergencia de productividad estudiantil</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 11 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Plan de emergencia de productividad estudiantil</h1>
+                <p class="blog-post-dek">Plan de emergencia para estudiar cuando vas atrasado: inventario, triaje de temas, estructura de los días críticos y cómo salir sin recaer.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>11 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Plan de emergencia de productividad estudiantil" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Ir atrasado no es un fracaso de carácter; es una situación con reglas propias. El problema es que casi nadie las conoce, y entonces aplica en cuatro días la misma lógica que usaría en cuatro semanas: empezar por el tema uno, avanzar en orden y confiar en llegar. Ese plan casi siempre termina igual, con la mitad del programa vista a medias y las horas finales gastadas en pánico.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Cuándo activar un plan de emergencia y cuándo no
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Inventario: saber exactamente qué falta antes de mover nada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Triaje: decidir qué entra y qué se queda fuera
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>La estructura de los días críticos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: seis días antes de un examen de física
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores que empeoran una emergencia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Salir del modo emergencia sin recaer
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Ir atrasado no es un fracaso de carácter; es una situación con reglas propias. El problema es que casi nadie las conoce, y entonces aplica en cuatro días la misma lógica que usaría en cuatro semanas: empezar por el tema uno, avanzar en orden y confiar en llegar. Ese plan casi siempre termina igual, con la mitad del programa vista a medias y las horas finales gastadas en pánico.</p>
             <p>Un plan de emergencia funciona distinto porque acepta una restricción desde el principio: no vas a cubrir todo, así que la decisión importante es qué dejar fuera. Lo que sigue es un procedimiento en cuatro movimientos —inventario, triaje, estructura diaria y salida ordenada— con un caso concreto de cómo se ve aplicado a seis días antes de un examen. No promete recuperar un semestre en una semana; sí evita que el tiempo que te queda se desperdicie.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Un plan de emergencia de estudio empieza por un inventario de lo que falta, sigue con un triaje que decide qué temas sí entran y cuáles se sacrifican, y organiza los días restantes en bloques cortos de práctica activa. La regla central es renunciar a cubrir todo: en poco tiempo se gana más asegurando los temas de mayor peso y prerrequisito que repasando el programa completo de forma superficial.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Un plan de emergencia de estudio empieza por un inventario de lo que falta, sigue con un triaje que decide qué temas sí entran y cuáles se sacrifican, y organiza los días restantes en bloques cortos de práctica activa. La regla central es renunciar a cubrir todo: en poco tiempo se gana más asegurando los temas de mayor peso y prerrequisito que repasando el programa completo de forma superficial.</p>
+                </aside>
 
-            <h2>Cuándo activar un plan de emergencia y cuándo no</h2>
-            <p>Conviene distinguir el atraso real del atraso percibido, porque el plan de emergencia tiene un costo: sacrifica profundidad y consume energía a un ritmo que no se sostiene por mucho tiempo. Si lo activas cada semana, deja de ser emergencia y se convierte en tu método habitual, con todo lo que eso implica en cansancio y aprendizaje frágil.</p>
-            <p>El criterio práctico es cuantificable: si el material pendiente supera de forma clara el tiempo disponible a tu ritmo normal de trabajo, estás en emergencia y necesitas triaje. Si el material entra con ajustes moderados, no lo estás, y activar el modo emergencia solo te hará estudiar peor de lo que podrías. Confundir ansiedad con atraso es el error más frecuente en esta etapa.</p>
-            <ul>
-                <li>Estás en emergencia si el pendiente no entra en el tiempo disponible ni trabajando bien todos los días.</li>
-                <li>No lo estás si el problema es que empezaste tarde pero el material todavía cabe con ajustes.</li>
-                <li>Si activas el modo emergencia más de dos veces por mes, el problema es de planeación, no de tiempo.</li>
-                <li>Si el atraso viene de varios ciclos acumulados, un plan de días no alcanza: necesitas recuperación estructurada.</li>
-            </ul>
-
-            <h2>Inventario: saber exactamente qué falta antes de mover nada</h2>
-            <p>La tentación en emergencia es empezar a estudiar de inmediato, y es precisamente lo que hace fracasar el plan. Sin un inventario escrito no puedes decidir qué sacrificar, y sin poder sacrificar terminas intentando cubrir todo. El inventario toma entre veinte y cuarenta minutos, y es la inversión con mejor retorno de toda la semana crítica.</p>
-            <p>El inventario no es una lista de temas: es una lista de temas con tres datos por cada uno. Peso en la evaluación, si es prerrequisito de otros temas, y en qué estado lo tienes. Con esos tres datos el triaje se vuelve casi automático y deja de depender de tu ansiedad del momento.</p>
-            <ol>
-                <li>Consigue la lista real de temas evaluables: guía de estudio, temario oficial o los apuntes del curso, no tu memoria.</li>
-                <li>Marca el peso de cada tema en la evaluación cuando esa información exista.</li>
-                <li>Marca cuáles son prerrequisito de otros: un tema base vale más que uno terminal aunque pese lo mismo.</li>
-                <li>Clasifica tu estado en tres niveles: lo resuelvo, lo reconozco pero fallo, no lo he visto.</li>
-                <li>Calcula el tiempo disponible real, restando clases, traslados y sueño; no el tiempo ideal.</li>
-                <li>Escribe el inventario en una sola hoja visible; si no cabe en una hoja, está demasiado detallado.</li>
-            </ol>
-
-            <h2>Triaje: decidir qué entra y qué se queda fuera</h2>
-            <p>El triaje es la parte incómoda porque implica renunciar por escrito a temas que sabes que podrían aparecer. Hacerlo de forma explícita es mejor que la alternativa, que es renunciar por accidente cuando se acabe el tiempo. La prioridad se ordena en tres franjas y se respeta el orden aunque la ansiedad empuje hacia el tema que más miedo da.</p>
-            <p>La primera franja son los temas de alto peso que están en estado "lo reconozco pero fallo": ahí el tiempo rinde más, porque partes de una base y solo necesitas corregir. La segunda son los prerrequisitos que no has visto, porque sin ellos varios temas quedan bloqueados. La tercera son los de alto peso que no has visto, y solo si queda tiempo. Los temas de bajo peso que no has visto se sacrifican; anótalos en una lista aparte para después.</p>
-            <ul>
-                <li>Prioridad 1: alto peso, ya lo reconoces, fallas en detalles. Corregir es más rápido que aprender.</li>
-                <li>Prioridad 2: prerrequisitos no vistos, porque desbloquean varios temas a la vez.</li>
-                <li>Prioridad 3: alto peso no visto, con lo que quede de tiempo y sin invadir las franjas anteriores.</li>
-                <li>Sacrificados: bajo peso y no vistos. Anótalos aparte para retomarlos después del examen.</li>
-                <li>No estudies lo que ya resuelves bien; se siente productivo y no mueve tu resultado.</li>
-            </ul>
-
-            <h2>La estructura de los días críticos</h2>
-            <p>En emergencia el instinto dice sesiones largas, y las sesiones largas son justo lo que menos rinde cuando el margen es corto: la atención cae, aparecen los repasos pasivos y las últimas dos horas producen la ilusión de haber trabajado. La estructura que sostiene mejor un tramo de tres a siete días combina bloques cortos, práctica activa desde el primer minuto y un cierre fijo del día.</p>
-            <p>Práctica activa significa que casi todo el tiempo estás resolviendo, respondiendo o explicando, no leyendo. Cuando no dominas un tema, la reacción natural es leerlo hasta entenderlo; en emergencia conviene invertirlo: intenta un problema resuelto tapando la solución, falla, y usa el material solo para desatorarte. Es incómodo y es lo que hace que el tema quede disponible bajo presión.</p>
-            <ol>
-                <li>Divide el día en bloques de 40 a 50 minutos con descansos reales de 10, fuera del escritorio.</li>
-                <li>Empieza cada bloque con un problema o una pregunta, nunca con lectura.</li>
-                <li>Dedica el primer bloque del día al tema de prioridad más alta, cuando tu atención está más limpia.</li>
-                <li>Reserva el último bloque a repaso rápido de lo trabajado en los dos días previos, no a material nuevo.</li>
-                <li>Fija una hora de cierre y respétala: dormir mal degrada todo el plan del día siguiente.</li>
-                <li>Al terminar, escribe en dos líneas qué quedó frágil; ese es el punto de arranque de mañana.</li>
-            </ol>
-
-            <h2>Ejemplo aplicado: seis días antes de un examen de física</h2>
-            <p>Diego llegó a la última semana con seis días hábiles y ocho temas de física evaluables, de los cuales había trabajado dos. Su primer impulso fue empezar por el tema uno y avanzar en orden, que es lo que había hecho en semestres anteriores con resultados desiguales. En lugar de eso dedicó cuarenta minutos al inventario y descubrió algo que no había considerado: tres de los ocho temas dependían de cinemática, un tema que reconocía a medias y que pesaba poco por sí solo.</p>
-            <p>El triaje quedó así: cinemática entró en prioridad 2 pese a su bajo peso, porque desbloqueaba tres temas; dinámica y trabajo-energía entraron en prioridad 1 porque los reconocía y fallaba en signos y en el planteo del diagrama; óptica quedó sacrificada, con bajo peso y sin ninguna base previa. Escribir esa renuncia le costó, y también le quitó la carga de sentirse obligado a todo.</p>
-            <p>Los días dos y tres los organizó en cuatro bloques de cuarenta y cinco minutos. Empezaba resolviendo un problema con la solución tapada, fallaba, revisaba solo el paso donde se atoró y volvía a intentarlo con otro problema del mismo tipo. Al final de cada día anotaba dos líneas sobre lo que había quedado frágil. En el día cuatro notó que dinámica ya salía sin ayuda, así que movió ese bloque al último lugar del día y usó el primero para trabajo-energía.</p>
-            <p>En los dos días finales no abrió material nuevo. Resolvió una serie de problemas mezclados en condiciones parecidas al examen —tiempo limitado, sin apuntes, sin calculadora si el examen no la permitía— y usó los errores de esa serie para decidir el repaso de la última tarde. Salió del examen sin haber visto óptica y sabiéndolo desde el día uno, que es una situación muy distinta a descubrirlo en la hoja de preguntas.</p>
-
-            <h2>Errores que empeoran una emergencia</h2>
-            <p>Casi todos los errores de esta etapa tienen la misma raíz: intentar comportarse como si no hubiera restricción de tiempo. Reconocerlos ayuda porque suelen presentarse disfrazados de responsabilidad, y por eso cuesta abandonarlos.</p>
-            <ul>
-                <li>Empezar por el tema uno y avanzar en orden, ignorando peso y prerrequisitos.</li>
-                <li>Desvelarse las últimas noches: el costo en comprensión y en el examen mismo supera lo que ganas.</li>
-                <li>Hacer resúmenes o mapas nuevos; organizar material no es practicar y en emergencia el tiempo no da.</li>
-                <li>Estudiar en grupo sin estructura, donde la sesión se vuelve conversación y consuelo compartido.</li>
-                <li>Cambiar el plan cada vez que un tema asusta; el triaje se decide una vez y se respeta.</li>
-                <li>Recurrir a estimulantes o a dormir cuatro horas de forma sostenida; si tu salud se está afectando, consulta a un profesional.</li>
-            </ul>
-
-            <h2>Salir del modo emergencia sin recaer</h2>
-            <p>El plan de emergencia resuelve el examen y deja una deuda: los temas sacrificados y los aprendidos de forma superficial. Si no cierras esa deuda, el siguiente ciclo empieza con más atraso del que crees, y ahí es donde la emergencia se vuelve permanente. La salida ordenada toma menos tiempo del que la gente imagina y se hace en la semana siguiente, no en algún momento indefinido.</p>
-            <p>Conviene también revisar qué produjo el atraso, distinguiendo entre causas de una sola vez —una enfermedad, un cambio en casa— y patrones que van a repetirse, como empezar a estudiar solo cuando la fecha ya está encima. El primer tipo no requiere cambiar el sistema; el segundo sí, y ninguna semana intensa lo va a corregir por sí sola.</p>
-            <ol>
-                <li>Al día siguiente del examen, escribe la lista de temas sacrificados en un lugar visible.</li>
-                <li>Programa dos bloques en la semana siguiente para el prerrequisito más importante de esa lista.</li>
-                <li>Revisa el examen resuelto cuando esté disponible: los errores señalan qué quedó superficial.</li>
-                <li>Identifica en una línea qué causó el atraso y si es un evento aislado o un patrón.</li>
-                <li>Si es un patrón, cambia una sola cosa del sistema para el siguiente periodo, no cinco.</li>
-            </ol>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Si el atraso ya viene de varios ciclos, el plan de días no alcanza</h3>
-                <p>Un plan de emergencia sirve para un examen concreto, no para recuperar contenido acumulado de semestres anteriores. Cuando los huecos son de base —álgebra que quedó incompleta, comprensión lectora que arrastra— lo que hace falta es una recuperación ordenada por prerrequisitos, con diagnóstico inicial y seguimiento. Nuestro programa de regularización express está armado para ese escenario: identificar qué falta de base y cerrarlo en el orden correcto.</p>
-                <a href="/regularizacion-express" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Revisa el programa de regularización express <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Cuándo activar un plan de emergencia y cuándo no</h2>
+                <p>Conviene distinguir el atraso real del atraso percibido, porque el plan de emergencia tiene un costo: sacrifica profundidad y consume energía a un ritmo que no se sostiene por mucho tiempo. Si lo activas cada semana, deja de ser emergencia y se convierte en tu método habitual, con todo lo que eso implica en cansancio y aprendizaje frágil.</p>
+                <p>El criterio práctico es cuantificable: si el material pendiente supera de forma clara el tiempo disponible a tu ritmo normal de trabajo, estás en emergencia y necesitas triaje. Si el material entra con ajustes moderados, no lo estás, y activar el modo emergencia solo te hará estudiar peor de lo que podrías. Confundir ansiedad con atraso es el error más frecuente en esta etapa.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-que-evitar">Qué evitar para mejorar tu productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-senales-de-progreso">Señales de progreso en productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-estrategias-efectivas">Estrategias efectivas de productividad estudiantil</a></li>
+                    <li>Estás en emergencia si el pendiente no entra en el tiempo disponible ni trabajando bien todos los días.</li>
+                    <li>No lo estás si el problema es que empezaste tarde pero el material todavía cabe con ajustes.</li>
+                    <li>Si activas el modo emergencia más de dos veces por mes, el problema es de planeación, no de tiempo.</li>
+                    <li>Si el atraso viene de varios ciclos acumulados, un plan de días no alcanza: necesitas recuperación estructurada.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántos días de anticipación necesita un plan de emergencia para servir de algo?</h3>
-                <p>Con tres días completos ya se puede hacer triaje y práctica dirigida sobre temas de mayor peso. Con menos de veinticuatro horas el margen se reduce a asegurar lo que ya reconoces a medias y a repasar el planteamiento de los problemas típicos; aprender un tema desde cero en ese plazo rara vez rinde, y el tiempo se aprovecha mejor consolidando lo que está a medio camino.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Conviene estudiar toda la noche antes del examen?</h3>
-                <p>No suele convenir. La pérdida de sueño afecta la atención y la recuperación de información justo cuando las necesitas, así que lo que ganas en material cubierto lo pierdes en desempeño durante la prueba. Es preferible cerrar a una hora fija, dormir y dedicar la mañana a un repaso breve de lo que quedó frágil según tus notas de los días anteriores.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si el atraso es de varias materias a la vez?</h3>
-                <p>Haz un inventario por materia y ordénalas por proximidad de la evaluación y por riesgo de no aprobar, no por dificultad ni por preferencia. Trabaja en paralelo solo dos materias por día como máximo, con bloques separados. Si el atraso abarca todas y viene de ciclos anteriores, un plan de días no alcanza y conviene buscar un esquema de recuperación con acompañamiento.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Sirve pedir apuntes o resúmenes de otros compañeros en esta situación?</h3>
-                <p>Sirven como atajo para ubicar el temario y detectar qué se evaluó en clase, no como sustituto de practicar. El material ajeno se lee con la fluidez de algo ya digerido por otra persona, lo que produce falsa sensación de dominio. Úsalo para orientarte y luego resuelve problemas por tu cuenta con la solución tapada.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo evito llegar otra vez a una emergencia el próximo periodo?</h3>
-                <p>Cambia una sola cosa estructural, no todo el sistema. Lo que más suele rendir es fijar un bloque corto fijo por materia desde la primera semana del curso, aunque no haya nada urgente, porque elimina la acumulación silenciosa. Revisa a la mitad del periodo tu inventario de temas: detectar el atraso a tiempo lo vuelve manejable.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Inventario: saber exactamente qué falta antes de mover nada</h2>
+                <p>La tentación en emergencia es empezar a estudiar de inmediato, y es precisamente lo que hace fracasar el plan. Sin un inventario escrito no puedes decidir qué sacrificar, y sin poder sacrificar terminas intentando cubrir todo. El inventario toma entre veinte y cuarenta minutos, y es la inversión con mejor retorno de toda la semana crítica.</p>
+                <p>El inventario no es una lista de temas: es una lista de temas con tres datos por cada uno. Peso en la evaluación, si es prerrequisito de otros temas, y en qué estado lo tienes. Con esos tres datos el triaje se vuelve casi automático y deja de depender de tu ansiedad del momento.</p>
+                <ol>
+                    <li>Consigue la lista real de temas evaluables: guía de estudio, temario oficial o los apuntes del curso, no tu memoria.</li>
+                    <li>Marca el peso de cada tema en la evaluación cuando esa información exista.</li>
+                    <li>Marca cuáles son prerrequisito de otros: un tema base vale más que uno terminal aunque pese lo mismo.</li>
+                    <li>Clasifica tu estado en tres niveles: lo resuelvo, lo reconozco pero fallo, no lo he visto.</li>
+                    <li>Calcula el tiempo disponible real, restando clases, traslados y sueño; no el tiempo ideal.</li>
+                    <li>Escribe el inventario en una sola hoja visible; si no cabe en una hoja, está demasiado detallado.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Triaje: decidir qué entra y qué se queda fuera</h2>
+                <p>El triaje es la parte incómoda porque implica renunciar por escrito a temas que sabes que podrían aparecer. Hacerlo de forma explícita es mejor que la alternativa, que es renunciar por accidente cuando se acabe el tiempo. La prioridad se ordena en tres franjas y se respeta el orden aunque la ansiedad empuje hacia el tema que más miedo da.</p>
+                <p>La primera franja son los temas de alto peso que están en estado "lo reconozco pero fallo": ahí el tiempo rinde más, porque partes de una base y solo necesitas corregir. La segunda son los prerrequisitos que no has visto, porque sin ellos varios temas quedan bloqueados. La tercera son los de alto peso que no has visto, y solo si queda tiempo. Los temas de bajo peso que no has visto se sacrifican; anótalos en una lista aparte para después.</p>
+                <ul>
+                    <li>Prioridad 1: alto peso, ya lo reconoces, fallas en detalles. Corregir es más rápido que aprender.</li>
+                    <li>Prioridad 2: prerrequisitos no vistos, porque desbloquean varios temas a la vez.</li>
+                    <li>Prioridad 3: alto peso no visto, con lo que quede de tiempo y sin invadir las franjas anteriores.</li>
+                    <li>Sacrificados: bajo peso y no vistos. Anótalos aparte para retomarlos después del examen.</li>
+                    <li>No estudies lo que ya resuelves bien; se siente productivo y no mueve tu resultado.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">La estructura de los días críticos</h2>
+                <p>En emergencia el instinto dice sesiones largas, y las sesiones largas son justo lo que menos rinde cuando el margen es corto: la atención cae, aparecen los repasos pasivos y las últimas dos horas producen la ilusión de haber trabajado. La estructura que sostiene mejor un tramo de tres a siete días combina bloques cortos, práctica activa desde el primer minuto y un cierre fijo del día.</p>
+                <p>Práctica activa significa que casi todo el tiempo estás resolviendo, respondiendo o explicando, no leyendo. Cuando no dominas un tema, la reacción natural es leerlo hasta entenderlo; en emergencia conviene invertirlo: intenta un problema resuelto tapando la solución, falla, y usa el material solo para desatorarte. Es incómodo y es lo que hace que el tema quede disponible bajo presión.</p>
+                <ol>
+                    <li>Divide el día en bloques de 40 a 50 minutos con descansos reales de 10, fuera del escritorio.</li>
+                    <li>Empieza cada bloque con un problema o una pregunta, nunca con lectura.</li>
+                    <li>Dedica el primer bloque del día al tema de prioridad más alta, cuando tu atención está más limpia.</li>
+                    <li>Reserva el último bloque a repaso rápido de lo trabajado en los dos días previos, no a material nuevo.</li>
+                    <li>Fija una hora de cierre y respétala: dormir mal degrada todo el plan del día siguiente.</li>
+                    <li>Al terminar, escribe en dos líneas qué quedó frágil; ese es el punto de arranque de mañana.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Ejemplo aplicado: seis días antes de un examen de física</h2>
+                <p>Diego llegó a la última semana con seis días hábiles y ocho temas de física evaluables, de los cuales había trabajado dos. Su primer impulso fue empezar por el tema uno y avanzar en orden, que es lo que había hecho en semestres anteriores con resultados desiguales. En lugar de eso dedicó cuarenta minutos al inventario y descubrió algo que no había considerado: tres de los ocho temas dependían de cinemática, un tema que reconocía a medias y que pesaba poco por sí solo.</p>
+                <p>El triaje quedó así: cinemática entró en prioridad 2 pese a su bajo peso, porque desbloqueaba tres temas; dinámica y trabajo-energía entraron en prioridad 1 porque los reconocía y fallaba en signos y en el planteo del diagrama; óptica quedó sacrificada, con bajo peso y sin ninguna base previa. Escribir esa renuncia le costó, y también le quitó la carga de sentirse obligado a todo.</p>
+                <p>Los días dos y tres los organizó en cuatro bloques de cuarenta y cinco minutos. Empezaba resolviendo un problema con la solución tapada, fallaba, revisaba solo el paso donde se atoró y volvía a intentarlo con otro problema del mismo tipo. Al final de cada día anotaba dos líneas sobre lo que había quedado frágil. En el día cuatro notó que dinámica ya salía sin ayuda, así que movió ese bloque al último lugar del día y usó el primero para trabajo-energía.</p>
+                <p>En los dos días finales no abrió material nuevo. Resolvió una serie de problemas mezclados en condiciones parecidas al examen —tiempo limitado, sin apuntes, sin calculadora si el examen no la permitía— y usó los errores de esa serie para decidir el repaso de la última tarde. Salió del examen sin haber visto óptica y sabiéndolo desde el día uno, que es una situación muy distinta a descubrirlo en la hoja de preguntas.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Errores que empeoran una emergencia</h2>
+                <p>Casi todos los errores de esta etapa tienen la misma raíz: intentar comportarse como si no hubiera restricción de tiempo. Reconocerlos ayuda porque suelen presentarse disfrazados de responsabilidad, y por eso cuesta abandonarlos.</p>
+                <ul>
+                    <li>Empezar por el tema uno y avanzar en orden, ignorando peso y prerrequisitos.</li>
+                    <li>Desvelarse las últimas noches: el costo en comprensión y en el examen mismo supera lo que ganas.</li>
+                    <li>Hacer resúmenes o mapas nuevos; organizar material no es practicar y en emergencia el tiempo no da.</li>
+                    <li>Estudiar en grupo sin estructura, donde la sesión se vuelve conversación y consuelo compartido.</li>
+                    <li>Cambiar el plan cada vez que un tema asusta; el triaje se decide una vez y se respeta.</li>
+                    <li>Recurrir a estimulantes o a dormir cuatro horas de forma sostenida; si tu salud se está afectando, consulta a un profesional.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Salir del modo emergencia sin recaer</h2>
+                <p>El plan de emergencia resuelve el examen y deja una deuda: los temas sacrificados y los aprendidos de forma superficial. Si no cierras esa deuda, el siguiente ciclo empieza con más atraso del que crees, y ahí es donde la emergencia se vuelve permanente. La salida ordenada toma menos tiempo del que la gente imagina y se hace en la semana siguiente, no en algún momento indefinido.</p>
+                <p>Conviene también revisar qué produjo el atraso, distinguiendo entre causas de una sola vez —una enfermedad, un cambio en casa— y patrones que van a repetirse, como empezar a estudiar solo cuando la fecha ya está encima. El primer tipo no requiere cambiar el sistema; el segundo sí, y ninguna semana intensa lo va a corregir por sí sola.</p>
+                <ol>
+                    <li>Al día siguiente del examen, escribe la lista de temas sacrificados en un lugar visible.</li>
+                    <li>Programa dos bloques en la semana siguiente para el prerrequisito más importante de esa lista.</li>
+                    <li>Revisa el examen resuelto cuando esté disponible: los errores señalan qué quedó superficial.</li>
+                    <li>Identifica en una línea qué causó el atraso y si es un evento aislado o un patrón.</li>
+                    <li>Si es un patrón, cambia una sola cosa del sistema para el siguiente periodo, no cinco.</li>
+                </ol>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Si el atraso ya viene de varios ciclos, el plan de días no alcanza</h2>
+                    <p>Un plan de emergencia sirve para un examen concreto, no para recuperar contenido acumulado de semestres anteriores. Cuando los huecos son de base —álgebra que quedó incompleta, comprensión lectora que arrastra— lo que hace falta es una recuperación ordenada por prerrequisitos, con diagnóstico inicial y seguimiento. Nuestro programa de regularización express está armado para ese escenario: identificar qué falta de base y cerrarlo en el orden correcto.</p>
+                    <a href="/regularizacion-express" class="btn-primary">
+                        Revisa el programa de regularización express <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-que-evitar">
+                            <span>Qué evitar para mejorar tu productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-senales-de-progreso">
+                            <span>Señales de progreso en productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-estrategias-efectivas">
+                            <span>Estrategias efectivas de productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántos días de anticipación necesita un plan de emergencia para servir de algo?</h3>
+                    <p>Con tres días completos ya se puede hacer triaje y práctica dirigida sobre temas de mayor peso. Con menos de veinticuatro horas el margen se reduce a asegurar lo que ya reconoces a medias y a repasar el planteamiento de los problemas típicos; aprender un tema desde cero en ese plazo rara vez rinde, y el tiempo se aprovecha mejor consolidando lo que está a medio camino.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Conviene estudiar toda la noche antes del examen?</h3>
+                    <p>No suele convenir. La pérdida de sueño afecta la atención y la recuperación de información justo cuando las necesitas, así que lo que ganas en material cubierto lo pierdes en desempeño durante la prueba. Es preferible cerrar a una hora fija, dormir y dedicar la mañana a un repaso breve de lo que quedó frágil según tus notas de los días anteriores.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si el atraso es de varias materias a la vez?</h3>
+                    <p>Haz un inventario por materia y ordénalas por proximidad de la evaluación y por riesgo de no aprobar, no por dificultad ni por preferencia. Trabaja en paralelo solo dos materias por día como máximo, con bloques separados. Si el atraso abarca todas y viene de ciclos anteriores, un plan de días no alcanza y conviene buscar un esquema de recuperación con acompañamiento.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Sirve pedir apuntes o resúmenes de otros compañeros en esta situación?</h3>
+                    <p>Sirven como atajo para ubicar el temario y detectar qué se evaluó en clase, no como sustituto de practicar. El material ajeno se lee con la fluidez de algo ya digerido por otra persona, lo que produce falsa sensación de dominio. Úsalo para orientarte y luego resuelve problemas por tu cuenta con la solución tapada.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo evito llegar otra vez a una emergencia el próximo periodo?</h3>
+                    <p>Cambia una sola cosa estructural, no todo el sistema. Lo que más suele rendir es fijar un bloque corto fijo por materia desde la primera semana del curso, aunque no haya nada urgente, porque elimina la acumulación silenciosa. Revisa a la mitad del periodo tu inventario de temas: detectar el atraso a tiempo lo vuelve manejable.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -560,8 +658,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Cuándo activar un plan de emergencia y cuándo no
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Inventario: saber exactamente qué falta antes de mover nada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Triaje: decidir qué entra y qué se queda fuera
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>La estructura de los días críticos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: seis días antes de un examen de física
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores que empeoran una emergencia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Salir del modo emergencia sin recaer
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>11 min restantes</span>
+                        <span>Lectura estimada: 11 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

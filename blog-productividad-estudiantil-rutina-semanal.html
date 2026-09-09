@@ -362,166 +362,264 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo armar una rutina semanal de estudio que resista imprevistos</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo armar una rutina semanal de estudio que resista imprevistos</h1>
+                <p class="blog-post-dek">Cómo armar una rutina semanal de estudio que resista imprevistos: bloques fijos, día de holgura, revisión del domingo y ajuste realista de la carga.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Cómo armar una rutina semanal de estudio que resista imprevistos" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La mayoría de las rutinas de estudio fallan en el diseño, no en la ejecución. Se dibujan sobre una semana que no existe: sin traslados largos, sin trabajo, sin imprevistos y con energía constante de lunes a domingo. Cuando el miércoles se cae un bloque, el plan completo pierde sentido y se abandona.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Empieza por lo inamovible, no por lo deseable
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cuántos bloques al día son sostenibles
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo distribuir materias a lo largo de la semana
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>El día de holgura: la pieza que salva la semana
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>La revisión del domingo en diez minutos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: una semana de un estudiante que trabaja
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes al armar la rutina
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La mayoría de las rutinas de estudio fallan en el diseño, no en la ejecución. Se dibujan sobre una semana que no existe: sin traslados largos, sin trabajo, sin imprevistos y con energía constante de lunes a domingo. Cuando el miércoles se cae un bloque, el plan completo pierde sentido y se abandona.</p>
             <p>Una rutina que aguanta se parte de restricciones reales y deja espacio para que las cosas salgan mal. Este artículo describe cómo armarla en cinco pasos, cómo distribuir materias a lo largo de la semana y qué revisar cada domingo para ajustarla sin rehacerla desde cero.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Una rutina semanal funciona cuando se construye sobre el horario que ya existe, no sobre uno ideal. Se define primero lo inamovible —clases, traslados, trabajo, sueño—, luego se colocan de dos a cuatro bloques diarios en las franjas realmente libres, se reserva un día de holgura para lo que se atrasó y se revisa cada domingo si la carga cupo.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Una rutina semanal funciona cuando se construye sobre el horario que ya existe, no sobre uno ideal. Se define primero lo inamovible —clases, traslados, trabajo, sueño—, luego se colocan de dos a cuatro bloques diarios en las franjas realmente libres, se reserva un día de holgura para lo que se atrasó y se revisa cada domingo si la carga cupo.</p>
+                </aside>
 
-            <h2>Empieza por lo inamovible, no por lo deseable</h2>
-            <p>El primer paso no es decidir cuánto vas a estudiar, sino ver cuánto tiempo queda realmente disponible. Escribe la semana con las horas ya comprometidas: clases, traslados, trabajo si lo hay, responsabilidades en casa y las horas de sueño que necesitas. El sueño va en la lista de inamovibles, no en la de ajustables.</p>
-            <p>Lo que sobra después de eso es el presupuesto real. Suele ser menos de lo que uno imagina, y ahí está el valor del ejercicio: una rutina construida sobre el tiempo que sí existe se cumple, mientras que una construida sobre el que debería existir genera deuda cada semana.</p>
-            <ol>
-                <li>Dibuja una tabla de lunes a domingo con las horas del día.</li>
-                <li>Marca clases, traslados, trabajo y responsabilidades fijas.</li>
-                <li>Marca las horas de sueño que necesitas como bloque intocable.</li>
-                <li>Suma los huecos restantes: ese es tu presupuesto semanal real.</li>
-                <li>Asigna bloques de estudio solo dentro de ese presupuesto.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Empieza por lo inamovible, no por lo deseable</h2>
+                <p>El primer paso no es decidir cuánto vas a estudiar, sino ver cuánto tiempo queda realmente disponible. Escribe la semana con las horas ya comprometidas: clases, traslados, trabajo si lo hay, responsabilidades en casa y las horas de sueño que necesitas. El sueño va en la lista de inamovibles, no en la de ajustables.</p>
+                <p>Lo que sobra después de eso es el presupuesto real. Suele ser menos de lo que uno imagina, y ahí está el valor del ejercicio: una rutina construida sobre el tiempo que sí existe se cumple, mientras que una construida sobre el que debería existir genera deuda cada semana.</p>
+                <ol>
+                    <li>Dibuja una tabla de lunes a domingo con las horas del día.</li>
+                    <li>Marca clases, traslados, trabajo y responsabilidades fijas.</li>
+                    <li>Marca las horas de sueño que necesitas como bloque intocable.</li>
+                    <li>Suma los huecos restantes: ese es tu presupuesto semanal real.</li>
+                    <li>Asigna bloques de estudio solo dentro de ese presupuesto.</li>
+                </ol>
+            </section>
 
-            <h2>Cuántos bloques al día son sostenibles</h2>
-            <p>Para la mayoría de estudiantes, dos a cuatro bloques diarios de veinticinco a cuarenta minutos son sostenibles varios días seguidos sin que la calidad se degrade. Es preferible una carga que se pueda repetir toda la semana que una que rinda mucho el lunes y provoque abandono el jueves.</p>
-            <p>Conviene además diferenciar entre días fuertes y días ligeros. Un día con clases hasta la tarde no debería cargar cuatro bloques; ese día lleva uno o dos, y los bloques adicionales se colocan en los días con más espacio. La rutina que reconoce esa asimetría se cumple mejor que la que reparte la misma cantidad todos los días.</p>
-            <ul>
-                <li>Días con carga escolar alta: uno o dos bloques, de mantenimiento.</li>
-                <li>Días con más espacio: tres o cuatro bloques, incluyendo el tema difícil.</li>
-                <li>Ningún día debe depender de estudiar después de las horas en que ya no rindes.</li>
-                <li>Deja al menos un medio día libre a la semana sin bloques asignados.</li>
-            </ul>
-
-            <h2>Cómo distribuir materias a lo largo de la semana</h2>
-            <p>La distribución importa tanto como la cantidad. Concentrar toda una materia en un solo día produce menos retención que repartirla en tres contactos más cortos en días distintos, porque el intervalo entre sesiones obliga a recuperar el contenido en lugar de solo continuarlo.</p>
-            <p>Una regla práctica: las materias que exigen más esfuerzo van en el primer bloque del día, cuando la atención está más fresca, y aparecen al menos tres veces por semana en sesiones cortas. Las materias de mantenimiento pueden ir en bloques posteriores y con dos contactos semanales.</p>
-            <ul>
-                <li>La materia más difícil, en el primer bloque del día y tres veces por semana.</li>
-                <li>Materias estables: dos contactos semanales de mantenimiento.</li>
-                <li>No pongas dos materias que requieren mucha concentración en bloques consecutivos.</li>
-                <li>Deja los repasos de tarjetas para huecos cortos, no para bloques completos.</li>
-                <li>Cierra cada bloque anotando el punto exacto donde retomarás.</li>
-            </ul>
-
-            <h2>El día de holgura: la pieza que salva la semana</h2>
-            <p>Toda rutina necesita un espacio destinado a absorber lo que no salió. Sin él, un imprevisto del martes desplaza todo el plan y para el viernes la sensación de atraso vuelve inútil el calendario. Con él, el atraso tiene un lugar previsto y la semana no se descarrila.</p>
-            <p>El día de holgura no es un día libre: es un día con bloques reservados sin contenido asignado de antemano. Si la semana salió bien, esos bloques se usan para adelantar o descansar. Si algo se cayó, ahí se recupera. Muchos estudiantes lo colocan en sábado, aunque cualquier día con espacio real funciona.</p>
-
-            <h2>La revisión del domingo en diez minutos</h2>
-            <p>Una rutina sin revisión se degrada en dos o tres semanas, porque las fechas cambian y la carga real de cada materia varía. Diez minutos el domingo bastan para actualizarla: revisar entregas de la semana entrante, estimar cuántos bloques necesita cada una y colocarlas en el calendario con fecha de inicio, no solo de entrega.</p>
-            <p>La revisión también sirve para detectar una carga imposible antes de que se convierta en una semana perdida. Si al sumar los bloques necesarios el total excede el presupuesto disponible, la decisión debe tomarse el domingo con calma —qué se prioriza, qué se entrega en versión mínima, qué se negocia con el maestro— y no el jueves a medianoche.</p>
-            <ol>
-                <li>Revisa entregas y exámenes de la semana entrante.</li>
-                <li>Estima cuántos bloques requiere cada pendiente.</li>
-                <li>Suma los bloques y compáralos con tu presupuesto disponible.</li>
-                <li>Si no cabe, decide prioridades ahora, no a media semana.</li>
-                <li>Coloca cada pendiente con fecha de inicio y deja libres los bloques de holgura.</li>
-            </ol>
-
-            <h2>Ejemplo aplicado: una semana de un estudiante que trabaja</h2>
-            <p>Tomemos a un estudiante de preparatoria abierta que trabaja de lunes a viernes por la tarde y prepara examen de admisión. Sus inamovibles: trabajo de dos a ocho, traslado de una hora en total, y siete horas de sueño. Al restarlo todo, su presupuesto real es de unos noventa minutos por día hábil y buena parte del sábado.</p>
-            <p>Con ese presupuesto, la rutina no puede tener cuatro bloques diarios. Coloca dos bloques de treinta minutos en la mañana, de siete a ocho, antes de salir: el primero para la materia que le cuesta más, matemáticas, y el segundo para repaso de tarjetas de otra área. El traslado de regreso lo usa para escuchar sus propias grabaciones de definiciones, sin exigirse más.</p>
-            <p>El sábado concentra cuatro bloques de cuarenta minutos con descansos reales: dos para simulacro de reactivos con tiempo medido, uno para revisar los errores del simulacro y uno de holgura sin contenido asignado. El domingo hace la revisión de diez minutos y descansa el resto del día sin bloques.</p>
-            <p>El total semanal es de alrededor de nueve horas efectivas, muy por debajo de lo que un plan idealizado le habría asignado, pero se cumple casi completo cada semana. Después de un mes, el indicador que mejoró no fue el número de horas sino la proporción de bloques cumplidos, y con ella el avance real en el temario.</p>
-
-            <h2>Errores frecuentes al armar la rutina</h2>
-            <p>El error inicial es diseñar la semana con el nivel de energía del mejor día. Un domingo con ánimo alto lleva a colocar seis bloques diarios que ningún miércoles real puede sostener. Conviene diseñar para el día promedio y dejar que los días buenos sobren, no al contrario.</p>
-            <p>El segundo error es rehacer la rutina completa cada vez que falla un día. Una rutina es un instrumento de trabajo, no un examen de carácter: se ajusta en los puntos que no funcionaron y se conserva el resto. Reescribirla desde cero cada semana consume tiempo de estudio y borra la información sobre qué sí estaba sirviendo.</p>
-            <ul>
-                <li>Diseñar con la energía del mejor día en lugar del día promedio.</li>
-                <li>No incluir el sueño entre los elementos inamovibles.</li>
-                <li>Olvidar los traslados al calcular el tiempo disponible.</li>
-                <li>No dejar bloques de holgura para lo que se atrase.</li>
-                <li>Rehacer todo el plan tras un solo día fallido.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Una rutina con temario ya ordenado</h3>
-                <p>La parte más costosa de una rutina de admisión no es el horario, sino decidir qué tema toca cada bloque. Si estás preparando el examen, un programa de admisión universitaria te entrega el temario secuenciado y la práctica por área, de modo que tu rutina solo tenga que reservar los bloques.</p>
-                <a href="/admision-universitaria" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de Admisión Universitaria <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Cuántos bloques al día son sostenibles</h2>
+                <p>Para la mayoría de estudiantes, dos a cuatro bloques diarios de veinticinco a cuarenta minutos son sostenibles varios días seguidos sin que la calidad se degrade. Es preferible una carga que se pueda repetir toda la semana que una que rinda mucho el lunes y provoque abandono el jueves.</p>
+                <p>Conviene además diferenciar entre días fuertes y días ligeros. Un día con clases hasta la tarde no debería cargar cuatro bloques; ese día lleva uno o dos, y los bloques adicionales se colocan en los días con más espacio. La rutina que reconoce esa asimetría se cumple mejor que la que reparte la misma cantidad todos los días.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-plan-de-30-dias">Plan de 30 días para mejorar la productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-en-casa">Cómo organizar la productividad estudiantil en casa</a></li>
-                <li><a href="/blog-productividad-estudiantil-checklist">Checklist de productividad estudiantil por momentos</a></li>
+                    <li>Días con carga escolar alta: uno o dos bloques, de mantenimiento.</li>
+                    <li>Días con más espacio: tres o cuatro bloques, incluyendo el tema difícil.</li>
+                    <li>Ningún día debe depender de estudiar después de las horas en que ya no rindes.</li>
+                    <li>Deja al menos un medio día libre a la semana sin bloques asignados.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo estudiar los fines de semana?</h3>
-                <p>Depende de tu presupuesto entre semana. Si tus días hábiles están saturados por escuela o trabajo, el fin de semana es donde caben los bloques largos. Lo que conviene evitar es ocupar los dos días completos: reservar al menos medio día sin bloques asignados sostiene el ritmo del resto de la semana.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi horario cambia cada semana?</h3>
-                <p>Mantén fija la cantidad de bloques semanales y flexible su ubicación. En lugar de comprometerte a estudiar todos los martes a las seis, comprométete a doce bloques por semana y colócalos el domingo según el horario real de esos días. La constancia del total importa más que la de la hora exacta.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo tarda en asentarse una rutina nueva?</h3>
-                <p>Suele tomar entre dos y cuatro semanas antes de que el arranque deje de requerir decisión consciente. Por eso conviene no juzgar una rutina en los primeros días ni cambiarla al tercer tropiezo. Evalúala al final de la segunda semana con un dato concreto: qué proporción de bloques planeados se cumplió.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es mejor una rutina detallada o una flexible?</h3>
-                <p>Detallada en la cantidad y el objetivo de cada bloque, flexible en el momento del día. Definir qué vas a terminar en el bloque reduce el tiempo de arranque; amarrarlo a un minuto exacto lo hace frágil ante cualquier imprevisto. La combinación de objetivo claro y ventana amplia es la que mejor resiste.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo incluyo descanso y vida social sin sentir culpa?</h3>
-                <p>Anótalos en el calendario igual que los bloques de estudio. Cuando el descanso está planeado, deja de competir con el estudio y se vuelve parte del plan; cuando no lo está, ocurre de todos modos pero acompañado de la sensación de estar fallando, lo que empeora el rendimiento del bloque siguiente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo distribuir materias a lo largo de la semana</h2>
+                <p>La distribución importa tanto como la cantidad. Concentrar toda una materia en un solo día produce menos retención que repartirla en tres contactos más cortos en días distintos, porque el intervalo entre sesiones obliga a recuperar el contenido en lugar de solo continuarlo.</p>
+                <p>Una regla práctica: las materias que exigen más esfuerzo van en el primer bloque del día, cuando la atención está más fresca, y aparecen al menos tres veces por semana en sesiones cortas. Las materias de mantenimiento pueden ir en bloques posteriores y con dos contactos semanales.</p>
+                <ul>
+                    <li>La materia más difícil, en el primer bloque del día y tres veces por semana.</li>
+                    <li>Materias estables: dos contactos semanales de mantenimiento.</li>
+                    <li>No pongas dos materias que requieren mucha concentración en bloques consecutivos.</li>
+                    <li>Deja los repasos de tarjetas para huecos cortos, no para bloques completos.</li>
+                    <li>Cierra cada bloque anotando el punto exacto donde retomarás.</li>
+                </ul>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">El día de holgura: la pieza que salva la semana</h2>
+                <p>Toda rutina necesita un espacio destinado a absorber lo que no salió. Sin él, un imprevisto del martes desplaza todo el plan y para el viernes la sensación de atraso vuelve inútil el calendario. Con él, el atraso tiene un lugar previsto y la semana no se descarrila.</p>
+                <p>El día de holgura no es un día libre: es un día con bloques reservados sin contenido asignado de antemano. Si la semana salió bien, esos bloques se usan para adelantar o descansar. Si algo se cayó, ahí se recupera. Muchos estudiantes lo colocan en sábado, aunque cualquier día con espacio real funciona.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">La revisión del domingo en diez minutos</h2>
+                <p>Una rutina sin revisión se degrada en dos o tres semanas, porque las fechas cambian y la carga real de cada materia varía. Diez minutos el domingo bastan para actualizarla: revisar entregas de la semana entrante, estimar cuántos bloques necesita cada una y colocarlas en el calendario con fecha de inicio, no solo de entrega.</p>
+                <p>La revisión también sirve para detectar una carga imposible antes de que se convierta en una semana perdida. Si al sumar los bloques necesarios el total excede el presupuesto disponible, la decisión debe tomarse el domingo con calma —qué se prioriza, qué se entrega en versión mínima, qué se negocia con el maestro— y no el jueves a medianoche.</p>
+                <ol>
+                    <li>Revisa entregas y exámenes de la semana entrante.</li>
+                    <li>Estima cuántos bloques requiere cada pendiente.</li>
+                    <li>Suma los bloques y compáralos con tu presupuesto disponible.</li>
+                    <li>Si no cabe, decide prioridades ahora, no a media semana.</li>
+                    <li>Coloca cada pendiente con fecha de inicio y deja libres los bloques de holgura.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: una semana de un estudiante que trabaja</h2>
+                <p>Tomemos a un estudiante de preparatoria abierta que trabaja de lunes a viernes por la tarde y prepara examen de admisión. Sus inamovibles: trabajo de dos a ocho, traslado de una hora en total, y siete horas de sueño. Al restarlo todo, su presupuesto real es de unos noventa minutos por día hábil y buena parte del sábado.</p>
+                <p>Con ese presupuesto, la rutina no puede tener cuatro bloques diarios. Coloca dos bloques de treinta minutos en la mañana, de siete a ocho, antes de salir: el primero para la materia que le cuesta más, matemáticas, y el segundo para repaso de tarjetas de otra área. El traslado de regreso lo usa para escuchar sus propias grabaciones de definiciones, sin exigirse más.</p>
+                <p>El sábado concentra cuatro bloques de cuarenta minutos con descansos reales: dos para simulacro de reactivos con tiempo medido, uno para revisar los errores del simulacro y uno de holgura sin contenido asignado. El domingo hace la revisión de diez minutos y descansa el resto del día sin bloques.</p>
+                <p>El total semanal es de alrededor de nueve horas efectivas, muy por debajo de lo que un plan idealizado le habría asignado, pero se cumple casi completo cada semana. Después de un mes, el indicador que mejoró no fue el número de horas sino la proporción de bloques cumplidos, y con ella el avance real en el temario.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Errores frecuentes al armar la rutina</h2>
+                <p>El error inicial es diseñar la semana con el nivel de energía del mejor día. Un domingo con ánimo alto lleva a colocar seis bloques diarios que ningún miércoles real puede sostener. Conviene diseñar para el día promedio y dejar que los días buenos sobren, no al contrario.</p>
+                <p>El segundo error es rehacer la rutina completa cada vez que falla un día. Una rutina es un instrumento de trabajo, no un examen de carácter: se ajusta en los puntos que no funcionaron y se conserva el resto. Reescribirla desde cero cada semana consume tiempo de estudio y borra la información sobre qué sí estaba sirviendo.</p>
+                <ul>
+                    <li>Diseñar con la energía del mejor día en lugar del día promedio.</li>
+                    <li>No incluir el sueño entre los elementos inamovibles.</li>
+                    <li>Olvidar los traslados al calcular el tiempo disponible.</li>
+                    <li>No dejar bloques de holgura para lo que se atrase.</li>
+                    <li>Rehacer todo el plan tras un solo día fallido.</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Una rutina con temario ya ordenado</h2>
+                    <p>La parte más costosa de una rutina de admisión no es el horario, sino decidir qué tema toca cada bloque. Si estás preparando el examen, un programa de admisión universitaria te entrega el temario secuenciado y la práctica por área, de modo que tu rutina solo tenga que reservar los bloques.</p>
+                    <a href="/admision-universitaria" class="btn-primary">
+                        Ver el curso de Admisión Universitaria <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-plan-de-30-dias">
+                            <span>Plan de 30 días para mejorar la productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-en-casa">
+                            <span>Cómo organizar la productividad estudiantil en casa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-checklist">
+                            <span>Checklist de productividad estudiantil por momentos</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo estudiar los fines de semana?</h3>
+                    <p>Depende de tu presupuesto entre semana. Si tus días hábiles están saturados por escuela o trabajo, el fin de semana es donde caben los bloques largos. Lo que conviene evitar es ocupar los dos días completos: reservar al menos medio día sin bloques asignados sostiene el ritmo del resto de la semana.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi horario cambia cada semana?</h3>
+                    <p>Mantén fija la cantidad de bloques semanales y flexible su ubicación. En lugar de comprometerte a estudiar todos los martes a las seis, comprométete a doce bloques por semana y colócalos el domingo según el horario real de esos días. La constancia del total importa más que la de la hora exacta.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo tarda en asentarse una rutina nueva?</h3>
+                    <p>Suele tomar entre dos y cuatro semanas antes de que el arranque deje de requerir decisión consciente. Por eso conviene no juzgar una rutina en los primeros días ni cambiarla al tercer tropiezo. Evalúala al final de la segunda semana con un dato concreto: qué proporción de bloques planeados se cumplió.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es mejor una rutina detallada o una flexible?</h3>
+                    <p>Detallada en la cantidad y el objetivo de cada bloque, flexible en el momento del día. Definir qué vas a terminar en el bloque reduce el tiempo de arranque; amarrarlo a un minuto exacto lo hace frágil ante cualquier imprevisto. La combinación de objetivo claro y ventana amplia es la que mejor resiste.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo incluyo descanso y vida social sin sentir culpa?</h3>
+                    <p>Anótalos en el calendario igual que los bloques de estudio. Cuando el descanso está planeado, deja de competir con el estudio y se vuelve parte del plan; cuando no lo está, ocurre de todos modos pero acompañado de la sensación de estar fallando, lo que empeora el rendimiento del bloque siguiente.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -551,8 +649,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Empieza por lo inamovible, no por lo deseable
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Cuántos bloques al día son sostenibles
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo distribuir materias a lo largo de la semana
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>El día de holgura: la pieza que salva la semana
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>La revisión del domingo en diez minutos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: una semana de un estudiante que trabaja
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Errores frecuentes al armar la rutina
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

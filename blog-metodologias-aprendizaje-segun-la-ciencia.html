@@ -362,137 +362,230 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Metodologías de Aprendizaje
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Qué dice la ciencia sobre las metodologías de aprendizaje</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Metodologías de Aprendizaje</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Qué dice la ciencia sobre las metodologías de aprendizaje</h1>
+                <p class="blog-post-dek">Qué dice la investigación en psicología cognitiva sobre metodologías de aprendizaje: qué técnicas tienen mayor respaldo y cuáles menos evidencia.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Metodologías de Aprendizaje</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Qué dice la ciencia sobre las metodologías de aprendizaje" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Buena parte de las técnicas de estudio que circulan de forma popular no han sido comparadas de forma rigurosa entre sí, mientras que otras cuentan con décadas de investigación en psicología cognitiva y educativa que permite hablar con más confianza sobre su efectividad relativa.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Repaso espaciado: uno de los hallazgos más consistentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Práctica de recuperación: otro hallazgo con respaldo consistente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Elaboración y autoexplicación: respaldo moderado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: interpretar la evidencia con criterio propio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Subrayado y relectura: el respaldo más débil entre las técnicas populares
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Limitaciones de aplicar hallazgos generales a casos individuales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo mantenerse informado sobre nueva evidencia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Buena parte de las técnicas de estudio que circulan de forma popular no han sido comparadas de forma rigurosa entre sí, mientras que otras cuentan con décadas de investigación en psicología cognitiva y educativa que permite hablar con más confianza sobre su efectividad relativa.</p>
             <p>Este artículo resume, de forma accesible y sin tecnicismos innecesarios, qué encuentra la investigación sobre las metodologías descritas a lo largo de este cluster, distinguiendo entre las que cuentan con respaldo consistente y las que tienen evidencia más limitada.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La investigación en psicología cognitiva sobre metodologías de aprendizaje muestra un respaldo consistente para el repaso espaciado y la práctica de recuperación (autoevaluación), un respaldo moderado para la elaboración y la interrogación propia, y un respaldo más débil para técnicas populares como subrayar o resaltar texto sin ningún procesamiento activo adicional.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La investigación en psicología cognitiva sobre metodologías de aprendizaje muestra un respaldo consistente para el repaso espaciado y la práctica de recuperación (autoevaluación), un respaldo moderado para la elaboración y la interrogación propia, y un respaldo más débil para técnicas populares como subrayar o resaltar texto sin ningún procesamiento activo adicional.</p>
+                </aside>
 
-            <h2>Repaso espaciado: uno de los hallazgos más consistentes</h2>
-            <p>El efecto de espaciamiento —la mejora en retención al distribuir el repaso en el tiempo en lugar de concentrarlo— es uno de los fenómenos más estudiados y replicados en la investigación sobre memoria y aprendizaje. Distintos estudios, con diferentes tipos de contenido y poblaciones, han encontrado consistentemente que el repaso espaciado produce mejor retención a mediano y largo plazo que el repaso concentrado.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Repaso espaciado: uno de los hallazgos más consistentes</h2>
+                <p>El efecto de espaciamiento —la mejora en retención al distribuir el repaso en el tiempo en lugar de concentrarlo— es uno de los fenómenos más estudiados y replicados en la investigación sobre memoria y aprendizaje. Distintos estudios, con diferentes tipos de contenido y poblaciones, han encontrado consistentemente que el repaso espaciado produce mejor retención a mediano y largo plazo que el repaso concentrado.</p>
+            </section>
 
-            <h2>Práctica de recuperación: otro hallazgo con respaldo consistente</h2>
-            <p>La práctica de recuperación, equivalente a lo que en este cluster se describe como autoevaluación, también cuenta con respaldo consistente en la investigación: intentar recordar información sin apoyo, en lugar de solo reconocerla al leerla, fortalece la memoria de una forma que la relectura pasiva no logra en la misma medida.</p>
-            <ul>
-                <li>El efecto se ha replicado en distintos tipos de contenido académico.</li>
-                <li>Funciona incluso cuando el primer intento de recuperación falla parcialmente.</li>
-                <li>El beneficio se observa tanto en retención a corto como a largo plazo.</li>
-                <li>Es efectivo en distintos niveles educativos, desde primaria hasta educación superior.</li>
-            </ul>
-
-            <h2>Elaboración y autoexplicación: respaldo moderado</h2>
-            <p>Técnicas como la elaboración propia y la autoexplicación cuentan con respaldo razonable, aunque algo menos consistente que el repaso espaciado y la práctica de recuperación, en parte porque su efectividad parece depender más del tipo de contenido y de qué tan bien se ejecuta la técnica, lo que dificulta comparaciones directas entre estudios distintos.</p>
-
-            <h2>Ejemplo aplicado: interpretar la evidencia con criterio propio</h2>
-            <p>Un estudiante que leyó sobre estos hallazgos decidió aplicar el criterio de priorizar las técnicas con mayor respaldo científico, sin descartar por completo las de respaldo moderado. Para su materia de historia, con mucho contenido factual que recordar, priorizó el repaso espaciado con tarjetas, apoyándose en el hallazgo más sólido disponible.</p>
-            <p>Para su materia de filosofía, donde el reto era comprender argumentos complejos más que memorizar datos aislados, decidió sumar elaboración propia, reconociendo que aunque el respaldo era algo menos consistente que el del repaso espaciado, seguía siendo razonable dado el tipo de contenido particular de esa materia.</p>
-            <p>No descartó por completo el subrayado, técnica con respaldo más débil en la investigación, pero dejó de depender de él como método principal, usándolo solo como marca visual complementaria mientras aplicaba las técnicas de mayor respaldo como base de su estudio real.</p>
-            <p>Esta forma de interpretar la evidencia, priorizando lo mejor respaldado sin descartar de forma absoluta técnicas con menor respaldo cuando el contexto específico lo justificaba, le permitió tomar decisiones informadas sin caer en el extremo de rechazar cualquier técnica que no contara con el máximo nivel de evidencia posible.</p>
-
-            <h2>Subrayado y relectura: el respaldo más débil entre las técnicas populares</h2>
-            <p>El subrayado y la relectura simple, aunque son de las técnicas más utilizadas por estudiantes de todos los niveles, cuentan con el respaldo más débil entre las metodologías comparadas en la investigación, precisamente porque no exigen el procesamiento activo del contenido que sí caracteriza a las técnicas con mejor respaldo.</p>
-            <ol>
-                <li>Reconocer que la popularidad de una técnica no equivale a evidencia sólida de efectividad.</li>
-                <li>Priorizar técnicas con procesamiento activo sobre técnicas puramente pasivas.</li>
-                <li>Usar el subrayado, si se desea, como complemento visual, no como método principal.</li>
-                <li>Revisar periódicamente si nuevas investigaciones ofrecen evidencia distinta sobre alguna técnica.</li>
-            </ol>
-
-            <h2>Limitaciones de aplicar hallazgos generales a casos individuales</h2>
-            <p>La investigación describe tendencias generales observadas en grupos de estudiantes, lo que no asegura que una técnica con respaldo sólido funcione igual de bien para cualquier persona individual en cualquier situación específica. Confirmar el beneficio en el propio caso, mediante prueba directa como se describe en otros artículos de este cluster, sigue siendo un paso necesario incluso al elegir una técnica bien respaldada por la investigación.</p>
-
-            <h2>Cómo mantenerse informado sobre nueva evidencia</h2>
-            <p>El campo de la psicología cognitiva y educativa continúa investigando estas técnicas, por lo que el panorama descrito en este artículo puede refinarse con el tiempo. Mantener una actitud abierta a ajustar las propias prácticas conforme surja evidencia nueva, sin apegarse rígidamente a una técnica solo porque fue la mejor respaldada en un momento dado, es una postura razonable frente a un campo de conocimiento en constante desarrollo.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De la evidencia científica a una técnica de memoria estructurada</h3>
-                <p>Si buscas aplicar las técnicas con mayor respaldo científico de forma guiada, nuestro programa de Memoria Prodigiosa integra repaso espaciado y práctica de recuperación en un método estructurado.</p>
-                <a href="/memoria-prodigiosa" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso de memoria para estudiantes <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Práctica de recuperación: otro hallazgo con respaldo consistente</h2>
+                <p>La práctica de recuperación, equivalente a lo que en este cluster se describe como autoevaluación, también cuenta con respaldo consistente en la investigación: intentar recordar información sin apoyo, en lugar de solo reconocerla al leerla, fortalece la memoria de una forma que la relectura pasiva no logra en la misma medida.</p>
                 <ul>
-                <li><a href="/blog-metodologias-aprendizaje-en-mexico-2026">Metodologías de aprendizaje en el contexto educativo mexicano 2026</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-aplicacion-practica">Aplicación práctica de metodologías de aprendizaje paso a paso</a></li>
+                    <li>El efecto se ha replicado en distintos tipos de contenido académico.</li>
+                    <li>Funciona incluso cuando el primer intento de recuperación falla parcialmente.</li>
+                    <li>El beneficio se observa tanto en retención a corto como a largo plazo.</li>
+                    <li>Es efectivo en distintos niveles educativos, desde primaria hasta educación superior.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El repaso espaciado tiene el mismo respaldo científico que la práctica de recuperación?</h3>
-                <p>Ambos cuentan con respaldo muy consistente en la investigación, aunque provienen de líneas de estudio algo distintas dentro de la psicología cognitiva. Combinarlos, como se sugiere en otros artículos de este cluster, aprovecha ambos hallazgos simultáneamente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo dejar de usar el subrayado por completo si tiene menos respaldo científico?</h3>
-                <p>No es necesario eliminarlo por completo; puede usarse como complemento visual, pero conviene no depender de él como método principal de estudio, priorizando técnicas con procesamiento más activo del contenido.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Estos hallazgos aplican igual en todos los niveles educativos?</h3>
-                <p>La mayoría de la investigación sobre repaso espaciado y práctica de recuperación se ha replicado en distintos niveles educativos, aunque la forma específica de aplicación puede necesitar ajustes según la edad, como se describe en otros artículos de este cluster.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Por qué algunas técnicas populares tienen menos respaldo científico que otras?</h3>
-                <p>La popularidad de una técnica suele estar más relacionada con su facilidad de aplicación o con la tradición educativa que con evidencia rigurosa de su efectividad, lo que explica por qué técnicas ampliamente usadas como el subrayado tienen menos respaldo que otras menos conocidas por el público general.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito leer estudios científicos originales para aplicar esta información?</h3>
-                <p>No es necesario; este artículo y otros del cluster resumen los hallazgos relevantes de forma accesible. Consultar fuentes originales es útil solo si se busca profundizar más allá del nivel general presentado aquí.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Elaboración y autoexplicación: respaldo moderado</h2>
+                <p>Técnicas como la elaboración propia y la autoexplicación cuentan con respaldo razonable, aunque algo menos consistente que el repaso espaciado y la práctica de recuperación, en parte porque su efectividad parece depender más del tipo de contenido y de qué tan bien se ejecuta la técnica, lo que dificulta comparaciones directas entre estudios distintos.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: interpretar la evidencia con criterio propio</h2>
+                <p>Un estudiante que leyó sobre estos hallazgos decidió aplicar el criterio de priorizar las técnicas con mayor respaldo científico, sin descartar por completo las de respaldo moderado. Para su materia de historia, con mucho contenido factual que recordar, priorizó el repaso espaciado con tarjetas, apoyándose en el hallazgo más sólido disponible.</p>
+                <p>Para su materia de filosofía, donde el reto era comprender argumentos complejos más que memorizar datos aislados, decidió sumar elaboración propia, reconociendo que aunque el respaldo era algo menos consistente que el del repaso espaciado, seguía siendo razonable dado el tipo de contenido particular de esa materia.</p>
+                <p>No descartó por completo el subrayado, técnica con respaldo más débil en la investigación, pero dejó de depender de él como método principal, usándolo solo como marca visual complementaria mientras aplicaba las técnicas de mayor respaldo como base de su estudio real.</p>
+                <p>Esta forma de interpretar la evidencia, priorizando lo mejor respaldado sin descartar de forma absoluta técnicas con menor respaldo cuando el contexto específico lo justificaba, le permitió tomar decisiones informadas sin caer en el extremo de rechazar cualquier técnica que no contara con el máximo nivel de evidencia posible.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Subrayado y relectura: el respaldo más débil entre las técnicas populares</h2>
+                <p>El subrayado y la relectura simple, aunque son de las técnicas más utilizadas por estudiantes de todos los niveles, cuentan con el respaldo más débil entre las metodologías comparadas en la investigación, precisamente porque no exigen el procesamiento activo del contenido que sí caracteriza a las técnicas con mejor respaldo.</p>
+                <ol>
+                    <li>Reconocer que la popularidad de una técnica no equivale a evidencia sólida de efectividad.</li>
+                    <li>Priorizar técnicas con procesamiento activo sobre técnicas puramente pasivas.</li>
+                    <li>Usar el subrayado, si se desea, como complemento visual, no como método principal.</li>
+                    <li>Revisar periódicamente si nuevas investigaciones ofrecen evidencia distinta sobre alguna técnica.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Limitaciones de aplicar hallazgos generales a casos individuales</h2>
+                <p>La investigación describe tendencias generales observadas en grupos de estudiantes, lo que no asegura que una técnica con respaldo sólido funcione igual de bien para cualquier persona individual en cualquier situación específica. Confirmar el beneficio en el propio caso, mediante prueba directa como se describe en otros artículos de este cluster, sigue siendo un paso necesario incluso al elegir una técnica bien respaldada por la investigación.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo mantenerse informado sobre nueva evidencia</h2>
+                <p>El campo de la psicología cognitiva y educativa continúa investigando estas técnicas, por lo que el panorama descrito en este artículo puede refinarse con el tiempo. Mantener una actitud abierta a ajustar las propias prácticas conforme surja evidencia nueva, sin apegarse rígidamente a una técnica solo porque fue la mejor respaldada en un momento dado, es una postura razonable frente a un campo de conocimiento en constante desarrollo.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De la evidencia científica a una técnica de memoria estructurada</h2>
+                    <p>Si buscas aplicar las técnicas con mayor respaldo científico de forma guiada, nuestro programa de Memoria Prodigiosa integra repaso espaciado y práctica de recuperación en un método estructurado.</p>
+                    <a href="/memoria-prodigiosa" class="btn-primary">
+                        Curso de memoria para estudiantes <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-en-mexico-2026">
+                            <span>Metodologías de aprendizaje en el contexto educativo mexicano 2026</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-aplicacion-practica">
+                            <span>Aplicación práctica de metodologías de aprendizaje paso a paso</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El repaso espaciado tiene el mismo respaldo científico que la práctica de recuperación?</h3>
+                    <p>Ambos cuentan con respaldo muy consistente en la investigación, aunque provienen de líneas de estudio algo distintas dentro de la psicología cognitiva. Combinarlos, como se sugiere en otros artículos de este cluster, aprovecha ambos hallazgos simultáneamente.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo dejar de usar el subrayado por completo si tiene menos respaldo científico?</h3>
+                    <p>No es necesario eliminarlo por completo; puede usarse como complemento visual, pero conviene no depender de él como método principal de estudio, priorizando técnicas con procesamiento más activo del contenido.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Estos hallazgos aplican igual en todos los niveles educativos?</h3>
+                    <p>La mayoría de la investigación sobre repaso espaciado y práctica de recuperación se ha replicado en distintos niveles educativos, aunque la forma específica de aplicación puede necesitar ajustes según la edad, como se describe en otros artículos de este cluster.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Por qué algunas técnicas populares tienen menos respaldo científico que otras?</h3>
+                    <p>La popularidad de una técnica suele estar más relacionada con su facilidad de aplicación o con la tradición educativa que con evidencia rigurosa de su efectividad, lo que explica por qué técnicas ampliamente usadas como el subrayado tienen menos respaldo que otras menos conocidas por el público general.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito leer estudios científicos originales para aplicar esta información?</h3>
+                    <p>No es necesario; este artículo y otros del cluster resumen los hallazgos relevantes de forma accesible. Consultar fuentes originales es útil solo si se busca profundizar más allá del nivel general presentado aquí.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -522,8 +615,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Repaso espaciado: uno de los hallazgos más consistentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Práctica de recuperación: otro hallazgo con respaldo consistente
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Elaboración y autoexplicación: respaldo moderado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: interpretar la evidencia con criterio propio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Subrayado y relectura: el respaldo más débil entre las técnicas populares
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Limitaciones de aplicar hallazgos generales a casos individuales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo mantenerse informado sobre nueva evidencia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

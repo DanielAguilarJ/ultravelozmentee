@@ -362,138 +362,231 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Metodologías de Aprendizaje
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Ventajas y desventajas de las metodologías de aprendizaje</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Metodologías de Aprendizaje</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Ventajas y desventajas de las metodologías de aprendizaje</h1>
+                <p class="blog-post-dek">Ventajas y desventajas honestas de las principales metodologías de aprendizaje: qué gana y qué cuesta cada técnica en tiempo y esfuerzo.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Metodologías de Aprendizaje</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Ventajas y desventajas de las metodologías de aprendizaje" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Ninguna metodología de aprendizaje es gratuita en términos de esfuerzo o tiempo; cada una ofrece un beneficio específico a cambio de un costo particular. Presentar solo las ventajas, sin mencionar honestamente las desventajas, genera expectativas poco realistas que suelen llevar al abandono cuando aparece el costo esperado.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Repaso espaciado: retención a cambio de planeación anticipada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Autoevaluación: dominio real a cambio de incomodidad inicial
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Elaboración propia: comprensión profunda a cambio de más tiempo por sesión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: sopesar ventajas y desventajas en una decisión real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Enseñanza simulada: exposición de vacíos a cambio de comodidad con hablar en voz alta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo decidir si la desventaja de una técnica es determinante
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Combinar técnicas para compensar desventajas individuales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Ninguna metodología de aprendizaje es gratuita en términos de esfuerzo o tiempo; cada una ofrece un beneficio específico a cambio de un costo particular. Presentar solo las ventajas, sin mencionar honestamente las desventajas, genera expectativas poco realistas que suelen llevar al abandono cuando aparece el costo esperado.</p>
             <p>Este artículo describe con honestidad ambos lados de cada técnica principal, para que la elección se haga con conocimiento completo de qué se gana y qué se sacrifica al adoptarla.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Cada metodología de aprendizaje tiene ventajas y desventajas concretas: el repaso espaciado mejora la retención pero exige planeación anticipada, la autoevaluación revela dominio real pero puede generar frustración inicial, la elaboración propia mejora la comprensión pero toma más tiempo por sesión, y la enseñanza simulada expone vacíos de comprensión pero requiere cierta comodidad con hablar en voz alta.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Cada metodología de aprendizaje tiene ventajas y desventajas concretas: el repaso espaciado mejora la retención pero exige planeación anticipada, la autoevaluación revela dominio real pero puede generar frustración inicial, la elaboración propia mejora la comprensión pero toma más tiempo por sesión, y la enseñanza simulada expone vacíos de comprensión pero requiere cierta comodidad con hablar en voz alta.</p>
+                </aside>
 
-            <h2>Repaso espaciado: retención a cambio de planeación anticipada</h2>
-            <p>La ventaja del repaso espaciado es clara: mejora significativamente la retención de contenido a mediano y largo plazo, comparado con el repaso concentrado en una sola sesión. La desventaja es que exige planeación con anticipación; no puede improvisarse la noche anterior a un examen, porque su efectividad depende precisamente de distribuir las sesiones en el tiempo desde el inicio del periodo de estudio.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Repaso espaciado: retención a cambio de planeación anticipada</h2>
+                <p>La ventaja del repaso espaciado es clara: mejora significativamente la retención de contenido a mediano y largo plazo, comparado con el repaso concentrado en una sola sesión. La desventaja es que exige planeación con anticipación; no puede improvisarse la noche anterior a un examen, porque su efectividad depende precisamente de distribuir las sesiones en el tiempo desde el inicio del periodo de estudio.</p>
+            </section>
 
-            <h2>Autoevaluación: dominio real a cambio de incomodidad inicial</h2>
-            <p>La ventaja de la autoevaluación es revelar con precisión qué se domina realmente, evitando la falsa sensación de familiaridad de la relectura pasiva. La desventaja es que puede generar frustración considerable al principio, cuando los primeros intentos de recordar sin apoyo muestran vacíos de comprensión que antes permanecían ocultos bajo la sensación de familiaridad de leer el material.</p>
-            <ul>
-                <li>Ventaja: revela con precisión qué se domina y qué no antes del examen.</li>
-                <li>Desventaja: genera incomodidad inicial al notar vacíos de comprensión.</li>
-                <li>Ventaja: funciona con casi cualquier tipo de contenido sin materiales especiales.</li>
-                <li>Desventaja: requiere disciplina para resistir la tentación de consultar el material de inmediato.</li>
-            </ul>
-
-            <h2>Elaboración propia: comprensión profunda a cambio de más tiempo por sesión</h2>
-            <p>La ventaja de la elaboración propia es una comprensión más profunda de las relaciones entre conceptos, al obligar a reformular el contenido con palabras propias en lugar de copiarlo. La desventaja es que toma considerablemente más tiempo por sesión que simplemente leer o subrayar el material, lo que puede sentirse ineficiente en periodos de mucha presión de tiempo.</p>
-
-            <h2>Ejemplo aplicado: sopesar ventajas y desventajas en una decisión real</h2>
-            <p>Un estudiante universitario con poco tiempo disponible debido a un trabajo de medio tiempo consideraba aplicar elaboración propia para su materia de historia económica, después de leer sobre sus beneficios de comprensión profunda. Sin embargo, al calcular honestamente el tiempo adicional que requeriría por sesión, comparado con su tiempo real disponible, notó que la desventaja de mayor tiempo por sesión chocaba directamente con su limitación más apremiante.</p>
-            <p>Decidió entonces evaluar si la autoevaluación, con su ventaja de funcionar sin necesidad de tiempo adicional significativo por sesión, podía atender su dificultad de comprensión de forma más compatible con su tiempo disponible. Probó ambas técnicas durante una semana cada una y confirmó que, aunque la elaboración propia producía una comprensión más rica según sentía, la autoevaluación le daba un beneficio suficiente sin comprometer el tiempo que necesitaba para su trabajo.</p>
-            <p>Optó finalmente por la autoevaluación como técnica principal, reservando la elaboración propia solo para los dos o tres temas más complejos del curso donde el tiempo adicional invertido tenía mayor justificación frente al beneficio esperado.</p>
-            <p>Esta decisión, informada por sopesar honestamente las ventajas y desventajas de cada técnica frente a su situación real de tiempo disponible, le permitió elegir de forma más ajustada a sus circunstancias que si hubiera elegido solo basándose en cuál técnica prometía mayor beneficio teórico sin considerar el costo asociado.</p>
-
-            <h2>Enseñanza simulada: exposición de vacíos a cambio de comodidad con hablar en voz alta</h2>
-            <p>La ventaja de la enseñanza simulada es exponer con claridad en qué parte de un proceso complejo hay comprensión incompleta, al forzar una explicación coherente en voz alta. La desventaja es que requiere cierta comodidad con hablar en voz alta, incluso estando solo, lo que puede resultar incómodo para algunas personas al principio, y necesita un espacio donde hacerlo sin sentirse observado o interrumpido.</p>
-            <ol>
-                <li>Reconocer si la incomodidad de hablar en voz alta es un obstáculo real para probar la técnica.</li>
-                <li>Buscar un espacio privado donde practicarla sin sentirse observado.</li>
-                <li>Empezar con temas menos complejos para ganar comodidad con el formato antes de temas difíciles.</li>
-                <li>Considerar grabarse en lugar de explicar frente a otra persona si la incomodidad social es el factor limitante.</li>
-            </ol>
-
-            <h2>Cómo decidir si la desventaja de una técnica es determinante</h2>
-            <p>No todas las desventajas tienen el mismo peso para cada persona o situación; una desventaja de tiempo puede ser determinante para alguien con poco tiempo disponible, pero irrelevante para otra persona con más flexibilidad. Evaluar la desventaja específica frente a la propia situación real, en lugar de descartar o adoptar una técnica basándose solo en su ventaja teórica, produce decisiones más ajustadas al contexto individual.</p>
-
-            <h2>Combinar técnicas para compensar desventajas individuales</h2>
-            <p>Una forma de mitigar las desventajas de una técnica específica es combinarla con otra que compense su costo particular: usar autoevaluación como base general de bajo costo de tiempo, y reservar elaboración propia solo para los temas más complejos que justifiquen su costo adicional, como se ilustra en el ejemplo de este artículo.</p>
-            <p>Este enfoque de combinación selectiva, en lugar de elegir una sola técnica para todo el estudio, permite obtener buena parte del beneficio de varias metodologías mientras se limita el costo total, algo especialmente útil cuando el tiempo disponible es limitado y no permite aplicar la técnica de mayor costo a todo el contenido por igual.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De sopesar ventajas y desventajas a una técnica de lectura eficiente</h3>
-                <p>Si tu limitación principal es el tiempo disponible para estudiar, nuestro programa de Fotolectura reduce el tiempo necesario para procesar contenido extenso, atendiendo justamente esa desventaja común de otras técnicas.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conoce el programa de Fotolectura <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Autoevaluación: dominio real a cambio de incomodidad inicial</h2>
+                <p>La ventaja de la autoevaluación es revelar con precisión qué se domina realmente, evitando la falsa sensación de familiaridad de la relectura pasiva. La desventaja es que puede generar frustración considerable al principio, cuando los primeros intentos de recordar sin apoyo muestran vacíos de comprensión que antes permanecían ocultos bajo la sensación de familiaridad de leer el material.</p>
                 <ul>
-                <li><a href="/blog-metodologias-aprendizaje-como-elegir">Cómo elegir la metodología de aprendizaje adecuada</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-guia-rapida">Guía rápida de metodologías de aprendizaje según tu tiempo</a></li>
+                    <li>Ventaja: revela con precisión qué se domina y qué no antes del examen.</li>
+                    <li>Desventaja: genera incomodidad inicial al notar vacíos de comprensión.</li>
+                    <li>Ventaja: funciona con casi cualquier tipo de contenido sin materiales especiales.</li>
+                    <li>Desventaja: requiere disciplina para resistir la tentación de consultar el material de inmediato.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Existe alguna metodología sin ninguna desventaja?</h3>
-                <p>No, todas las metodologías de aprendizaje descritas en este cluster tienen algún costo en tiempo, esfuerzo o incomodidad inicial; la elección adecuada depende de qué costo es más manejable frente a la ventaja específica que se busca.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si la desventaja de una técnica es determinante para mi caso?</h3>
-                <p>Calcula honestamente el tiempo o esfuerzo adicional que exige la técnica frente a tu disponibilidad real, y considera si ese costo es manejable en tu situación actual o representa un obstáculo demasiado grande.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo combinar técnicas para reducir las desventajas de cada una?</h3>
-                <p>Sí, combinar una técnica de menor costo de tiempo como base general con técnicas de mayor costo reservadas para contenido específicamente complejo suele ser una estrategia efectiva para balancear ventajas y desventajas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La incomodidad inicial de la autoevaluación disminuye con el tiempo?</h3>
-                <p>Sí, la mayoría de los estudiantes reporta que la incomodidad inicial de notar vacíos de comprensión disminuye considerablemente después de las primeras semanas de práctica, cuando se acostumbran al proceso.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debería elegir la técnica con más ventajas aunque tenga más desventajas también?</h3>
-                <p>No necesariamente; conviene evaluar si las desventajas son manejables en tu situación específica antes de decidir solo por la cantidad o magnitud de las ventajas teóricas de una técnica.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Elaboración propia: comprensión profunda a cambio de más tiempo por sesión</h2>
+                <p>La ventaja de la elaboración propia es una comprensión más profunda de las relaciones entre conceptos, al obligar a reformular el contenido con palabras propias en lugar de copiarlo. La desventaja es que toma considerablemente más tiempo por sesión que simplemente leer o subrayar el material, lo que puede sentirse ineficiente en periodos de mucha presión de tiempo.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: sopesar ventajas y desventajas en una decisión real</h2>
+                <p>Un estudiante universitario con poco tiempo disponible debido a un trabajo de medio tiempo consideraba aplicar elaboración propia para su materia de historia económica, después de leer sobre sus beneficios de comprensión profunda. Sin embargo, al calcular honestamente el tiempo adicional que requeriría por sesión, comparado con su tiempo real disponible, notó que la desventaja de mayor tiempo por sesión chocaba directamente con su limitación más apremiante.</p>
+                <p>Decidió entonces evaluar si la autoevaluación, con su ventaja de funcionar sin necesidad de tiempo adicional significativo por sesión, podía atender su dificultad de comprensión de forma más compatible con su tiempo disponible. Probó ambas técnicas durante una semana cada una y confirmó que, aunque la elaboración propia producía una comprensión más rica según sentía, la autoevaluación le daba un beneficio suficiente sin comprometer el tiempo que necesitaba para su trabajo.</p>
+                <p>Optó finalmente por la autoevaluación como técnica principal, reservando la elaboración propia solo para los dos o tres temas más complejos del curso donde el tiempo adicional invertido tenía mayor justificación frente al beneficio esperado.</p>
+                <p>Esta decisión, informada por sopesar honestamente las ventajas y desventajas de cada técnica frente a su situación real de tiempo disponible, le permitió elegir de forma más ajustada a sus circunstancias que si hubiera elegido solo basándose en cuál técnica prometía mayor beneficio teórico sin considerar el costo asociado.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Enseñanza simulada: exposición de vacíos a cambio de comodidad con hablar en voz alta</h2>
+                <p>La ventaja de la enseñanza simulada es exponer con claridad en qué parte de un proceso complejo hay comprensión incompleta, al forzar una explicación coherente en voz alta. La desventaja es que requiere cierta comodidad con hablar en voz alta, incluso estando solo, lo que puede resultar incómodo para algunas personas al principio, y necesita un espacio donde hacerlo sin sentirse observado o interrumpido.</p>
+                <ol>
+                    <li>Reconocer si la incomodidad de hablar en voz alta es un obstáculo real para probar la técnica.</li>
+                    <li>Buscar un espacio privado donde practicarla sin sentirse observado.</li>
+                    <li>Empezar con temas menos complejos para ganar comodidad con el formato antes de temas difíciles.</li>
+                    <li>Considerar grabarse en lugar de explicar frente a otra persona si la incomodidad social es el factor limitante.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo decidir si la desventaja de una técnica es determinante</h2>
+                <p>No todas las desventajas tienen el mismo peso para cada persona o situación; una desventaja de tiempo puede ser determinante para alguien con poco tiempo disponible, pero irrelevante para otra persona con más flexibilidad. Evaluar la desventaja específica frente a la propia situación real, en lugar de descartar o adoptar una técnica basándose solo en su ventaja teórica, produce decisiones más ajustadas al contexto individual.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Combinar técnicas para compensar desventajas individuales</h2>
+                <p>Una forma de mitigar las desventajas de una técnica específica es combinarla con otra que compense su costo particular: usar autoevaluación como base general de bajo costo de tiempo, y reservar elaboración propia solo para los temas más complejos que justifiquen su costo adicional, como se ilustra en el ejemplo de este artículo.</p>
+                <p>Este enfoque de combinación selectiva, en lugar de elegir una sola técnica para todo el estudio, permite obtener buena parte del beneficio de varias metodologías mientras se limita el costo total, algo especialmente útil cuando el tiempo disponible es limitado y no permite aplicar la técnica de mayor costo a todo el contenido por igual.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De sopesar ventajas y desventajas a una técnica de lectura eficiente</h2>
+                    <p>Si tu limitación principal es el tiempo disponible para estudiar, nuestro programa de Fotolectura reduce el tiempo necesario para procesar contenido extenso, atendiendo justamente esa desventaja común de otras técnicas.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Conoce el programa de Fotolectura <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-como-elegir">
+                            <span>Cómo elegir la metodología de aprendizaje adecuada</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-guia-rapida">
+                            <span>Guía rápida de metodologías de aprendizaje según tu tiempo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Existe alguna metodología sin ninguna desventaja?</h3>
+                    <p>No, todas las metodologías de aprendizaje descritas en este cluster tienen algún costo en tiempo, esfuerzo o incomodidad inicial; la elección adecuada depende de qué costo es más manejable frente a la ventaja específica que se busca.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si la desventaja de una técnica es determinante para mi caso?</h3>
+                    <p>Calcula honestamente el tiempo o esfuerzo adicional que exige la técnica frente a tu disponibilidad real, y considera si ese costo es manejable en tu situación actual o representa un obstáculo demasiado grande.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo combinar técnicas para reducir las desventajas de cada una?</h3>
+                    <p>Sí, combinar una técnica de menor costo de tiempo como base general con técnicas de mayor costo reservadas para contenido específicamente complejo suele ser una estrategia efectiva para balancear ventajas y desventajas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La incomodidad inicial de la autoevaluación disminuye con el tiempo?</h3>
+                    <p>Sí, la mayoría de los estudiantes reporta que la incomodidad inicial de notar vacíos de comprensión disminuye considerablemente después de las primeras semanas de práctica, cuando se acostumbran al proceso.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debería elegir la técnica con más ventajas aunque tenga más desventajas también?</h3>
+                    <p>No necesariamente; conviene evaluar si las desventajas son manejables en tu situación específica antes de decidir solo por la cantidad o magnitud de las ventajas teóricas de una técnica.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -523,8 +616,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Repaso espaciado: retención a cambio de planeación anticipada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Autoevaluación: dominio real a cambio de incomodidad inicial
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Elaboración propia: comprensión profunda a cambio de más tiempo por sesión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: sopesar ventajas y desventajas en una decisión real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Enseñanza simulada: exposición de vacíos a cambio de comodidad con hablar en voz alta
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo decidir si la desventaja de una técnica es determinante
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Combinar técnicas para compensar desventajas individuales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

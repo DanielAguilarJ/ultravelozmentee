@@ -362,158 +362,251 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="10">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo sostener la motivación en un sistema de productividad estudiantil</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 10 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo sostener la motivación en un sistema de productividad estudiantil</h1>
+                <p class="blog-post-dek">Cómo sostener la motivación en un sistema de productividad estudiantil a largo plazo: diseño de rutinas, señales de desgaste y ajustes por temporada.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>10 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Cómo sostener la motivación en un sistema de productividad estudiantil" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Casi todos los estudiantes que abandonan un método de estudio lo hacen semanas después de haberlo diseñado, no el primer día. El arranque tiene energía prestada: un semestre nuevo, un examen lejano, una libreta limpia. El problema aparece cuando esa energía se agota y el sistema sigue exigiendo lo mismo que exigía cuando había ganas de sobra.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué la motivación baja aunque el método sea correcto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Define una sesión mínima que aguante tus peores días
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Haz visible el avance que las calificaciones no muestran
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ajusta la carga por temporada en lugar de mantenerla fija
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Separa el compromiso del entusiasmo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: un semestre de matemáticas sostenido sin arranques heroicos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Señales de desgaste y cuándo cambiar de estrategia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Casi todos los estudiantes que abandonan un método de estudio lo hacen semanas después de haberlo diseñado, no el primer día. El arranque tiene energía prestada: un semestre nuevo, un examen lejano, una libreta limpia. El problema aparece cuando esa energía se agota y el sistema sigue exigiendo lo mismo que exigía cuando había ganas de sobra.</p>
             <p>Sostener la motivación a largo plazo es un problema de diseño, no de carácter. Un sistema de productividad estudiantil que sobrevive un año completo se ve distinto a uno que solo sobrevive una semana: tiene una carga mínima negociada de antemano, señales tempranas de desgaste, formas de medir avance que no dependen de calificaciones y momentos programados para cambiar de estrategia sin sentir que empiezas de cero.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La motivación no se mantiene con fuerza de voluntad, sino con un sistema que reduce la fricción diaria. Funciona cuando defines una sesión mínima que puedas cumplir en tus peores días, haces visible el avance acumulado, ajustas la carga por temporada y separas el compromiso con el hábito del entusiasmo del momento. La constancia sostiene la motivación; no al revés.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La motivación no se mantiene con fuerza de voluntad, sino con un sistema que reduce la fricción diaria. Funciona cuando defines una sesión mínima que puedas cumplir en tus peores días, haces visible el avance acumulado, ajustas la carga por temporada y separas el compromiso con el hábito del entusiasmo del momento. La constancia sostiene la motivación; no al revés.</p>
+                </aside>
 
-            <h2>Por qué la motivación baja aunque el método sea correcto</h2>
-            <p>La motivación es un estado, y como todo estado, fluctúa. Depende del sueño, de la carga académica de la semana, del ambiente en casa, de cuántas decisiones ya tomaste ese día. Un sistema que asume motivación constante está construido sobre un supuesto que la realidad desmiente cada mes de exámenes.</p>
-            <p>El otro factor es más silencioso: la novedad se agota. Al principio un método nuevo se siente interesante por sí mismo, y ese interés hace el trabajo que después tendrá que hacer la estructura. Cuando el método deja de ser novedoso y todavía no es automático, aparece el hueco donde la mayoría de los sistemas mueren. Reconocer ese hueco como una etapa esperada, y no como una señal de que el método falló, cambia por completo la reacción.</p>
-            <ul>
-                <li>Carga fija diseñada en un día de mucha energía, imposible de cumplir en un día normal</li>
-                <li>Avance medido solo con calificaciones, que llegan semanas después del esfuerzo</li>
-                <li>Ningún plan para semanas atípicas: exámenes, enfermedad, trabajo, viajes</li>
-                <li>Objetivos tan grandes que ninguna sesión individual se siente relevante</li>
-            </ul>
-
-            <h2>Define una sesión mínima que aguante tus peores días</h2>
-            <p>El primer ajuste estructural es fijar un piso, no un techo. La pregunta no es cuánto puedes estudiar en tu mejor día, sino qué cantidad de trabajo podrías cumplir en un día con mal sueño, poco tiempo y ninguna gana. Esa cantidad es tu sesión mínima, y es el único compromiso que no se negocia.</p>
-            <p>Una sesión mínima realista suele ser incómodamente pequeña: repasar una tarjeta, resolver un ejercicio, leer dos páginas con lápiz en mano. Ese tamaño es intencional. Su función no es avanzar mucho, sino evitar el corte de la racha, porque romper la continuidad cuesta mucho más que un día flojo. Los días buenos ya se encargan solos de producir volumen; el sistema solo necesita protegerte de los malos.</p>
-            <ol>
-                <li>Escribe la carga que crees que puedes sostener a diario y redúcela a la mitad.</li>
-                <li>Vuelve a reducirla hasta que puedas cumplirla incluso el día más ocupado de tu semana.</li>
-                <li>Declara esa cantidad como mínimo obligatorio y todo lo demás como opcional.</li>
-                <li>Registra solo si cumpliste el mínimo, sin anotar cuánto extra hiciste.</li>
-                <li>Revisa el mínimo cada seis u ocho semanas y ajústalo según cómo se comportó en la práctica.</li>
-            </ol>
-
-            <h2>Haz visible el avance que las calificaciones no muestran</h2>
-            <p>Estudiar tiene un problema de retroalimentación: el esfuerzo ocurre hoy y la evidencia llega en un examen dentro de tres semanas. Ese retraso deja al estudiante trabajando a ciegas, y trabajar a ciegas desgasta más rápido que trabajar duro. La solución es construir señales intermedias que dependan de tu proceso, no del calendario escolar.</p>
-            <p>Sirven los registros de temas dominados frente a temas pendientes, el porcentaje de ejercicios que resuelves sin consultar apuntes, la cantidad de veces que explicaste un concepto en voz alta sin trabarte. Todas son medidas imperfectas, y eso está bien: su función es darte evidencia semanal de que el trabajo está produciendo cambios, en lugar de esperar la calificación como único veredicto.</p>
-
-            <h2>Ajusta la carga por temporada en lugar de mantenerla fija</h2>
-            <p>El año escolar no es homogéneo. Hay semanas de arranque con poca presión, periodos de entregas encimadas, temporadas de exámenes y huecos entre parciales. Un sistema con la misma carga en todas esas semanas fracasa siempre en el mismo punto: cuando la escuela exige más, el sistema personal es lo primero que se sacrifica, y una vez sacrificado rara vez regresa solo.</p>
-            <p>La alternativa es planear la variación de antemano. Divide el semestre en bloques y asigna a cada uno una intención distinta: bloques de construcción, donde aprendes material nuevo con carga alta; bloques de sostenimiento, donde solo repasas y mantienes; y bloques de recuperación, donde el mínimo es literalmente todo lo que se espera de ti. Bajar la carga porque estaba planeado no se siente como fracaso; bajarla por agotamiento, sí.</p>
-            <ul>
-                <li>Bloque de construcción: material nuevo, sesiones largas, dos o tres semanas seguidas</li>
-                <li>Bloque de sostenimiento: repaso espaciado, sesiones cortas, cero material nuevo</li>
-                <li>Bloque de recuperación: solo el mínimo, sin culpa y con fecha de término definida</li>
-                <li>Semanas de examen: el sistema se subordina al calendario escolar, no compite con él</li>
-            </ul>
-
-            <h2>Separa el compromiso del entusiasmo</h2>
-            <p>Una parte importante del desgaste viene de una confusión de fondo: creer que hay que tener ganas antes de empezar. En la práctica funciona al revés con más frecuencia de lo que parece. Empezar con una tarea concreta y pequeña suele generar el estado que se estaba esperando, porque la resistencia se concentra en el arranque y se disuelve unos minutos después.</p>
-            <p>De ahí la utilidad de tener un ritual de entrada corto y siempre igual: mismo lugar, misma primera acción, mismo material a la mano. El ritual no motiva por sí mismo; reduce la cantidad de decisiones que hay que tomar antes de estar trabajando. Cada decisión eliminada es una oportunidad menos de posponer, y en un plazo largo eso pesa más que cualquier discurso de disciplina.</p>
-            <p>También conviene distinguir dos tipos de días. Los días de compromiso son los que se resuelven con el mínimo, sin negociación y sin esperar entusiasmo. Los días de impulso son los que aprovechas cuando la energía aparece sin invitación. Un sistema sano tiene muchos de los primeros y usa los segundos como bono, no como base del plan.</p>
-
-            <h2>Ejemplo aplicado: un semestre de matemáticas sostenido sin arranques heroicos</h2>
-            <p>Imagina a una estudiante de bachillerato que reprobó el primer parcial de matemáticas y decide organizarse. Su primer plan es el habitual: dos horas diarias de ejercicios, todos los días, empezando el lunes. Cumple cuatro días, llega una semana con dos entregas y un trabajo en equipo, falla tres días seguidos y concluye que no es buena para la materia. El método no falló por difícil, falló por rígido.</p>
-            <p>En el segundo intento cambia el diseño antes de cambiar el esfuerzo. Define como mínimo tres ejercicios diarios del tema en curso, que le toman entre diez y quince minutos. Ese mínimo lo cumple incluso el día de las dos entregas, porque cabe en cualquier hueco. Los días libres hace sesiones de cuarenta y cinco minutos con ejercicios acumulados de temas anteriores, pero esas sesiones nunca son obligatorias: son la parte del plan que depende del día.</p>
-            <p>Para no depender de la siguiente calificación, arma una tabla con los temas del semestre y tres columnas: sin ver, entendido con apuntes, resuelto sin apuntes. Cada domingo mueve los temas que avanzaron. En la cuarta semana tiene siete temas en la última columna, y esa tabla es la evidencia que sostiene su motivación mientras el segundo parcial todavía está lejos. También lleva una lista de errores repetidos —signos al pasar términos, factorización incompleta— y tacha los que dejaron de aparecer.</p>
-            <p>En la semana de exámenes reduce todo al mínimo y lo declara de antemano, no como abandono. Cuando pasa el periodo, regresa al bloque de construcción con el sistema intacto y sin la sensación de estar empezando otra vez. Su calificación mejora, pero lo que hace posible el siguiente semestre no es la calificación: es que la rutina siguió existiendo durante la semana peor del semestre.</p>
-
-            <h2>Señales de desgaste y cuándo cambiar de estrategia</h2>
-            <p>Hay diferencia entre un mal día y un sistema que ya no funciona. Un mal día se resuelve cumpliendo el mínimo. Un sistema desgastado muestra patrones: posponer siempre a la misma hora, terminar las sesiones sin recordar qué se hizo, sentir que se estudia mucho y se retiene poco, o depender de la culpa como único motor para sentarse.</p>
-            <p>Ante esas señales conviene revisar tres cosas antes de cambiar de método por completo: si el mínimo quedó demasiado alto para tu etapa actual, si el material está mal ordenado y estás intentando temas que dependen de bases que aún no tienes, y si el problema es de estudio o de descanso. Cuando el cansancio, el ánimo bajo o la dificultad para concentrarte se sostienen por semanas y afectan otras áreas de tu vida, eso no se resuelve con técnicas de estudio: conviene consultar a un profesional de salud o al servicio de orientación de tu escuela.</p>
-            <p>Cambiar de estrategia es válido y a veces necesario, pero cámbiala por una razón identificada, no por frustración acumulada. La pregunta útil no es si te sigue gustando el método, sino qué parte específica dejó de funcionar y qué evidencia tienes de eso.</p>
-            <ul>
-                <li>Revisa el mínimo antes de cambiar de método completo</li>
-                <li>Verifica prerrequisitos: un tema imposible suele ser una base faltante</li>
-                <li>Distingue falta de técnica de falta de descanso o de apoyo profesional</li>
-                <li>Documenta qué cambiaste y qué esperas observar en dos semanas</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Cuando la constancia necesita estructura externa</h3>
-                <p>Sostener la motivación es más fácil cuando el temario ya está ordenado y alguien te señala qué revisar primero. Si vas atrasado en una materia y cada sesión se te va en decidir por dónde empezar, un acompañamiento con secuencia definida y retroalimentación frecuente quita justo esa parte del esfuerzo. El programa de Regularización Express está pensado para eso: recuperar bases con un orden claro mientras tú te concentras en cumplir tus sesiones.</p>
-                <a href="/regularizacion-express" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer Regularización Express <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué la motivación baja aunque el método sea correcto</h2>
+                <p>La motivación es un estado, y como todo estado, fluctúa. Depende del sueño, de la carga académica de la semana, del ambiente en casa, de cuántas decisiones ya tomaste ese día. Un sistema que asume motivación constante está construido sobre un supuesto que la realidad desmiente cada mes de exámenes.</p>
+                <p>El otro factor es más silencioso: la novedad se agota. Al principio un método nuevo se siente interesante por sí mismo, y ese interés hace el trabajo que después tendrá que hacer la estructura. Cuando el método deja de ser novedoso y todavía no es automático, aparece el hueco donde la mayoría de los sistemas mueren. Reconocer ese hueco como una etapa esperada, y no como una señal de que el método falló, cambia por completo la reacción.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-que-evitar">Qué evitar para mejorar tu productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-nivel-avanzado">Técnicas avanzadas de productividad estudiantil</a></li>
+                    <li>Carga fija diseñada en un día de mucha energía, imposible de cumplir en un día normal</li>
+                    <li>Avance medido solo con calificaciones, que llegan semanas después del esfuerzo</li>
+                    <li>Ningún plan para semanas atípicas: exámenes, enfermedad, trabajo, viajes</li>
+                    <li>Objetivos tan grandes que ninguna sesión individual se siente relevante</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo tarda en volverse automático un hábito de estudio?</h3>
-                <p>No hay una cifra única y depende de la complejidad de la rutina, del contexto y de la regularidad con la que la repites. En la práctica es más útil olvidar el conteo de días y observar dos señales: que empezar te cueste menos que al principio y que puedas cumplir el mínimo sin negociar contigo mismo. Mientras eso todavía no ocurre, la estructura hace el trabajo que después hará la costumbre.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si ya rompí la racha varias semanas seguidas?</h3>
-                <p>Regresa por el mínimo, no por el plan completo. El error más común después de una interrupción larga es intentar compensar con sesiones intensas, lo cual suele producir una segunda caída más rápida que la primera. Reinicia con la versión más pequeña de la rutina durante una semana completa y solo después agrega carga. Recuperar la continuidad importa más que recuperar el material perdido.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Sirven las recompensas para mantener la motivación?</h3>
-                <p>Sirven como apoyo temporal, sobre todo en las primeras semanas, cuando el hábito todavía no tiene inercia propia. El riesgo aparece cuando la recompensa se vuelve la única razón para estudiar, porque entonces el interés desaparece si la recompensa se interrumpe. Úsalas para reducir la resistencia inicial y ve retirándolas conforme el avance visible empiece a sostener el proceso por sí mismo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es normal sentir que estudio mucho y avanzo poco?</h3>
-                <p>Es frecuente, y casi siempre indica un problema de método más que de esfuerzo. Releer y subrayar producen sensación de trabajo con poca retención comprobable. Cambiar a recuperación activa —resolver sin apuntes, explicar en voz alta, autoevaluarte— suele sentirse más difícil y dar mejores resultados. Si la sensación persiste con métodos activos, revisa si te faltan bases previas del tema.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Conviene estudiar con otras personas para no perder constancia?</h3>
-                <p>Puede ayudar cuando el grupo tiene una tarea concreta y un horario fijo, porque agrega compromiso externo y reduce la posibilidad de posponer en silencio. Deja de ayudar cuando la sesión se convierte en convivencia o cuando el ritmo del grupo no coincide con tu nivel. Una combinación razonable es trabajo individual para el material nuevo y sesiones grupales para resolver dudas y explicar temas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Define una sesión mínima que aguante tus peores días</h2>
+                <p>El primer ajuste estructural es fijar un piso, no un techo. La pregunta no es cuánto puedes estudiar en tu mejor día, sino qué cantidad de trabajo podrías cumplir en un día con mal sueño, poco tiempo y ninguna gana. Esa cantidad es tu sesión mínima, y es el único compromiso que no se negocia.</p>
+                <p>Una sesión mínima realista suele ser incómodamente pequeña: repasar una tarjeta, resolver un ejercicio, leer dos páginas con lápiz en mano. Ese tamaño es intencional. Su función no es avanzar mucho, sino evitar el corte de la racha, porque romper la continuidad cuesta mucho más que un día flojo. Los días buenos ya se encargan solos de producir volumen; el sistema solo necesita protegerte de los malos.</p>
+                <ol>
+                    <li>Escribe la carga que crees que puedes sostener a diario y redúcela a la mitad.</li>
+                    <li>Vuelve a reducirla hasta que puedas cumplirla incluso el día más ocupado de tu semana.</li>
+                    <li>Declara esa cantidad como mínimo obligatorio y todo lo demás como opcional.</li>
+                    <li>Registra solo si cumpliste el mínimo, sin anotar cuánto extra hiciste.</li>
+                    <li>Revisa el mínimo cada seis u ocho semanas y ajústalo según cómo se comportó en la práctica.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Haz visible el avance que las calificaciones no muestran</h2>
+                <p>Estudiar tiene un problema de retroalimentación: el esfuerzo ocurre hoy y la evidencia llega en un examen dentro de tres semanas. Ese retraso deja al estudiante trabajando a ciegas, y trabajar a ciegas desgasta más rápido que trabajar duro. La solución es construir señales intermedias que dependan de tu proceso, no del calendario escolar.</p>
+                <p>Sirven los registros de temas dominados frente a temas pendientes, el porcentaje de ejercicios que resuelves sin consultar apuntes, la cantidad de veces que explicaste un concepto en voz alta sin trabarte. Todas son medidas imperfectas, y eso está bien: su función es darte evidencia semanal de que el trabajo está produciendo cambios, en lugar de esperar la calificación como único veredicto.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ajusta la carga por temporada en lugar de mantenerla fija</h2>
+                <p>El año escolar no es homogéneo. Hay semanas de arranque con poca presión, periodos de entregas encimadas, temporadas de exámenes y huecos entre parciales. Un sistema con la misma carga en todas esas semanas fracasa siempre en el mismo punto: cuando la escuela exige más, el sistema personal es lo primero que se sacrifica, y una vez sacrificado rara vez regresa solo.</p>
+                <p>La alternativa es planear la variación de antemano. Divide el semestre en bloques y asigna a cada uno una intención distinta: bloques de construcción, donde aprendes material nuevo con carga alta; bloques de sostenimiento, donde solo repasas y mantienes; y bloques de recuperación, donde el mínimo es literalmente todo lo que se espera de ti. Bajar la carga porque estaba planeado no se siente como fracaso; bajarla por agotamiento, sí.</p>
+                <ul>
+                    <li>Bloque de construcción: material nuevo, sesiones largas, dos o tres semanas seguidas</li>
+                    <li>Bloque de sostenimiento: repaso espaciado, sesiones cortas, cero material nuevo</li>
+                    <li>Bloque de recuperación: solo el mínimo, sin culpa y con fecha de término definida</li>
+                    <li>Semanas de examen: el sistema se subordina al calendario escolar, no compite con él</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Separa el compromiso del entusiasmo</h2>
+                <p>Una parte importante del desgaste viene de una confusión de fondo: creer que hay que tener ganas antes de empezar. En la práctica funciona al revés con más frecuencia de lo que parece. Empezar con una tarea concreta y pequeña suele generar el estado que se estaba esperando, porque la resistencia se concentra en el arranque y se disuelve unos minutos después.</p>
+                <p>De ahí la utilidad de tener un ritual de entrada corto y siempre igual: mismo lugar, misma primera acción, mismo material a la mano. El ritual no motiva por sí mismo; reduce la cantidad de decisiones que hay que tomar antes de estar trabajando. Cada decisión eliminada es una oportunidad menos de posponer, y en un plazo largo eso pesa más que cualquier discurso de disciplina.</p>
+                <p>También conviene distinguir dos tipos de días. Los días de compromiso son los que se resuelven con el mínimo, sin negociación y sin esperar entusiasmo. Los días de impulso son los que aprovechas cuando la energía aparece sin invitación. Un sistema sano tiene muchos de los primeros y usa los segundos como bono, no como base del plan.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: un semestre de matemáticas sostenido sin arranques heroicos</h2>
+                <p>Imagina a una estudiante de bachillerato que reprobó el primer parcial de matemáticas y decide organizarse. Su primer plan es el habitual: dos horas diarias de ejercicios, todos los días, empezando el lunes. Cumple cuatro días, llega una semana con dos entregas y un trabajo en equipo, falla tres días seguidos y concluye que no es buena para la materia. El método no falló por difícil, falló por rígido.</p>
+                <p>En el segundo intento cambia el diseño antes de cambiar el esfuerzo. Define como mínimo tres ejercicios diarios del tema en curso, que le toman entre diez y quince minutos. Ese mínimo lo cumple incluso el día de las dos entregas, porque cabe en cualquier hueco. Los días libres hace sesiones de cuarenta y cinco minutos con ejercicios acumulados de temas anteriores, pero esas sesiones nunca son obligatorias: son la parte del plan que depende del día.</p>
+                <p>Para no depender de la siguiente calificación, arma una tabla con los temas del semestre y tres columnas: sin ver, entendido con apuntes, resuelto sin apuntes. Cada domingo mueve los temas que avanzaron. En la cuarta semana tiene siete temas en la última columna, y esa tabla es la evidencia que sostiene su motivación mientras el segundo parcial todavía está lejos. También lleva una lista de errores repetidos —signos al pasar términos, factorización incompleta— y tacha los que dejaron de aparecer.</p>
+                <p>En la semana de exámenes reduce todo al mínimo y lo declara de antemano, no como abandono. Cuando pasa el periodo, regresa al bloque de construcción con el sistema intacto y sin la sensación de estar empezando otra vez. Su calificación mejora, pero lo que hace posible el siguiente semestre no es la calificación: es que la rutina siguió existiendo durante la semana peor del semestre.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Señales de desgaste y cuándo cambiar de estrategia</h2>
+                <p>Hay diferencia entre un mal día y un sistema que ya no funciona. Un mal día se resuelve cumpliendo el mínimo. Un sistema desgastado muestra patrones: posponer siempre a la misma hora, terminar las sesiones sin recordar qué se hizo, sentir que se estudia mucho y se retiene poco, o depender de la culpa como único motor para sentarse.</p>
+                <p>Ante esas señales conviene revisar tres cosas antes de cambiar de método por completo: si el mínimo quedó demasiado alto para tu etapa actual, si el material está mal ordenado y estás intentando temas que dependen de bases que aún no tienes, y si el problema es de estudio o de descanso. Cuando el cansancio, el ánimo bajo o la dificultad para concentrarte se sostienen por semanas y afectan otras áreas de tu vida, eso no se resuelve con técnicas de estudio: conviene consultar a un profesional de salud o al servicio de orientación de tu escuela.</p>
+                <p>Cambiar de estrategia es válido y a veces necesario, pero cámbiala por una razón identificada, no por frustración acumulada. La pregunta útil no es si te sigue gustando el método, sino qué parte específica dejó de funcionar y qué evidencia tienes de eso.</p>
+                <ul>
+                    <li>Revisa el mínimo antes de cambiar de método completo</li>
+                    <li>Verifica prerrequisitos: un tema imposible suele ser una base faltante</li>
+                    <li>Distingue falta de técnica de falta de descanso o de apoyo profesional</li>
+                    <li>Documenta qué cambiaste y qué esperas observar en dos semanas</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Cuando la constancia necesita estructura externa</h2>
+                    <p>Sostener la motivación es más fácil cuando el temario ya está ordenado y alguien te señala qué revisar primero. Si vas atrasado en una materia y cada sesión se te va en decidir por dónde empezar, un acompañamiento con secuencia definida y retroalimentación frecuente quita justo esa parte del esfuerzo. El programa de Regularización Express está pensado para eso: recuperar bases con un orden claro mientras tú te concentras en cumplir tus sesiones.</p>
+                    <a href="/regularizacion-express" class="btn-primary">
+                        Conocer Regularización Express <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-que-evitar">
+                            <span>Qué evitar para mejorar tu productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-nivel-avanzado">
+                            <span>Técnicas avanzadas de productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo tarda en volverse automático un hábito de estudio?</h3>
+                    <p>No hay una cifra única y depende de la complejidad de la rutina, del contexto y de la regularidad con la que la repites. En la práctica es más útil olvidar el conteo de días y observar dos señales: que empezar te cueste menos que al principio y que puedas cumplir el mínimo sin negociar contigo mismo. Mientras eso todavía no ocurre, la estructura hace el trabajo que después hará la costumbre.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si ya rompí la racha varias semanas seguidas?</h3>
+                    <p>Regresa por el mínimo, no por el plan completo. El error más común después de una interrupción larga es intentar compensar con sesiones intensas, lo cual suele producir una segunda caída más rápida que la primera. Reinicia con la versión más pequeña de la rutina durante una semana completa y solo después agrega carga. Recuperar la continuidad importa más que recuperar el material perdido.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Sirven las recompensas para mantener la motivación?</h3>
+                    <p>Sirven como apoyo temporal, sobre todo en las primeras semanas, cuando el hábito todavía no tiene inercia propia. El riesgo aparece cuando la recompensa se vuelve la única razón para estudiar, porque entonces el interés desaparece si la recompensa se interrumpe. Úsalas para reducir la resistencia inicial y ve retirándolas conforme el avance visible empiece a sostener el proceso por sí mismo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es normal sentir que estudio mucho y avanzo poco?</h3>
+                    <p>Es frecuente, y casi siempre indica un problema de método más que de esfuerzo. Releer y subrayar producen sensación de trabajo con poca retención comprobable. Cambiar a recuperación activa —resolver sin apuntes, explicar en voz alta, autoevaluarte— suele sentirse más difícil y dar mejores resultados. Si la sensación persiste con métodos activos, revisa si te faltan bases previas del tema.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Conviene estudiar con otras personas para no perder constancia?</h3>
+                    <p>Puede ayudar cuando el grupo tiene una tarea concreta y un horario fijo, porque agrega compromiso externo y reduce la posibilidad de posponer en silencio. Deja de ayudar cuando la sesión se convierte en convivencia o cuando el ritmo del grupo no coincide con tu nivel. Una combinación razonable es trabajo individual para el material nuevo y sesiones grupales para resolver dudas y explicar temas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -543,8 +636,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué la motivación baja aunque el método sea correcto
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Define una sesión mínima que aguante tus peores días
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Haz visible el avance que las calificaciones no muestran
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ajusta la carga por temporada en lugar de mantenerla fija
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Separa el compromiso del entusiasmo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: un semestre de matemáticas sostenido sin arranques heroicos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Señales de desgaste y cuándo cambiar de estrategia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>10 min restantes</span>
+                        <span>Lectura estimada: 10 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

@@ -354,131 +354,222 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Robótica para niños: qué dice la evidencia sobre sus beneficios</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 23 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Robótica para niños: qué dice la evidencia sobre sus beneficios</h1>
+                <p class="blog-post-dek">Qué dice la evidencia sobre los beneficios reales de la robótica educativa para niños, separando lo que la investigación respalda de lo que promete el marketing.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-23">23 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Robótica para niños: qué dice la evidencia sobre sus beneficios" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La robótica educativa se promociona frecuentemente como una actividad que 'desarrolla el cerebro' o 'mejora todas las materias', afirmaciones que suenan atractivas pero rara vez se sustentan con evidencia específica más allá de la intuición razonable de que cualquier actividad de resolución de problemas debería ayudar de algún modo.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Lo que la evidencia respalda con mayor solidez
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Lo que la evidencia respalda con matices
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Afirmaciones sin respaldo sólido que conviene cuestionar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Qué variables influyen más en el resultado real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo evaluar afirmaciones de un programa específico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>La conclusión razonable para una familia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La robótica educativa se promociona frecuentemente como una actividad que 'desarrolla el cerebro' o 'mejora todas las materias', afirmaciones que suenan atractivas pero rara vez se sustentan con evidencia específica más allá de la intuición razonable de que cualquier actividad de resolución de problemas debería ayudar de algún modo.</p>
             <p>Este artículo separa lo que la investigación en pensamiento computacional y aprendizaje activo realmente respalda de lo que es extrapolación optimista del marketing educativo, con la intención de ayudarte a formar expectativas realistas sobre qué esperar de un curso de este tipo.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>La evidencia respalda que la robótica educativa desarrolla pensamiento computacional, tolerancia al error y habilidades de resolución de problemas cuando el diseño del curso combina manipulación física con resolución activa de retos. No hay evidencia sólida de que por sí sola mejore el rendimiento académico general en otras materias sin una conexión pedagógica explícita entre ambas.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>La evidencia respalda que la robótica educativa desarrolla pensamiento computacional, tolerancia al error y habilidades de resolución de problemas cuando el diseño del curso combina manipulación física con resolución activa de retos. No hay evidencia sólida de que por sí sola mejore el rendimiento académico general en otras materias sin una conexión pedagógica explícita entre ambas.</p>
+                </aside>
 
-            <h2>Lo que la evidencia respalda con mayor solidez</h2>
-            <p>El pensamiento computacional —descomponer un problema en pasos manejables, identificar patrones, y depurar errores de forma sistemática— cuenta con respaldo consistente como habilidad que se desarrolla mediante robótica educativa bien diseñada. Este beneficio es más robusto que muchas afirmaciones generales sobre 'desarrollo cognitivo', porque se refiere a una habilidad específica y medible.</p>
-            <p>La tolerancia a la frustración ante el ensayo y error también muestra respaldo, particularmente porque la robótica ofrece retroalimentación inmediata y tangible: el robot se mueve o no se mueve según lo esperado, sin ambigüedad sobre si el intento funcionó.</p>
-            <p>Un tercer beneficio con respaldo razonable, aunque menos citado que los anteriores, es la mejora en la capacidad de comunicar procesos técnicos con palabras propias: explicar por qué un robot hizo algo inesperado obliga al niño a organizar su pensamiento de forma verbal, una habilidad que se transfiere a la explicación de cualquier proceso paso a paso, no solo a la robótica.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Lo que la evidencia respalda con mayor solidez</h2>
+                <p>El pensamiento computacional —descomponer un problema en pasos manejables, identificar patrones, y depurar errores de forma sistemática— cuenta con respaldo consistente como habilidad que se desarrolla mediante robótica educativa bien diseñada. Este beneficio es más robusto que muchas afirmaciones generales sobre 'desarrollo cognitivo', porque se refiere a una habilidad específica y medible.</p>
+                <p>La tolerancia a la frustración ante el ensayo y error también muestra respaldo, particularmente porque la robótica ofrece retroalimentación inmediata y tangible: el robot se mueve o no se mueve según lo esperado, sin ambigüedad sobre si el intento funcionó.</p>
+                <p>Un tercer beneficio con respaldo razonable, aunque menos citado que los anteriores, es la mejora en la capacidad de comunicar procesos técnicos con palabras propias: explicar por qué un robot hizo algo inesperado obliga al niño a organizar su pensamiento de forma verbal, una habilidad que se transfiere a la explicación de cualquier proceso paso a paso, no solo a la robótica.</p>
+            </section>
 
-            <h2>Lo que la evidencia respalda con matices</h2>
-            <p>La afirmación de que la robótica mejora el desempeño en matemáticas tiene respaldo parcial: existe transferencia conceptual razonable en temas de geometría, proporción y lógica, pero la transferencia a áreas como aritmética pura o álgebra es menos directa y depende mucho de si el curso conecta explícitamente los conceptos de robótica con los conceptos matemáticos correspondientes.</p>
-            <p>De forma similar, el desarrollo de habilidades colaborativas en robótica muestra beneficio cuando el curso está diseñado explícitamente para trabajo en equipo, pero no aparece automáticamente solo por estar en un salón con otros niños trabajando en proyectos individuales paralelos.</p>
-            <p>Esta distinción entre 'estar cerca de otros niños' y 'colaborar activamente' es importante: muchos cursos que se anuncian como colaborativos en realidad tienen a cada niño trabajando en su propio proyecto sin interacción estructurada, lo cual no genera el mismo beneficio social que un ejercicio diseñado específicamente para requerir cooperación.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Lo que la evidencia respalda con matices</h2>
+                <p>La afirmación de que la robótica mejora el desempeño en matemáticas tiene respaldo parcial: existe transferencia conceptual razonable en temas de geometría, proporción y lógica, pero la transferencia a áreas como aritmética pura o álgebra es menos directa y depende mucho de si el curso conecta explícitamente los conceptos de robótica con los conceptos matemáticos correspondientes.</p>
+                <p>De forma similar, el desarrollo de habilidades colaborativas en robótica muestra beneficio cuando el curso está diseñado explícitamente para trabajo en equipo, pero no aparece automáticamente solo por estar en un salón con otros niños trabajando en proyectos individuales paralelos.</p>
+                <p>Esta distinción entre 'estar cerca de otros niños' y 'colaborar activamente' es importante: muchos cursos que se anuncian como colaborativos en realidad tienen a cada niño trabajando en su propio proyecto sin interacción estructurada, lo cual no genera el mismo beneficio social que un ejercicio diseñado específicamente para requerir cooperación.</p>
+            </section>
 
-            <h2>Afirmaciones sin respaldo sólido que conviene cuestionar</h2>
-            <p>Afirmaciones como 'la robótica desarrolla la creatividad de forma general' o 'mejora el rendimiento en todas las materias escolares' carecen del mismo nivel de respaldo específico que las habilidades mencionadas antes. Esto no significa que sean falsas de forma categórica, sino que la evidencia disponible no permite afirmarlas con la certeza con que a veces se presentan en materiales de marketing.</p>
-            <p>Es razonable esperar beneficios acotados y específicos —pensamiento computacional, tolerancia al error, en algunos casos transferencia a conceptos matemáticos relacionados— y ser escéptico ante promesas de transformación general del rendimiento académico sin evidencia puntual que las respalde.</p>
-            <p>Vale la pena notar que muchas de estas afirmaciones amplias no son necesariamente mentiras deliberadas, sino extrapolaciones optimistas de hallazgos más acotados: si la robótica mejora el pensamiento computacional, y el pensamiento computacional se relaciona conceptualmente con casi cualquier materia, es tentador (pero incorrecto) concluir que la robótica mejora todo el desempeño académico.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Afirmaciones sin respaldo sólido que conviene cuestionar</h2>
+                <p>Afirmaciones como 'la robótica desarrolla la creatividad de forma general' o 'mejora el rendimiento en todas las materias escolares' carecen del mismo nivel de respaldo específico que las habilidades mencionadas antes. Esto no significa que sean falsas de forma categórica, sino que la evidencia disponible no permite afirmarlas con la certeza con que a veces se presentan en materiales de marketing.</p>
+                <p>Es razonable esperar beneficios acotados y específicos —pensamiento computacional, tolerancia al error, en algunos casos transferencia a conceptos matemáticos relacionados— y ser escéptico ante promesas de transformación general del rendimiento académico sin evidencia puntual que las respalde.</p>
+                <p>Vale la pena notar que muchas de estas afirmaciones amplias no son necesariamente mentiras deliberadas, sino extrapolaciones optimistas de hallazgos más acotados: si la robótica mejora el pensamiento computacional, y el pensamiento computacional se relaciona conceptualmente con casi cualquier materia, es tentador (pero incorrecto) concluir que la robótica mejora todo el desempeño académico.</p>
+            </section>
 
-            <h2>Qué variables influyen más en el resultado real</h2>
-            <p>La calidad del instructor y el diseño pedagógico del curso predicen el resultado con más fuerza que la marca o el modelo específico de robot utilizado. Un curso bien estructurado con un instructor que guía activamente la reflexión del estudiante produce mejores resultados que un curso con hardware más sofisticado pero sin esa guía pedagógica.</p>
-            <p>La constancia de asistencia también importa considerablemente: los beneficios documentados en la literatura suelen requerir exposición sostenida durante varios meses, no sesiones ocasionales o un taller de fin de semana, que puede ser una experiencia positiva de introducción pero no genera el mismo tipo de desarrollo de habilidades que la práctica constante.</p>
-            <p>El tamaño del grupo también influye, aunque de forma menos estudiada: grupos más pequeños permiten mayor retroalimentación individual del instructor, lo cual se conecta con el hallazgo más amplio de que la guía pedagógica activa importa más que la tecnología en sí.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Qué variables influyen más en el resultado real</h2>
+                <p>La calidad del instructor y el diseño pedagógico del curso predicen el resultado con más fuerza que la marca o el modelo específico de robot utilizado. Un curso bien estructurado con un instructor que guía activamente la reflexión del estudiante produce mejores resultados que un curso con hardware más sofisticado pero sin esa guía pedagógica.</p>
+                <p>La constancia de asistencia también importa considerablemente: los beneficios documentados en la literatura suelen requerir exposición sostenida durante varios meses, no sesiones ocasionales o un taller de fin de semana, que puede ser una experiencia positiva de introducción pero no genera el mismo tipo de desarrollo de habilidades que la práctica constante.</p>
+                <p>El tamaño del grupo también influye, aunque de forma menos estudiada: grupos más pequeños permiten mayor retroalimentación individual del instructor, lo cual se conecta con el hallazgo más amplio de que la guía pedagógica activa importa más que la tecnología en sí.</p>
+            </section>
 
-            <h2>Cómo evaluar afirmaciones de un programa específico</h2>
-            <p>Al evaluar cualquier programa de robótica que afirme estar 'respaldado por investigación', vale la pena preguntar qué habilidad específica se evaluó, no solo si existe algún estudio genérico citado en su material de marketing.</p>
-            <ul>
-                <li>¿Qué habilidad específica midió el estudio citado: pensamiento computacional, matemáticas, creatividad general?</li>
-                <li>¿El estudio evaluó este programa específico o principios generales de robótica educativa?</li>
-                <li>¿La duración de exposición evaluada coincide con lo que el programa realmente ofrece?</li>
-                <li>¿Se distingue entre correlación (los niños que hacen robótica tienden a hacer bien X) y causalidad (la robótica causa mejora en X)?</li>
-            </ul>
-
-            <h2>La conclusión razonable para una familia</h2>
-            <p>La robótica educativa, bien implementada, ofrece beneficios reales y específicos que valen la inversión de tiempo: pensamiento computacional, tolerancia al error productivo, y en algunos casos transferencia a conceptos matemáticos relacionados con geometría y lógica.</p>
-            <p>No es una intervención mágica que mejora automáticamente todas las áreas académicas, y las familias que la eligen con esa expectativa exagerada suelen decepcionarse innecesariamente con un beneficio que, evaluado con expectativas realistas, es sólido y verificable.</p>
-            <p>El criterio más útil al final de este recorrido por la evidencia disponible es simple: pregunta qué habilidad específica se desarrolla, verifica que el diseño del curso conecte activamente esa habilidad con retos concretos, y sostén la exposición el tiempo suficiente para que el beneficio documentado tenga oportunidad de manifestarse.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Un programa con exposición sostenida y guía pedagógica activa</h3>
-                <p>Robotics Code prioriza la constancia y la calidad del acompañamiento por encima de la sofisticación del equipo, alineado con lo que la evidencia identifica como las variables que realmente predicen el resultado.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de matemáticas para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cómo evaluar afirmaciones de un programa específico</h2>
+                <p>Al evaluar cualquier programa de robótica que afirme estar 'respaldado por investigación', vale la pena preguntar qué habilidad específica se evaluó, no solo si existe algún estudio genérico citado en su material de marketing.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-segun-la-ciencia">Qué dice la ciencia sobre la tecnología educativa en niños</a></li>
-                <li><a href="/blog-tecnologia-educativa-nivel-basico">Robótica educativa nivel básico: qué aprende tu hijo primero</a></li>
-                <li><a href="/blog-tecnologia-educativa-nivel-avanzado">Robótica educativa nivel avanzado: cuándo dar el siguiente paso</a></li>
+                    <li>¿Qué habilidad específica midió el estudio citado: pensamiento computacional, matemáticas, creatividad general?</li>
+                    <li>¿El estudio evaluó este programa específico o principios generales de robótica educativa?</li>
+                    <li>¿La duración de exposición evaluada coincide con lo que el programa realmente ofrece?</li>
+                    <li>¿Se distingue entre correlación (los niños que hacen robótica tienden a hacer bien X) y causalidad (la robótica causa mejora en X)?</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La robótica mejora el rendimiento escolar en general?</h3>
-                <p>La evidencia respalda beneficios específicos como pensamiento computacional y tolerancia al error, con transferencia parcial a matemáticas relacionadas con geometría y lógica. No hay evidencia sólida de mejora general en todas las materias sin esa conexión pedagógica explícita.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Importa más la marca del robot o la calidad del instructor?</h3>
-                <p>La calidad del instructor y el diseño pedagógico del curso predicen el resultado con más fuerza que el modelo específico de robot o kit utilizado, según la evidencia disponible sobre implementación de robótica educativa.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Un taller de fin de semana produce los mismos beneficios que un curso constante?</h3>
-                <p>No de la misma magnitud. Los beneficios documentados suelen requerir exposición sostenida durante varios meses; un taller ocasional puede ser una buena introducción pero no genera el mismo desarrollo de habilidades que la práctica constante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo puedo saber si un programa de robótica realmente conecta sus proyectos con conceptos matemáticos?</h3>
-                <p>Preguntando directamente al instructor o revisando el temario: los cursos con transferencia real a matemáticas suelen mencionar explícitamente conceptos como proporción, ángulos o velocidad al describir sus proyectos, en lugar de limitarse a describir el robot o el kit utilizado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">La conclusión razonable para una familia</h2>
+                <p>La robótica educativa, bien implementada, ofrece beneficios reales y específicos que valen la inversión de tiempo: pensamiento computacional, tolerancia al error productivo, y en algunos casos transferencia a conceptos matemáticos relacionados con geometría y lógica.</p>
+                <p>No es una intervención mágica que mejora automáticamente todas las áreas académicas, y las familias que la eligen con esa expectativa exagerada suelen decepcionarse innecesariamente con un beneficio que, evaluado con expectativas realistas, es sólido y verificable.</p>
+                <p>El criterio más útil al final de este recorrido por la evidencia disponible es simple: pregunta qué habilidad específica se desarrolla, verifica que el diseño del curso conecte activamente esa habilidad con retos concretos, y sostén la exposición el tiempo suficiente para que el beneficio documentado tenga oportunidad de manifestarse.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Síntesis de evidencia sobre pensamiento computacional y robótica educativa</li>
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto sobre investigación en habilidades STEM en la infancia</li>
-            </ul>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Un programa con exposición sostenida y guía pedagógica activa</h2>
+                    <p>Robotics Code prioriza la constancia y la calidad del acompañamiento por encima de la sofisticación del equipo, alineado con lo que la evidencia identifica como las variables que realmente predicen el resultado.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Ver el curso de matemáticas para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-segun-la-ciencia">
+                            <span>Qué dice la ciencia sobre la tecnología educativa en niños</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-nivel-basico">
+                            <span>Robótica educativa nivel básico: qué aprende tu hijo primero</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-nivel-avanzado">
+                            <span>Robótica educativa nivel avanzado: cuándo dar el siguiente paso</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La robótica mejora el rendimiento escolar en general?</h3>
+                    <p>La evidencia respalda beneficios específicos como pensamiento computacional y tolerancia al error, con transferencia parcial a matemáticas relacionadas con geometría y lógica. No hay evidencia sólida de mejora general en todas las materias sin esa conexión pedagógica explícita.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Importa más la marca del robot o la calidad del instructor?</h3>
+                    <p>La calidad del instructor y el diseño pedagógico del curso predicen el resultado con más fuerza que el modelo específico de robot o kit utilizado, según la evidencia disponible sobre implementación de robótica educativa.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Un taller de fin de semana produce los mismos beneficios que un curso constante?</h3>
+                    <p>No de la misma magnitud. Los beneficios documentados suelen requerir exposición sostenida durante varios meses; un taller ocasional puede ser una buena introducción pero no genera el mismo desarrollo de habilidades que la práctica constante.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo puedo saber si un programa de robótica realmente conecta sus proyectos con conceptos matemáticos?</h3>
+                    <p>Preguntando directamente al instructor o revisando el temario: los cursos con transferencia real a matemáticas suelen mencionar explícitamente conceptos como proporción, ángulos o velocidad al describir sus proyectos, en lugar de limitarse a describir el robot o el kit utilizado.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Síntesis de evidencia sobre pensamiento computacional y robótica educativa</li>
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto sobre investigación en habilidades STEM en la infancia</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -508,8 +599,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Lo que la evidencia respalda con mayor solidez
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Lo que la evidencia respalda con matices
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Afirmaciones sin respaldo sólido que conviene cuestionar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Qué variables influyen más en el resultado real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo evaluar afirmaciones de un programa específico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>La conclusión razonable para una familia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

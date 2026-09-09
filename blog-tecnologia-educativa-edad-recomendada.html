@@ -362,148 +362,246 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Edad recomendada para cada tipo de tecnología educativa</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Edad recomendada para cada tipo de tecnología educativa</h1>
+                <p class="blog-post-dek">Edad recomendada para cada tipo de tecnología educativa: qué introducir antes de los 6, entre 6 y 12 años, y qué esperar hasta la adolescencia.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Edad recomendada para cada tipo de tecnología educativa" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La pregunta que llega con más frecuencia es a qué edad conviene dar acceso a la tecnología educativa. Formulada así, no tiene respuesta útil, porque una app de trazos para preescolar y un asistente de inteligencia artificial no comparten casi nada más que la pantalla donde se abren.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué la pregunta correcta no es la edad sino la tarea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Antes de los seis años: pantalla acompañada y muy breve
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Entre seis y nueve años: práctica guiada y primeros entornos creativos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Entre diez y doce años: cuentas propias y acuerdos escritos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Adolescencia: autonomía con revisión y conversación sobre IA
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: dos hermanos, dos configuraciones distintas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Señales de que adelantaste o retrasaste demasiado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La pregunta que llega con más frecuencia es a qué edad conviene dar acceso a la tecnología educativa. Formulada así, no tiene respuesta útil, porque una app de trazos para preescolar y un asistente de inteligencia artificial no comparten casi nada más que la pantalla donde se abren.</p>
             <p>Una versión más útil de la pregunta es cuál herramienta a qué edad y con qué grado de acompañamiento. Este artículo la responde por etapas, señalando qué capacidad cognitiva y qué acuerdos hacen falta antes de introducir cada tipo de recurso digital.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>No existe una edad única para la tecnología educativa: cada tipo de herramienta tiene su momento. Antes de los seis años conviene uso breve y acompañado; entre seis y nueve, apps de práctica guiada y programación por bloques; entre diez y doce, cuentas propias con acuerdos escritos; y en la adolescencia, autonomía con revisión periódica y conversación explícita sobre inteligencia artificial.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>No existe una edad única para la tecnología educativa: cada tipo de herramienta tiene su momento. Antes de los seis años conviene uso breve y acompañado; entre seis y nueve, apps de práctica guiada y programación por bloques; entre diez y doce, cuentas propias con acuerdos escritos; y en la adolescencia, autonomía con revisión periódica y conversación explícita sobre inteligencia artificial.</p>
+                </aside>
 
-            <h2>Por qué la pregunta correcta no es la edad sino la tarea</h2>
-            <p>La edad es un indicador grueso. Dos niños de ocho años pueden diferir mucho en su capacidad de sostener atención, aceptar un límite sin conflicto o reconocer cuándo pedir ayuda. Esas tres capacidades predicen mejor que el cumpleaños si una herramienta va a funcionar en casa.</p>
-            <p>Conviene entonces preguntar qué exige la herramienta. Una app de práctica de sumas exige poco: leer instrucciones simples y tolerar el error. Una cuenta propia en una plataforma con mensajería exige mucho más: entender privacidad, reconocer un contacto sospechoso y avisar a un adulto sin miedo al castigo.</p>
-            <p>Cuando ordenas las herramientas por exigencia en lugar de por edad, la decisión se vuelve concreta. La pregunta deja de ser si ya tiene la edad y pasa a ser si ya demostró la conducta que esa herramienta requiere para usarse con seguridad.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué la pregunta correcta no es la edad sino la tarea</h2>
+                <p>La edad es un indicador grueso. Dos niños de ocho años pueden diferir mucho en su capacidad de sostener atención, aceptar un límite sin conflicto o reconocer cuándo pedir ayuda. Esas tres capacidades predicen mejor que el cumpleaños si una herramienta va a funcionar en casa.</p>
+                <p>Conviene entonces preguntar qué exige la herramienta. Una app de práctica de sumas exige poco: leer instrucciones simples y tolerar el error. Una cuenta propia en una plataforma con mensajería exige mucho más: entender privacidad, reconocer un contacto sospechoso y avisar a un adulto sin miedo al castigo.</p>
+                <p>Cuando ordenas las herramientas por exigencia en lugar de por edad, la decisión se vuelve concreta. La pregunta deja de ser si ya tiene la edad y pasa a ser si ya demostró la conducta que esa herramienta requiere para usarse con seguridad.</p>
+            </section>
 
-            <h2>Antes de los seis años: pantalla acompañada y muy breve</h2>
-            <p>En esta etapa el aprendizaje ocurre sobre todo mediante manipulación física, lenguaje hablado y juego con otras personas. La pantalla no aporta nada que el mundo físico no ofrezca mejor, y sí compite por el tiempo que el niño necesita para desarrollar motricidad y vocabulario.</p>
-            <p>Si se usa, el criterio es sesiones cortas, contenido con propósito y siempre con un adulto al lado nombrando lo que ocurre. La diferencia entre un niño viendo solo una actividad digital y un adulto conversando con él sobre esa misma actividad es enorme, porque en el segundo caso hay lenguaje de ida y vuelta.</p>
-            <ul>
-                <li>Sesiones breves y siempre acompañadas por un adulto que converse sobre la actividad.</li>
-                <li>Preferir actividades que se puedan trasladar al mundo físico: contar objetos, trazar en papel.</li>
-                <li>Evitar dispositivos en la recámara y en la hora previa a dormir.</li>
-                <li>Sin cuentas personales, sin mensajería y sin acceso a búsquedas abiertas.</li>
-            </ul>
-
-            <h2>Entre seis y nueve años: práctica guiada y primeros entornos creativos</h2>
-            <p>Aquí la tecnología educativa empieza a aportar de forma clara. El niño ya lee instrucciones simples, tolera mejor la corrección y puede sostener diez o quince minutos de atención en una actividad estructurada. Es el momento de las apps de práctica de lectura y matemáticas con retroalimentación inmediata.</p>
-            <p>También es una buena etapa para introducir programación por bloques y robótica sencilla, porque el niño produce algo en lugar de solo consumir. Arrastrar bloques para que un personaje se mueva enseña secuencia, causa y efecto, y tolerancia al error de una forma que se parece mucho al pensamiento matemático.</p>
-            <ul>
-                <li>Apps de práctica con niveles progresivos y explicación del error, no solo puntaje.</li>
-                <li>Programación por bloques y robótica guiada, con proyectos que terminen en algo visible.</li>
-                <li>Uso en espacio común de la casa, no en la recámara.</li>
-                <li>Cuentas creadas y administradas por un adulto, sin datos escolares completos.</li>
-            </ul>
-
-            <h2>Entre diez y doce años: cuentas propias y acuerdos escritos</h2>
-            <p>En esta franja suele aparecer la primera cuenta propia, casi siempre porque la escuela la pide. Es un buen momento para introducir el concepto de identidad digital: que lo que se publica permanece, que un perfil dice cosas de uno y que las contraseñas no se comparten ni con los mejores amigos.</p>
-            <p>El acuerdo escrito ayuda más de lo que parece. No como contrato solemne, sino como una hoja pegada en algún lugar visible con tres o cuatro reglas concretas: dónde se usa el dispositivo, en qué horario, qué se hace si aparece un mensaje incómodo y cada cuánto se revisan los perfiles juntos.</p>
-            <p>También es la etapa donde conviene explicar qué es un asistente de inteligencia artificial y para qué sí y para qué no se usa en tareas. Hacerlo antes de que aparezca solo, en el celular de un compañero, deja la conversación en tus términos y no en los de la urgencia.</p>
-
-            <h2>Adolescencia: autonomía con revisión y conversación sobre IA</h2>
-            <p>En secundaria y bachillerato el control minucioso deja de funcionar y empieza a ser contraproducente. El objetivo cambia: ya no es limitar el acceso, es que el estudiante desarrolle criterio propio para decidir cuándo una herramienta lo está ayudando y cuándo lo está distrayendo.</p>
-            <p>La conversación central es la inteligencia artificial aplicada a tareas. Un adolescente puede entregar trabajos correctos sin haber aprendido nada, y eso se cobra en el examen presencial. Plantearlo como un problema de interés propio, y no como una regla moral impuesta, suele obtener mucho mejor recepción.</p>
-            <p>La revisión sigue teniendo lugar, pero anunciada y acotada: revisar juntos configuraciones de privacidad cada cierto tiempo, hablar de suscripciones que se cobran solas y mantener el acuerdo de que reportar algo incómodo nunca cuesta el dispositivo.</p>
-
-            <h2>Ejemplo aplicado: dos hermanos, dos configuraciones distintas</h2>
-            <p>Una familia tiene dos hijos: una niña de siete años y un adolescente de catorce. Comparten la misma tablet y la misma computadora del comedor, pero la configuración no puede ser la misma, y tratarlos igual genera conflicto en ambos sentidos.</p>
-            <p>Para la niña crean un perfil sin tienda de aplicaciones, sin navegador abierto y con dos apps aprobadas: una de lectura y una de matemáticas. Su uso son quince minutos después de la tarea, en el comedor, con un adulto en la misma habitación aunque no esté mirando la pantalla todo el tiempo.</p>
-            <p>Para el adolescente el arreglo es otro: cuenta propia, navegador completo, acceso a asistentes de IA y horario que él administra, con dos condiciones acordadas. La primera, que las entregas escolares las pueda explicar con sus palabras si se le pregunta. La segunda, que el dispositivo no se queda en la recámara por la noche.</p>
-            <p>Al mes surge una fricción previsible: la niña reclama que su hermano tiene más libertad. En lugar de igualar las reglas, los padres explican qué acuerdos concretos sostiene él y le dicen a ella cuáles necesitaría sostener para obtener lo mismo. El permiso queda ligado a la conducta demostrada, no a la edad como argumento.</p>
-
-            <h2>Señales de que adelantaste o retrasaste demasiado</h2>
-            <p>Adelantar se nota en conflictos desproporcionados. Si cada cierre de sesión termina en llanto o discusión, si el niño esconde el dispositivo o si aparecen compras y registros que nadie autorizó, la herramienta llegó antes de que existiera la capacidad de sostener el acuerdo. Retirar un paso y volver a introducirla más adelante no es un fracaso.</p>
-            <p>Retrasar demasiado también tiene costo, aunque es menos visible. Un estudiante que llega a secundaria sin haber usado nunca una plataforma escolar, sin saber crear una contraseña razonable ni entregar un archivo en línea, enfrenta esa curva de aprendizaje justo cuando la carga académica sube.</p>
-            <p>El punto medio no es una edad exacta, es una progresión: cada herramienta se introduce cuando existe una necesidad real, con acompañamiento al inicio y con retiro gradual de la supervisión conforme el estudiante demuestra que puede sostener los acuerdos sin recordatorios.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>El momento en que la programación por bloques encaja</h3>
-                <p>Si tu hijo está entre los seis y los doce años, esta es la franja donde la programación por bloques y la robótica suelen encajar mejor: ya tolera el error, sostiene una actividad estructurada y disfruta ver funcionar algo que armó. Revisa cómo Robotics Code organiza los niveles por etapa para ubicar dónde entraría según lo que ya sabe hacer.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver niveles de Robotics Code <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Antes de los seis años: pantalla acompañada y muy breve</h2>
+                <p>En esta etapa el aprendizaje ocurre sobre todo mediante manipulación física, lenguaje hablado y juego con otras personas. La pantalla no aporta nada que el mundo físico no ofrezca mejor, y sí compite por el tiempo que el niño necesita para desarrollar motricidad y vocabulario.</p>
+                <p>Si se usa, el criterio es sesiones cortas, contenido con propósito y siempre con un adulto al lado nombrando lo que ocurre. La diferencia entre un niño viendo solo una actividad digital y un adulto conversando con él sobre esa misma actividad es enorme, porque en el segundo caso hay lenguaje de ida y vuelta.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-para-padres">Tecnología educativa para padres: cómo acompañar sin ser experto</a></li>
-                <li><a href="/blog-tecnologia-educativa-en-casa">Cómo organizar la tecnología educativa en casa</a></li>
-                <li><a href="/blog-tecnologia-educativa-checklist">Checklist para evaluar tecnología educativa antes de usarla</a></li>
+                    <li>Sesiones breves y siempre acompañadas por un adulto que converse sobre la actividad.</li>
+                    <li>Preferir actividades que se puedan trasladar al mundo físico: contar objetos, trazar en papel.</li>
+                    <li>Evitar dispositivos en la recámara y en la hora previa a dormir.</li>
+                    <li>Sin cuentas personales, sin mensajería y sin acceso a búsquedas abiertas.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es malo que un niño de cinco años use una tablet?</h3>
-                <p>No en sí mismo, siempre que el uso sea breve, con contenido con propósito y acompañado por un adulto que converse sobre la actividad. El riesgo no es la tablet, es que desplace juego físico, lenguaje y sueño, que en esa etapa son los principales motores del desarrollo. Si aparece esa competencia, reduce el tiempo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad puede usar un asistente de inteligencia artificial?</h3>
-                <p>Conviene introducirlo cuando ya tiene tareas que requieren investigar o explicar, típicamente a partir de los diez u once años, y siempre con la regla de que la herramienta explica pero no escribe el trabajo final. Antes de esa etapa aporta poco, porque la tarea todavía se resuelve con material del propio libro.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si mi hijo está listo para tener su propia cuenta?</h3>
-                <p>Observa tres conductas: si respeta un límite de tiempo sin discusión repetida, si te avisa cuando algo raro ocurre en línea y si cuida sus contraseñas. Cuando las tres están presentes de forma constante, la cuenta propia funciona. Si falta alguna, conviene seguir con acceso compartido un tiempo más.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿La robótica es demasiado avanzada para primaria?</h3>
-                <p>No. La robótica educativa para primaria se trabaja con programación por bloques y estructuras armables, sin escribir código de texto. Lo que se practica es secuencia, causa y efecto, y corrección del propio error, que son capacidades apropiadas para esa edad y transferibles a matemáticas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo prohibir redes sociales hasta cierta edad?</h3>
-                <p>Cada plataforma establece una edad mínima en sus términos de uso, así que ese es el primer criterio verificable. Más allá de eso, lo determinante es si el estudiante distingue un contacto desconocido, entiende que lo publicado permanece y sabe a quién avisar si algo lo incomoda. Sin eso, conviene esperar.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Entre seis y nueve años: práctica guiada y primeros entornos creativos</h2>
+                <p>Aquí la tecnología educativa empieza a aportar de forma clara. El niño ya lee instrucciones simples, tolera mejor la corrección y puede sostener diez o quince minutos de atención en una actividad estructurada. Es el momento de las apps de práctica de lectura y matemáticas con retroalimentación inmediata.</p>
+                <p>También es una buena etapa para introducir programación por bloques y robótica sencilla, porque el niño produce algo en lugar de solo consumir. Arrastrar bloques para que un personaje se mueva enseña secuencia, causa y efecto, y tolerancia al error de una forma que se parece mucho al pensamiento matemático.</p>
+                <ul>
+                    <li>Apps de práctica con niveles progresivos y explicación del error, no solo puntaje.</li>
+                    <li>Programación por bloques y robótica guiada, con proyectos que terminen en algo visible.</li>
+                    <li>Uso en espacio común de la casa, no en la recámara.</li>
+                    <li>Cuentas creadas y administradas por un adulto, sin datos escolares completos.</li>
+                </ul>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.unesco.org/es" target="_blank" rel="noopener noreferrer">UNESCO</a> — Orientaciones internacionales sobre educación y uso de tecnología en el aula</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Entre diez y doce años: cuentas propias y acuerdos escritos</h2>
+                <p>En esta franja suele aparecer la primera cuenta propia, casi siempre porque la escuela la pide. Es un buen momento para introducir el concepto de identidad digital: que lo que se publica permanece, que un perfil dice cosas de uno y que las contraseñas no se comparten ni con los mejores amigos.</p>
+                <p>El acuerdo escrito ayuda más de lo que parece. No como contrato solemne, sino como una hoja pegada en algún lugar visible con tres o cuatro reglas concretas: dónde se usa el dispositivo, en qué horario, qué se hace si aparece un mensaje incómodo y cada cuánto se revisan los perfiles juntos.</p>
+                <p>También es la etapa donde conviene explicar qué es un asistente de inteligencia artificial y para qué sí y para qué no se usa en tareas. Hacerlo antes de que aparezca solo, en el celular de un compañero, deja la conversación en tus términos y no en los de la urgencia.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Adolescencia: autonomía con revisión y conversación sobre IA</h2>
+                <p>En secundaria y bachillerato el control minucioso deja de funcionar y empieza a ser contraproducente. El objetivo cambia: ya no es limitar el acceso, es que el estudiante desarrolle criterio propio para decidir cuándo una herramienta lo está ayudando y cuándo lo está distrayendo.</p>
+                <p>La conversación central es la inteligencia artificial aplicada a tareas. Un adolescente puede entregar trabajos correctos sin haber aprendido nada, y eso se cobra en el examen presencial. Plantearlo como un problema de interés propio, y no como una regla moral impuesta, suele obtener mucho mejor recepción.</p>
+                <p>La revisión sigue teniendo lugar, pero anunciada y acotada: revisar juntos configuraciones de privacidad cada cierto tiempo, hablar de suscripciones que se cobran solas y mantener el acuerdo de que reportar algo incómodo nunca cuesta el dispositivo.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: dos hermanos, dos configuraciones distintas</h2>
+                <p>Una familia tiene dos hijos: una niña de siete años y un adolescente de catorce. Comparten la misma tablet y la misma computadora del comedor, pero la configuración no puede ser la misma, y tratarlos igual genera conflicto en ambos sentidos.</p>
+                <p>Para la niña crean un perfil sin tienda de aplicaciones, sin navegador abierto y con dos apps aprobadas: una de lectura y una de matemáticas. Su uso son quince minutos después de la tarea, en el comedor, con un adulto en la misma habitación aunque no esté mirando la pantalla todo el tiempo.</p>
+                <p>Para el adolescente el arreglo es otro: cuenta propia, navegador completo, acceso a asistentes de IA y horario que él administra, con dos condiciones acordadas. La primera, que las entregas escolares las pueda explicar con sus palabras si se le pregunta. La segunda, que el dispositivo no se queda en la recámara por la noche.</p>
+                <p>Al mes surge una fricción previsible: la niña reclama que su hermano tiene más libertad. En lugar de igualar las reglas, los padres explican qué acuerdos concretos sostiene él y le dicen a ella cuáles necesitaría sostener para obtener lo mismo. El permiso queda ligado a la conducta demostrada, no a la edad como argumento.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Señales de que adelantaste o retrasaste demasiado</h2>
+                <p>Adelantar se nota en conflictos desproporcionados. Si cada cierre de sesión termina en llanto o discusión, si el niño esconde el dispositivo o si aparecen compras y registros que nadie autorizó, la herramienta llegó antes de que existiera la capacidad de sostener el acuerdo. Retirar un paso y volver a introducirla más adelante no es un fracaso.</p>
+                <p>Retrasar demasiado también tiene costo, aunque es menos visible. Un estudiante que llega a secundaria sin haber usado nunca una plataforma escolar, sin saber crear una contraseña razonable ni entregar un archivo en línea, enfrenta esa curva de aprendizaje justo cuando la carga académica sube.</p>
+                <p>El punto medio no es una edad exacta, es una progresión: cada herramienta se introduce cuando existe una necesidad real, con acompañamiento al inicio y con retiro gradual de la supervisión conforme el estudiante demuestra que puede sostener los acuerdos sin recordatorios.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">El momento en que la programación por bloques encaja</h2>
+                    <p>Si tu hijo está entre los seis y los doce años, esta es la franja donde la programación por bloques y la robótica suelen encajar mejor: ya tolera el error, sostiene una actividad estructurada y disfruta ver funcionar algo que armó. Revisa cómo Robotics Code organiza los niveles por etapa para ubicar dónde entraría según lo que ya sabe hacer.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Ver niveles de Robotics Code <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-para-padres">
+                            <span>Tecnología educativa para padres: cómo acompañar sin ser experto</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-en-casa">
+                            <span>Cómo organizar la tecnología educativa en casa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-checklist">
+                            <span>Checklist para evaluar tecnología educativa antes de usarla</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es malo que un niño de cinco años use una tablet?</h3>
+                    <p>No en sí mismo, siempre que el uso sea breve, con contenido con propósito y acompañado por un adulto que converse sobre la actividad. El riesgo no es la tablet, es que desplace juego físico, lenguaje y sueño, que en esa etapa son los principales motores del desarrollo. Si aparece esa competencia, reduce el tiempo.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad puede usar un asistente de inteligencia artificial?</h3>
+                    <p>Conviene introducirlo cuando ya tiene tareas que requieren investigar o explicar, típicamente a partir de los diez u once años, y siempre con la regla de que la herramienta explica pero no escribe el trabajo final. Antes de esa etapa aporta poco, porque la tarea todavía se resuelve con material del propio libro.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si mi hijo está listo para tener su propia cuenta?</h3>
+                    <p>Observa tres conductas: si respeta un límite de tiempo sin discusión repetida, si te avisa cuando algo raro ocurre en línea y si cuida sus contraseñas. Cuando las tres están presentes de forma constante, la cuenta propia funciona. Si falta alguna, conviene seguir con acceso compartido un tiempo más.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿La robótica es demasiado avanzada para primaria?</h3>
+                    <p>No. La robótica educativa para primaria se trabaja con programación por bloques y estructuras armables, sin escribir código de texto. Lo que se practica es secuencia, causa y efecto, y corrección del propio error, que son capacidades apropiadas para esa edad y transferibles a matemáticas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo prohibir redes sociales hasta cierta edad?</h3>
+                    <p>Cada plataforma establece una edad mínima en sus términos de uso, así que ese es el primer criterio verificable. Más allá de eso, lo determinante es si el estudiante distingue un contacto desconocido, entiende que lo publicado permanece y sabe a quién avisar si algo lo incomoda. Sin eso, conviene esperar.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.unesco.org/es" target="_blank" rel="noopener noreferrer">UNESCO</a> — Orientaciones internacionales sobre educación y uso de tecnología en el aula</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -533,8 +631,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué la pregunta correcta no es la edad sino la tarea
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Antes de los seis años: pantalla acompañada y muy breve
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Entre seis y nueve años: práctica guiada y primeros entornos creativos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Entre diez y doce años: cuentas propias y acuerdos escritos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Adolescencia: autonomía con revisión y conversación sobre IA
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: dos hermanos, dos configuraciones distintas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Señales de que adelantaste o retrasaste demasiado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

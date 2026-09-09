@@ -362,144 +362,235 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-pen-nib"></i> Redacción Ejecutiva
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo redactar un correo profesional</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 9 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Redacción Ejecutiva</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo redactar un correo profesional</h1>
+                <p class="blog-post-dek">Aprende cómo redactar un correo profesional con asunto claro, propósito directo, tono adecuado, petición concreta y ejemplos para situaciones de trabajo.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Redacción Ejecutiva</span>
+                    <span>Publicado <time datetime="2026-09-09">9 de Septiembre, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/redaccion-ejecutiva-curso-escritura-profesional.webp" alt="Cómo redactar un correo profesional" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Un correo laboral puede estar escrito sin faltas y aun así fracasar: el asunto no explica nada, la petición aparece escondida al final o el lector debe reconstruir el contexto. Cuando eso ocurre, la respuesta tarda, llega incompleta o abre una cadena de aclaraciones que consume tiempo a todos.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Cómo redactar un correo profesional desde el propósito
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Escribir un asunto que anticipe el contenido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Saludo, apertura y contexto sin rodeos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ordenar el cuerpo alrededor de una idea central
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Formular una petición, un responsable y un plazo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplos de correos profesionales antes y después
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Revisar el correo antes de presionar Enviar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Un correo laboral puede estar escrito sin faltas y aun así fracasar: el asunto no explica nada, la petición aparece escondida al final o el lector debe reconstruir el contexto. Cuando eso ocurre, la respuesta tarda, llega incompleta o abre una cadena de aclaraciones que consume tiempo a todos.</p>
             <p>Redactar bien no significa sonar rígido ni llenar el mensaje de fórmulas ceremoniosas. Significa orientar al lector con respeto: decir por qué recibe el correo, qué información necesita y cuál es el siguiente paso. Esta guía ofrece una estructura reutilizable y ejemplos para convertir mensajes confusos en comunicaciones claras y accionables.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para saber cómo redactar un correo profesional, define primero qué debe entender o hacer la persona. Escribe un asunto específico, abre con el contexto mínimo, desarrolla una sola idea central y termina con una petición concreta, responsable y plazo cuando corresponda. Revisa nombres, archivos, tono y ortografía antes de enviar. Un correo profesional facilita la acción sin obligar al lector a descifrar el mensaje.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para saber cómo redactar un correo profesional, define primero qué debe entender o hacer la persona. Escribe un asunto específico, abre con el contexto mínimo, desarrolla una sola idea central y termina con una petición concreta, responsable y plazo cuando corresponda. Revisa nombres, archivos, tono y ortografía antes de enviar. Un correo profesional facilita la acción sin obligar al lector a descifrar el mensaje.</p>
+                </aside>
 
-            <h2>Cómo redactar un correo profesional desde el propósito</h2>
-            <p>Antes de abrir la bandeja de salida, completa mentalmente esta frase: «Al terminar de leer, necesito que la persona…». La respuesta puede ser aprobar una propuesta, confirmar una fecha, revisar un archivo o simplemente quedar informada. Si no puedes terminar la frase con precisión, el correo todavía no tiene rumbo y cualquier redacción será más larga de lo necesario.</p>
-            <p>El propósito también decide quién debe recibir el mensaje. Coloca en el campo principal a quienes necesitan actuar; usa copia para quienes solo deben estar enterados. Evita incluir personas por costumbre, porque una lista excesiva diluye la responsabilidad. Cuando hay varios objetivos sin relación, separarlos en mensajes distintos ayuda a que cada conversación conserve un asunto, un responsable y un cierre claros.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Cómo redactar un correo profesional desde el propósito</h2>
+                <p>Antes de abrir la bandeja de salida, completa mentalmente esta frase: «Al terminar de leer, necesito que la persona…». La respuesta puede ser aprobar una propuesta, confirmar una fecha, revisar un archivo o simplemente quedar informada. Si no puedes terminar la frase con precisión, el correo todavía no tiene rumbo y cualquier redacción será más larga de lo necesario.</p>
+                <p>El propósito también decide quién debe recibir el mensaje. Coloca en el campo principal a quienes necesitan actuar; usa copia para quienes solo deben estar enterados. Evita incluir personas por costumbre, porque una lista excesiva diluye la responsabilidad. Cuando hay varios objetivos sin relación, separarlos en mensajes distintos ayuda a que cada conversación conserve un asunto, un responsable y un cierre claros.</p>
+            </section>
 
-            <h2>Escribir un asunto que anticipe el contenido</h2>
-            <p>El asunto funciona como una etiqueta de trabajo. Expresiones como «Hola», «Información» o «Pendiente» no permiten distinguir el mensaje ni encontrarlo después. Un asunto útil combina tema y acción: «Revisión de propuesta comercial — comentarios antes del jueves» o «Confirmación de asistentes — reunión de operaciones». Así, el destinatario puede priorizar sin abrir primero toda la conversación.</p>
-            <p>Conviene actualizar el asunto cuando una cadena cambia de tema. Mantener un título antiguo para hablar de otro proyecto produce archivos difíciles de recuperar y respuestas cruzadas. Tampoco hace falta escribir todo en mayúsculas ni añadir palabras de urgencia por reflejo. Si existe un plazo real, indícalo con serenidad y explica en el cuerpo por qué importa; la precisión genera más colaboración que una alarma sin contexto.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Escribir un asunto que anticipe el contenido</h2>
+                <p>El asunto funciona como una etiqueta de trabajo. Expresiones como «Hola», «Información» o «Pendiente» no permiten distinguir el mensaje ni encontrarlo después. Un asunto útil combina tema y acción: «Revisión de propuesta comercial — comentarios antes del jueves» o «Confirmación de asistentes — reunión de operaciones». Así, el destinatario puede priorizar sin abrir primero toda la conversación.</p>
+                <p>Conviene actualizar el asunto cuando una cadena cambia de tema. Mantener un título antiguo para hablar de otro proyecto produce archivos difíciles de recuperar y respuestas cruzadas. Tampoco hace falta escribir todo en mayúsculas ni añadir palabras de urgencia por reflejo. Si existe un plazo real, indícalo con serenidad y explica en el cuerpo por qué importa; la precisión genera más colaboración que una alarma sin contexto.</p>
+            </section>
 
-            <h2>Saludo, apertura y contexto sin rodeos</h2>
-            <p>El saludo debe corresponder a la relación y a la cultura del equipo. «Hola, Ana» suele ser suficiente en un entorno cotidiano; «Estimada licenciada Pérez» puede encajar en un primer contacto formal. Lo importante es mantener respeto y consistencia. Después del saludo, presenta el motivo en la primera o segunda oración, en vez de usar un preámbulo largo que retrase la información principal.</p>
-            <p>El contexto debe responder solo lo necesario para comprender la petición. Una apertura eficaz podría decir: «Después de la reunión del martes, incorporé los cambios acordados en la propuesta adjunta». El lector ya sabe de qué conversación se trata, qué cambió y dónde está el documento. Si necesita antecedentes amplios, resume los puntos esenciales y enlaza o adjunta el material; no copies una historia completa dentro del correo.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Saludo, apertura y contexto sin rodeos</h2>
+                <p>El saludo debe corresponder a la relación y a la cultura del equipo. «Hola, Ana» suele ser suficiente en un entorno cotidiano; «Estimada licenciada Pérez» puede encajar en un primer contacto formal. Lo importante es mantener respeto y consistencia. Después del saludo, presenta el motivo en la primera o segunda oración, en vez de usar un preámbulo largo que retrase la información principal.</p>
+                <p>El contexto debe responder solo lo necesario para comprender la petición. Una apertura eficaz podría decir: «Después de la reunión del martes, incorporé los cambios acordados en la propuesta adjunta». El lector ya sabe de qué conversación se trata, qué cambió y dónde está el documento. Si necesita antecedentes amplios, resume los puntos esenciales y enlaza o adjunta el material; no copies una historia completa dentro del correo.</p>
+            </section>
 
-            <h2>Ordenar el cuerpo alrededor de una idea central</h2>
-            <p>Cada párrafo debe cumplir una función: presentar la situación, explicar un dato, proponer una decisión o solicitar una acción. Cuando un bloque mezcla todo, el lector puede perder la petición. Abre con la idea central y coloca después los detalles que la sustentan. Esta lógica también facilita recortar: si una oración no ayuda a comprender o actuar, probablemente puede salir.</p>
-            <p>Para información breve, dos o tres párrafos son más legibles que un bloque compacto. Si hay varias condiciones, entregables o preguntas, usa una lista con elementos paralelos. Evita listas para cada frase: sirven cuando permiten comparar o marcar tareas. En conversaciones delicadas, describe hechos observables y consecuencias de trabajo sin atribuir intenciones. «El archivo llegó después del cierre y no entró al reporte» comunica más que una acusación personal.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ordenar el cuerpo alrededor de una idea central</h2>
+                <p>Cada párrafo debe cumplir una función: presentar la situación, explicar un dato, proponer una decisión o solicitar una acción. Cuando un bloque mezcla todo, el lector puede perder la petición. Abre con la idea central y coloca después los detalles que la sustentan. Esta lógica también facilita recortar: si una oración no ayuda a comprender o actuar, probablemente puede salir.</p>
+                <p>Para información breve, dos o tres párrafos son más legibles que un bloque compacto. Si hay varias condiciones, entregables o preguntas, usa una lista con elementos paralelos. Evita listas para cada frase: sirven cuando permiten comparar o marcar tareas. En conversaciones delicadas, describe hechos observables y consecuencias de trabajo sin atribuir intenciones. «El archivo llegó después del cierre y no entró al reporte» comunica más que una acusación personal.</p>
+            </section>
 
-            <h2>Formular una petición, un responsable y un plazo</h2>
-            <p>Muchos correos informan bastante pero no dicen qué se espera. Expresa la acción con un verbo concreto: confirmar, revisar, elegir, enviar o aprobar. Si escribes a varias personas, nombra al responsable de cada tarea. «Carlos, ¿puedes validar las cifras? Elena, por favor confirma el texto de apertura» evita que todos supongan que alguien más responderá.</p>
-            <p>Incluye un plazo únicamente cuando sea útil para coordinar y explica la razón si no es evidente. «Necesito tus comentarios el miércoles para integrar la versión que se presenta el viernes» muestra la dependencia sin sonar arbitrario. Cierra agradeciendo la acción o dejando abierta una vía para dudas. La firma debe contener los datos que la persona realmente podría necesitar, no una pared de avisos que distraiga del mensaje.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Formular una petición, un responsable y un plazo</h2>
+                <p>Muchos correos informan bastante pero no dicen qué se espera. Expresa la acción con un verbo concreto: confirmar, revisar, elegir, enviar o aprobar. Si escribes a varias personas, nombra al responsable de cada tarea. «Carlos, ¿puedes validar las cifras? Elena, por favor confirma el texto de apertura» evita que todos supongan que alguien más responderá.</p>
+                <p>Incluye un plazo únicamente cuando sea útil para coordinar y explica la razón si no es evidente. «Necesito tus comentarios el miércoles para integrar la versión que se presenta el viernes» muestra la dependencia sin sonar arbitrario. Cierra agradeciendo la acción o dejando abierta una vía para dudas. La firma debe contener los datos que la persona realmente podría necesitar, no una pared de avisos que distraiga del mensaje.</p>
+            </section>
 
-            <h2>Ejemplos de correos profesionales antes y después</h2>
-            <p>Mensaje difuso: «Hola, te mando lo que vimos. Dime qué piensas porque urge y hay que resolverlo». Versión clara: «Hola, Laura. Adjunto la propuesta con los cambios de alcance acordados hoy. ¿Puedes confirmar si autorizas la opción B antes del miércoles? Con tu respuesta prepararemos la versión para el cliente. Gracias». La segunda versión no es más fría: elimina la incertidumbre.</p>
-            <p>Seguimiento impreciso: «Solo recordando mi correo anterior». Seguimiento útil: «Hola, Marco. Retomo la solicitud de acceso al tablero enviada el lunes. Lo necesitamos para cerrar el reporte semanal. ¿Podrías habilitarlo hoy o indicarme quién puede hacerlo?». El contexto breve permite responder incluso si la persona no recuerda la conversación. Estas estructuras se adaptan sin copiar frases de manera mecánica.</p>
-            <ul>
-                <li>Para enviar un archivo: identifica la versión, explica qué cambió y señala qué revisión necesitas.</li>
-                <li>Para pedir una reunión: indica propósito, participantes necesarios y opciones de horario.</li>
-                <li>Para corregir un error: nombra el dato incorrecto, entrega la versión válida y explica el siguiente paso.</li>
-                <li>Para rechazar una solicitud: responde con claridad, ofrece la razón pertinente y plantea una alternativa posible.</li>
-            </ul>
-
-            <h2>Revisar el correo antes de presionar Enviar</h2>
-            <p>La revisión debe comenzar por el sentido, no por las comas. Lee el asunto y la primera frase: ¿permiten saber de qué trata? Busca la petición y comprueba que tenga responsable, información suficiente y plazo razonable. Después revisa tono, nombres, fechas y cantidades. Solo al final corrige ortografía y formato, porque no sirve pulir una oración que luego tendrás que eliminar.</p>
-            <p>Lee en voz baja si el mensaje es importante: una frase que obliga a respirar varias veces suele necesitar división. Abre los archivos para confirmar que son los correctos y menciona cualquier enlace restringido. Revisa los destinatarios al final, especialmente en cadenas con información interna. Este minuto de control previene mensajes incompletos y convierte la revisión en un hábito, no en una reparación posterior.</p>
-            <ol>
-                <li>Confirma propósito, destinatarios y nivel de formalidad.</li>
-                <li>Verifica que asunto y apertura expliquen el tema.</li>
-                <li>Localiza la acción solicitada y su responsable.</li>
-                <li>Comprueba nombres, fechas, enlaces y archivos.</li>
-                <li>Haz una lectura final de claridad, tono y ortografía.</li>
-            </ol>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Practica correos y documentos con una estructura clara</h3>
-                <p>El curso Redacción Ejecutiva de WorldBrain trabaja la claridad, la estructura y la corrección de correos, informes, minutas y propuestas profesionales. Si quieres conocer el acceso, la modalidad, los horarios y el costo vigente, escríbenos por WhatsApp y solicita la información completa antes de inscribirte.</p>
-                <a href="/redaccion-ejecutiva" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso de escritura profesional <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplos de correos profesionales antes y después</h2>
+                <p>Mensaje difuso: «Hola, te mando lo que vimos. Dime qué piensas porque urge y hay que resolverlo». Versión clara: «Hola, Laura. Adjunto la propuesta con los cambios de alcance acordados hoy. ¿Puedes confirmar si autorizas la opción B antes del miércoles? Con tu respuesta prepararemos la versión para el cliente. Gracias». La segunda versión no es más fría: elimina la incertidumbre.</p>
+                <p>Seguimiento impreciso: «Solo recordando mi correo anterior». Seguimiento útil: «Hola, Marco. Retomo la solicitud de acceso al tablero enviada el lunes. Lo necesitamos para cerrar el reporte semanal. ¿Podrías habilitarlo hoy o indicarme quién puede hacerlo?». El contexto breve permite responder incluso si la persona no recuerda la conversación. Estas estructuras se adaptan sin copiar frases de manera mecánica.</p>
                 <ul>
-                <li><a href="/blog-informe-ejecutivo-estructura-ejemplo">Informe ejecutivo: estructura y ejemplo</a></li>
-                <li><a href="/blog-minuta-de-reunion-como-hacerla">Minuta de reunión: cómo hacerla</a></li>
-                <li><a href="/blog-como-mejorar-redaccion-profesional">Cómo mejorar la redacción profesional</a></li>
-                <li><a href="/blog-ortografia-en-el-trabajo-errores-comunes">Ortografía en el trabajo: errores comunes</a></li>
+                    <li>Para enviar un archivo: identifica la versión, explica qué cambió y señala qué revisión necesitas.</li>
+                    <li>Para pedir una reunión: indica propósito, participantes necesarios y opciones de horario.</li>
+                    <li>Para corregir un error: nombra el dato incorrecto, entrega la versión válida y explica el siguiente paso.</li>
+                    <li>Para rechazar una solicitud: responde con claridad, ofrece la razón pertinente y plantea una alternativa posible.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué tan largo debe ser un correo profesional?</h3>
-                <p>Debe contener lo necesario para comprender y actuar, sin obligar a buscar el propósito entre detalles secundarios. Un asunto específico, una apertura directa, pocos párrafos y una petición visible suelen bastar. Si el contexto es extenso, resume las conclusiones en el correo y coloca el documento completo en un archivo o enlace bien identificado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Un correo profesional debe usar un tono muy formal?</h3>
-                <p>No siempre. El tono depende de la relación, la organización y el asunto. Puede ser cordial y cercano sin perder precisión. En un primer contacto o una comunicación sensible conviene mayor formalidad; entre colegas habituales, un saludo sencillo funciona. Lo constante debe ser el respeto, la claridad y la ausencia de expresiones ambiguas o impulsivas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo pedir algo por correo sin sonar agresivo?</h3>
-                <p>Explica la acción de forma directa, aporta el contexto necesario y relaciona el plazo con una necesidad real. «¿Podrías enviar la versión revisada el martes para preparar la presentación?» es claro sin ser hostil. Evita disfrazar la petición con párrafos vagos y también las órdenes abruptas sin razón, porque ambos extremos dificultan la colaboración.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si envié un correo con un error?</h3>
-                <p>Corrige pronto y con brevedad. Indica qué dato, archivo o frase era incorrecto y entrega la versión válida en el mismo mensaje. Si el error cambia una decisión, dilo expresamente. No hace falta redactar una larga justificación: asumir la corrección, reducir la confusión y señalar el siguiente paso suele ser más útil para todos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Conviene usar inteligencia artificial para redactar correos?</h3>
-                <p>Puede ayudar a ordenar un borrador o detectar repeticiones, pero la persona sigue siendo responsable del contenido, el tono, los datos y la confidencialidad. No pegues información sensible en una herramienta sin autorización de tu organización. Revisa cada frase y adapta el mensaje al contexto; enviar texto genérico sin verificar puede introducir errores o promesas que nadie aprobó.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Revisar el correo antes de presionar Enviar</h2>
+                <p>La revisión debe comenzar por el sentido, no por las comas. Lee el asunto y la primera frase: ¿permiten saber de qué trata? Busca la petición y comprueba que tenga responsable, información suficiente y plazo razonable. Después revisa tono, nombres, fechas y cantidades. Solo al final corrige ortografía y formato, porque no sirve pulir una oración que luego tendrás que eliminar.</p>
+                <p>Lee en voz baja si el mensaje es importante: una frase que obliga a respirar varias veces suele necesitar división. Abre los archivos para confirmar que son los correctos y menciona cualquier enlace restringido. Revisa los destinatarios al final, especialmente en cadenas con información interna. Este minuto de control previene mensajes incompletos y convierte la revisión en un hábito, no en una reparación posterior.</p>
+                <ol>
+                    <li>Confirma propósito, destinatarios y nivel de formalidad.</li>
+                    <li>Verifica que asunto y apertura expliquen el tema.</li>
+                    <li>Localiza la acción solicitada y su responsable.</li>
+                    <li>Comprueba nombres, fechas, enlaces y archivos.</li>
+                    <li>Haz una lectura final de claridad, tono y ortografía.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Practica correos y documentos con una estructura clara</h2>
+                    <p>El curso Redacción Ejecutiva de WorldBrain trabaja la claridad, la estructura y la corrección de correos, informes, minutas y propuestas profesionales. Si quieres conocer el acceso, la modalidad, los horarios y el costo vigente, escríbenos por WhatsApp y solicita la información completa antes de inscribirte.</p>
+                    <a href="/redaccion-ejecutiva" class="btn-primary">
+                        Curso de escritura profesional <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
-            </ul>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-informe-ejecutivo-estructura-ejemplo">
+                            <span>Informe ejecutivo: estructura y ejemplo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-minuta-de-reunion-como-hacerla">
+                            <span>Minuta de reunión: cómo hacerla</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-mejorar-redaccion-profesional">
+                            <span>Cómo mejorar la redacción profesional</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-ortografia-en-el-trabajo-errores-comunes">
+                            <span>Ortografía en el trabajo: errores comunes</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué tan largo debe ser un correo profesional?</h3>
+                    <p>Debe contener lo necesario para comprender y actuar, sin obligar a buscar el propósito entre detalles secundarios. Un asunto específico, una apertura directa, pocos párrafos y una petición visible suelen bastar. Si el contexto es extenso, resume las conclusiones en el correo y coloca el documento completo en un archivo o enlace bien identificado.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Un correo profesional debe usar un tono muy formal?</h3>
+                    <p>No siempre. El tono depende de la relación, la organización y el asunto. Puede ser cordial y cercano sin perder precisión. En un primer contacto o una comunicación sensible conviene mayor formalidad; entre colegas habituales, un saludo sencillo funciona. Lo constante debe ser el respeto, la claridad y la ausencia de expresiones ambiguas o impulsivas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo pedir algo por correo sin sonar agresivo?</h3>
+                    <p>Explica la acción de forma directa, aporta el contexto necesario y relaciona el plazo con una necesidad real. «¿Podrías enviar la versión revisada el martes para preparar la presentación?» es claro sin ser hostil. Evita disfrazar la petición con párrafos vagos y también las órdenes abruptas sin razón, porque ambos extremos dificultan la colaboración.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si envié un correo con un error?</h3>
+                    <p>Corrige pronto y con brevedad. Indica qué dato, archivo o frase era incorrecto y entrega la versión válida en el mismo mensaje. Si el error cambia una decisión, dilo expresamente. No hace falta redactar una larga justificación: asumir la corrección, reducir la confusión y señalar el siguiente paso suele ser más útil para todos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Conviene usar inteligencia artificial para redactar correos?</h3>
+                    <p>Puede ayudar a ordenar un borrador o detectar repeticiones, pero la persona sigue siendo responsable del contenido, el tono, los datos y la confidencialidad. No pegues información sensible en una herramienta sin autorización de tu organización. Revisa cada frase y adapta el mensaje al contexto; enviar texto genérico sin verificar puede introducir errores o promesas que nadie aprobó.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -529,8 +620,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Cómo redactar un correo profesional desde el propósito
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Escribir un asunto que anticipe el contenido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Saludo, apertura y contexto sin rodeos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ordenar el cuerpo alrededor de una idea central
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Formular una petición, un responsable y un plazo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplos de correos profesionales antes y después
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Revisar el correo antes de presionar Enviar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

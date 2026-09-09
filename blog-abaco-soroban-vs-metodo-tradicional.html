@@ -354,142 +354,233 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-calculator"></i> MatheKids
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Ábaco soroban vs. método tradicional</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 7 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">MatheKids</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Ábaco soroban vs. método tradicional</h1>
+                <p class="blog-post-dek">Ábaco soroban vs. método tradicional para aprender a calcular: qué entrena cada enfoque, cuándo se complementan y qué esperar de forma realista.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">MatheKids</span>
+                    <span>Publicado <time datetime="2026-09-07">7 de Septiembre, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/mk-hero-kid.webp" alt="Ábaco soroban vs. método tradicional" width="1024" height="1024" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Muchos padres se preguntan si el ábaco soroban 'sustituye' a las matemáticas de la escuela o si compite con la forma en que a ellos les enseñaron a calcular. Es una duda razonable, porque los dos enfoques parten de ideas muy distintas sobre cómo se aprende a operar con números.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Ábaco soroban vs método tradicional: qué entrena cada enfoque
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Fortalezas del método tradicional
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Fortalezas del ábaco soroban
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Dónde falla cada enfoque si se usa solo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuándo conviene combinarlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo elegir según tu hijo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Un ejemplo práctico de cómo combinarlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Muchos padres se preguntan si el ábaco soroban 'sustituye' a las matemáticas de la escuela o si compite con la forma en que a ellos les enseñaron a calcular. Es una duda razonable, porque los dos enfoques parten de ideas muy distintas sobre cómo se aprende a operar con números.</p>
             <p>Este artículo compara ambos por criterios objetivos: qué entrena cada uno, en qué se diferencian y cuándo se complementan. No se trata de declarar un ganador ni de desacreditar la enseñanza escolar, sino de entender qué aporta cada camino para que decidas con criterio.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>El ábaco soroban vs método tradicional no es una batalla de buenos y malos: son dos formas de aprender a calcular que entrenan cosas distintas. El método tradicional enseña algoritmos en papel y desarrolla el procedimiento escrito; el ábaco parte de una representación visual que apunta al cálculo mental. Lo más útil suele ser combinarlos: el ábaco fortalece la base numérica y la concentración, y la escuela cubre el razonamiento y los problemas.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>El ábaco soroban vs método tradicional no es una batalla de buenos y malos: son dos formas de aprender a calcular que entrenan cosas distintas. El método tradicional enseña algoritmos en papel y desarrolla el procedimiento escrito; el ábaco parte de una representación visual que apunta al cálculo mental. Lo más útil suele ser combinarlos: el ábaco fortalece la base numérica y la concentración, y la escuela cubre el razonamiento y los problemas.</p>
+                </aside>
 
-            <h2>Ábaco soroban vs método tradicional: qué entrena cada enfoque</h2>
-            <p>El método tradicional que se enseña en la escuela se apoya en algoritmos escritos: sumar y restar en columna, llevar o pedir prestado, memorizar las tablas de multiplicar y aplicar procedimientos en papel. Entrena el cálculo escrito y la aplicación de reglas, y es la base sobre la que se construye el resto del temario matemático.</p>
-            <p>El ábaco soroban parte de otro punto: una representación física de las cantidades que el niño mueve con reglas y que después interioriza como imagen mental. Su foco está en el cálculo mental y en la relación concreta con el número. No sustituye el trabajo escrito, pero lo aborda desde un lugar distinto, más visual y manipulativo.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Ábaco soroban vs método tradicional: qué entrena cada enfoque</h2>
+                <p>El método tradicional que se enseña en la escuela se apoya en algoritmos escritos: sumar y restar en columna, llevar o pedir prestado, memorizar las tablas de multiplicar y aplicar procedimientos en papel. Entrena el cálculo escrito y la aplicación de reglas, y es la base sobre la que se construye el resto del temario matemático.</p>
+                <p>El ábaco soroban parte de otro punto: una representación física de las cantidades que el niño mueve con reglas y que después interioriza como imagen mental. Su foco está en el cálculo mental y en la relación concreta con el número. No sustituye el trabajo escrito, pero lo aborda desde un lugar distinto, más visual y manipulativo.</p>
+            </section>
 
-            <h2>Fortalezas del método tradicional</h2>
-            <p>El enfoque escolar tiene ventajas claras que a veces se pasan por alto en el entusiasmo por métodos alternativos. Es universal, está alineado con el currículo, y enseña procedimientos que el niño necesita para escribir y comunicar sus cálculos, algo imprescindible en exámenes y en matemáticas más avanzadas.</p>
-            <p>Además, el método tradicional cubre mucho más que la aritmética: introduce el razonamiento con problemas de enunciado, la geometría y el lenguaje matemático. Esas áreas no se entrenan con el ábaco, así que el trabajo escolar sigue siendo necesario aunque el niño destaque en cálculo mental.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Fortalezas del método tradicional</h2>
+                <p>El enfoque escolar tiene ventajas claras que a veces se pasan por alto en el entusiasmo por métodos alternativos. Es universal, está alineado con el currículo, y enseña procedimientos que el niño necesita para escribir y comunicar sus cálculos, algo imprescindible en exámenes y en matemáticas más avanzadas.</p>
+                <p>Además, el método tradicional cubre mucho más que la aritmética: introduce el razonamiento con problemas de enunciado, la geometría y el lenguaje matemático. Esas áreas no se entrenan con el ábaco, así que el trabajo escolar sigue siendo necesario aunque el niño destaque en cálculo mental.</p>
+            </section>
 
-            <h2>Fortalezas del ábaco soroban</h2>
-            <p>El ábaco aporta lo que al cálculo escrito a veces le cuesta: una imagen concreta del número y un camino directo hacia el cálculo mental. Al mover cuentas con reglas fijas, el niño entiende el valor posicional de forma tangible y entrena la concentración, porque una distracción le hace perder la cuenta.</p>
-            <p>Otra fortaleza es su efecto sobre la confianza. Niños que memorizaban tablas sin entenderlas encuentran en el ábaco un apoyo que les devuelve la sensación de poder con los números. Esa base sólida y esa actitud más tranquila suelen trasladarse, con el tiempo, al trabajo escolar.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Fortalezas del ábaco soroban</h2>
+                <p>El ábaco aporta lo que al cálculo escrito a veces le cuesta: una imagen concreta del número y un camino directo hacia el cálculo mental. Al mover cuentas con reglas fijas, el niño entiende el valor posicional de forma tangible y entrena la concentración, porque una distracción le hace perder la cuenta.</p>
+                <p>Otra fortaleza es su efecto sobre la confianza. Niños que memorizaban tablas sin entenderlas encuentran en el ábaco un apoyo que les devuelve la sensación de poder con los números. Esa base sólida y esa actitud más tranquila suelen trasladarse, con el tiempo, al trabajo escolar.</p>
+            </section>
 
-            <h2>Dónde falla cada enfoque si se usa solo</h2>
-            <p>Ningún método basta por sí solo. Si se usa únicamente el enfoque tradicional, hay niños que memorizan procedimientos sin comprender qué significan, y arrastran miedo o rechazo a las matemáticas. La mecánica escrita, sin una base concreta, puede volverse un conjunto de reglas vacías.</p>
-            <p>Si se usa solo el ábaco, el niño puede volverse muy hábil calculando pero quedarse corto en lo que el ábaco no entrena: resolver problemas con enunciado, razonar y expresar el cálculo por escrito. Por eso presentar el ábaco como un reemplazo de la escuela es un error; su lugar es el de complemento.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Dónde falla cada enfoque si se usa solo</h2>
+                <p>Ningún método basta por sí solo. Si se usa únicamente el enfoque tradicional, hay niños que memorizan procedimientos sin comprender qué significan, y arrastran miedo o rechazo a las matemáticas. La mecánica escrita, sin una base concreta, puede volverse un conjunto de reglas vacías.</p>
+                <p>Si se usa solo el ábaco, el niño puede volverse muy hábil calculando pero quedarse corto en lo que el ábaco no entrena: resolver problemas con enunciado, razonar y expresar el cálculo por escrito. Por eso presentar el ábaco como un reemplazo de la escuela es un error; su lugar es el de complemento.</p>
+            </section>
 
-            <h2>Cuándo conviene combinarlos</h2>
-            <p>En la práctica, el mejor resultado no viene de elegir un bando, sino de que ambos enfoques trabajen juntos. El ábaco puede reforzar la base numérica y la concentración mientras la escuela avanza con el razonamiento y los problemas, y cada uno cubre lo que al otro le falta.</p>
-            <ul>
-                <li>Usa el ábaco para fortalecer cálculo mental, valor posicional y concentración.</li>
-                <li>Apóyate en la escuela para razonamiento, problemas de enunciado y geometría.</li>
-                <li>Evita que el niño abandone el cálculo escrito: lo necesitará en exámenes.</li>
-                <li>Cuida que ninguno de los dos se convierta en una carrera de velocidad con presión.</li>
-            </ul>
-
-            <h2>Cómo elegir según tu hijo</h2>
-            <p>La decisión final depende de lo que necesite tu hijo en este momento. Si le cuesta el cálculo básico, teme las matemáticas o memoriza sin entender, el ábaco puede darle una base concreta que le devuelva la confianza. Si su reto está en resolver problemas o en organizar el trabajo escrito, ese frente se atiende sobre todo desde la escuela y el acompañamiento.</p>
-            <ol>
-                <li>Observa dónde está la dificultad real: cálculo básico, comprensión o razonamiento.</li>
-                <li>Si el problema es la base numérica o el miedo, considera el ábaco como refuerzo.</li>
-                <li>Mantén siempre el trabajo escolar; el ábaco lo complementa, no lo reemplaza.</li>
-                <li>Prioriza el ritmo y la calma sobre la velocidad, venga del método que venga.</li>
-            </ol>
-
-            <h2>Un ejemplo práctico de cómo combinarlos</h2>
-            <p>Imagina a una niña de nueve años que calcula rápido de memoria pero se traba cuando el problema viene con enunciado: 'si reparto 24 dulces entre 6 amigos, ¿cuántos le tocan a cada uno?'. El cálculo no es su obstáculo; lo es entender qué operación pide el problema. Aquí el ábaco ya cumplió su parte, porque le dio soltura numérica, y el trabajo pendiente es de comprensión lectora y razonamiento, que se atiende desde la escuela y con práctica de problemas, no con más cálculo mental.</p>
-            <p>Ahora imagina a un niño que le teme a las matemáticas y memoriza tablas sin entenderlas. Empezar por más ejercicios escritos suele aumentar su rechazo. El ábaco le ofrece un punto de apoyo concreto: ve las cantidades, las mueve con las manos y comprueba que puede resolver por sí mismo. Cuando recupera la confianza, el trabajo escolar deja de sentirse como una amenaza y avanza mejor. En este caso el ábaco abre la puerta y la escuela sigue el camino del razonamiento.</p>
-            <p>Los dos ejemplos muestran la misma idea desde ángulos opuestos: el enfoque adecuado depende de dónde está la dificultad real del niño en ese momento. Por eso conviene observar antes de decidir y combinar en lugar de elegir un solo camino. Una rutina semanal sencilla puede reservar ratos cortos de ábaco para la base numérica y mantener el trabajo escolar para los problemas y el razonamiento, sin que uno desplace al otro. Con el tiempo, esa combinación equilibrada suele rendir más que insistir en un solo camino, porque cada frente sostiene al otro.</p>
-            <ul>
-                <li>Si el reto es entender problemas, refuerza lectura y razonamiento, no más cálculo.</li>
-                <li>Si el reto es la base numérica o el miedo, el ábaco puede devolver la confianza.</li>
-                <li>Reserva ratos cortos de ábaco y mantén el trabajo escrito de la escuela.</li>
-                <li>Observa dónde se traba el niño antes de cargarle más de un solo método.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Refuerza la base numérica con MatheKids</h3>
-                <p>MatheKids usa el ábaco soroban para fortalecer el cálculo mental y la concentración de niños de 6 a 12 años, como complemento del trabajo escolar, en modalidad presencial en Cuautitlán Izcalli y en línea en vivo. Una clase muestra gratuita te deja verlo antes de decidir.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso de cálculo mental para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cuándo conviene combinarlos</h2>
+                <p>En la práctica, el mejor resultado no viene de elegir un bando, sino de que ambos enfoques trabajen juntos. El ábaco puede reforzar la base numérica y la concentración mientras la escuela avanza con el razonamiento y los problemas, y cada uno cubre lo que al otro le falta.</p>
                 <ul>
-                <li><a href="/blog-metodo-abaco-soroban-como-funciona">Cómo funciona el método del ábaco soroban</a></li>
-                <li><a href="/blog-mitos-abaco-soroban">Mitos del ábaco soroban: qué es cierto y qué no</a></li>
-                <li><a href="/blog-tablas-multiplicar-sin-memorizar">Cómo aprender las tablas de multiplicar con patrones y práctica espaciada</a></li>
-                <li><a href="/blog-abaco-soroban-que-es">Ábaco soroban: qué es y cómo ayuda a comprender el cálculo</a></li>
+                    <li>Usa el ábaco para fortalecer cálculo mental, valor posicional y concentración.</li>
+                    <li>Apóyate en la escuela para razonamiento, problemas de enunciado y geometría.</li>
+                    <li>Evita que el niño abandone el cálculo escrito: lo necesitará en exámenes.</li>
+                    <li>Cuida que ninguno de los dos se convierta en una carrera de velocidad con presión.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿El ábaco soroban reemplaza las matemáticas de la escuela?</h3>
-                <p>No. El ábaco entrena el cálculo aritmético y mental, pero no cubre la resolución de problemas, el razonamiento ni la geometría, que son parte central del temario escolar. Lo sensato es verlo como un complemento que fortalece la base numérica, no como un sustituto del trabajo en clase.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Aprender ábaco confunde al niño con lo que ve en la escuela?</h3>
-                <p>En general no, porque ambos enfoques operan con los mismos números y el mismo valor posicional. Al principio el niño maneja dos caminos distintos para calcular, pero suelen reforzarse entre sí. Si notas confusión, conviene hablar con el instructor para acompasar los ritmos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuál da resultados más rápido?</h3>
-                <p>Depende de qué se mida. El método tradicional avanza al ritmo del currículo escolar; el ábaco muestra progreso en cálculo mental de forma gradual con la práctica. No hay un ganador universal en velocidad, porque entrenan habilidades distintas y el avance depende de cada niño.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo enseñar ábaco en casa sin dejar el método de la escuela?</h3>
-                <p>Sí, y de hecho es lo recomendable: se complementan. La escuela cubre el razonamiento y el cálculo escrito, mientras que el ábaco refuerza la base numérica y la concentración. Lo importante es no abandonar ninguno de los dos y cuidar que la práctica del ábaco tenga acompañamiento adecuado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo elegir según tu hijo</h2>
+                <p>La decisión final depende de lo que necesite tu hijo en este momento. Si le cuesta el cálculo básico, teme las matemáticas o memoriza sin entender, el ábaco puede darle una base concreta que le devuelva la confianza. Si su reto está en resolver problemas o en organizar el trabajo escrito, ese frente se atiende sobre todo desde la escuela y el acompañamiento.</p>
+                <ol>
+                    <li>Observa dónde está la dificultad real: cálculo básico, comprensión o razonamiento.</li>
+                    <li>Si el problema es la base numérica o el miedo, considera el ábaco como refuerzo.</li>
+                    <li>Mantén siempre el trabajo escolar; el ábaco lo complementa, no lo reemplaza.</li>
+                    <li>Prioriza el ritmo y la calma sobre la velocidad, venga del método que venga.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Un ejemplo práctico de cómo combinarlos</h2>
+                <p>Imagina a una niña de nueve años que calcula rápido de memoria pero se traba cuando el problema viene con enunciado: 'si reparto 24 dulces entre 6 amigos, ¿cuántos le tocan a cada uno?'. El cálculo no es su obstáculo; lo es entender qué operación pide el problema. Aquí el ábaco ya cumplió su parte, porque le dio soltura numérica, y el trabajo pendiente es de comprensión lectora y razonamiento, que se atiende desde la escuela y con práctica de problemas, no con más cálculo mental.</p>
+                <p>Ahora imagina a un niño que le teme a las matemáticas y memoriza tablas sin entenderlas. Empezar por más ejercicios escritos suele aumentar su rechazo. El ábaco le ofrece un punto de apoyo concreto: ve las cantidades, las mueve con las manos y comprueba que puede resolver por sí mismo. Cuando recupera la confianza, el trabajo escolar deja de sentirse como una amenaza y avanza mejor. En este caso el ábaco abre la puerta y la escuela sigue el camino del razonamiento.</p>
+                <p>Los dos ejemplos muestran la misma idea desde ángulos opuestos: el enfoque adecuado depende de dónde está la dificultad real del niño en ese momento. Por eso conviene observar antes de decidir y combinar en lugar de elegir un solo camino. Una rutina semanal sencilla puede reservar ratos cortos de ábaco para la base numérica y mantener el trabajo escolar para los problemas y el razonamiento, sin que uno desplace al otro. Con el tiempo, esa combinación equilibrada suele rendir más que insistir en un solo camino, porque cada frente sostiene al otro.</p>
+                <ul>
+                    <li>Si el reto es entender problemas, refuerza lectura y razonamiento, no más cálculo.</li>
+                    <li>Si el reto es la base numérica o el miedo, el ábaco puede devolver la confianza.</li>
+                    <li>Reserva ratos cortos de ábaco y mantén el trabajo escrito de la escuela.</li>
+                    <li>Observa dónde se traba el niño antes de cargarle más de un solo método.</li>
+                </ul>
+            </section>
 
-            </ul>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Refuerza la base numérica con MatheKids</h2>
+                    <p>MatheKids usa el ábaco soroban para fortalecer el cálculo mental y la concentración de niños de 6 a 12 años, como complemento del trabajo escolar, en modalidad presencial en Cuautitlán Izcalli y en línea en vivo. Una clase muestra gratuita te deja verlo antes de decidir.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Curso de cálculo mental para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodo-abaco-soroban-como-funciona">
+                            <span>Cómo funciona el método del ábaco soroban</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-mitos-abaco-soroban">
+                            <span>Mitos del ábaco soroban: qué es cierto y qué no</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tablas-multiplicar-sin-memorizar">
+                            <span>Cómo aprender las tablas de multiplicar con patrones y práctica espaciada</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-abaco-soroban-que-es">
+                            <span>Ábaco soroban: qué es y cómo ayuda a comprender el cálculo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿El ábaco soroban reemplaza las matemáticas de la escuela?</h3>
+                    <p>No. El ábaco entrena el cálculo aritmético y mental, pero no cubre la resolución de problemas, el razonamiento ni la geometría, que son parte central del temario escolar. Lo sensato es verlo como un complemento que fortalece la base numérica, no como un sustituto del trabajo en clase.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Aprender ábaco confunde al niño con lo que ve en la escuela?</h3>
+                    <p>En general no, porque ambos enfoques operan con los mismos números y el mismo valor posicional. Al principio el niño maneja dos caminos distintos para calcular, pero suelen reforzarse entre sí. Si notas confusión, conviene hablar con el instructor para acompasar los ritmos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuál da resultados más rápido?</h3>
+                    <p>Depende de qué se mida. El método tradicional avanza al ritmo del currículo escolar; el ábaco muestra progreso en cálculo mental de forma gradual con la práctica. No hay un ganador universal en velocidad, porque entrenan habilidades distintas y el avance depende de cada niño.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo enseñar ábaco en casa sin dejar el método de la escuela?</h3>
+                    <p>Sí, y de hecho es lo recomendable: se complementan. La escuela cubre el razonamiento y el cálculo escrito, mientras que el ábaco refuerza la base numérica y la concentración. Lo importante es no abandonar ninguno de los dos y cuidar que la práctica del ábaco tenga acompañamiento adecuado.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -519,8 +610,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Ábaco soroban vs método tradicional: qué entrena cada enfoque
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Fortalezas del método tradicional
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Fortalezas del ábaco soroban
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Dónde falla cada enfoque si se usa solo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuándo conviene combinarlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo elegir según tu hijo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Un ejemplo práctico de cómo combinarlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

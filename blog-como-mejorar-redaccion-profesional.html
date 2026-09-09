@@ -362,145 +362,236 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-pen-ruler"></i> Redacción Ejecutiva
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo mejorar la redacción profesional</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 9 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Redacción Ejecutiva</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo mejorar la redacción profesional</h1>
+                <p class="blog-post-dek">Descubre cómo mejorar la redacción profesional con un proceso para definir propósito, ordenar ideas, escribir con claridad, recortar y revisar documentos.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Redacción Ejecutiva</span>
+                    <span>Publicado <time datetime="2026-09-09">9 de Septiembre, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/redaccion-ejecutiva-curso-escritura-profesional.webp" alt="Cómo mejorar la redacción profesional" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Escribir todos los días no produce automáticamente documentos claros. Es posible repetir durante años los mismos hábitos: comenzar sin propósito, acumular antecedentes, esconder la petición y revisar solo con el corrector automático. La práctica ayuda cuando tiene un criterio y una forma de observar el resultado.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Cómo mejorar la redacción profesional con un diagnóstico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Definir propósito, lector y acción esperada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Ordenar ideas antes de redactar párrafos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Escribir con claridad, precisión y voz activa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Recortar sin perder información necesaria
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Revisar en pasadas separadas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Practicar con retroalimentación y registro de cambios
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Escribir todos los días no produce automáticamente documentos claros. Es posible repetir durante años los mismos hábitos: comenzar sin propósito, acumular antecedentes, esconder la petición y revisar solo con el corrector automático. La práctica ayuda cuando tiene un criterio y una forma de observar el resultado.</p>
             <p>La redacción profesional se puede descomponer en decisiones concretas. Primero se define qué necesita el lector; después se ordena, redacta, recorta y revisa. Este artículo presenta un método para diagnosticar tus textos y mejorar con documentos reales, sin depender de palabras rebuscadas ni de una voz artificial.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para aprender cómo mejorar la redacción profesional, trabaja el proceso completo y no solo la ortografía: define propósito y lector, ordena las ideas antes del borrador, usa verbos concretos, coloca lo importante al inicio y elimina repeticiones. Después revisa contenido, estructura, claridad y corrección en pasadas separadas. La mejora se vuelve visible cuando comparas versiones y detectas patrones propios en correos, informes y propuestas.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para aprender cómo mejorar la redacción profesional, trabaja el proceso completo y no solo la ortografía: define propósito y lector, ordena las ideas antes del borrador, usa verbos concretos, coloca lo importante al inicio y elimina repeticiones. Después revisa contenido, estructura, claridad y corrección en pasadas separadas. La mejora se vuelve visible cuando comparas versiones y detectas patrones propios en correos, informes y propuestas.</p>
+                </aside>
 
-            <h2>Cómo mejorar la redacción profesional con un diagnóstico</h2>
-            <p>Reúne varios textos recientes: un correo, un informe y una propuesta, por ejemplo. Léelos como si no conocieras el contexto. Marca dónde aparece el propósito, cuánto tarda en llegar la idea principal, qué acciones se solicitan y qué frases tuviste que releer. Busca patrones, no errores aislados. Quizá repites antecedentes, abusas de sustantivos abstractos o dejas responsables implícitos.</p>
-            <p>Compara el texto con su resultado. ¿La persona respondió lo que necesitabas o pidió aclaraciones? ¿El documento facilitó una decisión? La reacción no siempre depende de la redacción, pero ofrece pistas. Conviene elegir uno o dos hábitos por ciclo: hacer visible la petición y acortar las aperturas, por ejemplo. Intentar corregir todo a la vez vuelve difícil reconocer qué cambio produjo avance.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Cómo mejorar la redacción profesional con un diagnóstico</h2>
+                <p>Reúne varios textos recientes: un correo, un informe y una propuesta, por ejemplo. Léelos como si no conocieras el contexto. Marca dónde aparece el propósito, cuánto tarda en llegar la idea principal, qué acciones se solicitan y qué frases tuviste que releer. Busca patrones, no errores aislados. Quizá repites antecedentes, abusas de sustantivos abstractos o dejas responsables implícitos.</p>
+                <p>Compara el texto con su resultado. ¿La persona respondió lo que necesitabas o pidió aclaraciones? ¿El documento facilitó una decisión? La reacción no siempre depende de la redacción, pero ofrece pistas. Conviene elegir uno o dos hábitos por ciclo: hacer visible la petición y acortar las aperturas, por ejemplo. Intentar corregir todo a la vez vuelve difícil reconocer qué cambio produjo avance.</p>
+            </section>
 
-            <h2>Definir propósito, lector y acción esperada</h2>
-            <p>Todo documento profesional existe para informar, coordinar, recomendar, solicitar o dejar registro. Puede combinar funciones, pero una debe dirigir el orden. Escribe en una línea qué debe saber o hacer el lector. Luego identifica qué conoce, qué vocabulario comparte contigo y qué objeción o duda razonable necesita respuesta.</p>
-            <p>La misma información cambia según el destinatario. Un equipo técnico puede requerir procedimiento y excepciones; una dirección necesita impacto, opciones y decisión; un cliente necesita alcance y siguiente paso. Adaptar no significa ocultar datos, sino jerarquizarlos. Si hay varias audiencias con necesidades incompatibles, prepara una síntesis común y anexos específicos, o separa los documentos.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Definir propósito, lector y acción esperada</h2>
+                <p>Todo documento profesional existe para informar, coordinar, recomendar, solicitar o dejar registro. Puede combinar funciones, pero una debe dirigir el orden. Escribe en una línea qué debe saber o hacer el lector. Luego identifica qué conoce, qué vocabulario comparte contigo y qué objeción o duda razonable necesita respuesta.</p>
+                <p>La misma información cambia según el destinatario. Un equipo técnico puede requerir procedimiento y excepciones; una dirección necesita impacto, opciones y decisión; un cliente necesita alcance y siguiente paso. Adaptar no significa ocultar datos, sino jerarquizarlos. Si hay varias audiencias con necesidades incompatibles, prepara una síntesis común y anexos específicos, o separa los documentos.</p>
+            </section>
 
-            <h2>Ordenar ideas antes de redactar párrafos</h2>
-            <p>Un esquema breve evita que el borrador siga el orden en que recordaste las cosas. Anota idea principal, evidencia necesaria, decisión o petición y siguiente paso. Después agrupa detalles bajo preguntas del lector. En un correo podrían ser «qué ocurrió», «qué necesito» y «para cuándo»; en un informe, «qué encontramos», «qué implica» y «qué proponemos».</p>
-            <p>Coloca primero lo que permite interpretar el resto. Los antecedentes deben aparecer cuando explican una decisión, no como ritual de apertura. Cada sección y cada párrafo necesitan una idea dominante. Si un bloque responde dos preguntas diferentes, divídelo. Si dos bloques dicen lo mismo con ejemplos distintos, elige el que aporta más. Ordenar antes reduce correcciones porque resuelve la arquitectura cuando todavía es fácil mover piezas.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Ordenar ideas antes de redactar párrafos</h2>
+                <p>Un esquema breve evita que el borrador siga el orden en que recordaste las cosas. Anota idea principal, evidencia necesaria, decisión o petición y siguiente paso. Después agrupa detalles bajo preguntas del lector. En un correo podrían ser «qué ocurrió», «qué necesito» y «para cuándo»; en un informe, «qué encontramos», «qué implica» y «qué proponemos».</p>
+                <p>Coloca primero lo que permite interpretar el resto. Los antecedentes deben aparecer cuando explican una decisión, no como ritual de apertura. Cada sección y cada párrafo necesitan una idea dominante. Si un bloque responde dos preguntas diferentes, divídelo. Si dos bloques dicen lo mismo con ejemplos distintos, elige el que aporta más. Ordenar antes reduce correcciones porque resuelve la arquitectura cuando todavía es fácil mover piezas.</p>
+            </section>
 
-            <h2>Escribir con claridad, precisión y voz activa</h2>
-            <p>Prefiere palabras concretas y verbos que muestren acción. «El equipo enviará la propuesta el martes» identifica responsable y tarea; «se procederá al envío correspondiente» oculta ambos y alarga la frase. La voz pasiva tiene usos legítimos cuando el resultado importa más que quien actúa, pero no debería borrar responsabilidades que el lector necesita conocer.</p>
-            <p>Evita convertir verbos en cadenas de sustantivos: «realizar la implementación de» suele poder convertirse en «implementar». Sustituye expresiones generales como «a la brevedad» por fechas o condiciones cuando existan. Define siglas la primera vez y conserva términos consistentes. Una palabra sofisticada no añade autoridad si introduce duda; en trabajo, la precisión permite coordinar.</p>
-            <ul>
-                <li>Usa una oración principal por idea y acerca sujeto, verbo y complemento.</li>
-                <li>Nombra responsables cuando la acción dependa de una persona o área.</li>
-                <li>Sustituye frases vagas por datos, fechas o condiciones disponibles.</li>
-                <li>Mantén el mismo término para el mismo objeto, proceso o versión.</li>
-                <li>Explica tecnicismos cuando el lector no comparta tu contexto.</li>
-            </ul>
-
-            <h2>Recortar sin perder información necesaria</h2>
-            <p>Concisión no significa escribir poco a cualquier costo. Significa que cada frase cumple una función. En la primera revisión, busca aperturas que anuncian lo que vas a decir, repeticiones, adjetivos sin evidencia y explicaciones que el lector ya conoce. Pregunta qué cambia si eliminas el fragmento. Si la respuesta es «nada», probablemente sobra.</p>
-            <p>También puedes comprimir al combinar ideas relacionadas. «La entrega llegó tarde. La entrega no tenía anexos. La entrega necesitó corrección» puede convertirse en «La entrega llegó tarde y sin anexos, por lo que requirió corrección». No juntes tanto que ocultes causas o responsables. Después de recortar, comprueba que todavía existan contexto, condición y acción. La meta es densidad útil, no frases telegráficas.</p>
-
-            <h2>Revisar en pasadas separadas</h2>
-            <p>Revisar contenido, estructura y comas al mismo tiempo agota la atención. Haz pasadas con objetivos distintos. Primero confirma exactitud y propósito; luego orden y transiciones; después claridad de oraciones; al final ortografía, puntuación y formato. Esta secuencia evita pulir párrafos que terminarán fuera y permite detectar problemas que un corrector automático no comprende.</p>
-            <p>Deja distancia cuando el plazo lo permita. Si no, cambia el formato, aumenta el tamaño de letra o lee en voz alta para romper la familiaridad. Verifica nombres, cifras, enlaces, archivos y permisos de acceso. En documentos sensibles, pide a otra persona que explique qué entendió y qué acción tomaría; su respuesta revela huecos con más precisión que un «se entiende bien».</p>
-            <ol>
-                <li>Contenido: confirmar propósito, datos y alcance.</li>
-                <li>Estructura: revisar orden, encabezados y progresión.</li>
-                <li>Claridad: acortar oraciones y hacer visibles responsables y acciones.</li>
-                <li>Corrección: revisar ortografía, puntuación y concordancia.</li>
-                <li>Entrega: comprobar formato, archivos, enlaces y destinatarios.</li>
-            </ol>
-
-            <h2>Practicar con retroalimentación y registro de cambios</h2>
-            <p>Guarda una versión antes y después de revisar. Anota qué cambiaste y por qué: mover la petición al inicio, dividir un párrafo o sustituir una frase vaga. Con el tiempo aparecerá un catálogo de patrones personales. Esa evidencia vuelve la práctica deliberada, porque la siguiente vez podrás detectar el hábito durante el borrador y no solo al final.</p>
-            <p>Pide retroalimentación específica. En lugar de «¿te gusta?», pregunta «¿qué acción entendiste?», «¿dónde perdiste el hilo?» o «¿qué información falta para decidir?». Practica sobre documentos reales sin exponer información confidencial. También puedes reescribir textos públicos o casos ficticios. La regularidad importa más que una sesión aislada: un criterio aplicado de forma constante termina convirtiéndose en hábito.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Desarrolla un proceso de escritura que puedas repetir</h3>
-                <p>El curso Redacción Ejecutiva de WorldBrain aborda diagnóstico de hábitos, estructura de mensajes y corrección para documentos profesionales. Si deseas conocer acceso, modalidad, horarios y costo vigente, escríbenos por WhatsApp y solicita los detalles antes de inscribirte.</p>
-                <a href="/redaccion-ejecutiva" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de redacción <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Escribir con claridad, precisión y voz activa</h2>
+                <p>Prefiere palabras concretas y verbos que muestren acción. «El equipo enviará la propuesta el martes» identifica responsable y tarea; «se procederá al envío correspondiente» oculta ambos y alarga la frase. La voz pasiva tiene usos legítimos cuando el resultado importa más que quien actúa, pero no debería borrar responsabilidades que el lector necesita conocer.</p>
+                <p>Evita convertir verbos en cadenas de sustantivos: «realizar la implementación de» suele poder convertirse en «implementar». Sustituye expresiones generales como «a la brevedad» por fechas o condiciones cuando existan. Define siglas la primera vez y conserva términos consistentes. Una palabra sofisticada no añade autoridad si introduce duda; en trabajo, la precisión permite coordinar.</p>
                 <ul>
-                <li><a href="/blog-como-redactar-correo-profesional">Cómo redactar un correo profesional</a></li>
-                <li><a href="/blog-informe-ejecutivo-estructura-ejemplo">Informe ejecutivo: estructura y ejemplo</a></li>
-                <li><a href="/blog-minuta-de-reunion-como-hacerla">Minuta de reunión: cómo hacerla</a></li>
-                <li><a href="/blog-ortografia-en-el-trabajo-errores-comunes">Ortografía en el trabajo: errores comunes</a></li>
+                    <li>Usa una oración principal por idea y acerca sujeto, verbo y complemento.</li>
+                    <li>Nombra responsables cuando la acción dependa de una persona o área.</li>
+                    <li>Sustituye frases vagas por datos, fechas o condiciones disponibles.</li>
+                    <li>Mantén el mismo término para el mismo objeto, proceso o versión.</li>
+                    <li>Explica tecnicismos cuando el lector no comparta tu contexto.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Mejorar la redacción profesional es solo corregir ortografía?</h3>
-                <p>No. La ortografía evita errores, pero un texto correcto puede seguir siendo confuso o poco útil. La redacción profesional también exige propósito, orden, precisión, tono, información suficiente y una acción visible. Conviene revisar primero contenido y estructura, y dejar la corrección ortográfica para una pasada posterior.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo puedo saber si mi texto es claro?</h3>
-                <p>Pide a una persona del público previsto que explique la idea principal y el siguiente paso sin recibir contexto adicional. También puedes leer solo asunto, apertura y encabezados. Si no se entiende propósito, conclusión o acción, ajusta la jerarquía. Las preguntas de aclaración que recibes en el trabajo son otra fuente útil de diagnóstico.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Leer más ayuda a redactar documentos profesionales?</h3>
-                <p>Ayuda a ampliar recursos y reconocer estructuras, pero conviene acompañarlo con escritura y revisión consciente. Observa cómo un buen documento presenta su propósito, organiza argumentos y cierra con acciones. Después aplica un recurso en un texto propio y compara versiones. Leer sin analizar ni practicar puede aumentar vocabulario sin cambiar los hábitos de organización.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuándo conviene pedir una segunda revisión?</h3>
-                <p>Cuando el documento afecta una decisión relevante, llega a una audiencia amplia, contiene información sensible o ya has trabajado tanto en él que dejaste de ver huecos. Define qué debe revisar la otra persona: datos, lógica, tono o corrección. Una solicitud específica produce comentarios más útiles que pedir una opinión general.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Una herramienta automática puede revisar toda la redacción?</h3>
-                <p>Puede detectar algunas faltas y sugerir cambios, pero no conoce por completo el propósito, la política interna ni lo que el lector necesita decidir. Revisa sus propuestas una por una y protege información confidencial. La responsabilidad sobre datos, tono, compromisos y destinatarios sigue siendo de quien envía el documento.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Recortar sin perder información necesaria</h2>
+                <p>Concisión no significa escribir poco a cualquier costo. Significa que cada frase cumple una función. En la primera revisión, busca aperturas que anuncian lo que vas a decir, repeticiones, adjetivos sin evidencia y explicaciones que el lector ya conoce. Pregunta qué cambia si eliminas el fragmento. Si la respuesta es «nada», probablemente sobra.</p>
+                <p>También puedes comprimir al combinar ideas relacionadas. «La entrega llegó tarde. La entrega no tenía anexos. La entrega necesitó corrección» puede convertirse en «La entrega llegó tarde y sin anexos, por lo que requirió corrección». No juntes tanto que ocultes causas o responsables. Después de recortar, comprueba que todavía existan contexto, condición y acción. La meta es densidad útil, no frases telegráficas.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Revisar en pasadas separadas</h2>
+                <p>Revisar contenido, estructura y comas al mismo tiempo agota la atención. Haz pasadas con objetivos distintos. Primero confirma exactitud y propósito; luego orden y transiciones; después claridad de oraciones; al final ortografía, puntuación y formato. Esta secuencia evita pulir párrafos que terminarán fuera y permite detectar problemas que un corrector automático no comprende.</p>
+                <p>Deja distancia cuando el plazo lo permita. Si no, cambia el formato, aumenta el tamaño de letra o lee en voz alta para romper la familiaridad. Verifica nombres, cifras, enlaces, archivos y permisos de acceso. En documentos sensibles, pide a otra persona que explique qué entendió y qué acción tomaría; su respuesta revela huecos con más precisión que un «se entiende bien».</p>
+                <ol>
+                    <li>Contenido: confirmar propósito, datos y alcance.</li>
+                    <li>Estructura: revisar orden, encabezados y progresión.</li>
+                    <li>Claridad: acortar oraciones y hacer visibles responsables y acciones.</li>
+                    <li>Corrección: revisar ortografía, puntuación y concordancia.</li>
+                    <li>Entrega: comprobar formato, archivos, enlaces y destinatarios.</li>
+                </ol>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Practicar con retroalimentación y registro de cambios</h2>
+                <p>Guarda una versión antes y después de revisar. Anota qué cambiaste y por qué: mover la petición al inicio, dividir un párrafo o sustituir una frase vaga. Con el tiempo aparecerá un catálogo de patrones personales. Esa evidencia vuelve la práctica deliberada, porque la siguiente vez podrás detectar el hábito durante el borrador y no solo al final.</p>
+                <p>Pide retroalimentación específica. En lugar de «¿te gusta?», pregunta «¿qué acción entendiste?», «¿dónde perdiste el hilo?» o «¿qué información falta para decidir?». Practica sobre documentos reales sin exponer información confidencial. También puedes reescribir textos públicos o casos ficticios. La regularidad importa más que una sesión aislada: un criterio aplicado de forma constante termina convirtiéndose en hábito.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Desarrolla un proceso de escritura que puedas repetir</h2>
+                    <p>El curso Redacción Ejecutiva de WorldBrain aborda diagnóstico de hábitos, estructura de mensajes y corrección para documentos profesionales. Si deseas conocer acceso, modalidad, horarios y costo vigente, escríbenos por WhatsApp y solicita los detalles antes de inscribirte.</p>
+                    <a href="/redaccion-ejecutiva" class="btn-primary">
+                        Ver el curso de redacción <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-redactar-correo-profesional">
+                            <span>Cómo redactar un correo profesional</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-informe-ejecutivo-estructura-ejemplo">
+                            <span>Informe ejecutivo: estructura y ejemplo</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-minuta-de-reunion-como-hacerla">
+                            <span>Minuta de reunión: cómo hacerla</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-ortografia-en-el-trabajo-errores-comunes">
+                            <span>Ortografía en el trabajo: errores comunes</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Mejorar la redacción profesional es solo corregir ortografía?</h3>
+                    <p>No. La ortografía evita errores, pero un texto correcto puede seguir siendo confuso o poco útil. La redacción profesional también exige propósito, orden, precisión, tono, información suficiente y una acción visible. Conviene revisar primero contenido y estructura, y dejar la corrección ortográfica para una pasada posterior.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo puedo saber si mi texto es claro?</h3>
+                    <p>Pide a una persona del público previsto que explique la idea principal y el siguiente paso sin recibir contexto adicional. También puedes leer solo asunto, apertura y encabezados. Si no se entiende propósito, conclusión o acción, ajusta la jerarquía. Las preguntas de aclaración que recibes en el trabajo son otra fuente útil de diagnóstico.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Leer más ayuda a redactar documentos profesionales?</h3>
+                    <p>Ayuda a ampliar recursos y reconocer estructuras, pero conviene acompañarlo con escritura y revisión consciente. Observa cómo un buen documento presenta su propósito, organiza argumentos y cierra con acciones. Después aplica un recurso en un texto propio y compara versiones. Leer sin analizar ni practicar puede aumentar vocabulario sin cambiar los hábitos de organización.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuándo conviene pedir una segunda revisión?</h3>
+                    <p>Cuando el documento afecta una decisión relevante, llega a una audiencia amplia, contiene información sensible o ya has trabajado tanto en él que dejaste de ver huecos. Define qué debe revisar la otra persona: datos, lógica, tono o corrección. Una solicitud específica produce comentarios más útiles que pedir una opinión general.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Una herramienta automática puede revisar toda la redacción?</h3>
+                    <p>Puede detectar algunas faltas y sugerir cambios, pero no conoce por completo el propósito, la política interna ni lo que el lector necesita decidir. Revisa sus propuestas una por una y protege información confidencial. La responsabilidad sobre datos, tono, compromisos y destinatarios sigue siendo de quien envía el documento.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -530,8 +621,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Cómo mejorar la redacción profesional con un diagnóstico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Definir propósito, lector y acción esperada
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Ordenar ideas antes de redactar párrafos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Escribir con claridad, precisión y voz activa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Recortar sin perder información necesaria
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Revisar en pasadas separadas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Practicar con retroalimentación y registro de cambios
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

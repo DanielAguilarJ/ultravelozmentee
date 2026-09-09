@@ -346,113 +346,188 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="5">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Memoria Prodigiosa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Técnicas de estudio: qué hacer en lugar de releer y subrayar todo</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 5 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Memoria Prodigiosa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Técnicas de estudio: qué hacer en lugar de releer y subrayar todo</h1>
+                <p class="blog-post-dek">Qué técnicas de estudio respaldadas por evidencia funcionan mejor que releer y subrayar, y cómo empezar a aplicarlas de forma práctica.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Memoria Prodigiosa</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>5 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/memoria-prodigiosa-curso-memorizar-mnemotecnia.webp" alt="Técnicas de estudio: qué hacer en lugar de releer y subrayar todo" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Releer un capítulo varias veces o subrayar frases enteras son las estrategias de estudio más comunes, precisamente porque se sienten productivas: uno termina la sesión con la impresión de haber "repasado mucho". El problema es que esa sensación de dominio no se traduce, de forma consistente, en mejor desempeño en un examen posterior.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué releer y subrayar generan una falsa sensación de dominio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Práctica de recuperación: la técnica con mayor respaldo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Repetición espaciada: distribuir el repaso en el tiempo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo combinar ambas técnicas en la práctica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Por qué estas técnicas se sienten más difíciles al inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué hacer con las técnicas populares que no funcionan bien
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Releer un capítulo varias veces o subrayar frases enteras son las estrategias de estudio más comunes, precisamente porque se sienten productivas: uno termina la sesión con la impresión de haber "repasado mucho". El problema es que esa sensación de dominio no se traduce, de forma consistente, en mejor desempeño en un examen posterior.</p>
             <p>Este artículo explica qué dice la evidencia sobre técnicas de estudio, por qué las más populares fallan, y cómo empezar a aplicar las que sí funcionan sin necesitar herramientas costosas ni cambios drásticos de rutina.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Las técnicas de estudio con mayor respaldo de evidencia son la práctica de recuperación (autoevaluarse sin ver el material) y la repetición espaciada (distribuir el repaso en el tiempo), muy por encima de releer o subrayar, que dan sensación de dominio sin generar aprendizaje duradero. Combinar ambas, aunque incomode al inicio, produce mejores resultados en exámenes reales.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Las técnicas de estudio con mayor respaldo de evidencia son la práctica de recuperación (autoevaluarse sin ver el material) y la repetición espaciada (distribuir el repaso en el tiempo), muy por encima de releer o subrayar, que dan sensación de dominio sin generar aprendizaje duradero. Combinar ambas, aunque incomode al inicio, produce mejores resultados en exámenes reales.</p>
+                </aside>
 
-            <h2>Por qué releer y subrayar generan una falsa sensación de dominio</h2>
-            <p>Releer un texto varias veces incrementa la familiaridad con las palabras, y esa familiaridad se confunde fácilmente con comprensión real. El cerebro reconoce el material como "ya visto" y esa sensación de fluidez se interpreta erróneamente como "ya lo sé".</p>
-            <p>Subrayar tiene un problema similar: el acto físico de marcar texto da la impresión de estar procesando activamente el contenido, cuando en realidad suele ser una decisión superficial sobre qué parece importante, sin exigir que el cerebro recupere o reconstruya la información desde cero.</p>
-            <p>La revisión de Dunlosky y colegas sobre técnicas de aprendizaje, ampliamente citada en investigación educativa, ubica el resaltado y la relectura entre las técnicas de menor utilidad comparadas con otras disponibles, precisamente por esta desconexión entre sensación de dominio y desempeño real.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué releer y subrayar generan una falsa sensación de dominio</h2>
+                <p>Releer un texto varias veces incrementa la familiaridad con las palabras, y esa familiaridad se confunde fácilmente con comprensión real. El cerebro reconoce el material como "ya visto" y esa sensación de fluidez se interpreta erróneamente como "ya lo sé".</p>
+                <p>Subrayar tiene un problema similar: el acto físico de marcar texto da la impresión de estar procesando activamente el contenido, cuando en realidad suele ser una decisión superficial sobre qué parece importante, sin exigir que el cerebro recupere o reconstruya la información desde cero.</p>
+                <p>La revisión de Dunlosky y colegas sobre técnicas de aprendizaje, ampliamente citada en investigación educativa, ubica el resaltado y la relectura entre las técnicas de menor utilidad comparadas con otras disponibles, precisamente por esta desconexión entre sensación de dominio y desempeño real.</p>
+            </section>
 
-            <h2>Práctica de recuperación: la técnica con mayor respaldo</h2>
-            <p>La práctica de recuperación consiste en intentar recordar información sin verla, en lugar de solo revisarla pasivamente. Esto puede ser tan simple como cerrar el libro y escribir todo lo que se recuerda del tema, o responder preguntas de práctica sin consultar apuntes primero.</p>
-            <p>El esfuerzo de recuperar información —incluso cuando falla parcialmente— fortalece la memoria de una forma que la relectura pasiva no logra. Ese esfuerzo, aunque se sienta incómodo o menos fluido que releer, es precisamente lo que genera el aprendizaje duradero.</p>
-            <ol>
-                <li>Leer o estudiar el material una primera vez de forma normal.</li>
-                <li>Cerrar el material y escribir o decir en voz alta todo lo que se recuerda.</li>
-                <li>Comparar lo recordado con el material original para identificar huecos.</li>
-                <li>Repetir el intento de recuperación en los días siguientes, no solo una vez.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Práctica de recuperación: la técnica con mayor respaldo</h2>
+                <p>La práctica de recuperación consiste en intentar recordar información sin verla, en lugar de solo revisarla pasivamente. Esto puede ser tan simple como cerrar el libro y escribir todo lo que se recuerda del tema, o responder preguntas de práctica sin consultar apuntes primero.</p>
+                <p>El esfuerzo de recuperar información —incluso cuando falla parcialmente— fortalece la memoria de una forma que la relectura pasiva no logra. Ese esfuerzo, aunque se sienta incómodo o menos fluido que releer, es precisamente lo que genera el aprendizaje duradero.</p>
+                <ol>
+                    <li>Leer o estudiar el material una primera vez de forma normal.</li>
+                    <li>Cerrar el material y escribir o decir en voz alta todo lo que se recuerda.</li>
+                    <li>Comparar lo recordado con el material original para identificar huecos.</li>
+                    <li>Repetir el intento de recuperación en los días siguientes, no solo una vez.</li>
+                </ol>
+            </section>
 
-            <h2>Repetición espaciada: distribuir el repaso en el tiempo</h2>
-            <p>Estudiar todo el contenido en una sola sesión larga (la práctica conocida como "cramming") produce resultados peores a mediano plazo que distribuir el mismo tiempo total en varias sesiones separadas por días. El cerebro consolida mejor la información cuando hay un intervalo de olvido parcial antes de repasar de nuevo.</p>
-            <p>No es necesario un sistema complejo de repetición: distribuir el estudio de un tema en tres o cuatro sesiones a lo largo de una semana, en lugar de concentrarlo todo la noche anterior al examen, ya produce una mejora notable en retención.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Repetición espaciada: distribuir el repaso en el tiempo</h2>
+                <p>Estudiar todo el contenido en una sola sesión larga (la práctica conocida como "cramming") produce resultados peores a mediano plazo que distribuir el mismo tiempo total en varias sesiones separadas por días. El cerebro consolida mejor la información cuando hay un intervalo de olvido parcial antes de repasar de nuevo.</p>
+                <p>No es necesario un sistema complejo de repetición: distribuir el estudio de un tema en tres o cuatro sesiones a lo largo de una semana, en lugar de concentrarlo todo la noche anterior al examen, ya produce una mejora notable en retención.</p>
+            </section>
 
-            <h2>Cómo combinar ambas técnicas en la práctica</h2>
-            <p>La combinación más efectiva es practicar recuperación de forma espaciada: intentar recordar el tema sin apoyo, dejar pasar uno o dos días, e intentarlo de nuevo. Cada intento posterior refuerza lo que ya se recuerda y expone con claridad lo que todavía falta reforzar.</p>
-            <p>Un estudiante puede empezar con algo simple: al terminar de estudiar un tema, escribir tres preguntas sobre ese contenido y responderlas sin apoyo dos días después. Este hábito, sostenido durante varias semanas, cambia notablemente la forma de prepararse para exámenes.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Cómo combinar ambas técnicas en la práctica</h2>
+                <p>La combinación más efectiva es practicar recuperación de forma espaciada: intentar recordar el tema sin apoyo, dejar pasar uno o dos días, e intentarlo de nuevo. Cada intento posterior refuerza lo que ya se recuerda y expone con claridad lo que todavía falta reforzar.</p>
+                <p>Un estudiante puede empezar con algo simple: al terminar de estudiar un tema, escribir tres preguntas sobre ese contenido y responderlas sin apoyo dos días después. Este hábito, sostenido durante varias semanas, cambia notablemente la forma de prepararse para exámenes.</p>
+            </section>
 
-            <h2>Por qué estas técnicas se sienten más difíciles al inicio</h2>
-            <p>Un efecto documentado en investigación sobre aprendizaje es que las técnicas efectivas suelen sentirse menos fluidas que releer, precisamente porque exigen esfuerzo de recuperación en lugar de reconocimiento pasivo. Esta incomodidad inicial lleva a muchos estudiantes a abandonarlas antes de notar sus beneficios.</p>
-            <p>Vale la pena anticipar esta sensación: sentir que "no se sabe tanto como se creía" al intentar recuperar información sin apoyo no es señal de que la técnica no funcione, es precisamente la señal de que está identificando huecos reales antes del examen, cuando todavía hay tiempo de corregirlos.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Por qué estas técnicas se sienten más difíciles al inicio</h2>
+                <p>Un efecto documentado en investigación sobre aprendizaje es que las técnicas efectivas suelen sentirse menos fluidas que releer, precisamente porque exigen esfuerzo de recuperación en lugar de reconocimiento pasivo. Esta incomodidad inicial lleva a muchos estudiantes a abandonarlas antes de notar sus beneficios.</p>
+                <p>Vale la pena anticipar esta sensación: sentir que "no se sabe tanto como se creía" al intentar recuperar información sin apoyo no es señal de que la técnica no funcione, es precisamente la señal de que está identificando huecos reales antes del examen, cuando todavía hay tiempo de corregirlos.</p>
+            </section>
 
-            <h2>Qué hacer con las técnicas populares que no funcionan bien</h2>
-            <p>No es necesario abandonar por completo la relectura o el subrayado; pueden servir como primer contacto con el material. El problema surge cuando son la única estrategia usada, sin complementarlas con práctica de recuperación posterior.</p>
-            <p>Un uso razonable es subrayar durante la primera lectura para identificar ideas centrales, y luego cerrar el libro para practicar recuperación sobre esas ideas señaladas, en lugar de depender solo de volver a leer lo subrayado repetidamente.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Qué hacer con las técnicas populares que no funcionan bien</h2>
+                <p>No es necesario abandonar por completo la relectura o el subrayado; pueden servir como primer contacto con el material. El problema surge cuando son la única estrategia usada, sin complementarlas con práctica de recuperación posterior.</p>
+                <p>Un uso razonable es subrayar durante la primera lectura para identificar ideas centrales, y luego cerrar el libro para practicar recuperación sobre esas ideas señaladas, en lugar de depender solo de volver a leer lo subrayado repetidamente.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Conoce Memoria Prodigiosa de Ultravelozmente</h3>
-                <p>Si quieres aprender a aplicar práctica de recuperación y repetición espaciada de forma estructurada, nuestro programa enseña estas técnicas con ejercicios guiados y seguimiento de avance.</p>
-                <a href="/memoria-prodigiosa" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer las técnicas de memorización <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Conoce Memoria Prodigiosa de Ultravelozmente</h2>
+                    <p>Si quieres aprender a aplicar práctica de recuperación y repetición espaciada de forma estructurada, nuestro programa enseña estas técnicas con ejercicios guiados y seguimiento de avance.</p>
+                    <a href="/memoria-prodigiosa" class="btn-primary">
+                        Conocer las técnicas de memorización <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo dejar de subrayar por completo?</h3>
-                <p>No es necesario eliminarlo del todo, pero no debe ser la única estrategia. Usarlo como primer contacto y complementarlo con práctica de recuperación posterior da mejores resultados que depender solo de releer lo subrayado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debo esperar entre una sesión de repaso y la siguiente?</h3>
-                <p>No hay un número fijo universal, pero distribuir el repaso en varios días —en lugar de una sola sesión larga— mejora la retención. Empezar con intervalos de uno o dos días es un punto de partida razonable.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Por qué me siento peor preparado cuando practico recuperación que cuando releo?</h3>
-                <p>Esa sensación es esperada: la práctica de recuperación expone huecos reales de memoria que la relectura pasiva no revela. Sentirse menos seguro al principio no significa que la técnica falle; suele significar lo contrario.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunloskyimprovinglearning.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. – Improving Students' Learning With Effective Learning Techniques</a> — Revisión comparativa de técnicas de estudio y su respaldo de evidencia</li>
-                <li><a href="https://www.cambridgeinternational.org/support-and-training-for-schools/teaching-cambridge-at-your-school/study-skills/" target="_blank" rel="noopener noreferrer">Universidad de Cambridge — Study Skills</a> — Referencia sobre estrategias de estudio efectivas por nivel educativo</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo dejar de subrayar por completo?</h3>
+                    <p>No es necesario eliminarlo del todo, pero no debe ser la única estrategia. Usarlo como primer contacto y complementarlo con práctica de recuperación posterior da mejores resultados que depender solo de releer lo subrayado.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debo esperar entre una sesión de repaso y la siguiente?</h3>
+                    <p>No hay un número fijo universal, pero distribuir el repaso en varios días —en lugar de una sola sesión larga— mejora la retención. Empezar con intervalos de uno o dos días es un punto de partida razonable.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Por qué me siento peor preparado cuando practico recuperación que cuando releo?</h3>
+                    <p>Esa sensación es esperada: la práctica de recuperación expone huecos reales de memoria que la relectura pasiva no revela. Sentirse menos seguro al principio no significa que la técnica falle; suele significar lo contrario.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunloskyimprovinglearning.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. – Improving Students' Learning With Effective Learning Techniques</a> — Revisión comparativa de técnicas de estudio y su respaldo de evidencia</li>
+                    <li><a href="https://www.cambridgeinternational.org/support-and-training-for-schools/teaching-cambridge-at-your-school/study-skills/" target="_blank" rel="noopener noreferrer">Universidad de Cambridge — Study Skills</a> — Referencia sobre estrategias de estudio efectivas por nivel educativo</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -482,8 +557,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué releer y subrayar generan una falsa sensación de dominio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Práctica de recuperación: la técnica con mayor respaldo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Repetición espaciada: distribuir el repaso en el tiempo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Cómo combinar ambas técnicas en la práctica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Por qué estas técnicas se sienten más difíciles al inicio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Qué hacer con las técnicas populares que no funcionan bien
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>5 min restantes</span>
+                        <span>Lectura estimada: 5 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

@@ -362,165 +362,254 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-book-open"></i> Fotolectura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo mejorar la comprensión lectora con preguntas antes, durante y después</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Fotolectura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo mejorar la comprensión lectora con preguntas antes, durante y después</h1>
+                <p class="blog-post-dek">Mejora tu comprensión lectora con una rutina de preguntas antes, durante y después de leer. Método verificable con resultados observables desde la primera semana.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Fotolectura</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fotolectura-curso-lectura-rapida-libro.webp" alt="Cómo mejorar la comprensión lectora con preguntas antes, durante y después" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Leer más no garantiza comprender más. Muchas personas terminan un capítulo y al cerrar el libro no pueden explicar qué decía. El problema no es falta de inteligencia ni de vocabulario: es que leer sin preguntas es como escuchar una conversación sin participar en ella.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>10 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué leer y comprender son procesos diferentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>El sistema de tres momentos: antes, durante y después
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Antes de leer: preparar el terreno mental
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Durante la lectura: monitorear la comprensión en tiempo real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Niveles de comprensión: literal, inferencial y crítica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Después de leer: consolidar y verificar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo convertir este sistema en hábito
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Cómo verificar que tu comprensión está mejorando
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Leer más no garantiza comprender más. Muchas personas terminan un capítulo y al cerrar el libro no pueden explicar qué decía. El problema no es falta de inteligencia ni de vocabulario: es que leer sin preguntas es como escuchar una conversación sin participar en ella.</p>
             <p>La comprensión lectora se entrena como cualquier habilidad: con un método específico, práctica deliberada y una forma de verificar el progreso. Este artículo te da un sistema basado en preguntas que transforma la lectura pasiva en comprensión real y medible.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para mejorar la comprensión lectora, formula preguntas antes de leer (qué esperas encontrar), durante la lectura (qué está diciendo el autor) y después de leer (qué puedes resumir sin ver el texto). Esta rutina de tres momentos convierte la lectura pasiva en procesamiento activo y produce mejoras notables en pocas semanas de práctica.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para mejorar la comprensión lectora, formula preguntas antes de leer (qué esperas encontrar), durante la lectura (qué está diciendo el autor) y después de leer (qué puedes resumir sin ver el texto). Esta rutina de tres momentos convierte la lectura pasiva en procesamiento activo y produce mejoras notables en pocas semanas de práctica.</p>
+                </aside>
 
-            <h2>Por qué leer y comprender son procesos diferentes</h2>
-            <p>Mover los ojos sobre las palabras y decodificar su significado individual es leer. Construir una representación mental coherente del texto, conectarla con lo que ya sabes y poder usarla después es comprender. Son procesos relacionados pero no idénticos.</p>
-            <p>Puedes leer un párrafo perfectamente en voz alta sin tener la menor idea de qué significaba. Esto ocurre porque la decodificación es automática en lectores adultos, pero la comprensión requiere esfuerzo cognitivo activo: hacer inferencias, conectar ideas, cuestionar y organizar la información.</p>
-            <p>La diferencia entre un lector que comprende y uno que no suele estar en la presencia o ausencia de procesamiento activo. Dos personas pueden leer el mismo texto en el mismo tiempo y una retener el 80% mientras la otra retiene el 20%. No es cuestión de inteligencia sino de qué hace cada cerebro mientras los ojos pasan por las palabras: uno construye significado, el otro simplemente decodifica.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué leer y comprender son procesos diferentes</h2>
+                <p>Mover los ojos sobre las palabras y decodificar su significado individual es leer. Construir una representación mental coherente del texto, conectarla con lo que ya sabes y poder usarla después es comprender. Son procesos relacionados pero no idénticos.</p>
+                <p>Puedes leer un párrafo perfectamente en voz alta sin tener la menor idea de qué significaba. Esto ocurre porque la decodificación es automática en lectores adultos, pero la comprensión requiere esfuerzo cognitivo activo: hacer inferencias, conectar ideas, cuestionar y organizar la información.</p>
+                <p>La diferencia entre un lector que comprende y uno que no suele estar en la presencia o ausencia de procesamiento activo. Dos personas pueden leer el mismo texto en el mismo tiempo y una retener el 80% mientras la otra retiene el 20%. No es cuestión de inteligencia sino de qué hace cada cerebro mientras los ojos pasan por las palabras: uno construye significado, el otro simplemente decodifica.</p>
+            </section>
 
-            <h2>El sistema de tres momentos: antes, durante y después</h2>
-            <p>Este método estructura la lectura en tres fases con preguntas específicas para cada una. No se trata de hacer un cuestionario formal; se trata de activar tu pensamiento en momentos clave para que el cerebro procese activamente en lugar de recibir pasivamente.</p>
-            <p>Las preguntas no tienen que ser escritas cada vez. Con la práctica, se vuelven un hábito mental que activas automáticamente al empezar a leer. Pero al principio, escribirlas ayuda a anclar el hábito.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">El sistema de tres momentos: antes, durante y después</h2>
+                <p>Este método estructura la lectura en tres fases con preguntas específicas para cada una. No se trata de hacer un cuestionario formal; se trata de activar tu pensamiento en momentos clave para que el cerebro procese activamente en lugar de recibir pasivamente.</p>
+                <p>Las preguntas no tienen que ser escritas cada vez. Con la práctica, se vuelven un hábito mental que activas automáticamente al empezar a leer. Pero al principio, escribirlas ayuda a anclar el hábito.</p>
+            </section>
 
-            <h2>Antes de leer: preparar el terreno mental</h2>
-            <p>Antes de sumergirte en el texto, dedica dos minutos a preparar tu mente. Revisa el título, los subtítulos, las imágenes y la primera oración de cada sección. Luego formula preguntas sobre lo que esperas encontrar.</p>
-            <p>Este paso activa tu conocimiento previo y crea expectativas que tu cerebro intentará confirmar o desmentir durante la lectura. Leer con expectativas es radicalmente más efectivo que leer en blanco.</p>
-            <ul>
-                <li>¿De qué creo que trata este texto basándome en el título y subtítulos?</li>
-                <li>¿Qué sé ya sobre este tema? ¿Qué me falta saber?</li>
-                <li>¿Qué preguntas específicas quiero que este texto me responda?</li>
-                <li>¿Para qué estoy leyendo esto? ¿Examen, trabajo, interés personal?</li>
-                <li>¿Qué tipo de texto es? ¿Argumentativo, informativo, narrativo?</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Antes de leer: preparar el terreno mental</h2>
+                <p>Antes de sumergirte en el texto, dedica dos minutos a preparar tu mente. Revisa el título, los subtítulos, las imágenes y la primera oración de cada sección. Luego formula preguntas sobre lo que esperas encontrar.</p>
+                <p>Este paso activa tu conocimiento previo y crea expectativas que tu cerebro intentará confirmar o desmentir durante la lectura. Leer con expectativas es radicalmente más efectivo que leer en blanco.</p>
+                <ul>
+                    <li>¿De qué creo que trata este texto basándome en el título y subtítulos?</li>
+                    <li>¿Qué sé ya sobre este tema? ¿Qué me falta saber?</li>
+                    <li>¿Qué preguntas específicas quiero que este texto me responda?</li>
+                    <li>¿Para qué estoy leyendo esto? ¿Examen, trabajo, interés personal?</li>
+                    <li>¿Qué tipo de texto es? ¿Argumentativo, informativo, narrativo?</li>
+                </ul>
+            </section>
 
-            <h2>Durante la lectura: monitorear la comprensión en tiempo real</h2>
-            <p>Mientras lees, tu tarea principal es detectar cuándo dejas de comprender. Parece obvio, pero muchas personas siguen leyendo en automático sin notar que perdieron el hilo tres párrafos atrás. El monitoreo activo consiste en verificar periódicamente si puedes explicar lo que acabas de leer.</p>
-            <p>Cada dos o tres párrafos, detente mentalmente y hazte una pregunta sencilla: ¿puedo resumir en una oración lo que acabo de leer? Si la respuesta es sí, continúa. Si es no, relee ese fragmento con más atención o identifica qué palabra o concepto te perdió.</p>
-            <p>Un truco práctico para el monitoreo: si descubres que llevas un párrafo entero pensando en otra cosa (la lista del súper, un problema del trabajo, una conversación pendiente), eso es una señal clara de que tu mente se desconectó del texto. No te frustres; simplemente vuelve al punto donde perdiste el hilo. Reconocer la distracción es parte del monitoreo activo y mejora con la práctica.</p>
-            <ol>
-                <li>Lee un bloque de dos a tres párrafos a tu velocidad normal.</li>
-                <li>Detente y formula mentalmente: ¿cuál es la idea principal de lo que leí?</li>
-                <li>Si puedes responder, continúa con el siguiente bloque.</li>
-                <li>Si no puedes, identifica dónde se rompió tu comprensión: ¿fue un concepto, una palabra, una conexión lógica?</li>
-                <li>Relee el fragmento problemático o marca la duda para investigar después.</li>
-                <li>Cuando el autor presenta un argumento, pregunta: ¿con qué evidencia lo sostiene?</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Durante la lectura: monitorear la comprensión en tiempo real</h2>
+                <p>Mientras lees, tu tarea principal es detectar cuándo dejas de comprender. Parece obvio, pero muchas personas siguen leyendo en automático sin notar que perdieron el hilo tres párrafos atrás. El monitoreo activo consiste en verificar periódicamente si puedes explicar lo que acabas de leer.</p>
+                <p>Cada dos o tres párrafos, detente mentalmente y hazte una pregunta sencilla: ¿puedo resumir en una oración lo que acabo de leer? Si la respuesta es sí, continúa. Si es no, relee ese fragmento con más atención o identifica qué palabra o concepto te perdió.</p>
+                <p>Un truco práctico para el monitoreo: si descubres que llevas un párrafo entero pensando en otra cosa (la lista del súper, un problema del trabajo, una conversación pendiente), eso es una señal clara de que tu mente se desconectó del texto. No te frustres; simplemente vuelve al punto donde perdiste el hilo. Reconocer la distracción es parte del monitoreo activo y mejora con la práctica.</p>
+                <ol>
+                    <li>Lee un bloque de dos a tres párrafos a tu velocidad normal.</li>
+                    <li>Detente y formula mentalmente: ¿cuál es la idea principal de lo que leí?</li>
+                    <li>Si puedes responder, continúa con el siguiente bloque.</li>
+                    <li>Si no puedes, identifica dónde se rompió tu comprensión: ¿fue un concepto, una palabra, una conexión lógica?</li>
+                    <li>Relee el fragmento problemático o marca la duda para investigar después.</li>
+                    <li>Cuando el autor presenta un argumento, pregunta: ¿con qué evidencia lo sostiene?</li>
+                </ol>
+            </section>
 
-            <h2>Niveles de comprensión: literal, inferencial y crítica</h2>
-            <p>No toda comprensión es igual. Existen al menos tres niveles que puedes trabajar de forma progresiva. La comprensión literal implica entender qué dice el texto explícitamente: datos, hechos, secuencias. La comprensión inferencial va más allá: deduces lo que el autor implica pero no dice directamente, las causas detrás de los hechos, las conexiones entre ideas distantes en el texto.</p>
-            <p>La comprensión crítica es el nivel más alto: evalúas la solidez del argumento, identificas sesgos, comparas con otras fuentes y formas tu propia postura. No todos los textos requieren los tres niveles, pero saber en cuál estás te permite dirigir tu esfuerzo. Un artículo informativo puede requerir solo comprensión literal e inferencial; un ensayo argumentativo exige los tres.</p>
-            <ul>
-                <li>Literal: ¿qué datos, hechos o instrucciones presenta el texto explícitamente?</li>
-                <li>Inferencial: ¿qué implica el autor sin decirlo directamente? ¿Qué causa lo que describe?</li>
-                <li>Crítica: ¿el argumento es sólido? ¿Hay evidencia suficiente? ¿Qué falta o se omite?</li>
-                <li>Para textos de estudio: busca al menos comprensión inferencial.</li>
-                <li>Para textos que usarás para tomar decisiones: necesitas comprensión crítica.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Niveles de comprensión: literal, inferencial y crítica</h2>
+                <p>No toda comprensión es igual. Existen al menos tres niveles que puedes trabajar de forma progresiva. La comprensión literal implica entender qué dice el texto explícitamente: datos, hechos, secuencias. La comprensión inferencial va más allá: deduces lo que el autor implica pero no dice directamente, las causas detrás de los hechos, las conexiones entre ideas distantes en el texto.</p>
+                <p>La comprensión crítica es el nivel más alto: evalúas la solidez del argumento, identificas sesgos, comparas con otras fuentes y formas tu propia postura. No todos los textos requieren los tres niveles, pero saber en cuál estás te permite dirigir tu esfuerzo. Un artículo informativo puede requerir solo comprensión literal e inferencial; un ensayo argumentativo exige los tres.</p>
+                <ul>
+                    <li>Literal: ¿qué datos, hechos o instrucciones presenta el texto explícitamente?</li>
+                    <li>Inferencial: ¿qué implica el autor sin decirlo directamente? ¿Qué causa lo que describe?</li>
+                    <li>Crítica: ¿el argumento es sólido? ¿Hay evidencia suficiente? ¿Qué falta o se omite?</li>
+                    <li>Para textos de estudio: busca al menos comprensión inferencial.</li>
+                    <li>Para textos que usarás para tomar decisiones: necesitas comprensión crítica.</li>
+                </ul>
+            </section>
 
-            <h2>Después de leer: consolidar y verificar</h2>
-            <p>El momento más importante para la comprensión es inmediatamente después de terminar la lectura. Aquí es donde decides si realmente entendiste o solo pasaste páginas. La verificación más efectiva es intentar explicar lo leído sin mirar el texto.</p>
-            <p>Escribe un resumen de tres a cinco oraciones con las ideas principales del texto. Luego compáralo con el texto original. Si tu resumen captura la estructura del argumento o la información central, tu comprensión fue buena. Si tiene lagunas o errores, sabes exactamente qué releer.</p>
-            <p>Un recurso adicional para anclar el hábito: vincúlalo a algo que ya haces todos los días. Si lees noticias con tu café matutino, aplica las preguntas de preparación antes de abrir el primer artículo. Si revisas reportes de trabajo antes de una junta, formula qué esperas encontrar antes de leerlos. El hábito se forma más fácido cuando se acopla a una rutina existente que cuando necesitas crear un momento nuevo de cero.</p>
-            <ul>
-                <li>Escribe un resumen de 3-5 oraciones sin ver el texto.</li>
-                <li>Responde tus preguntas iniciales: ¿el texto las resolvió?</li>
-                <li>Identifica una idea que te sorprendió o que no sabías antes.</li>
-                <li>Detecta una conexión con algo que ya sabías de otro contexto.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Después de leer: consolidar y verificar</h2>
+                <p>El momento más importante para la comprensión es inmediatamente después de terminar la lectura. Aquí es donde decides si realmente entendiste o solo pasaste páginas. La verificación más efectiva es intentar explicar lo leído sin mirar el texto.</p>
+                <p>Escribe un resumen de tres a cinco oraciones con las ideas principales del texto. Luego compáralo con el texto original. Si tu resumen captura la estructura del argumento o la información central, tu comprensión fue buena. Si tiene lagunas o errores, sabes exactamente qué releer.</p>
+                <p>Un recurso adicional para anclar el hábito: vincúlalo a algo que ya haces todos los días. Si lees noticias con tu café matutino, aplica las preguntas de preparación antes de abrir el primer artículo. Si revisas reportes de trabajo antes de una junta, formula qué esperas encontrar antes de leerlos. El hábito se forma más fácido cuando se acopla a una rutina existente que cuando necesitas crear un momento nuevo de cero.</p>
+                <ul>
+                    <li>Escribe un resumen de 3-5 oraciones sin ver el texto.</li>
+                    <li>Responde tus preguntas iniciales: ¿el texto las resolvió?</li>
+                    <li>Identifica una idea que te sorprendió o que no sabías antes.</li>
+                    <li>Detecta una conexión con algo que ya sabías de otro contexto.</li>
+                </ul>
+            </section>
 
-            <h2>Cómo convertir este sistema en hábito</h2>
-            <p>Las primeras veces, la rutina de preguntas se siente lenta y artificial. Esto es normal: estás añadiendo un paso consciente a un proceso que antes era automático. La buena noticia es que después de dos o tres semanas de práctica diaria, las preguntas se vuelven un reflejo mental que no consume tiempo adicional.</p>
-            <p>Empieza con textos cortos (artículos de 800-1,500 palabras) y aplica el sistema completo. Cuando se sienta natural, aplícalo a textos más largos. No intentes usarlo con un libro de trescientas páginas desde el primer día.</p>
-            <ol>
-                <li>Semana 1: practica solo el antes (preguntas de preparación) con un artículo diario.</li>
-                <li>Semana 2: añade el monitoreo durante la lectura (pausa cada 2-3 párrafos).</li>
-                <li>Semana 3: incorpora el después (resumen sin ver el texto) al terminar.</li>
-                <li>Semana 4: aplica las tres fases completas de forma integrada.</li>
-                <li>A partir de la semana 5: usa el sistema con textos más largos o complejos.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo convertir este sistema en hábito</h2>
+                <p>Las primeras veces, la rutina de preguntas se siente lenta y artificial. Esto es normal: estás añadiendo un paso consciente a un proceso que antes era automático. La buena noticia es que después de dos o tres semanas de práctica diaria, las preguntas se vuelven un reflejo mental que no consume tiempo adicional.</p>
+                <p>Empieza con textos cortos (artículos de 800-1,500 palabras) y aplica el sistema completo. Cuando se sienta natural, aplícalo a textos más largos. No intentes usarlo con un libro de trescientas páginas desde el primer día.</p>
+                <ol>
+                    <li>Semana 1: practica solo el antes (preguntas de preparación) con un artículo diario.</li>
+                    <li>Semana 2: añade el monitoreo durante la lectura (pausa cada 2-3 párrafos).</li>
+                    <li>Semana 3: incorpora el después (resumen sin ver el texto) al terminar.</li>
+                    <li>Semana 4: aplica las tres fases completas de forma integrada.</li>
+                    <li>A partir de la semana 5: usa el sistema con textos más largos o complejos.</li>
+                </ol>
+            </section>
 
-            <h2>Cómo verificar que tu comprensión está mejorando</h2>
-            <p>La mejora en comprensión lectora es observable si la mides. Cada semana, lee un texto nuevo de dificultad similar y responde cinco preguntas de comprensión sin consultarlo. Registra tu porcentaje de acierto. Después de cuatro semanas, compara tus resultados con la primera medición.</p>
-            <p>Otra señal de mejora: tus resúmenes post-lectura se vuelven más precisos, necesitas menos relecturas y puedes explicar lo leído a otra persona con claridad.</p>
-            <p>Una forma de hacer tangible la mejora es guardar tus resúmenes post-lectura de las primeras semanas y compararlos con los de la cuarta semana. Notarás que los resúmenes posteriores son más precisos, capturan mejor la estructura argumentativa del texto y contienen menos errores de interpretación. Esa evolución escrita es la evidencia más convincente de que tu comprensión está mejorando.</p>
+            <section class="ed-article-section" id="seccion-8" aria-labelledby="seccion-8-titulo">
+                <h2 id="seccion-8-titulo">Cómo verificar que tu comprensión está mejorando</h2>
+                <p>La mejora en comprensión lectora es observable si la mides. Cada semana, lee un texto nuevo de dificultad similar y responde cinco preguntas de comprensión sin consultarlo. Registra tu porcentaje de acierto. Después de cuatro semanas, compara tus resultados con la primera medición.</p>
+                <p>Otra señal de mejora: tus resúmenes post-lectura se vuelven más precisos, necesitas menos relecturas y puedes explicar lo leído a otra persona con claridad.</p>
+                <p>Una forma de hacer tangible la mejora es guardar tus resúmenes post-lectura de las primeras semanas y compararlos con los de la cuarta semana. Notarás que los resúmenes posteriores son más precisos, capturan mejor la estructura argumentativa del texto y contienen menos errores de interpretación. Esa evolución escrita es la evidencia más convincente de que tu comprensión está mejorando.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Comprensión y velocidad: un entrenamiento integrado</h3>
-                <p>Nuestro curso de Fotolectura no solo trabaja la velocidad: incluye un módulo completo de comprensión lectora con la rutina de tres momentos, ejercicios de monitoreo y mediciones semanales de progreso. Desarrolla ambas habilidades de forma equilibrada.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver el curso de lectura veloz <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Comprensión y velocidad: un entrenamiento integrado</h2>
+                    <p>Nuestro curso de Fotolectura no solo trabaja la velocidad: incluye un módulo completo de comprensión lectora con la rutina de tres momentos, ejercicios de monitoreo y mediciones semanales de progreso. Desarrolla ambas habilidades de forma equilibrada.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Ver el curso de lectura veloz <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Este método funciona para textos muy técnicos o especializados?</h3>
-                <p>Sí, pero con una adaptación: en textos técnicos necesitas verificar que comprendes la terminología antes de aplicar las preguntas de comprensión general. Si una palabra clave es desconocida, búscala antes de continuar. La rutina de preguntas sigue siendo la misma estructura.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo extra toma aplicar las preguntas antes y después?</h3>
-                <p>Al principio, entre tres y cinco minutos adicionales por texto. Después de tres semanas de práctica, las preguntas se integran al proceso de lectura y no suman tiempo perceptible. El antes toma un minuto y el después dos minutos.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es lo mismo que la técnica SQ3R?</h3>
-                <p>Es similar en estructura. SQ3R (Survey, Question, Read, Recite, Review) usa los mismos principios de preparación, lectura activa y verificación. Este artículo simplifica el proceso a tres momentos claros para hacerlo más accesible y fácil de recordar.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Los niños pueden usar este sistema?</h3>
-                <p>Sí, adaptándolo a su edad. Para niños de primaria, las preguntas pueden ser más simples: ¿de qué crees que trata? ¿qué pasó? ¿qué aprendiste? Para adolescentes, el sistema completo funciona sin modificaciones significativas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Funciona el método de preguntas si leo por placer y no por estudio?</h3>
-                <p>Sí, aunque de forma más ligera. Para lectura recreativa puedes usar solo el durante (monitorear si estás disfrutando y entendiendo) y el después (reflexionar brevemente sobre qué te pareció el texto). El antes puede limitarse a hojear la contraportada. El objetivo no es convertir el placer en tarea sino mantener la mente activa.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunloskyimprovinglearning.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. – Improving Students' Learning With Effective Learning Techniques</a> — Evidencia sobre la práctica de recuperación y la elaboración interrogativa como técnicas de comprensión</li>
-                <li><a href="https://www.routledge.com/Reading-Comprehension-Strategies/McNamara/p/book/9780805859676" target="_blank" rel="noopener noreferrer">McNamara, D. – Reading Comprehension Strategies: Theories, Interventions, and Technologies</a> — Marco teórico sobre estrategias metacognitivas de comprensión lectora</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Este método funciona para textos muy técnicos o especializados?</h3>
+                    <p>Sí, pero con una adaptación: en textos técnicos necesitas verificar que comprendes la terminología antes de aplicar las preguntas de comprensión general. Si una palabra clave es desconocida, búscala antes de continuar. La rutina de preguntas sigue siendo la misma estructura.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo extra toma aplicar las preguntas antes y después?</h3>
+                    <p>Al principio, entre tres y cinco minutos adicionales por texto. Después de tres semanas de práctica, las preguntas se integran al proceso de lectura y no suman tiempo perceptible. El antes toma un minuto y el después dos minutos.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es lo mismo que la técnica SQ3R?</h3>
+                    <p>Es similar en estructura. SQ3R (Survey, Question, Read, Recite, Review) usa los mismos principios de preparación, lectura activa y verificación. Este artículo simplifica el proceso a tres momentos claros para hacerlo más accesible y fácil de recordar.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Los niños pueden usar este sistema?</h3>
+                    <p>Sí, adaptándolo a su edad. Para niños de primaria, las preguntas pueden ser más simples: ¿de qué crees que trata? ¿qué pasó? ¿qué aprendiste? Para adolescentes, el sistema completo funciona sin modificaciones significativas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Funciona el método de preguntas si leo por placer y no por estudio?</h3>
+                    <p>Sí, aunque de forma más ligera. Para lectura recreativa puedes usar solo el durante (monitorear si estás disfrutando y entendiendo) y el después (reflexionar brevemente sobre qué te pareció el texto). El antes puede limitarse a hojear la contraportada. El objetivo no es convertir el placer en tarea sino mantener la mente activa.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunloskyimprovinglearning.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. – Improving Students' Learning With Effective Learning Techniques</a> — Evidencia sobre la práctica de recuperación y la elaboración interrogativa como técnicas de comprensión</li>
+                    <li><a href="https://www.routledge.com/Reading-Comprehension-Strategies/McNamara/p/book/9780805859676" target="_blank" rel="noopener noreferrer">McNamara, D. – Reading Comprehension Strategies: Theories, Interventions, and Technologies</a> — Marco teórico sobre estrategias metacognitivas de comprensión lectora</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -550,8 +639,72 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué leer y comprender son procesos diferentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>El sistema de tres momentos: antes, durante y después
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Antes de leer: preparar el terreno mental
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Durante la lectura: monitorear la comprensión en tiempo real
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Niveles de comprensión: literal, inferencial y crítica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Después de leer: consolidar y verificar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo convertir este sistema en hábito
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Cómo verificar que tu comprensión está mejorando
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

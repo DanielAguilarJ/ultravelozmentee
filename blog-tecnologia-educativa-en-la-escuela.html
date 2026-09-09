@@ -362,149 +362,247 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Tecnología educativa en la escuela: qué se usa y cómo evaluarla</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Tecnología educativa en la escuela: qué se usa y cómo evaluarla</h1>
+                <p class="blog-post-dek">Tecnología educativa en la escuela: qué se usa hoy, cómo saber si mejora el aprendizaje y qué preguntar al maestro sobre plataformas, tareas e IA.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Tecnología educativa en la escuela: qué se usa y cómo evaluarla" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Cada ciclo escolar aparecen plataformas nuevas, tabletas que se piden en la lista de útiles o avisos de que las tareas ahora se entregan en línea. Para las familias es difícil distinguir qué de eso es una mejora pedagógica real y qué es simplemente el mismo trabajo movido a una pantalla.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué usa hoy una escuela mexicana promedio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>La diferencia entre digitalizar y enseñar mejor
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Qué preguntar en la reunión con el maestro
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Tareas, plataformas y el problema de la doble entrega
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Inteligencia artificial en el salón: lo que ya está pasando
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: una escuela adopta tabletas a mitad del ciclo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué hacer cuando la escuela y la casa no coinciden
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Cada ciclo escolar aparecen plataformas nuevas, tabletas que se piden en la lista de útiles o avisos de que las tareas ahora se entregan en línea. Para las familias es difícil distinguir qué de eso es una mejora pedagógica real y qué es simplemente el mismo trabajo movido a una pantalla.</p>
             <p>Este artículo describe qué tipo de tecnología usa hoy una escuela mexicana promedio, cómo notar si está sumando algo al aprendizaje y qué preguntas concretas hacer en la reunión con el maestro para salir con información útil en lugar de generalidades.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>En la escuela, la tecnología educativa aparece sobre todo en tres formas: plataformas de gestión donde se entregan tareas y se consultan calificaciones, recursos digitales de apoyo dentro de la clase, y el uso de inteligencia artificial por parte de alumnos y docentes. Digitalizar un proceso no mejora el aprendizaje por sí solo; lo que cambia resultados es cómo se usa la herramienta en clase.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>En la escuela, la tecnología educativa aparece sobre todo en tres formas: plataformas de gestión donde se entregan tareas y se consultan calificaciones, recursos digitales de apoyo dentro de la clase, y el uso de inteligencia artificial por parte de alumnos y docentes. Digitalizar un proceso no mejora el aprendizaje por sí solo; lo que cambia resultados es cómo se usa la herramienta en clase.</p>
+                </aside>
 
-            <h2>Qué usa hoy una escuela mexicana promedio</h2>
-            <p>La capa más común es administrativa: una plataforma donde el docente publica tareas, los alumnos suben archivos y las familias consultan calificaciones o avisos. Esta capa no cambia cómo se enseña, pero sí cambia mucho la logística, y es la fuente más frecuente de problemas cuando no queda claro cómo funciona.</p>
-            <p>La segunda capa es de recursos dentro de la clase: proyector, videos, simuladores, ejercicios interactivos. Su valor depende por completo del uso. Un video que sustituye una explicación aporta poco; un simulador que permite probar qué pasa si cambias una variable enseña algo que el pizarrón no puede mostrar.</p>
-            <p>La tercera capa es la más reciente y la menos regulada: el uso de asistentes de inteligencia artificial, tanto por alumnos que resuelven tareas como por docentes que preparan material. Muchas escuelas todavía no tienen una postura escrita al respecto, y eso deja el criterio en manos de cada profesor.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué usa hoy una escuela mexicana promedio</h2>
+                <p>La capa más común es administrativa: una plataforma donde el docente publica tareas, los alumnos suben archivos y las familias consultan calificaciones o avisos. Esta capa no cambia cómo se enseña, pero sí cambia mucho la logística, y es la fuente más frecuente de problemas cuando no queda claro cómo funciona.</p>
+                <p>La segunda capa es de recursos dentro de la clase: proyector, videos, simuladores, ejercicios interactivos. Su valor depende por completo del uso. Un video que sustituye una explicación aporta poco; un simulador que permite probar qué pasa si cambias una variable enseña algo que el pizarrón no puede mostrar.</p>
+                <p>La tercera capa es la más reciente y la menos regulada: el uso de asistentes de inteligencia artificial, tanto por alumnos que resuelven tareas como por docentes que preparan material. Muchas escuelas todavía no tienen una postura escrita al respecto, y eso deja el criterio en manos de cada profesor.</p>
+            </section>
 
-            <h2>La diferencia entre digitalizar y enseñar mejor</h2>
-            <p>Digitalizar significa cambiar el soporte: un cuestionario en papel se vuelve un formulario en línea. El contenido, la exigencia y el tipo de pensamiento que se pide siguen siendo los mismos. No es negativo, pero tampoco es una mejora pedagógica, y conviene no confundir una cosa con la otra.</p>
-            <p>Enseñar mejor con tecnología ocurre cuando la herramienta permite algo que antes no se podía. Ver el efecto inmediato de mover una variable en una gráfica, recibir corrección en el momento del error en lugar de una semana después, o construir un programa que hace funcionar un motor son ejemplos de ese salto.</p>
-            <ul>
-                <li>Digitalización: mismo ejercicio, distinto soporte. Ahorra logística, no cambia el aprendizaje.</li>
-                <li>Retroalimentación inmediata: el error se corrige el mismo día, no a la semana siguiente.</li>
-                <li>Simulación y construcción: el alumno prueba hipótesis o produce algo funcional.</li>
-                <li>Colaboración real: varios alumnos trabajan sobre el mismo documento con roles definidos.</li>
-            </ul>
-
-            <h2>Qué preguntar en la reunión con el maestro</h2>
-            <p>Las reuniones escolares suelen ser breves, así que conviene llegar con preguntas concretas y no con inquietudes generales. Preguntar si usan tecnología produce una respuesta vaga; preguntar dónde se publican las tareas y con cuánta anticipación produce información que puedes usar el mismo día.</p>
-            <p>También vale preguntar por la postura sobre inteligencia artificial en esa materia específica. Los criterios varían de un profesor a otro dentro de la misma escuela, y saber qué está permitido evita que un alumno de buena fe entregue algo que se considera falta académica.</p>
-            <ul>
-                <li>¿En qué plataforma se publican las tareas y con cuánta anticipación aparecen?</li>
-                <li>¿Cómo se avisa cuando una entrega no se registró correctamente?</li>
-                <li>¿Qué se espera que el alumno haga sin ayuda de asistentes de inteligencia artificial?</li>
-                <li>¿Qué pasa si falla el internet en casa el día de una entrega?</li>
-                <li>¿Qué datos del alumno se registran en la plataforma y quién tiene acceso a ellos?</li>
-            </ul>
-
-            <h2>Tareas, plataformas y el problema de la doble entrega</h2>
-            <p>Un problema frecuente y poco discutido es la duplicidad: la tarea se anota en el cuaderno, se publica en la plataforma y se recuerda en un grupo de mensajería de padres. Con tres fuentes, es cuestión de tiempo que una contradiga a las otras y que alguien entregue fuera de plazo por seguir la equivocada.</p>
-            <p>La solución práctica es que la familia elija una sola fuente de verdad, preferentemente la plataforma oficial de la escuela, y trate el resto como recordatorio informal. Cuando hay discrepancia, se pregunta al docente en lugar de asumir que el grupo de mensajería tiene la versión correcta.</p>
-            <p>Vale también revisar con el estudiante cómo comprobar que una entrega se registró. Subir un archivo y ver la barra de progreso no garantiza que quedó guardado; la confirmación suele estar en un estado que dice entregado o en una marca de fecha. Enseñar ese paso evita reclamos difíciles de sostener después.</p>
-
-            <h2>Inteligencia artificial en el salón: lo que ya está pasando</h2>
-            <p>En muchos grupos ya hay alumnos entregando trabajos escritos con asistentes de inteligencia artificial, y docentes usando esas mismas herramientas para preparar ejercicios o rúbricas. Ninguna de las dos cosas es intrínsecamente problemática; lo problemático es que ocurra sin acuerdos explícitos sobre qué se espera del alumno.</p>
-            <p>Los docentes que han manejado mejor la transición suelen mover parte de la evaluación a formatos donde la herramienta no puede sustituir al estudiante: explicación oral, resolución en clase, defensa del propio trabajo. Eso no prohíbe la IA, la coloca donde sí ayuda, que es la preparación previa.</p>
-            <p>Para la familia, el punto útil es no asumir una regla general. Conviene preguntar por materia y dejar claro en casa que si el estudiante no puede explicar lo que entregó, el trabajo no está terminado, independientemente de lo que diga el reglamento escolar.</p>
-
-            <h2>Ejemplo aplicado: una escuela adopta tabletas a mitad del ciclo</h2>
-            <p>Una secundaria decide, a mitad del ciclo, que tres materias trabajarán con tabletas y que las entregas pasan a una plataforma nueva. El aviso llega en una circular breve, sin capacitación para las familias, y en dos semanas empiezan los reportes de tareas no registradas.</p>
-            <p>Un padre decide, en lugar de reclamar en el grupo de mensajería, sentarse veinte minutos con su hija a recorrer la plataforma. Descubren dos cosas: que las tareas se publican con fecha límite a las once de la noche y que subir un archivo requiere un paso final de confirmación que ella no estaba haciendo.</p>
-            <p>Con eso resuelven el problema logístico. La segunda pregunta es pedagógica, y la llevan a la reunión con los docentes: qué se hace distinto en clase ahora que hay tabletas. En dos materias la respuesta es concreta, con simuladores y ejercicios corregidos en el momento. En la tercera, la respuesta es que ahora los cuestionarios son digitales.</p>
-            <p>Esa diferencia les da una lectura útil. En las dos primeras materias apoyan el uso y ayudan a que la tableta esté cargada y disponible. En la tercera, mantienen el cuaderno como respaldo y no invierten más energía, porque saben que el cambio fue de soporte y no de método.</p>
-
-            <h2>Qué hacer cuando la escuela y la casa no coinciden</h2>
-            <p>Puede ocurrir que la escuela permita más de lo que la familia considera adecuado, o al contrario, que exija dispositivos que en casa no se quieren dar todavía. En ambos casos, el camino es plantearlo con el docente o la coordinación antes de convertirlo en un conflicto con el estudiante en medio.</p>
-            <p>Si la escuela exige un recurso que en casa no está disponible, conviene decirlo de forma explícita y pedir una alternativa. Es una situación más común de lo que parece y la mayoría de los docentes tiene margen para ofrecer otra forma de entrega si se les avisa con tiempo.</p>
-            <p>Cuando la diferencia es de criterio y no de recursos, la casa mantiene sus propias reglas dentro de casa. Que la escuela permita usar celular en clase no obliga a permitirlo por la noche en la recámara. Explicar al estudiante que son dos ámbitos distintos, con reglas propias, evita que lo lea como incoherencia.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Cuando la escuela digitaliza pero no construye</h3>
-                <p>Si notas que en la escuela la tecnología se quedó en cambiar el soporte de las tareas, un espacio extraescolar donde el estudiante construya algo funcional compensa bien ese vacío. Robotics Code trabaja precisamente en esa capa: programar, probar, fallar y corregir sobre un proyecto propio. Revisa cómo se estructura y qué se espera del alumno.</p>
-                <a href="/robotics" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso de robótica y programación <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">La diferencia entre digitalizar y enseñar mejor</h2>
+                <p>Digitalizar significa cambiar el soporte: un cuestionario en papel se vuelve un formulario en línea. El contenido, la exigencia y el tipo de pensamiento que se pide siguen siendo los mismos. No es negativo, pero tampoco es una mejora pedagógica, y conviene no confundir una cosa con la otra.</p>
+                <p>Enseñar mejor con tecnología ocurre cuando la herramienta permite algo que antes no se podía. Ver el efecto inmediato de mover una variable en una gráfica, recibir corrección en el momento del error en lugar de una semana después, o construir un programa que hace funcionar un motor son ejemplos de ese salto.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-para-padres">Tecnología educativa para padres: cómo acompañar sin ser experto</a></li>
-                <li><a href="/blog-tecnologia-educativa-preguntas-frecuentes">Preguntas frecuentes sobre tecnología educativa</a></li>
-                <li><a href="/blog-tecnologia-educativa-checklist">Checklist para evaluar tecnología educativa antes de usarla</a></li>
+                    <li>Digitalización: mismo ejercicio, distinto soporte. Ahorra logística, no cambia el aprendizaje.</li>
+                    <li>Retroalimentación inmediata: el error se corrige el mismo día, no a la semana siguiente.</li>
+                    <li>Simulación y construcción: el alumno prueba hipótesis o produce algo funcional.</li>
+                    <li>Colaboración real: varios alumnos trabajan sobre el mismo documento con roles definidos.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo verifico si una plataforma escolar es segura?</h3>
-                <p>Pregunta a la escuela qué datos del alumno se registran, quién puede consultarlos y si existe un aviso de privacidad disponible. Revisa que el acceso sea con contraseña individual y no compartida por grupo. Si la plataforma pide datos que no parecen necesarios para la función escolar, pregunta explícitamente para qué se usan.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi hijo pierde una tarea por un problema técnico?</h3>
-                <p>Reúne la evidencia disponible, como una captura de pantalla del archivo o del error, y avisa al docente lo antes posible en lugar de esperar la siguiente clase. La mayoría de los profesores acepta una explicación oportuna con evidencia. Después conviene revisar juntos el paso donde falló el proceso para que no se repita.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es normal que cada maestro use una plataforma distinta?</h3>
-                <p>Ocurre con frecuencia, sobre todo en secundaria y bachillerato, y complica el seguimiento. Si pasa, ayuda mucho que el estudiante concentre en un solo calendario todas las fechas de entrega, sin importar en qué plataforma vive cada tarea. La dispersión de plataformas se compensa con una sola agenda.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo pedir que la escuela prohíba la inteligencia artificial?</h3>
-                <p>Prohibirla por completo es difícil de aplicar y deja al estudiante sin criterio para cuando la use fuera. Suele ser más productivo pedir claridad: qué está permitido en cada materia y cómo se evalúa que el alumno realmente comprendió, por ejemplo con explicaciones orales o resolución en clase.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Sirve el proyector y el video en clase?</h3>
-                <p>Sirven cuando muestran algo que no se puede explicar solo con palabras, como un proceso, un experimento o una simulación. Cuando sustituyen la explicación del docente sin actividad posterior, el efecto es menor, porque el alumno reconoce el contenido sin haberlo practicado. Lo que consolida es lo que se hace después del video.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Qué preguntar en la reunión con el maestro</h2>
+                <p>Las reuniones escolares suelen ser breves, así que conviene llegar con preguntas concretas y no con inquietudes generales. Preguntar si usan tecnología produce una respuesta vaga; preguntar dónde se publican las tareas y con cuánta anticipación produce información que puedes usar el mismo día.</p>
+                <p>También vale preguntar por la postura sobre inteligencia artificial en esa materia específica. Los criterios varían de un profesor a otro dentro de la misma escuela, y saber qué está permitido evita que un alumno de buena fe entregue algo que se considera falta académica.</p>
+                <ul>
+                    <li>¿En qué plataforma se publican las tareas y con cuánta anticipación aparecen?</li>
+                    <li>¿Cómo se avisa cuando una entrega no se registró correctamente?</li>
+                    <li>¿Qué se espera que el alumno haga sin ayuda de asistentes de inteligencia artificial?</li>
+                    <li>¿Qué pasa si falla el internet en casa el día de una entrega?</li>
+                    <li>¿Qué datos del alumno se registran en la plataforma y quién tiene acceso a ellos?</li>
+                </ul>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/sep" target="_blank" rel="noopener noreferrer">Secretaría de Educación Pública (SEP)</a> — Verificar programas, materiales y disposiciones oficiales vigentes</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Tareas, plataformas y el problema de la doble entrega</h2>
+                <p>Un problema frecuente y poco discutido es la duplicidad: la tarea se anota en el cuaderno, se publica en la plataforma y se recuerda en un grupo de mensajería de padres. Con tres fuentes, es cuestión de tiempo que una contradiga a las otras y que alguien entregue fuera de plazo por seguir la equivocada.</p>
+                <p>La solución práctica es que la familia elija una sola fuente de verdad, preferentemente la plataforma oficial de la escuela, y trate el resto como recordatorio informal. Cuando hay discrepancia, se pregunta al docente en lugar de asumir que el grupo de mensajería tiene la versión correcta.</p>
+                <p>Vale también revisar con el estudiante cómo comprobar que una entrega se registró. Subir un archivo y ver la barra de progreso no garantiza que quedó guardado; la confirmación suele estar en un estado que dice entregado o en una marca de fecha. Enseñar ese paso evita reclamos difíciles de sostener después.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Inteligencia artificial en el salón: lo que ya está pasando</h2>
+                <p>En muchos grupos ya hay alumnos entregando trabajos escritos con asistentes de inteligencia artificial, y docentes usando esas mismas herramientas para preparar ejercicios o rúbricas. Ninguna de las dos cosas es intrínsecamente problemática; lo problemático es que ocurra sin acuerdos explícitos sobre qué se espera del alumno.</p>
+                <p>Los docentes que han manejado mejor la transición suelen mover parte de la evaluación a formatos donde la herramienta no puede sustituir al estudiante: explicación oral, resolución en clase, defensa del propio trabajo. Eso no prohíbe la IA, la coloca donde sí ayuda, que es la preparación previa.</p>
+                <p>Para la familia, el punto útil es no asumir una regla general. Conviene preguntar por materia y dejar claro en casa que si el estudiante no puede explicar lo que entregó, el trabajo no está terminado, independientemente de lo que diga el reglamento escolar.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: una escuela adopta tabletas a mitad del ciclo</h2>
+                <p>Una secundaria decide, a mitad del ciclo, que tres materias trabajarán con tabletas y que las entregas pasan a una plataforma nueva. El aviso llega en una circular breve, sin capacitación para las familias, y en dos semanas empiezan los reportes de tareas no registradas.</p>
+                <p>Un padre decide, en lugar de reclamar en el grupo de mensajería, sentarse veinte minutos con su hija a recorrer la plataforma. Descubren dos cosas: que las tareas se publican con fecha límite a las once de la noche y que subir un archivo requiere un paso final de confirmación que ella no estaba haciendo.</p>
+                <p>Con eso resuelven el problema logístico. La segunda pregunta es pedagógica, y la llevan a la reunión con los docentes: qué se hace distinto en clase ahora que hay tabletas. En dos materias la respuesta es concreta, con simuladores y ejercicios corregidos en el momento. En la tercera, la respuesta es que ahora los cuestionarios son digitales.</p>
+                <p>Esa diferencia les da una lectura útil. En las dos primeras materias apoyan el uso y ayudan a que la tableta esté cargada y disponible. En la tercera, mantienen el cuaderno como respaldo y no invierten más energía, porque saben que el cambio fue de soporte y no de método.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Qué hacer cuando la escuela y la casa no coinciden</h2>
+                <p>Puede ocurrir que la escuela permita más de lo que la familia considera adecuado, o al contrario, que exija dispositivos que en casa no se quieren dar todavía. En ambos casos, el camino es plantearlo con el docente o la coordinación antes de convertirlo en un conflicto con el estudiante en medio.</p>
+                <p>Si la escuela exige un recurso que en casa no está disponible, conviene decirlo de forma explícita y pedir una alternativa. Es una situación más común de lo que parece y la mayoría de los docentes tiene margen para ofrecer otra forma de entrega si se les avisa con tiempo.</p>
+                <p>Cuando la diferencia es de criterio y no de recursos, la casa mantiene sus propias reglas dentro de casa. Que la escuela permita usar celular en clase no obliga a permitirlo por la noche en la recámara. Explicar al estudiante que son dos ámbitos distintos, con reglas propias, evita que lo lea como incoherencia.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Cuando la escuela digitaliza pero no construye</h2>
+                    <p>Si notas que en la escuela la tecnología se quedó en cambiar el soporte de las tareas, un espacio extraescolar donde el estudiante construya algo funcional compensa bien ese vacío. Robotics Code trabaja precisamente en esa capa: programar, probar, fallar y corregir sobre un proyecto propio. Revisa cómo se estructura y qué se espera del alumno.</p>
+                    <a href="/robotics" class="btn-primary">
+                        Curso de robótica y programación <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-para-padres">
+                            <span>Tecnología educativa para padres: cómo acompañar sin ser experto</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-preguntas-frecuentes">
+                            <span>Preguntas frecuentes sobre tecnología educativa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-checklist">
+                            <span>Checklist para evaluar tecnología educativa antes de usarla</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo verifico si una plataforma escolar es segura?</h3>
+                    <p>Pregunta a la escuela qué datos del alumno se registran, quién puede consultarlos y si existe un aviso de privacidad disponible. Revisa que el acceso sea con contraseña individual y no compartida por grupo. Si la plataforma pide datos que no parecen necesarios para la función escolar, pregunta explícitamente para qué se usan.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi hijo pierde una tarea por un problema técnico?</h3>
+                    <p>Reúne la evidencia disponible, como una captura de pantalla del archivo o del error, y avisa al docente lo antes posible en lugar de esperar la siguiente clase. La mayoría de los profesores acepta una explicación oportuna con evidencia. Después conviene revisar juntos el paso donde falló el proceso para que no se repita.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es normal que cada maestro use una plataforma distinta?</h3>
+                    <p>Ocurre con frecuencia, sobre todo en secundaria y bachillerato, y complica el seguimiento. Si pasa, ayuda mucho que el estudiante concentre en un solo calendario todas las fechas de entrega, sin importar en qué plataforma vive cada tarea. La dispersión de plataformas se compensa con una sola agenda.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo pedir que la escuela prohíba la inteligencia artificial?</h3>
+                    <p>Prohibirla por completo es difícil de aplicar y deja al estudiante sin criterio para cuando la use fuera. Suele ser más productivo pedir claridad: qué está permitido en cada materia y cómo se evalúa que el alumno realmente comprendió, por ejemplo con explicaciones orales o resolución en clase.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Sirve el proyector y el video en clase?</h3>
+                    <p>Sirven cuando muestran algo que no se puede explicar solo con palabras, como un proceso, un experimento o una simulación. Cuando sustituyen la explicación del docente sin actividad posterior, el efecto es menor, porque el alumno reconoce el contenido sin haberlo practicado. Lo que consolida es lo que se hace después del video.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/sep" target="_blank" rel="noopener noreferrer">Secretaría de Educación Pública (SEP)</a> — Verificar programas, materiales y disposiciones oficiales vigentes</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -534,8 +632,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué usa hoy una escuela mexicana promedio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>La diferencia entre digitalizar y enseñar mejor
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Qué preguntar en la reunión con el maestro
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Tareas, plataformas y el problema de la doble entrega
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Inteligencia artificial en el salón: lo que ya está pasando
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: una escuela adopta tabletas a mitad del ciclo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué hacer cuando la escuela y la casa no coinciden
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

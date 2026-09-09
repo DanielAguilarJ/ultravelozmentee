@@ -362,157 +362,250 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="9">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Primeros pasos de productividad estudiantil: nivel básico</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 9 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Primeros pasos de productividad estudiantil: nivel básico</h1>
+                <p class="blog-post-dek">Primeros pasos de productividad estudiantil para quien nunca ha usado un sistema: captura, agenda y una rutina mínima que sí se sostiene entre clases.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>9 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Primeros pasos de productividad estudiantil: nivel básico" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La mayoría de los estudiantes que dicen no ser organizados en realidad nunca han probado un sistema: han probado una app. Descargan algo con calendarios de colores, listas anidadas y etiquetas, la usan tres días con entusiasmo y la abandonan cuando llega la primera semana de exámenes. El problema casi nunca es la herramienta; es que se intentó empezar por la parte más compleja de un hábito que todavía no existía.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué fallan los primeros intentos de organizarse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Las tres piezas mínimas de un sistema que se sostiene
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo elegir herramientas sin complicarte
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Tu primera semana: instalar el hábito de capturar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: Diana empieza desde cero
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores frecuentes al arrancar y cómo corregirlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cuándo pasar al siguiente nivel
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La mayoría de los estudiantes que dicen no ser organizados en realidad nunca han probado un sistema: han probado una app. Descargan algo con calendarios de colores, listas anidadas y etiquetas, la usan tres días con entusiasmo y la abandonan cuando llega la primera semana de exámenes. El problema casi nunca es la herramienta; es que se intentó empezar por la parte más compleja de un hábito que todavía no existía.</p>
             <p>Este texto asume que partes de cero. No vas a configurar tableros ni a aprender siglas de metodologías: vas a instalar tres piezas básicas —capturar, agendar y revisar— y a practicarlas hasta que dejen de costarte atención. Es un nivel básico deliberado, con pocas reglas y espacio para crecer cuando ya funcionen sin esfuerzo.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Si nunca has usado un sistema de productividad, empieza con tres piezas mínimas: un lugar único donde anotas todo lo que llega, un calendario con las fechas que no se mueven y una revisión breve al final del día. Con eso dejas de recordar tareas de memoria. Los métodos más elaborados llegan después, cuando la costumbre ya existe.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Si nunca has usado un sistema de productividad, empieza con tres piezas mínimas: un lugar único donde anotas todo lo que llega, un calendario con las fechas que no se mueven y una revisión breve al final del día. Con eso dejas de recordar tareas de memoria. Los métodos más elaborados llegan después, cuando la costumbre ya existe.</p>
+                </aside>
 
-            <h2>Por qué fallan los primeros intentos de organizarse</h2>
-            <p>El patrón se repite: alguien decide organizarse, elige la herramienta más completa que encuentra y la llena de estructura antes de tener contenido que ordenar. Crea categorías para materias que apenas empiezan y recordatorios para cosas que aún no existen. Ese montaje da una sensación de control, pero es trabajo sobre el sistema, no trabajo real. Cuando llega la carga académica de verdad, mantener la estructura se vuelve una tarea más y el sistema es lo primero que se abandona.</p>
-            <p>El segundo error es empezar con demasiadas reglas al mismo tiempo. Un plan que exige planear el domingo, revisar cada mañana, cerrar cada noche, medir el tiempo por materia y bloquear distractores no falla por ser malo: falla porque son cinco hábitos nuevos compitiendo por la misma fuerza de voluntad. En nivel básico conviene lo contrario, una sola regla a la vez.</p>
-            <ul>
-                <li>Elegir herramienta antes de definir qué problema quieres resolver.</li>
-                <li>Adoptar cinco hábitos nuevos en la misma semana.</li>
-                <li>Abandonar el sistema completo tras el primer día en que no lo usaste.</li>
-            </ul>
-
-            <h2>Las tres piezas mínimas de un sistema que se sostiene</h2>
-            <p>Un sistema básico funcional necesita solo tres funciones. La primera es captura: un lugar único donde anotas cualquier cosa que tengas que hacer, en el momento en que aparece. La segunda es calendario, donde van únicamente las cosas con fecha y hora fija. La tercera es revisión: un momento corto y recurrente para mirar lo capturado y decidir qué sigue.</p>
-            <p>La clave está en no mezclarlas. La captura debe ser rápida y desordenada: si te obligas a clasificar mientras anotas, dejarás de anotar. El calendario debe permanecer limpio, porque si metes ahí intenciones sin compromiso real deja de ser confiable y empiezas a ignorarlo. La revisión conecta ambas cosas y convierte una lista suelta en un plan.</p>
-            <ul>
-                <li>Captura: una sola bandeja, siempre a mano, para todo lo que llega.</li>
-                <li>Calendario: solo compromisos con fecha y hora que no se negocian.</li>
-                <li>Revisión: cinco minutos al final del día para ordenar lo capturado.</li>
-            </ul>
-
-            <h2>Cómo elegir herramientas sin complicarte</h2>
-            <p>En nivel básico la mejor herramienta es la que ya sabes usar. Una libreta pequeña, la app de notas del teléfono o el calendario preinstalado cubren las tres funciones. Lo que importa es que sea una sola por función: si anotas tareas en tres lugares distintos, ninguno es confiable y volverás a depender de la memoria.</p>
-            <p>Hay dos criterios prácticos para decidir. El primero es velocidad de acceso: si anotar algo te toma más de diez segundos, no lo harás al salir de clase con prisa. El segundo es que sobreviva a tu día real; si tu teléfono se queda sin batería a media tarde, el papel puede ser más estable. Prueba una configuración dos semanas completas antes de cambiarla.</p>
-            <ul>
-                <li>Una sola bandeja de captura, aunque sea una nota del teléfono.</li>
-                <li>Un solo calendario, con recordatorios activados para lo que tiene fecha.</li>
-                <li>Cero apps nuevas hasta que las dos anteriores lleven un mes funcionando.</li>
-            </ul>
-
-            <h2>Tu primera semana: instalar el hábito de capturar</h2>
-            <p>La primera semana tiene un solo objetivo: que nada quede solo en tu cabeza. No vas a priorizar ni a medir tu tiempo. Cada vez que un profesor mencione una entrega o recuerdes un trámite pendiente, lo anotas en tu bandeja. Parece demasiado simple, pero es la pieza que sostiene todo lo demás, porque libera la atención que gastabas en recordar.</p>
-            <p>Al final del día dedicas cinco minutos a mirar lo capturado. De cada línea decides una de tres cosas: tiene fecha fija y se va al calendario, se puede hacer mañana y se queda en la lista, o ya no aplica y se borra. Esa revisión corta evita que tu bandeja se vuelva un basurero de notas.</p>
-            <ol>
-                <li>Elige una sola bandeja de captura y déjala accesible en la pantalla de inicio o en tu mochila.</li>
-                <li>Anota todo lo que aparezca, sin ordenar ni clasificar, en cuanto lo escuches.</li>
-                <li>Pasa al calendario únicamente lo que tenga fecha y hora fija.</li>
-                <li>Revisa la bandeja cinco minutos antes de dormir y decide: agendar, mantener o borrar.</li>
-            </ol>
-
-            <h2>Ejemplo aplicado: Diana empieza desde cero</h2>
-            <p>Diana está en quinto semestre de bachillerato y se prepara para presentar examen de admisión. Nunca ha usado agenda: sabe sus fechas porque las recuerda o porque alguien del grupo las menciona. Este semestre entregó tarde un trabajo que sí había hecho, solo porque olvidó la fecha límite. Su primer impulso es descargar una app con tableros, pero la abandona en cuatro días porque llenarla le toma más tiempo del que le ahorra.</p>
-            <p>En el segundo intento cambia de enfoque. Usa la app de notas que ya tiene y crea una sola nota llamada “Pendientes”. Ahí escribe todo, sin orden: “traer credencial”, “leer capítulo 4”, “pedir constancia”. No decide nada al anotar. En paralelo mete en el calendario solo cuatro cosas de la semana: dos exámenes, una entrega y una junta informativa.</p>
-            <p>La revisión nocturna le toma menos de lo que esperaba. La primera noche tenía once líneas: tres pasaron al calendario, cinco se quedaron como pendientes cercanos y tres las borró porque ya las había resuelto. Lo que reporta no es eficiencia, sino tranquilidad: dejó de dudar si algo se le estaba pasando.</p>
-            <p>Al mes, Diana ya no piensa en el sistema, simplemente lo usa. Solo entonces agrega una cuarta pieza: un bloque fijo de estudio los martes y jueves por la tarde. Ese es el orden correcto —primero el hábito de capturar y revisar, después la planeación del tiempo—, y es exactamente el orden inverso al que había intentado en su primer arranque fallido.</p>
-
-            <h2>Errores frecuentes al arrancar y cómo corregirlos</h2>
-            <p>Casi todos los tropiezos del nivel básico tienen la misma raíz: pedirle al sistema más de lo que puede sostener todavía. Uno común es escribir tareas demasiado vagas. "Estudiar historia" no se puede empezar ni terminar, así que se queda en la lista semanas enteras y erosiona la confianza en ella. Anota acciones que reconozcas cuando las leas: "leer las páginas 40 a 55" o "resolver los ejercicios impares".</p>
-            <p>Otro error es tratar cualquier día perdido como un fracaso irreversible. Un sistema básico está diseñado para reanudarse, no para mantener una racha perfecta. Si dejaste de capturar tres días, vacías la cabeza en la bandeja y sigues. Lo mismo aplica al calendario: si metiste algo que no se cumplió, quítalo en la revisión en lugar de dejarlo como recordatorio de culpa.</p>
-            <ul>
-                <li>Tareas vagas: reescríbelas como una acción concreta y verificable.</li>
-                <li>Listas infinitas: borra sin culpa lo que ya no aplica en cada revisión.</li>
-                <li>Calendario saturado de intenciones: reserva solo compromisos reales.</li>
-            </ul>
-
-            <h2>Cuándo pasar al siguiente nivel</h2>
-            <p>No hay una fecha para avanzar, hay señales. La primera es que capturar y revisar ya no te cuesta decisión consciente. La segunda es que aparece un problema distinto al del olvido: ya sabes todo lo que tienes que hacer, pero no te alcanza el tiempo o no sabes por dónde empezar. Ese es el momento de agregar priorización y bloques de tiempo.</p>
-            <p>Cuando llegues a ese punto, agrega una pieza a la vez y dale al menos dos semanas antes de sumar otra. El orden que suele funcionar es: bloques fijos de estudio, después una revisión semanal más amplia y solo entonces métodos de repaso como intervalos espaciados. Si el sistema empieza a exigirte mantenimiento en vez de ahorrarte trabajo, agregaste demasiado.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Si tu meta es el examen de admisión</h3>
-                <p>Un sistema básico te evita perder trámites y fechas, pero preparar un examen de admisión también requiere cubrir un temario extenso con orden y repaso constante. Si ese es tu siguiente paso, un programa estructurado aporta la secuencia de temas y la práctica dirigida que un sistema personal por sí solo no da. Verifica convocatorias y requisitos en los portales oficiales de la institución.</p>
-                <a href="/admision-universitaria" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer la preparación para el examen de admisión <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué fallan los primeros intentos de organizarse</h2>
+                <p>El patrón se repite: alguien decide organizarse, elige la herramienta más completa que encuentra y la llena de estructura antes de tener contenido que ordenar. Crea categorías para materias que apenas empiezan y recordatorios para cosas que aún no existen. Ese montaje da una sensación de control, pero es trabajo sobre el sistema, no trabajo real. Cuando llega la carga académica de verdad, mantener la estructura se vuelve una tarea más y el sistema es lo primero que se abandona.</p>
+                <p>El segundo error es empezar con demasiadas reglas al mismo tiempo. Un plan que exige planear el domingo, revisar cada mañana, cerrar cada noche, medir el tiempo por materia y bloquear distractores no falla por ser malo: falla porque son cinco hábitos nuevos compitiendo por la misma fuerza de voluntad. En nivel básico conviene lo contrario, una sola regla a la vez.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-nivel-avanzado">Técnicas avanzadas de productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-guia-rapida">Guía rápida de productividad estudiantil</a></li>
+                    <li>Elegir herramienta antes de definir qué problema quieres resolver.</li>
+                    <li>Adoptar cinco hábitos nuevos en la misma semana.</li>
+                    <li>Abandonar el sistema completo tras el primer día en que no lo usaste.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito una aplicación de pago para empezar?</h3>
-                <p>No. Para las tres funciones básicas basta con lo que ya tienes: una libreta, la app de notas del teléfono y el calendario preinstalado. Las herramientas de pago añaden funciones que solo tienen sentido cuando ya manejas volumen de tareas y proyectos. Empezar con una herramienta compleja suele aumentar el tiempo de configuración sin mejorar el resultado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo al día requiere un sistema básico?</h3>
-                <p>La captura no consume tiempo adicional porque ocurre en segundos, mientras hablas o sales de clase. La única inversión fija es la revisión al final del día, que en nivel básico ronda los cinco minutos. Si te está tomando mucho más, probablemente estás intentando planear en lugar de solo ordenar lo capturado.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si llevo días sin usar el sistema?</h3>
-                <p>Retomarlo sin reconstruirlo. Abre tu bandeja, escribe todo lo que tengas pendiente en la cabeza en ese momento, revisa qué tiene fecha y pásalo al calendario. No intentes reconstruir los días perdidos ni cambiar de herramienta. La capacidad de reanudarse después de una interrupción es lo que distingue un sistema útil de uno decorativo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Sirve el mismo sistema para preparar un examen de admisión?</h3>
-                <p>Sirve como base, pero un examen de admisión agrega dos exigencias: un temario amplio y fechas de convocatoria que debes verificar en fuentes oficiales de la institución. Empieza con captura y calendario para no perder trámites ni plazos, y agrega bloques de estudio por materia cuando el hábito básico ya funcione solo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es mejor papel o digital para quien empieza?</h3>
-                <p>Depende de tu día real, no de una regla general. El papel gana en velocidad y no depende de batería ni señal; lo digital gana en recordatorios automáticos y en que siempre traes el teléfono. Elige uno, úsalo dos semanas completas y cambia solo si identificas un problema concreto, no por curiosidad.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Las tres piezas mínimas de un sistema que se sostiene</h2>
+                <p>Un sistema básico funcional necesita solo tres funciones. La primera es captura: un lugar único donde anotas cualquier cosa que tengas que hacer, en el momento en que aparece. La segunda es calendario, donde van únicamente las cosas con fecha y hora fija. La tercera es revisión: un momento corto y recurrente para mirar lo capturado y decidir qué sigue.</p>
+                <p>La clave está en no mezclarlas. La captura debe ser rápida y desordenada: si te obligas a clasificar mientras anotas, dejarás de anotar. El calendario debe permanecer limpio, porque si metes ahí intenciones sin compromiso real deja de ser confiable y empiezas a ignorarlo. La revisión conecta ambas cosas y convierte una lista suelta en un plan.</p>
+                <ul>
+                    <li>Captura: una sola bandeja, siempre a mano, para todo lo que llega.</li>
+                    <li>Calendario: solo compromisos con fecha y hora que no se negocian.</li>
+                    <li>Revisión: cinco minutos al final del día para ordenar lo capturado.</li>
+                </ul>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo elegir herramientas sin complicarte</h2>
+                <p>En nivel básico la mejor herramienta es la que ya sabes usar. Una libreta pequeña, la app de notas del teléfono o el calendario preinstalado cubren las tres funciones. Lo que importa es que sea una sola por función: si anotas tareas en tres lugares distintos, ninguno es confiable y volverás a depender de la memoria.</p>
+                <p>Hay dos criterios prácticos para decidir. El primero es velocidad de acceso: si anotar algo te toma más de diez segundos, no lo harás al salir de clase con prisa. El segundo es que sobreviva a tu día real; si tu teléfono se queda sin batería a media tarde, el papel puede ser más estable. Prueba una configuración dos semanas completas antes de cambiarla.</p>
+                <ul>
+                    <li>Una sola bandeja de captura, aunque sea una nota del teléfono.</li>
+                    <li>Un solo calendario, con recordatorios activados para lo que tiene fecha.</li>
+                    <li>Cero apps nuevas hasta que las dos anteriores lleven un mes funcionando.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Tu primera semana: instalar el hábito de capturar</h2>
+                <p>La primera semana tiene un solo objetivo: que nada quede solo en tu cabeza. No vas a priorizar ni a medir tu tiempo. Cada vez que un profesor mencione una entrega o recuerdes un trámite pendiente, lo anotas en tu bandeja. Parece demasiado simple, pero es la pieza que sostiene todo lo demás, porque libera la atención que gastabas en recordar.</p>
+                <p>Al final del día dedicas cinco minutos a mirar lo capturado. De cada línea decides una de tres cosas: tiene fecha fija y se va al calendario, se puede hacer mañana y se queda en la lista, o ya no aplica y se borra. Esa revisión corta evita que tu bandeja se vuelva un basurero de notas.</p>
+                <ol>
+                    <li>Elige una sola bandeja de captura y déjala accesible en la pantalla de inicio o en tu mochila.</li>
+                    <li>Anota todo lo que aparezca, sin ordenar ni clasificar, en cuanto lo escuches.</li>
+                    <li>Pasa al calendario únicamente lo que tenga fecha y hora fija.</li>
+                    <li>Revisa la bandeja cinco minutos antes de dormir y decide: agendar, mantener o borrar.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Ejemplo aplicado: Diana empieza desde cero</h2>
+                <p>Diana está en quinto semestre de bachillerato y se prepara para presentar examen de admisión. Nunca ha usado agenda: sabe sus fechas porque las recuerda o porque alguien del grupo las menciona. Este semestre entregó tarde un trabajo que sí había hecho, solo porque olvidó la fecha límite. Su primer impulso es descargar una app con tableros, pero la abandona en cuatro días porque llenarla le toma más tiempo del que le ahorra.</p>
+                <p>En el segundo intento cambia de enfoque. Usa la app de notas que ya tiene y crea una sola nota llamada “Pendientes”. Ahí escribe todo, sin orden: “traer credencial”, “leer capítulo 4”, “pedir constancia”. No decide nada al anotar. En paralelo mete en el calendario solo cuatro cosas de la semana: dos exámenes, una entrega y una junta informativa.</p>
+                <p>La revisión nocturna le toma menos de lo que esperaba. La primera noche tenía once líneas: tres pasaron al calendario, cinco se quedaron como pendientes cercanos y tres las borró porque ya las había resuelto. Lo que reporta no es eficiencia, sino tranquilidad: dejó de dudar si algo se le estaba pasando.</p>
+                <p>Al mes, Diana ya no piensa en el sistema, simplemente lo usa. Solo entonces agrega una cuarta pieza: un bloque fijo de estudio los martes y jueves por la tarde. Ese es el orden correcto —primero el hábito de capturar y revisar, después la planeación del tiempo—, y es exactamente el orden inverso al que había intentado en su primer arranque fallido.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Errores frecuentes al arrancar y cómo corregirlos</h2>
+                <p>Casi todos los tropiezos del nivel básico tienen la misma raíz: pedirle al sistema más de lo que puede sostener todavía. Uno común es escribir tareas demasiado vagas. "Estudiar historia" no se puede empezar ni terminar, así que se queda en la lista semanas enteras y erosiona la confianza en ella. Anota acciones que reconozcas cuando las leas: "leer las páginas 40 a 55" o "resolver los ejercicios impares".</p>
+                <p>Otro error es tratar cualquier día perdido como un fracaso irreversible. Un sistema básico está diseñado para reanudarse, no para mantener una racha perfecta. Si dejaste de capturar tres días, vacías la cabeza en la bandeja y sigues. Lo mismo aplica al calendario: si metiste algo que no se cumplió, quítalo en la revisión en lugar de dejarlo como recordatorio de culpa.</p>
+                <ul>
+                    <li>Tareas vagas: reescríbelas como una acción concreta y verificable.</li>
+                    <li>Listas infinitas: borra sin culpa lo que ya no aplica en cada revisión.</li>
+                    <li>Calendario saturado de intenciones: reserva solo compromisos reales.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cuándo pasar al siguiente nivel</h2>
+                <p>No hay una fecha para avanzar, hay señales. La primera es que capturar y revisar ya no te cuesta decisión consciente. La segunda es que aparece un problema distinto al del olvido: ya sabes todo lo que tienes que hacer, pero no te alcanza el tiempo o no sabes por dónde empezar. Ese es el momento de agregar priorización y bloques de tiempo.</p>
+                <p>Cuando llegues a ese punto, agrega una pieza a la vez y dale al menos dos semanas antes de sumar otra. El orden que suele funcionar es: bloques fijos de estudio, después una revisión semanal más amplia y solo entonces métodos de repaso como intervalos espaciados. Si el sistema empieza a exigirte mantenimiento en vez de ahorrarte trabajo, agregaste demasiado.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Si tu meta es el examen de admisión</h2>
+                    <p>Un sistema básico te evita perder trámites y fechas, pero preparar un examen de admisión también requiere cubrir un temario extenso con orden y repaso constante. Si ese es tu siguiente paso, un programa estructurado aporta la secuencia de temas y la práctica dirigida que un sistema personal por sí solo no da. Verifica convocatorias y requisitos en los portales oficiales de la institución.</p>
+                    <a href="/admision-universitaria" class="btn-primary">
+                        Conocer la preparación para el examen de admisión <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-nivel-avanzado">
+                            <span>Técnicas avanzadas de productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-guia-rapida">
+                            <span>Guía rápida de productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito una aplicación de pago para empezar?</h3>
+                    <p>No. Para las tres funciones básicas basta con lo que ya tienes: una libreta, la app de notas del teléfono y el calendario preinstalado. Las herramientas de pago añaden funciones que solo tienen sentido cuando ya manejas volumen de tareas y proyectos. Empezar con una herramienta compleja suele aumentar el tiempo de configuración sin mejorar el resultado.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo al día requiere un sistema básico?</h3>
+                    <p>La captura no consume tiempo adicional porque ocurre en segundos, mientras hablas o sales de clase. La única inversión fija es la revisión al final del día, que en nivel básico ronda los cinco minutos. Si te está tomando mucho más, probablemente estás intentando planear en lugar de solo ordenar lo capturado.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si llevo días sin usar el sistema?</h3>
+                    <p>Retomarlo sin reconstruirlo. Abre tu bandeja, escribe todo lo que tengas pendiente en la cabeza en ese momento, revisa qué tiene fecha y pásalo al calendario. No intentes reconstruir los días perdidos ni cambiar de herramienta. La capacidad de reanudarse después de una interrupción es lo que distingue un sistema útil de uno decorativo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Sirve el mismo sistema para preparar un examen de admisión?</h3>
+                    <p>Sirve como base, pero un examen de admisión agrega dos exigencias: un temario amplio y fechas de convocatoria que debes verificar en fuentes oficiales de la institución. Empieza con captura y calendario para no perder trámites ni plazos, y agrega bloques de estudio por materia cuando el hábito básico ya funcione solo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es mejor papel o digital para quien empieza?</h3>
+                    <p>Depende de tu día real, no de una regla general. El papel gana en velocidad y no depende de batería ni señal; lo digital gana en recordatorios automáticos y en que siempre traes el teléfono. Elige uno, úsalo dos semanas completas y cambia solo si identificas un problema concreto, no por curiosidad.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -542,8 +635,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué fallan los primeros intentos de organizarse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Las tres piezas mínimas de un sistema que se sostiene
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo elegir herramientas sin complicarte
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Tu primera semana: instalar el hábito de capturar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Ejemplo aplicado: Diana empieza desde cero
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores frecuentes al arrancar y cómo corregirlos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cuándo pasar al siguiente nivel
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>9 min restantes</span>
+                        <span>Lectura estimada: 9 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

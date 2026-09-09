@@ -362,169 +362,258 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-university"></i> Universidad Dominical
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo estudiar y trabajar al mismo tiempo: plan semanal sostenible</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Universidad Dominical</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo estudiar y trabajar al mismo tiempo: plan semanal sostenible</h1>
+                <p class="blog-post-dek">Plan semanal realista para estudiar y trabajar al mismo tiempo. Bloques mínimos de estudio, gestión de energía y estrategias para semanas difíciles.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Universidad Dominical</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/hero-dominical.webp" alt="Cómo estudiar y trabajar al mismo tiempo: plan semanal sostenible" width="800" height="800" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Combinar un empleo de tiempo completo con una carrera universitaria es posible, pero no es automático. La diferencia entre quienes lo sostienen y quienes abandonan rara vez es la inteligencia o la motivación: casi siempre es la estructura semanal.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>10 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué fallan los planes de estudio tradicionales cuando trabajas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Principio base: bloques mínimos distribuidos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Estructura semanal modelo para trabajo de lunes a sábado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Gestión de energía, no solo de tiempo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>El papel del descanso en un plan sostenible a largo plazo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Plan de contingencia para semanas difíciles
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Herramientas simples que ayudan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Cuándo el plan necesita ajustarse o la carga reducirse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Combinar un empleo de tiempo completo con una carrera universitaria es posible, pero no es automático. La diferencia entre quienes lo sostienen y quienes abandonan rara vez es la inteligencia o la motivación: casi siempre es la estructura semanal.</p>
             <p>Este artículo ofrece un plan concreto para distribuir el estudio en bloques mínimos viables, manejar las semanas de alta carga y evitar el agotamiento que lleva al abandono. No hay fórmulas mágicas, pero sí principios que reducen la fricción.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para estudiar y trabajar al mismo tiempo necesitas un plan semanal con bloques cortos de estudio distribuidos cada día, no sesiones maratónicas de última hora. Define horarios fijos aunque sean de 45 minutos, prioriza por fecha de entrega, protege un día de recuperación y ajusta el plan cada semana según tu energía real.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para estudiar y trabajar al mismo tiempo necesitas un plan semanal con bloques cortos de estudio distribuidos cada día, no sesiones maratónicas de última hora. Define horarios fijos aunque sean de 45 minutos, prioriza por fecha de entrega, protege un día de recuperación y ajusta el plan cada semana según tu energía real.</p>
+                </aside>
 
-            <h2>Por qué fallan los planes de estudio tradicionales cuando trabajas</h2>
-            <p>Los planes que asumen que tienes tres horas libres cada tarde no funcionan para alguien que sale del trabajo a las siete de la noche con energía limitada. Tampoco funciona dejar todo para el fin de semana: acumular seis horas de lectura el sábado genera fatiga y comprensión superficial.</p>
-            <p>El error más común es planificar con la energía del lunes y ejecutar con la fatiga del jueves. Un plan sostenible debe contemplar que tu capacidad cognitiva varía y que habrá días donde solo puedas dar quince minutos.</p>
-            <p>Un tercer factor que pocos mencionan es la carga mental. Después de ocho horas de tomar decisiones laborales, tu cerebro tiene menor capacidad para procesar información nueva. Esto no significa que no puedas estudiar por la noche, pero sí que debes elegir tareas apropiadas para tu nivel de fatiga: repasar notas o ver un video es viable; analizar un texto complejo probablemente no.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué fallan los planes de estudio tradicionales cuando trabajas</h2>
+                <p>Los planes que asumen que tienes tres horas libres cada tarde no funcionan para alguien que sale del trabajo a las siete de la noche con energía limitada. Tampoco funciona dejar todo para el fin de semana: acumular seis horas de lectura el sábado genera fatiga y comprensión superficial.</p>
+                <p>El error más común es planificar con la energía del lunes y ejecutar con la fatiga del jueves. Un plan sostenible debe contemplar que tu capacidad cognitiva varía y que habrá días donde solo puedas dar quince minutos.</p>
+                <p>Un tercer factor que pocos mencionan es la carga mental. Después de ocho horas de tomar decisiones laborales, tu cerebro tiene menor capacidad para procesar información nueva. Esto no significa que no puedas estudiar por la noche, pero sí que debes elegir tareas apropiadas para tu nivel de fatiga: repasar notas o ver un video es viable; analizar un texto complejo probablemente no.</p>
+            </section>
 
-            <h2>Principio base: bloques mínimos distribuidos</h2>
-            <p>La evidencia sobre aprendizaje muestra que sesiones breves y frecuentes generan mejor retención que sesiones largas e infrecuentes. Esto coincide con la realidad de quien trabaja: es más fácil encontrar 45 minutos diarios que tres horas seguidas.</p>
-            <p>El bloque mínimo no es un ideal; es lo que haces cuando todo lo demás falla. En un buen día puedes estudiar una hora. En un día difícil, quince minutos de repaso siguen siendo mejores que cero. La consistencia importa más que la duración de cada sesión.</p>
-            <ul>
-                <li>Meta diaria: 45 minutos en días normales, 15 minutos en días difíciles.</li>
-                <li>Horario fijo: mismo momento cada día para crear automatismo.</li>
-                <li>Sin negociación: el bloque de estudio no es lo que se cancela primero.</li>
-                <li>Ubicación constante: mismo lugar reduce la fricción para empezar.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Principio base: bloques mínimos distribuidos</h2>
+                <p>La evidencia sobre aprendizaje muestra que sesiones breves y frecuentes generan mejor retención que sesiones largas e infrecuentes. Esto coincide con la realidad de quien trabaja: es más fácil encontrar 45 minutos diarios que tres horas seguidas.</p>
+                <p>El bloque mínimo no es un ideal; es lo que haces cuando todo lo demás falla. En un buen día puedes estudiar una hora. En un día difícil, quince minutos de repaso siguen siendo mejores que cero. La consistencia importa más que la duración de cada sesión.</p>
+                <ul>
+                    <li>Meta diaria: 45 minutos en días normales, 15 minutos en días difíciles.</li>
+                    <li>Horario fijo: mismo momento cada día para crear automatismo.</li>
+                    <li>Sin negociación: el bloque de estudio no es lo que se cancela primero.</li>
+                    <li>Ubicación constante: mismo lugar reduce la fricción para empezar.</li>
+                </ul>
+            </section>
 
-            <h2>Estructura semanal modelo para trabajo de lunes a sábado</h2>
-            <p>Este modelo asume un empleo de seis días con jornada completa y un programa dominical o sabatino. Ajusta los horarios a tu realidad, pero mantén la distribución de funciones por día.</p>
-            <p>La lógica es: lectura al inicio de semana, producción a mitad de semana, repaso antes de la sesión presencial. Esto evita que llegues al domingo sin haber tocado el material.</p>
-            <p>Este modelo no es rígido. Si un martes tuviste un día particularmente agotador en el trabajo, puedes intercambiar esa sesión de lectura con la del jueves. Lo importante es que al final de la semana hayas cubierto las mismas funciones (lectura, producción, repaso) sin importar en qué día exacto ocurrieron. La flexibilidad dentro de la estructura es lo que hace sostenible el plan.</p>
-            <ol>
-                <li>Lunes: lectura del material nuevo, tomar notas de lo que no entiendes (45 min).</li>
-                <li>Martes: continuar lectura o ver el contenido multimedia asignado (45 min).</li>
-                <li>Miércoles: comenzar la tarea principal o participación en foro (45-60 min).</li>
-                <li>Jueves: terminar la tarea y revisar antes de enviar (45 min).</li>
-                <li>Viernes: lectura complementaria o avance en proyecto si hay uno (30 min o descanso si fue semana pesada).</li>
-                <li>Sábado: repaso general y preparación de preguntas para sesión presencial (30 min).</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Estructura semanal modelo para trabajo de lunes a sábado</h2>
+                <p>Este modelo asume un empleo de seis días con jornada completa y un programa dominical o sabatino. Ajusta los horarios a tu realidad, pero mantén la distribución de funciones por día.</p>
+                <p>La lógica es: lectura al inicio de semana, producción a mitad de semana, repaso antes de la sesión presencial. Esto evita que llegues al domingo sin haber tocado el material.</p>
+                <p>Este modelo no es rígido. Si un martes tuviste un día particularmente agotador en el trabajo, puedes intercambiar esa sesión de lectura con la del jueves. Lo importante es que al final de la semana hayas cubierto las mismas funciones (lectura, producción, repaso) sin importar en qué día exacto ocurrieron. La flexibilidad dentro de la estructura es lo que hace sostenible el plan.</p>
+                <ol>
+                    <li>Lunes: lectura del material nuevo, tomar notas de lo que no entiendes (45 min).</li>
+                    <li>Martes: continuar lectura o ver el contenido multimedia asignado (45 min).</li>
+                    <li>Miércoles: comenzar la tarea principal o participación en foro (45-60 min).</li>
+                    <li>Jueves: terminar la tarea y revisar antes de enviar (45 min).</li>
+                    <li>Viernes: lectura complementaria o avance en proyecto si hay uno (30 min o descanso si fue semana pesada).</li>
+                    <li>Sábado: repaso general y preparación de preguntas para sesión presencial (30 min).</li>
+                </ol>
+            </section>
 
-            <h2>Gestión de energía, no solo de tiempo</h2>
-            <p>Tener 45 minutos libres no sirve si estás tan agotado que no puedes comprender un párrafo. La gestión de energía implica elegir cuándo estudias según tu estado, no solo según tu agenda.</p>
-            <p>Muchas personas que trabajan descubren que su mejor momento cognitivo es temprano por la mañana, antes del trabajo. Otras funcionan mejor una hora después de cenar. Experimenta durante dos semanas y observa cuándo comprendes mejor lo que lees.</p>
-            <ul>
-                <li>Identifica tu ventana de mejor rendimiento cognitivo fuera del trabajo.</li>
-                <li>Coloca el estudio que requiere comprensión profunda en esa ventana.</li>
-                <li>Reserva las tareas mecánicas (formatear, subir archivos) para momentos de baja energía.</li>
-                <li>No estudies inmediatamente después de comer: la digestión reduce la concentración.</li>
-                <li>Duerme al menos seis horas; sacrificar sueño por estudio es contraproducente a mediano plazo.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Gestión de energía, no solo de tiempo</h2>
+                <p>Tener 45 minutos libres no sirve si estás tan agotado que no puedes comprender un párrafo. La gestión de energía implica elegir cuándo estudias según tu estado, no solo según tu agenda.</p>
+                <p>Muchas personas que trabajan descubren que su mejor momento cognitivo es temprano por la mañana, antes del trabajo. Otras funcionan mejor una hora después de cenar. Experimenta durante dos semanas y observa cuándo comprendes mejor lo que lees.</p>
+                <ul>
+                    <li>Identifica tu ventana de mejor rendimiento cognitivo fuera del trabajo.</li>
+                    <li>Coloca el estudio que requiere comprensión profunda en esa ventana.</li>
+                    <li>Reserva las tareas mecánicas (formatear, subir archivos) para momentos de baja energía.</li>
+                    <li>No estudies inmediatamente después de comer: la digestión reduce la concentración.</li>
+                    <li>Duerme al menos seis horas; sacrificar sueño por estudio es contraproducente a mediano plazo.</li>
+                </ul>
+            </section>
 
-            <h2>El papel del descanso en un plan sostenible a largo plazo</h2>
-            <p>Estudiar y trabajar simultáneamente durante tres o cuatro años solo es viable si incluyes recuperación deliberada en tu plan. Esto significa proteger al menos medio día a la semana donde no trabajas ni estudias: duermes, haces ejercicio, pasas tiempo con personas que te importan o simplemente no produces nada.</p>
-            <p>Los estudiantes que eliminan todo descanso para maximizar horas de estudio suelen rendir menos a partir del tercer mes. La fatiga acumulada reduce la concentración, aumenta los errores en entregas y genera irritabilidad que afecta tanto el trabajo como las relaciones. Un descanso programado no es un lujo; es mantenimiento preventivo.</p>
-            <ul>
-                <li>Protege al menos medio día semanal sin trabajo ni estudio.</li>
-                <li>El ejercicio físico mejora la concentración en las sesiones de estudio posteriores.</li>
-                <li>Dormir menos de seis horas afecta la consolidación de memoria: lo estudiado se retiene peor.</li>
-                <li>Si llevas tres semanas sin un día de descanso real, estás en zona de riesgo de abandono.</li>
-                <li>El descanso no se acumula: no puedes compensar un mes sin pausas con unas vacaciones.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">El papel del descanso en un plan sostenible a largo plazo</h2>
+                <p>Estudiar y trabajar simultáneamente durante tres o cuatro años solo es viable si incluyes recuperación deliberada en tu plan. Esto significa proteger al menos medio día a la semana donde no trabajas ni estudias: duermes, haces ejercicio, pasas tiempo con personas que te importan o simplemente no produces nada.</p>
+                <p>Los estudiantes que eliminan todo descanso para maximizar horas de estudio suelen rendir menos a partir del tercer mes. La fatiga acumulada reduce la concentración, aumenta los errores en entregas y genera irritabilidad que afecta tanto el trabajo como las relaciones. Un descanso programado no es un lujo; es mantenimiento preventivo.</p>
+                <ul>
+                    <li>Protege al menos medio día semanal sin trabajo ni estudio.</li>
+                    <li>El ejercicio físico mejora la concentración en las sesiones de estudio posteriores.</li>
+                    <li>Dormir menos de seis horas afecta la consolidación de memoria: lo estudiado se retiene peor.</li>
+                    <li>Si llevas tres semanas sin un día de descanso real, estás en zona de riesgo de abandono.</li>
+                    <li>El descanso no se acumula: no puedes compensar un mes sin pausas con unas vacaciones.</li>
+                </ul>
+            </section>
 
-            <h2>Plan de contingencia para semanas difíciles</h2>
-            <p>Habrá semanas en que el trabajo se intensifica, te enfermas, o surge una emergencia familiar. Un plan que no contempla estas semanas es un plan que se rompe al primer imprevisto.</p>
-            <p>La estrategia es tener un plan B que proteja lo mínimo indispensable: entregar las tareas con fecha límite inaplazable y asistir a la sesión presencial. Todo lo demás puede recuperarse la semana siguiente si actúas con anticipación.</p>
-            <ol>
-                <li>Identifica las entregas con fecha límite inamovible y priorízalas.</li>
-                <li>Si sabes que viene una semana pesada, adelanta lo que puedas el fin de semana anterior.</li>
-                <li>Comunica al docente si no puedes cumplir con una entrega: la mayoría ofrece extensiones razonables si avisas a tiempo.</li>
-                <li>No intentes compensar todo el fin de semana: distribuye la recuperación en los días posteriores.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Plan de contingencia para semanas difíciles</h2>
+                <p>Habrá semanas en que el trabajo se intensifica, te enfermas, o surge una emergencia familiar. Un plan que no contempla estas semanas es un plan que se rompe al primer imprevisto.</p>
+                <p>La estrategia es tener un plan B que proteja lo mínimo indispensable: entregar las tareas con fecha límite inaplazable y asistir a la sesión presencial. Todo lo demás puede recuperarse la semana siguiente si actúas con anticipación.</p>
+                <ol>
+                    <li>Identifica las entregas con fecha límite inamovible y priorízalas.</li>
+                    <li>Si sabes que viene una semana pesada, adelanta lo que puedas el fin de semana anterior.</li>
+                    <li>Comunica al docente si no puedes cumplir con una entrega: la mayoría ofrece extensiones razonables si avisas a tiempo.</li>
+                    <li>No intentes compensar todo el fin de semana: distribuye la recuperación en los días posteriores.</li>
+                </ol>
+            </section>
 
-            <h2>Herramientas simples que ayudan</h2>
-            <p>No necesitas aplicaciones sofisticadas. Un calendario con las fechas de entrega visibles y una lista semanal de tres tareas prioritarias son suficientes. La complejidad de la herramienta no debe superar la complejidad de lo que organizas.</p>
-            <p>Si usas celular, un recordatorio diario a tu hora de estudio ayuda a formar el hábito. Si usas papel, una hoja pegada en tu escritorio con las entregas de la semana cumple la misma función.</p>
-            <p>Otra herramienta subestimada es la comunicación preventiva con el docente. Si sabes que tu empresa tiene un cierre contable cada trimestre que te dejará sin tiempo, avisa al profesor con una semana de anticipación. La mayoría de los docentes en programas para adultos entienden estas situaciones porque las viven con frecuencia en sus grupos.</p>
-            <ul>
-                <li>Calendario con todas las fechas de entrega del ciclo.</li>
-                <li>Lista semanal de tres prioridades académicas máximo.</li>
-                <li>Recordatorio diario en tu celular a la hora de tu bloque de estudio.</li>
-                <li>Carpeta digital organizada por materia y semana.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Herramientas simples que ayudan</h2>
+                <p>No necesitas aplicaciones sofisticadas. Un calendario con las fechas de entrega visibles y una lista semanal de tres tareas prioritarias son suficientes. La complejidad de la herramienta no debe superar la complejidad de lo que organizas.</p>
+                <p>Si usas celular, un recordatorio diario a tu hora de estudio ayuda a formar el hábito. Si usas papel, una hoja pegada en tu escritorio con las entregas de la semana cumple la misma función.</p>
+                <p>Otra herramienta subestimada es la comunicación preventiva con el docente. Si sabes que tu empresa tiene un cierre contable cada trimestre que te dejará sin tiempo, avisa al profesor con una semana de anticipación. La mayoría de los docentes en programas para adultos entienden estas situaciones porque las viven con frecuencia en sus grupos.</p>
+                <ul>
+                    <li>Calendario con todas las fechas de entrega del ciclo.</li>
+                    <li>Lista semanal de tres prioridades académicas máximo.</li>
+                    <li>Recordatorio diario en tu celular a la hora de tu bloque de estudio.</li>
+                    <li>Carpeta digital organizada por materia y semana.</li>
+                </ul>
+            </section>
 
-            <h2>Cuándo el plan necesita ajustarse o la carga reducirse</h2>
-            <p>Si llevas cuatro semanas consecutivas sin cumplir el plan mínimo, el problema no es falta de voluntad: es que la carga excede tu capacidad disponible. En ese punto, considera reducir materias el siguiente ciclo o redistribuir alguna responsabilidad.</p>
-            <p>Reducir una materia no es fracasar; es ajustar el ritmo para poder terminar. Es preferible avanzar con dos materias bien cursadas que arrastrar cuatro con entregas incompletas y comprensión superficial.</p>
+            <section class="ed-article-section" id="seccion-8" aria-labelledby="seccion-8-titulo">
+                <h2 id="seccion-8-titulo">Cuándo el plan necesita ajustarse o la carga reducirse</h2>
+                <p>Si llevas cuatro semanas consecutivas sin cumplir el plan mínimo, el problema no es falta de voluntad: es que la carga excede tu capacidad disponible. En ese punto, considera reducir materias el siguiente ciclo o redistribuir alguna responsabilidad.</p>
+                <p>Reducir una materia no es fracasar; es ajustar el ritmo para poder terminar. Es preferible avanzar con dos materias bien cursadas que arrastrar cuatro con entregas incompletas y comprensión superficial.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Un programa diseñado para quien trabaja toda la semana</h3>
-                <p>Nuestro programa de Universidad Dominical estructura la carga académica pensando en personas con empleo de tiempo completo. Las sesiones presenciales son los domingos y la plataforma semanal está organizada en bloques manejables. Consulta el plan de estudios y evalúa si encaja con tu semana.</p>
-                <a href="/universidad-dominical" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Ver estructura semanal del programa <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Un programa diseñado para quien trabaja toda la semana</h2>
+                    <p>Nuestro programa de Universidad Dominical estructura la carga académica pensando en personas con empleo de tiempo completo. Las sesiones presenciales son los domingos y la plataforma semanal está organizada en bloques manejables. Consulta el plan de estudios y evalúa si encaja con tu semana.</p>
+                    <a href="/universidad-dominical" class="btn-primary">
+                        Ver estructura semanal del programa <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántas horas semanales mínimas necesito para estudiar si trabajo tiempo completo?</h3>
-                <p>Entre cinco y diez horas semanales dependiendo del programa y el número de materias simultáneas. Distribuidas en bloques de 45 minutos diarios, esto equivale a poco más de una hora promedio al día incluyendo fines de semana.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es mejor estudiar en la mañana antes del trabajo o en la noche después?</h3>
-                <p>Depende de tu cronobiología personal. Experimenta dos semanas con cada horario y observa en cuál comprendes mejor lo que lees. No hay respuesta universal; lo que importa es la consistencia del horario que elijas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi trabajo a veces requiere horas extra imprevistas?</h3>
-                <p>Mantén un margen de un día de adelanto cuando puedas. Si ya entregaste el martes lo que vence el miércoles, un día de horas extra no te atrasa. Comunica al docente cuando preveas un retraso.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo estudiar los siete días de la semana?</h3>
-                <p>No necesariamente. Seis días con un día completo de descanso es sostenible para la mayoría. El día de descanso protege tu energía a largo plazo y reduce el riesgo de abandono por agotamiento.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es realista mantener este plan durante los cuatro años de la carrera sin desgaste?</h3>
-                <p>Sí, pero con ajustes periódicos. Cada ciclo evalúa si la carga de materias es sostenible con tu trabajo actual. Hay ciclos donde puedes con tres materias y otros donde dos es el máximo sensato. La flexibilidad para reducir carga temporalmente sin abandonar es lo que permite terminar.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunloskyimprovinglearning.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. – Improving Students' Learning With Effective Learning Techniques</a> — Evidencia sobre distribución del estudio y práctica espaciada</li>
-                <li><a href="https://www.anuies.mx" target="_blank" rel="noopener noreferrer">ANUIES – Perfil del estudiante de educación superior que trabaja</a> — Contexto sobre estudiantes trabajadores en México</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántas horas semanales mínimas necesito para estudiar si trabajo tiempo completo?</h3>
+                    <p>Entre cinco y diez horas semanales dependiendo del programa y el número de materias simultáneas. Distribuidas en bloques de 45 minutos diarios, esto equivale a poco más de una hora promedio al día incluyendo fines de semana.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es mejor estudiar en la mañana antes del trabajo o en la noche después?</h3>
+                    <p>Depende de tu cronobiología personal. Experimenta dos semanas con cada horario y observa en cuál comprendes mejor lo que lees. No hay respuesta universal; lo que importa es la consistencia del horario que elijas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi trabajo a veces requiere horas extra imprevistas?</h3>
+                    <p>Mantén un margen de un día de adelanto cuando puedas. Si ya entregaste el martes lo que vence el miércoles, un día de horas extra no te atrasa. Comunica al docente cuando preveas un retraso.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo estudiar los siete días de la semana?</h3>
+                    <p>No necesariamente. Seis días con un día completo de descanso es sostenible para la mayoría. El día de descanso protege tu energía a largo plazo y reduce el riesgo de abandono por agotamiento.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es realista mantener este plan durante los cuatro años de la carrera sin desgaste?</h3>
+                    <p>Sí, pero con ajustes periódicos. Cada ciclo evalúa si la carga de materias es sostenible con tu trabajo actual. Hay ciclos donde puedes con tres materias y otros donde dos es el máximo sensato. La flexibilidad para reducir carga temporalmente sin abandonar es lo que permite terminar.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://pcl.sitehost.iu.edu/rgoldsto/courses/dunloskyimprovinglearning.pdf" target="_blank" rel="noopener noreferrer">Dunlosky et al. – Improving Students' Learning With Effective Learning Techniques</a> — Evidencia sobre distribución del estudio y práctica espaciada</li>
+                    <li><a href="https://www.anuies.mx" target="_blank" rel="noopener noreferrer">ANUIES – Perfil del estudiante de educación superior que trabaja</a> — Contexto sobre estudiantes trabajadores en México</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -554,8 +643,72 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué fallan los planes de estudio tradicionales cuando trabajas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Principio base: bloques mínimos distribuidos
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Estructura semanal modelo para trabajo de lunes a sábado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Gestión de energía, no solo de tiempo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>El papel del descanso en un plan sostenible a largo plazo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Plan de contingencia para semanas difíciles
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Herramientas simples que ayudan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>Cuándo el plan necesita ajustarse o la carga reducirse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

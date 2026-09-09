@@ -362,137 +362,230 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Metodologías de Aprendizaje
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Resumen práctico de metodologías de aprendizaje</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Metodologías de Aprendizaje</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Resumen práctico de metodologías de aprendizaje</h1>
+                <p class="blog-post-dek">Resumen práctico de metodologías de aprendizaje: los principios centrales que se repiten en todo el cluster, condensados en una guía de referencia rápida.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Metodologías de Aprendizaje</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Resumen práctico de metodologías de aprendizaje" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">A lo largo de este cluster de artículos sobre metodologías de aprendizaje se repiten ciertos principios centrales, aunque cada texto los aborde desde un ángulo distinto: qué es una metodología, cómo elegirla, qué dice la evidencia, cómo aplicarla en distintos contextos y edades, y qué esperar durante el proceso.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Diagnosticar la dificultad real antes de elegir técnica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Priorizar repaso espaciado y práctica de recuperación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Introducir un solo cambio a la vez
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: un caso que integra los cinco principios
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Mantener un ritmo sostenible con descanso incluido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo usar este resumen junto con el resto del cluster
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>El cierre de este cluster y hacia dónde seguir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">A lo largo de este cluster de artículos sobre metodologías de aprendizaje se repiten ciertos principios centrales, aunque cada texto los aborde desde un ángulo distinto: qué es una metodología, cómo elegirla, qué dice la evidencia, cómo aplicarla en distintos contextos y edades, y qué esperar durante el proceso.</p>
             <p>Este artículo funciona como resumen de referencia rápida, reuniendo las ideas que más se repiten y remitiendo a los artículos específicos donde cada una se desarrolla con mayor profundidad.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>El resumen práctico de metodologías de aprendizaje se reduce a cinco ideas centrales: diagnosticar la dificultad real antes de elegir técnica, priorizar repaso espaciado y práctica de recuperación como base con mayor respaldo científico, introducir un solo cambio a la vez, verificar el dominio con honestidad en lugar de confiar en la familiaridad, y mantener un ritmo sostenible que respete el descanso como parte del proceso.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>El resumen práctico de metodologías de aprendizaje se reduce a cinco ideas centrales: diagnosticar la dificultad real antes de elegir técnica, priorizar repaso espaciado y práctica de recuperación como base con mayor respaldo científico, introducir un solo cambio a la vez, verificar el dominio con honestidad en lugar de confiar en la familiaridad, y mantener un ritmo sostenible que respete el descanso como parte del proceso.</p>
+                </aside>
 
-            <h2>Diagnosticar la dificultad real antes de elegir técnica</h2>
-            <p>El punto de partida que se repite en casi todos los artículos de este cluster es identificar con honestidad qué tipo de dificultad se busca resolver —retención, comprensión, organización, velocidad de lectura— antes de elegir cualquier metodología específica. Elegir sin este diagnóstico previo es el error más común que reduce las probabilidades de éxito de cualquier técnica.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Diagnosticar la dificultad real antes de elegir técnica</h2>
+                <p>El punto de partida que se repite en casi todos los artículos de este cluster es identificar con honestidad qué tipo de dificultad se busca resolver —retención, comprensión, organización, velocidad de lectura— antes de elegir cualquier metodología específica. Elegir sin este diagnóstico previo es el error más común que reduce las probabilidades de éxito de cualquier técnica.</p>
+            </section>
 
-            <h2>Priorizar repaso espaciado y práctica de recuperación</h2>
-            <p>Entre todas las técnicas descritas en este cluster, el repaso espaciado y la práctica de recuperación (autoevaluación) cuentan con el respaldo científico más consistente y replicado, lo que los convierte en un punto de partida razonable para la mayoría de los estudiantes, especialmente quienes empiezan sin experiencia previa con ninguna metodología estructurada.</p>
-            <ul>
-                <li>Repasar el mismo contenido en más de un día, no solo una vez.</li>
-                <li>Verificar con honestidad qué se recuerda antes de considerar un tema aprendido.</li>
-                <li>Combinar ambas técnicas para aprovechar sus beneficios de forma simultánea.</li>
-                <li>Sumar técnicas adicionales solo después de consolidar estas dos como base.</li>
-            </ul>
-
-            <h2>Introducir un solo cambio a la vez</h2>
-            <p>El error más repetido en todo el cluster, mencionado en artículos sobre principiantes, sobre errores comunes y sobre planes de largo plazo, es intentar cambiar demasiadas cosas simultáneamente. La estrategia que funciona de forma consistente es introducir un cambio, sostenerlo durante varias semanas hasta que se sienta menos forzado, y solo entonces sumar el siguiente.</p>
-
-            <h2>Ejemplo aplicado: un caso que integra los cinco principios</h2>
-            <p>Un estudiante que había leído varios artículos de este cluster decidió aplicar los cinco principios centrales de forma ordenada durante un semestre completo. Empezó, como recomienda la guía para principiantes, con un diagnóstico honesto de su dificultad real: notó que retenía mal el vocabulario de su clase de inglés, mientras que su comprensión de lectura general era razonablemente buena.</p>
-            <p>Con ese diagnóstico, priorizó repaso espaciado con tarjetas y autoevaluación básica, introduciendo solo esa combinación durante el primer mes, sin sumar ninguna otra técnica adicional que había considerado inicialmente, como elaboración propia para su materia de historia.</p>
-            <p>Al verificar su progreso, se disciplinó a cerrar siempre el material antes de intentar recordar el contenido, resistiendo la tentación de simplemente releer y asumir que eso equivalía a haber verificado su dominio real del vocabulario trabajado cada semana.</p>
-            <p>Cuando notó que su ritmo inicial —sesiones diarias de una hora sin excepción— empezaba a generarle tensión constante, ajustó su meta a un total semanal con más margen, evitando que la organización se convirtiera en otra fuente de estrés añadido en lugar de una solución real a su dificultad original de retención de vocabulario.</p>
-
-            <h2>Mantener un ritmo sostenible con descanso incluido</h2>
-            <p>En casi todos los artículos del cluster aparece la misma advertencia: sacrificar el descanso o exigir intensidad máxima sin ningún margen suele producir el efecto contrario al buscado, generando agotamiento y abandono en lugar de sostener el beneficio a mediano y largo plazo que estas metodologías pueden ofrecer cuando se aplican con constancia moderada.</p>
-            <ol>
-                <li>Fijar metas semanales con margen, no exigencia diaria rígida sin excepción.</li>
-                <li>Incluir descansos programados dentro de cada sesión y descanso amplio semanal.</li>
-                <li>Evitar sacrificar horas de sueño con la idea de ganar tiempo de repaso.</li>
-                <li>Revisar si el rendimiento mejora al respetar estos descansos con consistencia.</li>
-            </ol>
-
-            <h2>Cómo usar este resumen junto con el resto del cluster</h2>
-            <p>Este resumen funciona mejor como punto de partida o como recordatorio rápido, no como sustituto de los artículos específicos donde cada principio se desarrolla con ejemplos y matices propios. Quien busca entender qué dice la evidencia con más detalle encontrará más profundidad en el artículo correspondiente; quien enfrenta una emergencia de tiempo encontrará más detalle en el artículo de plan de emergencia.</p>
-
-            <h2>El cierre de este cluster y hacia dónde seguir</h2>
-            <p>Con este artículo se completa el recorrido por las metodologías de aprendizaje descritas en este cluster, desde los conceptos básicos hasta técnicas avanzadas, adaptaciones por edad y contexto, y consideraciones sobre motivación y sostenibilidad. Los principios aquí resumidos, aplicados con paciencia y ajustados a la situación individual de cada estudiante, constituyen la base práctica de todo lo desarrollado en los artículos anteriores de este cluster.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De los principios generales a un plan hecho a tu medida</h3>
-                <p>Si después de revisar estos principios buscas un plan concreto de memorización estructurada, nuestro programa de Memoria Prodigiosa convierte estas ideas generales en una preparación guiada con seguimiento real.</p>
-                <a href="/memoria-prodigiosa" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conoce el programa de Memoria Prodigiosa <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Priorizar repaso espaciado y práctica de recuperación</h2>
+                <p>Entre todas las técnicas descritas en este cluster, el repaso espaciado y la práctica de recuperación (autoevaluación) cuentan con el respaldo científico más consistente y replicado, lo que los convierte en un punto de partida razonable para la mayoría de los estudiantes, especialmente quienes empiezan sin experiencia previa con ninguna metodología estructurada.</p>
                 <ul>
-                <li><a href="/blog-metodologias-aprendizaje-guia-para-principiantes-2026">Guía para principiantes de metodologías de aprendizaje 2026</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-como-lograrlo-sin-estres">Cómo aplicar metodologías de aprendizaje sin estrés</a></li>
+                    <li>Repasar el mismo contenido en más de un día, no solo una vez.</li>
+                    <li>Verificar con honestidad qué se recuerda antes de considerar un tema aprendido.</li>
+                    <li>Combinar ambas técnicas para aprovechar sus beneficios de forma simultánea.</li>
+                    <li>Sumar técnicas adicionales solo después de consolidar estas dos como base.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Por dónde debería empezar si es la primera vez que leo sobre este tema?</h3>
-                <p>La guía para principiantes es el punto de partida más directo, con pasos ordenados específicamente para quien nunca ha tenido un método de estudio organizado, complementada por este resumen como referencia rápida de los principios centrales.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Estos cinco principios aplican igual en cualquier nivel educativo?</h3>
-                <p>Los principios generales se sostienen desde primaria hasta universidad, aunque la forma de aplicarlos —duración de sesiones, nivel de autonomía, tipo de acompañamiento— varía según la edad, como se describe en los artículos específicos sobre adaptaciones por edad de este cluster.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito aplicar los cinco principios en el mismo orden en que aparecen aquí?</h3>
-                <p>No estrictamente, aunque suele ser un orden razonable. Puedes empezar por el principio que resuelva tu dificultad más urgente y avanzar hacia los demás según lo necesites, priorizando siempre el diagnóstico inicial.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si ya aplico estos principios y aun así no veo mejora?</h3>
-                <p>Revisa si los cambios se han sostenido con consistencia real durante varias semanas. Si es así y la dificultad persiste, puede haber un factor adicional que amerite apoyo específico más allá de la organización del tiempo, como se describe en el artículo de señales de alerta de este cluster.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Este resumen sustituye la lectura de los demás artículos del cluster?</h3>
-                <p>No; funciona como referencia rápida y como mapa general de los 50 artículos de este cluster. Cada artículo específico desarrolla su tema con más profundidad, ejemplos y matices que este resumen solo menciona de forma general.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Introducir un solo cambio a la vez</h2>
+                <p>El error más repetido en todo el cluster, mencionado en artículos sobre principiantes, sobre errores comunes y sobre planes de largo plazo, es intentar cambiar demasiadas cosas simultáneamente. La estrategia que funciona de forma consistente es introducir un cambio, sostenerlo durante varias semanas hasta que se sienta menos forzado, y solo entonces sumar el siguiente.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: un caso que integra los cinco principios</h2>
+                <p>Un estudiante que había leído varios artículos de este cluster decidió aplicar los cinco principios centrales de forma ordenada durante un semestre completo. Empezó, como recomienda la guía para principiantes, con un diagnóstico honesto de su dificultad real: notó que retenía mal el vocabulario de su clase de inglés, mientras que su comprensión de lectura general era razonablemente buena.</p>
+                <p>Con ese diagnóstico, priorizó repaso espaciado con tarjetas y autoevaluación básica, introduciendo solo esa combinación durante el primer mes, sin sumar ninguna otra técnica adicional que había considerado inicialmente, como elaboración propia para su materia de historia.</p>
+                <p>Al verificar su progreso, se disciplinó a cerrar siempre el material antes de intentar recordar el contenido, resistiendo la tentación de simplemente releer y asumir que eso equivalía a haber verificado su dominio real del vocabulario trabajado cada semana.</p>
+                <p>Cuando notó que su ritmo inicial —sesiones diarias de una hora sin excepción— empezaba a generarle tensión constante, ajustó su meta a un total semanal con más margen, evitando que la organización se convirtiera en otra fuente de estrés añadido en lugar de una solución real a su dificultad original de retención de vocabulario.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Mantener un ritmo sostenible con descanso incluido</h2>
+                <p>En casi todos los artículos del cluster aparece la misma advertencia: sacrificar el descanso o exigir intensidad máxima sin ningún margen suele producir el efecto contrario al buscado, generando agotamiento y abandono en lugar de sostener el beneficio a mediano y largo plazo que estas metodologías pueden ofrecer cuando se aplican con constancia moderada.</p>
+                <ol>
+                    <li>Fijar metas semanales con margen, no exigencia diaria rígida sin excepción.</li>
+                    <li>Incluir descansos programados dentro de cada sesión y descanso amplio semanal.</li>
+                    <li>Evitar sacrificar horas de sueño con la idea de ganar tiempo de repaso.</li>
+                    <li>Revisar si el rendimiento mejora al respetar estos descansos con consistencia.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo usar este resumen junto con el resto del cluster</h2>
+                <p>Este resumen funciona mejor como punto de partida o como recordatorio rápido, no como sustituto de los artículos específicos donde cada principio se desarrolla con ejemplos y matices propios. Quien busca entender qué dice la evidencia con más detalle encontrará más profundidad en el artículo correspondiente; quien enfrenta una emergencia de tiempo encontrará más detalle en el artículo de plan de emergencia.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">El cierre de este cluster y hacia dónde seguir</h2>
+                <p>Con este artículo se completa el recorrido por las metodologías de aprendizaje descritas en este cluster, desde los conceptos básicos hasta técnicas avanzadas, adaptaciones por edad y contexto, y consideraciones sobre motivación y sostenibilidad. Los principios aquí resumidos, aplicados con paciencia y ajustados a la situación individual de cada estudiante, constituyen la base práctica de todo lo desarrollado en los artículos anteriores de este cluster.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De los principios generales a un plan hecho a tu medida</h2>
+                    <p>Si después de revisar estos principios buscas un plan concreto de memorización estructurada, nuestro programa de Memoria Prodigiosa convierte estas ideas generales en una preparación guiada con seguimiento real.</p>
+                    <a href="/memoria-prodigiosa" class="btn-primary">
+                        Conoce el programa de Memoria Prodigiosa <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-guia-para-principiantes-2026">
+                            <span>Guía para principiantes de metodologías de aprendizaje 2026</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-como-lograrlo-sin-estres">
+                            <span>Cómo aplicar metodologías de aprendizaje sin estrés</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Por dónde debería empezar si es la primera vez que leo sobre este tema?</h3>
+                    <p>La guía para principiantes es el punto de partida más directo, con pasos ordenados específicamente para quien nunca ha tenido un método de estudio organizado, complementada por este resumen como referencia rápida de los principios centrales.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Estos cinco principios aplican igual en cualquier nivel educativo?</h3>
+                    <p>Los principios generales se sostienen desde primaria hasta universidad, aunque la forma de aplicarlos —duración de sesiones, nivel de autonomía, tipo de acompañamiento— varía según la edad, como se describe en los artículos específicos sobre adaptaciones por edad de este cluster.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito aplicar los cinco principios en el mismo orden en que aparecen aquí?</h3>
+                    <p>No estrictamente, aunque suele ser un orden razonable. Puedes empezar por el principio que resuelva tu dificultad más urgente y avanzar hacia los demás según lo necesites, priorizando siempre el diagnóstico inicial.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si ya aplico estos principios y aun así no veo mejora?</h3>
+                    <p>Revisa si los cambios se han sostenido con consistencia real durante varias semanas. Si es así y la dificultad persiste, puede haber un factor adicional que amerite apoyo específico más allá de la organización del tiempo, como se describe en el artículo de señales de alerta de este cluster.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Este resumen sustituye la lectura de los demás artículos del cluster?</h3>
+                    <p>No; funciona como referencia rápida y como mapa general de los 50 artículos de este cluster. Cada artículo específico desarrolla su tema con más profundidad, ejemplos y matices que este resumen solo menciona de forma general.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -522,8 +615,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Diagnosticar la dificultad real antes de elegir técnica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Priorizar repaso espaciado y práctica de recuperación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Introducir un solo cambio a la vez
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: un caso que integra los cinco principios
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Mantener un ritmo sostenible con descanso incluido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo usar este resumen junto con el resto del cluster
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>El cierre de este cluster y hacia dónde seguir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

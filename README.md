@@ -33,4 +33,4 @@ chmod +x check.sh && ln -sf ../../check.sh .git/hooks/pre-commit
 7. Solo teléfonos autorizados e identidad derivada de `src/_data/site.json`
 8. Dependencias de `server.js` declaradas en `package.json`
 9. Auditoría SEO estructural de todos los HTML servibles
-10. Posts modernos con calidad y SEO 10/10, HTML e índice sincronizados y revisores probados
+10. Posts modernos con calidad, SEO y experiencia visual 10/10, HTML e índice sincronizados y revisores probados

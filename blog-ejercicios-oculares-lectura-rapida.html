@@ -354,145 +354,236 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-eye"></i> Fotolectura
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Ejercicios oculares para lectura rápida: fijaciones, regresiones y ritmo</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 2 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Fotolectura</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Ejercicios oculares para lectura rápida: fijaciones, regresiones y ritmo</h1>
+                <p class="blog-post-dek">Ejercicios prácticos y paso a paso para entrenar fijación visual, reducir regresiones oculares involuntarias y ajustar el ritmo de lectura, con verificación de comprensión en cada uno.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Fotolectura</span>
+                    <span>Publicado <time datetime="2026-09-02">2 de Septiembre, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fotolectura-curso-lectura-rapida-libro.webp" alt="Ejercicios oculares para lectura rápida: fijaciones, regresiones y ritmo" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Cuando se habla de 'técnica' en lectura rápida, casi siempre se refiere a un conjunto pequeño de ejercicios mecánicos y concretos, no a un secreto complejo: entrenar cómo se mueven los ojos por el texto y qué tanto se depende de la voz mental al leer.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Ejercicio 1: ampliar el tamaño de fijación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Ejercicio 2: identificar y reducir regresiones involuntarias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo entrenar la reducción de regresiones con guía visual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejercicio 3: reducir la subvocalización con ritmo guiado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Por qué la verificación de comprensión es la parte que no se puede omitir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuánto tiempo dedicar a estos ejercicios por sesión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo saber cuándo combinar los tres ejercicios
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Cuando se habla de 'técnica' en lectura rápida, casi siempre se refiere a un conjunto pequeño de ejercicios mecánicos y concretos, no a un secreto complejo: entrenar cómo se mueven los ojos por el texto y qué tanto se depende de la voz mental al leer.</p>
             <p>Este artículo describe esos ejercicios con el detalle suficiente para practicarlos de forma correcta, con la advertencia de que cada uno debe verificarse con comprensión real, no solo con la sensación de ir más rápido.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Los ejercicios oculares para leer más rápido entrenan tres cosas concretas: ampliar el tamaño de fijación (capturar grupos de palabras en lugar de una a la vez), reducir regresiones involuntarias (volver a leer un renglón ya comprendido) y ajustar el ritmo con una guía visual externa. Cada ejercicio debe practicarse de forma gradual y verificarse con preguntas de comprensión, no solo cronometrando la velocidad.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Los ejercicios oculares para leer más rápido entrenan tres cosas concretas: ampliar el tamaño de fijación (capturar grupos de palabras en lugar de una a la vez), reducir regresiones involuntarias (volver a leer un renglón ya comprendido) y ajustar el ritmo con una guía visual externa. Cada ejercicio debe practicarse de forma gradual y verificarse con preguntas de comprensión, no solo cronometrando la velocidad.</p>
+                </aside>
 
-            <h2>Ejercicio 1: ampliar el tamaño de fijación</h2>
-            <p>Cuando el ojo se detiene sobre un punto del texto para leerlo, ese punto de detención se llama fijación. Un lector con fijaciones pequeñas solo captura una o dos palabras por cada parada, y necesita muchas más paradas para recorrer una línea completa. Ampliar el tamaño de fijación significa entrenar al ojo para capturar grupos de tres o cuatro palabras en cada parada, reduciendo el número total de paradas necesarias por línea.</p>
-            <p>El ejercicio práctico consiste en tomar un texto e imaginariamente dividirlo en grupos de palabras (usando una guía visual, como líneas verticales ligeras cada tres o cuatro palabras, si el material lo permite), y practicar leyendo saltando de grupo en grupo en lugar de palabra por palabra. Al inicio se siente forzado y la comprensión puede bajar; por eso el ejercicio empieza con grupos de solo dos palabras, y se amplía a tres o cuatro únicamente cuando la comprensión con dos palabras es sólida.</p>
-            <ol>
-                <li>Elegir un texto de dificultad media, no muy técnico para el primer intento.</li>
-                <li>Marcar mentalmente (o con una guía si el formato lo permite) grupos de dos palabras.</li>
-                <li>Leer saltando la mirada de grupo en grupo, no palabra por palabra.</li>
-                <li>Responder preguntas de comprensión sobre lo leído.</li>
-                <li>Si la comprensión se mantiene alta, repetir el ejercicio con grupos de tres palabras en la siguiente sesión.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Ejercicio 1: ampliar el tamaño de fijación</h2>
+                <p>Cuando el ojo se detiene sobre un punto del texto para leerlo, ese punto de detención se llama fijación. Un lector con fijaciones pequeñas solo captura una o dos palabras por cada parada, y necesita muchas más paradas para recorrer una línea completa. Ampliar el tamaño de fijación significa entrenar al ojo para capturar grupos de tres o cuatro palabras en cada parada, reduciendo el número total de paradas necesarias por línea.</p>
+                <p>El ejercicio práctico consiste en tomar un texto e imaginariamente dividirlo en grupos de palabras (usando una guía visual, como líneas verticales ligeras cada tres o cuatro palabras, si el material lo permite), y practicar leyendo saltando de grupo en grupo en lugar de palabra por palabra. Al inicio se siente forzado y la comprensión puede bajar; por eso el ejercicio empieza con grupos de solo dos palabras, y se amplía a tres o cuatro únicamente cuando la comprensión con dos palabras es sólida.</p>
+                <ol>
+                    <li>Elegir un texto de dificultad media, no muy técnico para el primer intento.</li>
+                    <li>Marcar mentalmente (o con una guía si el formato lo permite) grupos de dos palabras.</li>
+                    <li>Leer saltando la mirada de grupo en grupo, no palabra por palabra.</li>
+                    <li>Responder preguntas de comprensión sobre lo leído.</li>
+                    <li>Si la comprensión se mantiene alta, repetir el ejercicio con grupos de tres palabras en la siguiente sesión.</li>
+                </ol>
+            </section>
 
-            <h2>Ejercicio 2: identificar y reducir regresiones involuntarias</h2>
-            <p>Una regresión es cuando el ojo vuelve a un fragmento del texto ya leído. Algunas regresiones son deliberadas y útiles -- volver atrás porque genuinamente no se entendió algo -- pero muchas son un hábito automático sin ninguna razón real: el ojo vuelve por costumbre a un renglón que ya se comprendió bien la primera vez, sin aportar nada, y solo añade tiempo a la lectura.</p>
-            <p>El primer paso para reducir esto es hacerse consciente del propio patrón: al leer un párrafo, notar de forma deliberada cuántas veces el ojo vuelve hacia atrás sin que exista una razón real de comprensión. Muchas personas descubren en este paso que regresan con mucha más frecuencia de la que creían, simplemente por costumbre.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Ejercicio 2: identificar y reducir regresiones involuntarias</h2>
+                <p>Una regresión es cuando el ojo vuelve a un fragmento del texto ya leído. Algunas regresiones son deliberadas y útiles -- volver atrás porque genuinamente no se entendió algo -- pero muchas son un hábito automático sin ninguna razón real: el ojo vuelve por costumbre a un renglón que ya se comprendió bien la primera vez, sin aportar nada, y solo añade tiempo a la lectura.</p>
+                <p>El primer paso para reducir esto es hacerse consciente del propio patrón: al leer un párrafo, notar de forma deliberada cuántas veces el ojo vuelve hacia atrás sin que exista una razón real de comprensión. Muchas personas descubren en este paso que regresan con mucha más frecuencia de la que creían, simplemente por costumbre.</p>
+            </section>
 
-            <h2>Cómo entrenar la reducción de regresiones con guía visual</h2>
-            <p>Una vez identificado el patrón, el ejercicio práctico usa una guía visual externa -- un dedo, un lápiz o un marcador -- que se desliza por debajo del texto a un ritmo ligeramente más rápido de lo cómodo, marcando el avance hacia adelante y dificultando físicamente la regresión, porque el ojo tiende a seguir el punto de referencia en movimiento en lugar de volver atrás por costumbre.</p>
-            <p>Con la práctica, este apoyo externo deja de ser necesario porque el hábito de avanzar sin regresar innecesariamente ya quedó entrenado; en las primeras semanas, sin embargo, es la herramienta más efectiva para interrumpir un patrón automático que de otro modo es difícil de notar en el momento en que ocurre.</p>
-            <ol>
-                <li>Elegir un texto y deslizar el dedo o un marcador debajo del renglón que se está leyendo.</li>
-                <li>Ajustar la velocidad del deslizamiento a un ritmo ligeramente más rápido de lo cómodo.</li>
-                <li>Resistir la tentación de regresar cuando el ojo quiera volver a un fragmento ya comprendido.</li>
-                <li>Al terminar, responder preguntas de comprensión para verificar que no se perdió contenido por ir más rápido.</li>
-                <li>Repetir en varias sesiones, notando si la necesidad del apoyo externo disminuye con la práctica.</li>
-            </ol>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo entrenar la reducción de regresiones con guía visual</h2>
+                <p>Una vez identificado el patrón, el ejercicio práctico usa una guía visual externa -- un dedo, un lápiz o un marcador -- que se desliza por debajo del texto a un ritmo ligeramente más rápido de lo cómodo, marcando el avance hacia adelante y dificultando físicamente la regresión, porque el ojo tiende a seguir el punto de referencia en movimiento en lugar de volver atrás por costumbre.</p>
+                <p>Con la práctica, este apoyo externo deja de ser necesario porque el hábito de avanzar sin regresar innecesariamente ya quedó entrenado; en las primeras semanas, sin embargo, es la herramienta más efectiva para interrumpir un patrón automático que de otro modo es difícil de notar en el momento en que ocurre.</p>
+                <ol>
+                    <li>Elegir un texto y deslizar el dedo o un marcador debajo del renglón que se está leyendo.</li>
+                    <li>Ajustar la velocidad del deslizamiento a un ritmo ligeramente más rápido de lo cómodo.</li>
+                    <li>Resistir la tentación de regresar cuando el ojo quiera volver a un fragmento ya comprendido.</li>
+                    <li>Al terminar, responder preguntas de comprensión para verificar que no se perdió contenido por ir más rápido.</li>
+                    <li>Repetir en varias sesiones, notando si la necesidad del apoyo externo disminuye con la práctica.</li>
+                </ol>
+            </section>
 
-            <h2>Ejercicio 3: reducir la subvocalización con ritmo guiado</h2>
-            <p>La subvocalización es pronunciar mentalmente cada palabra al leerla, como si se escuchara internamente el texto. Es un hábito casi universal y no es inherentemente malo -- ayuda a la comprensión en textos complejos -- pero en exceso limita la velocidad de lectura al ritmo del habla interna, que es mucho más lento que la velocidad a la que el cerebro puede reconocer palabras de forma visual.</p>
-            <p>El ejercicio para reducirla usa un ritmo marcado externamente (un metrónomo suave, un sonido regular, o simplemente contar mentalmente un ritmo) ligeramente más rápido que el ritmo natural de la voz interna, forzando al lector a procesar visualmente sin poder 'escuchar' cada palabra a ese ritmo acelerado.</p>
-            <ul>
-                <li>Empezar con un ritmo solo un poco más rápido que la subvocalización natural, no un salto extremo.</li>
-                <li>Practicar con textos conocidos primero, donde la comprensión ya está parcialmente asegurada por familiaridad.</li>
-                <li>Verificar comprensión con preguntas después de cada sesión de práctica con ritmo acelerado.</li>
-                <li>Aumentar el ritmo de forma gradual solo cuando la comprensión se mantiene estable en el ritmo actual.</li>
-            </ul>
-
-            <h2>Por qué la verificación de comprensión es la parte que no se puede omitir</h2>
-            <p>Cualquiera de estos tres ejercicios, practicado sin verificar comprensión, puede producir una falsa sensación de progreso: la persona siente que 'lee más rápido' porque el ejercicio mecánico funcionó (menos regresiones, fijaciones más amplias, ritmo más veloz), pero eso no garantiza que esté entendiendo el contenido al mismo nivel que antes.</p>
-            <p>Por eso cada sesión de práctica debería cerrar con un momento breve de verificación: responder unas preguntas concretas sobre el texto trabajado, sin volver a mirarlo. Si la comprensión baja de forma notoria respecto a la lectura habitual, es señal de que el ritmo o la amplitud de fijación se llevaron demasiado rápido para ese nivel de entrenamiento, y conviene retroceder un paso antes de seguir avanzando.</p>
-
-            <h2>Cuánto tiempo dedicar a estos ejercicios por sesión</h2>
-            <p>No es necesario ni recomendable practicar estos tres ejercicios durante largas sesiones continuas: son ejercicios de precisión mecánica, y la fatiga visual y de concentración reduce su efectividad después de cierto tiempo. Sesiones de 10 a 15 minutos, con un ejercicio a la vez, suelen ser más productivas que una sola sesión larga que mezcla los tres sin foco claro en ninguno.</p>
-            <p>Es preferible practicar un ejercicio de forma consistente varias veces por semana durante varias semanas, que intentar dominar los tres al mismo tiempo en pocas sesiones intensas; el hábito mecánico que se busca entrenar necesita repetición espaciada, no intensidad concentrada en poco tiempo.</p>
-
-            <h2>Cómo saber cuándo combinar los tres ejercicios</h2>
-            <p>Una vez que cada ejercicio se practicó por separado durante algunas semanas y la comprensión se mantiene estable en cada uno de forma individual, tiene sentido empezar a combinarlos en una misma sesión de lectura: usar la guía visual para el ritmo y evitar regresiones, mientras se practica capturar grupos de palabras más amplios en cada fijación.</p>
-            <p>Combinar los tres antes de tiempo -- cuando todavía no se domina ninguno por separado -- suele producir más frustración que progreso, porque el cerebro está intentando ajustar tres variables mecánicas a la vez mientras además procesa el contenido del texto. La señal de que es momento de combinar es que la comprensión se mantenga alta y consistente en cada ejercicio por separado durante varias sesiones seguidas, no solo una vez de forma aislada.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Practica estos ejercicios con retroalimentación en cada sesión</h3>
-                <p>El curso de Fotolectura de WorldBrain México entrena estas mismas técnicas -- fijación, regresión, ritmo -- con diagnóstico individual y verificación de comprensión, presencial en Cuautitlán Izcalli y Cuernavaca.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el curso de lectura rápida <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejercicio 3: reducir la subvocalización con ritmo guiado</h2>
+                <p>La subvocalización es pronunciar mentalmente cada palabra al leerla, como si se escuchara internamente el texto. Es un hábito casi universal y no es inherentemente malo -- ayuda a la comprensión en textos complejos -- pero en exceso limita la velocidad de lectura al ritmo del habla interna, que es mucho más lento que la velocidad a la que el cerebro puede reconocer palabras de forma visual.</p>
+                <p>El ejercicio para reducirla usa un ritmo marcado externamente (un metrónomo suave, un sonido regular, o simplemente contar mentalmente un ritmo) ligeramente más rápido que el ritmo natural de la voz interna, forzando al lector a procesar visualmente sin poder 'escuchar' cada palabra a ese ritmo acelerado.</p>
                 <ul>
-                <li><a href="/blog-mitos-lectura-rapida">Mitos y verdades sobre la lectura rápida</a></li>
-                <li><a href="/blog-comprension-veloz-que-es">Comprensión veloz: qué es y en qué se diferencia de solo leer rápido</a></li>
-                <li><a href="/blog-lectura-rapida-adultos-guia">Lectura rápida para adultos: guía práctica sin promesas irreales</a></li>
-                <li><a href="/blog-lectura-rapida-examenes-estudio">Lectura rápida para estudiar y presentar exámenes: cómo aplicarla bien</a></li>
+                    <li>Empezar con un ritmo solo un poco más rápido que la subvocalización natural, no un salto extremo.</li>
+                    <li>Practicar con textos conocidos primero, donde la comprensión ya está parcialmente asegurada por familiaridad.</li>
+                    <li>Verificar comprensión con preguntas después de cada sesión de práctica con ritmo acelerado.</li>
+                    <li>Aumentar el ritmo de forma gradual solo cuando la comprensión se mantiene estable en el ritmo actual.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué ejercicio debo practicar primero: fijación, regresión o subvocalización?</h3>
-                <p>No hay un orden universal obligatorio, pero suele ser útil empezar por identificar y reducir regresiones involuntarias, porque es el hábito más fácil de notar de forma consciente y el que muestra resultados más rápidos con guía visual externa.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es normal que mi comprensión baje al principio con estos ejercicios?</h3>
-                <p>Sí, es común en las primeras sesiones mientras el cerebro se adapta al nuevo patrón mecánico. Si la comprensión baja de forma notoria, retrocede un paso (grupos de palabras más pequeños, ritmo menos acelerado) y avanza de forma más gradual.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo hacer estos ejercicios solo, sin un instructor?</h3>
-                <p>Sí, son ejercicios que se pueden practicar de forma autodidacta con disciplina constante. La ventaja de un instructor es diagnosticar con precisión cuál de los tres hábitos limita más tu velocidad en particular, y dar retroalimentación externa sobre tu comprensión.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debo practicar antes de ver resultados?</h3>
-                <p>Depende de la consistencia de la práctica y del hábito de partida. No existe una cifra universal honesta, pero practicar 10-15 minutos varias veces por semana durante varias semanas, verificando comprensión en cada sesión, es un patrón más sostenible que sesiones intensas y esporádicas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Por qué la verificación de comprensión es la parte que no se puede omitir</h2>
+                <p>Cualquiera de estos tres ejercicios, practicado sin verificar comprensión, puede producir una falsa sensación de progreso: la persona siente que 'lee más rápido' porque el ejercicio mecánico funcionó (menos regresiones, fijaciones más amplias, ritmo más veloz), pero eso no garantiza que esté entendiendo el contenido al mismo nivel que antes.</p>
+                <p>Por eso cada sesión de práctica debería cerrar con un momento breve de verificación: responder unas preguntas concretas sobre el texto trabajado, sin volver a mirarlo. Si la comprensión baja de forma notoria respecto a la lectura habitual, es señal de que el ritmo o la amplitud de fijación se llevaron demasiado rápido para ese nivel de entrenamiento, y conviene retroceder un paso antes de seguir avanzando.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cuánto tiempo dedicar a estos ejercicios por sesión</h2>
+                <p>No es necesario ni recomendable practicar estos tres ejercicios durante largas sesiones continuas: son ejercicios de precisión mecánica, y la fatiga visual y de concentración reduce su efectividad después de cierto tiempo. Sesiones de 10 a 15 minutos, con un ejercicio a la vez, suelen ser más productivas que una sola sesión larga que mezcla los tres sin foco claro en ninguno.</p>
+                <p>Es preferible practicar un ejercicio de forma consistente varias veces por semana durante varias semanas, que intentar dominar los tres al mismo tiempo en pocas sesiones intensas; el hábito mecánico que se busca entrenar necesita repetición espaciada, no intensidad concentrada en poco tiempo.</p>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cómo saber cuándo combinar los tres ejercicios</h2>
+                <p>Una vez que cada ejercicio se practicó por separado durante algunas semanas y la comprensión se mantiene estable en cada uno de forma individual, tiene sentido empezar a combinarlos en una misma sesión de lectura: usar la guía visual para el ritmo y evitar regresiones, mientras se practica capturar grupos de palabras más amplios en cada fijación.</p>
+                <p>Combinar los tres antes de tiempo -- cuando todavía no se domina ninguno por separado -- suele producir más frustración que progreso, porque el cerebro está intentando ajustar tres variables mecánicas a la vez mientras además procesa el contenido del texto. La señal de que es momento de combinar es que la comprensión se mantenga alta y consistente en cada ejercicio por separado durante varias sesiones seguidas, no solo una vez de forma aislada.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Practica estos ejercicios con retroalimentación en cada sesión</h2>
+                    <p>El curso de Fotolectura de WorldBrain México entrena estas mismas técnicas -- fijación, regresión, ritmo -- con diagnóstico individual y verificación de comprensión, presencial en Cuautitlán Izcalli y Cuernavaca.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Conocer el curso de lectura rápida <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-mitos-lectura-rapida">
+                            <span>Mitos y verdades sobre la lectura rápida</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-comprension-veloz-que-es">
+                            <span>Comprensión veloz: qué es y en qué se diferencia de solo leer rápido</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-lectura-rapida-adultos-guia">
+                            <span>Lectura rápida para adultos: guía práctica sin promesas irreales</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-lectura-rapida-examenes-estudio">
+                            <span>Lectura rápida para estudiar y presentar exámenes: cómo aplicarla bien</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué ejercicio debo practicar primero: fijación, regresión o subvocalización?</h3>
+                    <p>No hay un orden universal obligatorio, pero suele ser útil empezar por identificar y reducir regresiones involuntarias, porque es el hábito más fácil de notar de forma consciente y el que muestra resultados más rápidos con guía visual externa.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es normal que mi comprensión baje al principio con estos ejercicios?</h3>
+                    <p>Sí, es común en las primeras sesiones mientras el cerebro se adapta al nuevo patrón mecánico. Si la comprensión baja de forma notoria, retrocede un paso (grupos de palabras más pequeños, ritmo menos acelerado) y avanza de forma más gradual.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo hacer estos ejercicios solo, sin un instructor?</h3>
+                    <p>Sí, son ejercicios que se pueden practicar de forma autodidacta con disciplina constante. La ventaja de un instructor es diagnosticar con precisión cuál de los tres hábitos limita más tu velocidad en particular, y dar retroalimentación externa sobre tu comprensión.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debo practicar antes de ver resultados?</h3>
+                    <p>Depende de la consistencia de la práctica y del hábito de partida. No existe una cifra universal honesta, pero practicar 10-15 minutos varias veces por semana durante varias semanas, verificando comprensión en cada sesión, es un patrón más sostenible que sesiones intensas y esporádicas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -522,8 +613,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Ejercicio 1: ampliar el tamaño de fijación
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Ejercicio 2: identificar y reducir regresiones involuntarias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo entrenar la reducción de regresiones con guía visual
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejercicio 3: reducir la subvocalización con ritmo guiado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Por qué la verificación de comprensión es la parte que no se puede omitir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cuánto tiempo dedicar a estos ejercicios por sesión
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cómo saber cuándo combinar los tres ejercicios
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

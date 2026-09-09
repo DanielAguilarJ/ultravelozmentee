@@ -62,6 +62,15 @@ Desde el ID 1025, todo post presente y futuro entra automáticamente al Gate 10 
 - `<title>` y description únicos y sincronizados; canonical único y sin `noindex`.
 - JSON-LD válido con `BlogPosting` y `FAQPage`.
 - Portada con `src`, `alt`, `width` y `height`.
+- Experiencia visual en 10/10: migas de pan, bajada, metadatos semánticos, composición de lectura, índice responsive, secciones enlazables, relacionados, estados accesibles e impresión limpia.
+- Si la evaluación visual baja de 5/10, el resultado se marca como **segunda vuelta obligatoria**; cualquier nota menor de 10/10 bloquea el commit.
+
+La experiencia se puede revisar de forma aislada, sin escribir archivos:
+
+```bash
+python3 tools/seo_content/review_blog_experience.py
+python3 test/test_blog_article_experience.py -v
+```
 
 Si falla frescura, ejecutar en orden:
 

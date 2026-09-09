@@ -362,149 +362,247 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="8">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Herramientas de tecnología educativa que sí sirven</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 8 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Herramientas de tecnología educativa que sí sirven</h1>
+                <p class="blog-post-dek">Herramientas de tecnología educativa que sí sirven: qué usar para practicar, entender, organizar y crear, y qué no hace falta comprar para estudiar mejor.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>8 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Herramientas de tecnología educativa que sí sirven" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Buscar la mejor app de estudio es un camino sin final, porque cada semana aparece una nueva y todas prometen lo mismo. El problema no es de catálogo: es que sin una función asignada, cualquier herramienta parece justificable y ninguna se sostiene el tiempo suficiente para dejar resultado.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Cómo separar herramienta útil de novedad pasajera
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Para practicar y automatizar: repetición espaciada y ejercicio corregido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Para entender: asistentes, videos y simuladores
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Para organizar: calendario, lista corta y temporizador
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Para crear: programación por bloques, hojas de cálculo y edición
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: armar un juego mínimo de cuatro herramientas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Lo que no necesitas comprar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Buscar la mejor app de estudio es un camino sin final, porque cada semana aparece una nueva y todas prometen lo mismo. El problema no es de catálogo: es que sin una función asignada, cualquier herramienta parece justificable y ninguna se sostiene el tiempo suficiente para dejar resultado.</p>
             <p>Este artículo organiza el terreno por función en lugar de por marca. Con ese mapa puedes decidir qué tipo de herramienta necesitas ahora, evaluar candidatas con criterios claros y reconocer las categorías que simplemente no hacen falta para el trabajo escolar cotidiano.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Las herramientas de tecnología educativa útiles se agrupan en cuatro funciones: practicar con corrección inmediata, entender un concepto desde otro ángulo, organizar tareas y fechas, y crear algo propio. Un juego mínimo de cuatro herramientas, una por función, cubre casi cualquier necesidad escolar; acumular más suele fragmentar el avance sin mejorar los resultados.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Las herramientas de tecnología educativa útiles se agrupan en cuatro funciones: practicar con corrección inmediata, entender un concepto desde otro ángulo, organizar tareas y fechas, y crear algo propio. Un juego mínimo de cuatro herramientas, una por función, cubre casi cualquier necesidad escolar; acumular más suele fragmentar el avance sin mejorar los resultados.</p>
+                </aside>
 
-            <h2>Cómo separar herramienta útil de novedad pasajera</h2>
-            <p>Una herramienta útil sobrevive al momento en que dejas de tenerle entusiasmo. La prueba es sencilla: si sigues usándola en la cuarta semana, cuando ya no hay novedad y la carga escolar aprieta, entonces resolvía un problema real. Si la abandonaste a los diez días, la novedad era el único motor.</p>
-            <p>Otro filtro es qué pasa cuando la quitas. Una herramienta integrada en tu semana deja un hueco concreto: pierdes el registro de entregas, o los ejercicios que estabas resolviendo, o el lugar donde viven tus apuntes. Si al quitarla no cambia nada, ya sabes qué lugar ocupaba realmente.</p>
-            <p>Conviene desconfiar de dos señales. La primera, herramientas que ofrecen resolverlo todo: agenda, apuntes, práctica, temporizador y comunidad. La segunda, herramientas cuyo principal argumento es una estética agradable, porque la fricción real del estudio está en otra parte.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Cómo separar herramienta útil de novedad pasajera</h2>
+                <p>Una herramienta útil sobrevive al momento en que dejas de tenerle entusiasmo. La prueba es sencilla: si sigues usándola en la cuarta semana, cuando ya no hay novedad y la carga escolar aprieta, entonces resolvía un problema real. Si la abandonaste a los diez días, la novedad era el único motor.</p>
+                <p>Otro filtro es qué pasa cuando la quitas. Una herramienta integrada en tu semana deja un hueco concreto: pierdes el registro de entregas, o los ejercicios que estabas resolviendo, o el lugar donde viven tus apuntes. Si al quitarla no cambia nada, ya sabes qué lugar ocupaba realmente.</p>
+                <p>Conviene desconfiar de dos señales. La primera, herramientas que ofrecen resolverlo todo: agenda, apuntes, práctica, temporizador y comunidad. La segunda, herramientas cuyo principal argumento es una estética agradable, porque la fricción real del estudio está en otra parte.</p>
+            </section>
 
-            <h2>Para practicar y automatizar: repetición espaciada y ejercicio corregido</h2>
-            <p>La práctica es donde el software gana con claridad al papel, porque puede corregir en el instante y ajustar la dificultad según tu desempeño. Dos categorías cubren esta función: las tarjetas de repetición espaciada, para memorizar hechos y vocabulario, y las apps de ejercicio con corrección, para procedimientos.</p>
-            <p>La repetición espaciada funciona porque muestra cada tarjeta justo antes de que la olvides, y eso hace que repasar sea eficiente en lugar de exhaustivo. Sirve para vocabulario de idiomas, fórmulas, fechas y definiciones. No sirve, en cambio, para entender procedimientos: ahí necesitas ejercitar, no recordar.</p>
-            <ul>
-                <li>Repetición espaciada: vocabulario, fórmulas, definiciones y datos que deben quedar automáticos.</li>
-                <li>Ejercicio con corrección inmediata: matemáticas, física, gramática y todo lo que se resuelve paso a paso.</li>
-                <li>Busca que explique el error y que suba la dificultad cuando aciertas de forma sostenida.</li>
-                <li>Desconfía de las apps que premian rapidez por encima de precisión.</li>
-            </ul>
-
-            <h2>Para entender: asistentes, videos y simuladores</h2>
-            <p>Cuando un tema no quedó claro, lo que necesitas es una explicación distinta, no más repetición. Un asistente de inteligencia artificial puede reformular el mismo concepto con otras palabras o con una analogía, y ese cambio de ángulo suele ser suficiente para desbloquear el avance.</p>
-            <p>Los videos funcionan bien para ver un procedimiento completo en acción, con la advertencia de que generan una sensación de comprensión que no equivale a saber hacerlo. Los simuladores son la categoría más subestimada: permiten cambiar una variable y ver el efecto, algo que ningún texto reproduce igual.</p>
-            <p>La regla común a las tres es que la comprensión se verifica produciendo. Después de cualquier explicación, resolver un ejercicio del tema sin ver la fuente es el único paso que convierte el reconocimiento en aprendizaje real.</p>
-
-            <h2>Para organizar: calendario, lista corta y temporizador</h2>
-            <p>La organización no requiere software especializado, y ahí es donde más tiempo se pierde probando aplicaciones. Un calendario donde vivan todas las fechas de entrega, una lista corta con las tareas del día y un temporizador para delimitar bloques cubren prácticamente toda la necesidad de un estudiante.</p>
-            <p>Lo importante no es la herramienta sino que haya una sola. Dos calendarios y tres listas producen la sensación de estar organizado mientras la información se dispersa, y cuando falta un dato nadie sabe en cuál buscarlo. Una fuente única, aunque sea imperfecta, siempre gana.</p>
-            <ul>
-                <li>Un solo calendario con todas las entregas y exámenes, sin importar la materia o plataforma.</li>
-                <li>Una lista de tres tareas prioritarias por día, escrita la noche anterior.</li>
-                <li>Un temporizador simple para bloques de estudio, sin funciones adicionales.</li>
-                <li>Un lugar único para apuntes digitales, con búsqueda por texto.</li>
-            </ul>
-
-            <h2>Para crear: programación por bloques, hojas de cálculo y edición</h2>
-            <p>La cuarta función es la que más se olvida y la que deja huella más duradera. Crear algo obliga a planear, probar y corregir, y esa secuencia se parece bastante al método científico. Un estudiante que programa un juego simple no solo aprende a programar: aprende a descomponer un problema en pasos.</p>
-            <p>La programación por bloques es el punto de entrada más accesible, porque elimina la barrera de la sintaxis y deja el foco en la lógica. Las hojas de cálculo son la herramienta creativa más subestimada del mundo escolar: permiten modelar un presupuesto, graficar datos propios y ver el efecto de cambiar un supuesto.</p>
-            <p>La edición de audio o video encaja bien en trabajos de exposición y proyectos de ciencias. Su valor educativo no está en el resultado bonito, sino en que obliga a estructurar un guion, decidir qué se queda y qué se corta, y verificar que la explicación se entienda sin la presencia del autor.</p>
-
-            <h2>Ejemplo aplicado: armar un juego mínimo de cuatro herramientas</h2>
-            <p>Un estudiante de primero de secundaria tiene doce aplicaciones instaladas relacionadas con estudio, no usa ninguna con constancia y siente que todas le fallan. En lugar de buscar la número trece, decide asignar una herramienta por función y desinstalar el resto durante un mes.</p>
-            <p>Para practicar elige una app de matemáticas con corrección paso a paso, porque es la materia donde más pierde puntos. Para entender se queda con un asistente de inteligencia artificial, con la regla explícita de pedir explicaciones y ejercicios adicionales, nunca la respuesta que va a entregar.</p>
-            <p>Para organizar usa el calendario que ya viene en su teléfono, con una sola alarma dos días antes de cada entrega. Para crear se queda con un entorno de programación por bloques, que trabaja los sábados por gusto propio y no como obligación escolar.</p>
-            <p>Al mes el resultado no es espectacular pero sí legible: usó la app de matemáticas dieciocho días, no perdió ninguna entrega y terminó dos proyectos de programación. Con esa información puede decidir con criterio, porque ya sabe qué está funcionando en lugar de intuirlo entre doce aplicaciones abiertas.</p>
-
-            <h2>Lo que no necesitas comprar</h2>
-            <p>Hay categorías que se venden bien y aportan poco al trabajo escolar cotidiano. Los cursos empaquetados de técnicas de estudio en video suelen repetir principios que se explican gratis y en menos tiempo; lo que falta no es información, es aplicación sostenida durante semanas.</p>
-            <p>Las suscripciones que prometen resolver cualquier tarea con una foto merecen atención especial, porque el modelo de negocio depende de que el estudiante entregue sin entender. Sirven como verificación después de resolver por cuenta propia, y son contraproducentes como primer recurso.</p>
-            <p>Tampoco hace falta hardware sofisticado. Un equipo modesto con conexión estable cubre todo el trabajo escolar de primaria, secundaria y bachillerato. Antes de invertir en un dispositivo nuevo, conviene revisar si el problema es capacidad del equipo o si es organización del tiempo, que es lo más frecuente.</p>
-            <p>Un criterio final: si una herramienta requiere pago antes de que puedas comprobar si la vas a usar, espera. Casi todas las categorías útiles tienen una versión gratuita suficiente para sostener el hábito durante un mes, que es el tiempo mínimo para saber si vale la pena pagar.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>La pieza de práctica del juego mínimo</h3>
-                <p>Si estás armando el juego de cuatro herramientas y te falta la de practicar matemáticas, MatheKids cubre esa función concreta: ejercicios por niveles con el error explicado en el paso donde ocurrió, en sesiones cortas que caben antes o después de la tarea. Revisa cómo está organizado antes de sumarlo a tu semana.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer las clases de matemáticas <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Para practicar y automatizar: repetición espaciada y ejercicio corregido</h2>
+                <p>La práctica es donde el software gana con claridad al papel, porque puede corregir en el instante y ajustar la dificultad según tu desempeño. Dos categorías cubren esta función: las tarjetas de repetición espaciada, para memorizar hechos y vocabulario, y las apps de ejercicio con corrección, para procedimientos.</p>
+                <p>La repetición espaciada funciona porque muestra cada tarjeta justo antes de que la olvides, y eso hace que repasar sea eficiente en lugar de exhaustivo. Sirve para vocabulario de idiomas, fórmulas, fechas y definiciones. No sirve, en cambio, para entender procedimientos: ahí necesitas ejercitar, no recordar.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-para-estudiantes">Cómo usar tecnología educativa siendo estudiante</a></li>
-                <li><a href="/blog-tecnologia-educativa-checklist">Checklist para evaluar tecnología educativa antes de usarla</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-que-es">Qué son las metodologías de aprendizaje y cómo elegir la tuya</a></li>
+                    <li>Repetición espaciada: vocabulario, fórmulas, definiciones y datos que deben quedar automáticos.</li>
+                    <li>Ejercicio con corrección inmediata: matemáticas, física, gramática y todo lo que se resuelve paso a paso.</li>
+                    <li>Busca que explique el error y que suba la dificultad cuando aciertas de forma sostenida.</li>
+                    <li>Desconfía de las apps que premian rapidez por encima de precisión.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuál es la mejor app para estudiar?</h3>
-                <p>La pregunta no tiene una respuesta única porque depende de la función que necesites. Para practicar matemáticas necesitas corrección paso a paso; para memorizar vocabulario, repetición espaciada; para no perder entregas, un calendario. Definir la función primero reduce la búsqueda a dos o tres candidatas evaluables en una tarde.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Las tarjetas de repetición espaciada sirven para todas las materias?</h3>
-                <p>Sirven para contenido que debe quedar automático: vocabulario, fórmulas, fechas, definiciones y clasificaciones. No sirven para procedimientos ni para comprensión de textos, porque ahí no basta recordar un dato: hay que ejecutar pasos o interpretar. Para eso necesitas ejercicio con corrección, no tarjetas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Conviene tomar apuntes en una app o en cuaderno?</h3>
-                <p>El cuaderno suele dejar mejor retención en clases teóricas porque obliga a resumir en tiempo real. La app gana cuando necesitas buscar dentro de tus notas meses después o compartirlas. Una combinación razonable es apuntes a mano y digitalización al final del día, sin transcribir todo de nuevo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Los simuladores reemplazan el laboratorio escolar?</h3>
-                <p>No lo reemplazan, pero permiten repetir un experimento tantas veces como quieras y variar condiciones que en el laboratorio no serían prácticas. Funcionan mejor como preparación previa y como repaso posterior. La manipulación física aporta observaciones y errores que la simulación no reproduce.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántas herramientas debería usar al mismo tiempo?</h3>
-                <p>Cuatro suele ser el techo razonable: una para practicar, una para entender, una para organizar y una para crear. Más allá de eso empiezas a administrar herramientas en lugar de estudiar. Si dos hacen lo mismo, quédate con la que hayas usado más días en las últimas tres semanas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Para entender: asistentes, videos y simuladores</h2>
+                <p>Cuando un tema no quedó claro, lo que necesitas es una explicación distinta, no más repetición. Un asistente de inteligencia artificial puede reformular el mismo concepto con otras palabras o con una analogía, y ese cambio de ángulo suele ser suficiente para desbloquear el avance.</p>
+                <p>Los videos funcionan bien para ver un procedimiento completo en acción, con la advertencia de que generan una sensación de comprensión que no equivale a saber hacerlo. Los simuladores son la categoría más subestimada: permiten cambiar una variable y ver el efecto, algo que ningún texto reproduce igual.</p>
+                <p>La regla común a las tres es que la comprensión se verifica produciendo. Después de cualquier explicación, resolver un ejercicio del tema sin ver la fuente es el único paso que convierte el reconocimiento en aprendizaje real.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Para organizar: calendario, lista corta y temporizador</h2>
+                <p>La organización no requiere software especializado, y ahí es donde más tiempo se pierde probando aplicaciones. Un calendario donde vivan todas las fechas de entrega, una lista corta con las tareas del día y un temporizador para delimitar bloques cubren prácticamente toda la necesidad de un estudiante.</p>
+                <p>Lo importante no es la herramienta sino que haya una sola. Dos calendarios y tres listas producen la sensación de estar organizado mientras la información se dispersa, y cuando falta un dato nadie sabe en cuál buscarlo. Una fuente única, aunque sea imperfecta, siempre gana.</p>
+                <ul>
+                    <li>Un solo calendario con todas las entregas y exámenes, sin importar la materia o plataforma.</li>
+                    <li>Una lista de tres tareas prioritarias por día, escrita la noche anterior.</li>
+                    <li>Un temporizador simple para bloques de estudio, sin funciones adicionales.</li>
+                    <li>Un lugar único para apuntes digitales, con búsqueda por texto.</li>
+                </ul>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Para crear: programación por bloques, hojas de cálculo y edición</h2>
+                <p>La cuarta función es la que más se olvida y la que deja huella más duradera. Crear algo obliga a planear, probar y corregir, y esa secuencia se parece bastante al método científico. Un estudiante que programa un juego simple no solo aprende a programar: aprende a descomponer un problema en pasos.</p>
+                <p>La programación por bloques es el punto de entrada más accesible, porque elimina la barrera de la sintaxis y deja el foco en la lógica. Las hojas de cálculo son la herramienta creativa más subestimada del mundo escolar: permiten modelar un presupuesto, graficar datos propios y ver el efecto de cambiar un supuesto.</p>
+                <p>La edición de audio o video encaja bien en trabajos de exposición y proyectos de ciencias. Su valor educativo no está en el resultado bonito, sino en que obliga a estructurar un guion, decidir qué se queda y qué se corta, y verificar que la explicación se entienda sin la presencia del autor.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplo aplicado: armar un juego mínimo de cuatro herramientas</h2>
+                <p>Un estudiante de primero de secundaria tiene doce aplicaciones instaladas relacionadas con estudio, no usa ninguna con constancia y siente que todas le fallan. En lugar de buscar la número trece, decide asignar una herramienta por función y desinstalar el resto durante un mes.</p>
+                <p>Para practicar elige una app de matemáticas con corrección paso a paso, porque es la materia donde más pierde puntos. Para entender se queda con un asistente de inteligencia artificial, con la regla explícita de pedir explicaciones y ejercicios adicionales, nunca la respuesta que va a entregar.</p>
+                <p>Para organizar usa el calendario que ya viene en su teléfono, con una sola alarma dos días antes de cada entrega. Para crear se queda con un entorno de programación por bloques, que trabaja los sábados por gusto propio y no como obligación escolar.</p>
+                <p>Al mes el resultado no es espectacular pero sí legible: usó la app de matemáticas dieciocho días, no perdió ninguna entrega y terminó dos proyectos de programación. Con esa información puede decidir con criterio, porque ya sabe qué está funcionando en lugar de intuirlo entre doce aplicaciones abiertas.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Lo que no necesitas comprar</h2>
+                <p>Hay categorías que se venden bien y aportan poco al trabajo escolar cotidiano. Los cursos empaquetados de técnicas de estudio en video suelen repetir principios que se explican gratis y en menos tiempo; lo que falta no es información, es aplicación sostenida durante semanas.</p>
+                <p>Las suscripciones que prometen resolver cualquier tarea con una foto merecen atención especial, porque el modelo de negocio depende de que el estudiante entregue sin entender. Sirven como verificación después de resolver por cuenta propia, y son contraproducentes como primer recurso.</p>
+                <p>Tampoco hace falta hardware sofisticado. Un equipo modesto con conexión estable cubre todo el trabajo escolar de primaria, secundaria y bachillerato. Antes de invertir en un dispositivo nuevo, conviene revisar si el problema es capacidad del equipo o si es organización del tiempo, que es lo más frecuente.</p>
+                <p>Un criterio final: si una herramienta requiere pago antes de que puedas comprobar si la vas a usar, espera. Casi todas las categorías útiles tienen una versión gratuita suficiente para sostener el hábito durante un mes, que es el tiempo mínimo para saber si vale la pena pagar.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">La pieza de práctica del juego mínimo</h2>
+                    <p>Si estás armando el juego de cuatro herramientas y te falta la de practicar matemáticas, MatheKids cubre esa función concreta: ejercicios por niveles con el error explicado en el paso donde ocurrió, en sesiones cortas que caben antes o después de la tarea. Revisa cómo está organizado antes de sumarlo a tu semana.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Conocer las clases de matemáticas <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-para-estudiantes">
+                            <span>Cómo usar tecnología educativa siendo estudiante</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-checklist">
+                            <span>Checklist para evaluar tecnología educativa antes de usarla</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-que-es">
+                            <span>Qué son las metodologías de aprendizaje y cómo elegir la tuya</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuál es la mejor app para estudiar?</h3>
+                    <p>La pregunta no tiene una respuesta única porque depende de la función que necesites. Para practicar matemáticas necesitas corrección paso a paso; para memorizar vocabulario, repetición espaciada; para no perder entregas, un calendario. Definir la función primero reduce la búsqueda a dos o tres candidatas evaluables en una tarde.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Las tarjetas de repetición espaciada sirven para todas las materias?</h3>
+                    <p>Sirven para contenido que debe quedar automático: vocabulario, fórmulas, fechas, definiciones y clasificaciones. No sirven para procedimientos ni para comprensión de textos, porque ahí no basta recordar un dato: hay que ejecutar pasos o interpretar. Para eso necesitas ejercicio con corrección, no tarjetas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Conviene tomar apuntes en una app o en cuaderno?</h3>
+                    <p>El cuaderno suele dejar mejor retención en clases teóricas porque obliga a resumir en tiempo real. La app gana cuando necesitas buscar dentro de tus notas meses después o compartirlas. Una combinación razonable es apuntes a mano y digitalización al final del día, sin transcribir todo de nuevo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Los simuladores reemplazan el laboratorio escolar?</h3>
+                    <p>No lo reemplazan, pero permiten repetir un experimento tantas veces como quieras y variar condiciones que en el laboratorio no serían prácticas. Funcionan mejor como preparación previa y como repaso posterior. La manipulación física aporta observaciones y errores que la simulación no reproduce.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántas herramientas debería usar al mismo tiempo?</h3>
+                    <p>Cuatro suele ser el techo razonable: una para practicar, una para entender, una para organizar y una para crear. Más allá de eso empiezas a administrar herramientas en lugar de estudiar. Si dos hacen lo mismo, quédate con la que hayas usado más días en las últimas tres semanas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -534,8 +632,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Cómo separar herramienta útil de novedad pasajera
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Para practicar y automatizar: repetición espaciada y ejercicio corregido
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Para entender: asistentes, videos y simuladores
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Para organizar: calendario, lista corta y temporizador
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Para crear: programación por bloques, hojas de cálculo y edición
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplo aplicado: armar un juego mínimo de cuatro herramientas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Lo que no necesitas comprar
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>8 min restantes</span>
+                        <span>Lectura estimada: 8 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

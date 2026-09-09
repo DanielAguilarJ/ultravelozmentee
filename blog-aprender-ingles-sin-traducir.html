@@ -346,112 +346,187 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="4">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-language"></i> FastKids
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo aprender inglés sin traducir cada palabra</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 4 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">FastKids</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo aprender inglés sin traducir cada palabra</h1>
+                <p class="blog-post-dek">Cómo aprender inglés sin traducir cada palabra, usando contexto, imágenes, frases completas y tolerancia a la ambigüedad.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">FastKids</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>4 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fastkids-curso-ingles-ninos-flashcards.webp" alt="Cómo aprender inglés sin traducir cada palabra" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Traducir mentalmente cada palabra al español antes de comprenderla en inglés es un hábito común, pero ralentiza mucho la comprensión y dificulta después hablar con fluidez, porque el cerebro se acostumbra a un paso intermedio innecesario.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué traducir cada palabra ralentiza el aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Usar imágenes y contexto en lugar de traducción directa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Tolerar la ambigüedad inicial sin traducir todo de inmediato
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Aprender frases completas en lugar de palabras aisladas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo elegir material auténtico apropiado al nivel
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores frecuentes al intentar dejar de traducir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Traducir mentalmente cada palabra al español antes de comprenderla en inglés es un hábito común, pero ralentiza mucho la comprensión y dificulta después hablar con fluidez, porque el cerebro se acostumbra a un paso intermedio innecesario.</p>
             <p>Este artículo explica cómo entrenar la asociación directa entre inglés y significado, sin el paso de traducción palabra por palabra, con estrategias prácticas para aplicar en casa.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Aprender inglés sin traducir cada palabra implica asociar el idioma directamente con imágenes, contextos y frases completas, en lugar de convertir mentalmente cada palabra al español antes de entenderla. Esto se practica tolerando cierta ambigüedad inicial, usando material auténtico apropiado al nivel y evitando el diccionario como primer recurso ante cada palabra desconocida.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Aprender inglés sin traducir cada palabra implica asociar el idioma directamente con imágenes, contextos y frases completas, en lugar de convertir mentalmente cada palabra al español antes de entenderla. Esto se practica tolerando cierta ambigüedad inicial, usando material auténtico apropiado al nivel y evitando el diccionario como primer recurso ante cada palabra desconocida.</p>
+                </aside>
 
-            <h2>Por qué traducir cada palabra ralentiza el aprendizaje</h2>
-            <p>Cuando se traduce mentalmente cada palabra, el cerebro procesa la información en dos pasos: reconocer la palabra en inglés y luego convertirla a español antes de entender el significado. Este paso adicional consume tiempo y esfuerzo mental que, con práctica repetida de asociación directa, puede eliminarse.</p>
-            <p>Además, muchas palabras y expresiones no tienen una traducción exacta palabra por palabra; forzar esa traducción genera confusión en lugar de comprensión, especialmente con modismos o expresiones idiomáticas que solo tienen sentido en su contexto original.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué traducir cada palabra ralentiza el aprendizaje</h2>
+                <p>Cuando se traduce mentalmente cada palabra, el cerebro procesa la información en dos pasos: reconocer la palabra en inglés y luego convertirla a español antes de entender el significado. Este paso adicional consume tiempo y esfuerzo mental que, con práctica repetida de asociación directa, puede eliminarse.</p>
+                <p>Además, muchas palabras y expresiones no tienen una traducción exacta palabra por palabra; forzar esa traducción genera confusión en lugar de comprensión, especialmente con modismos o expresiones idiomáticas que solo tienen sentido en su contexto original.</p>
+            </section>
 
-            <h2>Usar imágenes y contexto en lugar de traducción directa</h2>
-            <p>Asociar una palabra nueva directamente con una imagen o situación, en lugar de con su equivalente en español, entrena al cerebro a construir el significado sin el paso intermedio de traducción. Ver la palabra "apple" junto a una imagen de una manzana, repetidamente, en distintos contextos, genera esta asociación directa con el tiempo.</p>
-            <p>Leer o escuchar contenido donde el significado de una palabra desconocida se puede inferir por el contexto —qué está pasando en la escena, qué palabras la rodean— practica esta misma habilidad de comprensión sin traducción explícita.</p>
-            <ul>
-                <li>Usar tarjetas con imágenes en lugar de listas de palabras con su traducción.</li>
-                <li>Elegir videos o cuentos donde el contexto visual ayude a inferir significado.</li>
-                <li>Practicar con canciones infantiles donde la repetición refuerza la asociación directa.</li>
-                <li>Evitar diccionarios bilingües como primer recurso ante cada palabra nueva.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Usar imágenes y contexto en lugar de traducción directa</h2>
+                <p>Asociar una palabra nueva directamente con una imagen o situación, en lugar de con su equivalente en español, entrena al cerebro a construir el significado sin el paso intermedio de traducción. Ver la palabra "apple" junto a una imagen de una manzana, repetidamente, en distintos contextos, genera esta asociación directa con el tiempo.</p>
+                <p>Leer o escuchar contenido donde el significado de una palabra desconocida se puede inferir por el contexto —qué está pasando en la escena, qué palabras la rodean— practica esta misma habilidad de comprensión sin traducción explícita.</p>
+                <ul>
+                    <li>Usar tarjetas con imágenes en lugar de listas de palabras con su traducción.</li>
+                    <li>Elegir videos o cuentos donde el contexto visual ayude a inferir significado.</li>
+                    <li>Practicar con canciones infantiles donde la repetición refuerza la asociación directa.</li>
+                    <li>Evitar diccionarios bilingües como primer recurso ante cada palabra nueva.</li>
+                </ul>
+            </section>
 
-            <h2>Tolerar la ambigüedad inicial sin traducir todo de inmediato</h2>
-            <p>Al leer o escuchar en inglés, es normal encontrar palabras desconocidas. La tentación es detenerse a buscar cada una en el diccionario, lo cual interrumpe el flujo de comprensión general. Una estrategia más efectiva es seguir adelante, tolerando cierta incertidumbre, y solo buscar una palabra si su desconocimiento impide entender la idea general.</p>
-            <p>Esta tolerancia a la ambigüedad se entrena con práctica: al principio se siente incómodo no entender el cien por ciento del contenido, pero con exposición repetida, la comprensión general mejora sin necesidad de conocer cada palabra individual.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Tolerar la ambigüedad inicial sin traducir todo de inmediato</h2>
+                <p>Al leer o escuchar en inglés, es normal encontrar palabras desconocidas. La tentación es detenerse a buscar cada una en el diccionario, lo cual interrumpe el flujo de comprensión general. Una estrategia más efectiva es seguir adelante, tolerando cierta incertidumbre, y solo buscar una palabra si su desconocimiento impide entender la idea general.</p>
+                <p>Esta tolerancia a la ambigüedad se entrena con práctica: al principio se siente incómodo no entender el cien por ciento del contenido, pero con exposición repetida, la comprensión general mejora sin necesidad de conocer cada palabra individual.</p>
+            </section>
 
-            <h2>Aprender frases completas en lugar de palabras aisladas</h2>
-            <p>Memorizar palabras sueltas sin contexto dificulta usarlas correctamente después, porque el idioma real funciona en frases y combinaciones específicas, no en palabras aisladas intercambiables libremente. Aprender "How are you?" como unidad completa es más útil que memorizar "how", "are" y "you" por separado.</p>
-            <p>Esta práctica también refleja mejor cómo los hablantes nativos realmente construyen oraciones, con combinaciones frecuentes de palabras que no siempre se traducen de forma literal palabra por palabra al español.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Aprender frases completas en lugar de palabras aisladas</h2>
+                <p>Memorizar palabras sueltas sin contexto dificulta usarlas correctamente después, porque el idioma real funciona en frases y combinaciones específicas, no en palabras aisladas intercambiables libremente. Aprender "How are you?" como unidad completa es más útil que memorizar "how", "are" y "you" por separado.</p>
+                <p>Esta práctica también refleja mejor cómo los hablantes nativos realmente construyen oraciones, con combinaciones frecuentes de palabras que no siempre se traducen de forma literal palabra por palabra al español.</p>
+            </section>
 
-            <h2>Cómo elegir material auténtico apropiado al nivel</h2>
-            <p>Material demasiado difícil, con muchas palabras desconocidas en cada oración, dificulta practicar comprensión por contexto porque no hay suficientes pistas conocidas para inferir el significado. Elegir contenido donde la mayoría del vocabulario ya es familiar, con solo algunas palabras nuevas por página o escena, favorece este tipo de aprendizaje.</p>
-            <p>Contenido diseñado específicamente para aprendices —libros graduados, videos educativos con vocabulario controlado— suele ofrecer este balance mejor que material completamente auténtico desde el inicio del aprendizaje.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cómo elegir material auténtico apropiado al nivel</h2>
+                <p>Material demasiado difícil, con muchas palabras desconocidas en cada oración, dificulta practicar comprensión por contexto porque no hay suficientes pistas conocidas para inferir el significado. Elegir contenido donde la mayoría del vocabulario ya es familiar, con solo algunas palabras nuevas por página o escena, favorece este tipo de aprendizaje.</p>
+                <p>Contenido diseñado específicamente para aprendices —libros graduados, videos educativos con vocabulario controlado— suele ofrecer este balance mejor que material completamente auténtico desde el inicio del aprendizaje.</p>
+            </section>
 
-            <h2>Errores frecuentes al intentar dejar de traducir</h2>
-            <p>El error más común es intentar eliminar la traducción de golpe con material demasiado avanzado, generando frustración en lugar de progreso. Otro error es seguir recurriendo al diccionario bilingüe ante cada palabra nueva, en lugar de tolerar primero la ambigüedad y buscar solo cuando es realmente necesario.</p>
-            <p>También es un error forzar este método antes de que exista una base mínima de vocabulario; la comprensión por contexto funciona mejor cuando ya se reconoce una parte significativa del contenido, no cuando prácticamente todo es desconocido.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Errores frecuentes al intentar dejar de traducir</h2>
+                <p>El error más común es intentar eliminar la traducción de golpe con material demasiado avanzado, generando frustración en lugar de progreso. Otro error es seguir recurriendo al diccionario bilingüe ante cada palabra nueva, en lugar de tolerar primero la ambigüedad y buscar solo cuando es realmente necesario.</p>
+                <p>También es un error forzar este método antes de que exista una base mínima de vocabulario; la comprensión por contexto funciona mejor cuando ya se reconoce una parte significativa del contenido, no cuando prácticamente todo es desconocido.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Conoce FastKids de Ultravelozmente</h3>
-                <p>Si buscas un método que entrene comprensión directa en inglés sin depender de la traducción constante, nuestro programa usa contexto e inmersión gradual adaptada al nivel de cada estudiante.</p>
-                <a href="/fastkids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer las clases de inglés para niños <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Conoce FastKids de Ultravelozmente</h2>
+                    <p>Si buscas un método que entrene comprensión directa en inglés sin depender de la traducción constante, nuestro programa usa contexto e inmersión gradual adaptada al nivel de cada estudiante.</p>
+                    <a href="/fastkids" class="btn-primary">
+                        Conocer las clases de inglés para niños <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Debo eliminar por completo el diccionario al aprender inglés?</h3>
-                <p>No es necesario eliminarlo del todo, pero conviene no usarlo como primer recurso ante cada palabra desconocida. Tolerar cierta ambigüedad y buscar solo cuando impide entender la idea general favorece más el aprendizaje.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Este método funciona para principiantes absolutos?</h3>
-                <p>Funciona mejor cuando ya existe una base mínima de vocabulario. Para principiantes absolutos, cierto apoyo de traducción inicial puede ser necesario antes de avanzar hacia comprensión por contexto.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si mi hijo está traduciendo mentalmente en lugar de comprender directamente?</h3>
-                <p>Una señal es si responde con mucha demora, como si estuviera procesando en dos pasos, o si pide traducción de palabras que ya ha visto repetidamente en contexto. Con práctica sostenida, este patrón suele disminuir.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.britishcouncil.org/en/english/courses-for-children" target="_blank" rel="noopener noreferrer">British Council – What makes a good English class for children</a> — Referencia sobre metodologías de enseñanza de inglés basadas en contexto</li>
-                <li><a href="https://www.cambridgeenglish.org/learning-english/parents-and-children/" target="_blank" rel="noopener noreferrer">Cambridge Assessment – Supporting young learners at home</a> — Guía sobre estrategias de comprensión sin traducción directa</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Debo eliminar por completo el diccionario al aprender inglés?</h3>
+                    <p>No es necesario eliminarlo del todo, pero conviene no usarlo como primer recurso ante cada palabra desconocida. Tolerar cierta ambigüedad y buscar solo cuando impide entender la idea general favorece más el aprendizaje.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Este método funciona para principiantes absolutos?</h3>
+                    <p>Funciona mejor cuando ya existe una base mínima de vocabulario. Para principiantes absolutos, cierto apoyo de traducción inicial puede ser necesario antes de avanzar hacia comprensión por contexto.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si mi hijo está traduciendo mentalmente en lugar de comprender directamente?</h3>
+                    <p>Una señal es si responde con mucha demora, como si estuviera procesando en dos pasos, o si pide traducción de palabras que ya ha visto repetidamente en contexto. Con práctica sostenida, este patrón suele disminuir.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.britishcouncil.org/en/english/courses-for-children" target="_blank" rel="noopener noreferrer">British Council – What makes a good English class for children</a> — Referencia sobre metodologías de enseñanza de inglés basadas en contexto</li>
+                    <li><a href="https://www.cambridgeenglish.org/learning-english/parents-and-children/" target="_blank" rel="noopener noreferrer">Cambridge Assessment – Supporting young learners at home</a> — Guía sobre estrategias de comprensión sin traducción directa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -481,8 +556,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué traducir cada palabra ralentiza el aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Usar imágenes y contexto en lugar de traducción directa
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Tolerar la ambigüedad inicial sin traducir todo de inmediato
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Aprender frases completas en lugar de palabras aisladas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo elegir material auténtico apropiado al nivel
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Errores frecuentes al intentar dejar de traducir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>4 min restantes</span>
+                        <span>Lectura estimada: 4 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

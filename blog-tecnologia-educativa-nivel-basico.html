@@ -362,137 +362,228 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-laptop-code"></i> Tecnología Educativa
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Robótica educativa nivel básico: qué aprende tu hijo primero</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 21 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Tecnología Educativa</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Robótica educativa nivel básico: qué aprende tu hijo primero</h1>
+                <p class="blog-post-dek">Qué aprende un niño en el nivel básico de robótica educativa: habilidades reales, expectativas realistas y cómo saber si está listo para avanzar.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Tecnología Educativa</span>
+                    <span>Publicado <time datetime="2026-08-21">21 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/integracion-hemisferios-cerebrales-aprendizaje-worldbrain.webp" alt="Robótica educativa nivel básico: qué aprende tu hijo primero" width="820" height="820" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Cuando una familia inscribe a su hijo en un curso de robótica por primera vez, es común llegar con expectativas poco claras sobre qué debería aprender realmente en las primeras semanas, y esa falta de claridad suele generar comparaciones injustas con lo que otros niños parecen estar haciendo en redes sociales o en videos promocionales de otros programas.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>8 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>El objetivo real del nivel básico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Habilidades concretas que se desarrollan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Qué NO se espera todavía en este nivel
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Señales de que tu hijo está progresando bien en este nivel
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuánto tiempo suele durar el nivel básico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo reforzar en casa sin necesidad de equipo especializado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Cuando una familia inscribe a su hijo en un curso de robótica por primera vez, es común llegar con expectativas poco claras sobre qué debería aprender realmente en las primeras semanas, y esa falta de claridad suele generar comparaciones injustas con lo que otros niños parecen estar haciendo en redes sociales o en videos promocionales de otros programas.</p>
             <p>Este artículo describe qué habilidades son razonables esperar en el nivel básico, para que puedas evaluar el progreso real de tu hijo en lugar de compararlo con estándares que corresponden a niveles más avanzados o con proyectos editados para verse impresionantes en un video corto.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>En el nivel básico de robótica educativa, un niño aprende principalmente a seguir y modificar secuencias simples de instrucciones, identificar causa y efecto entre una acción programada y el movimiento del robot, y tolerar el ensayo y error sin frustrarse de inmediato. No se espera dominio de programación formal; se espera familiaridad con la lógica secuencial básica.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>En el nivel básico de robótica educativa, un niño aprende principalmente a seguir y modificar secuencias simples de instrucciones, identificar causa y efecto entre una acción programada y el movimiento del robot, y tolerar el ensayo y error sin frustrarse de inmediato. No se espera dominio de programación formal; se espera familiaridad con la lógica secuencial básica.</p>
+                </aside>
 
-            <h2>El objetivo real del nivel básico</h2>
-            <p>El nivel básico de robótica educativa no busca que el niño entienda electrónica ni programación en un lenguaje formal. Busca algo más fundamental: que comprenda que una secuencia de instrucciones produce un resultado observable, y que modificar esa secuencia cambia el resultado de forma predecible.</p>
-            <p>Este principio —causa y efecto en un sistema que se puede manipular directamente— es la base sobre la que se construye cualquier habilidad de programación más avanzada. Sin esa comprensión intuitiva, aprender sintaxis de código específico más adelante se vuelve memorización sin fundamento conceptual.</p>
-            <p>Los kits de robótica educativa para principiantes suelen usar bloques visuales en lugar de código escrito precisamente por esta razón: permiten que el niño experimente con secuencias y vea el resultado inmediato sin la barrera adicional de aprender sintaxis exacta de un lenguaje de programación al mismo tiempo que aprende el concepto de secuencia.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">El objetivo real del nivel básico</h2>
+                <p>El nivel básico de robótica educativa no busca que el niño entienda electrónica ni programación en un lenguaje formal. Busca algo más fundamental: que comprenda que una secuencia de instrucciones produce un resultado observable, y que modificar esa secuencia cambia el resultado de forma predecible.</p>
+                <p>Este principio —causa y efecto en un sistema que se puede manipular directamente— es la base sobre la que se construye cualquier habilidad de programación más avanzada. Sin esa comprensión intuitiva, aprender sintaxis de código específico más adelante se vuelve memorización sin fundamento conceptual.</p>
+                <p>Los kits de robótica educativa para principiantes suelen usar bloques visuales en lugar de código escrito precisamente por esta razón: permiten que el niño experimente con secuencias y vea el resultado inmediato sin la barrera adicional de aprender sintaxis exacta de un lenguaje de programación al mismo tiempo que aprende el concepto de secuencia.</p>
+            </section>
 
-            <h2>Habilidades concretas que se desarrollan</h2>
-            <p>Más allá de la lógica secuencial, el nivel básico suele desarrollar un conjunto de habilidades transferibles que van más allá de la robótica misma, y que se notan también en otras materias escolares con el tiempo, particularmente en matemáticas y en la capacidad de seguir procedimientos de varios pasos sin perder el hilo.</p>
-            <ul>
-                <li>Seguir instrucciones de armado paso a paso con atención a detalles.</li>
-                <li>Identificar qué parte de una secuencia causó un resultado inesperado.</li>
-                <li>Tolerar que algo no funcione al primer intento sin abandonar la tarea.</li>
-                <li>Comunicar con palabras propias qué intentó hacer y qué pasó realmente.</li>
-                <li>Trabajar en equipo cuando el ejercicio requiere colaboración con otro niño.</li>
-            </ul>
-
-            <h2>Qué NO se espera todavía en este nivel</h2>
-            <p>Es importante calibrar expectativas: en el nivel básico no se espera que el niño programe de forma independiente sin guía, que entienda conceptos abstractos de programación como variables o bucles complejos, ni que diseñe una solución completa desde cero sin ejemplo previo.</p>
-            <p>Los cursos bien diseñados avanzan de forma gradual: primero se sigue un ejemplo guiado, después se modifica una parte de ese ejemplo, y solo más adelante se construye algo original. Esperar el tercer paso en las primeras semanas suele generar frustración innecesaria tanto en el niño como en el padre que observa el proceso.</p>
-            <p>Esta calibración de expectativas también aplica a la velocidad de avance entre niños del mismo grupo. Es común que dos niños de la misma edad progresen a ritmos distintos en esta etapa, sin que eso indique una diferencia significativa de capacidad a largo plazo; simplemente refleja distinta familiaridad previa con actividades de construcción o con seguir instrucciones técnicas.</p>
-
-            <h2>Señales de que tu hijo está progresando bien en este nivel</h2>
-            <p>Más que la complejidad del proyecto final, las señales de progreso real en nivel básico son conductuales: predecir en voz alta qué hará el robot antes de ejecutar el programa, notar por sí mismo cuándo algo no salió como esperaba, y proponer un ajuste concreto (aunque sea simple) para intentar corregirlo.</p>
-            <p>Un niño que empieza a decir 'creo que si cambio este número el robot va a girar más' está demostrando comprensión conceptual, incluso si técnicamente el ajuste que propone es incorrecto. Ese tipo de hipótesis es más valioso en esta etapa que acertar sin entender por qué.</p>
-
-            <h2>Cuánto tiempo suele durar el nivel básico</h2>
-            <p>La duración varía según la edad de inicio y la frecuencia de las sesiones, pero es razonable esperar varias semanas a un par de meses de práctica constante antes de que un niño esté listo para conceptos de nivel intermedio como secuencias más largas, condicionales simples o proyectos con más de un sensor.</p>
-            <p>Avanzar prematuramente a contenido más complejo sin consolidar la lógica secuencial básica suele generar confusión acumulada, donde el niño sigue instrucciones sin comprender el principio subyacente, lo cual eventualmente se vuelve visible cuando el ejercicio requiere adaptación en lugar de repetición.</p>
-            <p>Los cursos con buena progresión pedagógica suelen incluir puntos de verificación explícitos antes de avanzar de nivel, en lugar de mover a todo el grupo automáticamente por calendario. Vale la pena preguntar al instructor cómo se decide cuándo un niño está listo para el siguiente nivel, más allá de haber completado un número fijo de sesiones.</p>
-
-            <h2>Cómo reforzar en casa sin necesidad de equipo especializado</h2>
-            <p>Los principios del nivel básico se pueden reforzar en casa con actividades simples que no requieren robots ni tecnología: dar instrucciones paso a paso a otra persona para completar una tarea (como preparar un sándwich) y observar qué pasa si un paso se omite o se cambia de orden es un ejercicio análogo a la programación secuencial básica.</p>
-            <p>Este tipo de práctica no sustituye el curso, pero refuerza el mismo principio conceptual —secuencia, causa y efecto, depuración de errores— en un contexto cotidiano que ayuda a consolidar lo trabajado en clase.</p>
-            <p>Otra actividad útil es pedirle a tu hijo que explique, sin usar el robot, qué haría paso a paso para resolver un problema sencillo cotidiano (cómo llegar de la cocina a su habitación evitando obstáculos, por ejemplo). Verbalizar una secuencia de instrucciones en un contexto distinto al del curso ayuda a confirmar si el principio se comprendió de forma general o solo dentro del contexto específico del robot.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Un nivel básico diseñado con progresión gradual</h3>
-                <p>Robotics Code estructura su nivel introductorio alrededor de ejemplos guiados y modificación progresiva, sin saltar directo a proyectos independientes antes de que el niño consolide la lógica secuencial básica. Puedes conocer el programa completo sin compromiso.</p>
-                <a href="/mathekids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer las clases de matemáticas <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Habilidades concretas que se desarrollan</h2>
+                <p>Más allá de la lógica secuencial, el nivel básico suele desarrollar un conjunto de habilidades transferibles que van más allá de la robótica misma, y que se notan también en otras materias escolares con el tiempo, particularmente en matemáticas y en la capacidad de seguir procedimientos de varios pasos sin perder el hilo.</p>
                 <ul>
-                <li><a href="/blog-tecnologia-educativa-nivel-avanzado">Robótica educativa nivel avanzado: cuándo dar el siguiente paso</a></li>
-                <li><a href="/blog-tecnologia-educativa-senales-de-progreso">Señales de que tu hijo está progresando en robótica y programación</a></li>
-                <li><a href="/blog-tecnologia-educativa-que-esperar-el-primer-mes">Curso de robótica para niños: qué esperar el primer mes</a></li>
+                    <li>Seguir instrucciones de armado paso a paso con atención a detalles.</li>
+                    <li>Identificar qué parte de una secuencia causó un resultado inesperado.</li>
+                    <li>Tolerar que algo no funcione al primer intento sin abandonar la tarea.</li>
+                    <li>Comunicar con palabras propias qué intentó hacer y qué pasó realmente.</li>
+                    <li>Trabajar en equipo cuando el ejercicio requiere colaboración con otro niño.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Mi hijo debería saber programar formalmente al terminar el nivel básico?</h3>
-                <p>No es la expectativa de este nivel. El objetivo es comprensión de lógica secuencial y tolerancia al ensayo y error, no dominio de un lenguaje de programación formal, que se desarrolla en niveles posteriores.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debería estar mi hijo en nivel básico antes de avanzar?</h3>
-                <p>Varía por niño, pero generalmente varias semanas a un par de meses de práctica constante. Avanzar antes de consolidar la lógica secuencial básica suele generar confusión en niveles posteriores más que ahorrar tiempo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si mi hijo se frustra fácilmente en las primeras sesiones?</h3>
-                <p>La frustración inicial ante el ensayo y error es común y forma parte del aprendizaje esperado en este nivel. Si persiste de forma intensa después de varias sesiones, conviene comentarlo con el instructor para ajustar el ritmo o el tipo de acompañamiento.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo reforzar la robótica básica sin comprar equipo adicional?</h3>
-                <p>Sí. Actividades cotidianas de instrucciones secuenciales, como dar pasos ordenados para completar una tarea simple y observar qué pasa al cambiar el orden, refuerzan el mismo principio conceptual sin necesidad de hardware.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es normal que mi hijo avance más lento que otros niños de su misma edad?</h3>
-                <p>Sí. El ritmo en esta etapa refleja más la familiaridad previa con actividades de construcción o instrucciones técnicas que una diferencia significativa de capacidad, y suele equilibrarse conforme el niño gana práctica constante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Qué NO se espera todavía en este nivel</h2>
+                <p>Es importante calibrar expectativas: en el nivel básico no se espera que el niño programe de forma independiente sin guía, que entienda conceptos abstractos de programación como variables o bucles complejos, ni que diseñe una solución completa desde cero sin ejemplo previo.</p>
+                <p>Los cursos bien diseñados avanzan de forma gradual: primero se sigue un ejemplo guiado, después se modifica una parte de ese ejemplo, y solo más adelante se construye algo original. Esperar el tercer paso en las primeras semanas suele generar frustración innecesaria tanto en el niño como en el padre que observa el proceso.</p>
+                <p>Esta calibración de expectativas también aplica a la velocidad de avance entre niños del mismo grupo. Es común que dos niños de la misma edad progresen a ritmos distintos en esta etapa, sin que eso indique una diferencia significativa de capacidad a largo plazo; simplemente refleja distinta familiaridad previa con actividades de construcción o con seguir instrucciones técnicas.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Marco de referencia sobre progresión pedagógica en pensamiento computacional</li>
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto sobre desarrollo de habilidades STEM en la infancia</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Señales de que tu hijo está progresando bien en este nivel</h2>
+                <p>Más que la complejidad del proyecto final, las señales de progreso real en nivel básico son conductuales: predecir en voz alta qué hará el robot antes de ejecutar el programa, notar por sí mismo cuándo algo no salió como esperaba, y proponer un ajuste concreto (aunque sea simple) para intentar corregirlo.</p>
+                <p>Un niño que empieza a decir 'creo que si cambio este número el robot va a girar más' está demostrando comprensión conceptual, incluso si técnicamente el ajuste que propone es incorrecto. Ese tipo de hipótesis es más valioso en esta etapa que acertar sin entender por qué.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cuánto tiempo suele durar el nivel básico</h2>
+                <p>La duración varía según la edad de inicio y la frecuencia de las sesiones, pero es razonable esperar varias semanas a un par de meses de práctica constante antes de que un niño esté listo para conceptos de nivel intermedio como secuencias más largas, condicionales simples o proyectos con más de un sensor.</p>
+                <p>Avanzar prematuramente a contenido más complejo sin consolidar la lógica secuencial básica suele generar confusión acumulada, donde el niño sigue instrucciones sin comprender el principio subyacente, lo cual eventualmente se vuelve visible cuando el ejercicio requiere adaptación en lugar de repetición.</p>
+                <p>Los cursos con buena progresión pedagógica suelen incluir puntos de verificación explícitos antes de avanzar de nivel, en lugar de mover a todo el grupo automáticamente por calendario. Vale la pena preguntar al instructor cómo se decide cuándo un niño está listo para el siguiente nivel, más allá de haber completado un número fijo de sesiones.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo reforzar en casa sin necesidad de equipo especializado</h2>
+                <p>Los principios del nivel básico se pueden reforzar en casa con actividades simples que no requieren robots ni tecnología: dar instrucciones paso a paso a otra persona para completar una tarea (como preparar un sándwich) y observar qué pasa si un paso se omite o se cambia de orden es un ejercicio análogo a la programación secuencial básica.</p>
+                <p>Este tipo de práctica no sustituye el curso, pero refuerza el mismo principio conceptual —secuencia, causa y efecto, depuración de errores— en un contexto cotidiano que ayuda a consolidar lo trabajado en clase.</p>
+                <p>Otra actividad útil es pedirle a tu hijo que explique, sin usar el robot, qué haría paso a paso para resolver un problema sencillo cotidiano (cómo llegar de la cocina a su habitación evitando obstáculos, por ejemplo). Verbalizar una secuencia de instrucciones en un contexto distinto al del curso ayuda a confirmar si el principio se comprendió de forma general o solo dentro del contexto específico del robot.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Un nivel básico diseñado con progresión gradual</h2>
+                    <p>Robotics Code estructura su nivel introductorio alrededor de ejemplos guiados y modificación progresiva, sin saltar directo a proyectos independientes antes de que el niño consolide la lógica secuencial básica. Puedes conocer el programa completo sin compromiso.</p>
+                    <a href="/mathekids" class="btn-primary">
+                        Conocer las clases de matemáticas <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-nivel-avanzado">
+                            <span>Robótica educativa nivel avanzado: cuándo dar el siguiente paso</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-senales-de-progreso">
+                            <span>Señales de que tu hijo está progresando en robótica y programación</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-tecnologia-educativa-que-esperar-el-primer-mes">
+                            <span>Curso de robótica para niños: qué esperar el primer mes</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Mi hijo debería saber programar formalmente al terminar el nivel básico?</h3>
+                    <p>No es la expectativa de este nivel. El objetivo es comprensión de lógica secuencial y tolerancia al ensayo y error, no dominio de un lenguaje de programación formal, que se desarrolla en niveles posteriores.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debería estar mi hijo en nivel básico antes de avanzar?</h3>
+                    <p>Varía por niño, pero generalmente varias semanas a un par de meses de práctica constante. Avanzar antes de consolidar la lógica secuencial básica suele generar confusión en niveles posteriores más que ahorrar tiempo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si mi hijo se frustra fácilmente en las primeras sesiones?</h3>
+                    <p>La frustración inicial ante el ensayo y error es común y forma parte del aprendizaje esperado en este nivel. Si persiste de forma intensa después de varias sesiones, conviene comentarlo con el instructor para ajustar el ritmo o el tipo de acompañamiento.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo reforzar la robótica básica sin comprar equipo adicional?</h3>
+                    <p>Sí. Actividades cotidianas de instrucciones secuenciales, como dar pasos ordenados para completar una tarea simple y observar qué pasa al cambiar el orden, refuerzan el mismo principio conceptual sin necesidad de hardware.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es normal que mi hijo avance más lento que otros niños de su misma edad?</h3>
+                    <p>Sí. El ritmo en esta etapa refleja más la familiaridad previa con actividades de construcción o instrucciones técnicas que una diferencia significativa de capacidad, y suele equilibrarse conforme el niño gana práctica constante.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.unesco.org/es/digital-education" target="_blank" rel="noopener noreferrer">UNESCO - Tecnología en la educación</a> — Marco de referencia sobre progresión pedagógica en pensamiento computacional</li>
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT - divulgación científica en México</a> — Contexto sobre desarrollo de habilidades STEM en la infancia</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -522,8 +613,62 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>El objetivo real del nivel básico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Habilidades concretas que se desarrollan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Qué NO se espera todavía en este nivel
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Señales de que tu hijo está progresando bien en este nivel
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuánto tiempo suele durar el nivel básico
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo reforzar en casa sin necesidad de equipo especializado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">08</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

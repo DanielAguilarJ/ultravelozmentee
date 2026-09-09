@@ -362,142 +362,235 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="6">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-list-check"></i> Productividad Estudiantil
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Guía para principiantes de productividad estudiantil 2026</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 6 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Productividad Estudiantil</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Guía para principiantes de productividad estudiantil 2026</h1>
+                <p class="blog-post-dek">Guía para principiantes sobre productividad estudiantil en 2026: primeros pasos concretos para quien nunca ha tenido un método de estudio organizado.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Productividad Estudiantil</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>6 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Guía para principiantes de productividad estudiantil 2026" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Si nunca has tenido un método de estudio organizado, la cantidad de información disponible sobre productividad estudiantil puede resultar abrumadora: decenas de técnicas, aplicaciones y consejos que compiten por atención. Esta guía está pensada específicamente para quien parte de cero, con los pasos mínimos necesarios para empezar sin sentirse saturado.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Paso uno: fijar un horario y un espacio consistentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Paso dos: escribir las tareas en un solo lugar visible
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Paso tres: elegir una sola técnica de concentración
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: los primeros dos meses de un principiante completo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué evitar durante los primeros meses como principiante
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo saber cuándo avanzar al siguiente paso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué hacer si algún paso nunca termina de estabilizarse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Si nunca has tenido un método de estudio organizado, la cantidad de información disponible sobre productividad estudiantil puede resultar abrumadora: decenas de técnicas, aplicaciones y consejos que compiten por atención. Esta guía está pensada específicamente para quien parte de cero, con los pasos mínimos necesarios para empezar sin sentirse saturado.</p>
             <p>No es necesario dominar todo desde el primer día. Los tres pasos que siguen están ordenados de forma que cada uno prepara el terreno para el siguiente, en lugar de exigir todos los cambios al mismo tiempo.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para quien empieza desde cero con la productividad estudiantil, la guía más útil no es una lista larga de técnicas, sino tres pasos concretos: fijar un horario y un espacio consistentes, escribir las tareas pendientes en un solo lugar visible, y elegir una sola técnica de concentración para probar durante varias semanas antes de sumar cualquier otra cosa.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para quien empieza desde cero con la productividad estudiantil, la guía más útil no es una lista larga de técnicas, sino tres pasos concretos: fijar un horario y un espacio consistentes, escribir las tareas pendientes en un solo lugar visible, y elegir una sola técnica de concentración para probar durante varias semanas antes de sumar cualquier otra cosa.</p>
+                </aside>
 
-            <h2>Paso uno: fijar un horario y un espacio consistentes</h2>
-            <p>Antes de pensar en técnicas de concentración o en organización avanzada, lo primero que necesita cualquier principiante es un ancla básica: una hora aproximada del día para estudiar y un lugar reconocible para hacerlo. No tiene que ser un horario perfecto ni un espacio elegante; basta con que sea razonablemente consistente día tras día.</p>
-            <p>Este paso por sí solo, sin ninguna técnica adicional, ya reduce buena parte de la fricción inicial de decidir cada día cuándo y dónde estudiar, que suele ser el primer obstáculo para quien nunca ha tenido ninguna estructura.</p>
-            <ul>
-                <li>Elegir una hora aproximada, realista según el resto de las actividades diarias.</li>
-                <li>Elegir un espacio reconocible, aunque sea compartido con otras actividades.</li>
-                <li>No exigir perfección en el horario desde el primer día, solo consistencia razonable.</li>
-                <li>Dar al menos dos semanas antes de evaluar si el horario elegido funciona.</li>
-            </ul>
-
-            <h2>Paso dos: escribir las tareas en un solo lugar visible</h2>
-            <p>El segundo paso resuelve un problema distinto: no saber qué hay pendiente o dónde se anotó. Una libreta simple, o incluso una hoja suelta pegada en el espacio de estudio, donde se escriban todas las tareas de todas las materias con su fecha de entrega, elimina la necesidad de recordar todo mentalmente.</p>
-            <p>No se necesita ningún sistema complejo de categorías o colores para empezar; lo esencial es que exista un solo lugar consistente donde buscar qué hay que hacer, en lugar de reconstruir la lista de memoria cada vez.</p>
-
-            <h2>Paso tres: elegir una sola técnica de concentración</h2>
-            <p>Solo después de que el horario y la lista de tareas se sientan razonablemente estables conviene sumar una técnica de concentración, y conviene elegir solo una para empezar: el método Pomodoro de bloques cortos con descanso, o bloques más largos sin interrupción, según el tipo de materia que predomine en la carga de estudio.</p>
-            <p>Probar una sola técnica durante al menos dos semanas completas, sin cambiar a otra en ese periodo, da información real sobre si funciona para el estilo propio de trabajo, algo que no se puede saber probando varias técnicas por solo un día cada una.</p>
-
-            <h2>Ejemplo aplicado: los primeros dos meses de un principiante completo</h2>
-            <p>Un estudiante que ingresaba a bachillerato sin ningún método previo de organización decidió seguir esta guía de forma literal. Durante las primeras dos semanas, su único compromiso fue sentarse a estudiar de seis a siete y media de la tarde en la mesa de su cuarto, sin ninguna otra exigencia adicional.</p>
-            <p>En la tercera semana, sumó una libreta donde escribía cada tarea nueva de cada materia apenas se la asignaban, con su fecha de entrega. Al principio olvidaba anotar algunas tareas, pero para la quinta semana ya era un hábito automático revisar la libreta antes de guardar sus cosas al salir de clases.</p>
-            <p>Fue hasta la séptima semana, con el horario y la lista ya estables, cuando probó el método Pomodoro por primera vez, aplicándolo solo a sus materias de práctica repetitiva como matemáticas. Para el resto siguió trabajando en bloques normales sin interrupciones programadas.</p>
-            <p>Al cierre de los dos meses, sin haber intentado dominar ninguna técnica sofisticada desde el inicio, tenía una rutina funcional que sostenía sin el esfuerzo consciente de las primeras semanas. El orden gradual —horario, lista, técnica— evitó la sobrecarga que suele frustrar a quien intenta adoptar todo un sistema completo desde el primer día.</p>
-
-            <h2>Qué evitar durante los primeros meses como principiante</h2>
-            <p>Quien empieza desde cero suele sentir la tentación de adoptar el sistema más completo posible de inmediato, motivado por el entusiasmo inicial. Esa ambición, aunque bien intencionada, suele terminar en abandono a las pocas semanas por exceso de exigencia simultánea.</p>
-            <ol>
-                <li>No intentar los tres pasos de esta guía en la misma semana.</li>
-                <li>No copiar exactamente el sistema de otra persona sin ajustarlo al propio ritmo.</li>
-                <li>No abandonar un paso por un solo día de incumplimiento.</li>
-                <li>No sumar una segunda técnica de concentración antes de que la primera se sienta estable.</li>
-            </ol>
-
-            <h2>Cómo saber cuándo avanzar al siguiente paso</h2>
-            <p>No existe una fecha exacta universal para pasar de un paso al siguiente; el criterio más confiable es que el paso actual ya no requiera esfuerzo consciente diario para sostenerse. Si el horario todavía se siente forzado, no es momento de sumar la lista de tareas; si la lista todavía se olvida con frecuencia, no es momento de sumar una técnica de concentración.</p>
-
-            <h2>Qué hacer si algún paso nunca termina de estabilizarse</h2>
-            <p>Hay quienes, después de varias semanas de intento, notan que un paso en particular —casi siempre el horario fijo— nunca deja de sentirse forzado. Antes de concluir que la estructura no funciona para esa persona, conviene revisar si el horario elegido era realista desde el inicio: un horario que choca sistemáticamente con actividades ya establecidas difícilmente se estabilizará sin importar cuánto tiempo se le dé.</p>
-            <p>Ajustar la hora elegida, incluso después de varias semanas de intento fallido, no representa un retroceso sino una corrección necesaria. Es preferible cambiar el horario a uno más realista que insistir indefinidamente en uno que nunca deja de generar fricción.</p>
-            <p>Lo mismo aplica a los otros dos pasos: si la lista de tareas nunca se consulta con regularidad, quizá el lugar donde se guarda no es lo bastante visible; si ninguna técnica de concentración parece encajar, quizá conviene probar con duraciones distintas antes de asumir que ninguna técnica funciona para esa persona en particular.</p>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De los primeros pasos a un plan de regularización guiado</h3>
-                <p>Si estás empezando desde cero porque vas atrasado en tus materias, nuestro programa de Regularización Express te acompaña con esta misma lógica de pasos graduales, sin exigirte dominar todo de inmediato.</p>
-                <a href="/regularizacion-express" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conoce el programa de Regularización Express <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Paso uno: fijar un horario y un espacio consistentes</h2>
+                <p>Antes de pensar en técnicas de concentración o en organización avanzada, lo primero que necesita cualquier principiante es un ancla básica: una hora aproximada del día para estudiar y un lugar reconocible para hacerlo. No tiene que ser un horario perfecto ni un espacio elegante; basta con que sea razonablemente consistente día tras día.</p>
+                <p>Este paso por sí solo, sin ninguna técnica adicional, ya reduce buena parte de la fricción inicial de decidir cada día cuándo y dónde estudiar, que suele ser el primer obstáculo para quien nunca ha tenido ninguna estructura.</p>
                 <ul>
-                <li><a href="/blog-productividad-estudiantil-preguntas-frecuentes">Preguntas frecuentes sobre productividad estudiantil</a></li>
-                <li><a href="/blog-productividad-estudiantil-que-esperar-el-primer-mes">Qué esperar el primer mes al mejorar tu productividad estudiantil</a></li>
+                    <li>Elegir una hora aproximada, realista según el resto de las actividades diarias.</li>
+                    <li>Elegir un espacio reconocible, aunque sea compartido con otras actividades.</li>
+                    <li>No exigir perfección en el horario desde el primer día, solo consistencia razonable.</li>
+                    <li>Dar al menos dos semanas antes de evaluar si el horario elegido funciona.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo debería tomar completar los tres pasos de esta guía?</h3>
-                <p>Entre seis y ocho semanas es un ritmo razonable para la mayoría, dando al menos dos semanas de estabilización a cada paso antes de avanzar al siguiente, aunque puede variar según el ritmo individual.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo saltarme el primer paso si ya tengo un horario aproximado?</h3>
-                <p>Sí, si el horario ya es razonablemente consistente puedes avanzar directo al segundo paso. La guía está pensada para adaptarse al punto de partida real de cada persona, no para seguirse de forma rígida sin importar la situación previa.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si al llegar al tercer paso ninguna técnica de concentración me funciona?</h3>
-                <p>Prueba ajustar la duración de los bloques antes de descartar la técnica por completo; muchas veces el problema no es el método sino la duración elegida inicialmente.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Esta guía sirve para adultos que retoman los estudios después de años?</h3>
-                <p>Sí, los mismos tres pasos aplican, con el ajuste de coordinar el horario elegido con responsabilidades laborales o familiares adicionales que un estudiante más joven no suele tener.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago después de completar los tres pasos de esta guía?</h3>
-                <p>Puedes explorar estrategias más específicas como el repaso espaciado o la autoevaluación, siempre que los tres pasos base ya se sientan estables y no requieran esfuerzo consciente constante.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Paso dos: escribir las tareas en un solo lugar visible</h2>
+                <p>El segundo paso resuelve un problema distinto: no saber qué hay pendiente o dónde se anotó. Una libreta simple, o incluso una hoja suelta pegada en el espacio de estudio, donde se escriban todas las tareas de todas las materias con su fecha de entrega, elimina la necesidad de recordar todo mentalmente.</p>
+                <p>No se necesita ningún sistema complejo de categorías o colores para empezar; lo esencial es que exista un solo lugar consistente donde buscar qué hay que hacer, en lugar de reconstruir la lista de memoria cada vez.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Paso tres: elegir una sola técnica de concentración</h2>
+                <p>Solo después de que el horario y la lista de tareas se sientan razonablemente estables conviene sumar una técnica de concentración, y conviene elegir solo una para empezar: el método Pomodoro de bloques cortos con descanso, o bloques más largos sin interrupción, según el tipo de materia que predomine en la carga de estudio.</p>
+                <p>Probar una sola técnica durante al menos dos semanas completas, sin cambiar a otra en ese periodo, da información real sobre si funciona para el estilo propio de trabajo, algo que no se puede saber probando varias técnicas por solo un día cada una.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Ejemplo aplicado: los primeros dos meses de un principiante completo</h2>
+                <p>Un estudiante que ingresaba a bachillerato sin ningún método previo de organización decidió seguir esta guía de forma literal. Durante las primeras dos semanas, su único compromiso fue sentarse a estudiar de seis a siete y media de la tarde en la mesa de su cuarto, sin ninguna otra exigencia adicional.</p>
+                <p>En la tercera semana, sumó una libreta donde escribía cada tarea nueva de cada materia apenas se la asignaban, con su fecha de entrega. Al principio olvidaba anotar algunas tareas, pero para la quinta semana ya era un hábito automático revisar la libreta antes de guardar sus cosas al salir de clases.</p>
+                <p>Fue hasta la séptima semana, con el horario y la lista ya estables, cuando probó el método Pomodoro por primera vez, aplicándolo solo a sus materias de práctica repetitiva como matemáticas. Para el resto siguió trabajando en bloques normales sin interrupciones programadas.</p>
+                <p>Al cierre de los dos meses, sin haber intentado dominar ninguna técnica sofisticada desde el inicio, tenía una rutina funcional que sostenía sin el esfuerzo consciente de las primeras semanas. El orden gradual —horario, lista, técnica— evitó la sobrecarga que suele frustrar a quien intenta adoptar todo un sistema completo desde el primer día.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Qué evitar durante los primeros meses como principiante</h2>
+                <p>Quien empieza desde cero suele sentir la tentación de adoptar el sistema más completo posible de inmediato, motivado por el entusiasmo inicial. Esa ambición, aunque bien intencionada, suele terminar en abandono a las pocas semanas por exceso de exigencia simultánea.</p>
+                <ol>
+                    <li>No intentar los tres pasos de esta guía en la misma semana.</li>
+                    <li>No copiar exactamente el sistema de otra persona sin ajustarlo al propio ritmo.</li>
+                    <li>No abandonar un paso por un solo día de incumplimiento.</li>
+                    <li>No sumar una segunda técnica de concentración antes de que la primera se sienta estable.</li>
+                </ol>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo saber cuándo avanzar al siguiente paso</h2>
+                <p>No existe una fecha exacta universal para pasar de un paso al siguiente; el criterio más confiable es que el paso actual ya no requiera esfuerzo consciente diario para sostenerse. Si el horario todavía se siente forzado, no es momento de sumar la lista de tareas; si la lista todavía se olvida con frecuencia, no es momento de sumar una técnica de concentración.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Qué hacer si algún paso nunca termina de estabilizarse</h2>
+                <p>Hay quienes, después de varias semanas de intento, notan que un paso en particular —casi siempre el horario fijo— nunca deja de sentirse forzado. Antes de concluir que la estructura no funciona para esa persona, conviene revisar si el horario elegido era realista desde el inicio: un horario que choca sistemáticamente con actividades ya establecidas difícilmente se estabilizará sin importar cuánto tiempo se le dé.</p>
+                <p>Ajustar la hora elegida, incluso después de varias semanas de intento fallido, no representa un retroceso sino una corrección necesaria. Es preferible cambiar el horario a uno más realista que insistir indefinidamente en uno que nunca deja de generar fricción.</p>
+                <p>Lo mismo aplica a los otros dos pasos: si la lista de tareas nunca se consulta con regularidad, quizá el lugar donde se guarda no es lo bastante visible; si ninguna técnica de concentración parece encajar, quizá conviene probar con duraciones distintas antes de asumir que ninguna técnica funciona para esa persona en particular.</p>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De los primeros pasos a un plan de regularización guiado</h2>
+                    <p>Si estás empezando desde cero porque vas atrasado en tus materias, nuestro programa de Regularización Express te acompaña con esta misma lógica de pasos graduales, sin exigirte dominar todo de inmediato.</p>
+                    <a href="/regularizacion-express" class="btn-primary">
+                        Conoce el programa de Regularización Express <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-preguntas-frecuentes">
+                            <span>Preguntas frecuentes sobre productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-productividad-estudiantil-que-esperar-el-primer-mes">
+                            <span>Qué esperar el primer mes al mejorar tu productividad estudiantil</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo debería tomar completar los tres pasos de esta guía?</h3>
+                    <p>Entre seis y ocho semanas es un ritmo razonable para la mayoría, dando al menos dos semanas de estabilización a cada paso antes de avanzar al siguiente, aunque puede variar según el ritmo individual.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo saltarme el primer paso si ya tengo un horario aproximado?</h3>
+                    <p>Sí, si el horario ya es razonablemente consistente puedes avanzar directo al segundo paso. La guía está pensada para adaptarse al punto de partida real de cada persona, no para seguirse de forma rígida sin importar la situación previa.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si al llegar al tercer paso ninguna técnica de concentración me funciona?</h3>
+                    <p>Prueba ajustar la duración de los bloques antes de descartar la técnica por completo; muchas veces el problema no es el método sino la duración elegida inicialmente.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Esta guía sirve para adultos que retoman los estudios después de años?</h3>
+                    <p>Sí, los mismos tres pasos aplican, con el ajuste de coordinar el horario elegido con responsabilidades laborales o familiares adicionales que un estudiante más joven no suele tener.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago después de completar los tres pasos de esta guía?</h3>
+                    <p>Puedes explorar estrategias más específicas como el repaso espaciado o la autoevaluación, siempre que los tres pasos base ya se sientan estables y no requieran esfuerzo consciente constante.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación científica en México</a> — Contexto general sobre ciencia y divulgación educativa</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -527,8 +620,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Paso uno: fijar un horario y un espacio consistentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Paso dos: escribir las tareas en un solo lugar visible
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Paso tres: elegir una sola técnica de concentración
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Ejemplo aplicado: los primeros dos meses de un principiante completo
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Qué evitar durante los primeros meses como principiante
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo saber cuándo avanzar al siguiente paso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Qué hacer si algún paso nunca termina de estabilizarse
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>6 min restantes</span>
+                        <span>Lectura estimada: 6 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

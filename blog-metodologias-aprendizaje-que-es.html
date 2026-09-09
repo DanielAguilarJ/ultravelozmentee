@@ -362,155 +362,248 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-brain"></i> Metodologías de Aprendizaje
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Qué son las metodologías de aprendizaje y cómo elegir la tuya</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 10 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Metodologías de Aprendizaje</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Qué son las metodologías de aprendizaje y cómo elegir la tuya</h1>
+                <p class="blog-post-dek">Descubre qué son las metodologías de aprendizaje, en qué se diferencian de simplemente &#x27;estudiar más&#x27; y cómo elegir la que mejor se adapta a ti.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Metodologías de Aprendizaje</span>
+                    <span>Publicado <time datetime="2026-08-10">10 de Agosto, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/metodo-aprendizaje-acelerado-practica-constante-worldbrain.webp" alt="Qué son las metodologías de aprendizaje y cómo elegir la tuya" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Pasar horas frente a un libro no siempre se traduce en aprender más. Muchos estudiantes confunden tiempo invertido con progreso real, cuando en realidad la diferencia está en el método: cómo se organiza esa información en la memoria a largo plazo.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>9 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es una metodología de aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Por qué releer no es una metodología de aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo elegir una metodología según lo que estudias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Errores comunes al adoptar una metodología nueva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo saber si una metodología está funcionando
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplos prácticos de metodologías aplicadas a materias reales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cuánto tiempo dedicar a cada metodología según tu carga académica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Pasar horas frente a un libro no siempre se traduce en aprender más. Muchos estudiantes confunden tiempo invertido con progreso real, cuando en realidad la diferencia está en el método: cómo se organiza esa información en la memoria a largo plazo.</p>
             <p>En este artículo explicamos qué son las metodologías de aprendizaje, cuáles tienen respaldo real y cómo saber cuál te conviene según tu materia y tu tiempo disponible.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Una metodología de aprendizaje es un conjunto de técnicas estructuradas —como la repetición espaciada, el recuerdo activo o el método Pomodoro— diseñadas para hacer que el estudio sea más eficiente y duradero, en lugar de depender solo de leer y releer. Elegir la correcta depende de qué tipo de contenido estudias y de cuánto tiempo tienes disponible.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Una metodología de aprendizaje es un conjunto de técnicas estructuradas —como la repetición espaciada, el recuerdo activo o el método Pomodoro— diseñadas para hacer que el estudio sea más eficiente y duradero, en lugar de depender solo de leer y releer. Elegir la correcta depende de qué tipo de contenido estudias y de cuánto tiempo tienes disponible.</p>
+                </aside>
 
-            <h2>Qué es una metodología de aprendizaje</h2>
-            <p>Una metodología de aprendizaje es un procedimiento repetible para procesar, organizar y recuperar información, en lugar de una técnica aislada. No es lo mismo 'subrayar un texto' que aplicar el método Cornell de toma de notas: el segundo tiene una estructura definida con pasos claros que se repiten cada vez.</p>
-            <p>La diferencia importa porque el cerebro no retiene información por exposición repetida sin esfuerzo (releer varias veces), sino por el esfuerzo de recuperarla activamente. Esa es la base de casi todas las metodologías con evidencia real detrás: obligan al cerebro a trabajar para recordar, no solo a reconocer.</p>
-            <ul>
-                <li>Repetición espaciada: revisar el material en intervalos crecientes de tiempo.</li>
-                <li>Recuerdo activo (active recall): intentar recordar sin ver el material antes de revisar si es correcto.</li>
-                <li>Método Pomodoro: bloques de estudio de 25 minutos con descansos cortos.</li>
-                <li>Método Cornell: notas divididas en columnas para facilitar el repaso posterior.</li>
-            </ul>
-
-            <h2>Por qué releer no es una metodología de aprendizaje</h2>
-            <p>Releer un texto genera una sensación de familiaridad que se confunde con dominio del tema. El cerebro reconoce las palabras porque ya las vio, pero eso no significa que pueda reconstruir la idea sin el texto enfrente. Es una de las causas más comunes de que un estudiante sienta que 'ya sabía' el tema y le vaya mal en el examen.</p>
-            <p>La alternativa no es dejar de leer, sino cambiar qué se hace después de leer: cerrar el material y tratar de explicar el concepto en voz alta o por escrito, sin ver la fuente. Ese ejercicio —el recuerdo activo— es el que consolida la memoria a largo plazo.</p>
-
-            <h2>Cómo elegir una metodología según lo que estudias</h2>
-            <p>No existe una metodología universal mejor que todas las demás; depende del tipo de contenido. Para materias con mucho vocabulario o datos aislados (idiomas, biología, historia), la repetición espaciada con tarjetas es especialmente efectiva. Para materias que requieren resolver problemas (matemáticas, física), el recuerdo activo funciona mejor practicando ejercicios sin ver la solución primero.</p>
-            <p>El método Cornell es más útil durante la clase o al leer un texto extenso, porque organiza la información en el momento en que se recibe. El Pomodoro no es una técnica de memoria, sino de gestión de energía: ayuda cuando el problema es la concentración, no la retención.</p>
-            <ol>
-                <li>Identifica si tu dificultad es de memoria (olvidas lo que estudias) o de concentración (te distraes o procrastinas).</li>
-                <li>Si es de memoria: prueba repetición espaciada o recuerdo activo durante dos semanas.</li>
-                <li>Si es de concentración: prueba bloques Pomodoro antes de cambiar de técnica de estudio.</li>
-                <li>Combina métodos: toma notas con Cornell durante la clase, repásalas con recuerdo activo después.</li>
-            </ol>
-
-            <h2>Errores comunes al adoptar una metodología nueva</h2>
-            <p>El error más frecuente es abandonar el método a los pocos días porque 'se siente más difícil' que releer. Es una señal esperada, no una señal de que el método no funciona: el recuerdo activo es más demandante mentalmente porque exige esfuerzo real, mientras que releer se siente más fácil porque exige menos.</p>
-            <p>Otro error es aplicar una sola técnica a todas las materias por igual. Un estudiante puede usar repetición espaciada para vocabulario de inglés y, al mismo tiempo, recuerdo activo puro para resolver ecuaciones: no son excluyentes.</p>
-            <ul>
-                <li>Abandonar el método antes de dos semanas por sentirlo más difícil.</li>
-                <li>Usar la misma técnica para todas las materias sin adaptarla.</li>
-                <li>No medir resultados: seguir sin saber si el cambio mejoró las calificaciones.</li>
-                <li>Copiar la rutina de otra persona sin ajustarla a tu propio horario.</li>
-            </ul>
-
-            <h2>Cómo saber si una metodología está funcionando</h2>
-            <p>La señal más confiable no es sentirse más cómodo estudiando, sino poder explicar un tema sin apoyo después de un par de días de haberlo estudiado. Si después de 48 horas puedes reconstruir la idea principal con tus propias palabras, la metodología está consolidando memoria a largo plazo.</p>
-            <p>Llevar un registro simple —qué estudiaste, con qué método, y si pudiste recordarlo días después— permite comparar objetivamente distintas técnicas en lugar de depender de la sensación subjetiva de 'sentirme preparado'.</p>
-
-            <h2>Ejemplos prácticos de metodologías aplicadas a materias reales</h2>
-            <p>Para vocabulario de inglés, un estudiante puede crear tarjetas con la palabra en un lado y la traducción con una oración de ejemplo en el otro, revisándolas con repetición espaciada: el mismo día, a los tres días, a la semana y al mes. Este espaciamiento creciente es lo que distingue la repetición espaciada de simplemente repasar todos los días.</p>
-            <p>Para historia, en lugar de releer el capítulo del libro, el estudiante cierra el material y escribe en una hoja en blanco todo lo que recuerda sobre el tema —fechas, causas, personajes—, y solo después compara con el texto para identificar qué faltó. Ese ejercicio de recuerdo activo revela huecos reales de comprensión que la relectura pasiva no muestra.</p>
-            <p>Para matemáticas, el método más efectivo no es ver ejemplos resueltos uno tras otro, sino intentar resolver el ejercicio primero, atascarse, y solo entonces revisar el procedimiento. El error y la corrección posterior fijan el procedimiento con más fuerza que ver la solución de entrada.</p>
-            <p>Para una clase con muchos conceptos nuevos, el método Cornell funciona dividiendo la hoja en dos columnas: notas amplias durante la clase a la derecha, y palabras clave o preguntas a la izquierda, escritas después de clase. Al repasar, se cubre la columna derecha y se intenta responder solo viendo las palabras clave de la izquierda —una forma de recuerdo activo integrada al método de notas.</p>
-
-            <h2>Cuánto tiempo dedicar a cada metodología según tu carga académica</h2>
-            <p>Un error común es pensar que adoptar una metodología nueva significa dedicarle más horas totales de estudio. En realidad, la mayoría de estas técnicas buscan lo contrario: usar mejor el tiempo que ya tienes, no añadir más.</p>
-            <p>Para un estudiante con tres o cuatro materias activas, una distribución realista es dedicar entre 15 y 20 minutos diarios de repaso con recuerdo activo por materia, más una sesión semanal de 40 a 60 minutos con tarjetas de repetición espaciada para el contenido acumulado. Esto suele ser menos tiempo total que releer apuntes completos antes de cada examen, y produce mejor retención a largo plazo.</p>
-            <p>Durante semana de exámenes, la tentación es abandonar el método y volver a releer todo por la presión del tiempo. Es exactamente el momento donde el recuerdo activo rinde más: practicar preguntas de examenes anteriores sin ver las respuestas primero simula la condición real de evaluación y detecta huecos con más precisión que cualquier relectura de último momento.</p>
-            <ul>
-                <li>15-20 minutos diarios de recuerdo activo por materia es suficiente para empezar.</li>
-                <li>Una sesión semanal de repetición espaciada consolida el contenido acumulado.</li>
-                <li>En época de exámenes, practicar con preguntas reales rinde más que releer apuntes.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Aprende a leer más rápido sin perder comprensión</h3>
-                <p>Si tu reto es procesar mucho material de lectura en poco tiempo, el curso de Fotolectura te enseña técnicas de lectura rápida y comprensión que se combinan bien con estas metodologías de estudio.</p>
-                <a href="/fotolectura" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Curso de comprensión lectora <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Qué es una metodología de aprendizaje</h2>
+                <p>Una metodología de aprendizaje es un procedimiento repetible para procesar, organizar y recuperar información, en lugar de una técnica aislada. No es lo mismo 'subrayar un texto' que aplicar el método Cornell de toma de notas: el segundo tiene una estructura definida con pasos claros que se repiten cada vez.</p>
+                <p>La diferencia importa porque el cerebro no retiene información por exposición repetida sin esfuerzo (releer varias veces), sino por el esfuerzo de recuperarla activamente. Esa es la base de casi todas las metodologías con evidencia real detrás: obligan al cerebro a trabajar para recordar, no solo a reconocer.</p>
                 <ul>
-                <li><a href="/blog-metodologias-aprendizaje-guia-completa">Guía completa de metodologías de aprendizaje basadas en evidencia</a></li>
-                <li><a href="/blog-metodologias-aprendizaje-para-principiantes">Metodologías de aprendizaje para principiantes: por dónde empezar</a></li>
+                    <li>Repetición espaciada: revisar el material en intervalos crecientes de tiempo.</li>
+                    <li>Recuerdo activo (active recall): intentar recordar sin ver el material antes de revisar si es correcto.</li>
+                    <li>Método Pomodoro: bloques de estudio de 25 minutos con descansos cortos.</li>
+                    <li>Método Cornell: notas divididas en columnas para facilitar el repaso posterior.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuánto tiempo toma notar resultados con una nueva metodología de estudio?</h3>
-                <p>La mayoría de los estudiantes empieza a notar diferencias en la retención después de dos a tres semanas de aplicar el método de forma consistente, especialmente con repetición espaciada.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Puedo combinar varias metodologías de aprendizaje a la vez?</h3>
-                <p>Sí, de hecho es lo recomendable: usar Cornell para tomar notas en clase y luego repasarlas con recuerdo activo es una combinación común y efectiva.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Las metodologías de aprendizaje funcionan igual para niños y adultos?</h3>
-                <p>Los principios son los mismos, pero los niños pequeños necesitan sesiones más cortas y mayor guía externa para mantener la constancia, mientras que un adulto puede aplicar el método de forma más autónoma.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué hago si ya probé una metodología y no me funcionó?</h3>
-                <p>Antes de descartarla, verifica si la aplicaste de forma consistente durante al menos dos semanas; el abandono temprano es la causa más común de que un método 'no funcione'.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito materiales especiales para aplicar estas metodologías?</h3>
-                <p>No. Tarjetas de papel, una libreta dividida en columnas o una app gratuita de repetición espaciada son suficientes; el método importa más que la herramienta.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Por qué releer no es una metodología de aprendizaje</h2>
+                <p>Releer un texto genera una sensación de familiaridad que se confunde con dominio del tema. El cerebro reconoce las palabras porque ya las vio, pero eso no significa que pueda reconstruir la idea sin el texto enfrente. Es una de las causas más comunes de que un estudiante sienta que 'ya sabía' el tema y le vaya mal en el examen.</p>
+                <p>La alternativa no es dejar de leer, sino cambiar qué se hace después de leer: cerrar el material y tratar de explicar el concepto en voz alta o por escrito, sin ver la fuente. Ese ejercicio —el recuerdo activo— es el que consolida la memoria a largo plazo.</p>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación sobre técnicas de estudio</a> — Contexto general sobre ciencia y divulgación educativa en México</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Cómo elegir una metodología según lo que estudias</h2>
+                <p>No existe una metodología universal mejor que todas las demás; depende del tipo de contenido. Para materias con mucho vocabulario o datos aislados (idiomas, biología, historia), la repetición espaciada con tarjetas es especialmente efectiva. Para materias que requieren resolver problemas (matemáticas, física), el recuerdo activo funciona mejor practicando ejercicios sin ver la solución primero.</p>
+                <p>El método Cornell es más útil durante la clase o al leer un texto extenso, porque organiza la información en el momento en que se recibe. El Pomodoro no es una técnica de memoria, sino de gestión de energía: ayuda cuando el problema es la concentración, no la retención.</p>
+                <ol>
+                    <li>Identifica si tu dificultad es de memoria (olvidas lo que estudias) o de concentración (te distraes o procrastinas).</li>
+                    <li>Si es de memoria: prueba repetición espaciada o recuerdo activo durante dos semanas.</li>
+                    <li>Si es de concentración: prueba bloques Pomodoro antes de cambiar de técnica de estudio.</li>
+                    <li>Combina métodos: toma notas con Cornell durante la clase, repásalas con recuerdo activo después.</li>
+                </ol>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Errores comunes al adoptar una metodología nueva</h2>
+                <p>El error más frecuente es abandonar el método a los pocos días porque 'se siente más difícil' que releer. Es una señal esperada, no una señal de que el método no funciona: el recuerdo activo es más demandante mentalmente porque exige esfuerzo real, mientras que releer se siente más fácil porque exige menos.</p>
+                <p>Otro error es aplicar una sola técnica a todas las materias por igual. Un estudiante puede usar repetición espaciada para vocabulario de inglés y, al mismo tiempo, recuerdo activo puro para resolver ecuaciones: no son excluyentes.</p>
+                <ul>
+                    <li>Abandonar el método antes de dos semanas por sentirlo más difícil.</li>
+                    <li>Usar la misma técnica para todas las materias sin adaptarla.</li>
+                    <li>No medir resultados: seguir sin saber si el cambio mejoró las calificaciones.</li>
+                    <li>Copiar la rutina de otra persona sin ajustarla a tu propio horario.</li>
+                </ul>
+            </section>
+
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cómo saber si una metodología está funcionando</h2>
+                <p>La señal más confiable no es sentirse más cómodo estudiando, sino poder explicar un tema sin apoyo después de un par de días de haberlo estudiado. Si después de 48 horas puedes reconstruir la idea principal con tus propias palabras, la metodología está consolidando memoria a largo plazo.</p>
+                <p>Llevar un registro simple —qué estudiaste, con qué método, y si pudiste recordarlo días después— permite comparar objetivamente distintas técnicas en lugar de depender de la sensación subjetiva de 'sentirme preparado'.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Ejemplos prácticos de metodologías aplicadas a materias reales</h2>
+                <p>Para vocabulario de inglés, un estudiante puede crear tarjetas con la palabra en un lado y la traducción con una oración de ejemplo en el otro, revisándolas con repetición espaciada: el mismo día, a los tres días, a la semana y al mes. Este espaciamiento creciente es lo que distingue la repetición espaciada de simplemente repasar todos los días.</p>
+                <p>Para historia, en lugar de releer el capítulo del libro, el estudiante cierra el material y escribe en una hoja en blanco todo lo que recuerda sobre el tema —fechas, causas, personajes—, y solo después compara con el texto para identificar qué faltó. Ese ejercicio de recuerdo activo revela huecos reales de comprensión que la relectura pasiva no muestra.</p>
+                <p>Para matemáticas, el método más efectivo no es ver ejemplos resueltos uno tras otro, sino intentar resolver el ejercicio primero, atascarse, y solo entonces revisar el procedimiento. El error y la corrección posterior fijan el procedimiento con más fuerza que ver la solución de entrada.</p>
+                <p>Para una clase con muchos conceptos nuevos, el método Cornell funciona dividiendo la hoja en dos columnas: notas amplias durante la clase a la derecha, y palabras clave o preguntas a la izquierda, escritas después de clase. Al repasar, se cubre la columna derecha y se intenta responder solo viendo las palabras clave de la izquierda —una forma de recuerdo activo integrada al método de notas.</p>
+            </section>
+
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Cuánto tiempo dedicar a cada metodología según tu carga académica</h2>
+                <p>Un error común es pensar que adoptar una metodología nueva significa dedicarle más horas totales de estudio. En realidad, la mayoría de estas técnicas buscan lo contrario: usar mejor el tiempo que ya tienes, no añadir más.</p>
+                <p>Para un estudiante con tres o cuatro materias activas, una distribución realista es dedicar entre 15 y 20 minutos diarios de repaso con recuerdo activo por materia, más una sesión semanal de 40 a 60 minutos con tarjetas de repetición espaciada para el contenido acumulado. Esto suele ser menos tiempo total que releer apuntes completos antes de cada examen, y produce mejor retención a largo plazo.</p>
+                <p>Durante semana de exámenes, la tentación es abandonar el método y volver a releer todo por la presión del tiempo. Es exactamente el momento donde el recuerdo activo rinde más: practicar preguntas de examenes anteriores sin ver las respuestas primero simula la condición real de evaluación y detecta huecos con más precisión que cualquier relectura de último momento.</p>
+                <ul>
+                    <li>15-20 minutos diarios de recuerdo activo por materia es suficiente para empezar.</li>
+                    <li>Una sesión semanal de repetición espaciada consolida el contenido acumulado.</li>
+                    <li>En época de exámenes, practicar con preguntas reales rinde más que releer apuntes.</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Aprende a leer más rápido sin perder comprensión</h2>
+                    <p>Si tu reto es procesar mucho material de lectura en poco tiempo, el curso de Fotolectura te enseña técnicas de lectura rápida y comprensión que se combinan bien con estas metodologías de estudio.</p>
+                    <a href="/fotolectura" class="btn-primary">
+                        Curso de comprensión lectora <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-guia-completa">
+                            <span>Guía completa de metodologías de aprendizaje basadas en evidencia</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-metodologias-aprendizaje-para-principiantes">
+                            <span>Metodologías de aprendizaje para principiantes: por dónde empezar</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuánto tiempo toma notar resultados con una nueva metodología de estudio?</h3>
+                    <p>La mayoría de los estudiantes empieza a notar diferencias en la retención después de dos a tres semanas de aplicar el método de forma consistente, especialmente con repetición espaciada.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Puedo combinar varias metodologías de aprendizaje a la vez?</h3>
+                    <p>Sí, de hecho es lo recomendable: usar Cornell para tomar notas en clase y luego repasarlas con recuerdo activo es una combinación común y efectiva.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Las metodologías de aprendizaje funcionan igual para niños y adultos?</h3>
+                    <p>Los principios son los mismos, pero los niños pequeños necesitan sesiones más cortas y mayor guía externa para mantener la constancia, mientras que un adulto puede aplicar el método de forma más autónoma.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué hago si ya probé una metodología y no me funcionó?</h3>
+                    <p>Antes de descartarla, verifica si la aplicaste de forma consistente durante al menos dos semanas; el abandono temprano es la causa más común de que un método 'no funcione'.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito materiales especiales para aplicar estas metodologías?</h3>
+                    <p>No. Tarjetas de papel, una libreta dividida en columnas o una app gratuita de repetición espaciada son suficientes; el método importa más que la herramienta.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.gob.mx/conacyt" target="_blank" rel="noopener noreferrer">CONACYT — divulgación sobre técnicas de estudio</a> — Contexto general sobre ciencia y divulgación educativa en México</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -540,8 +633,67 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Qué es una metodología de aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Por qué releer no es una metodología de aprendizaje
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Cómo elegir una metodología según lo que estudias
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Errores comunes al adoptar una metodología nueva
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cómo saber si una metodología está funcionando
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Ejemplos prácticos de metodologías aplicadas a materias reales
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Cuánto tiempo dedicar a cada metodología según tu carga académica
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">08</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">09</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

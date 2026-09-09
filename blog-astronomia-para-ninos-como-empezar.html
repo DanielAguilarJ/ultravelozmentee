@@ -354,140 +354,224 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="7">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-rocket"></i> Ciencia y Astronomía
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Astronomía para niños: cómo empezar</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 8 de Septiembre, 2026</span>
-                    <span><i class="far fa-clock"></i> 7 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">Ciencia y Astronomía</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Astronomía para niños: cómo empezar</h1>
+                <p class="blog-post-dek">Astronomía para niños: cómo empezar a mirar el cielo sin telescopio, qué se ve a simple vista y los primeros pasos para convertir la curiosidad en afición.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">Ciencia y Astronomía</span>
+                    <span>Publicado <time datetime="2026-09-08">8 de Septiembre, 2026</time></span>
+                    <span>7 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/ciencia-astronomia-curso-ninos-telescopio.webp" alt="Astronomía para niños: cómo empezar" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">Muchas familias creen que la astronomía para niños empieza comprando un telescopio, y a menudo ese es el primer error: un aparato difícil de usar frustra al niño antes de engancharlo. La astronomía de verdad empieza mucho antes y más barato, simplemente mirando hacia arriba.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>7 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué empezar sin telescopio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Qué se puede ver a simple vista
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Astronomía para niños: los primeros pasos, noche a noche
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Herramientas sencillas que ayudan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuándo conviene un telescopio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo mantener viva la afición
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">Muchas familias creen que la astronomía para niños empieza comprando un telescopio, y a menudo ese es el primer error: un aparato difícil de usar frustra al niño antes de engancharlo. La astronomía de verdad empieza mucho antes y más barato, simplemente mirando hacia arriba.</p>
             <p>Esta guía explica cómo iniciar a un niño en la observación del cielo paso a paso, qué se puede ver sin ningún equipo, y cómo convertir esos primeros ratos de curiosidad en una afición que dure. El objetivo no es saberlo todo, sino aprender a mirar.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Para iniciar la astronomía para niños no hace falta telescopio: se empieza mirando el cielo a simple vista. Lo primero es aprender a reconocer la Luna y sus fases, identificar algún planeta brillante y una constelación fácil, y acostumbrar la vista a la oscuridad lejos de las luces. Con eso, unos binoculares y una app del cielo, un niño puede engancharse a la astronomía. El telescopio llega después, cuando ya sabe qué está mirando.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Para iniciar la astronomía para niños no hace falta telescopio: se empieza mirando el cielo a simple vista. Lo primero es aprender a reconocer la Luna y sus fases, identificar algún planeta brillante y una constelación fácil, y acostumbrar la vista a la oscuridad lejos de las luces. Con eso, unos binoculares y una app del cielo, un niño puede engancharse a la astronomía. El telescopio llega después, cuando ya sabe qué está mirando.</p>
+                </aside>
 
-            <h2>Por qué empezar sin telescopio</h2>
-            <p>El telescopio parece el punto de partida obvio, pero suele ser lo contrario. Un telescopio barato mal ajustado muestra imágenes borrosas y es difícil de apuntar, así que el niño se frustra y concluye que la astronomía es aburrida. Lo sensato es entrenar primero la observación a simple vista, que no cuesta nada y engancha desde la primera noche.</p>
-            <p>Mirar el cielo sin equipo enseña algo esencial: orientarse. Antes de acercar nada, el niño necesita saber qué está viendo, dónde sale la Luna, qué punto brillante es un planeta y cuál una estrella. Cuando ya reconoce el cielo, un telescopio pasa de ser un aparato confuso a una herramienta que amplía lo que ya sabe buscar.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Por qué empezar sin telescopio</h2>
+                <p>El telescopio parece el punto de partida obvio, pero suele ser lo contrario. Un telescopio barato mal ajustado muestra imágenes borrosas y es difícil de apuntar, así que el niño se frustra y concluye que la astronomía es aburrida. Lo sensato es entrenar primero la observación a simple vista, que no cuesta nada y engancha desde la primera noche.</p>
+                <p>Mirar el cielo sin equipo enseña algo esencial: orientarse. Antes de acercar nada, el niño necesita saber qué está viendo, dónde sale la Luna, qué punto brillante es un planeta y cuál una estrella. Cuando ya reconoce el cielo, un telescopio pasa de ser un aparato confuso a una herramienta que amplía lo que ya sabe buscar.</p>
+            </section>
 
-            <h2>Qué se puede ver a simple vista</h2>
-            <p>El cielo a simple vista ofrece muchísimo más de lo que la gente cree, sobre todo si te alejas un poco de las luces de la ciudad. Estos son los primeros objetivos, en orden de facilidad, para un niño que empieza.</p>
-            <ul>
-                <li>La Luna y sus fases: el objeto más fácil y el que más cambia noche a noche.</li>
-                <li>Los planetas brillantes: Venus al atardecer o amanecer, y Júpiter o Marte según la época.</li>
-                <li>Constelaciones fáciles: como el cinturón de Orión o la Osa Mayor, que sirven de mapa.</li>
-                <li>Estrellas fugaces: en las noches de lluvia de meteoros, sin ningún equipo.</li>
-                <li>La Estación Espacial: un punto que cruza el cielo, si consultas antes cuándo pasa.</li>
-            </ul>
-
-            <h2>Astronomía para niños: los primeros pasos, noche a noche</h2>
-            <p>La astronomía se aprende con constancia y paciencia, no en una sola salida. Conviene empezar por lo más visible y avanzar poco a poco, para que cada noche el niño reconozca algo nuevo sobre lo anterior.</p>
-            <ol>
-                <li>Empieza por la Luna: obsérvenla varias noches y dibujen cómo cambia su forma.</li>
-                <li>Aprende a distinguir un planeta de una estrella: el planeta brilla fijo, la estrella titila.</li>
-                <li>Localiza una constelación fácil y úsala como punto de referencia para encontrar otras.</li>
-                <li>Aléjate de las luces cuando puedan y deja diez minutos para que la vista se acostumbre.</li>
-                <li>Lleven una libreta del cielo: fecha, qué vieron y un dibujo; observar y anotar es hacer ciencia.</li>
-            </ol>
-
-            <h2>Herramientas sencillas que ayudan</h2>
-            <p>Antes del telescopio hay dos aliados baratos y muy útiles. El primero son unos binoculares normales: con ellos ya se ven los cráteres de la Luna, las cuatro lunas grandes de Júpiter como puntitos y muchas más estrellas. Son fáciles de usar y el niño los apunta sin ayuda, a diferencia del telescopio.</p>
-            <p>El segundo es una app de mapa del cielo en el celular: apuntas el teléfono hacia arriba y te dice qué estrella, planeta o constelación estás viendo. Es una forma moderna y motivadora de orientarse, y convierte cualquier noche despejada en una búsqueda del tesoro. Con binoculares y una app, la mayoría de los niños ya tienen para engancharse.</p>
-
-            <h2>Cuándo conviene un telescopio</h2>
-            <p>El telescopio tiene su momento: cuando el niño ya reconoce el cielo, sabe qué quiere ver y ha mantenido el interés durante un tiempo. Entonces sí, un telescopio le permite ver los anillos de Saturno o los cráteres lunares de cerca, y esa recompensa llega con sentido porque ya sabe qué está mirando.</p>
-            <p>Si decides comprar uno, más vale sencillo y bien entendido que grande y complicado. Y como con cualquier afición, acompaña las primeras veces: apuntar un telescopio tiene su técnica, y un adulto paciente al lado marca la diferencia entre la maravilla y la frustración. La astronomía es de las aficiones que más unen a padres e hijos mirando en la misma dirección.</p>
-            <p>Vale la pena insistir en un punto que marca la diferencia entre enganchar y frustrar: el ritmo lo pone el niño, no el calendario. Habrá noches nubladas, semanas sin ganas y momentos en que prefiera otra cosa, y eso está bien; la astronomía es una afición para toda la vida, no una tarea con fecha de entrega. Forzar la observación cuando no hay interés es la forma más rápida de que la asocie con obligación. En cambio, aprovechar los momentos en que él pregunta o se asombra por algo del cielo convierte cada salida en algo que pide repetir.</p>
-            <p>Otra idea que sostiene el interés es conectar lo que se ve con historias y con preguntas abiertas. Las constelaciones tienen detrás mitos de muchas culturas que fascinan a los niños, y cada objeto del cielo abre una pregunta: ¿por qué la Luna cambia de forma?, ¿a qué distancia está esa estrella?, ¿qué habrá en ese planeta? No hace falta que tú tengas todas las respuestas; buscarlas juntos es parte de la aventura y le enseña que el conocimiento se persigue, no se recibe. Y si en el camino descubre que le apasiona, ese entusiasmo es la señal de que la afición echó raíces, y de ahí a querer aprender más solo hay un paso. Ese salto, de mirar por curiosidad a estudiar por gusto, es justamente lo que un buen curso aprovecha.</p>
-
-            <h2>Cómo mantener viva la afición</h2>
-            <p>El interés por el cielo se apaga si se vuelve una obligación o si solo se mira una vez. Se mantiene vivo conectándolo con la curiosidad natural del niño y con pequeños eventos que dan un motivo para volver a salir.</p>
-            <ul>
-                <li>Aprovechen eventos: una luna llena, un eclipse, una lluvia de estrellas anunciada.</li>
-                <li>Dejen que el niño guíe: que elija qué buscar y cuente lo que sabe de ese objeto.</li>
-                <li>Conecten con historias: los nombres de las constelaciones vienen de mitos que fascinan.</li>
-                <li>Sin presión: si una noche no hay ganas, no pasa nada; la afición se cultiva, no se impone.</li>
-            </ul>
-
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>De mirar el cielo al curso de Ciencia y Astronomía</h3>
-                <p>El curso de Ciencia y Astronomía de WorldBrain es para niños de 8 a 14 años, en grupos por edad y presencial; empieza justamente observando el cielo, sin conocimientos previos. Escríbenos por WhatsApp para conocer horarios, sede y la próxima fecha de inicio.</p>
-                <a href="/ciencia-astronomia" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Conocer el taller de astronomía <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
-
-
-            <div class="ed-related-posts" aria-label="Artículos relacionados">
-                <h2>Sigue leyendo</h2>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Qué se puede ver a simple vista</h2>
+                <p>El cielo a simple vista ofrece muchísimo más de lo que la gente cree, sobre todo si te alejas un poco de las luces de la ciudad. Estos son los primeros objetivos, en orden de facilidad, para un niño que empieza.</p>
                 <ul>
-                <li><a href="/blog-sistema-solar-para-ninos">El sistema solar para niños: guía sencilla</a></li>
-                <li><a href="/blog-experimentos-ciencia-ninos-casa">Experimentos de ciencia para niños en casa</a></li>
-                <li><a href="/blog-como-despertar-curiosidad-cientifica-ninos">Cómo despertar la curiosidad científica en niños</a></li>
-                <li><a href="/blog-beneficios-ensenar-ciencia-ninos">Beneficios de enseñar ciencia a los niños</a></li>
+                    <li>La Luna y sus fases: el objeto más fácil y el que más cambia noche a noche.</li>
+                    <li>Los planetas brillantes: Venus al atardecer o amanecer, y Júpiter o Marte según la época.</li>
+                    <li>Constelaciones fáciles: como el cinturón de Orión o la Osa Mayor, que sirven de mapa.</li>
+                    <li>Estrellas fugaces: en las noches de lluvia de meteoros, sin ningún equipo.</li>
+                    <li>La Estación Espacial: un punto que cruza el cielo, si consultas antes cuándo pasa.</li>
                 </ul>
-            </div>
+            </section>
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿A qué edad puede un niño empezar con la astronomía?</h3>
-                <p>Desde pequeño puede mirar la Luna y sorprenderse, pero la observación más consciente, reconocer planetas y constelaciones, encaja bien a partir de los siete u ocho años. Lo importante no es la edad exacta, sino empezar por lo simple y acompañarlo. La curiosidad por el cielo no tiene edad mínima; la profundidad llega poco a poco.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Necesito comprar un telescopio para empezar?</h3>
-                <p>No, y de hecho conviene no empezar por ahí. Se arranca mirando a simple vista y, si acaso, con unos binoculares normales y una app del cielo. El telescopio tiene sentido más adelante, cuando el niño ya reconoce lo que ve y ha mantenido el interés. Empezar por el telescopio suele frustrar más que enganchar.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué puedo ver desde la ciudad, con tanta luz?</h3>
-                <p>Más de lo que parece: la Luna con detalle, los planetas más brillantes como Venus y Júpiter, y algunas constelaciones grandes. Las luces de la ciudad tapan las estrellas débiles, pero no la Luna ni los planetas. Si pueden salir de vez en cuando a un sitio más oscuro, el cielo se abre por completo.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Qué app o recurso recomiendan para orientarse?</h3>
-                <p>Hay varias apps gratuitas de mapa del cielo que, al apuntar el celular hacia arriba, te dicen qué estás viendo; cualquiera de las populares sirve para empezar. Más que la app concreta, lo útil es tener a mano algo que ayude a poner nombre a lo que se ve, porque reconocer engancha mucho más que solo mirar.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Astronomía para niños: los primeros pasos, noche a noche</h2>
+                <p>La astronomía se aprende con constancia y paciencia, no en una sola salida. Conviene empezar por lo más visible y avanzar poco a poco, para que cada noche el niño reconozca algo nuevo sobre lo anterior.</p>
+                <ol>
+                    <li>Empieza por la Luna: obsérvenla varias noches y dibujen cómo cambia su forma.</li>
+                    <li>Aprende a distinguir un planeta de una estrella: el planeta brilla fijo, la estrella titila.</li>
+                    <li>Localiza una constelación fácil y úsala como punto de referencia para encontrar otras.</li>
+                    <li>Aléjate de las luces cuando puedan y deja diez minutos para que la vista se acostumbre.</li>
+                    <li>Lleven una libreta del cielo: fecha, qué vieron y un dibujo; observar y anotar es hacer ciencia.</li>
+                </ol>
+            </section>
 
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Herramientas sencillas que ayudan</h2>
+                <p>Antes del telescopio hay dos aliados baratos y muy útiles. El primero son unos binoculares normales: con ellos ya se ven los cráteres de la Luna, las cuatro lunas grandes de Júpiter como puntitos y muchas más estrellas. Son fáciles de usar y el niño los apunta sin ayuda, a diferencia del telescopio.</p>
+                <p>El segundo es una app de mapa del cielo en el celular: apuntas el teléfono hacia arriba y te dice qué estrella, planeta o constelación estás viendo. Es una forma moderna y motivadora de orientarse, y convierte cualquier noche despejada en una búsqueda del tesoro. Con binoculares y una app, la mayoría de los niños ya tienen para engancharse.</p>
+            </section>
 
-            </ul>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Cuándo conviene un telescopio</h2>
+                <p>El telescopio tiene su momento: cuando el niño ya reconoce el cielo, sabe qué quiere ver y ha mantenido el interés durante un tiempo. Entonces sí, un telescopio le permite ver los anillos de Saturno o los cráteres lunares de cerca, y esa recompensa llega con sentido porque ya sabe qué está mirando.</p>
+                <p>Si decides comprar uno, más vale sencillo y bien entendido que grande y complicado. Y como con cualquier afición, acompaña las primeras veces: apuntar un telescopio tiene su técnica, y un adulto paciente al lado marca la diferencia entre la maravilla y la frustración. La astronomía es de las aficiones que más unen a padres e hijos mirando en la misma dirección.</p>
+                <p>Vale la pena insistir en un punto que marca la diferencia entre enganchar y frustrar: el ritmo lo pone el niño, no el calendario. Habrá noches nubladas, semanas sin ganas y momentos en que prefiera otra cosa, y eso está bien; la astronomía es una afición para toda la vida, no una tarea con fecha de entrega. Forzar la observación cuando no hay interés es la forma más rápida de que la asocie con obligación. En cambio, aprovechar los momentos en que él pregunta o se asombra por algo del cielo convierte cada salida en algo que pide repetir.</p>
+                <p>Otra idea que sostiene el interés es conectar lo que se ve con historias y con preguntas abiertas. Las constelaciones tienen detrás mitos de muchas culturas que fascinan a los niños, y cada objeto del cielo abre una pregunta: ¿por qué la Luna cambia de forma?, ¿a qué distancia está esa estrella?, ¿qué habrá en ese planeta? No hace falta que tú tengas todas las respuestas; buscarlas juntos es parte de la aventura y le enseña que el conocimiento se persigue, no se recibe. Y si en el camino descubre que le apasiona, ese entusiasmo es la señal de que la afición echó raíces, y de ahí a querer aprender más solo hay un paso. Ese salto, de mirar por curiosidad a estudiar por gusto, es justamente lo que un buen curso aprovecha.</p>
+            </section>
 
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Cómo mantener viva la afición</h2>
+                <p>El interés por el cielo se apaga si se vuelve una obligación o si solo se mira una vez. Se mantiene vivo conectándolo con la curiosidad natural del niño y con pequeños eventos que dan un motivo para volver a salir.</p>
+                <ul>
+                    <li>Aprovechen eventos: una luna llena, un eclipse, una lluvia de estrellas anunciada.</li>
+                    <li>Dejen que el niño guíe: que elija qué buscar y cuente lo que sabe de ese objeto.</li>
+                    <li>Conecten con historias: los nombres de las constelaciones vienen de mitos que fascinan.</li>
+                    <li>Sin presión: si una noche no hay ganas, no pasa nada; la afición se cultiva, no se impone.</li>
+                </ul>
+            </section>
+
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">De mirar el cielo al curso de Ciencia y Astronomía</h2>
+                    <p>El curso de Ciencia y Astronomía de WorldBrain es para niños de 8 a 14 años, en grupos por edad y presencial; empieza justamente observando el cielo, sin conocimientos previos. Escríbenos por WhatsApp para conocer horarios, sede y la próxima fecha de inicio.</p>
+                    <a href="/ciencia-astronomia" class="btn-primary">
+                        Conocer el taller de astronomía <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
+
+
+            <section class="ed-related-posts" aria-labelledby="lecturas-relacionadas-titulo">
+                <h2 id="lecturas-relacionadas-titulo">Continúa leyendo</h2>
+                <p class="ed-related-intro">Cuatro lecturas para ampliar el tema sin repetir este artículo.</p>
+                <ul>
+                    <li>
+                        <a class="ed-related-link" href="/blog-sistema-solar-para-ninos">
+                            <span>El sistema solar para niños: guía sencilla</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-experimentos-ciencia-ninos-casa">
+                            <span>Experimentos de ciencia para niños en casa</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-como-despertar-curiosidad-cientifica-ninos">
+                            <span>Cómo despertar la curiosidad científica en niños</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a class="ed-related-link" href="/blog-beneficios-ensenar-ciencia-ninos">
+                            <span>Beneficios de enseñar ciencia a los niños</span>
+                            <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
+            </section>
+
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿A qué edad puede un niño empezar con la astronomía?</h3>
+                    <p>Desde pequeño puede mirar la Luna y sorprenderse, pero la observación más consciente, reconocer planetas y constelaciones, encaja bien a partir de los siete u ocho años. Lo importante no es la edad exacta, sino empezar por lo simple y acompañarlo. La curiosidad por el cielo no tiene edad mínima; la profundidad llega poco a poco.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Necesito comprar un telescopio para empezar?</h3>
+                    <p>No, y de hecho conviene no empezar por ahí. Se arranca mirando a simple vista y, si acaso, con unos binoculares normales y una app del cielo. El telescopio tiene sentido más adelante, cuando el niño ya reconoce lo que ve y ha mantenido el interés. Empezar por el telescopio suele frustrar más que enganchar.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué puedo ver desde la ciudad, con tanta luz?</h3>
+                    <p>Más de lo que parece: la Luna con detalle, los planetas más brillantes como Venus y Júpiter, y algunas constelaciones grandes. Las luces de la ciudad tapan las estrellas débiles, pero no la Luna ni los planetas. Si pueden salir de vez en cuando a un sitio más oscuro, el cielo se abre por completo.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Qué app o recurso recomiendan para orientarse?</h3>
+                    <p>Hay varias apps gratuitas de mapa del cielo que, al apuntar el celular hacia arriba, te dicen qué estás viendo; cualquiera de las populares sirve para empezar. Más que la app concreta, lo útil es tener a mano algo que ayude a poner nombre a lo que se ve, porque reconocer engancha mucho más que solo mirar.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -517,8 +601,57 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Por qué empezar sin telescopio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Qué se puede ver a simple vista
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Astronomía para niños: los primeros pasos, noche a noche
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Herramientas sencillas que ayudan
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Cuándo conviene un telescopio
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Cómo mantener viva la afición
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">07</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>7 min restantes</span>
+                        <span>Lectura estimada: 7 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->

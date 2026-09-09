@@ -354,132 +354,221 @@
     <a href="/#contacto" class="nav-pill-cta">Contacto</a>
 </div>
 
-    <main id="main-content" role="main" class="ed-blog-main">
+    <main id="main-content" role="main" class="ed-blog-main" data-reading-minutes="5">
         <div class="ed-progress" role="progressbar" aria-valuenow="0" aria-valuemin="0" aria-valuemax="100" aria-label="Progreso de lectura"><div class="ed-progress-bar"></div></div>
-        <div class="ed-article-toolbar"><a class="ed-back-link" href="/blog-index" aria-label="Volver al blog">Volver al blog</a><button data-bookmark aria-pressed="false" aria-label="Guardar artículo">♡ Guardar</button><button class="ed-share-btn" aria-label="Compartir artículo">Compartir</button></div>
+        <div class="ed-article-toolbar" aria-label="Acciones del artículo">
+            <a class="ed-back-link" href="/blog-index" aria-label="Volver al blog"><i class="fas fa-arrow-left" aria-hidden="true"></i><span>Blog</span></a>
+            <button data-bookmark aria-pressed="false" aria-label="Guardar artículo"><i class="far fa-bookmark" aria-hidden="true"></i><span data-bookmark-label>Guardar</span></button>
+            <button class="ed-share-btn" aria-label="Compartir artículo"><i class="fas fa-arrow-up-from-bracket" aria-hidden="true"></i><span>Compartir</span></button>
+            <p class="ed-share-status" role="status" aria-live="polite"></p>
+        </div>
 
         <header class="blog-post-hero">
             <div class="container blog-post-header">
-                <span class="badge" data-aos="fade-down" style="margin-bottom: 1.5rem;">
-                    <i class="fas fa-language"></i> FastKids
-                </span>
-                <h1 class="blog-post-title" data-aos="fade-up">Cómo elegir un curso de inglés para niños: señales de calidad</h1>
-
-                <div class="blog-post-meta" data-aos="fade-up" data-aos-delay="100">
-                    <span><i class="far fa-calendar"></i> 4 de Agosto, 2026</span>
-                    <span><i class="far fa-clock"></i> 5 minutos de lectura</span>
-                    <span><i class="far fa-user"></i> Equipo Editorial WorldBrain</span>
+                <nav class="ed-breadcrumbs" aria-label="Migas de pan">
+                    <ol>
+                        <li><a href="/">Inicio</a></li>
+                        <li><a href="/blog-index">Blog</a></li>
+                        <li aria-current="page">FastKids</li>
+                    </ol>
+                </nav>
+                <h1 class="blog-post-title">Cómo elegir un curso de inglés para niños: señales de calidad</h1>
+                <p class="blog-post-dek">Guía con señales de calidad para elegir un curso de inglés infantil: tiempo de habla, retroalimentación y progreso observable.</p>
+                <div class="blog-post-meta">
+                    <span class="blog-post-category">FastKids</span>
+                    <span>Publicado <time datetime="2026-08-04">4 de Agosto, 2026</time></span>
+                    <span>5 minutos de lectura</span>
+                    <span class="ed-byline">Por Equipo Editorial WorldBrain</span>
                 </div>
             </div>
         </header>
 
-        <div class="blog-post-cover" data-aos="zoom-in" data-aos-delay="200">
+        <div class="blog-post-cover">
             <img src="images/fastkids-curso-ingles-ninos-flashcards.webp" alt="Cómo elegir un curso de inglés para niños: señales de calidad" width="1280" height="720" fetchpriority="high" decoding="async">
         </div>
 
-        <article class="blog-content">
-            <p class="lead" style="font-size: 1.3rem; color: var(--text-color); font-weight: 500;">La oferta de cursos de inglés para niños es amplia y las promesas de marketing suenan parecidas. Sin criterios claros, muchas familias eligen por precio, cercanía o imagen sin evaluar lo que realmente importa: cuánto habla el niño, cómo lo corrigen y qué evidencia de avance reciben.</p>
+        <div class="ed-article-layout">
+            <article class="blog-content">
+                <details class="ed-mobile-toc">
+                    <summary>En este artículo <span>10 apartados</span></summary>
+                    <nav aria-label="Contenido del artículo en móvil">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Tiempo real de habla por alumno
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Retroalimentación específica y oportuna
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Progreso observable y comunicado a la familia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Formación y estabilidad del profesorado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Materiales y tecnología con propósito
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Señales de alerta en un curso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Preguntas que hacer antes de inscribir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>La prueba real: las primeras cuatro semanas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                </details>
+            <p class="lead">La oferta de cursos de inglés para niños es amplia y las promesas de marketing suenan parecidas. Sin criterios claros, muchas familias eligen por precio, cercanía o imagen sin evaluar lo que realmente importa: cuánto habla el niño, cómo lo corrigen y qué evidencia de avance reciben.</p>
             <p>Esta guía propone preguntas concretas que puedes hacer antes de inscribir y señales que puedes observar durante las primeras sesiones para decidir si el curso cumple lo que ofrece.</p>
 
-            <div class="ed-quick-answer" data-aos="fade-up">
-                <h2><i class="fas fa-bolt" aria-hidden="true"></i> Respuesta rápida</h2>
-                <p>Un buen curso de inglés para niños se distingue por el tiempo real que cada alumno habla en clase, la retroalimentación específica que recibe y la posibilidad de observar progreso medible en comprensión y producción oral a lo largo de semanas.</p>
-            </div>
+                <aside class="ed-quick-answer" aria-labelledby="respuesta-rapida-titulo">
+                    <h2 id="respuesta-rapida-titulo">Respuesta rápida</h2>
+                    <p>Un buen curso de inglés para niños se distingue por el tiempo real que cada alumno habla en clase, la retroalimentación específica que recibe y la posibilidad de observar progreso medible en comprensión y producción oral a lo largo de semanas.</p>
+                </aside>
 
-            <h2>Tiempo real de habla por alumno</h2>
-            <p>En un grupo de 12 niños con clase de 50 minutos, si solo el profesor habla, cada alumno produce cero minutos de idioma. Pregunta cuántos alumnos hay por grupo y qué dinámicas usan para que todos participen. Los formatos de trabajo en pares o equipos pequeños multiplican las oportunidades de producción oral.</p>
-            <p>Observa una clase de prueba: si el niño habla menos de 5 minutos en total durante la sesión, el formato prioriza la exposición pasiva sobre la práctica activa.</p>
+            <section class="ed-article-section" id="seccion-1" aria-labelledby="seccion-1-titulo">
+                <h2 id="seccion-1-titulo">Tiempo real de habla por alumno</h2>
+                <p>En un grupo de 12 niños con clase de 50 minutos, si solo el profesor habla, cada alumno produce cero minutos de idioma. Pregunta cuántos alumnos hay por grupo y qué dinámicas usan para que todos participen. Los formatos de trabajo en pares o equipos pequeños multiplican las oportunidades de producción oral.</p>
+                <p>Observa una clase de prueba: si el niño habla menos de 5 minutos en total durante la sesión, el formato prioriza la exposición pasiva sobre la práctica activa.</p>
+            </section>
 
-            <h2>Retroalimentación específica y oportuna</h2>
-            <p>Decir 'very good' a todo no es retroalimentación. Un curso serio corrige pronunciación, amplía vocabulario y reformula oraciones de manera natural sin interrumpir la comunicación. Pregunta cómo manejan los errores: ¿los ignoran, los corrigen en el momento o los anotan para revisarlos después?</p>
-            <p>La corrección constante inhibe, pero la ausencia total de corrección estanca. Busca un punto medio documentado en la metodología del curso.</p>
+            <section class="ed-article-section" id="seccion-2" aria-labelledby="seccion-2-titulo">
+                <h2 id="seccion-2-titulo">Retroalimentación específica y oportuna</h2>
+                <p>Decir 'very good' a todo no es retroalimentación. Un curso serio corrige pronunciación, amplía vocabulario y reformula oraciones de manera natural sin interrumpir la comunicación. Pregunta cómo manejan los errores: ¿los ignoran, los corrigen en el momento o los anotan para revisarlos después?</p>
+                <p>La corrección constante inhibe, pero la ausencia total de corrección estanca. Busca un punto medio documentado en la metodología del curso.</p>
+            </section>
 
-            <h2>Progreso observable y comunicado a la familia</h2>
-            <p>Pide ejemplos de qué podrá hacer el niño al terminar cada periodo: presentarse, describir su rutina, narrar un evento pasado. Si la respuesta es vaga o solo menciona temas gramaticales, el curso podría carecer de objetivos comunicativos claros.</p>
-            <p>Un reporte periódico con muestras de lo que el niño produce (grabaciones, textos breves, presentaciones) vale más que una calificación numérica.</p>
+            <section class="ed-article-section" id="seccion-3" aria-labelledby="seccion-3-titulo">
+                <h2 id="seccion-3-titulo">Progreso observable y comunicado a la familia</h2>
+                <p>Pide ejemplos de qué podrá hacer el niño al terminar cada periodo: presentarse, describir su rutina, narrar un evento pasado. Si la respuesta es vaga o solo menciona temas gramaticales, el curso podría carecer de objetivos comunicativos claros.</p>
+                <p>Un reporte periódico con muestras de lo que el niño produce (grabaciones, textos breves, presentaciones) vale más que una calificación numérica.</p>
+            </section>
 
-            <h2>Formación y estabilidad del profesorado</h2>
-            <p>No se requiere que el profesor sea hablante nativo, pero sí que demuestre competencia comunicativa alta y formación en enseñanza de idiomas a niños. La rotación constante de profesores rompe la confianza del alumno y reinicia la relación pedagógica.</p>
-            <p>Pregunta cuánto tiempo llevan los profesores actuales y si reciben capacitación continua.</p>
+            <section class="ed-article-section" id="seccion-4" aria-labelledby="seccion-4-titulo">
+                <h2 id="seccion-4-titulo">Formación y estabilidad del profesorado</h2>
+                <p>No se requiere que el profesor sea hablante nativo, pero sí que demuestre competencia comunicativa alta y formación en enseñanza de idiomas a niños. La rotación constante de profesores rompe la confianza del alumno y reinicia la relación pedagógica.</p>
+                <p>Pregunta cuánto tiempo llevan los profesores actuales y si reciben capacitación continua.</p>
+            </section>
 
-            <h2>Materiales y tecnología con propósito</h2>
-            <p>Plataformas, apps y pantallas no garantizan aprendizaje. Evalúa si la tecnología se usa para practicar (grabarse, interactuar, investigar) o solo para entretener. Un libro de texto actualizado con audio accesible puede ser tan efectivo como una app si se usa con intención pedagógica.</p>
+            <section class="ed-article-section" id="seccion-5" aria-labelledby="seccion-5-titulo">
+                <h2 id="seccion-5-titulo">Materiales y tecnología con propósito</h2>
+                <p>Plataformas, apps y pantallas no garantizan aprendizaje. Evalúa si la tecnología se usa para practicar (grabarse, interactuar, investigar) o solo para entretener. Un libro de texto actualizado con audio accesible puede ser tan efectivo como una app si se usa con intención pedagógica.</p>
+            </section>
 
-            <h2>Señales de alerta en un curso</h2>
-            <p>Ciertos patrones indican que el curso prioriza retención de clientes sobre aprendizaje real.</p>
-            <ul>
-                <li>Prometen fluidez en plazos irrealistamente cortos.</li>
-                <li>No permiten observar una clase antes de inscribir.</li>
-                <li>Los grupos mezclan niveles muy dispares sin diferenciación.</li>
-                <li>No hay evaluación diagnóstica al inicio.</li>
-                <li>El reporte al padre se limita a 'bien' o 'necesita mejorar' sin detalles.</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-6" aria-labelledby="seccion-6-titulo">
+                <h2 id="seccion-6-titulo">Señales de alerta en un curso</h2>
+                <p>Ciertos patrones indican que el curso prioriza retención de clientes sobre aprendizaje real.</p>
+                <ul>
+                    <li>Prometen fluidez en plazos irrealistamente cortos.</li>
+                    <li>No permiten observar una clase antes de inscribir.</li>
+                    <li>Los grupos mezclan niveles muy dispares sin diferenciación.</li>
+                    <li>No hay evaluación diagnóstica al inicio.</li>
+                    <li>El reporte al padre se limita a 'bien' o 'necesita mejorar' sin detalles.</li>
+                </ul>
+            </section>
 
-            <h2>Preguntas que hacer antes de inscribir</h2>
-            <p>Antes de firmar, haz estas preguntas directamente al coordinador académico y observa si las respuestas son claras y específicas o vagas y evasivas.</p>
-            <ul>
-                <li>¿Cuántos alumnos hay por grupo y cuánto tiempo habla cada uno por sesión?</li>
-                <li>¿Qué podrá hacer mi hijo al terminar este nivel que hoy no puede?</li>
-                <li>¿Puedo observar una clase completa antes de decidir?</li>
-                <li>¿Cómo me informan del avance y con qué frecuencia?</li>
-                <li>¿Qué formación tienen los profesores y cuánto tiempo llevan en el programa?</li>
-                <li>¿Qué pasa si mi hijo no avanza al ritmo esperado?</li>
-            </ul>
+            <section class="ed-article-section" id="seccion-7" aria-labelledby="seccion-7-titulo">
+                <h2 id="seccion-7-titulo">Preguntas que hacer antes de inscribir</h2>
+                <p>Antes de firmar, haz estas preguntas directamente al coordinador académico y observa si las respuestas son claras y específicas o vagas y evasivas.</p>
+                <ul>
+                    <li>¿Cuántos alumnos hay por grupo y cuánto tiempo habla cada uno por sesión?</li>
+                    <li>¿Qué podrá hacer mi hijo al terminar este nivel que hoy no puede?</li>
+                    <li>¿Puedo observar una clase completa antes de decidir?</li>
+                    <li>¿Cómo me informan del avance y con qué frecuencia?</li>
+                    <li>¿Qué formación tienen los profesores y cuánto tiempo llevan en el programa?</li>
+                    <li>¿Qué pasa si mi hijo no avanza al ritmo esperado?</li>
+                </ul>
+            </section>
 
-            <h2>La prueba real: las primeras cuatro semanas</h2>
-            <p>Ninguna entrevista comercial sustituye la observación directa. Las primeras cuatro semanas son tu periodo de evaluación real. Observa si tu hijo llega motivado, si puede contarte algo nuevo que aprendió y si el profesor reconoce fortalezas y áreas de mejora específicas.</p>
-            <p>Si después de un mes no puedes identificar un avance concreto —una frase nueva que usa, una instrucción que entiende, una canción que canta con sentido— es momento de preguntar al profesor qué está ocurriendo y qué plan tiene para avanzar.</p>
+            <section class="ed-article-section" id="seccion-8" aria-labelledby="seccion-8-titulo">
+                <h2 id="seccion-8-titulo">La prueba real: las primeras cuatro semanas</h2>
+                <p>Ninguna entrevista comercial sustituye la observación directa. Las primeras cuatro semanas son tu periodo de evaluación real. Observa si tu hijo llega motivado, si puede contarte algo nuevo que aprendió y si el profesor reconoce fortalezas y áreas de mejora específicas.</p>
+                <p>Si después de un mes no puedes identificar un avance concreto —una frase nueva que usa, una instrucción que entiende, una canción que canta con sentido— es momento de preguntar al profesor qué está ocurriendo y qué plan tiene para avanzar.</p>
+            </section>
 
-            <div class="blog-cta-box" data-aos="fade-up">
-                <h3>Observa una sesión antes de decidir</h3>
-                <p>Si quieres comparar lo que ofrece un programa basado en interacción real, retroalimentación individual y reportes de avance con muestras del trabajo de tu hijo, puedes conocer cómo funciona una sesión típica.</p>
-                <a href="/fastkids" class="btn-primary" style="font-size: 1.1rem; padding: 1rem 2rem;">
-                    Explora FastKids <i class="fas fa-arrow-right"></i>
-                </a>
-            </div>
+                <section class="blog-cta-box" aria-labelledby="siguiente-paso-titulo">
+                    <h2 id="siguiente-paso-titulo">Observa una sesión antes de decidir</h2>
+                    <p>Si quieres comparar lo que ofrece un programa basado en interacción real, retroalimentación individual y reportes de avance con muestras del trabajo de tu hijo, puedes conocer cómo funciona una sesión típica.</p>
+                    <a href="/fastkids" class="btn-primary">
+                        Explora FastKids <i class="fas fa-arrow-right" aria-hidden="true"></i>
+                    </a>
+                </section>
 
 
-            <h2>Preguntas frecuentes</h2>
-            <div class="ed-faq-list">
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Un curso en línea puede ser tan efectivo como uno presencial para niños?</h3>
-                <p>Depende de la edad y el formato. A partir de 8 años, sesiones en línea con grupos pequeños y cámaras encendidas pueden funcionar bien si incluyen interacción constante. Para menores de 7, el formato presencial suele mantener mejor la atención.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cuántas horas semanales necesita un niño para avanzar en inglés?</h3>
-                <p>Con dos a tres horas semanales de clase más contacto informal en casa, la mayoría de los niños muestran avances sostenidos. Menos de dos horas sin refuerzo adicional suele ser insuficiente para consolidar.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Es importante que el profesor sea hablante nativo?</h3>
-                <p>No necesariamente. Un profesor con nivel C1 o superior, formación en didáctica de idiomas y experiencia con niños puede ser igual o más efectivo que un nativo sin preparación pedagógica.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            <!-- SEO:FAQ:START -->
-            <div class="ed-faq-item seo-faq-item">
-                <h3>¿Cómo sé si mi hijo está estancado en su curso actual?</h3>
-                <p>Si después de un periodo completo no puedes identificar algo nuevo que el niño hace en inglés (una frase, una función comunicativa, un texto), vale la pena conversar con el profesor y evaluar alternativas.</p>
-            </div>
-            <!-- SEO:FAQ:END -->
-            </div>
-
-            <h2>Fuentes consultadas</h2>
-            <ul class="ed-sources-list">
-                <li><a href="https://www.cambridgeenglish.org/learning-english/parents-and-children/" target="_blank" rel="noopener noreferrer">Cambridge Assessment – Choosing a course for your child</a> — Criterios de calidad para programas infantiles de inglés.</li>
-                <li><a href="https://www.britishcouncil.org/en/english/courses-for-children" target="_blank" rel="noopener noreferrer">British Council – What makes a good English class for children</a> — Indicadores de calidad docente y metodológica.</li>
-            </ul>
-
-            <div class="blog-author">
-                <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
-                <div class="blog-author-info">
-                    <h3>Equipo Editorial WorldBrain</h3>
-                    <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                <section class="ed-faq-section" id="preguntas-frecuentes" aria-labelledby="preguntas-frecuentes-titulo">
+                    <h2 id="preguntas-frecuentes-titulo">Preguntas frecuentes</h2>
+                    <div class="ed-faq-list">
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Un curso en línea puede ser tan efectivo como uno presencial para niños?</h3>
+                    <p>Depende de la edad y el formato. A partir de 8 años, sesiones en línea con grupos pequeños y cámaras encendidas pueden funcionar bien si incluyen interacción constante. Para menores de 7, el formato presencial suele mantener mejor la atención.</p>
                 </div>
-            </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cuántas horas semanales necesita un niño para avanzar en inglés?</h3>
+                    <p>Con dos a tres horas semanales de clase más contacto informal en casa, la mayoría de los niños muestran avances sostenidos. Menos de dos horas sin refuerzo adicional suele ser insuficiente para consolidar.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Es importante que el profesor sea hablante nativo?</h3>
+                    <p>No necesariamente. Un profesor con nivel C1 o superior, formación en didáctica de idiomas y experiencia con niños puede ser igual o más efectivo que un nativo sin preparación pedagógica.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                <!-- SEO:FAQ:START -->
+                <div class="ed-faq-item seo-faq-item">
+                    <h3>¿Cómo sé si mi hijo está estancado en su curso actual?</h3>
+                    <p>Si después de un periodo completo no puedes identificar algo nuevo que el niño hace en inglés (una frase, una función comunicativa, un texto), vale la pena conversar con el profesor y evaluar alternativas.</p>
+                </div>
+                <!-- SEO:FAQ:END -->
+                    </div>
+                </section>
+
+
+            <section class="ed-sources-section" id="fuentes-consultadas" aria-labelledby="fuentes-consultadas-titulo">
+                <h2 id="fuentes-consultadas-titulo">Fuentes consultadas</h2>
+                <ul class="ed-sources-list">
+                    <li><a href="https://www.cambridgeenglish.org/learning-english/parents-and-children/" target="_blank" rel="noopener noreferrer">Cambridge Assessment – Choosing a course for your child</a> — Criterios de calidad para programas infantiles de inglés.</li>
+                    <li><a href="https://www.britishcouncil.org/en/english/courses-for-children" target="_blank" rel="noopener noreferrer">British Council – What makes a good English class for children</a> — Indicadores de calidad docente y metodológica.</li>
+                </ul>
+            </section>
+
+                <section class="blog-author" aria-labelledby="equipo-editorial-titulo">
+                    <div class="avatar-initials" data-hue="2" aria-hidden="true">ET</div>
+                    <div class="blog-author-info">
+                        <h2 id="equipo-editorial-titulo">Equipo Editorial WorldBrain</h2>
+                        <p>Contenido educativo revisado por el equipo editorial de WorldBrain México, especializado en aprendizaje acelerado y desarrollo académico.</p>
+                    </div>
+                </section>
             <!-- SEO:MAGNET:START -->
                 <section class="ed-magnet" aria-labelledby="magnet-title">
                     <p class="ed-magnet-kicker">Descarga gratuita</p>
@@ -509,8 +598,72 @@
                     </form>
                 </section>
                 <!-- SEO:MAGNET:END -->
-        </article>
+            </article>
 
+            <aside class="ed-article-aside" aria-label="Navegación del artículo">
+                <div class="ed-article-aside-inner">
+                    <h2 class="ed-toc-title">En este artículo</h2>
+                    <nav class="ed-toc" aria-label="Contenido del artículo">
+                        <ol>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-1">
+                                <span aria-hidden="true">01</span>Tiempo real de habla por alumno
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-2">
+                                <span aria-hidden="true">02</span>Retroalimentación específica y oportuna
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-3">
+                                <span aria-hidden="true">03</span>Progreso observable y comunicado a la familia
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-4">
+                                <span aria-hidden="true">04</span>Formación y estabilidad del profesorado
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-5">
+                                <span aria-hidden="true">05</span>Materiales y tecnología con propósito
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-6">
+                                <span aria-hidden="true">06</span>Señales de alerta en un curso
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-7">
+                                <span aria-hidden="true">07</span>Preguntas que hacer antes de inscribir
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#seccion-8">
+                                <span aria-hidden="true">08</span>La prueba real: las primeras cuatro semanas
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#preguntas-frecuentes">
+                                <span aria-hidden="true">09</span>Preguntas frecuentes
+                            </a>
+                        </li>
+                        <li>
+                            <a class="ed-toc-link" href="#fuentes-consultadas">
+                                <span aria-hidden="true">10</span>Fuentes consultadas
+                            </a>
+                        </li>
+                        </ol>
+                    </nav>
+                    <div class="ed-reading-status" aria-live="polite">
+                        <span data-reading-remaining>5 min restantes</span>
+                        <span>Lectura estimada: 5 min</span>
+                    </div>
+                </div>
+            </aside>
+        </div>
     </main>
 
     <!-- Footer Unificado WorldBrain -->
